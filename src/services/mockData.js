@@ -45,6 +45,65 @@ export const initialSchoolData = {
     { id: "SESS-2025-26", name: "2025-2026", isCurrent: false, startDate: "2025-04-01", endDate: "2026-03-31" }
   ],
 
+  branches: [
+    {
+      id: "BR-01",
+      name: "DMPS Main Campus (Senior Wing)",
+      code: "BR-01",
+      shortCode: "MAIN",
+      address: "Main Institutional Area, Knowledge Park",
+      phone: "+91 98765 43210",
+      headName: "Dr. Arvind Shrivastava (Principal)",
+      classesOffered: "Class 6 to Class 12",
+      totalStudents: 680,
+      totalStaff: 42,
+      status: "Active",
+      isMain: true
+    },
+    {
+      id: "BR-02",
+      name: "DMPS City Campus (Primary Wing)",
+      code: "BR-02",
+      shortCode: "CITY",
+      address: "City Center Road, Civil Lines",
+      phone: "+91 98110 55443",
+      headName: "Mrs. Shalini Mehra (Headmistress)",
+      classesOffered: "Nursery to Class 5",
+      totalStudents: 420,
+      totalStaff: 24,
+      status: "Active",
+      isMain: false
+    },
+    {
+      id: "BR-03",
+      name: "DMPS Public Branch (Sector 62 Campus)",
+      code: "BR-03",
+      shortCode: "SEC62",
+      address: "Plot 12, Sector 62 Institutional Zone",
+      phone: "+91 98220 66778",
+      headName: "Mr. Alok Mukherjee (In-Charge)",
+      classesOffered: "Class 1 to Class 10",
+      totalStudents: 350,
+      totalStaff: 18,
+      status: "Active",
+      isMain: false
+    },
+    {
+      id: "BR-04",
+      name: "Branch 4 (Unassigned / Blank)",
+      code: "BR-04",
+      shortCode: "BR-04",
+      address: "",
+      phone: "",
+      headName: "",
+      classesOffered: "",
+      totalStudents: 0,
+      totalStaff: 0,
+      status: "Upcoming / Blank",
+      isMain: false
+    }
+  ],
+
   departments: [
     { id: "DEP-01", name: "Science", hod: "Dr. Rajesh Sharma", staffCount: 14 },
     { id: "DEP-02", name: "Mathematics", hod: "Mrs. Sunita Verma", staffCount: 10 },

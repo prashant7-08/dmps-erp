@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   GraduationCap,
   Plus,
@@ -19,7 +19,10 @@ import {
   Droplet,
   ArrowRight,
   ShieldCheck,
-  Award
+  Award,
+  Camera,
+  Upload,
+  Image as ImageIcon
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
@@ -45,6 +48,9 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
   const [generatedReceipt, setGeneratedReceipt] = useState(null);
   const [isReceiptModalOpen, setIsReceiptModalOpen] = useState(false);
 
+  const fileInputRef = useRef(null);
+  const editFileInputRef = useRef(null);
+
   // Edit Form State
   const [editFormData, setEditFormData] = useState({
     id: '',
@@ -57,7 +63,8 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
     fatherName: '',
     fatherMobile: '',
     address: '',
-    status: 'Active'
+    status: 'Active',
+    photo: ''
   });
 
   // Collect Fee POS Form State
@@ -83,7 +90,8 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
     fatherMobile: '',
     motherName: '',
     email: '',
-    address: ''
+    address: '',
+    photo: ''
   });
 
   useEffect(() => {
@@ -94,6 +102,56 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
 
   const refreshData = () => {
     setStudents([...schoolService.getStudents()]);
+  };
+
+  // Fast Client-Side Image Compressor (Compresses 5MB photo to crisp ~25KB WebP/JPEG)
+  const compressImage = (file, callback) => {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new window.Image();
+      img.src = event.target.result;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 250;
+        const MAX_HEIGHT = 250;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+        callback(dataUrl);
+      };
+    };
+  };
+
+  const handlePhotoSelect = (e, isEdit = false) => {
+    const file = e.target.files[0];
+    if (file) {
+      compressImage(file, (compressedBase64) => {
+        if (isEdit) {
+          setEditFormData(prev => ({ ...prev, photo: compressedBase64 }));
+        } else {
+          setFormData(prev => ({ ...prev, photo: compressedBase64 }));
+        }
+        showToast('Student passport photo attached & optimized! 📸', 'success');
+      });
+    }
   };
 
   const handleAdmissionSubmit = (e) => {
@@ -113,7 +171,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
       house: formData.house,
       category: formData.category,
       aadhaarNo: formData.aadhaarNo,
-      photo: `https://images.unsplash.com/photo-${formData.gender === 'Female' ? '1494790108377-be9c29b29330' : '1539571696357-5a69c17a67c6'}?w=150&auto=format&fit=crop&q=80`,
+      photo: formData.photo || `https://images.unsplash.com/photo-${formData.gender === 'Female' ? '1494790108377-be9c29b29330' : '1539571696357-5a69c17a67c6'}?w=150&auto=format&fit=crop&q=80`,
       parents: {
         fatherName: formData.fatherName,
         fatherMobile: formData.fatherMobile || '+91 98110 00000',
@@ -142,7 +200,8 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
       fatherName: student.parents?.fatherName || '',
       fatherMobile: student.parents?.fatherMobile || '',
       address: student.parents?.address || '',
-      status: student.status || 'Active'
+      status: student.status || 'Active',
+      photo: student.photo || ''
     });
     setIsEditModalOpen(true);
   };
@@ -158,6 +217,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
       bloodGroup: editFormData.bloodGroup,
       house: editFormData.house,
       status: editFormData.status,
+      photo: editFormData.photo || selectedStudent?.photo,
       parents: {
         ...selectedStudent?.parents,
         fatherName: editFormData.fatherName,
@@ -496,6 +556,46 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
         maxWidth="max-w-xl"
       >
         <form onSubmit={handleEditSubmit} className="space-y-4 text-xs">
+          {/* Photo Picker in Edit Modal */}
+          <div className="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <div className="w-14 h-14 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 overflow-hidden flex items-center justify-center shrink-0">
+              {editFormData.photo ? (
+                <img src={editFormData.photo} alt="Preview" className="w-full h-full object-cover" />
+              ) : (
+                <Camera className="w-6 h-6 text-slate-400" />
+              )}
+            </div>
+            <div className="flex-1">
+              <label className="font-bold text-slate-800 dark:text-slate-200 block">Student Passport Photo</label>
+              <p className="text-[10px] text-slate-500">Auto-compressed for ID Card & Profile (~25KB)</p>
+              <div className="flex items-center gap-2 mt-1.5">
+                <input
+                  type="file"
+                  ref={editFileInputRef}
+                  onChange={(e) => handlePhotoSelect(e, true)}
+                  accept="image/*"
+                  className="hidden"
+                />
+                <button
+                  type="button"
+                  onClick={() => editFileInputRef.current?.click()}
+                  className="px-3 py-1 rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300 hover:bg-indigo-100 text-xs font-bold flex items-center gap-1.5 transition-colors"
+                >
+                  <Upload className="w-3.5 h-3.5" /> Change Photo
+                </button>
+                {editFormData.photo && (
+                  <button
+                    type="button"
+                    onClick={() => setEditFormData(prev => ({ ...prev, photo: '' }))}
+                    className="text-xs text-rose-500 hover:text-rose-700 font-semibold"
+                  >
+                    Remove
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student Full Name *</label>
@@ -727,6 +827,46 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
         maxWidth="max-w-2xl"
       >
         <form onSubmit={handleAdmissionSubmit} className="space-y-4 text-xs">
+          {/* Photo Picker in Admission Form */}
+          <div className="flex items-center gap-4 p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <div className="w-16 h-16 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 overflow-hidden flex items-center justify-center shrink-0">
+              {formData.photo ? (
+                <img src={formData.photo} alt="Preview" className="w-full h-full object-cover" />
+              ) : (
+                <Camera className="w-6 h-6 text-slate-400" />
+              )}
+            </div>
+            <div className="flex-1">
+              <label className="font-bold text-slate-800 dark:text-slate-200 block">Student Passport Photo (Optional)</label>
+              <p className="text-[10px] text-slate-500">Auto-compressed for ID Card, Attendance & Student Ledger (~25KB)</p>
+              <div className="flex items-center gap-2 mt-1.5">
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={(e) => handlePhotoSelect(e, false)}
+                  accept="image/*"
+                  className="hidden"
+                />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="px-3.5 py-1.5 rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300 hover:bg-indigo-100 text-xs font-bold flex items-center gap-1.5 transition-colors"
+                >
+                  <Upload className="w-3.5 h-3.5" /> Upload Photo
+                </button>
+                {formData.photo && (
+                  <button
+                    type="button"
+                    onClick={() => setFormData(prev => ({ ...prev, photo: '' }))}
+                    className="text-xs text-rose-500 hover:text-rose-700 font-semibold"
+                  >
+                    Remove
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student Full Name *</label>
