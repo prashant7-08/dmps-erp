@@ -156,13 +156,15 @@ export const initialSchoolData = {
     {
       id: "TCH-1001",
       employeeId: "EMP-2021-042",
+      branchId: "BR-01",
+      branchName: "DMPS Senior Secondary Campus (Main)",
       name: "Dr. Rajesh Sharma",
       photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
       gender: "Male",
       dob: "1982-05-14",
       mobile: "+91 98112 34567",
-      email: "rajesh.sharma@dpga-delhi.edu.in",
-      address: "B-402, Green Valley Apts, Dwarka, New Delhi",
+      email: "rajesh.sharma@dmps.edu.in",
+      address: "Jargwan, Ramghat Road, Bulandshahr",
       qualification: "M.Sc. Physics, Ph.D., B.Ed.",
       specialization: "Quantum Mechanics & Optics",
       experience: "14 Years",
@@ -190,13 +192,15 @@ export const initialSchoolData = {
     {
       id: "TCH-1002",
       employeeId: "EMP-2020-019",
+      branchId: "BR-01",
+      branchName: "DMPS Senior Secondary Campus (Main)",
       name: "Mrs. Sunita Verma",
       photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
       gender: "Female",
       dob: "1985-09-22",
       mobile: "+91 98223 45678",
-      email: "sunita.verma@dpga-delhi.edu.in",
-      address: "C-12, Palm Grove, Rohini, New Delhi",
+      email: "sunita.verma@dmps.edu.in",
+      address: "Ramghat Road, Bulandshahr",
       qualification: "M.Sc. Mathematics, B.Ed.",
       specialization: "Calculus & Algebra",
       experience: "11 Years",
@@ -224,13 +228,15 @@ export const initialSchoolData = {
     {
       id: "TCH-1003",
       employeeId: "EMP-2022-088",
+      branchId: "BR-01",
+      branchName: "DMPS Senior Secondary Campus (Main)",
       name: "Mr. Vikrant Rao",
       photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
       gender: "Male",
       dob: "1990-11-03",
       mobile: "+91 98334 56789",
-      email: "vikrant.rao@dpga-delhi.edu.in",
-      address: "Flat 104, Royal Palms, Noida Sec 62",
+      email: "vikrant.rao@dmps.edu.in",
+      address: "Civil Lines, Bulandshahr",
       qualification: "M.Tech Computer Science",
       specialization: "Artificial Intelligence & Web Tech",
       experience: "8 Years",
@@ -258,13 +264,15 @@ export const initialSchoolData = {
     {
       id: "TCH-1004",
       employeeId: "EMP-2019-012",
+      branchId: "BR-01",
+      branchName: "DMPS Senior Secondary Campus (Main)",
       name: "Mrs. Meenakshi Gupta",
       photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
       gender: "Female",
       dob: "1983-02-18",
       mobile: "+91 98445 67890",
-      email: "meenakshi.gupta@dpga-delhi.edu.in",
-      address: "A-504, Windsor Park, Indirapuram, Ghaziabad",
+      email: "meenakshi.gupta@dmps.edu.in",
+      address: "A-504, Windsor Park, Bulandshahr",
       qualification: "M.Com, M.Phil, B.Ed.",
       specialization: "Accountancy & Macroeconomics",
       experience: "13 Years",
@@ -288,12 +296,113 @@ export const initialSchoolData = {
       },
       classTeacherOf: "Class 12 - Commerce",
       assignedSubjects: ["Economics (Class 12)", "Accountancy (Class 11)"]
+    },
+    {
+      id: "TCH-1005",
+      employeeId: "EMP-2021-061",
+      branchId: "BR-02",
+      branchName: "DMPS Junior High Campus (Barheti)",
+      name: "Mr. Anil Kumar",
+      photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
+      gender: "Male",
+      dob: "1980-04-12",
+      mobile: "+91 86300 08371",
+      email: "anil.kumar@dmps.edu.in",
+      address: "Barheti ADF, Jawan, Chherat, Aligarh",
+      qualification: "M.Sc. Mathematics, B.Ed.",
+      specialization: "Middle School Administration & Navodaya Coaching",
+      experience: "15 Years",
+      joiningDate: "2021-03-01",
+      department: "Mathematics",
+      designation: "Head In-Charge & Middle Coordinator",
+      employmentType: "Permanent",
+      salary: { basic: 58000, hra: 15000, da: 10500, specialAllowance: 4000, pfDeduction: 6960, taxDeduction: 4500, netSalary: 76040 },
+      bankDetails: { accountNo: "389201948291", bankName: "Punjab National Bank", ifsc: "PUNB0182900" },
+      classTeacherOf: "Class 8 - A (Barheti)",
+      assignedSubjects: ["Mathematics (Class 8)", "Reasoning (JNV Coaching)"]
+    },
+    {
+      id: "TCH-1006",
+      employeeId: "EMP-2022-094",
+      branchId: "BR-02",
+      branchName: "DMPS Junior High Campus (Barheti)",
+      name: "Mrs. Rekha Singh",
+      photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+      gender: "Female",
+      dob: "1988-08-19",
+      mobile: "+91 86300 08372",
+      email: "rekha.singh@dmps.edu.in",
+      address: "Jawan Sikanderpur Road, Aligarh",
+      qualification: "M.A. English, B.Ed.",
+      specialization: "Foundational English & Hindi Literature",
+      experience: "7 Years",
+      joiningDate: "2022-04-10",
+      department: "Humanities & Social Sciences",
+      designation: "TGT English & Activities Lead",
+      employmentType: "Permanent",
+      salary: { basic: 46000, hra: 12000, da: 8500, specialAllowance: 3000, pfDeduction: 5520, taxDeduction: 3000, netSalary: 60980 },
+      bankDetails: { accountNo: "501928374619", bankName: "Canara Bank", ifsc: "CNRB0002891" },
+      classTeacherOf: "Class 6 - A (Barheti)",
+      assignedSubjects: ["English (Class 6/7/8)", "Social Science (Class 6)"]
+    },
+    {
+      id: "TCH-1007",
+      employeeId: "EMP-2023-112",
+      branchId: "BR-03",
+      branchName: "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      name: "Mrs. Pooja Rajput",
+      photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
+      gender: "Female",
+      dob: "1991-03-25",
+      mobile: "+91 96270 32626",
+      email: "pooja.rajput@dmps.edu.in",
+      address: "Vinay Nagar, Sangwan City Road, Quarsi, Aligarh",
+      qualification: "M.Sc. Psychology, ECCE Certified Montessori Trainer",
+      specialization: "Early Childhood Pedagogy & Phonics",
+      experience: "9 Years",
+      joiningDate: "2023-01-15",
+      department: "Pre-Primary Wing",
+      designation: "Early Childhood Coordinator & Kids Head",
+      employmentType: "Permanent",
+      salary: { basic: 48000, hra: 13000, da: 9000, specialAllowance: 3500, pfDeduction: 5760, taxDeduction: 3200, netSalary: 64540 },
+      bankDetails: { accountNo: "610293847561", bankName: "State Bank of India", ifsc: "SBIN0001290" },
+      classTeacherOf: "UKG - Kids Wing",
+      assignedSubjects: ["Early Literacy", "Sensory & Motor Workshop"]
+    },
+    {
+      id: "TCH-1008",
+      employeeId: "EMP-2024-140",
+      branchId: "BR-03",
+      branchName: "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      name: "Ms. Neha Sharma",
+      photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      gender: "Female",
+      dob: "1995-07-10",
+      mobile: "+91 96270 32627",
+      email: "neha.sharma@dmps.edu.in",
+      address: "Quarsi Bypass, Aligarh",
+      qualification: "B.A., NTT Certified",
+      specialization: "Play-Way Rhymes, Storytelling & Art",
+      experience: "4 Years",
+      joiningDate: "2024-04-01",
+      department: "Pre-Primary Wing",
+      designation: "Pre-Primary Educator",
+      employmentType: "Permanent",
+      salary: { basic: 38000, hra: 10000, da: 7000, specialAllowance: 2500, pfDeduction: 4560, taxDeduction: 2000, netSalary: 50940 },
+      bankDetails: { accountNo: "401928374610", bankName: "HDFC Bank", ifsc: "HDFC0002100" },
+      classTeacherOf: "Nursery - Kids Wing",
+      assignedSubjects: ["Rhymes & Phonics", "Art & Craft"]
     }
   ],
 
   students: [
+    // ==========================================
+    // 🏫 BRANCH 1: DMPS MAIN SENIOR CAMPUS (JARGWAN) - BR-01
+    // ==========================================
     {
       id: "STU-2026-001",
+      branchId: "BR-01",
+      branchName: "Dadheech Memorial Public School (Main Campus)",
       admissionNo: "ADM-2023-8901",
       rollNo: "101",
       name: "Aarav Sharma",
@@ -329,38 +438,24 @@ export const initialSchoolData = {
         motherOccupation: "Banking Executive",
         motherMobile: "+91 98110 01133",
         email: "mukesh.sharma@example.com",
-        address: "Flat 302, Palm Greens, Sector 62, Noida, UP",
+        address: "Jargwan Border, Ramghat Road, Bulandshahr",
         emergencyContact: "+91 98110 01122"
       },
       transport: {
         opted: true,
-        route: "Route 02 - Noida Expressway",
-        stop: "Sector 62 Crossing",
-        busNo: "DL-1PB-4502"
+        route: "Route 01 - Ramghat Main Road",
+        stop: "Jargwan Border Crossing",
+        busNo: "UP-13-AB-4501"
       },
-      hostel: {
-        opted: false
-      },
-      medical: {
-        allergies: "Peanuts (Mild)",
-        chronicIssues: "None",
-        doctorCheckupDate: "2026-05-10",
-        fitnessStatus: "Fit"
-      },
-      attendanceSummary: {
-        totalDays: 88,
-        presentDays: 82,
-        percentage: 93.18
-      },
-      feeSummary: {
-        totalDue: 45000,
-        totalPaid: 20000,
-        balance: 25000,
-        status: "Partial"
-      }
+      hostel: { opted: false },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-10", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 82, percentage: 93.18 },
+      feeSummary: { totalDue: 45000, totalPaid: 20000, balance: 25000, status: "Partial" }
     },
     {
       id: "STU-2026-002",
+      branchId: "BR-01",
+      branchName: "Dadheech Memorial Public School (Main Campus)",
       admissionNo: "ADM-2022-7612",
       rollNo: "102",
       name: "Ananya Deshmukh",
@@ -374,7 +469,7 @@ export const initialSchoolData = {
       nationality: "Indian",
       category: "General",
       religion: "Hinduism",
-      motherTongue: "Marathi",
+      motherTongue: "Hindi",
       class: "Class 10",
       section: "A",
       house: "Dragons (Blue House)",
@@ -385,41 +480,25 @@ export const initialSchoolData = {
       academicSession: "2026-2027",
       parents: {
         fatherName: "Dr. Sanjay Deshmukh",
-        fatherOccupation: "Cardiologist",
+        fatherOccupation: "Medical Officer",
         fatherMobile: "+91 98220 02233",
         motherName: "Dr. Radhika Deshmukh",
-        motherOccupation: "Pediatrician",
+        motherOccupation: "Teacher",
         motherMobile: "+91 98220 02244",
         email: "sanjay.deshmukh@example.com",
-        address: "Villa 18, Gulmohar Enclave, Saket, New Delhi",
+        address: "Nagla Kothi, Jargwan, Bulandshahr",
         emergencyContact: "+91 98220 02233"
       },
-      transport: {
-        opted: false
-      },
-      hostel: {
-        opted: false
-      },
-      medical: {
-        allergies: "Dust / Pollen",
-        chronicIssues: "None",
-        doctorCheckupDate: "2026-05-12",
-        fitnessStatus: "Fit"
-      },
-      attendanceSummary: {
-        totalDays: 88,
-        presentDays: 85,
-        percentage: 96.59
-      },
-      feeSummary: {
-        totalDue: 45000,
-        totalPaid: 30000,
-        balance: 15000,
-        status: "Partial"
-      }
+      transport: { opted: false },
+      hostel: { opted: false },
+      medical: { allergies: "Dust / Pollen", chronicIssues: "None", doctorCheckupDate: "2026-05-12", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 85, percentage: 96.59 },
+      feeSummary: { totalDue: 45000, totalPaid: 30000, balance: 15000, status: "Partial" }
     },
     {
       id: "STU-2026-003",
+      branchId: "BR-01",
+      branchName: "Dadheech Memorial Public School (Main Campus)",
       admissionNo: "ADM-2024-9120",
       rollNo: "103",
       name: "Kabir Khan",
@@ -450,38 +529,19 @@ export const initialSchoolData = {
         motherOccupation: "Homemaker",
         motherMobile: "+91 98330 03355",
         email: "tariq.khan@example.com",
-        address: "H-82, Jamia Nagar, Okhla, New Delhi",
+        address: "Main Market, Ramghat, Bulandshahr",
         emergencyContact: "+91 98330 03344"
       },
-      transport: {
-        opted: true,
-        route: "Route 04 - South Delhi",
-        stop: "Jamia Metro Station",
-        busNo: "DL-1PB-4504"
-      },
-      hostel: {
-        opted: false
-      },
-      medical: {
-        allergies: "None",
-        chronicIssues: "None",
-        doctorCheckupDate: "2026-05-14",
-        fitnessStatus: "Fit"
-      },
-      attendanceSummary: {
-        totalDays: 88,
-        presentDays: 60,
-        percentage: 68.18
-      },
-      feeSummary: {
-        totalDue: 45000,
-        totalPaid: 0,
-        balance: 45000,
-        status: "Overdue"
-      }
+      transport: { opted: true, route: "Route 01 - Ramghat", stop: "Town Market", busNo: "UP-13-AB-4501" },
+      hostel: { opted: false },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-14", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 60, percentage: 68.18 },
+      feeSummary: { totalDue: 45000, totalPaid: 0, balance: 45000, status: "Overdue" }
     },
     {
       id: "STU-2026-004",
+      branchId: "BR-01",
+      branchName: "Dadheech Memorial Public School (Main Campus)",
       admissionNo: "ADM-2021-6502",
       rollNo: "104",
       name: "Diya Chatterjee",
@@ -495,7 +555,7 @@ export const initialSchoolData = {
       nationality: "Indian",
       category: "General",
       religion: "Hinduism",
-      motherTongue: "Bengali",
+      motherTongue: "Hindi",
       class: "Class 10",
       section: "B",
       house: "Warriors (Yellow House)",
@@ -512,38 +572,19 @@ export const initialSchoolData = {
         motherOccupation: "School Teacher",
         motherMobile: "+91 98440 04466",
         email: "debashish.c@example.com",
-        address: "Flat 5B, Chittaranjan Park, New Delhi",
+        address: "Teacher Colony, Jargwan, Bulandshahr",
         emergencyContact: "+91 98440 04455"
       },
-      transport: {
-        opted: true,
-        route: "Route 04 - South Delhi",
-        stop: "CR Park Market 1",
-        busNo: "DL-1PB-4504"
-      },
-      hostel: {
-        opted: false
-      },
-      medical: {
-        allergies: "None",
-        chronicIssues: "None",
-        doctorCheckupDate: "2026-05-18",
-        fitnessStatus: "Fit"
-      },
-      attendanceSummary: {
-        totalDays: 88,
-        presentDays: 84,
-        percentage: 95.45
-      },
-      feeSummary: {
-        totalDue: 45000,
-        totalPaid: 45000,
-        balance: 0,
-        status: "Paid"
-      }
+      transport: { opted: true, route: "Route 02", stop: "Colony Gate", busNo: "UP-13-AB-4502" },
+      hostel: { opted: false },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-18", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 84, percentage: 95.45 },
+      feeSummary: { totalDue: 45000, totalPaid: 45000, balance: 0, status: "Paid" }
     },
     {
       id: "STU-2026-005",
+      branchId: "BR-01",
+      branchName: "Dadheech Memorial Public School (Main Campus)",
       admissionNo: "ADM-2020-5411",
       rollNo: "105",
       name: "Rohan Varma",
@@ -557,7 +598,7 @@ export const initialSchoolData = {
       nationality: "Indian",
       category: "General",
       religion: "Hinduism",
-      motherTongue: "Telugu",
+      motherTongue: "Hindi",
       class: "Class 12",
       section: "Science",
       house: "Phoenix (Red House)",
@@ -568,44 +609,25 @@ export const initialSchoolData = {
       academicSession: "2026-2027",
       parents: {
         fatherName: "Mr. K. R. Varma",
-        fatherOccupation: "IAS Officer",
+        fatherOccupation: "Government Officer",
         fatherMobile: "+91 98550 05566",
         motherName: "Mrs. Lakshmi Varma",
-        motherOccupation: "Architect",
+        motherOccupation: "Homemaker",
         motherMobile: "+91 98550 05577",
         email: "kr.varma@example.com",
-        address: "Type VI, New Moti Bagh, Chanakyapuri, New Delhi",
+        address: "Narora Road, Bulandshahr",
         emergencyContact: "+91 98550 05566"
       },
-      transport: {
-        opted: false
-      },
-      hostel: {
-        opted: true,
-        hostelName: "Tagore Boys Hostel",
-        roomNo: "204",
-        bedNo: "B-1"
-      },
-      medical: {
-        allergies: "Asthma (Mild in winter)",
-        chronicIssues: "Inhaler as needed",
-        doctorCheckupDate: "2026-05-20",
-        fitnessStatus: "Fit with precaution"
-      },
-      attendanceSummary: {
-        totalDays: 88,
-        presentDays: 80,
-        percentage: 90.91
-      },
-      feeSummary: {
-        totalDue: 85000,
-        totalPaid: 85000,
-        balance: 0,
-        status: "Paid"
-      }
+      transport: { opted: false },
+      hostel: { opted: true, hostelName: "DMPS Senior Hostel", roomNo: "204", bedNo: "B-1" },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-20", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 80, percentage: 90.91 },
+      feeSummary: { totalDue: 85000, totalPaid: 85000, balance: 0, status: "Paid" }
     },
     {
       id: "STU-2026-006",
+      branchId: "BR-01",
+      branchName: "Dadheech Memorial Public School (Main Campus)",
       admissionNo: "ADM-2024-3310",
       rollNo: "601",
       name: "Aarush Sharma",
@@ -627,68 +649,259 @@ export const initialSchoolData = {
       admissionDate: "2024-04-10",
       status: "Active",
       academicSession: "2026-2027",
-      familyId: "FAM-1001",
-      familyName: "Sharma Family (Mukesh & Ramesh Sharma Joint Family)",
-      guardianName: "Mr. Mukesh Sharma",
-      relationType: "Younger Brother",
-      linkedSiblingIds: ["STU-2026-001", "STU-2026-007"],
       parents: {
         fatherName: "Mr. Mukesh Sharma",
         fatherOccupation: "Software Architect",
         fatherMobile: "+91 98110 01122",
         motherName: "Mrs. Priya Sharma",
         motherMobile: "+91 98110 01133",
-        address: "Flat 302, Palm Greens, Sector 62, Noida, UP"
+        address: "Jargwan Border, Ramghat Road, Bulandshahr"
       },
-      feeSummary: {
-        totalDue: 42000,
-        totalPaid: 12000,
-        balance: 30000,
-        status: "Partial"
-      }
+      feeSummary: { totalDue: 42000, totalPaid: 12000, balance: 30000, status: "Partial" }
+    },
+
+    // ==========================================
+    // 🏫 BRANCH 2: DMPS BARHETI CAMPUS (ALIGARH) - BR-02
+    // ==========================================
+    {
+      id: "STU-2026-011",
+      branchId: "BR-02",
+      branchName: "Dadheech Memorial Public School (Barheti Campus)",
+      admissionNo: "ADM-BAR-2024-101",
+      rollNo: "801",
+      name: "Aryan Kumar",
+      firstName: "Aryan",
+      lastName: "Kumar",
+      photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80",
+      dob: "2012-03-14",
+      gender: "Male",
+      bloodGroup: "B+",
+      aadhaarNo: "8821-3940-1928",
+      nationality: "Indian",
+      category: "OBC",
+      religion: "Hinduism",
+      motherTongue: "Hindi",
+      class: "Class 8",
+      section: "A",
+      house: "Phoenix (Red House)",
+      classTeacher: "Mr. Anil Kumar",
+      admissionDate: "2024-04-05",
+      admissionClass: "Class 6",
+      status: "Active",
+      academicSession: "2026-2027",
+      parents: {
+        fatherName: "Mr. Ramvir Singh",
+        fatherOccupation: "Farmer & Businessman",
+        fatherMobile: "+91 97581 12233",
+        motherName: "Mrs. Urmila Devi",
+        motherMobile: "+91 97581 12244",
+        address: "Village Barheti ADF, Jawan, Aligarh"
+      },
+      transport: { opted: true, route: "Barheti Local Route", stop: "Barheti Chauraha", busNo: "UP-81-BB-2001" },
+      hostel: { opted: false },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-15", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 86, percentage: 97.72 },
+      feeSummary: { totalDue: 38000, totalPaid: 38000, balance: 0, status: "Paid" }
     },
     {
-      id: "STU-2026-007",
-      admissionNo: "ADM-2025-1102",
-      rollNo: "201",
-      name: "Pari Sharma",
-      firstName: "Pari",
-      lastName: "Sharma",
+      id: "STU-2026-012",
+      branchId: "BR-02",
+      branchName: "Dadheech Memorial Public School (Barheti Campus)",
+      admissionNo: "ADM-BAR-2023-205",
+      rollNo: "701",
+      name: "Shivani Rajput",
+      firstName: "Shivani",
+      lastName: "Rajput",
       photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
-      dob: "2018-04-22",
+      dob: "2013-09-20",
       gender: "Female",
-      bloodGroup: "A+",
-      aadhaarNo: "4829-1029-4823",
+      bloodGroup: "O+",
+      aadhaarNo: "7749-1029-4821",
       nationality: "Indian",
       category: "General",
       religion: "Hinduism",
       motherTongue: "Hindi",
-      class: "Class 2",
+      class: "Class 7",
       section: "A",
       house: "Dragons (Blue House)",
-      classTeacher: "Mrs. Sunita Verma",
-      admissionDate: "2025-04-10",
+      classTeacher: "Mrs. Rekha Singh",
+      admissionDate: "2023-04-01",
+      admissionClass: "Class 4",
       status: "Active",
       academicSession: "2026-2027",
-      familyId: "FAM-1001",
-      familyName: "Sharma Family (Mukesh & Ramesh Sharma Joint Family)",
-      guardianName: "Mr. Mukesh Sharma",
-      relationType: "Cousin Sister (Chacha Ramesh Sharma's Daughter)",
-      linkedSiblingIds: ["STU-2026-001", "STU-2026-006"],
       parents: {
-        fatherName: "Mr. Ramesh Sharma (Chacha)",
-        fatherOccupation: "Chartered Accountant",
-        fatherMobile: "+91 98110 09988",
-        motherName: "Mrs. Sneha Sharma",
-        motherMobile: "+91 98110 09977",
-        address: "Flat 301, Palm Greens, Sector 62, Noida, UP"
+        fatherName: "Mr. Surendra Rajput",
+        fatherOccupation: "Contractor",
+        fatherMobile: "+91 86300 22334",
+        motherName: "Mrs. Geeta Rajput",
+        motherMobile: "+91 86300 22335",
+        address: "Chherat Road, Jawan, Aligarh"
       },
-      feeSummary: {
-        totalDue: 36000,
-        totalPaid: 16000,
-        balance: 20000,
-        status: "Partial"
-      }
+      transport: { opted: true, route: "Chherat Route", stop: "Chherat Mod", busNo: "UP-81-BB-2001" },
+      hostel: { opted: false },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-18", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 83, percentage: 94.31 },
+      feeSummary: { totalDue: 36000, totalPaid: 20000, balance: 16000, status: "Partial" }
+    },
+    {
+      id: "STU-2026-013",
+      branchId: "BR-02",
+      branchName: "Dadheech Memorial Public School (Barheti Campus)",
+      admissionNo: "ADM-BAR-2025-310",
+      rollNo: "501",
+      name: "Neha Rajput",
+      firstName: "Neha",
+      lastName: "Rajput",
+      photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      dob: "2015-05-11",
+      gender: "Female",
+      bloodGroup: "A+",
+      aadhaarNo: "6612-4829-1039",
+      nationality: "Indian",
+      category: "General",
+      religion: "Hinduism",
+      motherTongue: "Hindi",
+      class: "Class 5",
+      section: "A",
+      house: "Warriors (Yellow House)",
+      classTeacher: "Mrs. Rekha Singh",
+      admissionDate: "2025-04-02",
+      status: "Active",
+      academicSession: "2026-2027",
+      parents: {
+        fatherName: "Mr. Pramod Kumar Rajput",
+        fatherOccupation: "Managing Director",
+        fatherMobile: "+91 96270 32626",
+        motherName: "Mrs. Kavita Rani",
+        motherMobile: "+91 97589 75880",
+        address: "Barheti Campus Staff Quarters, Aligarh"
+      },
+      transport: { opted: false },
+      hostel: { opted: false },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-19", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 87, percentage: 98.86 },
+      feeSummary: { totalDue: 32000, totalPaid: 32000, balance: 0, status: "Paid" }
+    },
+
+    // ==========================================
+    // 🏫 BRANCH 3: DADHEECH KIDS SCHOOL (QUARSI ALIGARH) - BR-03
+    // ==========================================
+    {
+      id: "STU-2026-021",
+      branchId: "BR-03",
+      branchName: "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      admissionNo: "ADM-KIDS-2025-012",
+      rollNo: "K101",
+      name: "Vihaan Rajput",
+      firstName: "Vihaan",
+      lastName: "Rajput",
+      photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      dob: "2021-11-04",
+      gender: "Male",
+      bloodGroup: "O+",
+      aadhaarNo: "9910-2837-4610",
+      nationality: "Indian",
+      category: "General",
+      religion: "Hinduism",
+      motherTongue: "Hindi",
+      class: "Nursery",
+      section: "Kids Wing",
+      house: "Phoenix (Red House)",
+      classTeacher: "Ms. Neha Sharma",
+      admissionDate: "2025-04-01",
+      status: "Active",
+      academicSession: "2026-2027",
+      parents: {
+        fatherName: "Mr. Vikas Rajput",
+        fatherOccupation: "Software Engineer",
+        fatherMobile: "+91 96270 44556",
+        motherName: "Mrs. Preeti Rajput",
+        motherMobile: "+91 96270 44557",
+        address: "Vinay Nagar, Sangwan City Road, Quarsi, Aligarh"
+      },
+      transport: { opted: true, route: "Sangwan City Van", stop: "Block B Gate", busNo: "UP-81-VAN-101" },
+      hostel: { opted: false },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-22", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 84, percentage: 95.45 },
+      feeSummary: { totalDue: 28000, totalPaid: 28000, balance: 0, status: "Paid" }
+    },
+    {
+      id: "STU-2026-022",
+      branchId: "BR-03",
+      branchName: "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      admissionNo: "ADM-KIDS-2024-008",
+      rollNo: "K201",
+      name: "Anvi Sharma",
+      firstName: "Anvi",
+      lastName: "Sharma",
+      photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+      dob: "2020-06-18",
+      gender: "Female",
+      bloodGroup: "B+",
+      aadhaarNo: "7721-8930-1029",
+      nationality: "Indian",
+      category: "General",
+      religion: "Hinduism",
+      motherTongue: "Hindi",
+      class: "UKG",
+      section: "Kids Wing",
+      house: "Dragons (Blue House)",
+      classTeacher: "Mrs. Pooja Rajput",
+      admissionDate: "2024-04-01",
+      status: "Active",
+      academicSession: "2026-2027",
+      parents: {
+        fatherName: "Mr. Gaurav Sharma",
+        fatherOccupation: "Bank Manager",
+        fatherMobile: "+91 96270 77889",
+        motherName: "Mrs. Ritu Sharma",
+        motherMobile: "+91 96270 77890",
+        address: "PAC Quarsi Road, Aligarh"
+      },
+      transport: { opted: true, route: "PAC Route Van", stop: "PAC Officers Colony", busNo: "UP-81-VAN-101" },
+      hostel: { opted: false },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-24", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 85, percentage: 96.59 },
+      feeSummary: { totalDue: 30000, totalPaid: 15000, balance: 15000, status: "Partial" }
+    },
+    {
+      id: "STU-2026-023",
+      branchId: "BR-03",
+      branchName: "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      admissionNo: "ADM-KIDS-2025-030",
+      rollNo: "K301",
+      name: "Advait Kumar",
+      firstName: "Advait",
+      lastName: "Kumar",
+      photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
+      dob: "2019-02-14",
+      gender: "Male",
+      bloodGroup: "A+",
+      aadhaarNo: "6610-3948-2019",
+      nationality: "Indian",
+      category: "General",
+      religion: "Hinduism",
+      motherTongue: "Hindi",
+      class: "Class 1",
+      section: "Kids Wing",
+      house: "Titans (Green House)",
+      classTeacher: "Mrs. Pooja Rajput",
+      admissionDate: "2025-04-01",
+      status: "Active",
+      academicSession: "2026-2027",
+      parents: {
+        fatherName: "Mr. Deepak Kumar",
+        fatherOccupation: "Professor",
+        fatherMobile: "+91 96270 88990",
+        motherName: "Dr. Anjali Kumar",
+        motherMobile: "+91 96270 88991",
+        address: "Sangwan City, Quarsi, Aligarh"
+      },
+      transport: { opted: false },
+      hostel: { opted: false },
+      medical: { allergies: "None", chronicIssues: "None", doctorCheckupDate: "2026-05-25", fitnessStatus: "Fit" },
+      attendanceSummary: { totalDays: 88, presentDays: 86, percentage: 97.72 },
+      feeSummary: { totalDue: 32000, totalPaid: 32000, balance: 0, status: "Paid" }
     }
   ],
 

@@ -18,6 +18,7 @@ import {
   Globe
 } from 'lucide-react';
 import schoolService from '../services/schoolService';
+import { useAuth } from '../context/AuthContext';
 
 export const TopNav = ({
   currentRole,
@@ -30,13 +31,14 @@ export const TopNav = ({
   onSearchSelect,
   onViewWebsite
 }) => {
+  const { activeBranchId, setActiveBranchId, branches, isSuperAdmin, activeBranch, user } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showQuickActions, setShowQuickActions] = useState(false);
 
-  const students = schoolService.getStudents();
-  const teachers = schoolService.getTeachers();
+  const students = schoolService.getStudents(activeBranchId);
+  const teachers = schoolService.getTeachers(activeBranchId);
   const notices = schoolService.getNotices();
 
   const filteredStudents = searchQuery.trim()
@@ -163,30 +165,40 @@ export const TopNav = ({
 
       {/* Right Controls: Branch Selector, Role Switcher, Quick Actions, AI Bot, Notifications, Dark/Light Mode, Logout */}
       <div className="flex items-center gap-2 sm:gap-3">
-        {/* Branch Selector Dropdown */}
-        <div className="hidden lg:flex items-center gap-1.5 bg-indigo-50/80 dark:bg-indigo-950/60 px-2 py-1 rounded-xl border border-indigo-200 dark:border-indigo-800/60 text-indigo-900 dark:text-indigo-200">
-          <GitBranch className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
-          <select
-            defaultValue="ALL"
-            className="text-xs font-bold bg-transparent text-indigo-950 dark:text-indigo-200 focus:outline-none cursor-pointer pr-1 py-1"
-          >
-            <option value="ALL" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
-              🏫 All Branches (Consolidated)
-            </option>
-            <option value="BR-01" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
-              🏢 Main Campus (Senior Wing)
-            </option>
-            <option value="BR-02" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
-              🏫 City Campus (Primary Wing)
-            </option>
-            <option value="BR-03" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
-              🏫 Public Branch (Sec 62)
-            </option>
-            <option value="BR-04" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
-              🏗️ Branch 4 (Reserved)
-            </option>
-          </select>
-        </div>
+        {/* Branch Selector Dropdown (Super Admin Switcher / Assigned Branch Badge) */}
+        {isSuperAdmin ? (
+          <div className="hidden md:flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 text-amber-950 dark:text-amber-200 shadow-sm">
+            <GitBranch className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
+            <select
+              value={activeBranchId}
+              onChange={(e) => setActiveBranchId(e.target.value)}
+              className="text-xs font-bold bg-transparent text-amber-950 dark:text-amber-200 focus:outline-none cursor-pointer pr-1 py-0.5"
+            >
+              <option value="BR-01" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+                🏫 DMPS Senior Campus (Jargwan)
+              </option>
+              <option value="BR-02" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+                🏫 DMPS Junior High (Barheti)
+              </option>
+              <option value="BR-03" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+                🏫 Dadheech Kids School (PAC Aligarh)
+              </option>
+              <option value="all" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+                🌐 All Campuses (Consolidated)
+              </option>
+            </select>
+          </div>
+        ) : (
+          <div className="hidden md:flex items-center gap-1.5 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1.5 rounded-xl border border-emerald-300 dark:border-emerald-700/60 text-emerald-950 dark:text-emerald-200 shadow-sm">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <span className="text-xs font-bold truncate max-w-[200px]" title={activeBranch?.name}>
+              {activeBranch?.shortCode || 'CAMPUS'}: {activeBranch?.name?.replace('Dadheech Memorial Public School', 'DMPS')}
+            </span>
+            <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-200 dark:bg-emerald-900 text-emerald-900 dark:text-emerald-100 font-bold uppercase">
+              Assigned
+            </span>
+          </div>
+        )}
 
         {/* Instant Role Switcher Dropdown */}
         <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/90 p-1 rounded-xl border border-slate-200 dark:border-slate-700">

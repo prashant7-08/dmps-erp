@@ -123,24 +123,98 @@ export const LoginPage = ({ onLoginSuccess, onBackToWebsite }) => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 mt-2"
+              className="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-[#0b1e38] rounded-xl text-xs font-black uppercase tracking-wider shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 mt-2"
             >
               {loading ? (
                 <span>Verifying Credentials...</span>
               ) : (
                 <>
                   <ArrowRight className="w-4 h-4" />
-                  <span>Sign In to Portal</span>
+                  <span>Sign In to School ERP</span>
                 </>
               )}
             </button>
           </form>
 
+          {/* Collapsible Multi-Branch Roles Guide */}
+          <div className="pt-2">
+            <button
+              type="button"
+              onClick={() => setShowRolesGuide(!showRolesGuide)}
+              className="w-full py-2 px-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <Users className="w-3.5 h-3.5 text-amber-500" />
+                <span>Quick Test Logins (Multi-Branch)</span>
+              </div>
+              {showRolesGuide ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            </button>
+
+            {showRolesGuide && (
+              <div className="mt-2 p-3 bg-slate-50 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2 text-[11px] animate-in fade-in">
+                <div
+                  onClick={() => { setEmail('admin'); setPassword('admin123'); }}
+                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-amber-300 dark:border-amber-700 cursor-pointer hover:bg-amber-50 dark:hover:bg-amber-950/40 transition-colors flex items-center justify-between"
+                >
+                  <div>
+                    <strong className="text-amber-700 dark:text-amber-300 block">👑 Super Admin (MD / All Campuses)</strong>
+                    <span className="text-slate-500 font-mono text-[10px]">User: admin | Pass: admin123</span>
+                  </div>
+                  <span className="text-[10px] font-bold text-amber-600">Auto-fill ➔</span>
+                </div>
+
+                <div
+                  onClick={() => { setEmail('principal'); setPassword('principal123'); }}
+                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-between"
+                >
+                  <div>
+                    <strong className="text-slate-900 dark:text-white block">🏢 Principal (Senior Campus Jargwan)</strong>
+                    <span className="text-slate-500 font-mono text-[10px]">User: principal | Pass: principal123</span>
+                  </div>
+                  <span className="text-[10px] font-bold text-sky-600">Auto-fill ➔</span>
+                </div>
+
+                <div
+                  onClick={() => { setEmail('barheti'); setPassword('barheti123'); }}
+                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-between"
+                >
+                  <div>
+                    <strong className="text-slate-900 dark:text-white block">🏫 In-Charge (Barheti Campus Aligarh)</strong>
+                    <span className="text-slate-500 font-mono text-[10px]">User: barheti | Pass: barheti123</span>
+                  </div>
+                  <span className="text-[10px] font-bold text-emerald-600">Auto-fill ➔</span>
+                </div>
+
+                <div
+                  onClick={() => { setEmail('kids'); setPassword('kids123'); }}
+                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-between"
+                >
+                  <div>
+                    <strong className="text-slate-900 dark:text-white block">🧸 Head (Dadheech Kids School)</strong>
+                    <span className="text-slate-500 font-mono text-[10px]">User: kids | Pass: kids123</span>
+                  </div>
+                  <span className="text-[10px] font-bold text-purple-600">Auto-fill ➔</span>
+                </div>
+
+                <div
+                  onClick={() => { setEmail('teacher'); setPassword('teacher123'); }}
+                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-between"
+                >
+                  <div>
+                    <strong className="text-slate-900 dark:text-white block">👨‍🏫 Teacher (Faculty Portal)</strong>
+                    <span className="text-slate-500 font-mono text-[10px]">User: teacher | Pass: teacher123</span>
+                  </div>
+                  <span className="text-[10px] font-bold text-indigo-600">Auto-fill ➔</span>
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Footer Security Note */}
           <div className="text-center text-[11px] text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-800 space-y-1">
-            <p>Protected by DMPS Secure Access Control</p>
+            <p>Protected by DMPS Multi-Branch Access Control</p>
             <p className="text-[10px] text-slate-400">
-              Forgot password? <span className="font-semibold text-slate-600 dark:text-slate-300">Contact School Administration</span>
+              Assigned branch security active.
             </p>
           </div>
         </div>

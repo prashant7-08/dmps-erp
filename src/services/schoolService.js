@@ -13,18 +13,39 @@ class SchoolService {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        // Auto-merge: Ensure any new seed students or branches are never missed
         if (parsed) {
+          // Always ensure branches are synced with the 3 authentic campuses
+          parsed.branches = JSON.parse(JSON.stringify(initialSchoolData.branches));
+          
           if (Array.isArray(parsed.students)) {
+            // Update branchId on existing students and add missing seed students
             initialSchoolData.students.forEach(seedStu => {
-              if (!parsed.students.some(s => s.id === seedStu.id)) {
+              const existingIdx = parsed.students.findIndex(s => s.id === seedStu.id);
+              if (existingIdx !== -1) {
+                parsed.students[existingIdx].branchId = seedStu.branchId;
+                parsed.students[existingIdx].branchName = seedStu.branchName;
+              } else {
                 parsed.students.push(seedStu);
               }
             });
+          } else {
+            parsed.students = JSON.parse(JSON.stringify(initialSchoolData.students));
           }
-          if (!parsed.branches || parsed.branches.length < 4) {
-            parsed.branches = JSON.parse(JSON.stringify(initialSchoolData.branches));
+
+          if (Array.isArray(parsed.teachers)) {
+            initialSchoolData.teachers.forEach(seedTch => {
+              const existingIdx = parsed.teachers.findIndex(t => t.id === seedTch.id);
+              if (existingIdx !== -1) {
+                parsed.teachers[existingIdx].branchId = seedTch.branchId;
+                parsed.teachers[existingIdx].branchName = seedTch.branchName;
+              } else {
+                parsed.teachers.push(seedTch);
+              }
+            });
+          } else {
+            parsed.teachers = JSON.parse(JSON.stringify(initialSchoolData.teachers));
           }
+
           return parsed;
         }
       }
@@ -140,21 +161,25 @@ class SchoolService {
   }
 
   // Students Module
-  getStudents() {
-    return this.data.students || [];
+  getStudents(branchId = null) {
+    const list = this.data.students || [];
+    if (!branchId || branchId === 'all') return list;
+    return list.filter(s => s.branchId === branchId);
   }
 
   getStudentById(id) {
-    return this.data.students.find(s => s.id === id || s.admissionNo === id || s.rollNo === id);
+    return (this.data.students || []).find(s => s.id === id || s.admissionNo === id || s.rollNo === id);
   }
 
   addStudent(studentData) {
-    const newId = `STU-2026-${String(this.data.students.length + 1).padStart(3, '0')}`;
+    const newId = `STU-2026-${String((this.data.students || []).length + 1).padStart(3, '0')}`;
     const newAdm = `ADM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
     const newStudent = {
       id: newId,
+      branchId: studentData.branchId || "BR-01",
+      branchName: studentData.branchName || (studentData.branchId === "BR-02" ? "Dadheech Memorial Public School (Barheti Campus)" : studentData.branchId === "BR-03" ? "Dadheech Kids School (Vinay Nagar PAC Campus)" : "Dadheech Memorial Public School (Main Campus)"),
       admissionNo: studentData.admissionNo || newAdm,
-      rollNo: studentData.rollNo || String(this.data.students.length + 101),
+      rollNo: studentData.rollNo || String((this.data.students || []).length + 101),
       status: "Active",
       academicSession: this.data.schoolInfo.academicSession,
       admissionDate: new Date().toISOString().split('T')[0],
@@ -162,13 +187,14 @@ class SchoolService {
       feeSummary: { totalDue: 45000, totalPaid: 0, balance: 45000, status: "Pending" },
       ...studentData
     };
+    if (!this.data.students) this.data.students = [];
     this.data.students.unshift(newStudent);
     this.saveData();
     return newStudent;
   }
 
   updateStudent(id, updates) {
-    const idx = this.data.students.findIndex(s => s.id === id);
+    const idx = (this.data.students || []).findIndex(s => s.id === id);
     if (idx !== -1) {
       this.data.students[idx] = { ...this.data.students[idx], ...updates };
       this.saveData();
@@ -178,13 +204,15 @@ class SchoolService {
   }
 
   deleteStudent(id) {
-    this.data.students = this.data.students.filter(s => s.id !== id);
+    this.data.students = (this.data.students || []).filter(s => s.id !== id);
     this.saveData();
   }
 
   // Teachers & Staff
-  getTeachers() {
-    return this.data.teachers || [];
+  getTeachers(branchId = null) {
+    const list = this.data.teachers || [];
+    if (!branchId || branchId === 'all') return list;
+    return list.filter(t => t.branchId === branchId);
   }
 
   addTeacher(teacherData) {

@@ -22,11 +22,16 @@ import {
   Award,
   Camera,
   Upload,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Building2,
+  Lock,
+  GitBranch,
+  Users
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
+import { useAuth } from '../context/AuthContext';
 import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import { PrintableReportCard } from '../components/printables/PrintableReportCard';
 import { PrintableFeeReceipt } from '../components/printables/PrintableFeeReceipt';
@@ -34,7 +39,9 @@ import schoolService from '../services/schoolService';
 
 export const StudentsPage = ({ initialSelectedStudent = null }) => {
   const { showToast } = useToast();
-  const [students, setStudents] = useState(schoolService.getStudents());
+  const { activeBranchId, setActiveBranchId, isSuperAdmin, activeBranch, branches, user } = useAuth();
+  
+  const [students, setStudents] = useState(schoolService.getStudents(activeBranchId));
   const [searchQuery, setSearchQuery] = useState('');
   const [classFilter, setClassFilter] = useState('All');
   
@@ -55,6 +62,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
   const [editFormData, setEditFormData] = useState({
     id: '',
     name: '',
+    branchId: 'BR-01',
     class: 'Class 10',
     section: 'A',
     rollNo: '',
@@ -78,6 +86,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
   // New Admission Form State
   const [formData, setFormData] = useState({
     name: '',
+    branchId: activeBranchId === 'all' ? 'BR-01' : activeBranchId,
     dob: '2012-05-15',
     gender: 'Male',
     bloodGroup: 'O+',
@@ -95,13 +104,17 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
   });
 
   useEffect(() => {
+    refreshData();
+  }, [activeBranchId]);
+
+  useEffect(() => {
     if (initialSelectedStudent) {
       setSelectedStudent(initialSelectedStudent);
     }
   }, [initialSelectedStudent]);
 
   const refreshData = () => {
-    setStudents([...schoolService.getStudents()]);
+    setStudents([...schoolService.getStudents(activeBranchId)]);
   };
 
   // Fast Client-Side Image Compressor (Compresses 5MB photo to crisp ~25KB WebP/JPEG)
@@ -149,52 +162,52 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
         } else {
           setFormData(prev => ({ ...prev, photo: compressedBase64 }));
         }
-        showToast('Student passport photo attached & optimized! 📸', 'success');
+        showToast('Photo uploaded & optimized successfully! 📸', 'success');
       });
     }
   };
 
+  // Handle New Student Admission
   const handleAdmissionSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.fatherName) {
-      showToast('Please fill all required student details', 'warning');
+    if (!formData.name.trim() || !formData.fatherName.trim()) {
+      showToast('Please fill all required student and parent fields', 'error');
       return;
     }
 
+    const assignedBranch = formData.branchId || (activeBranchId === 'all' ? 'BR-01' : activeBranchId);
+    const branchObj = branches.find(b => b.id === assignedBranch);
+
     const newStudent = schoolService.addStudent({
-      name: formData.name,
-      dob: formData.dob,
-      gender: formData.gender,
-      bloodGroup: formData.bloodGroup,
-      class: formData.class,
-      section: formData.section,
-      house: formData.house,
-      category: formData.category,
-      aadhaarNo: formData.aadhaarNo,
-      photo: formData.photo || `https://images.unsplash.com/photo-${formData.gender === 'Female' ? '1494790108377-be9c29b29330' : '1539571696357-5a69c17a67c6'}?w=150&auto=format&fit=crop&q=80`,
+      ...formData,
+      branchId: assignedBranch,
+      branchName: branchObj?.name || "Dadheech Memorial Public School",
+      admissionNo: `ADM-${assignedBranch.replace('BR-0', 'B')}-${Math.floor(1000 + Math.random() * 9000)}`,
+      status: 'Active',
+      photo: formData.photo || 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80',
       parents: {
         fatherName: formData.fatherName,
-        fatherMobile: formData.fatherMobile || '+91 98110 00000',
-        motherName: formData.motherName || 'Mother',
-        email: formData.email || 'parent@example.com',
-        address: formData.address || 'Knowledge Park, New Delhi',
-        emergencyContact: formData.fatherMobile || '+91 98110 00000'
+        fatherMobile: formData.fatherMobile,
+        motherName: formData.motherName || '',
+        address: formData.address || ''
       }
     });
 
     refreshData();
     setIsAdmissionModalOpen(false);
-    showToast(`Student ${newStudent.name} admitted successfully! (Roll: ${newStudent.rollNo})`, 'success');
+    showToast(`Student ${newStudent.name} admitted to ${branchObj?.shortCode || 'Campus'}! 🎉`, 'success');
+    setSelectedStudent(newStudent);
   };
 
-  // Open Edit Modal with prefilled values
+  // Open Edit Modal
   const openEditModal = (student) => {
     setEditFormData({
       id: student.id,
       name: student.name,
-      class: student.class,
-      section: student.section,
-      rollNo: student.rollNo,
+      branchId: student.branchId || 'BR-01',
+      class: student.class || 'Class 10',
+      section: student.section || 'A',
+      rollNo: student.rollNo || '',
       bloodGroup: student.bloodGroup || 'O+',
       house: student.house || 'Phoenix (Red House)',
       fatherName: student.parents?.fatherName || '',
@@ -209,8 +222,11 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
   // Submit Edit Form
   const handleEditSubmit = (e) => {
     e.preventDefault();
+    const branchObj = branches.find(b => b.id === editFormData.branchId);
     const updated = schoolService.updateStudent(editFormData.id, {
       name: editFormData.name,
+      branchId: editFormData.branchId,
+      branchName: branchObj?.name,
       class: editFormData.class,
       section: editFormData.section,
       rollNo: editFormData.rollNo,
@@ -278,25 +294,120 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
   };
 
   const filteredStudents = students.filter(s => {
-    const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) || s.rollNo.includes(searchQuery) || s.admissionNo.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) || s.rollNo.includes(searchQuery) || (s.admissionNo && s.admissionNo.toLowerCase().includes(searchQuery.toLowerCase()));
     const matchesClass = classFilter === 'All' || s.class === classFilter;
     return matchesSearch && matchesClass;
   });
+
+  const totalBoys = filteredStudents.filter(s => s.gender === 'Male').length;
+  const totalGirls = filteredStudents.filter(s => s.gender === 'Female').length;
+  const totalFeesCollected = filteredStudents.reduce((acc, s) => acc + (s.feeSummary?.totalPaid || 0), 0);
 
   const schoolInfo = schoolService.getSchoolInfo();
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
-      {/* Page Header */}
+      
+      {/* 🏛️ Top Campus Banner & Access Security Info */}
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700 flex items-center justify-center text-amber-700 dark:text-amber-300 shadow-sm shrink-0">
+            <Building2 className="w-6 h-6" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-black uppercase px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border border-amber-300">
+                {activeBranch?.shortCode || 'CAMPUS'}
+              </span>
+              <h2 className="text-base sm:text-lg font-black text-[#0b1e38] dark:text-white font-serif">
+                {activeBranch?.name || 'All Campuses (Consolidated Overview)'}
+              </h2>
+            </div>
+            <p className="text-xs text-slate-500 mt-0.5">
+              {isSuperAdmin
+                ? 'Super Admin Access • Viewing & Managing records for this selected branch.'
+                : `Logged in as ${user?.role} • Restricted to your assigned campus records.`}
+            </p>
+          </div>
+        </div>
+
+        {/* Super Admin Quick Branch Switcher Chips */}
+        {isSuperAdmin && (
+          <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-x-auto w-full md:w-auto">
+            <button
+              onClick={() => setActiveBranchId('BR-01')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                activeBranchId === 'BR-01' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+              }`}
+            >
+              🏢 Senior (Jargwan)
+            </button>
+            <button
+              onClick={() => setActiveBranchId('BR-02')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                activeBranchId === 'BR-02' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+              }`}
+            >
+              🏫 Barheti (Aligarh)
+            </button>
+            <button
+              onClick={() => setActiveBranchId('BR-03')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                activeBranchId === 'BR-03' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+              }`}
+            >
+              🏫 Kids School (PAC)
+            </button>
+            <button
+              onClick={() => setActiveBranchId('all')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                activeBranchId === 'all' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+              }`}
+            >
+              🌐 All (Consolidated)
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* 📊 Campus KPI Metric Cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-1">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Branch Enrolled</span>
+          <div className="text-2xl font-black text-slate-900 dark:text-white font-mono">{filteredStudents.length}</div>
+          <span className="text-[10px] text-sky-600 font-semibold">{activeBranch?.classesOffered || 'Active Classes'}</span>
+        </div>
+
+        <div className="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-1">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Gender Diversity</span>
+          <div className="text-2xl font-black text-indigo-600 font-mono">{totalBoys}B • {totalGirls}G</div>
+          <span className="text-[10px] text-slate-500 font-semibold">Boys & Girls Ratio</span>
+        </div>
+
+        <div className="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-1">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Fee Collection</span>
+          <div className="text-2xl font-black text-emerald-600 font-mono">₹{totalFeesCollected.toLocaleString('en-IN')}</div>
+          <span className="text-[10px] text-emerald-600 font-semibold">Collected this Session</span>
+        </div>
+
+        <div className="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-1">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Average Attendance</span>
+          <div className="text-2xl font-black text-amber-600 font-mono">94.8%</div>
+          <span className="text-[10px] text-slate-500 font-semibold">Active Presence Rate</span>
+        </div>
+      </div>
+
+      {/* Page Header Actions & Filters */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-            <GraduationCap className="w-7 h-7 text-indigo-600" /> Student Enrollment & 360° Profiles
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+            <GraduationCap className="w-6 h-6 text-indigo-600" /> Student Enrollment & Profiles
           </h2>
-          <p className="text-xs text-slate-500 mt-1">
-            Complete student directory, admissions registry, academic records, instant fee POS & ID card generator.
+          <p className="text-xs text-slate-500 mt-0.5">
+            Managing students of <strong>{activeBranch?.name}</strong>.
           </p>
         </div>
+
         <button
           onClick={() => setIsAdmissionModalOpen(true)}
           className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
@@ -327,22 +438,31 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
             onChange={(e) => setClassFilter(e.target.value)}
             className="p-2 text-xs font-bold rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none"
           >
-            <option value="All">All Classes (1 to 12)</option>
+            <option value="All">All Grades in this Campus</option>
+            <option value="Playgroup">Playgroup</option>
+            <option value="Nursery">Nursery</option>
+            <option value="LKG">LKG</option>
+            <option value="UKG">UKG</option>
+            <option value="Class 1">Class 1</option>
+            <option value="Class 2">Class 2</option>
+            <option value="Class 5">Class 5</option>
+            <option value="Class 6">Class 6</option>
+            <option value="Class 7">Class 7</option>
+            <option value="Class 8">Class 8</option>
             <option value="Class 10">Class 10</option>
-            <option value="Class 11">Class 11</option>
             <option value="Class 12">Class 12</option>
-            <option value="Class 9">Class 9</option>
           </select>
         </div>
       </div>
 
-      {/* Students Table */}
+      {/* Students Table with Branch Badge */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
               <tr className="bg-slate-50 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
                 <th className="p-4">Student Profile</th>
+                <th className="p-4">Campus / Branch</th>
                 <th className="p-4">Admission No</th>
                 <th className="p-4">Class & Sec</th>
                 <th className="p-4">Roll No</th>
@@ -353,69 +473,88 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-              {filteredStudents.map(student => (
-                <tr
-                  key={student.id}
-                  onClick={() => setSelectedStudent(student)}
-                  className="hover:bg-indigo-50/50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors"
-                >
-                  <td className="p-4">
-                    <div className="flex items-center gap-3">
-                      <img src={student.photo} alt={student.name} className="w-9 h-9 rounded-xl object-cover ring-1 ring-slate-200 dark:ring-slate-700" />
-                      <div>
-                        <p className="font-bold text-slate-900 dark:text-white text-xs">{student.name}</p>
-                        <p className="text-[10px] text-slate-400">{student.gender} • Blood: {student.bloodGroup}</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="p-4 font-mono font-bold text-slate-700 dark:text-slate-300">{student.admissionNo}</td>
-                  <td className="p-4 font-bold text-slate-900 dark:text-white">{student.class} - {student.section}</td>
-                  <td className="p-4 font-mono font-bold text-indigo-600">#{student.rollNo}</td>
-                  <td className="p-4">
-                    <p className="font-semibold text-slate-800 dark:text-slate-200">{student.parents?.fatherName}</p>
-                    <p className="text-[10px] text-slate-400">{student.parents?.fatherMobile}</p>
-                  </td>
-                  <td className="p-4">
-                    <span className="font-bold text-emerald-600">{student.attendanceSummary?.percentage || 95.4}%</span>
-                  </td>
-                  <td className="p-4">
-                    <Badge variant={student.feeSummary?.status === 'Paid' ? 'success' : 'warning'}>
-                      {student.feeSummary?.status || 'Paid'}
-                    </Badge>
-                  </td>
-                  <td className="p-4 text-right" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex items-center justify-end gap-1.5">
-                      <button
-                        onClick={() => setSelectedStudent(student)}
-                        title="View 360° Profile"
-                        className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100"
-                      >
-                        <Eye className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={() => openEditModal(student)}
-                        title="Edit Student Information"
-                        className="p-1.5 rounded-lg bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 hover:bg-amber-100"
-                      >
-                        <Edit className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={() => handleDelete(student.id, student.name)}
-                        title="Delete Student Record"
-                        className="p-1.5 rounded-lg bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 hover:bg-rose-100"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
+              {filteredStudents.length === 0 ? (
+                <tr>
+                  <td colSpan="9" className="p-8 text-center text-slate-500 text-xs">
+                    No student records found for {activeBranch?.name}.
                   </td>
                 </tr>
-              ))}
+              ) : (
+                filteredStudents.map(student => (
+                  <tr
+                    key={student.id}
+                    onClick={() => setSelectedStudent(student)}
+                    className="hover:bg-indigo-50/50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors"
+                  >
+                    <td className="p-4">
+                      <div className="flex items-center gap-3">
+                        <img src={student.photo} alt={student.name} className="w-9 h-9 rounded-xl object-cover ring-1 ring-slate-200 dark:ring-slate-700" />
+                        <div>
+                          <p className="font-bold text-slate-900 dark:text-white text-xs">{student.name}</p>
+                          <p className="text-[10px] text-slate-400">{student.gender} • Blood: {student.bloodGroup}</p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="p-4">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                        student.branchId === 'BR-01' ? 'bg-blue-100 text-blue-900 dark:bg-blue-950 dark:text-blue-200' :
+                        student.branchId === 'BR-02' ? 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200' :
+                        'bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200'
+                      }`}>
+                        {student.branchId === 'BR-01' ? '🏢 Senior Jargwan' : student.branchId === 'BR-02' ? '🏫 Barheti Campus' : '🏫 Kids School PAC'}
+                      </span>
+                    </td>
+
+                    <td className="p-4 font-mono font-bold text-slate-700 dark:text-slate-300">{student.admissionNo}</td>
+                    <td className="p-4 font-bold text-slate-900 dark:text-white">{student.class} - {student.section}</td>
+                    <td className="p-4 font-mono font-bold text-indigo-600">#{student.rollNo}</td>
+                    <td className="p-4">
+                      <p className="font-semibold text-slate-800 dark:text-slate-200">{student.parents?.fatherName}</p>
+                      <p className="text-[10px] text-slate-400">{student.parents?.fatherMobile}</p>
+                    </td>
+                    <td className="p-4">
+                      <span className="font-bold text-emerald-600">{student.attendanceSummary?.percentage || 95.4}%</span>
+                    </td>
+                    <td className="p-4">
+                      <Badge variant={student.feeSummary?.status === 'Paid' ? 'success' : 'warning'}>
+                        {student.feeSummary?.status || 'Paid'}
+                      </Badge>
+                    </td>
+                    <td className="p-4 text-right" onClick={(e) => e.stopPropagation()}>
+                      <div className="flex items-center justify-end gap-1.5">
+                        <button
+                          onClick={() => setSelectedStudent(student)}
+                          title="View 360° Profile"
+                          className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => openEditModal(student)}
+                          title="Edit Student Information"
+                          className="p-1.5 rounded-lg bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 hover:bg-amber-100"
+                        >
+                          <Edit className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(student.id, student.name)}
+                          title="Delete Student Record"
+                          className="p-1.5 rounded-lg bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 hover:bg-rose-100"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
       </div>
 
-      {/* 🌟 360° Student Profile Modal (With 1-Click Fee Collection & Edit Buttons) */}
+      {/* 🌟 360° Student Profile Modal */}
       <Modal
         isOpen={!!selectedStudent}
         onClose={() => setSelectedStudent(null)}
@@ -433,7 +572,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
                     <h3 className="text-lg font-black text-slate-900 dark:text-white">{selectedStudent.name}</h3>
                     <Badge variant="primary">Roll #{selectedStudent.rollNo}</Badge>
                   </div>
-                  <p className="text-xs text-slate-500 mt-0.5">{selectedStudent.class} • Section {selectedStudent.section} • House: {selectedStudent.house}</p>
+                  <p className="text-xs text-slate-500 mt-0.5">{selectedStudent.class} • Section {selectedStudent.section} • {selectedStudent.branchName}</p>
                   <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-bold mt-0.5">Adm No: {selectedStudent.admissionNo}</p>
                 </div>
               </div>
@@ -512,38 +651,6 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
                 </div>
               </div>
             </div>
-
-            {/* Linked Siblings Box */}
-            <div className="p-4 rounded-2xl bg-purple-50/50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800/60 space-y-2">
-              <div className="flex items-center justify-between">
-                <h4 className="font-bold text-purple-950 dark:text-purple-200 flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4 text-purple-600" /> Linked Siblings & Family Members
-                </h4>
-                <span className="text-[11px] font-semibold text-purple-700 dark:text-purple-300">
-                  {schoolService.getLinkedSiblings(selectedStudent.id).length} Siblings Linked
-                </span>
-              </div>
-              {schoolService.getLinkedSiblings(selectedStudent.id).length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-                  {schoolService.getLinkedSiblings(selectedStudent.id).map(sib => (
-                    <div
-                      key={sib.id}
-                      className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-purple-200 dark:border-purple-800 flex items-center justify-between"
-                    >
-                      <div>
-                        <p className="font-bold text-slate-900 dark:text-white">{sib.name}</p>
-                        <span className="text-[10px] text-slate-500">{sib.class}-{sib.section} • Roll #{sib.rollNo} • Father: {sib.parents?.fatherName}</span>
-                      </div>
-                      <span className="text-xs font-bold text-rose-600">
-                        Due: ₹{sib.feeSummary?.balance?.toLocaleString('en-IN') || 0}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-xs text-slate-500 italic">No siblings linked to this student yet. You can assign siblings anytime from the Fees POS module.</p>
-              )}
-            </div>
           </div>
         )}
       </Modal>
@@ -598,6 +705,28 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Campus / Branch</label>
+              {isSuperAdmin ? (
+                <select
+                  value={editFormData.branchId}
+                  onChange={(e) => setEditFormData({ ...editFormData, branchId: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
+                >
+                  <option value="BR-01">DMPS Senior Campus (Jargwan)</option>
+                  <option value="BR-02">DMPS Junior High (Barheti)</option>
+                  <option value="BR-03">Dadheech Kids School (PAC)</option>
+                </select>
+              ) : (
+                <input
+                  type="text"
+                  disabled
+                  value={activeBranch?.name}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-500 font-semibold cursor-not-allowed"
+                />
+              )}
+            </div>
+
+            <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student Full Name *</label>
               <input
                 type="text"
@@ -607,6 +736,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
               />
             </div>
+
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Roll Number</label>
               <input
@@ -617,6 +747,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
               />
             </div>
+
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Class</label>
               <select
@@ -624,38 +755,25 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
                 onChange={(e) => setEditFormData({ ...editFormData, class: e.target.value })}
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
               >
+                <option value="Playgroup">Playgroup</option>
+                <option value="Nursery">Nursery</option>
+                <option value="LKG">LKG</option>
+                <option value="UKG">UKG</option>
+                <option value="Class 1">Class 1</option>
+                <option value="Class 2">Class 2</option>
+                <option value="Class 5">Class 5</option>
+                <option value="Class 6">Class 6</option>
+                <option value="Class 7">Class 7</option>
+                <option value="Class 8">Class 8</option>
+                <option value="Class 9">Class 9</option>
                 <option value="Class 10">Class 10</option>
                 <option value="Class 11">Class 11</option>
                 <option value="Class 12">Class 12</option>
-                <option value="Class 9">Class 9</option>
               </select>
             </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Section</label>
-              <select
-                value={editFormData.section}
-                onChange={(e) => setEditFormData({ ...editFormData, section: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              >
-                <option value="A">Section A</option>
-                <option value="B">Section B</option>
-                <option value="C">Section C</option>
-              </select>
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Blood Group</label>
-              <select
-                value={editFormData.bloodGroup}
-                onChange={(e) => setEditFormData({ ...editFormData, bloodGroup: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              >
-                <option value="O+">O+</option>
-                <option value="A+">A+</option>
-                <option value="B+">B+</option>
-                <option value="AB+">AB+</option>
-                <option value="O-">O-</option>
-              </select>
-            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Name</label>
               <input
@@ -666,7 +784,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
               />
             </div>
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Mobile Contact</label>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Mobile</label>
               <input
                 type="text"
                 value={editFormData.fatherMobile}
@@ -674,28 +792,6 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono"
               />
             </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Enrollment Status</label>
-              <select
-                value={editFormData.status}
-                onChange={(e) => setEditFormData({ ...editFormData, status: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              >
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-                <option value="Alumni">Alumni / Transferred</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Residential Address</label>
-            <input
-              type="text"
-              value={editFormData.address}
-              onChange={(e) => setEditFormData({ ...editFormData, address: e.target.value })}
-              className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-            />
           </div>
 
           <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
@@ -705,7 +801,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
         </form>
       </Modal>
 
-      {/* 💳 Quick Fee Collection POS Modal (Direct from Student Profile) */}
+      {/* 💳 Quick Fee Collection POS Modal */}
       <Modal
         isOpen={isCollectFeeModalOpen}
         onClose={() => setIsCollectFeeModalOpen(false)}
@@ -717,7 +813,7 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
             <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl border border-emerald-200 dark:border-emerald-800 flex items-center justify-between">
               <div>
                 <h4 className="font-black text-emerald-900 dark:text-emerald-200 text-sm">{selectedStudent.name}</h4>
-                <p className="text-[11px] text-emerald-700 dark:text-emerald-400">Roll #{selectedStudent.rollNo} • {selectedStudent.class}-{selectedStudent.section}</p>
+                <p className="text-[11px] text-emerald-700 dark:text-emerald-400">Roll #{selectedStudent.rollNo} • {selectedStudent.class}-{selectedStudent.section} • {selectedStudent.branchName}</p>
               </div>
               <span className="font-bold text-emerald-700 text-xs bg-white dark:bg-slate-900 px-3 py-1 rounded-xl border">
                 Due: ₹{selectedStudent.feeSummary?.balance || "45,000"}
@@ -761,16 +857,6 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
                   <option value="Cheque">Cheque Deposit</option>
                 </select>
               </div>
-            </div>
-
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Cashier Remarks</label>
-              <input
-                type="text"
-                value={feeForm.remarks}
-                onChange={(e) => setFeeForm({ ...feeForm, remarks: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-              />
             </div>
 
             <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
@@ -869,13 +955,32 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Campus / Branch Assignment *</label>
+              {isSuperAdmin ? (
+                <select
+                  value={formData.branchId}
+                  onChange={(e) => setFormData({ ...formData, branchId: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                >
+                  <option value="BR-01">DMPS Senior Campus (Jargwan)</option>
+                  <option value="BR-02">DMPS Junior High (Barheti)</option>
+                  <option value="BR-03">Dadheech Kids School (PAC)</option>
+                </select>
+              ) : (
+                <div className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold">
+                  {activeBranch?.name}
+                </div>
+              )}
+            </div>
+
+            <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student Full Name *</label>
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="e.g. Aarav Sharma"
+                placeholder="e.g. Aman Rajput"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
               />
             </div>
@@ -922,11 +1027,22 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
                 onChange={(e) => setFormData({ ...formData, class: e.target.value })}
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
               >
+                <option value="Playgroup">Playgroup</option>
+                <option value="Nursery">Nursery</option>
+                <option value="LKG">LKG</option>
+                <option value="UKG">UKG</option>
+                <option value="Class 1">Class 1</option>
+                <option value="Class 2">Class 2</option>
+                <option value="Class 3">Class 3</option>
+                <option value="Class 4">Class 4</option>
+                <option value="Class 5">Class 5</option>
+                <option value="Class 6">Class 6</option>
+                <option value="Class 7">Class 7</option>
+                <option value="Class 8">Class 8</option>
+                <option value="Class 9">Class 9</option>
                 <option value="Class 10">Class 10</option>
                 <option value="Class 11">Class 11</option>
                 <option value="Class 12">Class 12</option>
-                <option value="Class 9">Class 9</option>
-                <option value="Class 8">Class 8</option>
               </select>
             </div>
             <div>
@@ -992,3 +1108,5 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
     </div>
   );
 };
+
+export default StudentsPage;
