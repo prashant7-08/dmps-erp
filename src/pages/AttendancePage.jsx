@@ -14,17 +14,19 @@ import {
 import { Badge } from '../components/common/Badge';
 import { QRScannerModal } from '../components/qr/QRScannerModal';
 import { useToast } from '../components/common/Toast';
+import { useAuth } from '../context/AuthContext';
 import schoolService from '../services/schoolService';
 
 export const AttendancePage = () => {
   const { showToast } = useToast();
+  const { activeBranchId } = useAuth();
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
-  const [selectedClass, setSelectedClass] = useState('Class 10');
-  const [selectedSection, setSelectedSection] = useState('A');
+  const [selectedClass, setSelectedClass] = useState('All');
+  const [selectedSection, setSelectedSection] = useState('All');
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('student');
 
-  const students = schoolService.getStudents();
+  const [students, setStudents] = useState(() => schoolService.getStudents(activeBranchId));
   const [attendanceRecords, setAttendanceRecords] = useState(() => {
     return students.map(s => ({
       studentId: s.id,
@@ -36,6 +38,20 @@ export const AttendancePage = () => {
       remarks: ''
     }));
   });
+
+  React.useEffect(() => {
+    const list = schoolService.getStudents(activeBranchId);
+    setStudents(list);
+    setAttendanceRecords(list.map(s => ({
+      studentId: s.id,
+      name: s.name,
+      rollNo: s.rollNo,
+      class: s.class,
+      section: s.section,
+      status: s.id === 'STU-2026-003' ? 'Absent' : 'Present',
+      remarks: ''
+    })));
+  }, [activeBranchId]);
 
   const handleStatusChange = (studentId, newStatus) => {
     setAttendanceRecords(prev => prev.map(rec => {

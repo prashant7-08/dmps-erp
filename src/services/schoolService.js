@@ -1,6 +1,6 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'EDUPRO_SCHOOL_MANAGEMENT_DB_V2';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V4';
 
 class SchoolService {
   constructor() {
@@ -44,6 +44,10 @@ class SchoolService {
             });
           } else {
             parsed.teachers = JSON.parse(JSON.stringify(initialSchoolData.teachers));
+          }
+
+          if (!Array.isArray(parsed.feeInvoices) || parsed.feeInvoices.length < 5) {
+            parsed.feeInvoices = JSON.parse(JSON.stringify(initialSchoolData.feeInvoices));
           }
 
           return parsed;
@@ -495,6 +499,68 @@ class SchoolService {
         totalCombinedBalance: totalBalance
       };
     });
+  }
+
+  getFeeStructures() {
+    return this.data.feeStructures || initialSchoolData.feeStructures || [];
+  }
+
+  getFeeInvoices(branchId = null) {
+    const list = this.data.feeInvoices || [];
+    if (!branchId || branchId === 'all') return list;
+    const branchStudentIds = new Set(this.getStudents(branchId).map(s => s.id));
+    return list.filter(inv => branchStudentIds.has(inv.studentId));
+  }
+
+  getDashboardStats(branchId = 'all') {
+    const branchObj = this.getBranchById(branchId);
+    const students = this.getStudents(branchId);
+    const teachers = this.getTeachers(branchId);
+    const invoices = this.getFeeInvoices(branchId);
+
+    const boys = students.filter(s => s.gender === 'Male').length;
+    const girls = students.filter(s => s.gender === 'Female').length;
+
+    const totalDue = students.reduce((acc, s) => acc + (s.feeSummary?.balance || 0), 0);
+    const totalCollected = students.reduce((acc, s) => acc + (s.feeSummary?.totalPaid || 0), 0);
+
+    // Group students by class for class-wise strength visual chart
+    const classCountMap = {};
+    students.forEach(s => {
+      const clsName = s.class || 'Other';
+      if (!classCountMap[clsName]) {
+        classCountMap[clsName] = {
+          className: clsName,
+          students: 0,
+          boys: 0,
+          girls: 0,
+          attendance: s.attendanceSummary?.percentage ? Math.round(s.attendanceSummary.percentage) : 95
+        };
+      }
+      classCountMap[clsName].students += 1;
+      if (s.gender === 'Male') classCountMap[clsName].boys += 1;
+      else classCountMap[clsName].girls += 1;
+    });
+
+    const classAnalytics = Object.values(classCountMap);
+
+    return {
+      branchId,
+      branchName: branchObj ? branchObj.name : 'All Campuses (Consolidated Overview)',
+      shortCode: branchObj ? branchObj.shortCode : 'ALL',
+      totalStudents: students.length,
+      boysCount: boys,
+      girlsCount: girls,
+      totalTeachers: teachers.length,
+      totalDueFees: totalDue,
+      totalCollectedFees: totalCollected,
+      attendanceRate: students.length > 0
+        ? (students.reduce((a, b) => a + (b.attendanceSummary?.percentage || 95), 0) / students.length).toFixed(1)
+        : '95.0',
+      classAnalytics,
+      studentsList: students,
+      teachersList: teachers
+    };
   }
 
   collectFee({ studentId, amountPaid, paymentMode, remarks, discount = 0, fine = 0, isFamilyPayment = false, siblingAllocations = [], customReceiptNo = '' }) {

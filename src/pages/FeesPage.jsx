@@ -28,14 +28,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
+import { useAuth } from '../context/AuthContext';
 import { PrintableFeeReceipt } from '../components/printables/PrintableFeeReceipt';
 import schoolService from '../services/schoolService';
 
 export const FeesPage = () => {
   const { showToast } = useToast();
-  const [invoices, setInvoices] = useState(schoolService.getFeeInvoices());
+  const { activeBranchId } = useAuth();
+  const [invoices, setInvoices] = useState(() => schoolService.getFeeInvoices(activeBranchId));
   const [feeStructures] = useState(schoolService.getFeeStructures());
-  const [students, setStudents] = useState(schoolService.getStudents());
+  const [students, setStudents] = useState(() => schoolService.getStudents(activeBranchId));
   const [activeTab, setActiveTab] = useState('invoices');
   
   // Filter States
@@ -67,9 +69,13 @@ export const FeesPage = () => {
   const [posRemarks, setPosRemarks] = useState('Term Fee Collection');
   const [extraStudentToAdd, setExtraStudentToAdd] = useState('');
 
+  useEffect(() => {
+    refreshAllData();
+  }, [activeBranchId]);
+
   const refreshAllData = () => {
-    setInvoices([...schoolService.getFeeInvoices()]);
-    setStudents([...schoolService.getStudents()]);
+    setInvoices([...schoolService.getFeeInvoices(activeBranchId)]);
+    setStudents([...schoolService.getStudents(activeBranchId)]);
   };
 
   // Sync sibling allocations when primary student or family mode changes

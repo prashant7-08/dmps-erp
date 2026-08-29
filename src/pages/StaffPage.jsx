@@ -19,13 +19,15 @@ import {
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
+import { useAuth } from '../context/AuthContext';
 import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import { PrintablePaySlip } from '../components/printables/PrintablePaySlip';
 import schoolService from '../services/schoolService';
 
 export const StaffPage = () => {
   const { showToast } = useToast();
-  const [teachers, setTeachers] = useState(schoolService.getTeachers());
+  const { activeBranchId } = useAuth();
+  const [teachers, setTeachers] = useState(() => schoolService.getTeachers(activeBranchId));
   const [searchQuery, setSearchQuery] = useState('');
   const [deptFilter, setDeptFilter] = useState('All');
   
@@ -34,6 +36,11 @@ export const StaffPage = () => {
   const [isIdCardModalOpen, setIsIdCardModalOpen] = useState(false);
   const [isAddStaffModalOpen, setIsAddStaffModalOpen] = useState(false);
   const [isEditStaffModalOpen, setIsEditStaffModalOpen] = useState(false);
+
+  // Sync teachers when active branch changes
+  React.useEffect(() => {
+    setTeachers(schoolService.getTeachers(activeBranchId));
+  }, [activeBranchId]);
 
   // Edit Teacher State
   const [editFormData, setEditFormData] = useState({
