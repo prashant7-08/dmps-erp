@@ -3,7 +3,7 @@ import { MainLayout } from './layout/MainLayout';
 import { ToastProvider } from './components/common/Toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
-// Pages
+import { SchoolWebsitePage } from './pages/SchoolWebsitePage';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { AdministrationPage } from './pages/AdministrationPage';
@@ -37,10 +37,12 @@ function AppContent() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [currentRole, setCurrentRole] = useState(authRole || 'Super Admin');
   const [selectedStudentForProfile, setSelectedStudentForProfile] = useState(null);
+  const [isViewingWebsite, setIsViewingWebsite] = useState(!isAuthenticated);
 
   // Auto-switch view when role is switched
   const handleRoleChange = (newRole) => {
     setCurrentRole(newRole);
+    setIsViewingWebsite(false);
     if (newRole === 'Parent') {
       setActiveTab('parent-portal');
     } else if (newRole === 'Student') {
@@ -74,9 +76,19 @@ function AppContent() {
     }
   };
 
-  // If not logged in, render the SchoolHub Login Page
+  // 1. If currently on Public Website mode, render official DMPS School Website
+  if (isViewingWebsite) {
+    return <SchoolWebsitePage onGoToLogin={() => setIsViewingWebsite(false)} />;
+  }
+
+  // 2. If not logged in, render the Secure Role-Based Login Portal
   if (!isAuthenticated) {
-    return <LoginPage onLoginSuccess={(u) => handleRoleChange(u.role || 'Super Admin')} />;
+    return (
+      <LoginPage
+        onLoginSuccess={(u) => handleRoleChange(u.role || 'Super Admin')}
+        onBackToWebsite={() => setIsViewingWebsite(true)}
+      />
+    );
   }
 
   const renderActivePage = () => {
@@ -146,6 +158,7 @@ function AppContent() {
       setCurrentRole={handleRoleChange}
       onQuickAction={handleQuickAction}
       onSearchSelect={handleSearchSelect}
+      onViewWebsite={() => setIsViewingWebsite(true)}
     >
       {renderActivePage()}
     </MainLayout>

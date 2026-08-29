@@ -13,13 +13,18 @@ class SchoolService {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        // Auto-merge: Ensure any new seed students or structures are never missed
-        if (parsed && Array.isArray(parsed.students)) {
-          initialSchoolData.students.forEach(seedStu => {
-            if (!parsed.students.some(s => s.id === seedStu.id)) {
-              parsed.students.push(seedStu);
-            }
-          });
+        // Auto-merge: Ensure any new seed students or branches are never missed
+        if (parsed) {
+          if (Array.isArray(parsed.students)) {
+            initialSchoolData.students.forEach(seedStu => {
+              if (!parsed.students.some(s => s.id === seedStu.id)) {
+                parsed.students.push(seedStu);
+              }
+            });
+          }
+          if (!parsed.branches || parsed.branches.length < 4) {
+            parsed.branches = JSON.parse(JSON.stringify(initialSchoolData.branches));
+          }
           return parsed;
         }
       }
@@ -91,6 +96,47 @@ class SchoolService {
     this.data.schoolInfo = { ...this.data.schoolInfo, ...updates };
     this.saveData();
     return this.data.schoolInfo;
+  }
+
+  // Branch Management (Multi-Branch ERP)
+  getBranches() {
+    return this.data.branches || initialSchoolData.branches || [];
+  }
+
+  getBranchById(id) {
+    return this.getBranches().find(b => b.id === id || b.code === id);
+  }
+
+  updateBranch(id, updates) {
+    if (!this.data.branches) {
+      this.data.branches = JSON.parse(JSON.stringify(initialSchoolData.branches));
+    }
+    const idx = this.data.branches.findIndex(b => b.id === id);
+    if (idx !== -1) {
+      this.data.branches[idx] = { ...this.data.branches[idx], ...updates };
+      this.saveData();
+      return this.data.branches[idx];
+    }
+    return null;
+  }
+
+  addBranch(branchData) {
+    if (!this.data.branches) {
+      this.data.branches = JSON.parse(JSON.stringify(initialSchoolData.branches));
+    }
+    const newBranch = {
+      id: `BR-0${this.data.branches.length + 1}`,
+      code: `BR-0${this.data.branches.length + 1}`,
+      shortCode: `BR${this.data.branches.length + 1}`,
+      status: "Active",
+      totalStudents: 0,
+      totalStaff: 0,
+      isMain: false,
+      ...branchData
+    };
+    this.data.branches.push(newBranch);
+    this.saveData();
+    return newBranch;
   }
 
   // Students Module

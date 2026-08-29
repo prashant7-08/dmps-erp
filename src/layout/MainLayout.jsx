@@ -11,7 +11,8 @@ export const MainLayout = ({
   currentRole,
   setCurrentRole,
   onQuickAction,
-  onSearchSelect
+  onSearchSelect,
+  onViewWebsite
 }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [aiModalOpen, setAiModalOpen] = useState(false);
@@ -62,6 +63,7 @@ export const MainLayout = ({
           toggleDarkMode={toggleDarkMode}
           onQuickAction={onQuickAction}
           onSearchSelect={onSearchSelect}
+          onViewWebsite={onViewWebsite}
         />
 
         <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto animate-in fade-in duration-300">

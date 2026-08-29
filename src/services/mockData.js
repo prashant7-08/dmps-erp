@@ -3,17 +3,20 @@ export const initialSchoolData = {
   schoolInfo: {
     id: "SCH-001",
     name: "Dadheech Memorial Public School",
-    tagline: "Excellence in Education, Discipline & Character Building",
+    tagline: "Education is the movement from darkness to brightness",
+    society: "Dadheech Educational Society & Training Institute (Regd. No - 1131)",
     logo: "https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?w=150&auto=format&fit=crop&q=80",
-    address: "Institutional Area, Main Road, New Delhi / UP",
-    phone: "+91 98765 43210, +91 11 2789 4500",
-    email: "info@dmps-school.edu.in",
-    website: "https://www.dmps-school.edu.in",
-    affiliation: "CBSE (Central Board of Secondary Education)",
-    affiliationNo: "CBSE/AFF/2026/213098",
-    schoolCode: "DMPS-2026",
-    medium: "English",
-    principalName: "Dr. Arvind Shrivastava, Ph.D.",
+    address: "Ramghat Road Border, Jargwan, Bulandshahr (U.P.)",
+    phone: "+91 97589 75880, +91 96270 32626",
+    email: "dmpsjargawan@gmail.com, dadheechsociety@gmail.com",
+    website: "https://www.dmpsjargawan.com",
+    affiliation: "Bhartiya Shiksha Board (BSB)",
+    affiliationNo: "UP0F25070073",
+    schoolCode: "00065",
+    medium: "English & Hindi",
+    founderName: "Late Mr. Dauli Singh (President & Founder)",
+    managerName: "Mr. Pramod Kumar Rajput (Managing Director & Manager)",
+    principalName: "Mrs. Kavita Rani (Principal & Treasurer)",
     academicSession: "2026-2027",
     timings: {
       summer: "07:30 AM - 01:30 PM",
@@ -43,6 +46,65 @@ export const initialSchoolData = {
   academicSessions: [
     { id: "SESS-2026-27", name: "2026-2027", isCurrent: true, startDate: "2026-04-01", endDate: "2027-03-31" },
     { id: "SESS-2025-26", name: "2025-2026", isCurrent: false, startDate: "2025-04-01", endDate: "2026-03-31" }
+  ],
+
+  branches: [
+    {
+      id: "BR-01",
+      name: "Dadheech Memorial Public School (Main Campus)",
+      code: "DMPS-MAIN-01",
+      shortCode: "MAIN",
+      address: "Ramghat Road Border, Jargwan, Bulandshahr (U.P.)",
+      phone: "+91 97589 75880",
+      headName: "Shri Pramod Kumar Rajput (Manager)",
+      classesOffered: "Playgroup (PG) to Class 12th",
+      totalStudents: 380,
+      totalStaff: 26,
+      status: "Active",
+      isMain: true
+    },
+    {
+      id: "BR-02",
+      name: "Dadheech Memorial Public School (Barheti Campus)",
+      code: "DMPS-BARHETI-02",
+      shortCode: "BARHETI",
+      address: "Barheti ADF, Jawan, Chherat, Aligarh (U.P.)",
+      phone: "+91 86300 08371",
+      headName: "Mrs. Kavita Rani (Principal)",
+      classesOffered: "Playgroup (PG) to Class 8th",
+      totalStudents: 180,
+      totalStaff: 14,
+      status: "Active",
+      isMain: false
+    },
+    {
+      id: "BR-03",
+      name: "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      code: "DMPS-KIDS-03",
+      shortCode: "KIDS",
+      address: "Vinay Nagar, Sangwan City Road, Quarsi, P.A.C. Aligarh (U.P.)",
+      phone: "+91 96270 32626",
+      headName: "Head In-Charge (Kids Wing)",
+      classesOffered: "Playgroup (PG) to Class 2nd",
+      totalStudents: 90,
+      totalStaff: 8,
+      status: "Active",
+      isMain: false
+    },
+    {
+      id: "BR-04",
+      name: "Branch 4 (Unassigned / Reserved Slot)",
+      code: "BR-04",
+      shortCode: "BR-04",
+      address: "",
+      phone: "",
+      headName: "",
+      classesOffered: "",
+      totalStudents: 0,
+      totalStaff: 0,
+      status: "Upcoming / Blank",
+      isMain: false
+    }
   ],
 
   departments: [

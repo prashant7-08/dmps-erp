@@ -13,7 +13,9 @@ import {
   UserPlus,
   CalendarCheck,
   FilePlus2,
-  LogOut
+  LogOut,
+  GitBranch,
+  Globe
 } from 'lucide-react';
 import schoolService from '../services/schoolService';
 
@@ -25,7 +27,8 @@ export const TopNav = ({
   darkMode,
   toggleDarkMode,
   onQuickAction,
-  onSearchSelect
+  onSearchSelect,
+  onViewWebsite
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearchResults, setShowSearchResults] = useState(false);
@@ -158,8 +161,33 @@ export const TopNav = ({
         </div>
       </div>
 
-      {/* Right Controls: Role Switcher, Quick Actions, AI Bot, Notifications, Dark/Light Mode, Logout */}
+      {/* Right Controls: Branch Selector, Role Switcher, Quick Actions, AI Bot, Notifications, Dark/Light Mode, Logout */}
       <div className="flex items-center gap-2 sm:gap-3">
+        {/* Branch Selector Dropdown */}
+        <div className="hidden lg:flex items-center gap-1.5 bg-indigo-50/80 dark:bg-indigo-950/60 px-2 py-1 rounded-xl border border-indigo-200 dark:border-indigo-800/60 text-indigo-900 dark:text-indigo-200">
+          <GitBranch className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
+          <select
+            defaultValue="ALL"
+            className="text-xs font-bold bg-transparent text-indigo-950 dark:text-indigo-200 focus:outline-none cursor-pointer pr-1 py-1"
+          >
+            <option value="ALL" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+              🏫 All Branches (Consolidated)
+            </option>
+            <option value="BR-01" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+              🏢 Main Campus (Senior Wing)
+            </option>
+            <option value="BR-02" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+              🏫 City Campus (Primary Wing)
+            </option>
+            <option value="BR-03" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+              🏫 Public Branch (Sec 62)
+            </option>
+            <option value="BR-04" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+              🏗️ Branch 4 (Reserved)
+            </option>
+          </select>
+        </div>
+
         {/* Instant Role Switcher Dropdown */}
         <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/90 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
           <ShieldCheck className="w-4 h-4 text-indigo-500 ml-1.5 hidden sm:block" />
@@ -214,6 +242,18 @@ export const TopNav = ({
             </div>
           )}
         </div>
+
+        {/* View Public Website Button */}
+        {onViewWebsite && (
+          <button
+            onClick={onViewWebsite}
+            title="View Official School Website"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold hover:bg-amber-400 hover:text-slate-950 dark:hover:bg-amber-400 dark:hover:text-slate-950 transition-all border border-slate-200 dark:border-slate-700 shadow-sm"
+          >
+            <Globe className="w-3.5 h-3.5 text-amber-500" />
+            <span>Public Website</span>
+          </button>
+        )}
 
         {/* AI Bot Trigger */}
         <button

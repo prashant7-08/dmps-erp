@@ -95,18 +95,22 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* Brand Header */}
-        <div className="p-5 border-b border-sky-200/70 dark:border-slate-800 flex items-center justify-between bg-white/70 dark:bg-slate-950/80 backdrop-blur-md">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 via-sky-600 to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/25 ring-2 ring-blue-400/30">
-              E
+        {/* Brand Header with School Crest Mono */}
+        <div className="p-4 border-b border-amber-200/70 dark:border-slate-800 flex items-center justify-between bg-white/90 dark:bg-slate-950/80 backdrop-blur-md">
+          <div className="flex items-center gap-2.5">
+            <div className="w-11 h-11 rounded-full overflow-hidden bg-white p-0.5 shadow-md border-2 border-amber-400 flex items-center justify-center shrink-0">
+              <img
+                src="/logo.png"
+                alt="Dadheech Crest"
+                className="w-full h-full object-contain rounded-full"
+              />
             </div>
             <div>
-              <h1 className="text-base font-black text-slate-900 dark:text-white tracking-tight leading-tight flex items-center gap-1.5">
-                EduCore <span className="text-[10px] uppercase font-extrabold tracking-widest px-1.5 py-0.5 rounded-md bg-blue-100 text-blue-700 dark:bg-indigo-500/20 dark:text-indigo-400 border border-blue-200 dark:border-indigo-500/30">ERP</span>
+              <h1 className="text-xs font-black text-[#4a0e3d] dark:text-amber-400 tracking-tight leading-tight flex items-center gap-1 font-serif">
+                Dadheech Memorial <span className="text-[9px] uppercase font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">ERP</span>
               </h1>
-              <p className="text-[11px] text-sky-800 dark:text-slate-400 font-semibold truncate max-w-[150px]">
-                Delhi Public Academy
+              <p className="text-[10px] text-slate-600 dark:text-slate-400 font-bold truncate max-w-[150px]">
+                A Group of Education
               </p>
             </div>
           </div>
