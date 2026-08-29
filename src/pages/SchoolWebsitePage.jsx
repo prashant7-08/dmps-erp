@@ -54,6 +54,8 @@ import {
   Share2,
   Target,
   Lightbulb,
+  Search,
+  Quote,
   Compass as CompassIcon
 } from 'lucide-react';
 import { useToast } from '../components/common/Toast';
@@ -74,10 +76,10 @@ const FacebookIcon = ({ className = "w-4 h-4" }) => (
 
 const InstagramIcon = ({ className = "w-4 h-4" }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none">
-    <rect width="24" height="24" rx="6" fill="url(#ig-grad-ked)" />
+    <rect width="24" height="24" rx="6" fill="url(#ig-grad-ked-dyn)" />
     <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.17 1.17 0 1 0 0 2.34 1.17 1.17 0 0 0 0-2.34z" fill="#ffffff" />
     <defs>
-      <linearGradient id="ig-grad-ked" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+      <linearGradient id="ig-grad-ked-dyn" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
         <stop stopColor="#FA8F21" />
         <stop offset="0.5" stopColor="#D82D7E" />
         <stop offset="1" stopColor="#4F5BD5" />
@@ -103,7 +105,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     if (rawHash.startsWith('about-')) return { page: 'about', sub: rawHash.replace('about-', '') };
     if (rawHash.startsWith('campuses-')) return { page: 'campuses', sub: rawHash.replace('campuses-', '') };
     if (rawHash.startsWith('selections-')) return { page: 'selections', sub: rawHash.replace('selections-', '') };
-    const validPages = ['home', 'about', 'campuses', 'academic', 'facilities', 'selections', 'gallery', 'admissions', 'contact'];
+    const validPages = ['home', 'about', 'founder', 'md', 'principal', 'dedication', 'campuses', 'academic', 'facilities', 'selections', 'gallery', 'admissions', 'contact'];
     const page = validPages.includes(rawHash) ? rawHash : 'home';
     return { page, sub: 'all' };
   };
@@ -120,6 +122,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
   const [prospectusModalOpen, setProspectusModalOpen] = useState(false);
   const [selectedProspectusPage, setSelectedProspectusPage] = useState(0);
   const [selectedCampusTab, setSelectedCampusTab] = useState(0);
+  const [selectedLeaderTab, setSelectedLeaderTab] = useState('founder');
+  const [hallOfFameCategory, setHallOfFameCategory] = useState('all');
+  const [studentSearchQuery, setStudentSearchQuery] = useState('');
 
   const [inquiryForm, setInquiryForm] = useState({
     parentName: '',
@@ -165,27 +170,27 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     return () => clearInterval(interval);
   }, [currentPage]);
 
-  // 1. KED-Style Full-Width Modern Hero Slides
+  // 1. Hero Slides
   const heroSlides = [
     {
-      title: "Personalized Education for 21st-Century Leaders",
-      subtitle: "Empowering young minds from Darkness to Brightness with goal-driven mentoring, strong values, and premier competitive success.",
+      title: "Darkness to Brightness • Empowering 21st-Century Leaders",
+      subtitle: "Personalized education, sacred Indian values, and unmatched competitive success across 3 modern campuses.",
       tag: "Affiliated to Bhartiya Shiksha Board (BSB) • School Code: 00065",
       image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80",
       cta: "Apply for Admission 2026-27",
       target: "admissions"
     },
     {
-      title: "44+ Premier National Selections",
-      subtitle: "Remarkable achievements in AMU, Jawahar Navodaya Vidyalaya, Vidyagyan Leadership Academy & AECS Narora.",
-      tag: "Hall of Fame • 24 Years of Academic Excellence (Since July 2002)",
+      title: "44+ Premier National Selections in AMU, JNV & Vidyagyan",
+      subtitle: "24 years of proven academic supremacy with top ranks in national competitive entrance examinations.",
+      tag: "Hall of Fame • Estd. July 2002 by Late Mr. Dauli Singh",
       image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1920&q=80",
       cta: "Explore Hall of Fame",
       target: "selections"
     },
     {
-      title: "3 Modern Campuses across Bulandshahr & Aligarh",
-      subtitle: "World-class learning environments from Playgroup to Senior Secondary (12th) with smart labs, sports complexes & GPS transport.",
+      title: "3 State-of-the-Art Campuses in Bulandshahr & Aligarh",
+      subtitle: "Holistic schooling from Playgroup to Senior Secondary (12th) with smart labs, sports complex & GPS transport.",
       tag: "Main Senior Campus • Barheti Campus • Dadheech Kids School",
       image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80",
       cta: "Discover Our Schools",
@@ -193,41 +198,89 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     }
   ];
 
-  // 2. KED-Style Metrics / Statistics Counter
+  // 2. Metrics & KPI Statistics
   const statistics = [
     { label: "Years of Educational Legacy", value: "24+", icon: Award, sub: "Estd. July 2002" },
     { label: "Premier National Selections", value: "44+", icon: Trophy, sub: "AMU, JNV & Vidyagyan" },
     { label: "Modern School Campuses", value: "3", icon: Building2, sub: "Bulandshahr & Aligarh" },
     { label: "Active Nurtured Students", value: "1,500+", icon: Users, sub: "Playgroup to 12th" },
-    { label: "Board Examination Pass Rate", value: "100%", icon: GraduationCap, sub: "BSB Board Standard" },
-    { label: "Personalized Student Ratio", value: "15:1", icon: HeartHandshake, sub: "Goal-Driven Mentoring" }
+    { label: "Board Pass Percentage", value: "100%", icon: GraduationCap, sub: "BSB Board Standard" },
+    { label: "Personalized Mentoring Ratio", value: "15:1", icon: HeartHandshake, sub: "Goal-Driven Coaching" }
   ];
 
-  // 3. The Dadheech Educational Philosophy (Inspired by KED Program)
-  const kedProgramPillars = [
-    {
-      title: "Personalized Learning & Goal Setting",
-      icon: Target,
-      desc: "Every student learns at their own optimal pace. Personal academic coaches set weekly goals, conduct one-on-one reviews, and build tailored learning plans."
-    },
-    {
-      title: "Self-Regulated & Experiential Learning",
-      icon: Lightbulb,
-      desc: "We train students to take ownership of their education through hands-on STEM experiments, smart digital boards, practical mathematics, and analytical research."
-    },
-    {
-      title: "Values, Character & Heritage",
-      icon: ShieldCheck,
-      desc: "Rooted deeply in Indian culture and universal moral virtues. We nurture integrity, empathy, national pride, and social responsibility."
-    },
-    {
-      title: "Life Skills, Sports & Creative Arts",
-      icon: Trophy,
-      desc: "Comprehensive athletic training, yoga, vocal & instrumental music, classical dance, visual arts, and debating integrated into the daily curriculum."
-    }
+  // 3. Complete Authentic 44+ Hall of Fame Data
+  const amuStudents = [
+    { id: 1, name: "Km. Arati Rajput", father: "Mr. Anar Singh", org: "AMU Aligarh" },
+    { id: 2, name: "Km. Kalpana", father: "Mr. Ramprakash", org: "AMU Aligarh" },
+    { id: 3, name: "Krishna Kumar", father: "Mr. Ramprakash", org: "AMU Aligarh" },
+    { id: 4, name: "Bablu Kumar", father: "Veerpal Singh", org: "AMU Aligarh" },
+    { id: 5, name: "Manoj Kumar", father: "Charan Singh", org: "AMU Aligarh" },
+    { id: 6, name: "Prashant Kumar", father: "Suresh Chandra", org: "AMU Aligarh" },
+    { id: 7, name: "Nirankar", father: "Bhoodev Singh", org: "AMU Aligarh" },
+    { id: 8, name: "Sunil Kumar", father: "Ramesh Chandra", org: "AMU Aligarh" },
+    { id: 9, name: "Abhishek Kumar", father: "Ashok Kumar", org: "AMU Aligarh" },
+    { id: 10, name: "Prashant", father: "Mr. Pramod Kumar", org: "AMU Aligarh" },
+    { id: 11, name: "Divya Rajput", father: "Mr. Pramod Kumar", org: "AMU Aligarh" },
+    { id: 12, name: "Neeresh Kumar", father: "Mr. Radhelal", org: "AMU Aligarh" },
+    { id: 13, name: "Dushyant Kumar", father: "Sanjeev Ratan", org: "AMU Aligarh" },
+    { id: 14, name: "Km. Laxmi", father: "Mr. Billu Singh", org: "AMU Aligarh" },
+    { id: 15, name: "Yashveer Singh", father: "Tilak Singh", org: "AMU Aligarh" },
+    { id: 16, name: "Rahul Kumar", father: "Kailash Chandra", org: "AMU Aligarh" },
+    { id: 17, name: "Vishnu Kumar", father: "Mr. Sunil Kumar", org: "AMU Aligarh" },
+    { id: 18, name: "Bhuvnesh Kumar", father: "Shyoraj Singh", org: "AMU Aligarh" },
+    { id: 19, name: "Mani Rajput", father: "Mr. Pramod Kumar", org: "AMU Aligarh" },
+    { id: 20, name: "Rinku Gupta", father: "Manoj Kumar", org: "AMU Aligarh" },
+    { id: 21, name: "Shivam Kumar", father: "Sanjay Kumar", org: "AMU Aligarh" },
+    { id: 22, name: "Deepika Tomar", father: "Anil Tomar", org: "AMU Aligarh" },
+    { id: 23, name: "Kirti Singh", father: "Vinod Kumar", org: "AMU Aligarh" }
   ];
 
-  // 4. Our Schools / Campuses Data (Segmented KED Structure)
+  const jnvStudents = [
+    { id: 24, name: "Km. Jyoti", father: "Charan Singh", org: "JNV Entrance" },
+    { id: 25, name: "Km. Renu", father: "Suresh Chandra", org: "JNV Entrance" },
+    { id: 26, name: "Neha Rajput", father: "Mr. Pramod Kumar", org: "JNV Entrance" },
+    { id: 27, name: "Divya Rajput", father: "Mr. Pramod Kumar", org: "JNV Entrance" },
+    { id: 28, name: "Mani Rajput", father: "Mr. Pramod Kumar", org: "JNV Entrance" },
+    { id: 29, name: "Neeresh Kumar", father: "Mr. Radhelal", org: "JNV Entrance" },
+    { id: 30, name: "Kajal Verma", father: "Mr. Shyoraj Singh", org: "JNV Entrance" },
+    { id: 31, name: "Sachin Kumar", father: "Harkesh Singh", org: "JNV Entrance" },
+    { id: 32, name: "Shivam Kumar", father: "Rajesh Kumar", org: "JNV Entrance" },
+    { id: 33, name: "Shahrukh Khan", father: "Babu Khan", org: "JNV Entrance" }
+  ];
+
+  const vidyagyanStudents = [
+    { id: 34, name: "Divya Rajput", father: "Pramod Kumar", org: "Vidyagyan Academy" },
+    { id: 35, name: "Dev Garg", father: "Anil Kumar", org: "Vidyagyan Academy" },
+    { id: 36, name: "Neeresh Kumar", father: "Radhelal", org: "Vidyagyan Academy" },
+    { id: 37, name: "Mani Rajput", father: "Pramod Kumar", org: "Vidyagyan Academy" },
+    { id: 38, name: "Prashant Kumar", father: "Pramod Kumar", org: "Vidyagyan Academy" }
+  ];
+
+  const aecsStudents = [
+    { id: 39, name: "Km. Ritika", father: "Charan Singh", org: "AECS Narora & Kendriya" },
+    { id: 40, name: "Tarun Kumar", father: "Charan Singh", org: "AECS Narora & Kendriya" },
+    { id: 41, name: "Nishant Kumar", father: "Charan Singh", org: "AECS Narora & Kendriya" },
+    { id: 42, name: "Shirangi Pathak", father: "Bhagwan Shahay", org: "AECS Narora & Kendriya" },
+    { id: 43, name: "Shushank Kumar", father: "Ajab Singh", org: "AECS Narora & Kendriya" },
+    { id: 44, name: "Anu Yadav", father: "Vijendra Singh", org: "AECS Narora & Kendriya" }
+  ];
+
+  const allQualifiers = [...amuStudents, ...jnvStudents, ...vidyagyanStudents, ...aecsStudents];
+
+  const filteredQualifiers = allQualifiers.filter((s) => {
+    const matchesCategory =
+      hallOfFameCategory === 'all' ||
+      (hallOfFameCategory === 'amu' && s.org.includes('AMU')) ||
+      (hallOfFameCategory === 'jnv' && s.org.includes('JNV')) ||
+      (hallOfFameCategory === 'vidyagyan' && s.org.includes('Vidyagyan')) ||
+      (hallOfFameCategory === 'aecs' && s.org.includes('AECS'));
+    const matchesSearch =
+      s.name.toLowerCase().includes(studentSearchQuery.toLowerCase()) ||
+      s.father.toLowerCase().includes(studentSearchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  // 4. Our Schools Data
   const campusesData = [
     {
       id: "main-campus",
@@ -239,12 +292,12 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
       highlights: [
         "Affiliated to Bhartiya Shiksha Board (BSB) - Code 00065",
-        "Senior Science (PCM/PCB), Commerce & Humanities Streams",
+        "Science (PCM/PCB), Commerce & Humanities Streams",
         "Advanced Physics, Chemistry, Biology & AI Computer Labs",
-        "Multi-Sport Athletic Complex (Cricket, Volleyball, Athletics, Yoga)",
-        "Safe GPS-Enabled Bus Network covering 30+ towns & villages"
+        "Multi-Sport Athletic Complex (Cricket, Volleyball, Yoga)",
+        "GPS Bus Fleet covering 30+ towns & villages"
       ],
-      description: "Our flagship Senior Secondary institution established in July 2002. Offering comprehensive schooling from early childhood through class 12th with modern infrastructure, digital classrooms, and top competitive entrance coaching."
+      description: "Our flagship Senior Secondary institution established in July 2002. Offering comprehensive schooling from early childhood through class 12th with modern digital classrooms and intensive competitive entrance coaching."
     },
     {
       id: "barheti-campus",
@@ -257,11 +310,11 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       highlights: [
         "Strong Foundational Literacy & Mathematical Fluency",
         "Activity-Based Experiential Learning Studios",
-        "Special Entrance Preparation for JNV & Vidyagyan",
+        "Dedicated Entrance Coaching for JNV & Vidyagyan",
         "Safe, Child-Friendly & Digitally Connected Classrooms",
-        "Focus on Spoken English & Public Speaking Skills"
+        "Emphasis on Spoken English & Hindi Eloquence"
       ],
-      description: "Located strategically in Aligarh district, our Barheti campus nurtures middle and primary school learners with individualized attention, robust conceptual foundations, and experiential learning."
+      description: "Located near Jawan Chherat in Aligarh district, our Barheti campus nurtures middle and primary school learners with individualized attention and robust conceptual foundations."
     },
     {
       id: "kids-school",
@@ -274,7 +327,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       highlights: [
         "Montessori & Play-Way Early Childhood Framework",
         "Vibrant Theme-Based Smart Classrooms",
-        "Soft-Play Activity Zones & Cognitive Sensory Stations",
+        "Soft-Play Activity Zones & Sensory Stations",
         "Phonics, Storytelling, Rhymes & Motor Skill Workshops",
         "Certified & Caring Early Childhood Educators"
       ],
@@ -291,63 +344,6 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     { id: 5, title: "AECS Narora & Activities", src: "/assets/prospectus/qualifiers_aecs_gallery.png", description: "AECS Narora Qualifiers, Central School Selections & Annual Function Moments" }
   ];
 
-  // 6. Complete Authentic 44+ Hall of Fame Data
-  const amuStudents = [
-    { id: 1, name: "Km. Arati Rajput", father: "Mr. Anar Singh" },
-    { id: 2, name: "Km. Kalpana", father: "Mr. Ramprakash" },
-    { id: 3, name: "Krishna Kumar", father: "Mr. Ramprakash" },
-    { id: 4, name: "Bablu Kumar", father: "Veerpal Singh" },
-    { id: 5, name: "Manoj Kumar", father: "Charan Singh" },
-    { id: 6, name: "Prashant Kumar", father: "Suresh Chandra" },
-    { id: 7, name: "Nirankar", father: "Bhoodev Singh" },
-    { id: 8, name: "Sunil Kumar", father: "Ramesh Chandra" },
-    { id: 9, name: "Abhishek Kumar", father: "Ashok Kumar" },
-    { id: 10, name: "Prashant", father: "Mr. Pramod Kumar" },
-    { id: 11, name: "Divya Rajput", father: "Mr. Pramod Kumar" },
-    { id: 12, name: "Neeresh Kumar", father: "Mr. Radhelal" },
-    { id: 13, name: "Dushyant Kumar", father: "Sanjeev Ratan" },
-    { id: 14, name: "Km. Laxmi", father: "Mr. Billu Singh" },
-    { id: 15, name: "Yashveer Singh", father: "Tilak Singh" },
-    { id: 16, name: "Rahul Kumar", father: "Kailash Chandra" },
-    { id: 17, name: "Vishnu Kumar", father: "Mr. Sunil Kumar" },
-    { id: 18, name: "Bhuvnesh Kumar", father: "Shyoraj Singh" },
-    { id: 19, name: "Mani Rajput", father: "Mr. Pramod Kumar" },
-    { id: 20, name: "Rinku Gupta", father: "Manoj Kumar" },
-    { id: 21, name: "Shivam Kumar", father: "Sanjay Kumar" },
-    { id: 22, name: "Deepika Tomar", father: "Anil Tomar" },
-    { id: 23, name: "Kirti Singh", father: "Vinod Kumar" }
-  ];
-
-  const jnvStudents = [
-    { id: 1, name: "Km. Jyoti", father: "Charan Singh" },
-    { id: 2, name: "Km. Renu", father: "Suresh Chandra" },
-    { id: 3, name: "Neha Rajput", father: "Mr. Pramod Kumar" },
-    { id: 4, name: "Divya Rajput", father: "Mr. Pramod Kumar" },
-    { id: 5, name: "Mani Rajput", father: "Mr. Pramod Kumar" },
-    { id: 6, name: "Neeresh Kumar", father: "Mr. Radhelal" },
-    { id: 7, name: "Kajal Verma", father: "Mr. Shyoraj Singh" },
-    { id: 8, name: "Sachin Kumar", father: "Harkesh Singh" },
-    { id: 9, name: "Shivam Kumar", father: "Rajesh Kumar" },
-    { id: 10, name: "Shahrukh Khan", father: "Babu Khan" }
-  ];
-
-  const vidyagyanStudents = [
-    { id: 1, name: "Divya Rajput", father: "Pramod Kumar" },
-    { id: 2, name: "Dev Garg", father: "Anil Kumar" },
-    { id: 3, name: "Neeresh Kumar", father: "Radhelal" },
-    { id: 4, name: "Mani Rajput", father: "Pramod Kumar" },
-    { id: 5, name: "Prashant Kumar", father: "Pramod Kumar" }
-  ];
-
-  const aecsStudents = [
-    { id: 1, name: "Km. Ritika", father: "Charan Singh" },
-    { id: 2, name: "Tarun Kumar", father: "Charan Singh" },
-    { id: 3, name: "Nishant Kumar", father: "Charan Singh" },
-    { id: 4, name: "Shirangi Pathak", father: "Bhagwan Shahay" },
-    { id: 5, name: "Shushank Kumar", father: "Ajab Singh" },
-    { id: 6, name: "Anu Yadav", father: "Vijendra Singh" }
-  ];
-
   const handleInquirySubmit = (e) => {
     e.preventDefault();
     if (!inquiryForm.parentName || !inquiryForm.phone || !inquiryForm.studentName) {
@@ -361,11 +357,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-sky-600 selection:text-white flex flex-col justify-between">
       
-      {/* 🌟 1. Top Utility Ribbon (Clean International KED.EDU.IN Style) */}
+      {/* 🌟 1. Top Utility Ribbon */}
       <div className="bg-[#0b1e38] text-slate-200 py-2.5 px-4 sm:px-8 text-xs border-b border-slate-800 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           
-          {/* Left Announcement */}
           <div className="flex items-center gap-2.5 flex-wrap">
             <span className="px-2.5 py-0.5 rounded-full bg-amber-400 text-[#0b1e38] font-black text-[10px] uppercase tracking-wider animate-pulse">
               Admissions 2026-27 Open
@@ -375,44 +370,18 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </span>
           </div>
 
-          {/* Right Channels & ERP Portal Shortcut */}
           <div className="flex items-center gap-3 ml-auto flex-wrap">
-            {/* Quick Brand Social Icons in Top Ribbon */}
             <div className="hidden lg:flex items-center gap-1.5 border-r border-slate-700 pr-3 mr-1">
-              <a
-                href="https://www.facebook.com/dadheech.dadheech.37/"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Facebook Page (Schools)"
-                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 hover:scale-110 transition-all shadow-sm"
-              >
+              <a href="https://www.facebook.com/dadheech.dadheech.37/" target="_blank" rel="noopener noreferrer" title="Facebook (Schools)" className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 hover:scale-110 transition-all shadow-sm">
                 <FacebookIcon className="w-3.5 h-3.5" />
               </a>
-              <a
-                href="https://www.instagram.com/dadheechschool/"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Instagram @dadheechschool"
-                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 hover:scale-110 transition-all shadow-sm"
-              >
+              <a href="https://www.instagram.com/dadheechschool/" target="_blank" rel="noopener noreferrer" title="Instagram @dadheechschool" className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 hover:scale-110 transition-all shadow-sm">
                 <InstagramIcon className="w-3.5 h-3.5" />
               </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=co.thanos.iymus&pcampaignid=web_share"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Dadheech Classes App on Google Play"
-                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 hover:scale-110 transition-all shadow-sm"
-              >
+              <a href="https://play.google.com/store/apps/details?id=co.thanos.iymus&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" title="Dadheech Classes App" className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 hover:scale-110 transition-all shadow-sm">
                 <PlayStoreIcon className="w-3.5 h-3.5" />
               </a>
-              <a
-                href="https://www.youtube.com/@dadheecheducationtrainingi24"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="YouTube Channel"
-                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 hover:scale-110 transition-all shadow-sm"
-              >
+              <a href="https://www.youtube.com/@dadheecheducationtrainingi24" target="_blank" rel="noopener noreferrer" title="YouTube Channel" className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 hover:scale-110 transition-all shadow-sm">
                 <YouTubeIcon className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -443,21 +412,13 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
         </div>
       </div>
 
-      {/* 🏛️ 2. Main Brand Header (KED.EDU.IN Inspired Clean White Header & Mega Navigation) */}
+      {/* 🏛️ 2. Main Brand Header & Navigation */}
       <header className="sticky top-0 z-50 bg-white/95 text-slate-900 border-b border-slate-200 shadow-md backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
-          {/* School Brand Crest & Typography */}
-          <div
-            onClick={() => navigateTo('home')}
-            className="flex items-center gap-3.5 cursor-pointer group select-none"
-          >
+          <div onClick={() => navigateTo('home')} className="flex items-center gap-3.5 cursor-pointer group select-none">
             <div className="relative w-12 h-12 rounded-full bg-white p-0.5 shadow-md border-2 border-[#0b1e38] group-hover:scale-105 transition-all">
-              <img
-                src="/logo.png"
-                alt="Dadheech Educational Group Crest"
-                className="w-full h-full object-contain rounded-full"
-              />
+              <img src="/logo.png" alt="Dadheech Emblem" className="w-full h-full object-contain rounded-full" />
               <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border border-white"></span>
@@ -479,188 +440,118 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
           </div>
 
-          {/* Desktop Navigation Links (KED Architecture) */}
-          <nav className="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-700">
-            <button
-              onClick={() => navigateTo('home')}
-              className={`py-2 transition-colors ${currentPage === 'home' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}
-            >
+          <nav className="hidden lg:flex items-center gap-5 text-xs font-bold uppercase tracking-wider text-slate-700">
+            <button onClick={() => navigateTo('home')} className={`py-2 transition-colors ${currentPage === 'home' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
               Home
             </button>
 
-            {/* About Us Dropdown */}
-            <div
-              className="relative py-2 group cursor-pointer"
-              onMouseEnter={() => setOpenDropdown('about')}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <button
-                onClick={() => navigateTo('about')}
-                className={`flex items-center gap-1 transition-colors ${currentPage === 'about' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}
-              >
-                <span>About Us</span>
+            {/* About Us Dropdown with Dedicated Subpages */}
+            <div className="relative py-2 group cursor-pointer" onMouseEnter={() => setOpenDropdown('about')} onMouseLeave={() => setOpenDropdown(null)}>
+              <button onClick={() => navigateTo('about')} className={`flex items-center gap-1 transition-colors ${['about', 'founder', 'md', 'principal', 'dedication'].includes(currentPage) ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
+                <span>About & Leadership</span>
                 <ChevronDown className="w-3 h-3" />
               </button>
 
               {openDropdown === 'about' && (
-                <div className="absolute top-full left-0 w-60 bg-white border border-slate-200 shadow-2xl rounded-xl py-2 z-50 text-slate-800 normal-case font-semibold">
-                  <button
-                    onClick={() => navigateTo('about', 'about-us')}
-                    className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700"
-                  >
-                    About DMPS & Society
+                <div className="absolute top-full left-0 w-64 bg-white border border-slate-200 shadow-2xl rounded-xl py-2 z-50 text-slate-800 normal-case font-semibold">
+                  <button onClick={() => navigateTo('about')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                    🏛️ Overview & Society History
                   </button>
-                  <button
-                    onClick={() => navigateTo('about', 'vision')}
-                    className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700"
-                  >
-                    Vision, Mission & Motto
+                  <button onClick={() => navigateTo('founder')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-800">
+                    👑 Late Mr. Dauli Singh (Founder Page)
                   </button>
-                  <button
-                    onClick={() => navigateTo('about', 'founder')}
-                    className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700"
-                  >
-                    Late Mr. Dauli Singh (Founder)
+                  <button onClick={() => navigateTo('md')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-sky-800">
+                    💼 Mr. Pramod Kumar Rajput (MD Page)
                   </button>
-                  <button
-                    onClick={() => navigateTo('about', 'leadership')}
-                    className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700"
-                  >
-                    Leadership & Management
+                  <button onClick={() => navigateTo('principal')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-indigo-800">
+                    🎓 Mrs. Kavita Rani (Principal Page)
+                  </button>
+                  <button onClick={() => navigateTo('dedication')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                    🌸 Late Dadheech Kumar Rajput (Dedication)
                   </button>
                 </div>
               )}
             </div>
 
             {/* Our Schools Dropdown */}
-            <div
-              className="relative py-2 group cursor-pointer"
-              onMouseEnter={() => setOpenDropdown('campuses')}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <button
-                onClick={() => navigateTo('campuses')}
-                className={`flex items-center gap-1 transition-colors ${currentPage === 'campuses' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}
-              >
+            <div className="relative py-2 group cursor-pointer" onMouseEnter={() => setOpenDropdown('campuses')} onMouseLeave={() => setOpenDropdown(null)}>
+              <button onClick={() => navigateTo('campuses')} className={`flex items-center gap-1 transition-colors ${currentPage === 'campuses' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
                 <span>Our Schools</span>
                 <ChevronDown className="w-3 h-3" />
               </button>
 
               {openDropdown === 'campuses' && (
                 <div className="absolute top-full left-0 w-72 bg-white border border-slate-200 shadow-2xl rounded-xl py-2 z-50 text-slate-800 normal-case font-semibold">
-                  <button
-                    onClick={() => navigateTo('campuses', 'main-campus')}
-                    className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700"
-                  >
-                    DMPS Senior Secondary (Jargwan)
+                  <button onClick={() => navigateTo('campuses', 'main-campus')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                    🏫 DMPS Senior Secondary (Jargwan)
                   </button>
-                  <button
-                    onClick={() => navigateTo('campuses', 'barheti-campus')}
-                    className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700"
-                  >
-                    DMPS Junior High (Barheti Aligarh)
+                  <button onClick={() => navigateTo('campuses', 'barheti-campus')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                    🏫 DMPS Junior High (Barheti Aligarh)
                   </button>
-                  <button
-                    onClick={() => navigateTo('campuses', 'kids-school')}
-                    className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700"
-                  >
-                    Dadheech Kids School (Quarsi Aligarh)
+                  <button onClick={() => navigateTo('campuses', 'kids-school')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                    🏫 Dadheech Kids School (Quarsi Aligarh)
                   </button>
                 </div>
               )}
             </div>
 
-            <button
-              onClick={() => navigateTo('academic')}
-              className={`py-2 transition-colors ${currentPage === 'academic' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}
-            >
+            <button onClick={() => navigateTo('academic')} className={`py-2 transition-colors ${currentPage === 'academic' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
               Academics
             </button>
 
-            <button
-              onClick={() => navigateTo('facilities')}
-              className={`py-2 transition-colors ${currentPage === 'facilities' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}
-            >
+            <button onClick={() => navigateTo('facilities')} className={`py-2 transition-colors ${currentPage === 'facilities' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
               Beyond Academics
             </button>
 
-            <button
-              onClick={() => navigateTo('selections')}
-              className={`py-2 transition-colors ${currentPage === 'selections' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}
-            >
-              Hall of Fame
+            <button onClick={() => navigateTo('selections')} className={`py-2 transition-colors ${currentPage === 'selections' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
+              Hall of Fame (44+)
             </button>
 
-            <button
-              onClick={() => navigateTo('gallery')}
-              className={`py-2 transition-colors ${currentPage === 'gallery' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}
-            >
+            <button onClick={() => navigateTo('gallery')} className={`py-2 transition-colors ${currentPage === 'gallery' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
               Gallery
             </button>
 
-            <button
-              onClick={() => navigateTo('contact')}
-              className={`py-2 transition-colors ${currentPage === 'contact' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}
-            >
+            <button onClick={() => navigateTo('contact')} className={`py-2 transition-colors ${currentPage === 'contact' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
               Contact
             </button>
           </nav>
 
-          {/* Action CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => navigateTo('admissions')}
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-xs uppercase tracking-wider shadow-md hover:shadow-sky-600/30 transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-xs uppercase tracking-wider shadow-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Admissions 2026-27</span>
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-slate-100 text-slate-800 hover:bg-slate-200 transition-colors"
-          >
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-xl bg-slate-100 text-slate-800 hover:bg-slate-200 transition-colors">
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
 
         </div>
 
-        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-slate-200 px-4 py-6 space-y-3 shadow-2xl text-slate-800">
+          <div className="lg:hidden bg-white border-t border-slate-200 px-4 py-6 space-y-2 shadow-2xl text-slate-800">
             <button onClick={() => navigateTo('home')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Home</button>
-            <button onClick={() => navigateTo('about')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">About Us</button>
-            <button onClick={() => navigateTo('campuses')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Our Schools (3 Campuses)</button>
+            <button onClick={() => navigateTo('about')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">About DMPS & Society</button>
+            <button onClick={() => navigateTo('founder')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-800">Late Mr. Dauli Singh (Founder Page)</button>
+            <button onClick={() => navigateTo('md')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-sky-800">Mr. Pramod Kumar Rajput (MD Page)</button>
+            <button onClick={() => navigateTo('principal')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-indigo-800">Mrs. Kavita Rani (Principal Page)</button>
+            <button onClick={() => navigateTo('campuses')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Our 3 Campuses</button>
             <button onClick={() => navigateTo('academic')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Academics</button>
             <button onClick={() => navigateTo('facilities')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Beyond Academics</button>
             <button onClick={() => navigateTo('selections')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-sky-700">Hall of Fame (44+)</button>
             <button onClick={() => navigateTo('gallery')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Gallery</button>
             <button onClick={() => navigateTo('admissions')} className="w-full text-left py-2 px-3 rounded-lg bg-sky-600 text-white font-black text-sm uppercase">Admissions 2026-27 Open</button>
             <button onClick={() => navigateTo('contact')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Contact Us</button>
-            <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
-              <button onClick={onGoToLogin} className="w-full py-2.5 rounded-xl bg-[#0b1e38] text-white font-black text-xs flex items-center justify-center gap-2">
-                <Lock className="w-3.5 h-3.5 text-amber-400" />
-                <span>School ERP & Student Login</span>
-              </button>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setProspectusModalOpen(true);
-                }}
-                className="w-full py-2 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200 flex items-center justify-center gap-2"
-              >
-                <Download className="w-3.5 h-3.5 text-sky-600" />
-                <span>View Prospectus Booklet</span>
-              </button>
-            </div>
           </div>
         )}
       </header>
 
       {/* ========================================================================= */}
-      {/* 🏡 PAGE 1: HOME (KED.EDU.IN Clean White & Modern International Aesthetic) */}
+      {/* 🏡 PAGE 1: HOME (Dynamic Leadership Messages, Interactive Explorer & Hall of Fame) */}
       {/* ========================================================================= */}
       {currentPage === 'home' && (
         <main className="flex-1 space-y-16 pb-16">
@@ -674,11 +565,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   activeHeroSlide === idx ? 'opacity-100 scale-105 transition-transform duration-[7000ms]' : 'opacity-0 scale-100 pointer-events-none'
                 }`}
               >
-                <img
-                  src={slide.image}
-                  alt={slide.title}
-                  className="w-full h-full object-cover object-center brightness-[0.35]"
-                />
+                <img src={slide.image} alt={slide.title} className="w-full h-full object-cover object-center brightness-[0.35]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b1e38] via-transparent to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0b1e38]/90 via-[#0b1e38]/60 to-transparent" />
               </div>
@@ -686,16 +573,13 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10 w-full">
               <div className="max-w-3xl space-y-6">
-                
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-amber-300 text-xs font-bold backdrop-blur-md">
                   <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                   <span>{heroSlides[activeHeroSlide].tag}</span>
                 </div>
-
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-serif text-white leading-tight tracking-tight">
                   {heroSlides[activeHeroSlide].title}
                 </h1>
-
                 <p className="text-sm sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
                   {heroSlides[activeHeroSlide].subtitle}
                 </p>
@@ -708,7 +592,6 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     <span>{heroSlides[activeHeroSlide].cta}</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
-
                   <button
                     onClick={() => navigateTo('campuses')}
                     className="px-5 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-bold text-xs uppercase tracking-wider backdrop-blur-md border border-white/20 transition-all flex items-center gap-2"
@@ -716,7 +599,6 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     <Building2 className="w-4 h-4 text-sky-400" />
                     <span>Our 3 Campuses</span>
                   </button>
-
                   <button
                     onClick={() => setProspectusModalOpen(true)}
                     className="px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-700 transition-all flex items-center gap-2"
@@ -725,102 +607,212 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     <span>Prospectus Booklet</span>
                   </button>
                 </div>
-
               </div>
 
-              {/* Slider Dots */}
               <div className="flex items-center gap-2 mt-12">
                 {heroSlides.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveHeroSlide(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      activeHeroSlide === i ? 'w-8 bg-amber-400' : 'w-2 bg-white/40 hover:bg-white/70'
-                    }`}
+                    className={`h-2 rounded-full transition-all duration-300 ${activeHeroSlide === i ? 'w-8 bg-amber-400' : 'w-2 bg-white/40 hover:bg-white/70'}`}
                   />
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ⚡ 4 Floating Quick-Action Pillars */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              
+              <div onClick={() => navigateTo('admissions')} className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1">
+                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-slate-900 text-base group-hover:text-sky-700 transition-colors">Admissions 2026-27</h3>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">Enroll for Playgroup to Class 12th Senior Secondary across all 3 campuses.</p>
+                <span className="inline-flex items-center gap-1 text-xs font-black text-sky-700 mt-3 group-hover:underline">Apply Online <ChevronRight className="w-3 h-3" /></span>
+              </div>
+
+              <div onClick={() => navigateTo('campuses')} className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1">
+                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+                  <Building2 className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-slate-900 text-base group-hover:text-sky-700 transition-colors">Our 3 Campuses</h3>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">Main Senior Campus, Barheti Aligarh & Dadheech Kids Early Learning Center.</p>
+                <span className="inline-flex items-center gap-1 text-xs font-black text-sky-700 mt-3 group-hover:underline">Explore Branches <ChevronRight className="w-3 h-3" /></span>
+              </div>
+
+              <div onClick={() => navigateTo('selections')} className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1">
+                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+                  <Trophy className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-slate-900 text-base group-hover:text-sky-700 transition-colors">Hall of Fame (44+)</h3>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">23 AMU Qualifiers, 10 JNV Selections, Vidyagyan & AECS Narora Champions.</p>
+                <span className="inline-flex items-center gap-1 text-xs font-black text-sky-700 mt-3 group-hover:underline">View Qualifiers <ChevronRight className="w-3 h-3" /></span>
+              </div>
+
+              <div onClick={onGoToLogin} className="p-6 rounded-2xl bg-[#0b1e38] text-white border border-slate-800 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1">
+                <div className="w-12 h-12 rounded-xl bg-amber-400 text-[#0b1e38] flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+                  <Lock className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-white text-base group-hover:text-amber-300 transition-colors">School ERP Portal</h3>
+                <p className="text-xs text-slate-300 mt-1 leading-relaxed">Direct login for Students, Parents, Teachers & School Administration.</p>
+                <span className="inline-flex items-center gap-1 text-xs font-black text-amber-400 mt-3 group-hover:underline">Enter Portal <ChevronRight className="w-3 h-3" /></span>
               </div>
 
             </div>
           </section>
 
-          {/* ⚡ 4 Floating Quick-Action Pillars (Overlapping Hero in KED.EDU.IN Style) */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              
-              <div
-                onClick={() => navigateTo('admissions')}
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1"
-              >
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
-                  <GraduationCap className="w-6 h-6" />
-                </div>
-                <h3 className="font-bold text-slate-900 text-base group-hover:text-sky-700 transition-colors">
-                  Admissions 2026-27
-                </h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  Enroll for Playgroup to Class 12th Senior Secondary across all 3 campuses.
-                </p>
-                <span className="inline-flex items-center gap-1 text-xs font-black text-sky-700 mt-3 group-hover:underline">
-                  Apply Online <ChevronRight className="w-3 h-3" />
+          {/* 👑 5. DYNAMIC LEADERSHIP & FOUNDER SHOWCASE RIGHT ON HOME (Interactive Tabbed View) */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+              <div>
+                <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">
+                  From the Leadership Desk
                 </span>
+                <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif mt-2">
+                  Vision, Guidance & Leadership Messages
+                </h2>
               </div>
 
-              <div
-                onClick={() => navigateTo('campuses')}
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1"
-              >
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
-                  <Building2 className="w-6 h-6" />
-                </div>
-                <h3 className="font-bold text-slate-900 text-base group-hover:text-sky-700 transition-colors">
-                  Our 3 Campuses
-                </h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  Main Senior Campus, Barheti Aligarh & Dadheech Kids Early Learning Center.
-                </p>
-                <span className="inline-flex items-center gap-1 text-xs font-black text-sky-700 mt-3 group-hover:underline">
-                  Explore Branches <ChevronRight className="w-3 h-3" />
-                </span>
+              {/* Dynamic Tabs for Leadership */}
+              <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
+                <button
+                  onClick={() => setSelectedLeaderTab('founder')}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                    selectedLeaderTab === 'founder' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 hover:bg-slate-200'
+                  }`}
+                >
+                  Founder (Late Mr. Dauli Singh)
+                </button>
+                <button
+                  onClick={() => setSelectedLeaderTab('md')}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                    selectedLeaderTab === 'md' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 hover:bg-slate-200'
+                  }`}
+                >
+                  MD (Mr. Pramod Kumar Rajput)
+                </button>
+                <button
+                  onClick={() => setSelectedLeaderTab('principal')}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                    selectedLeaderTab === 'principal' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 hover:bg-slate-200'
+                  }`}
+                >
+                  Principal (Mrs. Kavita Rani)
+                </button>
               </div>
-
-              <div
-                onClick={() => navigateTo('selections')}
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1"
-              >
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
-                  <Trophy className="w-6 h-6" />
-                </div>
-                <h3 className="font-bold text-slate-900 text-base group-hover:text-sky-700 transition-colors">
-                  Hall of Fame (44+)
-                </h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  23 AMU Qualifiers, 10 JNV Selections, Vidyagyan & AECS Narora Champions.
-                </p>
-                <span className="inline-flex items-center gap-1 text-xs font-black text-sky-700 mt-3 group-hover:underline">
-                  View Qualifiers <ChevronRight className="w-3 h-3" />
-                </span>
-              </div>
-
-              <div
-                onClick={onGoToLogin}
-                className="p-6 rounded-2xl bg-[#0b1e38] text-white border border-slate-800 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1"
-              >
-                <div className="w-12 h-12 rounded-xl bg-amber-400 text-[#0b1e38] flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
-                  <Lock className="w-6 h-6" />
-                </div>
-                <h3 className="font-bold text-white text-base group-hover:text-amber-300 transition-colors">
-                  School ERP Portal
-                </h3>
-                <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                  Direct login for Students, Parents, Teachers & School Administration.
-                </p>
-                <span className="inline-flex items-center gap-1 text-xs font-black text-amber-400 mt-3 group-hover:underline">
-                  Enter Portal <ChevronRight className="w-3 h-3" />
-                </span>
-              </div>
-
             </div>
+
+            {/* Dynamic Leader Card Display */}
+            {selectedLeaderTab === 'founder' && (
+              <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-8 space-y-4">
+                  <div className="flex items-center gap-2">
+                    <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black uppercase">
+                      Founder & Treasurer
+                    </span>
+                    <span className="text-xs text-slate-500">Dadheech Educational Society (Regd. 1131)</span>
+                  </div>
+                  <h3 className="text-2xl font-black text-[#0b1e38] font-serif">Late Mr. Dauli Singh</h3>
+                  <div className="relative pl-6 border-l-4 border-amber-400 space-y-2">
+                    <Quote className="w-8 h-8 text-amber-200 absolute -top-3 -left-3" />
+                    <p className="text-sm text-slate-700 italic leading-relaxed">
+                      "Our aim has always been to remove the darkness of ignorance from rural and semi-urban children and enlighten their path towards self-reliance, national character, and academic brilliance. Every child holds immense potential; our sacred duty is to provide the light of disciplined knowledge."
+                    </p>
+                  </div>
+                  <div className="pt-2 flex items-center gap-4">
+                    <button
+                      onClick={() => navigateTo('founder')}
+                      className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow hover:bg-slate-800 transition-all"
+                    >
+                      <span>Read Founder's Complete Biography & Vision</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+                    </button>
+                  </div>
+                </div>
+                <div className="lg:col-span-4 bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-2xl border border-amber-200 space-y-3 text-center">
+                  <div className="w-20 h-20 rounded-full bg-[#0b1e38] text-amber-300 flex items-center justify-center font-bold text-2xl mx-auto shadow-md">
+                    DS
+                  </div>
+                  <h4 className="font-bold text-[#0b1e38] text-sm">Late Mr. Dauli Singh</h4>
+                  <p className="text-xs text-slate-600">Visionary Founder of Dadheech Educational Society & Training Institute (July 2002)</p>
+                </div>
+              </div>
+            )}
+
+            {selectedLeaderTab === 'md' && (
+              <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-8 space-y-4">
+                  <div className="flex items-center gap-2">
+                    <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-900 text-xs font-black uppercase">
+                      Managing Director & Manager
+                    </span>
+                    <span className="text-xs text-slate-500">DMPS Educational Group</span>
+                  </div>
+                  <h3 className="text-2xl font-black text-[#0b1e38] font-serif">Mr. Pramod Kumar Rajput</h3>
+                  <div className="relative pl-6 border-l-4 border-sky-500 space-y-2">
+                    <Quote className="w-8 h-8 text-sky-200 absolute -top-3 -left-3" />
+                    <p className="text-sm text-slate-700 italic leading-relaxed">
+                      "We provide an environment where children cultivate curiosity, scientific temperament, and moral fortitude. With 44+ selections in premier institutions like AMU, JNV, and Vidyagyan, our students continue to prove that personalized attention and dedicated coaching turn aspirations into reality."
+                    </p>
+                  </div>
+                  <div className="pt-2 flex items-center gap-4">
+                    <button
+                      onClick={() => navigateTo('md')}
+                      className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow hover:bg-slate-800 transition-all"
+                    >
+                      <span>Read Managing Director's Message & Strategy</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-sky-400" />
+                    </button>
+                  </div>
+                </div>
+                <div className="lg:col-span-4 bg-gradient-to-br from-sky-50 to-blue-50 p-6 rounded-2xl border border-sky-200 space-y-3 text-center">
+                  <div className="w-20 h-20 rounded-full bg-sky-700 text-white flex items-center justify-center font-bold text-2xl mx-auto shadow-md">
+                    PR
+                  </div>
+                  <h4 className="font-bold text-[#0b1e38] text-sm">Mr. Pramod Kumar Rajput</h4>
+                  <p className="text-xs text-slate-600">Managing Director • Overseeing 3 Campuses & Academic Excellence Programs</p>
+                </div>
+              </div>
+            )}
+
+            {selectedLeaderTab === 'principal' && (
+              <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-8 space-y-4">
+                  <div className="flex items-center gap-2">
+                    <span className="px-3 py-1 rounded-full bg-indigo-100 text-indigo-900 text-xs font-black uppercase">
+                      Principal Desk
+                    </span>
+                    <span className="text-xs text-slate-500">DMPS Senior Secondary School</span>
+                  </div>
+                  <h3 className="text-2xl font-black text-[#0b1e38] font-serif">Mrs. Kavita Rani</h3>
+                  <div className="relative pl-6 border-l-4 border-indigo-500 space-y-2">
+                    <Quote className="w-8 h-8 text-indigo-200 absolute -top-3 -left-3" />
+                    <p className="text-sm text-slate-700 italic leading-relaxed">
+                      "Education is not merely the accumulation of facts; it is the training of the mind to think critically. We nurture each child with love, disciplined guidance, and experiential pedagogy so that they grow with confidence, empathy, and world-class competence."
+                    </p>
+                  </div>
+                  <div className="pt-2 flex items-center gap-4">
+                    <button
+                      onClick={() => navigateTo('principal')}
+                      className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow hover:bg-slate-800 transition-all"
+                    >
+                      <span>Read Principal's Complete Welcome Message</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-indigo-400" />
+                    </button>
+                  </div>
+                </div>
+                <div className="lg:col-span-4 bg-gradient-to-br from-indigo-50 to-purple-50 p-6 rounded-2xl border border-indigo-200 space-y-3 text-center">
+                  <div className="w-20 h-20 rounded-full bg-indigo-700 text-white flex items-center justify-center font-bold text-2xl mx-auto shadow-md">
+                    KR
+                  </div>
+                  <h4 className="font-bold text-[#0b1e38] text-sm">Mrs. Kavita Rani</h4>
+                  <p className="text-xs text-slate-600">Principal • Educationalist & Champion of Student-Centric Pedagogy</p>
+                </div>
+              </div>
+            )}
           </section>
 
           {/* 📊 Key Statistics Ribbon */}
@@ -844,40 +836,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
           </section>
 
-          {/* 🎯 "The Dadheech Excellence Model" (Inspired by KED's Personalized Pedagogical Framework) */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div className="text-center max-w-3xl mx-auto space-y-3">
-              <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">
-                The Dadheech Pedagogical Model
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-black text-[#0b1e38] font-serif">
-                Personalized Education for Every Child
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Adapted from world-class personalized frameworks, our pedagogical model empowers students to become self-regulated, confident, and goal-driven learners.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {kedProgramPillars.map((pillar, idx) => {
-                const Icon = pillar.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="p-6 rounded-3xl bg-white border border-slate-200 hover:border-sky-500 shadow-sm hover:shadow-xl transition-all space-y-3"
-                  >
-                    <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center shadow-inner">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="font-bold text-slate-900 text-base">{pillar.title}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">{pillar.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* 🏫 "Our Schools" Multi-Campus Explorer (KED Segmented Style) */}
+          {/* 🏫 "Our Schools" Multi-Campus Explorer on Home */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
               <div>
@@ -951,72 +910,89 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
               <div className="lg:col-span-6">
                 <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl aspect-[4/3]">
-                  <img
-                    src={campusesData[selectedCampusTab].image}
-                    alt={campusesData[selectedCampusTab].name}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={campusesData[selectedCampusTab].image} alt={campusesData[selectedCampusTab].name} className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
           </section>
 
-          {/* 🏆 Hall of Fame Preview (AMU, JNV & Vidyagyan Champions) */}
+          {/* 🏆 DYNAMIC FILTERABLE HALL OF FAME ON HOME */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-4">
               <div>
-                <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">
-                  Academic Feats & Results
+                <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">
+                  Hall of Fame & Academic Feats
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif mt-2">
-                  Hall of Fame — 44+ Premier Selections
+                  44+ Premier National Qualifiers
                 </h2>
-                <p className="text-xs text-slate-600 mt-1">
-                  Authentic track record from our scanned official school prospectus records.
-                </p>
+                <p className="text-xs text-slate-600 mt-1">Search & filter students by institution or name</p>
               </div>
 
-              <button
-                onClick={() => navigateTo('selections')}
-                className="px-4 py-2 rounded-xl bg-[#0b1e38] hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-1.5 shadow"
-              >
-                <span>View All 44 Qualifiers</span>
-                <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
-              </button>
+              {/* Dynamic Filter Tabs & Search Bar */}
+              <div className="flex items-center gap-3 flex-wrap">
+                <div className="relative">
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                  <input
+                    type="text"
+                    placeholder="Search student or father..."
+                    value={studentSearchQuery}
+                    onChange={(e) => setStudentSearchQuery(e.target.value)}
+                    className="pl-9 pr-3 py-1.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none w-48 sm:w-60"
+                  />
+                </div>
+
+                <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200 overflow-x-auto">
+                  <button
+                    onClick={() => setHallOfFameCategory('all')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${hallOfFameCategory === 'all' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 hover:bg-slate-200'}`}
+                  >
+                    All (44)
+                  </button>
+                  <button
+                    onClick={() => setHallOfFameCategory('amu')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${hallOfFameCategory === 'amu' ? 'bg-sky-700 text-white shadow' : 'text-slate-700 hover:bg-slate-200'}`}
+                  >
+                    AMU (23)
+                  </button>
+                  <button
+                    onClick={() => setHallOfFameCategory('jnv')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${hallOfFameCategory === 'jnv' ? 'bg-emerald-700 text-white shadow' : 'text-slate-700 hover:bg-slate-200'}`}
+                  >
+                    JNV (10)
+                  </button>
+                  <button
+                    onClick={() => setHallOfFameCategory('vidyagyan')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${hallOfFameCategory === 'vidyagyan' ? 'bg-purple-700 text-white shadow' : 'text-slate-700 hover:bg-slate-200'}`}
+                  >
+                    Vidyagyan (5)
+                  </button>
+                  <button
+                    onClick={() => setHallOfFameCategory('aecs')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${hallOfFameCategory === 'aecs' ? 'bg-amber-700 text-white shadow' : 'text-slate-700 hover:bg-slate-200'}`}
+                  >
+                    AECS (6)
+                  </button>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-                <span className="px-2.5 py-0.5 rounded bg-sky-50 text-sky-800 text-[10px] font-black uppercase">
-                  AMU Entrance Exam
-                </span>
-                <div className="text-2xl font-black text-[#0b1e38] font-mono">23 Students</div>
-                <p className="text-xs text-slate-600">Selected in Aligarh Muslim University Entrance Tests.</p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-                <span className="px-2.5 py-0.5 rounded bg-sky-50 text-sky-800 text-[10px] font-black uppercase">
-                  JNV Selections
-                </span>
-                <div className="text-2xl font-black text-[#0b1e38] font-mono">10 Students</div>
-                <p className="text-xs text-slate-600">Selected in Jawahar Navodaya Vidyalaya National Entrance.</p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-                <span className="px-2.5 py-0.5 rounded bg-sky-50 text-sky-800 text-[10px] font-black uppercase">
-                  Vidyagyan Academy
-                </span>
-                <div className="text-2xl font-black text-[#0b1e38] font-mono">5 Students</div>
-                <p className="text-xs text-slate-600">Selected in Shiv Nadar Foundation Vidyagyan Leadership Academy.</p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-                <span className="px-2.5 py-0.5 rounded bg-sky-50 text-sky-800 text-[10px] font-black uppercase">
-                  AECS Narora & Kendriya
-                </span>
-                <div className="text-2xl font-black text-[#0b1e38] font-mono">6 Students</div>
-                <p className="text-xs text-slate-600">Selected in Atomic Energy Central School & Central Schools.</p>
-              </div>
+            {/* Dynamic Grid of Filtered Qualifiers */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 max-h-[460px] overflow-y-auto p-1 custom-scrollbar">
+              {filteredQualifiers.map((s) => (
+                <div key={s.id} className="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-sm hover:shadow-md transition-all space-y-1">
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                      #{s.id}
+                    </span>
+                    <span className="text-[10px] font-bold text-sky-700 truncate max-w-[150px]">
+                      {s.org}
+                    </span>
+                  </div>
+                  <div className="font-bold text-[#0b1e38] text-xs pt-1">{s.name}</div>
+                  <div className="text-slate-500 text-[11px]">S/o or D/o {s.father}</div>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -1049,11 +1025,159 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 📖 PAGE 2: ABOUT US & LEADERSHIP (Word-for-Word Authentic Prospectus) */}
+      {/* 👑 SEPARATE DEDICATED PAGE: FOUNDER (Late Mr. Dauli Singh) */}
+      {/* ========================================================================= */}
+      {currentPage === 'founder' && (
+        <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+          <div className="text-center space-y-3">
+            <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">
+              Founder & Treasurer Profile
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
+              Late Mr. Dauli Singh
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600">Founder & Treasurer, Dadheech Educational Society & Training Institute (Regd. 1131)</p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-2xl space-y-6">
+            <div className="flex items-center gap-4 border-b border-slate-100 pb-4">
+              <div className="w-16 h-16 rounded-full bg-[#0b1e38] text-amber-300 flex items-center justify-center font-bold text-xl shadow">
+                DS
+              </div>
+              <div>
+                <h3 className="font-bold text-lg text-[#0b1e38]">Visionary Message from the Founder</h3>
+                <p className="text-xs text-slate-500">Established in July 2002 with a mission of self-reliance through education</p>
+              </div>
+            </div>
+
+            <div className="space-y-4 text-sm text-slate-700 leading-relaxed">
+              <p>
+                <strong>Late Mr. Dauli Singh</strong> envisioned Dadheech Memorial Public School as a lighthouse of knowledge for rural, semi-urban, and aspiring students. He believed that education is the most sacred vehicle for human dignity, discipline, and societal upliftment.
+              </p>
+              <div className="p-6 rounded-2xl bg-amber-50/70 border-l-4 border-amber-500 italic text-slate-800 text-sm">
+                "Our aim has always been to remove the darkness of ignorance from rural and semi-urban children and enlighten their path towards self-reliance, national character, and academic brilliance. Every child holds immense potential; our sacred duty is to provide the light of disciplined knowledge."
+              </div>
+              <p>
+                Under his foundational stewardship, the institution grew from its inaugural campus on Ramghat Road Border in Jargwan to 3 distinct branches across Bulandshahr and Aligarh, instilling values that have produced 44+ selections in AMU, JNV, and Vidyagyan.
+              </p>
+            </div>
+          </div>
+        </main>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 💼 SEPARATE DEDICATED PAGE: MANAGING DIRECTOR (Mr. Pramod Kumar Rajput) */}
+      {/* ========================================================================= */}
+      {currentPage === 'md' && (
+        <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+          <div className="text-center space-y-3">
+            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-900 text-xs font-black tracking-wider uppercase">
+              Managing Director Desk
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
+              Mr. Pramod Kumar Rajput
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600">Managing Director & Manager, Dadheech Educational Group</p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-2xl space-y-6">
+            <div className="flex items-center gap-4 border-b border-slate-100 pb-4">
+              <div className="w-16 h-16 rounded-full bg-sky-700 text-white flex items-center justify-center font-bold text-xl shadow">
+                PR
+              </div>
+              <div>
+                <h3 className="font-bold text-lg text-[#0b1e38]">Message from the Managing Director</h3>
+                <p className="text-xs text-slate-500">Transforming aspirations into national achievements</p>
+              </div>
+            </div>
+
+            <div className="space-y-4 text-sm text-slate-700 leading-relaxed">
+              <p>
+                <strong>Mr. Pramod Kumar Rajput</strong> has spearheaded the academic expansion, technological modernizations, and competitive coaching wings across all 3 DMPS campuses.
+              </p>
+              <div className="p-6 rounded-2xl bg-sky-50/70 border-l-4 border-sky-500 italic text-slate-800 text-sm">
+                "We provide an environment where children cultivate curiosity, scientific temperament, and moral fortitude. With 44+ selections in premier institutions like AMU, JNV, and Vidyagyan, our students continue to prove that personalized attention and dedicated coaching turn aspirations into reality."
+              </div>
+              <p>
+                His forward-looking leadership has integrated smart interactive boards, modern physics, chemistry, biology, and computer labs, while maintaining an unyielding commitment to student safety and transport convenience.
+              </p>
+            </div>
+          </div>
+        </main>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 🎓 SEPARATE DEDICATED PAGE: PRINCIPAL (Mrs. Kavita Rani) */}
+      {/* ========================================================================= */}
+      {currentPage === 'principal' && (
+        <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+          <div className="text-center space-y-3">
+            <span className="px-3.5 py-1 rounded-full bg-indigo-100 text-indigo-900 text-xs font-black tracking-wider uppercase">
+              Principal Desk
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
+              Mrs. Kavita Rani
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600">Principal, Dadheech Memorial Public School</p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-2xl space-y-6">
+            <div className="flex items-center gap-4 border-b border-slate-100 pb-4">
+              <div className="w-16 h-16 rounded-full bg-indigo-700 text-white flex items-center justify-center font-bold text-xl shadow">
+                KR
+              </div>
+              <div>
+                <h3 className="font-bold text-lg text-[#0b1e38]">Message from the Principal</h3>
+                <p className="text-xs text-slate-500">Nurturing critical thinkers, scholars, and responsible citizens</p>
+              </div>
+            </div>
+
+            <div className="space-y-4 text-sm text-slate-700 leading-relaxed">
+              <p>
+                <strong>Mrs. Kavita Rani</strong> brings a student-centered pedagogical philosophy, emphasizing holistic cognitive, emotional, and social growth for every student.
+              </p>
+              <div className="p-6 rounded-2xl bg-indigo-50/70 border-l-4 border-indigo-500 italic text-slate-800 text-sm">
+                "Education is not merely the accumulation of facts; it is the training of the mind to think critically. We nurture each child with love, disciplined guidance, and experiential pedagogy so that they grow with confidence, empathy, and world-class competence."
+              </div>
+              <p>
+                Under her guidance, the school implements comprehensive co-curricular programs spanning arts, sports, debating, science exhibitions, and character-building activities.
+              </p>
+            </div>
+          </div>
+        </main>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 🌸 SEPARATE DEDICATED PAGE: SACRED MEMORY & DEDICATION */}
+      {/* ========================================================================= */}
+      {currentPage === 'dedication' && (
+        <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+          <div className="text-center space-y-3">
+            <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">
+              Sacred Heritage & Memory
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
+              Late Dadheech Kumar Rajput
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600">The sacred inspiration behind Dadheech Memorial Public School</p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-2xl space-y-6">
+            <p className="text-sm text-slate-700 leading-relaxed">
+              Dadheech Memorial Public School was established in July 2002 and consecrated on <strong>4th July 2002</strong> by <strong>Rajveer Singh urf Raju Bhaiya</strong>, former Health Minister of Uttar Pradesh.
+            </p>
+            <p className="text-sm text-slate-700 leading-relaxed">
+              The institution is dedicated to the sacred memory of <strong>Late Dadheech Kumar Rajput</strong> (born 1st October 1975 at Nagla Kothi, Jargwan, Bulandshahr — Engineer at Shriram Piston & Rings Ltd. Ghaziabad). His devotion to excellence, discipline, and technological innovation continues to illuminate our institution's vision: <em>"Darkness to Brightness"</em>.
+            </p>
+          </div>
+        </main>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 📖 PAGE: OVERVIEW & ABOUT SOCIETY */}
       {/* ========================================================================= */}
       {currentPage === 'about' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
-          
           <div className="text-center space-y-3">
             <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">
               Institution History & Sacred Heritage
@@ -1066,84 +1190,47 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </p>
           </div>
 
-          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
-            <div className="flex items-center gap-3">
-              <Sparkles className="w-6 h-6 text-amber-500" />
-              <h2 className="text-xl font-black text-[#0b1e38] font-serif">
-                Sacred Dedication & Establishment
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-              Dadheech Memorial Public School was founded in July 2002 and inaugurated on <strong>4th July 2002</strong> by <strong>Rajveer Singh urf Raju Bhaiya</strong>, former Health Minister of Uttar Pradesh. The institution is dedicated to the sacred memory of <strong>Late Dadheech Kumar Rajput</strong> (born 1st October 1975 at Nagla Kothi, Jargwan, B.S.R. — Engineer at Shriram Piston & Rings Ltd. Ghaziabad).
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div className="p-6 rounded-3xl bg-[#0b1e38] text-white border border-slate-800 shadow-xl space-y-3">
-              <span className="px-2.5 py-0.5 rounded bg-amber-400/20 text-amber-300 text-[10px] font-black uppercase">
-                Founder & Treasurer
-              </span>
-              <h3 className="text-lg font-black text-amber-300 font-serif">Late Mr. Dauli Singh</h3>
-              <p className="text-xs text-slate-300 italic leading-relaxed">
-                "Our aim has always been to remove the darkness of ignorance from rural and semi-urban children and enlighten their path towards self-reliance, national character, and academic brilliance."
-              </p>
+            <div onClick={() => navigateTo('founder')} className="p-6 rounded-3xl bg-white border border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl transition-all cursor-pointer space-y-3">
+              <span className="px-2.5 py-0.5 rounded bg-amber-100 text-amber-900 text-[10px] font-black uppercase">Founder Profile</span>
+              <h3 className="text-lg font-black text-[#0b1e38]">Late Mr. Dauli Singh</h3>
+              <p className="text-xs text-slate-600">Visionary Founder & Treasurer. Established the institution in July 2002.</p>
+              <span className="text-xs font-bold text-amber-700 flex items-center gap-1">Read Dedicated Page ↗</span>
             </div>
 
-            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
-              <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-black uppercase">
-                Managing Director & Manager
-              </span>
-              <h3 className="text-lg font-black text-[#0b1e38] font-serif">Mr. Pramod Kumar Rajput</h3>
-              <p className="text-xs text-slate-700 leading-relaxed">
-                "We provide an environment where children cultivate curiosity, scientific temperament, and moral fortitude. With 44+ selections in premier institutions like AMU and JNV, our students continue to lead."
-              </p>
+            <div onClick={() => navigateTo('md')} className="p-6 rounded-3xl bg-white border border-slate-200 hover:border-sky-500 shadow-md hover:shadow-xl transition-all cursor-pointer space-y-3">
+              <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-900 text-[10px] font-black uppercase">Managing Director</span>
+              <h3 className="text-lg font-black text-[#0b1e38]">Mr. Pramod Kumar Rajput</h3>
+              <p className="text-xs text-slate-600">Managing Director & Manager overseeing academic programs and campuses.</p>
+              <span className="text-xs font-bold text-sky-700 flex items-center gap-1">Read Dedicated Page ↗</span>
             </div>
 
-            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
-              <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-black uppercase">
-                Principal
-              </span>
-              <h3 className="text-lg font-black text-[#0b1e38] font-serif">Mrs. Kavita Rani</h3>
-              <p className="text-xs text-slate-700 leading-relaxed">
-                "Education is not merely the accumulation of facts; it is the training of the mind to think critically. We nurture each child with love, disciplined guidance, and experiential pedagogy."
-              </p>
+            <div onClick={() => navigateTo('principal')} className="p-6 rounded-3xl bg-white border border-slate-200 hover:border-indigo-500 shadow-md hover:shadow-xl transition-all cursor-pointer space-y-3">
+              <span className="px-2.5 py-0.5 rounded bg-indigo-100 text-indigo-900 text-[10px] font-black uppercase">Principal</span>
+              <h3 className="text-lg font-black text-[#0b1e38]">Mrs. Kavita Rani</h3>
+              <p className="text-xs text-slate-600">Principal guiding experiential learning and student-centric pedagogy.</p>
+              <span className="text-xs font-bold text-indigo-700 flex items-center gap-1">Read Dedicated Page ↗</span>
             </div>
-
           </div>
-
         </main>
       )}
 
       {/* ========================================================================= */}
-      {/* 🏫 PAGE 3: OUR 3 CAMPUSES (Segmented Schools View) */}
+      {/* 🏫 PAGE 3: OUR 3 CAMPUSES */}
       {/* ========================================================================= */}
       {currentPage === 'campuses' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
-          
           <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">
-              Our 3 Distinct Campuses
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">
-              Our Educational Institutes
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
-              Providing holistic schooling from Playgroup to Senior Secondary (Class 12th) across Bulandshahr and Aligarh.
-            </p>
+            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">Our 3 Distinct Campuses</span>
+            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Our Educational Institutes</h1>
           </div>
 
           <div className="space-y-8">
             {campusesData.map((campus, idx) => (
-              <div
-                key={campus.id}
-                className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-              >
+              <div key={campus.id} className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-6 space-y-4">
                   <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded bg-[#0b1e38] text-white text-xs font-bold">
-                      Campus {idx + 1}
-                    </span>
+                    <span className="px-3 py-1 rounded bg-[#0b1e38] text-white text-xs font-bold">Campus {idx + 1}</span>
                     <span className="text-xs font-bold text-sky-700">{campus.grades}</span>
                   </div>
                   <h2 className="text-2xl font-black text-[#0b1e38] font-serif">{campus.name}</h2>
@@ -1164,10 +1251,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   </div>
 
                   <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                    <a
-                      href={`tel:${campus.phone.split('/')[0].trim()}`}
-                      className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5"
-                    >
+                    <a href={`tel:${campus.phone.split('/')[0].trim()}`} className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5">
                       <Phone className="w-3.5 h-3.5 text-amber-400" />
                       <span>{campus.phone}</span>
                     </a>
@@ -1180,236 +1264,116 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               </div>
             ))}
           </div>
-
         </main>
       )}
 
       {/* ========================================================================= */}
-      {/* 🎓 PAGE 4: ACADEMICS (Curriculum Framework & BSB Affiliation) */}
+      {/* 🎓 PAGE 4: ACADEMICS */}
       {/* ========================================================================= */}
       {currentPage === 'academic' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
-          
           <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">
-              Curriculum & Pedagogy
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">
-              Academic Excellence Framework
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
-              Affiliated to Bhartiya Shiksha Board (BSB) • Affiliation No: UP0F25070073 • School Code: 00065
-            </p>
+            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">Curriculum & Pedagogy</span>
+            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Academic Excellence Framework</h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold">
-                <Sun className="w-5 h-5" />
-              </div>
+              <Sun className="w-6 h-6 text-sky-600" />
               <h3 className="font-bold text-[#0b1e38] text-base">Pre-Primary Wing</h3>
               <p className="text-xs font-bold text-sky-700">Playgroup, Nursery, LKG, UKG</p>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Play-way, Montessori methodology, phonics, color recognition, sensorial exploration, and fine-motor skill exercises.
-              </p>
+              <p className="text-xs text-slate-600 leading-relaxed">Play-way Montessori methodology, phonics, and motor skill exercises.</p>
             </div>
-
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold">
-                <BookOpen className="w-5 h-5" />
-              </div>
+              <BookOpen className="w-6 h-6 text-sky-600" />
               <h3 className="font-bold text-[#0b1e38] text-base">Primary Wing</h3>
               <p className="text-xs font-bold text-sky-700">Classes 1st to 5th</p>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Strong focus on English, Hindi, Mathematics, Environmental Science, Computer Literacy, General Knowledge, and Value Education.
-              </p>
+              <p className="text-xs text-slate-600 leading-relaxed">English, Hindi, Mathematics, EVS, Computer, and Value Education.</p>
             </div>
-
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold">
-                <CompassIcon className="w-5 h-5" />
-              </div>
+              <CompassIcon className="w-6 h-6 text-sky-600" />
               <h3 className="font-bold text-[#0b1e38] text-base">Middle Wing</h3>
               <p className="text-xs font-bold text-sky-700">Classes 6th to 8th</p>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Specialized subject teachers, Science practicals, Social Sciences, Vedic Mathematics, and intensive JNV/Vidyagyan preparation.
-              </p>
+              <p className="text-xs text-slate-600 leading-relaxed">Specialized subject teachers, Science practicals, and JNV/Vidyagyan preparation.</p>
             </div>
-
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold">
-                <GraduationCap className="w-5 h-5" />
-              </div>
+              <GraduationCap className="w-6 h-6 text-sky-600" />
               <h3 className="font-bold text-[#0b1e38] text-base">Senior Secondary</h3>
               <p className="text-xs font-bold text-sky-700">Classes 9th to 12th</p>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Comprehensive Board curriculum in Science (PCM/PCB), Commerce, and Humanities with dedicated competitive coaching.
-              </p>
+              <p className="text-xs text-slate-600 leading-relaxed">Board curriculum in Science (PCM/PCB), Commerce, and Humanities.</p>
             </div>
-
           </div>
-
         </main>
       )}
 
       {/* ========================================================================= */}
-      {/* 🔬 PAGE 5: BEYOND ACADEMICS / FACILITIES */}
+      {/* 🔬 PAGE 5: BEYOND ACADEMICS */}
       {/* ========================================================================= */}
       {currentPage === 'facilities' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
-          
           <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">
-              Campus Infrastructure & Student Life
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">
-              Beyond Academics
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
-              Holistic facilities designed to nurture intellectual, physical, and artistic development.
-            </p>
+            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">Infrastructure</span>
+            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Beyond Academics</h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
               <Cpu className="w-8 h-8 text-sky-600" />
-              <h3 className="font-bold text-[#0b1e38] text-base">Science & Computer Labs</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Fully equipped Physics, Chemistry, Biology, and high-speed Computer labs with multimedia projectors.
-              </p>
+              <h3 className="font-bold text-[#0b1e38] text-base">Science & AI Computer Labs</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">Equipped Physics, Chemistry, Biology, and high-speed Computer labs.</p>
             </div>
-
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
               <Trophy className="w-8 h-8 text-sky-600" />
-              <h3 className="font-bold text-[#0b1e38] text-base">Sports & Yoga Complex</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Spacious athletic fields for Cricket, Volleyball, Badminton, Kho-Kho, and daily morning yoga routines.
-              </p>
+              <h3 className="font-bold text-[#0b1e38] text-base">Sports Complex & Yoga</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">Athletic fields for Cricket, Volleyball, Badminton, and daily yoga.</p>
             </div>
-
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
               <Bus className="w-8 h-8 text-sky-600" />
-              <h3 className="font-bold text-[#0b1e38] text-base">Safe Transport Fleet</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                GPS-enabled school buses and vans connecting over 30+ surrounding villages and townships safely.
-              </p>
+              <h3 className="font-bold text-[#0b1e38] text-base">GPS Bus Fleet</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">Safe transport fleet connecting 30+ surrounding villages and towns.</p>
             </div>
-
           </div>
-
         </main>
       )}
 
       {/* ========================================================================= */}
-      {/* 🏆 PAGE 6: HALL OF FAME (Complete 44+ Qualifiers Point-by-Point) */}
+      {/* 🏆 PAGE 6: HALL OF FAME */}
       {/* ========================================================================= */}
       {currentPage === 'selections' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
-          
           <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">
-              Official Competitive Record
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">
-              Hall of Fame — 44+ Qualifiers
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
-              Our pride of students who qualified for top national institutions from Dadheech Memorial Public School.
-            </p>
+            <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">Official Record</span>
+            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Hall of Fame — 44+ Qualifiers</h1>
           </div>
 
-          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h2 className="text-xl font-black text-[#0b1e38] font-serif flex items-center gap-2">
-                <Trophy className="w-5 h-5 text-amber-500" />
-                <span>Aligarh Muslim University (AMU) Entrance — 23 Students</span>
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {amuStudents.map((s) => (
-                <div key={s.id} className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
-                  <div className="font-bold text-[#0b1e38]">{s.id}. {s.name}</div>
-                  <div className="text-slate-500 text-[11px]">D/o or S/o {s.father}</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5">
+            {allQualifiers.map((s) => (
+              <div key={s.id} className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+                <div className="flex items-center justify-between gap-1">
+                  <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">#{s.id}</span>
+                  <span className="text-[10px] font-bold text-sky-700">{s.org}</span>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h2 className="text-xl font-black text-[#0b1e38] font-serif flex items-center gap-2">
-                <Star className="w-5 h-5 text-amber-500" />
-                <span>Jawahar Navodaya Vidyalaya (JNV) — 10 Students</span>
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {jnvStudents.map((s) => (
-                <div key={s.id} className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
-                  <div className="font-bold text-[#0b1e38]">{s.id}. {s.name}</div>
-                  <div className="text-slate-500 text-[11px]">D/o or S/o {s.father}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
-              <h2 className="text-lg font-black text-[#0b1e38] font-serif">
-                Vidyagyan Leadership Academy — 5 Students
-              </h2>
-              <div className="space-y-2">
-                {vidyagyanStudents.map((s) => (
-                  <div key={s.id} className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs flex justify-between">
-                    <span className="font-bold text-[#0b1e38]">{s.id}. {s.name}</span>
-                    <span className="text-slate-500">S/o / D/o {s.father}</span>
-                  </div>
-                ))}
+                <div className="font-bold text-[#0b1e38] text-xs pt-1">{s.name}</div>
+                <div className="text-slate-500 text-[11px]">S/o or D/o {s.father}</div>
               </div>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
-              <h2 className="text-lg font-black text-[#0b1e38] font-serif">
-                AECS Narora & Central Schools — 6 Students
-              </h2>
-              <div className="space-y-2">
-                {aecsStudents.map((s) => (
-                  <div key={s.id} className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs flex justify-between">
-                    <span className="font-bold text-[#0b1e38]">{s.id}. {s.name}</span>
-                    <span className="text-slate-500">S/o / D/o {s.father}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+            ))}
           </div>
-
         </main>
       )}
 
       {/* ========================================================================= */}
-      {/* 🖼️ PAGE 7: PHOTO GALLERY */}
+      {/* 🖼️ PAGE 7: GALLERY */}
       {/* ========================================================================= */}
       {currentPage === 'gallery' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
           <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">
-              Campus Moments
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">
-              Photo & Event Gallery
-            </h1>
+            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">Moments</span>
+            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Photo & Event Gallery</h1>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {prospectusPages.map((pg) => (
-              <div
-                key={pg.id}
-                onClick={() => setSelectedGalleryImage({ title: pg.title, image: pg.src })}
-                className="rounded-2xl overflow-hidden border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-transform bg-white"
-              >
+              <div key={pg.id} onClick={() => setSelectedGalleryImage({ title: pg.title, image: pg.src })} className="rounded-2xl overflow-hidden border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-transform bg-white">
                 <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-2">
                   <img src={pg.src} alt={pg.title} className="max-h-full object-contain" />
                 </div>
@@ -1423,21 +1387,13 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 📝 PAGE 8: ADMISSIONS 2026-27 (1-Click Application Portal) */}
+      {/* 📝 PAGE 8: ADMISSIONS */}
       {/* ========================================================================= */}
       {currentPage === 'admissions' && (
         <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-          
           <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">
-              Admissions Open 2026-27
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">
-              Online Admission & Inquiry Form
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
-              Fill out the details below. Our admissions desk will get in touch with you within 24 hours.
-            </p>
+            <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">Admissions Open 2026-27</span>
+            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Online Admission & Inquiry Form</h1>
           </div>
 
           <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-2xl">
@@ -1448,10 +1404,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <p className="text-xs text-slate-600 max-w-md mx-auto">
                   Thank you, <strong>{inquiryForm.parentName}</strong>. We have received your inquiry for <strong>{inquiryForm.studentName}</strong> ({inquiryForm.classSeeking}).
                 </p>
-                <button
-                  onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-2.5 rounded-xl bg-[#0b1e38] text-white font-bold text-xs"
-                >
+                <button onClick={() => setIsSubmitted(false)} className="px-6 py-2.5 rounded-xl bg-[#0b1e38] text-white font-bold text-xs">
                   Submit Another Inquiry
                 </button>
               </div>
@@ -1460,49 +1413,22 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-1">Parent / Guardian Name *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Mr. Rajesh Kumar"
-                      value={inquiryForm.parentName}
-                      onChange={(e) => setInquiryForm({ ...inquiryForm, parentName: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none"
-                    />
+                    <input type="text" required placeholder="e.g. Mr. Rajesh Kumar" value={inquiryForm.parentName} onChange={(e) => setInquiryForm({ ...inquiryForm, parentName: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none" />
                   </div>
-
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-1">Mobile / WhatsApp Number *</label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="e.g. 9758975880"
-                      value={inquiryForm.phone}
-                      onChange={(e) => setInquiryForm({ ...inquiryForm, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none"
-                    />
+                    <input type="tel" required placeholder="e.g. 9758975880" value={inquiryForm.phone} onChange={(e) => setInquiryForm({ ...inquiryForm, phone: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-1">Student's Full Name *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Aman Rajput"
-                      value={inquiryForm.studentName}
-                      onChange={(e) => setInquiryForm({ ...inquiryForm, studentName: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none"
-                    />
+                    <input type="text" required placeholder="e.g. Aman Rajput" value={inquiryForm.studentName} onChange={(e) => setInquiryForm({ ...inquiryForm, studentName: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none" />
                   </div>
-
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-1">Grade / Class Seeking *</label>
-                    <select
-                      value={inquiryForm.classSeeking}
-                      onChange={(e) => setInquiryForm({ ...inquiryForm, classSeeking: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none"
-                    >
+                    <select value={inquiryForm.classSeeking} onChange={(e) => setInquiryForm({ ...inquiryForm, classSeeking: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
                       <option>Playgroup (PG)</option>
                       <option>Nursery / LKG / UKG</option>
                       <option>Class 1</option>
@@ -1523,66 +1449,36 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-1">Select Campus Branch *</label>
-                  <select
-                    value={inquiryForm.branch}
-                    onChange={(e) => setInquiryForm({ ...inquiryForm, branch: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none"
-                  >
+                  <select value={inquiryForm.branch} onChange={(e) => setInquiryForm({ ...inquiryForm, branch: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
                     <option>Dadheech Memorial Public School (Main Campus - Ramghat Road Border, Jargwan)</option>
                     <option>DMPS Barheti ADF Campus (Jawan, Chherat, Aligarh)</option>
                     <option>Dadheech Kids School (Vinay Nagar, Sangwan City Road, Quarsi, Aligarh)</option>
                   </select>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-slate-900 mb-1">Questions / Specific Requests (Optional)</label>
-                  <textarea
-                    rows={3}
-                    placeholder="Any specific questions regarding bus transport, hostel, or syllabus..."
-                    value={inquiryForm.message}
-                    onChange={(e) => setInquiryForm({ ...inquiryForm, message: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-xs uppercase tracking-wider shadow-xl flex items-center justify-center gap-2"
-                >
+                <button type="submit" className="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-xs uppercase tracking-wider shadow-xl flex items-center justify-center gap-2">
                   <Send className="w-4 h-4" />
                   <span>Submit Admission Application</span>
                 </button>
               </form>
             )}
           </div>
-
         </main>
       )}
 
       {/* ========================================================================= */}
-      {/* 📞 PAGE 9: CONTACT US & OFFICIAL MEDIA HUB */}
+      {/* 📞 PAGE 9: CONTACT US */}
       {/* ========================================================================= */}
       {currentPage === 'contact' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
-          
           <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">
-              Get in Touch
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">
-              Contact Campus Offices
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
-              Reach out to our campus offices for admissions, transport routes, and academic inquiries.
-            </p>
+            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">Get in Touch</span>
+            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Contact Campus Offices</h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
-              <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-black">
-                Main Senior Campus
-              </span>
+              <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-black">Main Senior Campus</span>
               <h3 className="text-base font-black text-[#0b1e38] font-serif">DMPS Main Campus</h3>
               <p className="text-xs text-slate-600 flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
@@ -1595,9 +1491,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
 
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
-              <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-black">
-                Barheti Campus
-              </span>
+              <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-black">Barheti Campus</span>
               <h3 className="text-base font-black text-[#0b1e38] font-serif">DMPS Barheti Campus</h3>
               <p className="text-xs text-slate-600 flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
@@ -1610,9 +1504,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
 
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
-              <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-black">
-                Kids City Campus
-              </span>
+              <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-black">Kids City Campus</span>
               <h3 className="text-base font-black text-[#0b1e38] font-serif">Dadheech Kids School</h3>
               <p className="text-xs text-slate-600 flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
@@ -1623,135 +1515,12 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <p className="text-slate-500">dadheechkids@gmail.com</p>
               </div>
             </div>
-
           </div>
-
-          {/* 🌐 Connect with Us (All 6 Official Channels & Apps Grid) */}
-          <div className="p-8 rounded-3xl bg-[#0b1e38] text-white border border-slate-800 shadow-2xl space-y-6">
-            <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-white/10 text-amber-300 font-black text-xs uppercase tracking-wider border border-white/20">
-                Official Digital Media & App
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black text-white font-serif">
-                Connect With Dadheech Educational Group
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto">
-                Subscribe to our channels for daily lectures, events, school activities, and download the official student app.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              
-              {/* 1. YouTube Channel 1 */}
-              <a
-                href="https://www.youtube.com/@dadheecheducationtrainingi24"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 transition-all hover:scale-[1.02] shadow-md group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
-                  <YouTubeIcon className="w-7 h-7" />
-                </div>
-                <div className="min-w-0">
-                  <h4 className="font-bold text-white text-xs group-hover:underline truncate">YouTube (Education & Training)</h4>
-                  <p className="text-[11px] text-slate-400 truncate">@dadheecheducationtrainingi24</p>
-                  <span className="text-[10px] text-red-400 font-bold flex items-center gap-1 mt-0.5">Watch Lectures ↗</span>
-                </div>
-              </a>
-
-              {/* 2. YouTube Channel 2 */}
-              <a
-                href="https://www.youtube.com/@dadheechactivities1379"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 transition-all hover:scale-[1.02] shadow-md group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
-                  <YouTubeIcon className="w-7 h-7" />
-                </div>
-                <div className="min-w-0">
-                  <h4 className="font-bold text-white text-xs group-hover:underline truncate">YouTube (School Activities)</h4>
-                  <p className="text-[11px] text-slate-400 truncate">@dadheechactivities1379</p>
-                  <span className="text-[10px] text-red-400 font-bold flex items-center gap-1 mt-0.5">Annual Functions & Sports ↗</span>
-                </div>
-              </a>
-
-              {/* 3. Facebook 1 */}
-              <a
-                href="https://www.facebook.com/dadheech.dadheech.37/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 transition-all hover:scale-[1.02] shadow-md group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
-                  <FacebookIcon className="w-7 h-7" />
-                </div>
-                <div className="min-w-0">
-                  <h4 className="font-bold text-white text-xs group-hover:underline truncate">Facebook (Dadheech Schools)</h4>
-                  <p className="text-[11px] text-slate-400 truncate">@dadheech.dadheech.37</p>
-                  <span className="text-[10px] text-blue-400 font-bold flex items-center gap-1 mt-0.5">Follow Campus Updates ↗</span>
-                </div>
-              </a>
-
-              {/* 4. Facebook 2 */}
-              <a
-                href="https://www.facebook.com/people/Dadheech-Education/100048106256592/?sk=about"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 transition-all hover:scale-[1.02] shadow-md group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
-                  <FacebookIcon className="w-7 h-7" />
-                </div>
-                <div className="min-w-0">
-                  <h4 className="font-bold text-white text-xs group-hover:underline truncate">Facebook (Dadheech Education)</h4>
-                  <p className="text-[11px] text-slate-400 truncate">Dadheech Educational Society</p>
-                  <span className="text-[10px] text-blue-400 font-bold flex items-center gap-1 mt-0.5">Official Society Page ↗</span>
-                </div>
-              </a>
-
-              {/* 5. Instagram */}
-              <a
-                href="https://www.instagram.com/dadheechschool/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 transition-all hover:scale-[1.02] shadow-md group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
-                  <InstagramIcon className="w-7 h-7" />
-                </div>
-                <div className="min-w-0">
-                  <h4 className="font-bold text-white text-xs group-hover:underline truncate">Instagram (@dadheechschool)</h4>
-                  <p className="text-[11px] text-slate-400 truncate">Official DMPS Instagram</p>
-                  <span className="text-[10px] text-pink-400 font-bold flex items-center gap-1 mt-0.5">Reels, Photos & News ↗</span>
-                </div>
-              </a>
-
-              {/* 6. Google Play Store App */}
-              <a
-                href="https://play.google.com/store/apps/details?id=co.thanos.iymus&pcampaignid=web_share"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 transition-all hover:scale-[1.02] shadow-md group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
-                  <PlayStoreIcon className="w-7 h-7" />
-                </div>
-                <div className="min-w-0">
-                  <h4 className="font-bold text-white text-xs group-hover:underline truncate">Dadheech Classes App</h4>
-                  <p className="text-[11px] text-slate-400 truncate">Google Play Store</p>
-                  <span className="text-[10px] text-emerald-400 font-bold flex items-center gap-1 mt-0.5">Download Android App ↗</span>
-                </div>
-              </a>
-
-            </div>
-          </div>
-
         </main>
       )}
 
       {/* ========================================================================= */}
-      {/* 📞 GRAND MODERN FOOTER (with "Designed & Developed by Prashant Rajput") */}
+      {/* 📞 GRAND MODERN FOOTER */}
       {/* ========================================================================= */}
       <footer className="bg-[#0b1e38] text-slate-300 pt-12 pb-6 text-xs border-t border-slate-800 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -1759,11 +1528,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           <div className="space-y-3">
             <div className="flex items-center gap-2.5">
               <div className="w-10 h-10 rounded-full bg-white p-0.5 shadow-md border-2 border-amber-400 shrink-0">
-                <img
-                  src="/logo.png"
-                  alt="Dadheech Educational Group Crest"
-                  className="w-full h-full object-contain rounded-full"
-                />
+                <img src="/logo.png" alt="Dadheech Crest" className="w-full h-full object-contain rounded-full" />
               </div>
               <div>
                 <span className="font-black text-sm text-white font-serif block">Dadheech</span>
@@ -1780,10 +1545,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <h4 className="font-bold text-white mb-3 text-sm">Quick Navigation</h4>
             <ul className="space-y-1.5 text-[11px]">
               <li><button onClick={() => navigateTo('home')} className="hover:text-amber-400 transition-colors">Home</button></li>
-              <li><button onClick={() => navigateTo('about')} className="hover:text-amber-400 transition-colors">About & Leadership</button></li>
+              <li><button onClick={() => navigateTo('founder')} className="hover:text-amber-400 transition-colors">Late Mr. Dauli Singh (Founder)</button></li>
+              <li><button onClick={() => navigateTo('md')} className="hover:text-amber-400 transition-colors">Mr. Pramod Kumar Rajput (MD)</button></li>
+              <li><button onClick={() => navigateTo('principal')} className="hover:text-amber-400 transition-colors">Mrs. Kavita Rani (Principal)</button></li>
               <li><button onClick={() => navigateTo('campuses')} className="hover:text-amber-400 transition-colors">Our 3 Campuses</button></li>
-              <li><button onClick={() => navigateTo('academic')} className="hover:text-amber-400 transition-colors">Academic Curriculum</button></li>
-              <li><button onClick={() => navigateTo('facilities')} className="hover:text-amber-400 transition-colors">Beyond Academics</button></li>
               <li><button onClick={() => navigateTo('selections')} className="hover:text-amber-400 transition-colors">Hall of Fame (44+)</button></li>
               <li><button onClick={() => navigateTo('admissions')} className="hover:text-amber-400 transition-colors">Admissions 2026-27</button></li>
             </ul>
@@ -1819,81 +1584,44 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
         </div>
 
-        {/* 🌟 Social & Official Channels Bar (Fully Clickable & Connected with Brand Icons!) */}
+        {/* 🌟 Social & Official Channels Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 bg-slate-900 rounded-2xl border border-slate-800 flex flex-wrap items-center justify-between gap-4 text-[11px] text-slate-300 shadow-xl">
           <div className="flex items-center gap-3.5 flex-wrap font-semibold">
             <span className="text-amber-400 font-black tracking-wide uppercase text-[10px] bg-slate-800 px-2.5 py-1 rounded border border-slate-700">
               Official Channels:
             </span>
             
-            {/* Facebook 1 Link */}
-            <a
-              href="https://www.facebook.com/dadheech.dadheech.37/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group"
-            >
+            <a href="https://www.facebook.com/dadheech.dadheech.37/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
               <FacebookIcon className="w-4 h-4 shrink-0" />
               <span className="group-hover:underline">Facebook (Schools)</span>
             </a>
 
-            {/* Facebook 2 Link */}
-            <a
-              href="https://www.facebook.com/people/Dadheech-Education/100048106256592/?sk=about"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group"
-            >
+            <a href="https://www.facebook.com/people/Dadheech-Education/100048106256592/?sk=about" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
               <FacebookIcon className="w-4 h-4 shrink-0" />
               <span className="group-hover:underline">Facebook (Education)</span>
             </a>
 
-            {/* Instagram Link */}
-            <a
-              href="https://www.instagram.com/dadheechschool/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group"
-            >
+            <a href="https://www.instagram.com/dadheechschool/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
               <InstagramIcon className="w-4 h-4 shrink-0" />
               <span className="group-hover:underline">@dadheechschool</span>
             </a>
 
-            {/* Dadheech Classes Play Store App Link */}
-            <a
-              href="https://play.google.com/store/apps/details?id=co.thanos.iymus&pcampaignid=web_share"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group"
-            >
+            <a href="https://play.google.com/store/apps/details?id=co.thanos.iymus&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
               <PlayStoreIcon className="w-4 h-4 shrink-0" />
               <span className="group-hover:underline">Dadheech Classes App</span>
             </a>
 
-            {/* YouTube 1 Link */}
-            <a
-              href="https://www.youtube.com/@dadheecheducationtrainingi24"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group"
-            >
+            <a href="https://www.youtube.com/@dadheecheducationtrainingi24" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
               <YouTubeIcon className="w-4 h-4 shrink-0" />
               <span className="group-hover:underline">YouTube (Training)</span>
             </a>
 
-            {/* YouTube 2 Link */}
-            <a
-              href="https://www.youtube.com/@dadheechactivities1379"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group"
-            >
+            <a href="https://www.youtube.com/@dadheechactivities1379" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
               <YouTubeIcon className="w-4 h-4 shrink-0" />
               <span className="group-hover:underline">YouTube (Activities)</span>
             </a>
           </div>
 
-          {/* Quick Call Numbers */}
           <div className="flex items-center gap-3 text-[11px] font-bold text-slate-200 font-mono bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
             <a href="tel:+919758975880" className="hover:underline hover:text-white">📞 9758975880</a>
             <span>•</span>
@@ -1905,7 +1633,6 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
           <p>© 2002 - 2026 Dadheech Memorial Public School (DMPS). All Rights Reserved.</p>
           
-          {/* ✨ Developed by Prashant Rajput */}
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900 border border-sky-500/40 text-slate-200 font-bold shadow-md">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
@@ -1918,21 +1645,14 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
         </div>
       </footer>
 
-      {/* 🔍 Lightbox Preview Modal */}
+      {/* 🔍 Lightbox Modal */}
       {selectedGalleryImage && (
         <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl p-3 modal-transition border border-slate-200">
-            <button
-              onClick={() => setSelectedGalleryImage(null)}
-              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-rose-600 transition-colors"
-            >
+            <button onClick={() => setSelectedGalleryImage(null)} className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-rose-600 transition-colors">
               <X className="w-5 h-5" />
             </button>
-            <img
-              src={selectedGalleryImage.image}
-              alt={selectedGalleryImage.title}
-              className="w-full max-h-[75vh] object-contain rounded-2xl"
-            />
+            <img src={selectedGalleryImage.image} alt={selectedGalleryImage.title} className="w-full max-h-[75vh] object-contain rounded-2xl" />
             <div className="p-3 text-center">
               <h4 className="font-black text-slate-900 text-sm">{selectedGalleryImage.title}</h4>
             </div>
@@ -1940,27 +1660,19 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
         </div>
       )}
 
-      {/* 📑 Prospectus Booklet Viewer Modal (Browse Authentic Pages) */}
+      {/* 📑 Prospectus Modal */}
       {prospectusModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden p-6 shadow-2xl space-y-4 modal-transition border border-slate-200">
-            
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-[#0b1e38] text-white flex items-center justify-center font-bold text-xs">
-                  DMPS
-                </div>
+                <div className="w-8 h-8 rounded-full bg-[#0b1e38] text-white flex items-center justify-center font-bold text-xs">DMPS</div>
                 <div>
-                  <h3 className="font-black text-slate-900 text-base">
-                    DMPS Official Prospectus & Information Brochure
-                  </h3>
+                  <h3 className="font-black text-slate-900 text-base">DMPS Official Prospectus & Brochure</h3>
                   <p className="text-xs text-slate-500">Dadheech Educational Society & Training Institute</p>
                 </div>
               </div>
-              <button
-                onClick={() => setProspectusModalOpen(false)}
-                className="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-rose-500 hover:text-white transition-colors"
-              >
+              <button onClick={() => setProspectusModalOpen(false)} className="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-rose-500 hover:text-white transition-colors">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -1971,9 +1683,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   key={idx}
                   onClick={() => setSelectedProspectusPage(idx)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${
-                    selectedProspectusPage === idx
-                      ? 'bg-[#0b1e38] text-white shadow-md'
-                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    selectedProspectusPage === idx ? 'bg-[#0b1e38] text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                 >
                   Page {idx + 1}: {pg.title}
@@ -1982,41 +1692,20 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
 
             <div className="max-h-[65vh] overflow-y-auto rounded-2xl border border-slate-200 bg-slate-50 flex items-center justify-center p-2">
-              <img
-                src={prospectusPages[selectedProspectusPage].src}
-                alt={prospectusPages[selectedProspectusPage].title}
-                className="max-h-[60vh] w-auto object-contain rounded shadow"
-              />
+              <img src={prospectusPages[selectedProspectusPage].src} alt={prospectusPages[selectedProspectusPage].title} className="max-h-[60vh] w-auto object-contain rounded shadow" />
             </div>
 
             <div className="flex items-center justify-between pt-2 border-t border-slate-200 text-xs">
               <div className="flex items-center gap-2">
-                <button
-                  disabled={selectedProspectusPage === 0}
-                  onClick={() => setSelectedProspectusPage((prev) => prev - 1)}
-                  className="px-3 py-1.5 rounded bg-slate-100 text-slate-700 disabled:opacity-40 font-bold"
-                >
-                  Previous Page
-                </button>
-                <button
-                  disabled={selectedProspectusPage === prospectusPages.length - 1}
-                  onClick={() => setSelectedProspectusPage((prev) => prev + 1)}
-                  className="px-3 py-1.5 rounded bg-slate-100 text-slate-700 disabled:opacity-40 font-bold"
-                >
-                  Next Page
-                </button>
+                <button disabled={selectedProspectusPage === 0} onClick={() => setSelectedProspectusPage((prev) => prev - 1)} className="px-3 py-1.5 rounded bg-slate-100 text-slate-700 disabled:opacity-40 font-bold">Previous</button>
+                <button disabled={selectedProspectusPage === prospectusPages.length - 1} onClick={() => setSelectedProspectusPage((prev) => prev + 1)} className="px-3 py-1.5 rounded bg-slate-100 text-slate-700 disabled:opacity-40 font-bold">Next</button>
               </div>
 
-              <a
-                href={prospectusPages[selectedProspectusPage].src}
-                download={`DMPS_Prospectus_Page_${selectedProspectusPage + 1}.png`}
-                className="px-4 py-1.5 rounded-lg bg-[#0b1e38] text-white font-bold flex items-center gap-1.5 hover:bg-slate-800"
-              >
-                <Download className="w-3.5 h-3.5" />
-                <span>Save Scanned Page</span>
+              <a href={prospectusPages[selectedProspectusPage].src} download={`DMPS_Prospectus_Page_${selectedProspectusPage + 1}.png`} className="px-4 py-1.5 rounded-lg bg-[#0b1e38] text-white font-bold flex items-center gap-1.5 hover:bg-slate-800">
+                <Download className="w-3.5 h-3.5 text-amber-400" />
+                <span>Save Page</span>
               </a>
             </div>
-
           </div>
         </div>
       )}
