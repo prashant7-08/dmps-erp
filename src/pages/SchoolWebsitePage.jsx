@@ -711,7 +711,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex items-center gap-2">
                     <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black uppercase">
-                      Founder & Treasurer
+                      Founder
                     </span>
                     <span className="text-xs text-slate-500">Dadheech Educational Society (Regd. 1131)</span>
                   </div>
@@ -727,7 +727,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                       onClick={() => navigateTo('founder')}
                       className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow hover:bg-slate-800 transition-all"
                     >
-                      <span>Read Founder's Complete Biography & Vision</span>
+                      <span>Read Founder Message & Vision</span>
                       <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
                     </button>
                   </div>
@@ -741,7 +741,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     />
                   </div>
                   <h4 className="font-bold text-[#0b1e38] text-base mt-2">Late Mr. Dauli Singh</h4>
-                  <p className="text-xs text-amber-900 font-medium">Visionary Founder of Dadheech Educational Society & Training Institute (Estd. July 2002)</p>
+                  <p className="text-xs text-amber-900 font-medium">Visionary Founder (Estd. July 2002)</p>
                 </div>
               </div>
             )}
@@ -751,7 +751,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex items-center gap-2">
                     <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-900 text-xs font-black uppercase">
-                      Managing Director & Manager
+                      Managing Director
                     </span>
                     <span className="text-xs text-slate-500">DMPS Educational Group</span>
                   </div>
@@ -767,7 +767,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                       onClick={() => navigateTo('md')}
                       className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow hover:bg-slate-800 transition-all"
                     >
-                      <span>Read Managing Director's Message & Strategy</span>
+                      <span>Read Managing Director Message</span>
                       <ArrowRight className="w-3.5 h-3.5 text-sky-400" />
                     </button>
                   </div>
@@ -781,7 +781,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     />
                   </div>
                   <h4 className="font-bold text-[#0b1e38] text-base mt-2">Mr. Pramod Kumar Rajput</h4>
-                  <p className="text-xs text-sky-900 font-medium">Managing Director • Overseeing 3 Campuses & Academic Excellence Programs</p>
+                  <p className="text-xs text-sky-900 font-medium">Managing Director • 3 Campuses</p>
                 </div>
               </div>
             )}
@@ -807,7 +807,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                       onClick={() => navigateTo('principal')}
                       className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow hover:bg-slate-800 transition-all"
                     >
-                      <span>Read Principal's Complete Welcome Message</span>
+                      <span>Read Principal Message</span>
                       <ArrowRight className="w-3.5 h-3.5 text-indigo-400" />
                     </button>
                   </div>
@@ -821,7 +821,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     />
                   </div>
                   <h4 className="font-bold text-[#0b1e38] text-base mt-2">Mrs. Kavita Rani</h4>
-                  <p className="text-xs text-indigo-900 font-medium">Principal • Educationalist & Champion of Student-Centric Pedagogy</p>
+                  <p className="text-xs text-indigo-900 font-medium">Principal • Educationalist</p>
                 </div>
               </div>
             )}
@@ -1042,22 +1042,22 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       {currentPage === 'founder' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-in fade-in duration-300">
           
-          {/* 🏷️ Grand Top Header Banner (Above both text & photo) */}
+          {/* 🏷️ Top Header Banner with Designation */}
           <div className="bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-amber-500/5 p-6 sm:p-8 rounded-3xl border-2 border-amber-300/80 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-2">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-3 py-1 rounded-full bg-amber-400 text-[#0b1e38] text-xs font-black tracking-wider uppercase shadow-sm">
-                  👑 Founder & Visionary
+                  👑 Founder
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-slate-200 shadow-sm">
                   Pillar of Foundation • Estd. July 2002
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0b1e38] font-serif tracking-tight">
-                Late Mr. Dauli Singh
+                Founder Message
               </h1>
               <p className="text-xs sm:text-sm font-semibold text-amber-900">
-                Founder & Treasurer, Dadheech Educational Society & Training Institute (Regd. 1131)
+                Dadheech Educational Society & Training Institute (Regd. 1131)
               </p>
             </div>
 
@@ -1069,14 +1069,14 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </button>
           </div>
 
-          {/* 📄 Main Content Card (Left: Text Details | Right: Large Portrait Photo) */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* 📄 Main Content Card (Left: Crisp Quote & Intro | Right: Large Portrait Photo) */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* 📝 LEFT COLUMN (7 Cols): Biography, Philosophy & Quote */}
+            {/* 📝 LEFT COLUMN (7 Cols): Crisp Thought & Philosophy */}
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="text-xs font-black text-amber-700 uppercase tracking-widest block mb-1">
-                  Visionary Leadership Message
+                  Visionary Message
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif">
                   Enlightening Minds from Darkness to Brightness
@@ -1085,30 +1085,23 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                 <p>
-                  <strong>Late Mr. Dauli Singh</strong> envisioned Dadheech Memorial Public School as a sacred lighthouse of knowledge for rural, semi-urban, and aspiring students. He believed that education is the most powerful vehicle for human dignity, moral discipline, and societal upliftment.
+                  <strong>Late Mr. Dauli Singh</strong> established Dadheech Memorial Public School in July 2002 as a sacred lighthouse of knowledge, instilling timeless moral values and academic excellence that have produced 44+ selections across AMU, JNV, and Vidyagyan.
                 </p>
 
                 {/* Golden Highlighted Quote Box */}
-                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/60 to-white border-2 border-amber-300 shadow-md space-y-2 my-4">
+                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/60 to-white border-2 border-amber-300 shadow-md space-y-2 my-2">
                   <Quote className="w-10 h-10 text-amber-400/40 absolute -top-3 -left-3" />
                   <p className="text-sm sm:text-base text-slate-900 italic font-serif leading-relaxed">
                     "Our aim has always been to remove the darkness of ignorance from rural and semi-urban children and enlighten their path towards self-reliance, national character, and academic brilliance. Every child holds immense potential; our sacred duty is to provide the light of disciplined knowledge."
                   </p>
-                  <span className="block text-right text-xs font-black text-amber-900 uppercase tracking-wider pt-1">
-                    — Late Mr. Dauli Singh
+                  <span className="block text-right text-xs font-black text-amber-900 uppercase tracking-wider pt-2">
+                    — Late Mr. Dauli Singh (Founder)
                   </span>
                 </div>
-
-                <p>
-                  Under his foundational stewardship, the institution grew from its inaugural campus on Ramghat Road Border in Jargwan to 3 distinct branches across Bulandshahr and Aligarh, instilling values that have produced 44+ selections in premier national institutions including Aligarh Muslim University (AMU), Jawahar Navodaya Vidyalaya (JNV), and Vidyagyan Academy.
-                </p>
-
-                <p>
-                  His selfless devotion, exemplary character, and commitment to rural education remain the bedrock and guiding philosophy for every teacher and student walking the halls of Dadheech Educational Group.
-                </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3">
+              {/* Action Buttons Directly Below */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => navigateTo('admissions')}
                   className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-[#0b1e38] font-black text-xs uppercase tracking-wider shadow-md transition-all"
@@ -1136,7 +1129,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </div>
                 <div className="p-4 text-center space-y-1">
                   <h3 className="text-lg font-black text-[#0b1e38] font-serif">Late Mr. Dauli Singh</h3>
-                  <p className="text-xs font-bold text-amber-900 uppercase tracking-wide">Visionary Founder & Treasurer</p>
+                  <p className="text-xs font-bold text-amber-900 uppercase tracking-wide">Visionary Founder</p>
                   <p className="text-[11px] text-slate-500">Dadheech Educational Society (Estd. July 2002)</p>
                 </div>
               </div>
@@ -1152,7 +1145,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       {currentPage === 'md' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-in fade-in duration-300">
           
-          {/* 🏷️ Grand Top Header Banner (Above both text & photo) */}
+          {/* 🏷️ Top Header Banner with Designation */}
           <div className="bg-gradient-to-r from-sky-500/15 via-blue-500/10 to-sky-500/5 p-6 sm:p-8 rounded-3xl border-2 border-sky-300/80 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-2">
               <div className="flex items-center gap-2 flex-wrap">
@@ -1164,10 +1157,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0b1e38] font-serif tracking-tight">
-                Mr. Pramod Kumar Rajput
+                Managing Director Message
               </h1>
               <p className="text-xs sm:text-sm font-semibold text-sky-900">
-                Managing Director & Manager, Dadheech Educational Society & Campuses
+                Dadheech Educational Society & Campuses
               </p>
             </div>
 
@@ -1179,46 +1172,39 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </button>
           </div>
 
-          {/* 📄 Main Content Card (Left: Text Details | Right: Large Portrait Photo) */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* 📄 Main Content Card (Left: Crisp Quote & Intro | Right: Large Portrait Photo) */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* 📝 LEFT COLUMN (7 Cols): Strategy, Academic Direction & Message */}
+            {/* 📝 LEFT COLUMN (7 Cols): Crisp Thought & Philosophy */}
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="text-xs font-black text-sky-700 uppercase tracking-widest block mb-1">
-                  Message from Managing Director
+                  Managing Director's Perspective
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif">
-                  Fostering Scientific Temperament & National Academic Excellence
+                  Fostering Scientific Temperament & Academic Excellence
                 </h2>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                 <p>
-                  <strong>Mr. Pramod Kumar Rajput</strong> has spearheaded the academic expansion, technological modernizations, and competitive entrance wings across all 3 DMPS campuses.
+                  <strong>Mr. Pramod Kumar Rajput</strong> spearheads academic expansion, modern science and computer laboratories, and competitive entrance wings across all 3 DMPS campuses under Bhartiya Shiksha Board standards.
                 </p>
 
                 {/* Sky Highlighted Quote Box */}
-                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-sky-50 via-blue-50/60 to-white border-2 border-sky-300 shadow-md space-y-2 my-4">
+                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-sky-50 via-blue-50/60 to-white border-2 border-sky-300 shadow-md space-y-2 my-2">
                   <Quote className="w-10 h-10 text-sky-400/40 absolute -top-3 -left-3" />
                   <p className="text-sm sm:text-base text-slate-900 italic font-serif leading-relaxed">
                     "We provide an environment where children cultivate curiosity, scientific temperament, and moral fortitude. With 44+ selections in premier institutions like AMU, JNV, and Vidyagyan, our students continue to prove that personalized attention and dedicated coaching turn aspirations into reality."
                   </p>
-                  <span className="block text-right text-xs font-black text-sky-900 uppercase tracking-wider pt-1">
-                    — Mr. Pramod Kumar Rajput
+                  <span className="block text-right text-xs font-black text-sky-900 uppercase tracking-wider pt-2">
+                    — Mr. Pramod Kumar Rajput (Managing Director)
                   </span>
                 </div>
-
-                <p>
-                  His forward-looking leadership has integrated smart interactive boards, state-of-the-art physics, chemistry, biology, and computer labs, while maintaining an unyielding commitment to student safety, bus fleet tracking, and sports development.
-                </p>
-
-                <p>
-                  Under his management, DMPS has forged strong pedagogical standards aligned with the Bhartiya Shiksha Board (BSB) curriculum, ensuring every learner is equipped for competitive success in STEM, Commerce, and Humanities.
-                </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3">
+              {/* Action Buttons Directly Below */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => navigateTo('selections')}
                   className="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-black text-xs uppercase tracking-wider shadow-md transition-all"
@@ -1246,7 +1232,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </div>
                 <div className="p-4 text-center space-y-1">
                   <h3 className="text-lg font-black text-[#0b1e38] font-serif">Mr. Pramod Kumar Rajput</h3>
-                  <p className="text-xs font-bold text-sky-900 uppercase tracking-wide">Managing Director & Manager</p>
+                  <p className="text-xs font-bold text-sky-900 uppercase tracking-wide">Managing Director</p>
                   <p className="text-[11px] text-slate-500">Overseeing 3 Campuses & Academic Wings</p>
                 </div>
               </div>
@@ -1262,7 +1248,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       {currentPage === 'principal' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-in fade-in duration-300">
           
-          {/* 🏷️ Grand Top Header Banner (Above both text & photo) */}
+          {/* 🏷️ Top Header Banner with Designation */}
           <div className="bg-gradient-to-r from-indigo-500/15 via-purple-500/10 to-indigo-500/5 p-6 sm:p-8 rounded-3xl border-2 border-indigo-300/80 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-2">
               <div className="flex items-center gap-2 flex-wrap">
@@ -1274,10 +1260,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0b1e38] font-serif tracking-tight">
-                Mrs. Kavita Rani
+                Principal Message
               </h1>
               <p className="text-xs sm:text-sm font-semibold text-indigo-900">
-                Principal & Educationalist, Dadheech Memorial Public School
+                Dadheech Memorial Public School
               </p>
             </div>
 
@@ -1289,46 +1275,39 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </button>
           </div>
 
-          {/* 📄 Main Content Card (Left: Text Details | Right: Large Portrait Photo) */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* 📄 Main Content Card (Left: Crisp Quote & Intro | Right: Large Portrait Photo) */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* 📝 LEFT COLUMN (7 Cols): Pedagogy, Welcome Message & Values */}
+            {/* 📝 LEFT COLUMN (7 Cols): Crisp Thought & Pedagogy */}
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="text-xs font-black text-indigo-700 uppercase tracking-widest block mb-1">
-                  Welcome from the Principal
+                  Principal's Welcome
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif">
-                  Nurturing Critical Thinkers, Scholars & Global Citizens
+                  Nurturing Critical Thinkers & Global Scholars
                 </h2>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                 <p>
-                  <strong>Mrs. Kavita Rani</strong> brings a rich student-centered pedagogical philosophy, emphasizing holistic cognitive, emotional, and social growth for every learner.
+                  <strong>Mrs. Kavita Rani</strong> champions student-centric experiential learning and cognitive growth, guiding holistic co-curricular opportunities, athletic development, and dedicated individual mentorship.
                 </p>
 
                 {/* Indigo Highlighted Quote Box */}
-                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50/60 to-white border-2 border-indigo-300 shadow-md space-y-2 my-4">
+                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50/60 to-white border-2 border-indigo-300 shadow-md space-y-2 my-2">
                   <Quote className="w-10 h-10 text-indigo-400/40 absolute -top-3 -left-3" />
                   <p className="text-sm sm:text-base text-slate-900 italic font-serif leading-relaxed">
                     "Education is not merely the accumulation of facts; it is the training of the mind to think critically. We nurture each child with love, disciplined guidance, and experiential pedagogy so that they grow with confidence, empathy, and world-class competence."
                   </p>
-                  <span className="block text-right text-xs font-black text-indigo-900 uppercase tracking-wider pt-1">
-                    — Mrs. Kavita Rani
+                  <span className="block text-right text-xs font-black text-indigo-900 uppercase tracking-wider pt-2">
+                    — Mrs. Kavita Rani (Principal)
                   </span>
                 </div>
-
-                <p>
-                  Under her guidance, the school implements comprehensive co-curricular programs spanning arts, sports, debating, science exhibitions, and character-building activities. She places great emphasis on individual mentorship, ensuring no child is left behind.
-                </p>
-
-                <p>
-                  She invites parents to be active partners in their children's educational journey, establishing transparent communication through our modern digital ERP systems and regular parent-teacher dialogues.
-                </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3">
+              {/* Action Buttons Directly Below */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => navigateTo('admissions')}
                   className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs uppercase tracking-wider shadow-md transition-all"
@@ -1372,22 +1351,22 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       {currentPage === 'dedication' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-in fade-in duration-300">
           
-          {/* 🏷️ Grand Top Header Banner (Above both text & photo) */}
+          {/* 🏷️ Top Header Banner with Designation */}
           <div className="bg-gradient-to-r from-amber-500/15 via-rose-500/10 to-amber-500/5 p-6 sm:p-8 rounded-3xl border-2 border-amber-300/80 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-2">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-3 py-1 rounded-full bg-amber-400 text-[#0b1e38] text-xs font-black tracking-wider uppercase shadow-sm">
-                  🌸 Sacred Heritage & Dedication
+                  🌸 Sacred Inspiration
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-slate-200 shadow-sm">
                   Born 1st October 1975 • Consecrated 4th July 2002
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0b1e38] font-serif tracking-tight">
-                Late Dadheech Kumar Rajput
+                Sacred Dedication Message
               </h1>
               <p className="text-xs sm:text-sm font-semibold text-amber-900">
-                The Sacred Inspiration Behind Dadheech Memorial Public School
+                The Sacred Memory Behind Dadheech Memorial Public School
               </p>
             </div>
 
@@ -1399,39 +1378,39 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </button>
           </div>
 
-          {/* 📄 Main Content Card (Left: Text Details | Right: Large Portrait Photo) */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* 📄 Main Content Card (Left: Crisp Quote & Intro | Right: Large Portrait Photo) */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* 📝 LEFT COLUMN (7 Cols): Sacred History & Foundation Story */}
+            {/* 📝 LEFT COLUMN (7 Cols): Sacred History & Foundation */}
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="text-xs font-black text-amber-700 uppercase tracking-widest block mb-1">
-                  Sacred Consecration & Heritage
+                  Sacred Dedication
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif">
-                  A Life of Brilliance, Technical Innovation & Sacred Memory
+                  A Life of Brilliance & Technical Innovation
                 </h2>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                 <p>
-                  Dadheech Memorial Public School was established in July 2002 and consecrated on <strong>4th July 2002</strong> by <strong>Rajveer Singh urf Raju Bhaiya</strong>, former Health Minister of Uttar Pradesh.
+                  Dadheech Memorial Public School was established in July 2002 and consecrated on <strong>4th July 2002</strong> by <strong>Rajveer Singh urf Raju Bhaiya</strong>, former Health Minister of Uttar Pradesh, dedicated to the immortal vision: <em>"Darkness to Brightness"</em>.
                 </p>
 
                 {/* Amber Highlighted Memory Box */}
-                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/60 to-white border-2 border-amber-300 shadow-md space-y-2 my-4">
+                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/60 to-white border-2 border-amber-300 shadow-md space-y-2 my-2">
                   <Quote className="w-10 h-10 text-amber-400/40 absolute -top-3 -left-3" />
                   <p className="text-sm sm:text-base text-slate-900 italic font-serif leading-relaxed">
-                    "The institution is dedicated to the sacred memory of Late Dadheech Kumar Rajput (born 1st October 1975 at Nagla Kothi, Jargwan, Bulandshahr — Engineer at Shriram Piston & Rings Ltd. Ghaziabad). His devotion to excellence, discipline, and technological innovation continues to illuminate our institution's vision: Darkness to Brightness."
+                    "The institution is dedicated to the sacred memory of Late Dadheech Kumar Rajput (born 1st October 1975 at Nagla Kothi, Jargwan, Bulandshahr — Engineer at Shriram Piston & Rings Ltd. Ghaziabad). His devotion to excellence, discipline, and technological innovation continues to illuminate our institution."
                   </p>
+                  <span className="block text-right text-xs font-black text-amber-900 uppercase tracking-wider pt-2">
+                    — In Sacred Memory of Late Dadheech Kumar Rajput
+                  </span>
                 </div>
-
-                <p>
-                  His memory continues to inspire the foundation of Dadheech Educational Group, fostering an institution where thousands of children receive top-tier academic coaching and moral grooming.
-                </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3">
+              {/* Action Buttons Directly Below */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => navigateTo('home')}
                   className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-[#0b1e38] font-black text-xs uppercase tracking-wider shadow-md transition-all"
@@ -1488,7 +1467,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               <div className="text-center space-y-1">
                 <span className="px-2.5 py-0.5 rounded bg-amber-100 text-amber-900 text-[10px] font-black uppercase">Founder Profile</span>
                 <h3 className="text-lg font-black text-[#0b1e38]">Late Mr. Dauli Singh</h3>
-                <p className="text-xs text-slate-600">Visionary Founder & Treasurer. Established the institution in July 2002.</p>
+                <p className="text-xs text-slate-600">Visionary Founder. Established the institution in July 2002.</p>
                 <span className="text-xs font-bold text-amber-700 flex items-center justify-center gap-1 pt-2">Read Dedicated Page ↗</span>
               </div>
             </div>
@@ -1500,7 +1479,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               <div className="text-center space-y-1">
                 <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-900 text-[10px] font-black uppercase">Managing Director</span>
                 <h3 className="text-lg font-black text-[#0b1e38]">Mr. Pramod Kumar Rajput</h3>
-                <p className="text-xs text-slate-600">Managing Director & Manager overseeing academic programs and campuses.</p>
+                <p className="text-xs text-slate-600">Managing Director overseeing academic programs and campuses.</p>
                 <span className="text-xs font-bold text-sky-700 flex items-center justify-center gap-1 pt-2">Read Dedicated Page ↗</span>
               </div>
             </div>
