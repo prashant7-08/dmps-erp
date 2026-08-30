@@ -1055,8 +1055,12 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               </div>
 
               <div className="lg:col-span-6">
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl aspect-[4/3]">
-                  <img src={campusesData[selectedCampusTab].image} alt={campusesData[selectedCampusTab].name} className="w-full h-full object-cover" />
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-[340px] sm:h-[400px] bg-slate-950 flex items-center justify-center p-2 group">
+                  <img
+                    src={campusesData[selectedCampusTab].image}
+                    alt={campusesData[selectedCampusTab].name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                  />
                 </div>
               </div>
             </div>
@@ -1676,8 +1680,12 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   </div>
                 </div>
 
-                <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-slate-200 shadow-xl aspect-video">
-                  <img src={campus.image} alt={campus.name} className="w-full h-full object-cover" />
+                <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-[340px] sm:h-[420px] bg-slate-950 flex items-center justify-center p-2 group">
+                  <img
+                    src={campus.image}
+                    alt={campus.name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                  />
                 </div>
               </div>
             ))}
@@ -1836,13 +1844,13 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   onClick={() => setSelectedGalleryImage({ title: item.title, image: item.src, tag: item.tag, description: item.description })}
                   className="group rounded-3xl overflow-hidden border border-slate-200 hover:border-sky-500 shadow-md hover:shadow-2xl transition-all duration-300 bg-white flex flex-col justify-between cursor-pointer transform hover:-translate-y-1.5"
                 >
-                  <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+                  <div className="relative aspect-[4/3] bg-slate-950 overflow-hidden flex items-center justify-center p-1.5">
                     <img
                       src={item.src}
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-2xl">
                       <span className="text-white text-xs font-bold flex items-center gap-1 bg-[#0b1e38]/80 px-2.5 py-1 rounded-lg backdrop-blur-sm">
                         <Eye className="w-3.5 h-3.5 text-amber-400" /> Click to View High-Res
                       </span>
