@@ -481,7 +481,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </span>
               </div>
               <span className="text-xs font-bold text-slate-600 tracking-wide uppercase">
-                Memorial Public School
+                A Group of Education
               </span>
             </div>
           </div>
