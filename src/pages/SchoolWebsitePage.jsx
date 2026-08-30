@@ -782,7 +782,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   <div className="relative pl-6 border-l-4 border-amber-400 space-y-2">
                     <Quote className="w-8 h-8 text-amber-200 absolute -top-3 -left-3" />
                     <p className="text-sm text-slate-700 italic leading-relaxed">
-                      "Our aim has always been to remove the darkness of ignorance from rural and semi-urban children and enlighten their path towards self-reliance, national character, and academic brilliance. Every child holds immense potential; our sacred duty is to provide the light of disciplined knowledge."
+                      "Education is not about learning of facts but training young minds to think."
                     </p>
                   </div>
                   <div className="pt-2 flex items-center gap-4">
@@ -822,7 +822,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   <div className="relative pl-6 border-l-4 border-sky-500 space-y-2">
                     <Quote className="w-8 h-8 text-sky-200 absolute -top-3 -left-3" />
                     <p className="text-sm text-slate-700 italic leading-relaxed">
-                      "We provide an environment where children cultivate curiosity, scientific temperament, and moral fortitude. With 44+ selections in premier institutions like AMU, JNV, and Vidyagyan, our students continue to prove that personalized attention and dedicated coaching turn aspirations into reality."
+                      "Education is the movement from darkness to brightness."
                     </p>
                   </div>
                   <div className="pt-2 flex items-center gap-4">
@@ -862,7 +862,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   <div className="relative pl-6 border-l-4 border-indigo-500 space-y-2">
                     <Quote className="w-8 h-8 text-indigo-200 absolute -top-3 -left-3" />
                     <p className="text-sm text-slate-700 italic leading-relaxed">
-                      "Education is not merely the accumulation of facts; it is the training of the mind to think critically. We nurture each child with love, disciplined guidance, and experiential pedagogy so that they grow with confidence, empathy, and world-class competence."
+                      "Education is not the preparation for life, Education is life itself."
                     </p>
                   </div>
                   <div className="pt-2 flex items-center gap-4">
@@ -1146,25 +1146,29 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   Visionary Message
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif">
-                  Enlightening Minds from Darkness to Brightness
+                  Training Young Minds to Think & Lead
                 </h2>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                <p>
-                  <strong>Late Mr. Dauli Singh</strong> established Dadheech Memorial Public School in July 2002 as a sacred lighthouse of knowledge, instilling timeless moral values and academic excellence that have produced 44+ selections across AMU, JNV, and Vidyagyan.
-                </p>
-
                 {/* Golden Highlighted Quote Box */}
                 <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/60 to-white border-2 border-amber-300 shadow-md space-y-2 my-2">
                   <Quote className="w-10 h-10 text-amber-400/40 absolute -top-3 -left-3" />
-                  <p className="text-sm sm:text-base text-slate-900 italic font-serif leading-relaxed">
-                    "Our aim has always been to remove the darkness of ignorance from rural and semi-urban children and enlighten their path towards self-reliance, national character, and academic brilliance. Every child holds immense potential; our sacred duty is to provide the light of disciplined knowledge."
+                  <p className="text-base sm:text-lg text-slate-900 font-bold italic font-serif leading-relaxed">
+                    "Education is not about learning of facts but training young minds to think."
                   </p>
                   <span className="block text-right text-xs font-black text-amber-900 uppercase tracking-wider pt-2">
-                    — Late Mr. Dauli Singh (Founder)
+                    — Late Mr. Dauli Singh (Visionary Founder)
                   </span>
                 </div>
+
+                <p>
+                  Today the role of school is not only to pursue academic excellence but also to motivate and empower its students to be lifelong learners, critical thinkers, and productive members of an ever-changing global society. Education is the process of facilitating learning, skills, values, beliefs, and habits, playing an important role in shaping an individual's life. Our students are taught to meet the needs and face the challenges of life in a very confident manner.
+                </p>
+
+                <p>
+                  I am very sure that through collaborative effort, we can achieve more to benefit our students who are the future leaders of tomorrow. By focusing on child-centered education, we are trying to mould our future citizens into <strong>"Nation Builders"</strong>. We are sure that the seeds of wisdom are sown today in the form of students and shall reap tomorrow in the form of responsible citizens.
+                </p>
               </div>
 
               {/* Action Buttons Directly Below */}
@@ -1240,7 +1244,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </button>
           </div>
 
-          {/* 📄 Main Content Card (Left: Crisp Thought & Intro | Right: Large Portrait Photo) */}
+          {/* 📄 Main Content Card (Left: Crisp Quote & Intro | Right: Large Portrait Photo) */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* 📝 LEFT COLUMN (6 Cols): Crisp Thought & Philosophy */}
@@ -1250,25 +1254,29 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   Manager's Perspective
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif">
-                  Fostering Scientific Temperament & Academic Excellence
+                  Movement from Darkness to Brightness
                 </h2>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                <p>
-                  <strong>Mr. Pramod Kumar Rajput</strong> spearheads academic expansion, modern science and computer laboratories, and competitive entrance wings across all 3 DMPS campuses under Bhartiya Shiksha Board standards.
-                </p>
-
                 {/* Sky Highlighted Quote Box */}
                 <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-sky-50 via-blue-50/60 to-white border-2 border-sky-300 shadow-md space-y-2 my-2">
                   <Quote className="w-10 h-10 text-sky-400/40 absolute -top-3 -left-3" />
-                  <p className="text-sm sm:text-base text-slate-900 italic font-serif leading-relaxed">
-                    "We provide an environment where children cultivate curiosity, scientific temperament, and moral fortitude. With 44+ selections in premier institutions like AMU, JNV, and Vidyagyan, our students continue to prove that personalized attention and dedicated coaching turn aspirations into reality."
+                  <p className="text-base sm:text-lg text-slate-900 font-bold italic font-serif leading-relaxed">
+                    "Education is the movement from darkness to brightness."
                   </p>
                   <span className="block text-right text-xs font-black text-sky-900 uppercase tracking-wider pt-2">
                     — Mr. Pramod Kumar Rajput (Manager)
                   </span>
                 </div>
+
+                <p>
+                  Education plays an important role in enabling a person to face real-life situations with adequate knowledge. A school is a temple of learning and a home away from home. We are making our best effort to give quality education to our students. We transform dreams into reality, thoughts into ideas, and ideas into actions.
+                </p>
+
+                <p>
+                  We aspire to provide the best to our students and no stone will be left unturned to provide holistic and all-round personality development. In this pursuit of excellence, I appreciate our parents for supporting the school in every aspect. I also laud the relentless efforts of our teachers for giving their best. I wish the best of fortune, peace, and prosperity to all those who contribute to the noble task of spreading education.
+                </p>
               </div>
 
               {/* Action Buttons Directly Below */}
@@ -1353,25 +1361,29 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   Principal's Welcome
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif">
-                  Nurturing Critical Thinkers & Global Scholars
+                  Education is Life Itself
                 </h2>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                <p>
-                  <strong>Mrs. Kavita Rani</strong> champions student-centric experiential learning and cognitive growth, guiding holistic co-curricular opportunities, athletic development, and dedicated individual mentorship.
-                </p>
-
                 {/* Indigo Highlighted Quote Box */}
                 <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50/60 to-white border-2 border-indigo-300 shadow-md space-y-2 my-2">
                   <Quote className="w-10 h-10 text-indigo-400/40 absolute -top-3 -left-3" />
-                  <p className="text-sm sm:text-base text-slate-900 italic font-serif leading-relaxed">
-                    "Education is not merely the accumulation of facts; it is the training of the mind to think critically. We nurture each child with love, disciplined guidance, and experiential pedagogy so that they grow with confidence, empathy, and world-class competence."
+                  <p className="text-base sm:text-lg text-slate-900 font-bold italic font-serif leading-relaxed">
+                    "Education is not the preparation for life, Education is life itself."
                   </p>
                   <span className="block text-right text-xs font-black text-indigo-900 uppercase tracking-wider pt-2">
                     — Mrs. Kavita Rani (Principal)
                   </span>
                 </div>
+
+                <p>
+                  Our goal is to provide an enriching and exploring curriculum that will prepare the students to become innovative thinkers, creative problem solvers, and inspired learners for achieving success. Education is a team effort. Teachers and parents are important parts of the team who are the coordinating wheels to drive the students always on the road to success, to reach their goal in a fruitful way.
+                </p>
+
+                <p>
+                  Our institution always believes that education is a shared commitment between dedicated teachers, motivated students, and enthusiastic parents with high expectations. At the end, I would pen down by saying that we are thoroughly committed to serve the nation's youth by providing them high-quality education, so that they can contribute towards a humane, just, and pluralistic society with better innovative ideas.
+                </p>
               </div>
 
               {/* Action Buttons Directly Below */}
