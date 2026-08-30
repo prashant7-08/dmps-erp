@@ -1151,25 +1151,27 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </h2>
               </div>
 
-              <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                {/* Golden Highlighted Quote Box */}
-                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/60 to-white border-2 border-amber-300 shadow-md space-y-2 my-2">
-                  <Quote className="w-10 h-10 text-amber-400/40 absolute -top-3 -left-3" />
-                  <p className="text-base sm:text-lg text-slate-900 font-bold italic font-serif leading-relaxed">
-                    "Education is not about learning of facts but training young minds to think."
-                  </p>
-                  <span className="block text-right text-xs font-black text-amber-900 uppercase tracking-wider pt-2">
-                    — Late Mr. Dauli Singh (Visionary Founder)
-                  </span>
-                </div>
+              {/* Entire Founder Message inside Box */}
+              <div className="relative p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-amber-50/80 via-orange-50/40 to-white border-2 border-amber-300 shadow-lg space-y-4">
+                <Quote className="w-10 h-10 text-amber-400/30 absolute -top-3 -left-3" />
+                
+                <p className="text-base sm:text-lg text-[#0b1e38] font-bold italic font-serif leading-relaxed border-b border-amber-200 pb-3">
+                  "Education is not about learning of facts but training young minds to think."
+                </p>
 
-                <p>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   Today the role of school is not only to pursue academic excellence but also to motivate and empower its students to be lifelong learners, critical thinkers, and productive members of an ever-changing global society. Education is the process of facilitating learning, skills, values, beliefs, and habits, playing an important role in shaping an individual's life. Our students are taught to meet the needs and face the challenges of life in a very confident manner.
                 </p>
 
-                <p>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   I am very sure that through collaborative effort, we can achieve more to benefit our students who are the future leaders of tomorrow. By focusing on child-centered education, we are trying to mould our future citizens into <strong>"Nation Builders"</strong>. We are sure that the seeds of wisdom are sown today in the form of students and shall reap tomorrow in the form of responsible citizens.
                 </p>
+
+                <div className="pt-3 border-t border-amber-200 flex justify-end">
+                  <span className="text-xs sm:text-sm font-black text-amber-900 uppercase tracking-wider">
+                    — Late Mr. Dauli Singh (Visionary Founder)
+                  </span>
+                </div>
               </div>
 
               {/* Action Buttons Directly Below */}
@@ -1259,25 +1261,27 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </h2>
               </div>
 
-              <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                {/* Sky Highlighted Quote Box */}
-                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-sky-50 via-blue-50/60 to-white border-2 border-sky-300 shadow-md space-y-2 my-2">
-                  <Quote className="w-10 h-10 text-sky-400/40 absolute -top-3 -left-3" />
-                  <p className="text-base sm:text-lg text-slate-900 font-bold italic font-serif leading-relaxed">
-                    "Education is the movement from darkness to brightness."
-                  </p>
-                  <span className="block text-right text-xs font-black text-sky-900 uppercase tracking-wider pt-2">
-                    — Mr. Pramod Kumar Rajput (Manager)
-                  </span>
-                </div>
+              {/* Entire Manager Message inside Box */}
+              <div className="relative p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-sky-50/80 via-blue-50/40 to-white border-2 border-sky-300 shadow-lg space-y-4">
+                <Quote className="w-10 h-10 text-sky-400/30 absolute -top-3 -left-3" />
+                
+                <p className="text-base sm:text-lg text-[#0b1e38] font-bold italic font-serif leading-relaxed border-b border-sky-200 pb-3">
+                  "Education is the movement from darkness to brightness."
+                </p>
 
-                <p>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   Education plays an important role in enabling a person to face real-life situations with adequate knowledge. A school is a temple of learning and a home away from home. We are making our best effort to give quality education to our students. We transform dreams into reality, thoughts into ideas, and ideas into actions.
                 </p>
 
-                <p>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   We aspire to provide the best to our students and no stone will be left unturned to provide holistic and all-round personality development. In this pursuit of excellence, I appreciate our parents for supporting the school in every aspect. I also laud the relentless efforts of our teachers for giving their best. I wish the best of fortune, peace, and prosperity to all those who contribute to the noble task of spreading education.
                 </p>
+
+                <div className="pt-3 border-t border-sky-200 flex justify-end">
+                  <span className="text-xs sm:text-sm font-black text-sky-900 uppercase tracking-wider">
+                    — Mr. Pramod Kumar Rajput (Manager)
+                  </span>
+                </div>
               </div>
 
               {/* Action Buttons Directly Below */}
@@ -1286,7 +1290,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   onClick={() => navigateTo('selections')}
                   className="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-black text-xs uppercase tracking-wider shadow-md transition-all"
                 >
-                  View 44+ Hall of Fame
+                  View Student Selections
                 </button>
                 <button
                   onClick={() => navigateTo('academic')}
@@ -1366,25 +1370,27 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </h2>
               </div>
 
-              <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                {/* Indigo Highlighted Quote Box */}
-                <div className="relative p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50/60 to-white border-2 border-indigo-300 shadow-md space-y-2 my-2">
-                  <Quote className="w-10 h-10 text-indigo-400/40 absolute -top-3 -left-3" />
-                  <p className="text-base sm:text-lg text-slate-900 font-bold italic font-serif leading-relaxed">
-                    "Education is not the preparation for life, Education is life itself."
-                  </p>
-                  <span className="block text-right text-xs font-black text-indigo-900 uppercase tracking-wider pt-2">
-                    — Mrs. Kavita Rani (Principal)
-                  </span>
-                </div>
+              {/* Entire Principal Message inside Box */}
+              <div className="relative p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-indigo-50/80 via-purple-50/40 to-white border-2 border-indigo-300 shadow-lg space-y-4">
+                <Quote className="w-10 h-10 text-indigo-400/30 absolute -top-3 -left-3" />
+                
+                <p className="text-base sm:text-lg text-[#0b1e38] font-bold italic font-serif leading-relaxed border-b border-indigo-200 pb-3">
+                  "Education is not the preparation for life, Education is life itself."
+                </p>
 
-                <p>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   Our goal is to provide an enriching and exploring curriculum that will prepare the students to become innovative thinkers, creative problem solvers, and inspired learners for achieving success. Education is a team effort. Teachers and parents are important parts of the team who are the coordinating wheels to drive the students always on the road to success, to reach their goal in a fruitful way.
                 </p>
 
-                <p>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   Our institution always believes that education is a shared commitment between dedicated teachers, motivated students, and enthusiastic parents with high expectations. At the end, I would pen down by saying that we are thoroughly committed to serve the nation's youth by providing them high-quality education, so that they can contribute towards a humane, just, and pluralistic society with better innovative ideas.
                 </p>
+
+                <div className="pt-3 border-t border-indigo-200 flex justify-end">
+                  <span className="text-xs sm:text-sm font-black text-indigo-900 uppercase tracking-wider">
+                    — Mrs. Kavita Rani (Principal)
+                  </span>
+                </div>
               </div>
 
               {/* Action Buttons Directly Below */}
