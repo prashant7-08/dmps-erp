@@ -472,15 +472,15 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
 
             <div className="flex flex-col">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 leading-none">
                 <span className="font-serif font-black text-lg sm:text-xl text-[#0b1e38] tracking-tight uppercase group-hover:text-sky-700 transition-colors">
                   Dadheech
                 </span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-bold border border-amber-300">
+                <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-bold border border-amber-300 whitespace-nowrap">
                   Estd. 2002
                 </span>
               </div>
-              <span className="text-xs font-bold text-slate-600 tracking-wide uppercase">
+              <span className="text-[10px] font-extrabold text-slate-500 tracking-wider uppercase mt-1">
                 A Group of Education
               </span>
             </div>
@@ -565,10 +565,13 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => navigateTo('admissions')}
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-black text-xs uppercase tracking-wider shadow-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
+              className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white shadow-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Admissions 2026-27</span>
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+              <div className="flex flex-col text-left leading-none space-y-0.5">
+                <span className="font-black text-[11px] uppercase tracking-wider text-white">Admissions</span>
+                <span className="font-bold text-[9px] text-sky-200 tracking-wider">2026–27</span>
+              </div>
             </button>
           </div>
 
