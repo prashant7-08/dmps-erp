@@ -610,6 +610,24 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               </div>
             ))}
 
+            {/* ⬅️ Subtle Previous Slide Button */}
+            <button
+              onClick={() => setActiveHeroSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
+              className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/25 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center backdrop-blur-md border border-white/15 hover:border-white/40 transition-all shadow-lg hover:scale-110 cursor-pointer group"
+              aria-label="Previous Slide"
+            >
+              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 group-hover:-translate-x-0.5 transition-transform" />
+            </button>
+
+            {/* ➡️ Subtle Next Slide Button */}
+            <button
+              onClick={() => setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length)}
+              className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/25 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center backdrop-blur-md border border-white/15 hover:border-white/40 transition-all shadow-lg hover:scale-110 cursor-pointer group"
+              aria-label="Next Slide"
+            >
+              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10 w-full">
               <div className="max-w-3xl space-y-6">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-amber-300 text-xs font-bold backdrop-blur-md">
@@ -820,7 +838,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     />
                   </div>
                   <h4 className="font-bold text-[#0b1e38] text-base mt-2">Mr. Pramod Kumar Rajput</h4>
-                  <p className="text-xs text-sky-900 font-medium">Managing Director & Manager</p>
+                  <p className="text-xs text-sky-900 font-medium">Manager</p>
                 </div>
               </div>
             )}
@@ -1241,7 +1259,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     "We provide an environment where children cultivate curiosity, scientific temperament, and moral fortitude. With 44+ selections in premier institutions like AMU, JNV, and Vidyagyan, our students continue to prove that personalized attention and dedicated coaching turn aspirations into reality."
                   </p>
                   <span className="block text-right text-xs font-black text-sky-900 uppercase tracking-wider pt-2">
-                    — Mr. Pramod Kumar Rajput (Managing Director & Manager)
+                    — Mr. Pramod Kumar Rajput (Manager)
                   </span>
                 </div>
               </div>
@@ -1275,7 +1293,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </div>
                 <div className="p-4 text-center space-y-1">
                   <h3 className="text-lg font-black text-[#0b1e38] font-serif">Mr. Pramod Kumar Rajput</h3>
-                  <p className="text-xs font-bold text-sky-900 uppercase tracking-wide">Managing Director & Manager</p>
+                  <p className="text-xs font-bold text-sky-900 uppercase tracking-wide">Manager</p>
                   <p className="text-[11px] text-slate-500">Overseeing 3 Campuses & Academic Wings</p>
                 </div>
               </div>
