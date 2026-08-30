@@ -119,6 +119,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
   const [activeHeroSlide, setActiveHeroSlide] = useState(0);
   const [selectedGalleryImage, setSelectedGalleryImage] = useState(null);
+  const [activeGalleryCategory, setActiveGalleryCategory] = useState('all');
   const [prospectusModalOpen, setProspectusModalOpen] = useState(false);
   const [selectedProspectusPage, setSelectedProspectusPage] = useState(0);
   const [selectedCampusTab, setSelectedCampusTab] = useState(0);
@@ -166,35 +167,59 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     if (currentPage !== 'home') return;
     const interval = setInterval(() => {
       setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
+    }, 5500);
     return () => clearInterval(interval);
   }, [currentPage]);
 
-  // 1. Hero Slides
+  // 1. Dynamic Hero Slides (6 High-Impact Panoramic Slides)
   const heroSlides = [
     {
       title: "Darkness to Brightness • Empowering 21st-Century Leaders",
       subtitle: "Personalized education, sacred Indian values, and unmatched competitive success across 3 modern campuses.",
       tag: "Affiliated to Bhartiya Shiksha Board (BSB) • School Code: 00065",
-      image: "/assets/campuses/main_campus.jpg",
+      image: "/assets/banners/slide1.jpg",
       cta: "Apply for Admission 2026-27",
       target: "admissions"
+    },
+    {
+      title: "DMPS Junior High Campus (Barheti ADF, Aligarh)",
+      subtitle: "Dedicated faculty, modern laboratories, and holistic schooling from Nursery to Class 8th.",
+      tag: "Barheti Campus • Estd. 2017",
+      image: "/assets/banners/slide2.jpg",
+      cta: "Explore Our Campuses",
+      target: "campuses"
+    },
+    {
+      title: "Dadheech Kids School (Quarsi, PAC Aligarh)",
+      subtitle: "Early childhood learning sanctuary with theme-based activity rooms, phonics, and play-way curriculum.",
+      tag: "Dadheech Kids School • Early Learning",
+      image: "/assets/banners/slide3.jpg",
+      cta: "Explore Kids Wing",
+      target: "campuses"
+    },
+    {
+      title: "3 State-of-the-Art Campuses in Bulandshahr & Aligarh",
+      subtitle: "Holistic schooling from Playgroup to Senior Secondary (12th) with smart labs, sports complex & GPS transport.",
+      tag: "Tri-Campus Network • 1,500+ Students",
+      image: "/assets/banners/slide4.jpg",
+      cta: "Discover Our Schools",
+      target: "campuses"
     },
     {
       title: "44+ Premier National Selections in AMU, JNV & Vidyagyan",
       subtitle: "24 years of proven academic supremacy with top ranks in national competitive entrance examinations.",
       tag: "Hall of Fame • Estd. July 2002 by Late Mr. Dauli Singh",
-      image: "/assets/campuses/barheti_campus.jpeg",
+      image: "/assets/banners/slide5.png",
       cta: "Explore Hall of Fame",
       target: "selections"
     },
     {
-      title: "3 State-of-the-Art Campuses in Bulandshahr & Aligarh",
-      subtitle: "Holistic schooling from Playgroup to Senior Secondary (12th) with smart labs, sports complex & GPS transport.",
-      tag: "Main Senior Campus • Barheti Campus • Dadheech Kids School",
-      image: "/assets/campuses/kids_school.jpeg",
-      cta: "Discover Our Schools",
-      target: "campuses"
+      title: "Excellence in Sports, STEM Labs & Cultural Development",
+      subtitle: "Nurturing champions in cricket, volleyball, science exhibitions, debate, and holistic personality growth.",
+      tag: "Holistic Growth • Sports & Arts",
+      image: "/assets/banners/slide6.png",
+      cta: "Explore Facilities",
+      target: "facilities"
     }
   ];
 
@@ -344,6 +369,114 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     { id: 5, title: "AECS Narora & Activities", src: "/assets/prospectus/qualifiers_aecs_gallery.png", description: "AECS Narora Qualifiers, Central School Selections & Annual Function Moments" }
   ];
 
+  // 6. Comprehensive Photo & Event Gallery (13+ Real Authentic School Assets)
+  const galleryItems = [
+    {
+      id: 1,
+      title: "Senior Secondary Campus (Main Building)",
+      category: "campuses",
+      tag: "Jargwan Bulandshahr",
+      src: "/assets/gallery/campus_main_building.jpg",
+      description: "Flagship Senior Secondary campus established in July 2002 on Ramghat Road Border."
+    },
+    {
+      id: 2,
+      title: "Junior High Campus (Barheti ADF)",
+      category: "campuses",
+      tag: "Barheti Aligarh",
+      src: "/assets/gallery/campus_barheti_building.jpg",
+      description: "Junior High Campus in Barheti providing high standard education from Nursery to 8th."
+    },
+    {
+      id: 3,
+      title: "Dadheech Kids School (Early Learning)",
+      category: "campuses",
+      tag: "Quarsi PAC Aligarh",
+      src: "/assets/gallery/campus_kids_school.jpg",
+      description: "Vibrant early childhood sanctuary in Quarsi Aligarh with play-way activities."
+    },
+    {
+      id: 4,
+      title: "Tri-Campus Network & Infrastructure",
+      category: "campuses",
+      tag: "Campuses Collage",
+      src: "/assets/gallery/prospectus_campuses_cover.jpg",
+      description: "State-of-the-art infrastructure across 3 campuses in Bulandshahr and Aligarh."
+    },
+    {
+      id: 5,
+      title: "AMU & JNV Entrance Qualifiers Record",
+      category: "achievements",
+      tag: "Hall of Fame",
+      src: "/assets/gallery/amu_jnv_qualifiers_toppers.png",
+      description: "Official record of 23 selections in AMU and 10 selections in Jawahar Navodaya Vidyalaya."
+    },
+    {
+      id: 6,
+      title: "AECS Narora & Kendriya Vidyalaya Selections",
+      category: "achievements",
+      tag: "Competitive Wings",
+      src: "/assets/gallery/aecs_activities_annual_day.png",
+      description: "Top selections in Atomic Energy Central School (AECS) Narora and Kendriya Vidyalaya."
+    },
+    {
+      id: 7,
+      title: "Academic Facilities & Affiliation Board",
+      category: "academics",
+      tag: "BSB Board Standard",
+      src: "/assets/gallery/academic_facilities_board.jpg",
+      description: "Comprehensive curriculum framework, smart labs, and BSB board affiliation standards."
+    },
+    {
+      id: 8,
+      title: "Visionary Leadership & Sacred Consecration",
+      category: "leadership",
+      tag: "Heritage",
+      src: "/assets/gallery/leadership_prospectus_page.jpg",
+      description: "Foundational messages from Late Mr. Dauli Singh, Mr. Pramod Kumar Rajput, and Mrs. Kavita Rani."
+    },
+    {
+      id: 9,
+      title: "Annual Sports Meet & Athletic Championship",
+      category: "sports",
+      tag: "Sports & Fitness",
+      src: "/assets/gallery/annual_sports_meet.png",
+      description: "Cricket, volleyball, track & field events, and daily yoga coaching for holistic health."
+    },
+    {
+      id: 10,
+      title: "Cultural Fest, Exhibition & Arts Showcase",
+      category: "activities",
+      tag: "Cultural Events",
+      src: "/assets/gallery/cultural_fest_exhibition.png",
+      description: "Annual cultural extravaganza, science exhibitions, dance, music, and debates."
+    },
+    {
+      id: 11,
+      title: "Science & AI Computer Laboratories",
+      category: "academics",
+      tag: "STEM Labs",
+      src: "/assets/gallery/science_lab_students.png",
+      description: "Modern hands-on practical experiments in Physics, Chemistry, Biology, and Computer Science."
+    },
+    {
+      id: 12,
+      title: "Smart Digital Interactive Classrooms",
+      category: "academics",
+      tag: "Smart Learning",
+      src: "/assets/gallery/classroom_interactive.png",
+      description: "Engaging multimedia pedagogy with audio-visual learning tools and individual student care."
+    },
+    {
+      id: 13,
+      title: "Excellence Awards & Academic Felicitations",
+      category: "activities",
+      tag: "Award Ceremony",
+      src: "/assets/gallery/school_award_celebration.png",
+      description: "Honoring top-ranking scholars, merit-holders, and competitive entrance winners."
+    }
+  ];
+
   const handleInquirySubmit = (e) => {
     e.preventDefault();
     if (!inquiryForm.parentName || !inquiryForm.phone || !inquiryForm.studentName) {
@@ -458,15 +591,15 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     🏛️ Overview & Society History
                   </button>
                   <button onClick={() => navigateTo('founder')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-800">
-                    👑 Late Mr. Dauli Singh (Founder Page)
+                    👑 Founder's Message (Late Mr. Dauli Singh)
                   </button>
                   <button onClick={() => navigateTo('md')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-sky-800">
-                    💼 Mr. Pramod Kumar Rajput (MD Page)
+                    💼 Manager's Message (Mr. Pramod Kumar Rajput)
                   </button>
                   <button onClick={() => navigateTo('principal')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-indigo-800">
-                    🎓 Mrs. Kavita Rani (Principal Page)
+                    🎓 Principal's Message (Mrs. Kavita Rani)
                   </button>
-                  <button onClick={() => navigateTo('dedication')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                  <button onClick={() => navigateTo('dedication')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-900">
                     🌸 Late Dadheech Kumar Rajput (Dedication)
                   </button>
                 </div>
@@ -536,14 +669,15 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           <div className="lg:hidden bg-white border-t border-slate-200 px-4 py-6 space-y-2 shadow-2xl text-slate-800">
             <button onClick={() => navigateTo('home')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Home</button>
             <button onClick={() => navigateTo('about')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">About DMPS & Society</button>
-            <button onClick={() => navigateTo('founder')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-800">Late Mr. Dauli Singh (Founder Page)</button>
-            <button onClick={() => navigateTo('md')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-sky-800">Mr. Pramod Kumar Rajput (MD Page)</button>
-            <button onClick={() => navigateTo('principal')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-indigo-800">Mrs. Kavita Rani (Principal Page)</button>
+            <button onClick={() => navigateTo('founder')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-800">👑 Founder's Message (Late Mr. Dauli Singh)</button>
+            <button onClick={() => navigateTo('md')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-sky-800">💼 Manager's Message (Mr. Pramod Kumar Rajput)</button>
+            <button onClick={() => navigateTo('principal')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-indigo-800">🎓 Principal's Message (Mrs. Kavita Rani)</button>
+            <button onClick={() => navigateTo('dedication')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-900">🌸 Late Dadheech Kumar Rajput (Dedication)</button>
             <button onClick={() => navigateTo('campuses')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Our 3 Campuses</button>
             <button onClick={() => navigateTo('academic')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Academics</button>
             <button onClick={() => navigateTo('facilities')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Beyond Academics</button>
             <button onClick={() => navigateTo('selections')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-sky-700">Hall of Fame (44+)</button>
-            <button onClick={() => navigateTo('gallery')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Gallery</button>
+            <button onClick={() => navigateTo('gallery')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Photo & Event Gallery</button>
             <button onClick={() => navigateTo('admissions')} className="w-full text-left py-2 px-3 rounded-lg bg-sky-600 text-white font-black text-sm uppercase">Admissions 2026-27 Open</button>
             <button onClick={() => navigateTo('contact')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Contact Us</button>
           </div>
@@ -684,7 +818,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     selectedLeaderTab === 'founder' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 hover:bg-slate-200'
                   }`}
                 >
-                  Founder (Late Mr. Dauli Singh)
+                  Founder's Message
                 </button>
                 <button
                   onClick={() => setSelectedLeaderTab('md')}
@@ -692,7 +826,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     selectedLeaderTab === 'md' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 hover:bg-slate-200'
                   }`}
                 >
-                  MD (Mr. Pramod Kumar Rajput)
+                  Manager's Message
                 </button>
                 <button
                   onClick={() => setSelectedLeaderTab('principal')}
@@ -700,7 +834,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     selectedLeaderTab === 'principal' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 hover:bg-slate-200'
                   }`}
                 >
-                  Principal (Mrs. Kavita Rani)
+                  Principal's Message
                 </button>
               </div>
             </div>
@@ -711,7 +845,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex items-center gap-2">
                     <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black uppercase">
-                      Founder
+                      Founder's Vision
                     </span>
                     <span className="text-xs text-slate-500">Dadheech Educational Society (Regd. 1131)</span>
                   </div>
@@ -727,7 +861,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                       onClick={() => navigateTo('founder')}
                       className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow hover:bg-slate-800 transition-all"
                     >
-                      <span>Read Founder Message & Vision</span>
+                      <span>Read Full Founder's Message</span>
                       <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
                     </button>
                   </div>
@@ -751,7 +885,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex items-center gap-2">
                     <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-900 text-xs font-black uppercase">
-                      Managing Director
+                      Manager's Desk
                     </span>
                     <span className="text-xs text-slate-500">DMPS Educational Group</span>
                   </div>
@@ -767,7 +901,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                       onClick={() => navigateTo('md')}
                       className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow hover:bg-slate-800 transition-all"
                     >
-                      <span>Read Managing Director Message</span>
+                      <span>Read Full Manager's Message</span>
                       <ArrowRight className="w-3.5 h-3.5 text-sky-400" />
                     </button>
                   </div>
@@ -781,7 +915,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     />
                   </div>
                   <h4 className="font-bold text-[#0b1e38] text-base mt-2">Mr. Pramod Kumar Rajput</h4>
-                  <p className="text-xs text-sky-900 font-medium">Managing Director • 3 Campuses</p>
+                  <p className="text-xs text-sky-900 font-medium">Managing Director & Manager</p>
                 </div>
               </div>
             )}
@@ -791,7 +925,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex items-center gap-2">
                     <span className="px-3 py-1 rounded-full bg-indigo-100 text-indigo-900 text-xs font-black uppercase">
-                      Principal Desk
+                      Principal's Desk
                     </span>
                     <span className="text-xs text-slate-500">DMPS Senior Secondary School</span>
                   </div>
@@ -807,7 +941,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                       onClick={() => navigateTo('principal')}
                       className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow hover:bg-slate-800 transition-all"
                     >
-                      <span>Read Principal Message</span>
+                      <span>Read Full Principal's Message</span>
                       <ArrowRight className="w-3.5 h-3.5 text-indigo-400" />
                     </button>
                   </div>
@@ -1047,17 +1181,17 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <div className="space-y-2">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-3 py-1 rounded-full bg-amber-400 text-[#0b1e38] text-xs font-black tracking-wider uppercase shadow-sm">
-                  👑 Founder
+                  👑 Founder's Vision
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-slate-200 shadow-sm">
                   Pillar of Foundation • Estd. July 2002
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0b1e38] font-serif tracking-tight">
-                Founder Message
+                Founder's Message
               </h1>
               <p className="text-xs sm:text-sm font-semibold text-amber-900">
-                Dadheech Educational Society & Training Institute (Regd. 1131)
+                Late Mr. Dauli Singh — Visionary Founder, Dadheech Educational Society & Training Institute (Regd. 1131)
               </p>
             </div>
 
@@ -1119,7 +1253,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
             {/* 🖼️ RIGHT COLUMN (5 Cols): Large High-Resolution Portrait Photo */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-full max-w-sm rounded-3xl overflow-hidden border-4 border-amber-400 shadow-2xl bg-gradient-to-b from-amber-100 to-amber-50 p-2 group">
+              <div className="w-64 sm:w-72 max-w-[280px] rounded-3xl overflow-hidden border-4 border-amber-400 shadow-2xl bg-gradient-to-b from-amber-100 to-amber-50 p-2 group">
                 <div className="rounded-2xl overflow-hidden aspect-[3/4] bg-slate-100 shadow-inner">
                   <img
                     src="/assets/leadership/founder.jpg"
@@ -1140,7 +1274,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 💼 SEPARATE DEDICATED PAGE: MANAGING DIRECTOR (Mr. Pramod Kumar Rajput) */}
+      {/* 💼 SEPARATE DEDICATED PAGE: MANAGER (Mr. Pramod Kumar Rajput) */}
       {/* ========================================================================= */}
       {currentPage === 'md' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-in fade-in duration-300">
@@ -1150,17 +1284,17 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <div className="space-y-2">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-3 py-1 rounded-full bg-sky-600 text-white text-xs font-black tracking-wider uppercase shadow-sm">
-                  💼 Managing Director Desk
+                  💼 Manager's Desk
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-slate-200 shadow-sm">
                   DMPS Educational Group
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0b1e38] font-serif tracking-tight">
-                Managing Director Message
+                Manager's Message
               </h1>
               <p className="text-xs sm:text-sm font-semibold text-sky-900">
-                Dadheech Educational Society & Campuses
+                Mr. Pramod Kumar Rajput — Managing Director & Manager, Dadheech Educational Society
               </p>
             </div>
 
@@ -1179,7 +1313,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="text-xs font-black text-sky-700 uppercase tracking-widest block mb-1">
-                  Managing Director's Perspective
+                  Manager's Perspective
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif">
                   Fostering Scientific Temperament & Academic Excellence
@@ -1198,7 +1332,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     "We provide an environment where children cultivate curiosity, scientific temperament, and moral fortitude. With 44+ selections in premier institutions like AMU, JNV, and Vidyagyan, our students continue to prove that personalized attention and dedicated coaching turn aspirations into reality."
                   </p>
                   <span className="block text-right text-xs font-black text-sky-900 uppercase tracking-wider pt-2">
-                    — Mr. Pramod Kumar Rajput (Managing Director)
+                    — Mr. Pramod Kumar Rajput (Managing Director & Manager)
                   </span>
                 </div>
               </div>
@@ -1222,17 +1356,17 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
             {/* 🖼️ RIGHT COLUMN (5 Cols): Large High-Resolution Portrait Photo */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-full max-w-sm rounded-3xl overflow-hidden border-4 border-sky-400 shadow-2xl bg-gradient-to-b from-sky-100 to-sky-50 p-2 group">
+              <div className="w-64 sm:w-72 max-w-[280px] rounded-3xl overflow-hidden border-4 border-sky-400 shadow-2xl bg-gradient-to-b from-sky-100 to-sky-50 p-2 group">
                 <div className="rounded-2xl overflow-hidden aspect-[3/4] bg-slate-100 shadow-inner">
                   <img
                     src="/assets/leadership/md.jpg"
-                    alt="Mr. Pramod Kumar Rajput - Managing Director"
+                    alt="Mr. Pramod Kumar Rajput - Manager"
                     className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="p-4 text-center space-y-1">
                   <h3 className="text-lg font-black text-[#0b1e38] font-serif">Mr. Pramod Kumar Rajput</h3>
-                  <p className="text-xs font-bold text-sky-900 uppercase tracking-wide">Managing Director</p>
+                  <p className="text-xs font-bold text-sky-900 uppercase tracking-wide">Managing Director & Manager</p>
                   <p className="text-[11px] text-slate-500">Overseeing 3 Campuses & Academic Wings</p>
                 </div>
               </div>
@@ -1253,17 +1387,17 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <div className="space-y-2">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-3 py-1 rounded-full bg-indigo-600 text-white text-xs font-black tracking-wider uppercase shadow-sm">
-                  🎓 Principal Desk
+                  🎓 Principal's Desk
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-slate-200 shadow-sm">
                   DMPS Senior Secondary School
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0b1e38] font-serif tracking-tight">
-                Principal Message
+                Principal's Message
               </h1>
               <p className="text-xs sm:text-sm font-semibold text-indigo-900">
-                Dadheech Memorial Public School
+                Mrs. Kavita Rani — Principal & Educationalist, Dadheech Memorial Public School
               </p>
             </div>
 
@@ -1325,7 +1459,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
             {/* 🖼️ RIGHT COLUMN (5 Cols): Large High-Resolution Portrait Photo */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-full max-w-sm rounded-3xl overflow-hidden border-4 border-indigo-400 shadow-2xl bg-gradient-to-b from-indigo-100 to-indigo-50 p-2 group">
+              <div className="w-64 sm:w-72 max-w-[280px] rounded-3xl overflow-hidden border-4 border-indigo-400 shadow-2xl bg-gradient-to-b from-indigo-100 to-indigo-50 p-2 group">
                 <div className="rounded-2xl overflow-hidden aspect-[3/4] bg-slate-100 shadow-inner">
                   <img
                     src="/assets/leadership/principal.jpg"
@@ -1351,22 +1485,22 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       {currentPage === 'dedication' && (
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-in fade-in duration-300">
           
-          {/* 🏷️ Top Header Banner with Designation */}
+          {/* 🏷️ Top Header Banner (Restored to earlier format) */}
           <div className="bg-gradient-to-r from-amber-500/15 via-rose-500/10 to-amber-500/5 p-6 sm:p-8 rounded-3xl border-2 border-amber-300/80 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-2">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-3 py-1 rounded-full bg-amber-400 text-[#0b1e38] text-xs font-black tracking-wider uppercase shadow-sm">
-                  🌸 Sacred Inspiration
+                  🌸 Sacred Heritage & Dedication
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-slate-200 shadow-sm">
                   Born 1st October 1975 • Consecrated 4th July 2002
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0b1e38] font-serif tracking-tight">
-                Sacred Dedication Message
+                Late Dadheech Kumar Rajput
               </h1>
               <p className="text-xs sm:text-sm font-semibold text-amber-900">
-                The Sacred Memory Behind Dadheech Memorial Public School
+                The Sacred Inspiration Behind Dadheech Memorial Public School
               </p>
             </div>
 
@@ -1385,7 +1519,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="text-xs font-black text-amber-700 uppercase tracking-widest block mb-1">
-                  Sacred Dedication
+                  Sacred Consecration & Heritage
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#0b1e38] font-serif">
                   A Life of Brilliance & Technical Innovation
@@ -1422,7 +1556,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
             {/* 🖼️ RIGHT COLUMN (5 Cols): Large High-Resolution Portrait Photo */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-full max-w-sm rounded-3xl overflow-hidden border-4 border-amber-400 shadow-2xl bg-gradient-to-b from-amber-100 to-amber-50 p-2 group">
+              <div className="w-64 sm:w-72 max-w-[280px] rounded-3xl overflow-hidden border-4 border-amber-400 shadow-2xl bg-gradient-to-b from-amber-100 to-amber-50 p-2 group">
                 <div className="rounded-2xl overflow-hidden aspect-[3/4] bg-slate-100 shadow-inner">
                   <img
                     src="/assets/leadership/dedication.jpg"
@@ -1646,27 +1780,119 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 🖼️ PAGE 7: GALLERY */}
+      {/* 🖼️ PAGE 7: GALLERY (Comprehensive Multi-Category Photo & Event Showcase) */}
       {/* ========================================================================= */}
       {currentPage === 'gallery' && (
-        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-          <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">Moments</span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Photo & Event Gallery</h1>
+        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 animate-in fade-in duration-300">
+          
+          <div className="text-center space-y-3 max-w-3xl mx-auto">
+            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">
+              📸 Visual Journey & Memories
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
+              Photo & Event Gallery
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Explore 24+ years of academic excellence, 3 state-of-the-art campuses, smart science laboratories, athletic championships, national qualifiers, and vibrant cultural celebrations.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {prospectusPages.map((pg) => (
-              <div key={pg.id} onClick={() => setSelectedGalleryImage({ title: pg.title, image: pg.src })} className="rounded-2xl overflow-hidden border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-transform bg-white">
-                <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-2">
-                  <img src={pg.src} alt={pg.title} className="max-h-full object-contain" />
-                </div>
-                <div className="p-3 text-center border-t border-slate-100">
-                  <h3 className="font-bold text-[#0b1e38] text-xs">{pg.title}</h3>
-                </div>
-              </div>
+          {/* 🏷️ Dynamic Category Filter Pills */}
+          <div className="flex items-center justify-center gap-2 flex-wrap bg-slate-100/80 p-2 rounded-2xl border border-slate-200/80 max-w-4xl mx-auto">
+            {[
+              { id: 'all', label: 'All Photos', count: galleryItems.length },
+              { id: 'campuses', label: 'Campuses & Buildings', count: galleryItems.filter(i => i.category === 'campuses').length },
+              { id: 'achievements', label: 'Hall of Fame & Selections', count: galleryItems.filter(i => i.category === 'achievements').length },
+              { id: 'academics', label: 'Academics & Labs', count: galleryItems.filter(i => i.category === 'academics').length },
+              { id: 'sports', label: 'Sports & Fitness', count: galleryItems.filter(i => i.category === 'sports').length },
+              { id: 'activities', label: 'Cultural & Celebrations', count: galleryItems.filter(i => i.category === 'activities' || i.category === 'leadership').length }
+            ].map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveGalleryCategory(cat.id)}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                  activeGalleryCategory === cat.id
+                    ? 'bg-[#0b1e38] text-white shadow-md'
+                    : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200/60'
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-black ${
+                  activeGalleryCategory === cat.id ? 'bg-amber-400 text-[#0b1e38]' : 'bg-slate-100 text-slate-600'
+                }`}>
+                  {cat.count}
+                </span>
+              </button>
             ))}
           </div>
+
+          {/* 🖼️ Dynamic Responsive Gallery Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {galleryItems
+              .filter(item => activeGalleryCategory === 'all' || item.category === activeGalleryCategory || (activeGalleryCategory === 'activities' && (item.category === 'activities' || item.category === 'leadership')))
+              .map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => setSelectedGalleryImage({ title: item.title, image: item.src, tag: item.tag, description: item.description })}
+                  className="group rounded-3xl overflow-hidden border border-slate-200 hover:border-sky-500 shadow-md hover:shadow-2xl transition-all duration-300 bg-white flex flex-col justify-between cursor-pointer transform hover:-translate-y-1.5"
+                >
+                  <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                      <span className="text-white text-xs font-bold flex items-center gap-1 bg-[#0b1e38]/80 px-2.5 py-1 rounded-lg backdrop-blur-sm">
+                        <Eye className="w-3.5 h-3.5 text-amber-400" /> Click to View High-Res
+                      </span>
+                    </div>
+                    <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-white/90 text-slate-800 text-[10px] font-black uppercase tracking-wider backdrop-blur-md shadow-sm border border-slate-200">
+                      {item.tag}
+                    </span>
+                  </div>
+
+                  <div className="p-4 space-y-1.5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-[#0b1e38] text-sm group-hover:text-sky-700 transition-colors line-clamp-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-slate-600 line-clamp-2 mt-1 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-sky-700 font-bold">
+                      <span>View Photo Details</span>
+                      <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+
+          {/* 📑 Prospectus & Scanned Brochure Gallery Banner */}
+          <div className="p-8 rounded-3xl bg-gradient-to-r from-[#0b1e38] via-slate-900 to-[#0b1e38] text-white border border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 mt-8">
+            <div className="space-y-2">
+              <span className="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 font-bold text-xs border border-amber-400/30">
+                Official Prospectus Archives
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white font-serif">
+                Browse Scanned Prospectus & Heritage Pages
+              </h3>
+              <p className="text-xs text-slate-300 max-w-xl">
+                Flip through original printed brochure documents featuring the sacred dedication, official leadership messages, fee structures, and campus highlights.
+              </p>
+            </div>
+
+            <button
+              onClick={() => setProspectusModalOpen(true)}
+              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-[#0b1e38] font-black text-xs uppercase tracking-wider shadow-xl flex items-center gap-2 shrink-0 transition-all transform hover:-translate-y-0.5"
+            >
+              <Eye className="w-4 h-4" />
+              <span>Open Prospectus Flip-Booklet</span>
+            </button>
+          </div>
+
         </main>
       )}
 
@@ -1929,17 +2155,51 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
         </div>
       </footer>
 
-      {/* 🔍 Lightbox Modal */}
+      {/* 🔍 Enhanced High-Res Lightbox Modal */}
       {selectedGalleryImage && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl p-3 modal-transition border border-slate-200">
-            <button onClick={() => setSelectedGalleryImage(null)} className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-rose-600 transition-colors">
-              <X className="w-5 h-5" />
-            </button>
-            <img src={selectedGalleryImage.image} alt={selectedGalleryImage.title} className="w-full max-h-[75vh] object-contain rounded-2xl" />
-            <div className="p-3 text-center">
-              <h4 className="font-black text-slate-900 text-sm">{selectedGalleryImage.title}</h4>
+        <div 
+          onClick={() => setSelectedGalleryImage(null)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()} 
+            className="relative max-w-5xl w-full bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-slate-700 flex flex-col max-h-[92vh]"
+          >
+            {/* Modal Header */}
+            <div className="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between gap-4 bg-slate-950/60">
+              <div className="flex items-center gap-3">
+                {selectedGalleryImage.tag && (
+                  <span className="px-3 py-1 rounded-full bg-amber-400 text-[#0b1e38] font-black text-[10px] uppercase tracking-wider">
+                    {selectedGalleryImage.tag}
+                  </span>
+                )}
+                <h4 className="font-bold text-white text-sm sm:text-base font-serif line-clamp-1">
+                  {selectedGalleryImage.title}
+                </h4>
+              </div>
+              <button 
+                onClick={() => setSelectedGalleryImage(null)} 
+                className="w-9 h-9 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center hover:bg-rose-600 hover:text-white transition-colors shrink-0 shadow"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
+
+            {/* Image Preview Container */}
+            <div className="flex-1 bg-black/40 flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+              <img 
+                src={selectedGalleryImage.image} 
+                alt={selectedGalleryImage.title} 
+                className="max-h-[68vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl" 
+              />
+            </div>
+
+            {/* Modal Footer Description */}
+            {selectedGalleryImage.description && (
+              <div className="p-4 bg-slate-950/80 border-t border-slate-800 text-xs text-slate-300 text-center">
+                <p>{selectedGalleryImage.description}</p>
+              </div>
+            )}
           </div>
         </div>
       )}
