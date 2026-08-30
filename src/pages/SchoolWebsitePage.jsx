@@ -347,7 +347,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       location: "Vinay Nagar, Sangwan City Road, Quarsi, P.A.C. Aligarh (U.P.)",
       phone: "+91 96270 32626",
       email: "dadheechkids@gmail.com",
-      image: "/assets/campuses/kids_school.jpeg",
+      image: "/assets/campuses/kids_school_card.jpg",
       highlights: [
         "Montessori & Play-Way Early Childhood Framework",
         "Vibrant Theme-Based Smart Classrooms",
@@ -960,11 +960,11 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               </div>
 
               <div className="lg:col-span-6">
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-[340px] sm:h-[400px] bg-slate-950 flex items-center justify-center p-2 group">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl aspect-[4/3] sm:aspect-video lg:aspect-[4/3] bg-slate-100 group">
                   <img
                     src={campusesData[selectedCampusTab].image}
                     alt={campusesData[selectedCampusTab].name}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>
@@ -1585,11 +1585,11 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   </div>
                 </div>
 
-                <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-[340px] sm:h-[420px] bg-slate-950 flex items-center justify-center p-2 group">
+                <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-slate-200 shadow-xl aspect-[4/3] sm:aspect-video lg:aspect-[4/3] bg-slate-100 group">
                   <img
                     src={campus.image}
                     alt={campus.name}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>
