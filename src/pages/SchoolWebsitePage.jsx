@@ -504,16 +504,16 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     🏛️ Overview & Society History
                   </button>
                   <button onClick={() => navigateTo('founder')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-800">
-                    👑 Founder's Message (Late Mr. Dauli Singh)
+                    👑 Founder's Message
                   </button>
                   <button onClick={() => navigateTo('md')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-sky-800">
-                    💼 Manager's Message (Mr. Pramod Kumar Rajput)
+                    💼 Manager's Message
                   </button>
                   <button onClick={() => navigateTo('principal')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-indigo-800">
-                    🎓 Principal's Message (Mrs. Kavita Rani)
+                    🎓 Principal's Message
                   </button>
                   <button onClick={() => navigateTo('dedication')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-900">
-                    🌸 Late Dadheech Kumar Rajput (Dedication)
+                    🌸 Sacred Dedication
                   </button>
                 </div>
               )}
@@ -585,10 +585,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           <div className="lg:hidden bg-white border-t border-slate-200 px-4 py-6 space-y-2 shadow-2xl text-slate-800">
             <button onClick={() => navigateTo('home')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Home</button>
             <button onClick={() => navigateTo('about')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">About DMPS & Society</button>
-            <button onClick={() => navigateTo('founder')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-800">👑 Founder's Message (Late Mr. Dauli Singh)</button>
-            <button onClick={() => navigateTo('md')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-sky-800">💼 Manager's Message (Mr. Pramod Kumar Rajput)</button>
-            <button onClick={() => navigateTo('principal')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-indigo-800">🎓 Principal's Message (Mrs. Kavita Rani)</button>
-            <button onClick={() => navigateTo('dedication')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-900">🌸 Late Dadheech Kumar Rajput (Dedication)</button>
+            <button onClick={() => navigateTo('founder')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-800">👑 Founder's Message</button>
+            <button onClick={() => navigateTo('md')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-sky-800">💼 Manager's Message</button>
+            <button onClick={() => navigateTo('principal')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-indigo-800">🎓 Principal's Message</button>
+            <button onClick={() => navigateTo('dedication')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-900">🌸 Sacred Dedication</button>
             <button onClick={() => navigateTo('campuses')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Our 3 Campuses</button>
             <button onClick={() => navigateTo('academic')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Academics</button>
             <button onClick={() => navigateTo('facilities')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Beyond Academics</button>
@@ -1144,8 +1144,8 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           {/* 📄 Main Content Card (Left: Crisp Quote & Intro | Right: Large Portrait Photo) */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* 📝 LEFT COLUMN (7 Cols): Crisp Thought & Philosophy */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* 📝 LEFT COLUMN (6 Cols): Crisp Thought & Philosophy */}
+            <div className="lg:col-span-6 space-y-6">
               <div>
                 <span className="text-xs font-black text-amber-700 uppercase tracking-widest block mb-1">
                   Visionary Message
@@ -1189,9 +1189,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               </div>
             </div>
 
-            {/* 🖼️ RIGHT COLUMN (5 Cols): Large High-Resolution Portrait Photo */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-64 sm:w-72 max-w-[280px] rounded-3xl overflow-hidden border-4 border-amber-400 shadow-2xl bg-gradient-to-b from-amber-100 to-amber-50 p-2 group">
+            {/* 🖼️ RIGHT COLUMN (6 Cols): Large High-Resolution Portrait Photo */}
+            <div className="lg:col-span-6 flex flex-col items-center justify-center">
+              <div className="w-72 sm:w-80 md:w-[340px] max-w-full rounded-3xl overflow-hidden border-4 border-amber-400 shadow-2xl bg-gradient-to-b from-amber-100 to-amber-50 p-2.5 group">
                 <div className="rounded-2xl overflow-hidden aspect-[3/4] bg-slate-100 shadow-inner">
                   <img
                     src="/assets/leadership/founder.jpg"
@@ -1200,9 +1200,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   />
                 </div>
                 <div className="p-4 text-center space-y-1">
-                  <h3 className="text-lg font-black text-[#0b1e38] font-serif">Late Mr. Dauli Singh</h3>
-                  <p className="text-xs font-bold text-amber-900 uppercase tracking-wide">Visionary Founder</p>
-                  <p className="text-[11px] text-slate-500">Dadheech Educational Society (Estd. July 2002)</p>
+                  <h3 className="text-xl font-black text-[#0b1e38] font-serif whitespace-nowrap">Late Mr. Dauli Singh</h3>
+                  <p className="text-xs font-bold text-amber-900 uppercase tracking-wider">Visionary Founder</p>
+                  <p className="text-[11px] sm:text-xs text-slate-600 font-medium whitespace-nowrap">Dadheech Educational Society (Estd. July 2002)</p>
+                  <p className="text-xs font-bold text-amber-800 tracking-wide mt-1">8 Jan 1975 – 2022</p>
                 </div>
               </div>
             </div>
@@ -1225,14 +1226,14 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   💼 Manager's Desk
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-slate-200 shadow-sm">
-                  DMPS Educational Group
+                  DMPS Senior Secondary School
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0b1e38] font-serif tracking-tight">
                 Manager's Message
               </h1>
               <p className="text-xs sm:text-sm font-semibold text-sky-900">
-                Mr. Pramod Kumar Rajput — Managing Director & Manager, Dadheech Educational Society
+                Mr. Pramod Kumar Rajput — Manager, Dadheech Memorial Public School
               </p>
             </div>
 
@@ -1244,11 +1245,11 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </button>
           </div>
 
-          {/* 📄 Main Content Card (Left: Crisp Quote & Intro | Right: Large Portrait Photo) */}
+          {/* 📄 Main Content Card (Left: Crisp Thought & Intro | Right: Large Portrait Photo) */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* 📝 LEFT COLUMN (7 Cols): Crisp Thought & Philosophy */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* 📝 LEFT COLUMN (6 Cols): Crisp Thought & Philosophy */}
+            <div className="lg:col-span-6 space-y-6">
               <div>
                 <span className="text-xs font-black text-sky-700 uppercase tracking-widest block mb-1">
                   Manager's Perspective
@@ -1292,9 +1293,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               </div>
             </div>
 
-            {/* 🖼️ RIGHT COLUMN (5 Cols): Large High-Resolution Portrait Photo */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-64 sm:w-72 max-w-[280px] rounded-3xl overflow-hidden border-4 border-sky-400 shadow-2xl bg-gradient-to-b from-sky-100 to-sky-50 p-2 group">
+            {/* 🖼️ RIGHT COLUMN (6 Cols): Large High-Resolution Portrait Photo */}
+            <div className="lg:col-span-6 flex flex-col items-center justify-center">
+              <div className="w-72 sm:w-80 md:w-[340px] max-w-full rounded-3xl overflow-hidden border-4 border-sky-400 shadow-2xl bg-gradient-to-b from-sky-100 to-sky-50 p-2.5 group">
                 <div className="rounded-2xl overflow-hidden aspect-[3/4] bg-slate-100 shadow-inner">
                   <img
                     src="/assets/leadership/md.jpg"
@@ -1303,9 +1304,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   />
                 </div>
                 <div className="p-4 text-center space-y-1">
-                  <h3 className="text-lg font-black text-[#0b1e38] font-serif">Mr. Pramod Kumar Rajput</h3>
-                  <p className="text-xs font-bold text-sky-900 uppercase tracking-wide">Manager</p>
-                  <p className="text-[11px] text-slate-500">Overseeing 3 Campuses & Academic Wings</p>
+                  <h3 className="text-xl font-black text-[#0b1e38] font-serif whitespace-nowrap">Mr. Pramod Kumar Rajput</h3>
+                  <p className="text-xs font-bold text-sky-900 uppercase tracking-wider">Manager</p>
+                  <p className="text-[11px] sm:text-xs text-slate-600 font-medium whitespace-nowrap">Overseeing 3 Campuses & Academic Wings</p>
                 </div>
               </div>
             </div>
@@ -1350,8 +1351,8 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           {/* 📄 Main Content Card (Left: Crisp Quote & Intro | Right: Large Portrait Photo) */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* 📝 LEFT COLUMN (7 Cols): Crisp Thought & Pedagogy */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* 📝 LEFT COLUMN (6 Cols): Crisp Thought & Pedagogy */}
+            <div className="lg:col-span-6 space-y-6">
               <div>
                 <span className="text-xs font-black text-indigo-700 uppercase tracking-widest block mb-1">
                   Principal's Welcome
@@ -1387,17 +1388,17 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   Apply for Admission 2026-27
                 </button>
                 <button
-                  onClick={() => navigateTo('facilities')}
+                  onClick={() => navigateTo('academic')}
                   className="px-5 py-2.5 rounded-xl bg-[#0b1e38] hover:bg-slate-800 text-white font-bold text-xs transition-all"
                 >
-                  Campus Facilities & Labs
+                  Academic Curriculum
                 </button>
               </div>
             </div>
 
-            {/* 🖼️ RIGHT COLUMN (5 Cols): Large High-Resolution Portrait Photo */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-64 sm:w-72 max-w-[280px] rounded-3xl overflow-hidden border-4 border-indigo-400 shadow-2xl bg-gradient-to-b from-indigo-100 to-indigo-50 p-2 group">
+            {/* 🖼️ RIGHT COLUMN (6 Cols): Large High-Resolution Portrait Photo */}
+            <div className="lg:col-span-6 flex flex-col items-center justify-center">
+              <div className="w-72 sm:w-80 md:w-[340px] max-w-full rounded-3xl overflow-hidden border-4 border-indigo-400 shadow-2xl bg-gradient-to-b from-indigo-100 to-indigo-50 p-2.5 group">
                 <div className="rounded-2xl overflow-hidden aspect-[3/4] bg-slate-100 shadow-inner">
                   <img
                     src="/assets/leadership/principal.jpg"
@@ -1406,9 +1407,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   />
                 </div>
                 <div className="p-4 text-center space-y-1">
-                  <h3 className="text-lg font-black text-[#0b1e38] font-serif">Mrs. Kavita Rani</h3>
-                  <p className="text-xs font-bold text-indigo-900 uppercase tracking-wide">Principal</p>
-                  <p className="text-[11px] text-slate-500">Champion of Student-Centric Pedagogy</p>
+                  <h3 className="text-xl font-black text-[#0b1e38] font-serif whitespace-nowrap">Mrs. Kavita Rani</h3>
+                  <p className="text-xs font-bold text-indigo-900 uppercase tracking-wider">Principal • Educationalist</p>
+                  <p className="text-[11px] sm:text-xs text-slate-600 font-medium whitespace-nowrap">DMPS Senior Secondary Campus</p>
                 </div>
               </div>
             </div>
