@@ -1878,18 +1878,18 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase inline-flex items-center gap-1.5">
               <Trophy className="w-3.5 h-3.5 text-amber-600" />
-              <span>Academic Merit & Selections</span>
+              <span>Official Merit Record (Till 2020)</span>
             </span>
             <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
-              Competitive Entrance Selections
+              Students Who Qualified Entrance Exams
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Proud qualifiers from Dadheech Memorial Public School who cracked premier national entrance examinations.
+              Official list of stellar achievers from Dadheech Memorial Public School who qualified premier national entrance examinations.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-            {/* 🎓 CARD 1: Aligarh Muslim University (AMU Aligarh) */}
+            {/* 🎓 CARD 1: Aligarh Muslim University (AMU), Aligarh Entrance Exams */}
             <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
               <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 flex-wrap">
                 <div className="flex items-center gap-2.5">
@@ -1897,10 +1897,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     🎓
                   </div>
                   <div>
-                    <h2 className="text-lg sm:text-xl font-black text-[#0b1e38] font-serif">
-                      AMU Aligarh Entrance
+                    <h2 className="text-base sm:text-lg font-black text-[#0b1e38] font-serif">
+                      Aligarh Muslim University (AMU), Aligarh
                     </h2>
-                    <p className="text-[11px] text-slate-500 font-medium">Aligarh Muslim University</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Entrance Exam Qualifiers</p>
                   </div>
                 </div>
                 <span className="px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-800 text-xs font-bold border border-sky-200">
@@ -1923,7 +1923,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               </div>
             </div>
 
-            {/* 🏫 CARD 2: Jawahar Navodaya Vidyalaya (JNV) */}
+            {/* 🏫 CARD 2: Jawahar Navodaya Vidyalaya Entrance Exam */}
             <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
               <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 flex-wrap">
                 <div className="flex items-center gap-2.5">
@@ -1931,10 +1931,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     🏫
                   </div>
                   <div>
-                    <h2 className="text-lg sm:text-xl font-black text-[#0b1e38] font-serif">
-                      JNV Entrance
+                    <h2 className="text-base sm:text-lg font-black text-[#0b1e38] font-serif">
+                      Jawahar Navodaya Vidyalaya (JNV)
                     </h2>
-                    <p className="text-[11px] text-slate-500 font-medium">Jawahar Navodaya Vidyalaya</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Entrance Exam Qualifiers</p>
                   </div>
                 </div>
                 <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200">
@@ -1957,7 +1957,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               </div>
             </div>
 
-            {/* 🌟 CARD 3: Vidyagyan Leadership Academy */}
+            {/* 🌟 CARD 3: Vidyagyan Entrance Exam */}
             <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
               <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 flex-wrap">
                 <div className="flex items-center gap-2.5">
@@ -1965,10 +1965,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     🌟
                   </div>
                   <div>
-                    <h2 className="text-lg sm:text-xl font-black text-[#0b1e38] font-serif">
-                      Vidyagyan Academy
+                    <h2 className="text-base sm:text-lg font-black text-[#0b1e38] font-serif">
+                      Vidyagyan Entrance Exam
                     </h2>
-                    <p className="text-[11px] text-slate-500 font-medium">Leadership Academy Entrance</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Leadership Academy Qualifiers</p>
                   </div>
                 </div>
                 <span className="px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-800 text-xs font-bold border border-indigo-200">
@@ -1991,7 +1991,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               </div>
             </div>
 
-            {/* 🏛️ CARD 4: AECS Narora & Kendriya Vidyalaya */}
+            {/* 🏛️ CARD 4: Atomic Energy Central School, Narora & Central School, Aligarh */}
             <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
               <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 flex-wrap">
                 <div className="flex items-center gap-2.5">
@@ -1999,10 +1999,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     🏛️
                   </div>
                   <div>
-                    <h2 className="text-lg sm:text-xl font-black text-[#0b1e38] font-serif">
-                      AECS Narora & Kendriya Vidyalaya
+                    <h2 className="text-base sm:text-lg font-black text-[#0b1e38] font-serif">
+                      AECS Narora & Central School Aligarh
                     </h2>
-                    <p className="text-[11px] text-slate-500 font-medium">Entrance Qualifiers</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Entrance Exam Qualifiers</p>
                   </div>
                 </div>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
