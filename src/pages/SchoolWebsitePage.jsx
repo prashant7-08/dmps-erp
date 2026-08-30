@@ -481,7 +481,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
           </div>
 
-          <nav className="hidden lg:flex items-center gap-2 xl:gap-3.5 text-[11px] xl:text-xs font-bold uppercase tracking-wider text-slate-700">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm font-black uppercase tracking-wider text-slate-800">
             <button onClick={() => navigateTo('home')} className={`py-2 transition-colors ${currentPage === 'home' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
               Home
             </button>
@@ -490,24 +490,24 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <div className="relative py-2 group cursor-pointer" onMouseEnter={() => setOpenDropdown('about')} onMouseLeave={() => setOpenDropdown(null)}>
               <button onClick={() => navigateTo('about')} className={`flex items-center gap-1 transition-colors ${['about', 'founder', 'md', 'principal', 'dedication'].includes(currentPage) ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
                 <span>About & Leadership</span>
-                <ChevronDown className="w-3 h-3" />
+                <ChevronDown className="w-3.5 h-3.5" />
               </button>
 
               {openDropdown === 'about' && (
                 <div className="absolute top-full left-0 w-64 bg-white border border-slate-200 shadow-2xl rounded-xl py-2 z-50 text-slate-800 normal-case font-semibold">
-                  <button onClick={() => navigateTo('about')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                  <button onClick={() => navigateTo('about')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700">
                     🏛️ Overview & Society History
                   </button>
-                  <button onClick={() => navigateTo('founder')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-800">
+                  <button onClick={() => navigateTo('founder')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-800">
                     👑 Founder's Message
                   </button>
-                  <button onClick={() => navigateTo('md')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-sky-800">
+                  <button onClick={() => navigateTo('md')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-sky-800">
                     💼 Manager's Message
                   </button>
-                  <button onClick={() => navigateTo('principal')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-indigo-800">
+                  <button onClick={() => navigateTo('principal')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-indigo-800">
                     🎓 Principal's Message
                   </button>
-                  <button onClick={() => navigateTo('dedication')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-900">
+                  <button onClick={() => navigateTo('dedication')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-900">
                     🌸 Sacred Dedication
                   </button>
                 </div>
@@ -518,34 +518,45 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <div className="relative py-2 group cursor-pointer" onMouseEnter={() => setOpenDropdown('campuses')} onMouseLeave={() => setOpenDropdown(null)}>
               <button onClick={() => navigateTo('campuses')} className={`flex items-center gap-1 transition-colors ${currentPage === 'campuses' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
                 <span>Our Schools</span>
-                <ChevronDown className="w-3 h-3" />
+                <ChevronDown className="w-3.5 h-3.5" />
               </button>
 
               {openDropdown === 'campuses' && (
                 <div className="absolute top-full left-0 w-72 bg-white border border-slate-200 shadow-2xl rounded-xl py-2 z-50 text-slate-800 normal-case font-semibold">
-                  <button onClick={() => navigateTo('campuses', 'main-campus')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                  <button onClick={() => navigateTo('campuses', 'main-campus')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700">
                     🏫 DMPS Senior Secondary (Jargwan)
                   </button>
-                  <button onClick={() => navigateTo('campuses', 'barheti-campus')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                  <button onClick={() => navigateTo('campuses', 'barheti-campus')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700">
                     🏫 DMPS Junior High (Barheti Aligarh)
                   </button>
-                  <button onClick={() => navigateTo('campuses', 'kids-school')} className="w-full text-left px-4 py-2 text-xs hover:bg-sky-50 hover:text-sky-700">
+                  <button onClick={() => navigateTo('campuses', 'kids-school')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700">
                     🏫 Dadheech Kids School (Quarsi Aligarh)
                   </button>
                 </div>
               )}
             </div>
 
-            <button onClick={() => navigateTo('academic')} className={`py-2 transition-colors ${currentPage === 'academic' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
-              Academics
-            </button>
+            {/* Academics & Hall of Fame Dropdown */}
+            <div className="relative py-2 group cursor-pointer" onMouseEnter={() => setOpenDropdown('academics')} onMouseLeave={() => setOpenDropdown(null)}>
+              <button onClick={() => navigateTo('academic')} className={`flex items-center gap-1 transition-colors ${['academic', 'selections'].includes(currentPage) ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
+                <span>Academics</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+
+              {openDropdown === 'academics' && (
+                <div className="absolute top-full left-0 w-72 bg-white border border-slate-200 shadow-2xl rounded-xl py-2 z-50 text-slate-800 normal-case font-semibold">
+                  <button onClick={() => navigateTo('academic')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold flex items-center gap-2">
+                    <span>📖 Curriculum & Academic Wings</span>
+                  </button>
+                  <button onClick={() => navigateTo('selections')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-900 flex items-center gap-2">
+                    <span>🏆 44+ Hall of Fame Selections</span>
+                  </button>
+                </div>
+              )}
+            </div>
 
             <button onClick={() => navigateTo('facilities')} className={`py-2 transition-colors ${currentPage === 'facilities' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
               Infrastructure
-            </button>
-
-            <button onClick={() => navigateTo('selections')} className={`py-2 transition-colors ${currentPage === 'selections' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
-              Hall of Fame (44+)
             </button>
 
             <button onClick={() => navigateTo('gallery')} className={`py-2 transition-colors ${currentPage === 'gallery' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
@@ -585,9 +596,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <button onClick={() => navigateTo('principal')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-indigo-800">🎓 Principal's Message</button>
             <button onClick={() => navigateTo('dedication')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-900">🌸 Sacred Dedication</button>
             <button onClick={() => navigateTo('campuses')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Our 3 Campuses</button>
-            <button onClick={() => navigateTo('academic')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Academics</button>
-            <button onClick={() => navigateTo('facilities')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Beyond Academics</button>
-            <button onClick={() => navigateTo('selections')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-sky-700">Hall of Fame (44+)</button>
+            <button onClick={() => navigateTo('academic')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Academics & Curriculum</button>
+            <button onClick={() => navigateTo('selections')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-800">🏆 Hall of Fame (44+)</button>
+            <button onClick={() => navigateTo('facilities')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Campus Infrastructure</button>
             <button onClick={() => navigateTo('gallery')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Photo & Event Gallery</button>
             <button onClick={() => navigateTo('admissions')} className="w-full text-left py-2 px-3 rounded-lg bg-sky-600 text-white font-black text-sm uppercase">Admissions 2026-27 Open</button>
             <button onClick={() => navigateTo('contact')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Contact Us</button>
@@ -602,24 +613,25 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
         <main className="flex-1 space-y-16 pb-16">
           
           {/* 🌟 Modern Hero Banner Carousel */}
-          <section className="relative min-h-[560px] lg:min-h-[620px] bg-[#0b1e38] text-white flex items-center overflow-hidden">
+          {/* 🌟 Modern Hero Banner Carousel (Clean & Full Image Visibility) */}
+          <section className="relative h-[400px] sm:h-[500px] lg:h-[580px] bg-slate-900 text-white flex items-center overflow-hidden">
             {heroSlides.map((slide, idx) => (
               <div
                 key={idx}
                 className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  activeHeroSlide === idx ? 'opacity-100 scale-105 transition-transform duration-[7000ms]' : 'opacity-0 scale-100 pointer-events-none'
+                  activeHeroSlide === idx ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
               >
-                <img src={slide.image} alt={slide.title} className="w-full h-full object-cover object-center brightness-[0.35]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1e38] via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0b1e38]/90 via-[#0b1e38]/60 to-transparent" />
+                <img src={slide.image} alt={slide.title} className="w-full h-full object-cover object-center" />
+                {/* Subtle soft bottom shadow for slide controls */}
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
               </div>
             ))}
 
             {/* ⬅️ Subtle Previous Slide Button */}
             <button
               onClick={() => setActiveHeroSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
-              className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/25 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center backdrop-blur-md border border-white/15 hover:border-white/40 transition-all shadow-lg hover:scale-110 cursor-pointer group"
+              className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/60 transition-all shadow-xl hover:scale-110 cursor-pointer group"
               aria-label="Previous Slide"
             >
               <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 group-hover:-translate-x-0.5 transition-transform" />
@@ -628,104 +640,93 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             {/* ➡️ Subtle Next Slide Button */}
             <button
               onClick={() => setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length)}
-              className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/25 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center backdrop-blur-md border border-white/15 hover:border-white/40 transition-all shadow-lg hover:scale-110 cursor-pointer group"
+              className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/60 transition-all shadow-xl hover:scale-110 cursor-pointer group"
               aria-label="Next Slide"
             >
               <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 group-hover:translate-x-0.5 transition-transform" />
             </button>
 
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10 w-full">
-              <div className="max-w-3xl space-y-6">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-amber-300 text-xs font-bold backdrop-blur-md">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                  <span>{heroSlides[activeHeroSlide].tag}</span>
-                </div>
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-serif text-white leading-tight tracking-tight">
+            {/* 🏷️ Sleek Floating Caption & Slide Dots at Bottom */}
+            <div className="absolute bottom-5 inset-x-0 z-20 flex flex-col items-center gap-2.5 px-4 pointer-events-none">
+              <div className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-center shadow-2xl flex items-center gap-2.5 pointer-events-auto max-w-2xl">
+                <span className="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-black uppercase tracking-wider shrink-0">
+                  {heroSlides[activeHeroSlide].tag}
+                </span>
+                <span className="font-bold text-xs sm:text-sm tracking-wide text-white truncate">
                   {heroSlides[activeHeroSlide].title}
-                </h1>
-                <p className="text-sm sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
-                  {heroSlides[activeHeroSlide].subtitle}
-                </p>
-
-                <div className="flex items-center gap-4 flex-wrap pt-2">
-                  <button
-                    onClick={() => navigateTo(heroSlides[activeHeroSlide].target)}
-                    className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-[#0b1e38] font-black text-xs uppercase tracking-wider shadow-2xl transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
-                  >
-                    <span>{heroSlides[activeHeroSlide].cta}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => navigateTo('campuses')}
-                    className="px-5 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-bold text-xs uppercase tracking-wider backdrop-blur-md border border-white/20 transition-all flex items-center gap-2"
-                  >
-                    <Building2 className="w-4 h-4 text-sky-400" />
-                    <span>Our 3 Campuses</span>
-                  </button>
-                  <button
-                    onClick={() => setProspectusModalOpen(true)}
-                    className="px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-700 transition-all flex items-center gap-2"
-                  >
-                    <FileText className="w-4 h-4 text-amber-400" />
-                    <span>Prospectus Booklet</span>
-                  </button>
-                </div>
+                </span>
               </div>
 
-              <div className="flex items-center gap-2 mt-12">
+              {/* Slide Indicators */}
+              <div className="flex items-center gap-2 pointer-events-auto">
                 {heroSlides.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveHeroSlide(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${activeHeroSlide === i ? 'w-8 bg-amber-400' : 'w-2 bg-white/40 hover:bg-white/70'}`}
+                    className={`h-2 rounded-full transition-all duration-300 ${activeHeroSlide === i ? 'w-8 bg-amber-400' : 'w-2.5 bg-white/60 hover:bg-white'}`}
+                    aria-label={`Slide ${i + 1}`}
                   />
                 ))}
               </div>
             </div>
           </section>
 
-          {/* ⚡ 4 Floating Quick-Action Pillars */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              
-              <div onClick={() => navigateTo('admissions')} className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1">
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
-                  <GraduationCap className="w-6 h-6" />
+          {/* ⚡ Clean Quick Action & Highlights Bar (Directly Below Slider) */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-30">
+            <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-2xl border border-slate-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+              <button
+                onClick={() => navigateTo('admissions')}
+                className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white shadow-md transition-all flex items-center gap-3 text-left group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-5 h-5 text-amber-300" />
                 </div>
-                <h3 className="font-bold text-slate-900 text-base group-hover:text-sky-700 transition-colors">Admissions 2026-27</h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">Enroll for Playgroup to Class 12th Senior Secondary across all 3 campuses.</p>
-                <span className="inline-flex items-center gap-1 text-xs font-black text-sky-700 mt-3 group-hover:underline">Apply Online <ChevronRight className="w-3 h-3" /></span>
-              </div>
-
-              <div onClick={() => navigateTo('campuses')} className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1">
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
-                  <Building2 className="w-6 h-6" />
+                <div>
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">Admissions Open</div>
+                  <div className="text-[10px] sm:text-xs text-sky-100 font-medium">Session 2026–27 • Apply Now</div>
                 </div>
-                <h3 className="font-bold text-slate-900 text-base group-hover:text-sky-700 transition-colors">Our 3 Campuses</h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">Main Senior Campus, Barheti Aligarh & Dadheech Kids Early Learning Center.</p>
-                <span className="inline-flex items-center gap-1 text-xs font-black text-sky-700 mt-3 group-hover:underline">Explore Branches <ChevronRight className="w-3 h-3" /></span>
-              </div>
+              </button>
 
-              <div onClick={() => navigateTo('selections')} className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-500 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1">
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
-                  <Trophy className="w-6 h-6" />
+              <button
+                onClick={() => navigateTo('campuses')}
+                className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 hover:bg-sky-50 border border-slate-200 text-slate-800 shadow-sm transition-all flex items-center gap-3 text-left group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
+                  <Building2 className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-slate-900 text-base group-hover:text-sky-700 transition-colors">Hall of Fame (44+)</h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">23 AMU Qualifiers, 10 JNV Selections, Vidyagyan & AECS Narora Champions.</p>
-                <span className="inline-flex items-center gap-1 text-xs font-black text-sky-700 mt-3 group-hover:underline">View Qualifiers <ChevronRight className="w-3 h-3" /></span>
-              </div>
-
-              <div onClick={onGoToLogin} className="p-6 rounded-2xl bg-[#0b1e38] text-white border border-slate-800 shadow-xl hover:shadow-2xl transition-all cursor-pointer group transform hover:-translate-y-1">
-                <div className="w-12 h-12 rounded-xl bg-amber-400 text-[#0b1e38] flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
-                  <Lock className="w-6 h-6" />
+                <div>
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">Our 3 Campuses</div>
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-medium">Jargwan • Barheti • Quarsi</div>
                 </div>
-                <h3 className="font-bold text-white text-base group-hover:text-amber-300 transition-colors">School ERP Portal</h3>
-                <p className="text-xs text-slate-300 mt-1 leading-relaxed">Direct login for Students, Parents, Teachers & School Administration.</p>
-                <span className="inline-flex items-center gap-1 text-xs font-black text-amber-400 mt-3 group-hover:underline">Enter Portal <ChevronRight className="w-3 h-3" /></span>
-              </div>
+              </button>
 
+              <button
+                onClick={() => navigateTo('selections')}
+                className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 hover:bg-amber-50 border border-slate-200 text-slate-800 shadow-sm transition-all flex items-center gap-3 text-left group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+                  <Trophy className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">44+ Hall of Fame</div>
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-medium">AMU, JNV & Vidyagyan</div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => setProspectusModalOpen(true)}
+                className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 hover:bg-indigo-50 border border-slate-200 text-slate-800 shadow-sm transition-all flex items-center gap-3 text-left group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">Prospectus Booklet</div>
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-medium">Fee Structure & Info</div>
+                </div>
+              </button>
             </div>
-          </section>
+          </div>
 
           {/* 👑 5. DYNAMIC LEADERSHIP & FOUNDER SHOWCASE RIGHT ON HOME (Interactive Tabbed View) */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
@@ -1675,54 +1676,222 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 🔬 PAGE 5: BEYOND ACADEMICS */}
+      {/* 🔬 PAGE 5: CAMPUS INFRASTRUCTURE (Grouped Facilities) */}
       {/* ========================================================================= */}
       {currentPage === 'facilities' && (
-        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
-          <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">Infrastructure</span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Beyond Academics</h1>
+        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 animate-in fade-in duration-300">
+          <div className="text-center space-y-3 max-w-3xl mx-auto">
+            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase inline-flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span>Modern Campus Infrastructure</span>
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
+              World-Class Learning Spaces
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Designed to foster scientific curiosity, digital innovation, physical fitness, and holistic intellectual growth across all campuses.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
-              <Cpu className="w-8 h-8 text-sky-600" />
-              <h3 className="font-bold text-[#0b1e38] text-base">Science & AI Computer Labs</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">Equipped Physics, Chemistry, Biology, and high-speed Computer labs.</p>
+          <div className="space-y-10">
+            {/* 🔬 GROUP 1: Advanced Science Laboratories */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+              <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                <div className="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold shrink-0">
+                  <Cpu className="w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
+                    Advanced Science Laboratories
+                  </h2>
+                  <p className="text-xs text-slate-500 font-medium">Hands-on experimentation & Board practicals</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-sky-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-sky-600">⚡</span> Physics Laboratory
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Equipped with optical benches, electric circuit kits, magnetism apparatus, prisms, and precision measurement meters for senior secondary practicals.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-sky-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-emerald-600">🧪</span> Chemistry Laboratory
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Modern reagent stations, titration setups, organic/inorganic salts, safety fume hoods, and individual student experiment workbenches.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-sky-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-amber-600">🔬</span> Biology Laboratory
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    High-resolution compound microscopes, permanent botanical/zoological specimen slides, 3D anatomical charts, and plant physiology apparatus.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
-              <Trophy className="w-8 h-8 text-sky-600" />
-              <h3 className="font-bold text-[#0b1e38] text-base">Sports Complex & Yoga</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">Athletic fields for Cricket, Volleyball, Badminton, and daily yoga.</p>
+
+            {/* 💻 GROUP 2: Digital Technology & Smart Classrooms */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+              <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                <div className="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold shrink-0">
+                  <Smartphone className="w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
+                    Digital & Smart Learning Technology
+                  </h2>
+                  <p className="text-xs text-slate-500 font-medium">Interactive Touch Panels, Smart LEDs & High-Tech Computer Lab</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="p-5 rounded-2xl bg-indigo-50/50 border border-indigo-100 space-y-2 hover:border-indigo-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-indigo-600">🖥️</span> Touch-Panel Smart Class
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Dedicated interactive smart room featuring high-grade Touch Interactive Flat Panels (IFP), digital whiteboarding, and 3D visual concepts.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-indigo-50/50 border border-indigo-100 space-y-2 hover:border-indigo-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-sky-600">📺</span> Smart 4K LEDs in Each Class
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Every standard classroom is equipped with a Smart LED screen for audiovisual lessons, animated subject explanations, and daily quizzes.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-indigo-50/50 border border-indigo-100 space-y-2 hover:border-indigo-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-purple-600">⌨️</span> High-Tech Computer Lab
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Modern desktop systems connected via high-speed fiber internet, offering curriculum in basic computing, coding, typing, and digital literacy.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
-              <Bus className="w-8 h-8 text-sky-600" />
-              <h3 className="font-bold text-[#0b1e38] text-base">GPS Bus Fleet</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">Safe transport fleet connecting 30+ surrounding villages and towns.</p>
+
+            {/* 📚 GROUP 3: Knowledge Library & Cultural Auditorium */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+              <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold shrink-0">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
+                    Central Library & Grand Auditorium
+                  </h2>
+                  <p className="text-xs text-slate-500 font-medium">Intellectual enrichment, public speaking & cultural events</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-5 rounded-2xl bg-amber-50/40 border border-amber-200 space-y-2 hover:border-amber-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-amber-700">📖</span> Knowledge Resource Library
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Thousands of curriculum textbooks, national competitive entrance study materials (AMU, JNV, BSB, Olympiads), general knowledge encyclopedias, and a serene reading hall.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-amber-50/40 border border-amber-200 space-y-2 hover:border-amber-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-amber-700">🎭</span> Grand Multipurpose Auditorium
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Acoustically designed auditorium with state-of-the-art stage lighting, digital sound, and comfortable seating for annual functions, science exhibitions, and debates.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 🏃 GROUP 4: Sports, Transport & Campus Safety */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+              <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shrink-0">
+                  <Trophy className="w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
+                    Sports Grounds, Safety & Transport Fleet
+                  </h2>
+                  <p className="text-xs text-slate-500 font-medium">Physical well-being, campus security & safe commute</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="p-5 rounded-2xl bg-emerald-50/40 border border-emerald-200 space-y-2 hover:border-emerald-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-emerald-700">⚽</span> Sports Complex & Yoga
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Spacious athletic grounds for Cricket, Volleyball, Badminton, Table Tennis, athletics, and daily morning yoga for physical fitness.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-emerald-50/40 border border-emerald-200 space-y-2 hover:border-emerald-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-sky-700">🚌</span> GPS School Bus Fleet
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Well-maintained school buses and vans covering 30+ surrounding villages and towns, equipped with GPS tracking and trained conductors.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-emerald-50/40 border border-emerald-200 space-y-2 hover:border-emerald-400 transition-all">
+                  <div className="font-black text-[#0b1e38] text-base flex items-center gap-2">
+                    <span className="text-slate-700">🛡️</span> 24x7 CCTV & Pure RO Water
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    High-definition CCTV coverage across all corridors, entry gates, and grounds, paired with multi-stage RO drinking water stations and clean washrooms.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </main>
       )}
 
       {/* ========================================================================= */}
-      {/* 🏆 PAGE 6: HALL OF FAME */}
+      {/* 🏆 PAGE 6: HALL OF FAME (Clean Student-Only View) */}
       {/* ========================================================================= */}
       {currentPage === 'selections' && (
-        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
-          <div className="text-center space-y-3">
-            <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">Official Record</span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#0b1e38] font-serif">Hall of Fame — 44+ Qualifiers</h1>
+        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 animate-in fade-in duration-300">
+          <div className="text-center space-y-3 max-w-3xl mx-auto">
+            <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase inline-flex items-center gap-1.5">
+              <Trophy className="w-3.5 h-3.5 text-amber-600" />
+              <span>Official Academic Merit Record</span>
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
+              Hall of Fame — 44+ Selections
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Our stellar achievers who qualified premier national entrance examinations including Aligarh Muslim University (AMU), Jawahar Navodaya Vidyalaya (JNV), and Vidyagyan Academy.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {allQualifiers.map((s) => (
-              <div key={s.id} className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+              <div key={s.id} className="p-4 rounded-2xl bg-white border border-slate-200 hover:border-sky-400 shadow-sm hover:shadow-md transition-all space-y-2 group">
                 <div className="flex items-center justify-between gap-1">
                   <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">#{s.id}</span>
-                  <span className="text-[10px] font-bold text-sky-700">{s.org}</span>
+                  <span className="text-[10px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-full">{s.org}</span>
                 </div>
-                <div className="font-bold text-[#0b1e38] text-xs pt-1">{s.name}</div>
-                <div className="text-slate-500 text-[11px]">S/o or D/o {s.father}</div>
+                <div className="font-black text-[#0b1e38] text-sm group-hover:text-sky-700 transition-colors pt-1">
+                  {s.name}
+                </div>
               </div>
             ))}
           </div>
