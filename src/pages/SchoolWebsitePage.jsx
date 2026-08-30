@@ -536,7 +536,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               )}
             </div>
 
-            {/* Academics & Hall of Fame Dropdown */}
+            {/* Academics & Selections Dropdown */}
             <div className="relative py-2 group cursor-pointer" onMouseEnter={() => setOpenDropdown('academics')} onMouseLeave={() => setOpenDropdown(null)}>
               <button onClick={() => navigateTo('academic')} className={`flex items-center gap-1 transition-colors ${['academic', 'selections'].includes(currentPage) ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
                 <span>Academics</span>
@@ -549,7 +549,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     <span>📖 Curriculum & Academic Wings</span>
                   </button>
                   <button onClick={() => navigateTo('selections')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700 font-bold text-amber-900 flex items-center gap-2">
-                    <span>🏆 44+ Hall of Fame Selections</span>
+                    <span>🏆 Competitive Selections</span>
                   </button>
                 </div>
               )}
@@ -597,7 +597,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             <button onClick={() => navigateTo('dedication')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-900">🌸 Sacred Dedication</button>
             <button onClick={() => navigateTo('campuses')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Our 3 Campuses</button>
             <button onClick={() => navigateTo('academic')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Academics & Curriculum</button>
-            <button onClick={() => navigateTo('selections')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-800">🏆 Hall of Fame (44+)</button>
+            <button onClick={() => navigateTo('selections')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm text-amber-800">🏆 Competitive Selections</button>
             <button onClick={() => navigateTo('facilities')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Campus Infrastructure</button>
             <button onClick={() => navigateTo('gallery')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-50 font-bold text-sm">Photo & Event Gallery</button>
             <button onClick={() => navigateTo('admissions')} className="w-full text-left py-2 px-3 rounded-lg bg-sky-600 text-white font-black text-sm uppercase">Admissions 2026-27 Open</button>
@@ -708,7 +708,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   <Trophy className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">44+ Hall of Fame</div>
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">Student Selections</div>
                   <div className="text-[10px] sm:text-xs text-slate-500 font-medium">AMU, JNV & Vidyagyan</div>
                 </div>
               </button>
@@ -1865,35 +1865,155 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 🏆 PAGE 6: HALL OF FAME (Clean Student-Only View) */}
+      {/* 🏆 PAGE 6: COMPETITIVE SELECTIONS (Grouped by Exam Category) */}
       {/* ========================================================================= */}
       {currentPage === 'selections' && (
-        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 animate-in fade-in duration-300">
+        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 animate-in fade-in duration-300">
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase inline-flex items-center gap-1.5">
               <Trophy className="w-3.5 h-3.5 text-amber-600" />
-              <span>Official Academic Merit Record</span>
+              <span>Academic Merit & Selections</span>
             </span>
             <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
-              Hall of Fame — 44+ Selections
+              Competitive Entrance Selections
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Our stellar achievers who qualified premier national entrance examinations including Aligarh Muslim University (AMU), Jawahar Navodaya Vidyalaya (JNV), and Vidyagyan Academy.
+              Proud qualifiers from Dadheech Memorial Public School who cracked premier national entrance examinations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {allQualifiers.map((s) => (
-              <div key={s.id} className="p-4 rounded-2xl bg-white border border-slate-200 hover:border-sky-400 shadow-sm hover:shadow-md transition-all space-y-2 group">
-                <div className="flex items-center justify-between gap-1">
-                  <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">#{s.id}</span>
-                  <span className="text-[10px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-full">{s.org}</span>
+          <div className="space-y-10">
+            {/* 🎓 SECTION 1: Aligarh Muslim University (AMU Aligarh) */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4 flex-wrap">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-lg">
+                    🎓
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
+                      Aligarh Muslim University (AMU Aligarh)
+                    </h2>
+                    <p className="text-xs text-slate-500 font-medium">Entrance Qualifiers</p>
+                  </div>
                 </div>
-                <div className="font-black text-[#0b1e38] text-sm group-hover:text-sky-700 transition-colors pt-1">
-                  {s.name}
-                </div>
+                <span className="px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-bold border border-sky-200">
+                  {amuStudents.length} Selected Students
+                </span>
               </div>
-            ))}
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                {amuStudents.map((s, index) => (
+                  <div key={s.id} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-400 hover:bg-white shadow-sm transition-all space-y-1 group">
+                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
+                      #{index + 1}
+                    </span>
+                    <div className="font-bold text-[#0b1e38] text-xs group-hover:text-sky-700 transition-colors pt-1">
+                      {s.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 🏫 SECTION 2: Jawahar Navodaya Vidyalaya (JNV) */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4 flex-wrap">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg">
+                    🏫
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
+                      Jawahar Navodaya Vidyalaya (JNV)
+                    </h2>
+                    <p className="text-xs text-slate-500 font-medium">Entrance Qualifiers</p>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200">
+                  {jnvStudents.length} Selected Students
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                {jnvStudents.map((s, index) => (
+                  <div key={s.id} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-white shadow-sm transition-all space-y-1 group">
+                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
+                      #{index + 1}
+                    </span>
+                    <div className="font-bold text-[#0b1e38] text-xs group-hover:text-amber-800 transition-colors pt-1">
+                      {s.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 🌟 SECTION 3: Vidyagyan Leadership Academy */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4 flex-wrap">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-lg">
+                    🌟
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
+                      Vidyagyan Leadership Academy
+                    </h2>
+                    <p className="text-xs text-slate-500 font-medium">Entrance Qualifiers</p>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-800 text-xs font-bold border border-indigo-200">
+                  {vidyagyanStudents.length} Selected Students
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                {vidyagyanStudents.map((s, index) => (
+                  <div key={s.id} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-indigo-400 hover:bg-white shadow-sm transition-all space-y-1 group">
+                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
+                      #{index + 1}
+                    </span>
+                    <div className="font-bold text-[#0b1e38] text-xs group-hover:text-indigo-700 transition-colors pt-1">
+                      {s.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 🏛️ SECTION 4: AECS Narora & Kendriya Vidyalaya */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4 flex-wrap">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg">
+                    🏛️
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
+                      AECS Narora & Kendriya Vidyalaya
+                    </h2>
+                    <p className="text-xs text-slate-500 font-medium">Entrance Qualifiers</p>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
+                  {aecsStudents.length} Selected Students
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                {aecsStudents.map((s, index) => (
+                  <div key={s.id} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-400 hover:bg-white shadow-sm transition-all space-y-1 group">
+                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
+                      #{index + 1}
+                    </span>
+                    <div className="font-bold text-[#0b1e38] text-xs group-hover:text-emerald-700 transition-colors pt-1">
+                      {s.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </main>
       )}
