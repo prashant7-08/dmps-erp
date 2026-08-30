@@ -472,21 +472,16 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
 
             <div className="flex flex-col">
-              <div className="flex items-center gap-1.5 leading-none">
-                <span className="font-serif font-black text-lg sm:text-xl text-[#0b1e38] tracking-tight uppercase group-hover:text-sky-700 transition-colors">
-                  Dadheech
-                </span>
-                <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-bold border border-amber-300 whitespace-nowrap">
-                  Estd. 2002
-                </span>
-              </div>
-              <span className="text-[10px] font-extrabold text-slate-500 tracking-wider uppercase mt-1">
+              <span className="font-serif font-black text-xl sm:text-2xl text-[#0b1e38] tracking-tight uppercase group-hover:text-sky-700 transition-colors leading-none">
+                Dadheech
+              </span>
+              <span className="text-[9.5px] font-extrabold text-slate-500 tracking-[0.16em] uppercase mt-1">
                 A Group of Education
               </span>
             </div>
           </div>
 
-          <nav className="hidden lg:flex items-center gap-5 text-xs font-bold uppercase tracking-wider text-slate-700">
+          <nav className="hidden lg:flex items-center gap-2 xl:gap-3.5 text-[11px] xl:text-xs font-bold uppercase tracking-wider text-slate-700">
             <button onClick={() => navigateTo('home')} className={`py-2 transition-colors ${currentPage === 'home' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
               Home
             </button>
@@ -546,7 +541,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </button>
 
             <button onClick={() => navigateTo('facilities')} className={`py-2 transition-colors ${currentPage === 'facilities' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
-              Beyond Academics
+              Infrastructure
             </button>
 
             <button onClick={() => navigateTo('selections')} className={`py-2 transition-colors ${currentPage === 'selections' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
@@ -557,20 +552,20 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               Gallery
             </button>
 
-            <button onClick={() => navigateTo('contact')} className={`py-2 transition-colors ${currentPage === 'contact' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
-              Contact
+            <button onClick={() => navigateTo('contact')} className={`py-2 whitespace-nowrap transition-colors ${currentPage === 'contact' ? 'text-sky-700 border-b-2 border-sky-600 font-black' : 'hover:text-sky-700'}`}>
+              Contact Us
             </button>
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => navigateTo('admissions')}
-              className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white shadow-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
+              className="px-4 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white shadow-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-              <div className="flex flex-col text-left leading-none space-y-0.5">
-                <span className="font-black text-[11px] uppercase tracking-wider text-white">Admissions</span>
-                <span className="font-bold text-[9px] text-sky-200 tracking-wider">2026–27</span>
+              <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
+              <div className="flex flex-col text-left leading-none space-y-1">
+                <span className="font-black text-xs uppercase tracking-wider text-white">Admissions</span>
+                <span className="font-bold text-[10px] text-sky-200 tracking-wider">2026–27</span>
               </div>
             </button>
           </div>
