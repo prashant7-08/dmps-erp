@@ -368,19 +368,27 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     { id: 5, title: "AECS Narora & Activities", src: "/assets/prospectus/qualifiers_aecs_gallery.png", description: "AECS Narora Qualifiers, Central School Selections & Annual Function Moments" }
   ];
 
-  // 6. 📸 Dynamic Auto-Discovery of Unlimited Gallery Images
-  // (Automatically scans and imports EVERY image placed in /public/assets/gallery/)
+  // 6. 📸 Dynamic Auto-Discovery & Natural Numerical Sorting (1, 2, 3... 10, 28)
+  // (Automatically sorts by file name numbers: 1.jpg, 2.jpg, 3.jpg ... 28.jpg)
   const galleryImageModules = import.meta.glob('/public/assets/gallery/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}', { eager: true, query: '?url', import: 'default' });
   
-  const allGalleryPhotos = Object.entries(galleryImageModules).map(([path, url], index) => {
-    const filename = path.split('/').pop().replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' ');
-    const src = url || path.replace(/^\/public/, '');
-    return {
+  const allGalleryPhotos = Object.entries(galleryImageModules)
+    .map(([path, url]) => {
+      const filename = path.split('/').pop();
+      const src = url || path.replace(/^\/public/, '');
+      return {
+        filename: filename,
+        src: src
+      };
+    })
+    .sort((a, b) => {
+      return a.filename.localeCompare(b.filename, undefined, { numeric: true, sensitivity: 'base' });
+    })
+    .map((item, index) => ({
       id: index + 1,
-      src: src,
-      alt: filename
-    };
-  });
+      src: item.src,
+      alt: `Photo ${index + 1}`
+    }));
 
   const handleInquirySubmit = (e) => {
     e.preventDefault();
