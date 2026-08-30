@@ -118,8 +118,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const [activeHeroSlide, setActiveHeroSlide] = useState(0);
-  const [selectedGalleryImage, setSelectedGalleryImage] = useState(null);
-  const [activeGalleryCategory, setActiveGalleryCategory] = useState('all');
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   const [prospectusModalOpen, setProspectusModalOpen] = useState(false);
   const [selectedProspectusPage, setSelectedProspectusPage] = useState(0);
   const [selectedCampusTab, setSelectedCampusTab] = useState(0);
@@ -369,113 +368,19 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     { id: 5, title: "AECS Narora & Activities", src: "/assets/prospectus/qualifiers_aecs_gallery.png", description: "AECS Narora Qualifiers, Central School Selections & Annual Function Moments" }
   ];
 
-  // 6. Comprehensive Photo & Event Gallery (13+ Real Authentic School Assets)
-  const galleryItems = [
-    {
-      id: 1,
-      title: "Senior Secondary Campus (Main Building)",
-      category: "campuses",
-      tag: "Jargwan Bulandshahr",
-      src: "/assets/gallery/campus_main_building.jpg",
-      description: "Flagship Senior Secondary campus established in July 2002 on Ramghat Road Border."
-    },
-    {
-      id: 2,
-      title: "Junior High Campus (Barheti ADF)",
-      category: "campuses",
-      tag: "Barheti Aligarh",
-      src: "/assets/gallery/campus_barheti_building.jpg",
-      description: "Junior High Campus in Barheti providing high standard education from Nursery to 8th."
-    },
-    {
-      id: 3,
-      title: "Dadheech Kids School (Early Learning)",
-      category: "campuses",
-      tag: "Quarsi PAC Aligarh",
-      src: "/assets/gallery/campus_kids_school.jpg",
-      description: "Vibrant early childhood sanctuary in Quarsi Aligarh with play-way activities."
-    },
-    {
-      id: 4,
-      title: "Tri-Campus Network & Infrastructure",
-      category: "campuses",
-      tag: "Campuses Collage",
-      src: "/assets/gallery/prospectus_campuses_cover.jpg",
-      description: "State-of-the-art infrastructure across 3 campuses in Bulandshahr and Aligarh."
-    },
-    {
-      id: 5,
-      title: "AMU & JNV Entrance Qualifiers Record",
-      category: "achievements",
-      tag: "Hall of Fame",
-      src: "/assets/gallery/amu_jnv_qualifiers_toppers.png",
-      description: "Official record of 23 selections in AMU and 10 selections in Jawahar Navodaya Vidyalaya."
-    },
-    {
-      id: 6,
-      title: "AECS Narora & Kendriya Vidyalaya Selections",
-      category: "achievements",
-      tag: "Competitive Wings",
-      src: "/assets/gallery/aecs_activities_annual_day.png",
-      description: "Top selections in Atomic Energy Central School (AECS) Narora and Kendriya Vidyalaya."
-    },
-    {
-      id: 7,
-      title: "Academic Facilities & Affiliation Board",
-      category: "academics",
-      tag: "BSB Board Standard",
-      src: "/assets/gallery/academic_facilities_board.jpg",
-      description: "Comprehensive curriculum framework, smart labs, and BSB board affiliation standards."
-    },
-    {
-      id: 8,
-      title: "Visionary Leadership & Sacred Consecration",
-      category: "leadership",
-      tag: "Heritage",
-      src: "/assets/gallery/leadership_prospectus_page.jpg",
-      description: "Foundational messages from Late Mr. Dauli Singh, Mr. Pramod Kumar Rajput, and Mrs. Kavita Rani."
-    },
-    {
-      id: 9,
-      title: "Annual Sports Meet & Athletic Championship",
-      category: "sports",
-      tag: "Sports & Fitness",
-      src: "/assets/gallery/annual_sports_meet.png",
-      description: "Cricket, volleyball, track & field events, and daily yoga coaching for holistic health."
-    },
-    {
-      id: 10,
-      title: "Cultural Fest, Exhibition & Arts Showcase",
-      category: "activities",
-      tag: "Cultural Events",
-      src: "/assets/gallery/cultural_fest_exhibition.png",
-      description: "Annual cultural extravaganza, science exhibitions, dance, music, and debates."
-    },
-    {
-      id: 11,
-      title: "Science & AI Computer Laboratories",
-      category: "academics",
-      tag: "STEM Labs",
-      src: "/assets/gallery/science_lab_students.png",
-      description: "Modern hands-on practical experiments in Physics, Chemistry, Biology, and Computer Science."
-    },
-    {
-      id: 12,
-      title: "Smart Digital Interactive Classrooms",
-      category: "academics",
-      tag: "Smart Learning",
-      src: "/assets/gallery/classroom_interactive.png",
-      description: "Engaging multimedia pedagogy with audio-visual learning tools and individual student care."
-    },
-    {
-      id: 13,
-      title: "Excellence Awards & Academic Felicitations",
-      category: "activities",
-      tag: "Award Ceremony",
-      src: "/assets/gallery/school_award_celebration.png",
-      description: "Honoring top-ranking scholars, merit-holders, and competitive entrance winners."
-    }
-  ];
+  // 6. 📸 Dynamic Auto-Discovery of Unlimited Gallery Images
+  // (Automatically scans and imports EVERY image placed in /public/assets/gallery/)
+  const galleryImageModules = import.meta.glob('/public/assets/gallery/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}', { eager: true, query: '?url', import: 'default' });
+  
+  const allGalleryPhotos = Object.entries(galleryImageModules).map(([path, url], index) => {
+    const filename = path.split('/').pop().replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' ');
+    const src = url || path.replace(/^\/public/, '');
+    return {
+      id: index + 1,
+      src: src,
+      alt: filename
+    };
+  });
 
   const handleInquirySubmit = (e) => {
     e.preventDefault();
@@ -1788,116 +1693,59 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 🖼️ PAGE 7: GALLERY (Comprehensive Multi-Category Photo & Event Showcase) */}
+      {/* 🖼️ PAGE 7: GALLERY (Unlimited Pure Photo Grid Showcase) */}
       {/* ========================================================================= */}
       {currentPage === 'gallery' && (
-        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 animate-in fade-in duration-300">
+        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-in fade-in duration-300">
           
           <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase">
-              📸 Visual Journey & Memories
+            <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-black tracking-wider uppercase inline-flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span>Visual Gallery • {allGalleryPhotos.length} Photos</span>
             </span>
             <h1 className="text-3xl sm:text-5xl font-black text-[#0b1e38] font-serif">
-              Photo & Event Gallery
+              Photo Gallery
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Explore 24+ years of academic excellence, 3 state-of-the-art campuses, smart science laboratories, athletic championships, national qualifiers, and vibrant cultural celebrations.
+              Memories of campus life, science exhibitions, sports tournaments, classroom activities, and annual celebrations.
             </p>
           </div>
 
-          {/* 🏷️ Dynamic Category Filter Pills */}
-          <div className="flex items-center justify-center gap-2 flex-wrap bg-slate-100/80 p-2 rounded-2xl border border-slate-200/80 max-w-4xl mx-auto">
-            {[
-              { id: 'all', label: 'All Photos', count: galleryItems.length },
-              { id: 'campuses', label: 'Campuses & Buildings', count: galleryItems.filter(i => i.category === 'campuses').length },
-              { id: 'achievements', label: 'Hall of Fame & Selections', count: galleryItems.filter(i => i.category === 'achievements').length },
-              { id: 'academics', label: 'Academics & Labs', count: galleryItems.filter(i => i.category === 'academics').length },
-              { id: 'sports', label: 'Sports & Fitness', count: galleryItems.filter(i => i.category === 'sports').length },
-              { id: 'activities', label: 'Cultural & Celebrations', count: galleryItems.filter(i => i.category === 'activities' || i.category === 'leadership').length }
-            ].map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveGalleryCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                  activeGalleryCategory === cat.id
-                    ? 'bg-[#0b1e38] text-white shadow-md'
-                    : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200/60'
-                }`}
+          {/* 🖼️ Pure Photo Grid (No Text Underneath - Pure Visual Excellence) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+            {allGalleryPhotos.map((photo, idx) => (
+              <div
+                key={photo.id}
+                onClick={() => setLightboxIndex(idx)}
+                className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 cursor-pointer bg-slate-950 border border-slate-200/80 hover:border-sky-500 transform hover:-translate-y-1"
               >
-                <span>{cat.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-black ${
-                  activeGalleryCategory === cat.id ? 'bg-amber-400 text-[#0b1e38]' : 'bg-slate-100 text-slate-600'
-                }`}>
-                  {cat.count}
-                </span>
-              </button>
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/40 shadow-lg transform group-hover:scale-110 transition-transform">
+                    <Eye className="w-5 h-5" />
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* 🖼️ Dynamic Responsive Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {galleryItems
-              .filter(item => activeGalleryCategory === 'all' || item.category === activeGalleryCategory || (activeGalleryCategory === 'activities' && (item.category === 'activities' || item.category === 'leadership')))
-              .map((item) => (
-                <div
-                  key={item.id}
-                  onClick={() => setSelectedGalleryImage({ title: item.title, image: item.src, tag: item.tag, description: item.description })}
-                  className="group rounded-3xl overflow-hidden border border-slate-200 hover:border-sky-500 shadow-md hover:shadow-2xl transition-all duration-300 bg-white flex flex-col justify-between cursor-pointer transform hover:-translate-y-1.5"
-                >
-                  <div className="relative aspect-[4/3] bg-slate-950 overflow-hidden flex items-center justify-center p-1.5">
-                    <img
-                      src={item.src}
-                      alt={item.title}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-2xl">
-                      <span className="text-white text-xs font-bold flex items-center gap-1 bg-[#0b1e38]/80 px-2.5 py-1 rounded-lg backdrop-blur-sm">
-                        <Eye className="w-3.5 h-3.5 text-amber-400" /> Click to View High-Res
-                      </span>
-                    </div>
-                    <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-white/90 text-slate-800 text-[10px] font-black uppercase tracking-wider backdrop-blur-md shadow-sm border border-slate-200">
-                      {item.tag}
-                    </span>
-                  </div>
-
-                  <div className="p-4 space-y-1.5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3 className="font-bold text-[#0b1e38] text-sm group-hover:text-sky-700 transition-colors line-clamp-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 line-clamp-2 mt-1 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-sky-700 font-bold">
-                      <span>View Photo Details</span>
-                      <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
-
-          {/* 📑 Prospectus & Scanned Brochure Gallery Banner */}
-          <div className="p-8 rounded-3xl bg-gradient-to-r from-[#0b1e38] via-slate-900 to-[#0b1e38] text-white border border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 mt-8">
-            <div className="space-y-2">
-              <span className="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 font-bold text-xs border border-amber-400/30">
-                Official Prospectus Archives
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black text-white font-serif">
-                Browse Scanned Prospectus & Heritage Pages
-              </h3>
-              <p className="text-xs text-slate-300 max-w-xl">
-                Flip through original printed brochure documents featuring the sacred dedication, official leadership messages, fee structures, and campus highlights.
-              </p>
+          {/* 📑 Prospectus Flip-Booklet Access */}
+          <div className="p-6 rounded-2xl bg-gradient-to-r from-[#0b1e38] via-slate-900 to-[#0b1e38] text-white border border-slate-800 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
+            <div>
+              <h3 className="text-base font-bold text-white">Official Scanned Prospectus Booklet</h3>
+              <p className="text-xs text-slate-300">View original printed brochures, courses, fee guidelines & heritage pages.</p>
             </div>
-
             <button
               onClick={() => setProspectusModalOpen(true)}
-              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-[#0b1e38] font-black text-xs uppercase tracking-wider shadow-xl flex items-center gap-2 shrink-0 transition-all transform hover:-translate-y-0.5"
+              className="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#0b1e38] font-black text-xs uppercase tracking-wider shadow transition-all shrink-0 flex items-center gap-2"
             >
               <Eye className="w-4 h-4" />
-              <span>Open Prospectus Flip-Booklet</span>
+              <span>Open Prospectus Booklet</span>
             </button>
           </div>
 
@@ -2164,50 +2012,57 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       </footer>
 
       {/* 🔍 Enhanced High-Res Lightbox Modal */}
-      {selectedGalleryImage && (
+      {/* 🔍 Full-Screen Photo Lightbox Modal with Next / Prev */}
+      {lightboxIndex !== null && allGalleryPhotos[lightboxIndex] && (
         <div 
-          onClick={() => setSelectedGalleryImage(null)}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setLightboxIndex(null)}
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-2 sm:p-6 select-none animate-in fade-in duration-200"
         >
+          {/* Top Bar */}
+          <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-auto">
+            <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold backdrop-blur-md border border-white/20">
+              Photo {lightboxIndex + 1} of {allGalleryPhotos.length}
+            </span>
+            <button 
+              onClick={() => setLightboxIndex(null)} 
+              className="w-10 h-10 rounded-full bg-white/15 hover:bg-rose-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-colors shadow-lg cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Prev Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) => (prev - 1 + allGalleryPhotos.length) % allGalleryPhotos.length);
+            }}
+            className="absolute left-2 sm:left-6 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all shadow-lg hover:scale-110 cursor-pointer"
+          >
+            <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) => (prev + 1) % allGalleryPhotos.length);
+            }}
+            className="absolute right-2 sm:right-6 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all shadow-lg hover:scale-110 cursor-pointer"
+          >
+            <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
+          </button>
+
+          {/* Main Image Container */}
           <div 
             onClick={(e) => e.stopPropagation()} 
-            className="relative max-w-5xl w-full bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-slate-700 flex flex-col max-h-[92vh]"
+            className="relative max-w-6xl max-h-[85vh] w-full flex items-center justify-center p-2"
           >
-            {/* Modal Header */}
-            <div className="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between gap-4 bg-slate-950/60">
-              <div className="flex items-center gap-3">
-                {selectedGalleryImage.tag && (
-                  <span className="px-3 py-1 rounded-full bg-amber-400 text-[#0b1e38] font-black text-[10px] uppercase tracking-wider">
-                    {selectedGalleryImage.tag}
-                  </span>
-                )}
-                <h4 className="font-bold text-white text-sm sm:text-base font-serif line-clamp-1">
-                  {selectedGalleryImage.title}
-                </h4>
-              </div>
-              <button 
-                onClick={() => setSelectedGalleryImage(null)} 
-                className="w-9 h-9 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center hover:bg-rose-600 hover:text-white transition-colors shrink-0 shadow"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Image Preview Container */}
-            <div className="flex-1 bg-black/40 flex items-center justify-center p-2 sm:p-4 overflow-hidden">
-              <img 
-                src={selectedGalleryImage.image} 
-                alt={selectedGalleryImage.title} 
-                className="max-h-[68vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl" 
-              />
-            </div>
-
-            {/* Modal Footer Description */}
-            {selectedGalleryImage.description && (
-              <div className="p-4 bg-slate-950/80 border-t border-slate-800 text-xs text-slate-300 text-center">
-                <p>{selectedGalleryImage.description}</p>
-              </div>
-            )}
+            <img 
+              src={allGalleryPhotos[lightboxIndex].src} 
+              alt={allGalleryPhotos[lightboxIndex].alt} 
+              className="max-h-[82vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl animate-in zoom-in-95 duration-200" 
+            />
           </div>
         </div>
       )}
