@@ -1871,10 +1871,10 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 🏆 PAGE 6: COMPETITIVE SELECTIONS (Grouped by Exam Category) */}
+      {/* 🏆 PAGE 6: COMPETITIVE SELECTIONS (2-Column Side-by-Side Exam Grid) */}
       {/* ========================================================================= */}
       {currentPage === 'selections' && (
-        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 animate-in fade-in duration-300">
+        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-in fade-in duration-300">
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase inline-flex items-center gap-1.5">
               <Trophy className="w-3.5 h-3.5 text-amber-600" />
@@ -1888,134 +1888,138 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </p>
           </div>
 
-          <div className="space-y-10">
-            {/* 🎓 SECTION 1: Aligarh Muslim University (AMU Aligarh) */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
-              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4 flex-wrap">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+            {/* 🎓 CARD 1: Aligarh Muslim University (AMU Aligarh) */}
+            <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 flex-wrap">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-base">
                     🎓
                   </div>
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
-                      Aligarh Muslim University (AMU Aligarh)
+                    <h2 className="text-lg sm:text-xl font-black text-[#0b1e38] font-serif">
+                      AMU Aligarh Entrance
                     </h2>
-                    <p className="text-xs text-slate-500 font-medium">Entrance Qualifiers</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Aligarh Muslim University</p>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-bold border border-sky-200">
-                  {amuStudents.length} Selected Students
+                <span className="px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-800 text-xs font-bold border border-sky-200">
+                  {amuStudents.length} Students
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {/* Clean 2-column numbered student list */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 pt-1">
                 {amuStudents.map((s, index) => (
-                  <div key={s.id} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-400 hover:bg-white shadow-sm transition-all space-y-1 group">
-                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
-                      #{index + 1}
+                  <div key={s.id} className="flex items-center gap-2 py-1 px-1.5 rounded-lg hover:bg-sky-50/60 transition-colors">
+                    <span className="w-5 h-5 rounded-full bg-sky-100 text-sky-800 text-[10px] font-black flex items-center justify-center shrink-0">
+                      {index + 1}
                     </span>
-                    <div className="font-bold text-[#0b1e38] text-xs group-hover:text-sky-700 transition-colors pt-1">
+                    <span className="text-xs sm:text-[13px] font-bold text-slate-800 truncate">
                       {s.name}
-                    </div>
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* 🏫 SECTION 2: Jawahar Navodaya Vidyalaya (JNV) */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
-              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4 flex-wrap">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg">
+            {/* 🏫 CARD 2: Jawahar Navodaya Vidyalaya (JNV) */}
+            <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 flex-wrap">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-base">
                     🏫
                   </div>
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
-                      Jawahar Navodaya Vidyalaya (JNV)
+                    <h2 className="text-lg sm:text-xl font-black text-[#0b1e38] font-serif">
+                      JNV Entrance
                     </h2>
-                    <p className="text-xs text-slate-500 font-medium">Entrance Qualifiers</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Jawahar Navodaya Vidyalaya</p>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200">
-                  {jnvStudents.length} Selected Students
+                <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200">
+                  {jnvStudents.length} Students
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {/* Clean 2-column numbered student list */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 pt-1">
                 {jnvStudents.map((s, index) => (
-                  <div key={s.id} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-white shadow-sm transition-all space-y-1 group">
-                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
-                      #{index + 1}
+                  <div key={s.id} className="flex items-center gap-2 py-1 px-1.5 rounded-lg hover:bg-amber-50/60 transition-colors">
+                    <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-black flex items-center justify-center shrink-0">
+                      {index + 1}
                     </span>
-                    <div className="font-bold text-[#0b1e38] text-xs group-hover:text-amber-800 transition-colors pt-1">
+                    <span className="text-xs sm:text-[13px] font-bold text-slate-800 truncate">
                       {s.name}
-                    </div>
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* 🌟 SECTION 3: Vidyagyan Leadership Academy */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
-              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4 flex-wrap">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-lg">
+            {/* 🌟 CARD 3: Vidyagyan Leadership Academy */}
+            <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 flex-wrap">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-base">
                     🌟
                   </div>
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
-                      Vidyagyan Leadership Academy
+                    <h2 className="text-lg sm:text-xl font-black text-[#0b1e38] font-serif">
+                      Vidyagyan Academy
                     </h2>
-                    <p className="text-xs text-slate-500 font-medium">Entrance Qualifiers</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Leadership Academy Entrance</p>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-800 text-xs font-bold border border-indigo-200">
-                  {vidyagyanStudents.length} Selected Students
+                <span className="px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-800 text-xs font-bold border border-indigo-200">
+                  {vidyagyanStudents.length} Students
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {/* Clean numbered student list */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 pt-1">
                 {vidyagyanStudents.map((s, index) => (
-                  <div key={s.id} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-indigo-400 hover:bg-white shadow-sm transition-all space-y-1 group">
-                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
-                      #{index + 1}
+                  <div key={s.id} className="flex items-center gap-2 py-1 px-1.5 rounded-lg hover:bg-indigo-50/60 transition-colors">
+                    <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-black flex items-center justify-center shrink-0">
+                      {index + 1}
                     </span>
-                    <div className="font-bold text-[#0b1e38] text-xs group-hover:text-indigo-700 transition-colors pt-1">
+                    <span className="text-xs sm:text-[13px] font-bold text-slate-800 truncate">
                       {s.name}
-                    </div>
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* 🏛️ SECTION 4: AECS Narora & Kendriya Vidyalaya */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
-              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4 flex-wrap">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg">
+            {/* 🏛️ CARD 4: AECS Narora & Kendriya Vidyalaya */}
+            <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-4">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 flex-wrap">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-base">
                     🏛️
                   </div>
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-black text-[#0b1e38] font-serif">
+                    <h2 className="text-lg sm:text-xl font-black text-[#0b1e38] font-serif">
                       AECS Narora & Kendriya Vidyalaya
                     </h2>
-                    <p className="text-xs text-slate-500 font-medium">Entrance Qualifiers</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Entrance Qualifiers</p>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
-                  {aecsStudents.length} Selected Students
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
+                  {aecsStudents.length} Students
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {/* Clean numbered student list */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 pt-1">
                 {aecsStudents.map((s, index) => (
-                  <div key={s.id} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-400 hover:bg-white shadow-sm transition-all space-y-1 group">
-                    <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
-                      #{index + 1}
+                  <div key={s.id} className="flex items-center gap-2 py-1 px-1.5 rounded-lg hover:bg-emerald-50/60 transition-colors">
+                    <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black flex items-center justify-center shrink-0">
+                      {index + 1}
                     </span>
-                    <div className="font-bold text-[#0b1e38] text-xs group-hover:text-emerald-700 transition-colors pt-1">
+                    <span className="text-xs sm:text-[13px] font-bold text-slate-800 truncate">
                       {s.name}
-                    </div>
+                    </span>
                   </div>
                 ))}
               </div>
