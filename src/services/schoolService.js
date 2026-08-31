@@ -212,6 +212,32 @@ class SchoolService {
     this.saveData();
   }
 
+  bulkAddStudents(studentsArray) {
+    if (!this.data.students) this.data.students = [];
+    const added = [];
+    studentsArray.forEach((studentData) => {
+      const newId = `STU-2026-${String(this.data.students.length + 1).padStart(3, '0')}`;
+      const newAdm = studentData.admissionNo || `ADM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      const newStudent = {
+        id: newId,
+        branchId: studentData.branchId || "BR-01",
+        branchName: studentData.branchName || (studentData.branchId === "BR-02" ? "Dadheech Memorial Public School (Barheti Campus)" : studentData.branchId === "BR-03" ? "Dadheech Kids School (Vinay Nagar PAC Campus)" : "Dadheech Memorial Public School (Main Campus)"),
+        admissionNo: newAdm,
+        rollNo: studentData.rollNo || String(this.data.students.length + 101),
+        status: studentData.status || "Active",
+        academicSession: this.data.schoolInfo?.academicSession || "2026-2027",
+        admissionDate: studentData.admissionDate || new Date().toISOString().split('T')[0],
+        attendanceSummary: { totalDays: 88, presentDays: 84, percentage: 95.4 },
+        feeSummary: { totalDue: 45000, totalPaid: 0, balance: 45000, status: "Pending" },
+        ...studentData
+      };
+      this.data.students.unshift(newStudent);
+      added.push(newStudent);
+    });
+    this.saveData();
+    return added;
+  }
+
   // Teachers & Staff
   getTeachers(branchId = null) {
     const list = this.data.teachers || [];

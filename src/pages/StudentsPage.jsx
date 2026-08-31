@@ -55,6 +55,13 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
   const [generatedReceipt, setGeneratedReceipt] = useState(null);
   const [isReceiptModalOpen, setIsReceiptModalOpen] = useState(false);
 
+  // Bulk Excel/CSV Import States
+  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
+  const [importedStudentsList, setImportedStudentsList] = useState([]);
+  const [importError, setImportError] = useState('');
+  const [targetBranchForImport, setTargetBranchForImport] = useState(activeBranchId === 'all' ? 'BR-01' : activeBranchId);
+  const csvFileInputRef = useRef(null);
+
   const fileInputRef = useRef(null);
   const editFileInputRef = useRef(null);
 
@@ -293,6 +300,111 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
     }
   };
 
+  // Download Sample Excel/CSV Template
+  const handleDownloadSampleCSV = () => {
+    const csvContent = "data:text/csv;charset=utf-8," +
+      "AdmissionNo,RollNo,StudentName,Class,Section,Gender,FatherName,FatherMobile,MotherName,DOB,BloodGroup,Address\n" +
+      "ADM-2026-001,101,Aman Rajput,Class 10,A,Male,Rajesh Kumar,9758975880,Sunita Devi,2010-05-15,O+,Jargwan Bulandshahr\n" +
+      "ADM-2026-002,102,Km. Riya Sharma,Class 9,A,Female,Mukesh Sharma,9837123456,Anita Sharma,2011-08-20,B+,Aligarh\n" +
+      "ADM-2026-003,103,Rohit Singh,Class 8,B,Male,Dharmendra Singh,9627032626,Geeta Singh,2012-01-10,A+,Barheti Aligarh";
+    
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "DMPS_Students_Import_Template.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('Sample CSV template downloaded! 📥', 'info');
+  };
+
+  // Parse Uploaded CSV / Excel File
+  const handleCSVFileChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setImportError('');
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      try {
+        const text = event.target.result;
+        const lines = text.split(/\r\n|\n/).filter(line => line.trim().length > 0);
+        
+        if (lines.length < 2) {
+          setImportError('File is empty or does not have data rows.');
+          return;
+        }
+
+        const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/[^a-z0-9]/g, ''));
+        const parsedRows = [];
+
+        for (let i = 1; i < lines.length; i++) {
+          const cols = lines[i].split(',').map(c => c.trim().replace(/^["']|["']$/g, ''));
+          if (cols.length === 0 || !cols[0]) continue;
+
+          const rowData = {};
+          headers.forEach((h, idx) => {
+            rowData[h] = cols[idx] || '';
+          });
+
+          // Map smart variations of field names
+          const studentName = rowData['studentname'] || rowData['name'] || rowData['student'] || cols[2] || cols[0] || 'New Student';
+          const rollNo = rowData['rollno'] || rowData['roll'] || cols[1] || '';
+          const admNo = rowData['admissionno'] || rowData['admno'] || rowData['admission'] || cols[0] || '';
+          const studentClass = rowData['class'] || cols[3] || 'Class 1';
+          const section = rowData['section'] || cols[4] || 'A';
+          const gender = rowData['gender'] || cols[5] || 'Male';
+          const fatherName = rowData['fathername'] || rowData['father'] || cols[6] || '';
+          const fatherMobile = rowData['fathermobile'] || rowData['mobile'] || rowData['phone'] || cols[7] || '';
+          const motherName = rowData['mothername'] || rowData['mother'] || cols[8] || '';
+          const dob = rowData['dob'] || cols[9] || '2014-01-01';
+          const bloodGroup = rowData['bloodgroup'] || cols[10] || 'O+';
+          const address = rowData['address'] || cols[11] || 'Aligarh / Bulandshahr';
+
+          parsedRows.push({
+            name: studentName,
+            rollNo: rollNo,
+            admissionNo: admNo,
+            class: studentClass.startsWith('Class') ? studentClass : `Class ${studentClass}`,
+            section: section,
+            gender: gender,
+            fatherName: fatherName,
+            fatherMobile: fatherMobile,
+            motherName: motherName,
+            dob: dob,
+            bloodGroup: bloodGroup,
+            address: address,
+            branchId: targetBranchForImport
+          });
+        }
+
+        if (parsedRows.length === 0) {
+          setImportError('Could not find any student records in the file.');
+          return;
+        }
+
+        setImportedStudentsList(parsedRows);
+        showToast(`Successfully parsed ${parsedRows.length} student records! Please review & confirm.`, 'success');
+      } catch (err) {
+        setImportError('Failed to parse file: ' + err.message);
+      }
+    };
+
+    reader.readAsText(file);
+  };
+
+  // Confirm Bulk Student Import
+  const handleConfirmBulkImport = () => {
+    if (importedStudentsList.length === 0) return;
+
+    schoolService.bulkAddStudents(importedStudentsList);
+    refreshData();
+    setIsImportModalOpen(false);
+    showToast(`🎉 Successfully imported ${importedStudentsList.length} students into ERP Database!`, 'success');
+    setImportedStudentsList([]);
+  };
+
   const filteredStudents = students.filter(s => {
     const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) || s.rollNo.includes(searchQuery) || (s.admissionNo && s.admissionNo.toLowerCase().includes(searchQuery.toLowerCase()));
     const matchesClass = classFilter === 'All' || s.class === classFilter;
@@ -408,12 +520,21 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
           </p>
         </div>
 
-        <button
-          onClick={() => setIsAdmissionModalOpen(true)}
-          className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
-        >
-          <Plus className="w-4 h-4" /> New Student Admission
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => { setImportedStudentsList([]); setImportError(''); setIsImportModalOpen(true); }}
+            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-emerald-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+          >
+            <Upload className="w-4 h-4" /> Import Excel / CSV
+          </button>
+
+          <button
+            onClick={() => setIsAdmissionModalOpen(true)}
+            className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+          >
+            <Plus className="w-4 h-4" /> New Student Admission
+          </button>
+        </div>
       </div>
 
       {/* Filter and Search Bar */}
@@ -1104,6 +1225,136 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
             <button type="submit" className="px-5 py-2 bg-indigo-600 text-white font-bold rounded-xl shadow-lg">Submit Admission</button>
           </div>
         </form>
+      </Modal>
+
+      {/* 📤 Bulk Excel / CSV Students Import Modal */}
+      <Modal
+        isOpen={isImportModalOpen}
+        onClose={() => setIsImportModalOpen(false)}
+        title="Import Students from Excel / CSV Sheet"
+        maxWidth="max-w-3xl"
+      >
+        <div className="space-y-5 text-xs">
+          {/* Instructions & Template Download Bar */}
+          <div className="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div>
+              <h4 className="font-bold text-indigo-900 dark:text-indigo-200 text-xs">Need standard Excel/CSV format?</h4>
+              <p className="text-[11px] text-indigo-700/80 dark:text-indigo-300/80 mt-0.5">
+                Download our pre-formatted template with all columns (Roll No, Name, Class, Father Name, Phone, etc.).
+              </p>
+            </div>
+            <button
+              onClick={handleDownloadSampleCSV}
+              className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 font-bold text-xs flex items-center gap-1.5 shadow-sm hover:bg-indigo-100 dark:hover:bg-slate-800 transition-colors shrink-0"
+            >
+              <span>📥 Download Sample CSV</span>
+            </button>
+          </div>
+
+          {/* Campus Target Selector */}
+          <div>
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Target Campus Branch for Imported Students *</label>
+            <select
+              value={targetBranchForImport}
+              onChange={(e) => setTargetBranchForImport(e.target.value)}
+              className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+            >
+              <option value="BR-01">🏢 Dadheech Memorial Public School, Jargwan - Main Campus</option>
+              <option value="BR-02">🏫 Dadheech Memorial Public School, Barheti</option>
+              <option value="BR-03">🧸 Dadheech Kids School, Vinay Nagar (Aligarh)</option>
+            </select>
+          </div>
+
+          {/* File Upload Drop Zone */}
+          <div
+            onClick={() => csvFileInputRef.current && csvFileInputRef.current.click()}
+            className="p-8 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-3xl text-center cursor-pointer hover:border-emerald-500 dark:hover:border-emerald-400 hover:bg-emerald-50/40 dark:hover:bg-emerald-950/20 transition-all space-y-2"
+          >
+            <input
+              type="file"
+              ref={csvFileInputRef}
+              onChange={handleCSVFileChange}
+              accept=".csv, .txt"
+              className="hidden"
+            />
+            <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-sm">
+              <Upload className="w-6 h-6" />
+            </div>
+            <h4 className="font-bold text-slate-900 dark:text-white text-sm">
+              Click to browse or drag & drop CSV file
+            </h4>
+            <p className="text-slate-500 text-[11px]">
+              Supports standard comma-separated (.csv) files exported from Excel, Smart School, or any ERP
+            </p>
+          </div>
+
+          {importError && (
+            <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950 border border-rose-200 dark:border-rose-800 text-rose-600 dark:text-rose-400 font-bold">
+              {importError}
+            </div>
+          )}
+
+          {/* Live Preview Table */}
+          {importedStudentsList.length > 0 && (
+            <div className="space-y-2 animate-in fade-in">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-slate-900 dark:text-white">
+                  Preview ({importedStudentsList.length} Students Ready to Import)
+                </span>
+                <span className="text-emerald-600 font-bold text-[11px]">✓ Validated</span>
+              </div>
+
+              <div className="max-h-48 overflow-y-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                <table className="w-full text-left text-[11px]">
+                  <thead>
+                    <tr className="bg-slate-50 dark:bg-slate-800 text-slate-500 font-bold border-b border-slate-200 dark:border-slate-800">
+                      <th className="p-2.5">Roll No</th>
+                      <th className="p-2.5">Student Name</th>
+                      <th className="p-2.5">Class</th>
+                      <th className="p-2.5">Father's Name</th>
+                      <th className="p-2.5">Mobile</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                    {importedStudentsList.slice(0, 10).map((st, idx) => (
+                      <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                        <td className="p-2.5 font-mono font-bold text-indigo-600">{st.rollNo || idx + 1}</td>
+                        <td className="p-2.5 font-bold text-slate-900 dark:text-white">{st.name}</td>
+                        <td className="p-2.5 text-slate-600 dark:text-slate-300">{st.class} ({st.section})</td>
+                        <td className="p-2.5 text-slate-600 dark:text-slate-300">{st.fatherName || '-'}</td>
+                        <td className="p-2.5 font-mono text-slate-500">{st.fatherMobile || '-'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {importedStudentsList.length > 10 && (
+                <p className="text-[10px] text-slate-400 text-center">
+                  + {importedStudentsList.length - 10} more students...
+                </p>
+              )}
+            </div>
+          )}
+
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+            <button
+              type="button"
+              onClick={() => setIsImportModalOpen(false)}
+              className="px-4 py-2 text-slate-500 font-bold"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              disabled={importedStudentsList.length === 0}
+              onClick={handleConfirmBulkImport}
+              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-40 text-white font-black rounded-xl shadow-lg transition-all flex items-center gap-2"
+            >
+              <CheckCircle2 className="w-4 h-4" />
+              <span>Confirm & Import {importedStudentsList.length > 0 ? `(${importedStudentsList.length}) Students` : ''}</span>
+            </button>
+          </div>
+        </div>
       </Modal>
     </div>
   );
