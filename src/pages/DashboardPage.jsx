@@ -35,7 +35,8 @@ import {
   CalendarClock,
   Tag,
   GitBranch,
-  Eye
+  Eye,
+  Receipt
 } from 'lucide-react';
 import { StatCard } from '../components/common/StatCard';
 import { Badge } from '../components/common/Badge';
