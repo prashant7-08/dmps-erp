@@ -78,7 +78,36 @@ export const navigationSections = [
   }
 ];
 
+const rolePermissions = {
+  'Super Admin': ['*'],
+  'Principal': ['*'],
+  'In-Charge': ['*'],
+  'Head': ['*'],
+  'Teacher': [
+    'dashboard', 'academics', 'timetable', 'attendance', 'homework',
+    'examination', 'students', 'notices', 'sports', 'calendar', 'leave'
+  ],
+  'Accountant': [
+    'dashboard', 'fees', 'payroll', 'inventory', 'reports', 'notices', 'calendar'
+  ],
+  'Librarian': [
+    'dashboard', 'library', 'students', 'notices', 'calendar'
+  ],
+  'Parent': [
+    'parent-portal', 'fees', 'notices', 'calendar', 'helpdesk-visitors'
+  ],
+  'Student': [
+    'student-portal', 'timetable', 'homework', 'examination', 'library', 'notices', 'sports', 'calendar'
+  ]
+};
+
 export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpen, onOpenAI }) => {
+  const allowed = rolePermissions[currentRole] || ['*'];
+  const filteredSections = navigationSections.map(section => ({
+    ...section,
+    items: section.items.filter(item => allowed.includes('*') || allowed.includes(item.id))
+  })).filter(section => section.items.length > 0);
+
   return (
     <>
       {/* Mobile Backdrop */}
@@ -139,9 +168,9 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
           </button>
         </div>
 
-        {/* Scrollable Navigation */}
+        {/* Scrollable Navigation (Filtered by User Role) */}
         <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-6 custom-scrollbar text-xs font-semibold">
-          {navigationSections.map((section, idx) => (
+          {filteredSections.map((section, idx) => (
             <div key={idx} className="space-y-1">
               <p className="px-3 text-[10px] font-black uppercase tracking-wider text-sky-800 dark:text-slate-500 mb-2">
                 {section.title}

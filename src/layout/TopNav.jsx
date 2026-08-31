@@ -200,20 +200,12 @@ export const TopNav = ({
           </div>
         )}
 
-        {/* Instant Role Switcher Dropdown */}
-        <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/90 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
-          <ShieldCheck className="w-4 h-4 text-indigo-500 ml-1.5 hidden sm:block" />
-          <select
-            value={currentRole}
-            onChange={(e) => setCurrentRole(e.target.value)}
-            className="text-xs font-bold bg-transparent text-slate-900 dark:text-white focus:outline-none cursor-pointer pr-2 py-1"
-          >
-            {roles.map(r => (
-              <option key={r.id} value={r.id} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
-                Role: {r.label}
-              </option>
-            ))}
-          </select>
+        {/* Locked Verified Role Badge (No switching allowed without logout) */}
+        <div className="flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/60 text-indigo-900 dark:text-indigo-200 shadow-sm">
+          <ShieldCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+          <span className="text-xs font-black tracking-wide truncate">
+            Role: {currentRole}
+          </span>
         </div>
 
         {/* Quick Action Button */}
