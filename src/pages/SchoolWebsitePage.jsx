@@ -56,6 +56,7 @@ import {
   Lightbulb,
   Search,
   Quote,
+  Bell,
   Compass as CompassIcon
 } from 'lucide-react';
 import { useToast } from '../components/common/Toast';
@@ -125,6 +126,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
   const [selectedLeaderTab, setSelectedLeaderTab] = useState('founder');
   const [hallOfFameCategory, setHallOfFameCategory] = useState('all');
   const [studentSearchQuery, setStudentSearchQuery] = useState('');
+  const [selectedNotice, setSelectedNotice] = useState(null);
 
   const [inquiryForm, setInquiryForm] = useState({
     parentName: '',
@@ -303,6 +305,55 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       s.father.toLowerCase().includes(studentSearchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  // 3.5 Official School Notice Board Data
+  const noticesData = [
+    {
+      id: 1,
+      title: "Admissions Open 2026–27 (Playgroup to Class 12th)",
+      date: "Aug 30, 2026",
+      isNew: true,
+      category: "Admissions",
+      content: "Registration and admission inquiries for the academic session 2026-27 are now actively open across all three DMPS campuses (Jargwan, Barheti, and Quarsi). Parents can submit online applications or collect prospectus forms from the school administrative office.",
+      image: "/assets/campuses/main_campus.jpg"
+    },
+    {
+      id: 2,
+      title: "First Term Assessment & Quarterly Examination Schedule",
+      date: "Aug 26, 2026",
+      isNew: true,
+      category: "Examinations",
+      content: "The first term unit assessment and quarterly examinations for Classes 1st through 12th will commence from September 10th, 2026. The detailed subject-wise timetable and revision syllabus have been circulated to all students.",
+      image: null
+    },
+    {
+      id: 3,
+      title: "Bhartiya Shiksha Board (BSB) Official Affiliation Notice",
+      date: "Aug 22, 2026",
+      isNew: false,
+      category: "Affiliation",
+      content: "DMPS Senior Secondary Campus (Jargwan) is proudly accredited and affiliated with the Bhartiya Shiksha Board (BSB), Affiliation Code 00065, offering comprehensive Science (PCM/PCB), Commerce, and Humanities streams.",
+      image: "/assets/prospectus/p4.jpg"
+    },
+    {
+      id: 4,
+      title: "Updated GPS School Bus Routes & Rural Transport Fleet",
+      date: "Aug 18, 2026",
+      isNew: false,
+      category: "Transport",
+      content: "New designated pickup stops have been added covering 30+ surrounding villages and towns along Ramghat Road, Jawan, Chherat, and Atrauli border. All buses are equipped with real-time GPS tracking and female attendants for student safety.",
+      image: null
+    },
+    {
+      id: 5,
+      title: "Monthly Parent-Teacher Meeting (PTM) Notification",
+      date: "Aug 14, 2026",
+      isNew: false,
+      category: "Academic",
+      content: "The monthly parent-teacher progress review meeting will be held on the upcoming Saturday from 9:00 AM to 1:00 PM. Parents are encouraged to discuss student academic growth and upcoming competitive coaching programs.",
+      image: null
+    }
+  ];
 
   // 4. Our Schools Data
   const campusesData = [
@@ -612,68 +663,151 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       {currentPage === 'home' && (
         <main className="flex-1 space-y-16 pb-16">
           
-          {/* 🌟 Modern Hero Banner Carousel */}
-          {/* 🌟 Modern Hero Banner Carousel (Clean & Full Image Visibility) */}
-          <section className="relative h-[400px] sm:h-[500px] lg:h-[580px] bg-slate-900 text-white flex items-center overflow-hidden">
-            {heroSlides.map((slide, idx) => (
-              <div
-                key={idx}
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  activeHeroSlide === idx ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                }`}
-              >
-                <img src={slide.image} alt={slide.title} className="w-full h-full object-cover object-center" />
-                {/* Subtle soft bottom shadow for slide controls */}
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
-              </div>
-            ))}
-
-            {/* ⬅️ Subtle Previous Slide Button */}
-            <button
-              onClick={() => setActiveHeroSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
-              className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/60 transition-all shadow-xl hover:scale-110 cursor-pointer group"
-              aria-label="Previous Slide"
-            >
-              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 group-hover:-translate-x-0.5 transition-transform" />
-            </button>
-
-            {/* ➡️ Subtle Next Slide Button */}
-            <button
-              onClick={() => setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length)}
-              className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/60 transition-all shadow-xl hover:scale-110 cursor-pointer group"
-              aria-label="Next Slide"
-            >
-              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-
-            {/* 🏷️ Sleek Floating Caption & Slide Dots at Bottom */}
-            <div className="absolute bottom-5 inset-x-0 z-20 flex flex-col items-center gap-2.5 px-4 pointer-events-none">
-              <div className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-center shadow-2xl flex items-center gap-2.5 pointer-events-auto max-w-2xl">
-                <span className="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-black uppercase tracking-wider shrink-0">
-                  {heroSlides[activeHeroSlide].tag}
-                </span>
-                <span className="font-bold text-xs sm:text-sm tracking-wide text-white truncate">
-                  {heroSlides[activeHeroSlide].title}
-                </span>
-              </div>
-
-              {/* Slide Indicators */}
-              <div className="flex items-center gap-2 pointer-events-auto">
-                {heroSlides.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveHeroSlide(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${activeHeroSlide === i ? 'w-8 bg-amber-400' : 'w-2.5 bg-white/60 hover:bg-white'}`}
-                    aria-label={`Slide ${i + 1}`}
-                  />
+          {/* 🌟 Split Hero Banner (Left: Compact HD Slider | Right: Live Notice Board & Circulars) */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              
+              {/* 🖼️ LEFT COLUMN (8 Cols): HD Hero Banner Carousel */}
+              <div className="lg:col-span-8 relative h-[360px] sm:h-[440px] lg:h-[470px] bg-slate-900 rounded-3xl overflow-hidden shadow-xl flex items-center border border-slate-200">
+                {heroSlides.map((slide, idx) => (
+                  <div
+                    key={idx}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      activeHeroSlide === idx ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                  >
+                    <img src={slide.image} alt={slide.title} className="w-full h-full object-cover object-center" />
+                    {/* Soft gradient bottom shadow for captions & dots */}
+                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/75 to-transparent pointer-events-none" />
+                  </div>
                 ))}
+
+                {/* ⬅️ Previous Slide Button */}
+                <button
+                  onClick={() => setActiveHeroSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
+                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/60 transition-all shadow-xl hover:scale-110 cursor-pointer"
+                  aria-label="Previous Slide"
+                >
+                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                </button>
+
+                {/* ➡️ Next Slide Button */}
+                <button
+                  onClick={() => setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length)}
+                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/60 transition-all shadow-xl hover:scale-110 cursor-pointer"
+                  aria-label="Next Slide"
+                >
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                </button>
+
+                {/* 🏷️ Floating Caption & Dots */}
+                <div className="absolute bottom-4 inset-x-0 z-20 flex flex-col items-center gap-2 px-4 pointer-events-none">
+                  <div className="px-3.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white text-center shadow-xl flex items-center gap-2 pointer-events-auto max-w-xl">
+                    <span className="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[9px] font-black uppercase tracking-wider shrink-0">
+                      {heroSlides[activeHeroSlide].tag}
+                    </span>
+                    <span className="font-bold text-xs sm:text-sm tracking-wide text-white truncate">
+                      {heroSlides[activeHeroSlide].title}
+                    </span>
+                  </div>
+
+                  {/* Slide Indicators */}
+                  <div className="flex items-center gap-1.5 pointer-events-auto">
+                    {heroSlides.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveHeroSlide(i)}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${activeHeroSlide === i ? 'w-6 bg-amber-400' : 'w-2 bg-white/60 hover:bg-white'}`}
+                        aria-label={`Slide ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
+
+              {/* 📢 RIGHT COLUMN (4 Cols): Notice Board & Circulars Box */}
+              <div className="lg:col-span-4 bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-xl flex flex-col h-[360px] sm:h-[440px] lg:h-[470px]">
+                {/* Notice Board Header */}
+                <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                      <Bell className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h3 className="font-black text-[#0b1e38] text-base font-serif leading-tight">
+                        Notice Board
+                      </h3>
+                      <p className="text-[10px] text-slate-500 font-medium">Click subject to view circular</p>
+                    </div>
+                  </div>
+                  <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                    <span>Live Updates</span>
+                  </span>
+                </div>
+
+                {/* Notice Items List */}
+                <div className="flex-1 overflow-y-auto divide-y divide-slate-100 pr-1 my-2 custom-scrollbar">
+                  {noticesData.map((notice) => (
+                    <div
+                      key={notice.id}
+                      onClick={() => setSelectedNotice(notice)}
+                      className="py-3 px-2 rounded-xl hover:bg-sky-50/70 transition-all cursor-pointer group"
+                    >
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="text-[10px] font-black px-2 py-0.5 rounded bg-slate-100 text-slate-700 group-hover:bg-sky-100 group-hover:text-sky-800 transition-colors">
+                          {notice.category}
+                        </span>
+                        <span className="text-[10px] text-slate-400 font-medium">{notice.date}</span>
+                      </div>
+
+                      {/* Main Subject Clickable */}
+                      <h4 className="text-xs sm:text-[13px] font-bold text-[#0b1e38] group-hover:text-sky-700 transition-colors line-clamp-2 leading-snug">
+                        {notice.title}
+                      </h4>
+
+                      {/* Attachment indicator pill if has image */}
+                      <div className="flex items-center gap-2 mt-1.5">
+                        {notice.image ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-black text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 group-hover:bg-amber-100 transition-colors">
+                            <Eye className="w-3 h-3 text-amber-600" />
+                            <span>Photo Attachment Included</span>
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded">
+                            <FileText className="w-3 h-3 text-slate-400" />
+                            <span>Official Text Circular</span>
+                          </span>
+                        )}
+                        {notice.isNew && (
+                          <span className="px-1.5 py-0.2 rounded bg-rose-600 text-white text-[9px] font-black uppercase tracking-wider">
+                            NEW
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Notice Board Footer */}
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span className="text-[11px] text-slate-500 font-medium">All Campuses (DMPS)</span>
+                  <button
+                    onClick={() => navigateTo('admissions')}
+                    className="text-xs font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1"
+                  >
+                    <span>Apply Online</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
+              </div>
+
             </div>
           </section>
 
-          {/* ⚡ Clean Quick Action & Highlights Bar (Directly Below Slider) */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-30">
-            <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-2xl border border-slate-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {/* ⚡ Clean Quick Action & Highlights Bar */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-xl border border-slate-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               <button
                 onClick={() => navigateTo('admissions')}
                 className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white shadow-md transition-all flex items-center gap-3 text-left group"
@@ -2368,6 +2502,95 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <Download className="w-3.5 h-3.5 text-amber-400" />
                 <span>Save Page</span>
               </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 📢 Notice Detail & Attachment Modal */}
+      {selectedNotice && (
+        <div 
+          onClick={() => setSelectedNotice(null)}
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-2xl w-full bg-white rounded-3xl overflow-hidden p-6 sm:p-7 shadow-2xl space-y-4 border border-slate-200 animate-in zoom-in-95 duration-200"
+          >
+            {/* Modal Header */}
+            <div className="flex items-start justify-between gap-3 border-b border-slate-100 pb-3">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 text-xs font-black uppercase">
+                    {selectedNotice.category}
+                  </span>
+                  <span className="text-xs text-slate-500 font-medium">
+                    Date: {selectedNotice.date}
+                  </span>
+                  {selectedNotice.isNew && (
+                    <span className="px-2 py-0.5 rounded-full bg-rose-600 text-white text-[10px] font-black uppercase tracking-wider">
+                      NEW
+                    </span>
+                  )}
+                </div>
+                <h3 className="font-black text-[#0b1e38] text-lg sm:text-xl font-serif leading-tight">
+                  {selectedNotice.title}
+                </h3>
+              </div>
+              <button 
+                onClick={() => setSelectedNotice(null)} 
+                className="w-9 h-9 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-rose-500 hover:text-white transition-colors shrink-0"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Notice Body Content */}
+            <div className="space-y-4 max-h-[65vh] overflow-y-auto pr-1 custom-scrollbar">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm leading-relaxed whitespace-pre-line font-medium">
+                {selectedNotice.content}
+              </div>
+
+              {/* Attached Photo / Circular Preview (Only Shown if Attached!) */}
+              {selectedNotice.image && (
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-black text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+                      <ImageIcon className="w-3.5 h-3.5 text-sky-600" />
+                      <span>Attached Circular / Document Photo</span>
+                    </span>
+                    <a
+                      href={selectedNotice.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-bold text-sky-700 hover:underline flex items-center gap-1"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      <span>Open Full Size</span>
+                    </a>
+                  </div>
+                  <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 max-h-80 flex items-center justify-center">
+                    <img 
+                      src={selectedNotice.image} 
+                      alt={selectedNotice.title} 
+                      className="w-full h-auto max-h-80 object-contain hover:scale-105 transition-transform duration-500" 
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+              <span className="text-slate-500 text-[11px]">
+                Dadheech Memorial Public School • Admin Desk
+              </span>
+              <button 
+                onClick={() => setSelectedNotice(null)} 
+                className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs hover:bg-slate-800 transition-colors"
+              >
+                Close Notice
+              </button>
             </div>
           </div>
         </div>
