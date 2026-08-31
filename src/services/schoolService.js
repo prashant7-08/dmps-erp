@@ -1064,6 +1064,52 @@ class SchoolService {
     return vis;
   }
 
+  // Admission Inquiries (From Public Website & Front Desk)
+  getAdmissionInquiries() {
+    if (!this.data.admissionInquiries) {
+      this.data.admissionInquiries = [
+        {
+          id: 'INQ-2026-1042',
+          date: '31/08/2026',
+          time: '10:30 AM',
+          parentName: 'Mr. Rajesh Kumar Rajput',
+          phone: '9758975880',
+          studentName: 'Aman Rajput',
+          classSeeking: 'Class 6',
+          branch: 'Dadheech Memorial Public School, Jargwan - Main Campus',
+          status: 'New Inquiry'
+        }
+      ];
+      this.saveData();
+    }
+    return this.data.admissionInquiries;
+  }
+
+  addAdmissionInquiry(inquiryData) {
+    if (!this.data.admissionInquiries) {
+      this.data.admissionInquiries = [];
+    }
+    const newInq = {
+      id: `INQ-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+      date: new Date().toLocaleDateString('en-GB'),
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      status: 'New Inquiry',
+      ...inquiryData
+    };
+    this.data.admissionInquiries.unshift(newInq);
+    this.saveData();
+    return newInq;
+  }
+
+  updateInquiryStatus(id, status) {
+    const inq = this.data.admissionInquiries?.find(i => i.id === id);
+    if (inq) {
+      inq.status = status;
+      this.saveData();
+    }
+    return inq;
+  }
+
   // Other entities getters
   getTransport() { return this.data.transport || []; }
   getHostels() { return this.data.hostels || []; }

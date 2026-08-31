@@ -60,6 +60,7 @@ import {
   Compass as CompassIcon
 } from 'lucide-react';
 import { useToast } from '../components/common/Toast';
+import schoolService from '../services/schoolService';
 
 // 🌟 Custom Colored Brand SVG Icons
 const YouTubeIcon = ({ className = "w-4 h-4" }) => (
@@ -477,8 +478,33 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       showToast('Please fill in all mandatory fields (Parent Name, Phone, Student Name)', 'error');
       return;
     }
+
+    // 1. Save directly into School ERP Database (Admission Inquiries Desk)
+    schoolService.addAdmissionInquiry({
+      parentName: inquiryForm.parentName,
+      phone: inquiryForm.phone,
+      studentName: inquiryForm.studentName,
+      classSeeking: inquiryForm.classSeeking,
+      branch: inquiryForm.branch,
+      email: inquiryForm.email || '',
+      message: inquiryForm.message || ''
+    });
+
     setIsSubmitted(true);
-    showToast('Application Submitted Successfully! Our Admissions Desk will contact you shortly.', 'success');
+    showToast('Application Logged into School Desk & Forwarded to WhatsApp!', 'success');
+
+    // 2. Automatically forward formatted message to School WhatsApp (+91 9758975880)
+    const waText = encodeURIComponent(
+      `*🌟 NEW ONLINE ADMISSION INQUIRY (Session 2026-27)*\n\n` +
+      `👤 *Parent Name:* ${inquiryForm.parentName}\n` +
+      `📞 *Mobile / WhatsApp:* ${inquiryForm.phone}\n` +
+      `🎓 *Student Name:* ${inquiryForm.studentName}\n` +
+      `📚 *Class Seeking:* ${inquiryForm.classSeeking}\n` +
+      `🏫 *Campus Branch:* ${inquiryForm.branch}\n` +
+      `📅 *Date:* ${new Date().toLocaleDateString('en-GB')} (${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})`
+    );
+
+    window.open(`https://wa.me/919758975880?text=${waText}`, '_blank');
   };
 
   return (
@@ -2187,15 +2213,28 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
           <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-2xl">
             {isSubmitted ? (
-              <div className="text-center py-12 space-y-4">
-                <CheckCircle2 className="w-16 h-16 text-emerald-600 mx-auto" />
-                <h3 className="text-2xl font-black text-[#0b1e38] font-serif">Application Received!</h3>
+              <div className="text-center py-10 space-y-4">
+                <CheckCircle2 className="w-16 h-16 text-emerald-600 mx-auto animate-bounce" />
+                <h3 className="text-2xl font-black text-[#0b1e38] font-serif">Inquiry Successfully Logged!</h3>
                 <p className="text-xs text-slate-600 max-w-md mx-auto">
-                  Thank you, <strong>{inquiryForm.parentName}</strong>. We have received your inquiry for <strong>{inquiryForm.studentName}</strong> ({inquiryForm.classSeeking}).
+                  Thank you, <strong>{inquiryForm.parentName}</strong>. Your admission inquiry for <strong>{inquiryForm.studentName}</strong> ({inquiryForm.classSeeking}) has been recorded into our Admissions Desk and forwarded to our official school WhatsApp (<strong>+91 97589 75880</strong>).
                 </p>
-                <button onClick={() => setIsSubmitted(false)} className="px-6 py-2.5 rounded-xl bg-[#0b1e38] text-white font-bold text-xs">
-                  Submit Another Inquiry
-                </button>
+                <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
+                  <a
+                    href={`https://wa.me/919758975880?text=${encodeURIComponent(
+                      `*🌟 ADMISSION INQUIRY CONFIRMATION (Session 2026-27)*\n\nParent: ${inquiryForm.parentName}\nStudent: ${inquiryForm.studentName}\nClass: ${inquiryForm.classSeeking}\nCampus: ${inquiryForm.branch}\nPhone: ${inquiryForm.phone}`
+                    )}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-lg transition-all"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Chat on WhatsApp (+91 97589 75880)</span>
+                  </a>
+                  <button onClick={() => setIsSubmitted(false)} className="px-5 py-2.5 rounded-xl bg-[#0b1e38] text-white font-bold text-xs hover:bg-slate-800 transition-colors">
+                    Submit Another Inquiry
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleInquirySubmit} className="space-y-4">
