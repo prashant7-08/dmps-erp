@@ -17,7 +17,8 @@ import {
   ArrowRight,
   Server,
   Radio,
-  CheckSquare
+  CheckSquare,
+  Calendar
 } from 'lucide-react';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
