@@ -181,7 +181,8 @@ class SchoolService {
     const monthlyFare = Number(studentData.transport?.monthlyFare || 0);
     const transport11m = monthlyFare * 11;
     const tuitionDue = isRte ? 0 : 13500;
-    const totalDue = tuitionDue + transport11m;
+    const otherChargesDue = isRte ? Number(studentData.otherChargesDue || 4500) : 0;
+    const totalDue = tuitionDue + otherChargesDue + transport11m;
 
     const newStudent = {
       id: newId,
@@ -196,7 +197,14 @@ class SchoolService {
       attendanceSummary: { totalDays: 88, presentDays: 84, percentage: 95.4 },
       feeSummary: {
         tuitionDue: tuitionDue,
+        otherChargesDue: otherChargesDue,
+        otherChargesBreakdown: isRte ? {
+          annualCharges: 2000,
+          smartClassFee: 1500,
+          examFee: 1000
+        } : null,
         transportDue11Months: transport11m,
+        parentVisibleDue: isRte ? transport11m : totalDue,
         totalDue: totalDue,
         totalPaid: 0,
         balance: totalDue,
@@ -227,14 +235,22 @@ class SchoolService {
       const monthlyFare = Number(updatedStudent.transport?.monthlyFare || 0);
       const transport11m = monthlyFare * 11;
       const tuitionDue = isRte ? 0 : (existing.feeSummary?.tuitionDue || 13500);
-      const totalDue = tuitionDue + transport11m;
+      const otherChargesDue = isRte ? (updates.otherChargesDue !== undefined ? Number(updates.otherChargesDue) : (existing.feeSummary?.otherChargesDue || 4500)) : 0;
+      const totalDue = tuitionDue + otherChargesDue + transport11m;
       const paid = existing.feeSummary?.totalPaid || 0;
       const balance = Math.max(0, totalDue - paid);
 
       updatedStudent.feeSummary = {
         ...(existing.feeSummary || {}),
         tuitionDue: tuitionDue,
+        otherChargesDue: otherChargesDue,
+        otherChargesBreakdown: isRte ? {
+          annualCharges: 2000,
+          smartClassFee: 1500,
+          examFee: 1000
+        } : null,
         transportDue11Months: transport11m,
+        parentVisibleDue: isRte ? transport11m : totalDue,
         totalDue: totalDue,
         totalPaid: paid,
         balance: balance,

@@ -1565,26 +1565,54 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
             {profileActiveTab === 'fees' && (
               <div className="space-y-4">
                 {selectedStudent.isRteStudent && (
-                  <div className="p-3.5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-amber-950 dark:text-amber-200">
-                    <p className="font-bold flex items-center gap-1.5 text-xs">
-                      <span>🏛️</span> RTE (Right to Education) 100% Free Quota Active:
+                  <div className="p-4 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-amber-950 dark:text-amber-100 space-y-2">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <p className="font-black flex items-center gap-1.5 text-xs">
+                        <span>🏛️</span> RTE Quota (Internal Admin & Management Fee Ledger):
+                      </p>
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-emerald-600 text-white shadow-xs">
+                        🔒 Parent View Masked (Only Transport Visible)
+                      </span>
+                    </div>
+
+                    <p className="text-[11px] text-slate-600 dark:text-slate-300">
+                      शासकीय नियमानुसार ट्यूशन फीस <strong>₹0.00 (माफ)</strong> है। नीचे दिए गए आंतरिक शुल्क (Annual, Smart Class, Exam) केवल <strong>मैनेजमेंट/एडमिन को दिखेंगे</strong>। पेरेंट व छात्र को केवल और केवल <strong>ट्रांसपोर्ट बस किराया</strong> दिखेगा।
                     </p>
-                    <p className="text-[11px] text-amber-900/80 dark:text-amber-300 mt-0.5">
-                      School Tuition Fee is <strong>₹0.00 (100% Free by Govt.)</strong>. Parents & Student portal only see the <strong>11-Month Transport Bus Fare</strong>.
-                    </p>
+
+                    {/* Admin Internal Fee Heads Breakdown */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-amber-500/20 text-xs">
+                      <div className="p-2 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-amber-200 dark:border-amber-900/50">
+                        <span className="text-[10px] font-bold text-slate-500 block">Tuition Fee</span>
+                        <span className="font-bold text-emerald-600 font-mono">₹0.00 (Free)</span>
+                      </div>
+                      <div className="p-2 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-amber-200 dark:border-amber-900/50">
+                        <span className="text-[10px] font-bold text-slate-500 block">Annual & Misc.</span>
+                        <span className="font-bold text-slate-900 dark:text-white font-mono">₹2,000</span>
+                      </div>
+                      <div className="p-2 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-amber-200 dark:border-amber-900/50">
+                        <span className="text-[10px] font-bold text-slate-500 block">Smart / Lab Fee</span>
+                        <span className="font-bold text-slate-900 dark:text-white font-mono">₹1,500</span>
+                      </div>
+                      <div className="p-2 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-amber-200 dark:border-amber-900/50">
+                        <span className="text-[10px] font-bold text-slate-500 block">Exam / Paper Fee</span>
+                        <span className="font-bold text-slate-900 dark:text-white font-mono">₹1,000</span>
+                      </div>
+                    </div>
                   </div>
                 )}
 
                 <div className="grid grid-cols-3 gap-3 text-center">
                   <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800">
                     <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase">
-                      {selectedStudent.isRteStudent ? 'Transport Dues (11M)' : 'Annual Fee Due'}
+                      {selectedStudent.isRteStudent ? 'Admin Total Dues' : 'Annual Fee Due'}
                     </span>
                     <p className="text-base font-black text-amber-900 dark:text-amber-100 font-mono mt-0.5">
                       ₹{(selectedStudent.feeSummary?.totalDue || 0).toLocaleString()}
                     </p>
                     {selectedStudent.isRteStudent && (
-                      <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 block mt-0.5">Tuition: ₹0 (Free)</span>
+                      <span className="text-[9px] font-bold text-purple-600 dark:text-purple-400 block mt-0.5">
+                        (Parent Sees: ₹{(selectedStudent.transport?.monthlyFare * 11 || 0).toLocaleString()})
+                      </span>
                     )}
                   </div>
                   <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">

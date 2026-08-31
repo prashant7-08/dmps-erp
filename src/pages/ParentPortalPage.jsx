@@ -181,19 +181,20 @@ export const ParentPortalPage = ({ onOpenAI }) => {
             </div>
 
             {selectedChild.isRteStudent ? (
-              <div className="p-4 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-xs space-y-2">
-                <div className="flex items-center gap-2 text-amber-950 dark:text-amber-200 font-black">
-                  <span>🏛️</span> RTE (Right to Education) 100% Free Quota
+              <div className="p-4 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-xs space-y-2.5">
+                <div className="flex items-center justify-between text-amber-950 dark:text-amber-200 font-black">
+                  <span className="flex items-center gap-1.5"><span>🏛️</span> RTE 100% Free Quota</span>
+                  <span className="text-emerald-700 font-extrabold text-[10px] bg-emerald-100 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md">School & Tuition: ₹0.00 (Free)</span>
                 </div>
                 <p className="text-[11px] text-slate-600 dark:text-slate-300">
-                  School Tuition Fee is <strong>₹0.00 (100% Free by Govt.)</strong>. Only applicable 11-Month Transport Bus Fare is payable.
+                  शासन के आरटीई नियमानुसार स्कूल की समस्त शैक्षिक फीस पूर्णतः निःशुल्क (₹0.00) है। केवल वाहन/बस का 11 महीने का ट्रांसपोर्ट किराया देय है।
                 </p>
                 <div className="pt-2 border-t border-amber-500/20 flex justify-between font-bold text-slate-900 dark:text-white">
                   <span>Transport Bus Fare (11M):</span>
-                  <span className="text-indigo-600 font-mono font-black">₹{(selectedChild.feeSummary?.totalDue || 0).toLocaleString()}</span>
+                  <span className="text-indigo-600 font-mono font-black">₹{(selectedChild.transport?.monthlyFare * 11 || 0).toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between text-xs text-rose-600 font-bold">
-                  <span>Remaining Due:</span>
+                  <span>Remaining Balance:</span>
                   <span className="font-mono">₹{(selectedChild.feeSummary?.balance || 0).toLocaleString()}</span>
                 </div>
               </div>
