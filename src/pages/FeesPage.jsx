@@ -121,6 +121,11 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   // Fee Allocation State
   const [allocTargetClass, setAllocTargetClass] = useState('All');
   const [allocSelectedGroup, setAllocSelectedGroup] = useState(feeGroups[0]?.id || 'FG-02');
+  const [selectedStudentIdsForAlloc, setSelectedStudentIdsForAlloc] = useState([]);
+  const [allocMode, setAllocMode] = useState('group'); // 'group' or 'custom'
+  const [allocCustomAmount, setAllocCustomAmount] = useState('');
+  const [allocCustomTitle, setAllocCustomTitle] = useState('');
+  const [allocSearch, setAllocSearch] = useState('');
 
   // Sibling Assign Modal
   const [isAssignSiblingModalOpen, setIsAssignSiblingModalOpen] = useState(false);
@@ -270,6 +275,27 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
       refreshAll();
     } else {
       showToast('Allocation failed: ' + res.message, 'error');
+    }
+  };
+
+  // Selective Student Fee Allocation (Preserves already paid fees!)
+  const handleAllocateToSelected = () => {
+    if (selectedStudentIdsForAlloc.length === 0) {
+      showToast('Please select at least one student using the checkbox!', 'warning');
+      return;
+    }
+
+    const config = allocMode === 'custom'
+      ? { customTuitionAmount: Number(allocCustomAmount) || 0, customGroupName: allocCustomTitle || `Custom Rate (₹${Number(allocCustomAmount).toLocaleString('en-IN')})` }
+      : { feeGroupId: allocSelectedGroup };
+
+    const res = schoolService.allocateFeeToSelectedStudents(selectedStudentIdsForAlloc, config);
+    if (res.success) {
+      showToast(`Successfully allocated "${res.groupName}" to ${res.count} selected students! Already paid fees remain 100% safe & intact.`, 'success');
+      setSelectedStudentIdsForAlloc([]);
+      refreshAll();
+    } else {
+      showToast(res.message || 'Allocation failed', 'error');
     }
   };
 
@@ -778,165 +804,385 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
       {/* ========================================================================= */}
       {activeTab === 'fine' && (
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6 max-w-3xl">
-          <div className="border-b border-slate-100 dark:border-slate-800 pb-3">
-            <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <Sliders className="w-5 h-5 text-rose-600" /> Late Payment Fine Setup & Automation
-            </h3>
-            <p className="text-xs text-slate-500 mt-0.5">
-              Set monthly cutoff day, grace period, and automatic penalty calculations for pending dues
-            </p>
+          <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex justify-between items-center">
+            <div>
+              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <Sliders className="w-5 h-5 text-rose-600" /> Late Payment Fine Setup
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Configure whether late payment penalties apply or keep disabled (0 Fine)
+              </p>
+            </div>
+            <Badge variant={fineSetup.status === 'Active' ? 'danger' : 'neutral'}>
+              {fineSetup.status === 'Active' ? 'Fine Active' : 'Fine Disabled (₹0)'}
+            </Badge>
           </div>
 
           <form onSubmit={handleSaveFineSetup} className="space-y-5 text-xs">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-between">
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Monthly Due Date Cutoff Day (e.g. 10th of Month) *
-                </label>
-                <input
-                  type="number"
-                  min="1"
-                  max="28"
-                  value={fineSetup.dueDayCutoff || 10}
-                  onChange={(e) => setFineSetup({ ...fineSetup, dueDayCutoff: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
-                  required
-                />
+                <span className="font-bold text-slate-900 dark:text-white text-sm">Late Fine Status</span>
+                <p className="text-slate-500 text-xs">Currently, schools can keep late fine completely disabled</p>
               </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Grace Period Days (No fine charged during grace) *
-                </label>
-                <input
-                  type="number"
-                  min="0"
-                  max="15"
-                  value={fineSetup.graceDays || 5}
-                  onChange={(e) => setFineSetup({ ...fineSetup, graceDays: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Fine Calculation Mode *
-                </label>
-                <select
-                  value={fineSetup.fineType || 'Fixed Rate'}
-                  onChange={(e) => setFineSetup({ ...fineSetup, fineType: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
-                >
-                  <option value="Fixed Rate">Fixed Lump Sum Fine (e.g. ₹100 per term)</option>
-                  <option value="Daily Cumulative">Daily Cumulative Rate (e.g. ₹5 per overdue day)</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Fine Amount / Daily Rate (₹) *
-                </label>
-                <input
-                  type="number"
-                  value={fineSetup.fineType === 'Fixed Rate' ? fineSetup.fixedAmount || 100 : fineSetup.dailyRate || 5}
-                  onChange={(e) => {
-                    const val = e.target.value;
-                    if (fineSetup.fineType === 'Fixed Rate') {
-                      setFineSetup({ ...fineSetup, fixedAmount: val });
-                    } else {
-                      setFineSetup({ ...fineSetup, dailyRate: val });
-                    }
-                  }}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-bold text-rose-600"
-                  required
-                />
-              </div>
+              <select
+                value={fineSetup.status || 'Disabled'}
+                onChange={(e) => setFineSetup({ ...fineSetup, status: e.target.value })}
+                className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+              >
+                <option value="Disabled">Disabled (No Fine Charged • ₹0)</option>
+                <option value="Active">Active (Charge Late Penalty)</option>
+              </select>
             </div>
 
-            <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 space-y-1">
-              <span className="font-bold flex items-center gap-1.5">
-                <AlertTriangle className="w-4 h-4 text-amber-600" /> Active Policy Rule:
-              </span>
-              <p className="text-[11px] leading-relaxed">
-                Fees unpaid by the <strong>{fineSetup.dueDayCutoff || 10}th</strong> of the month receive <strong>{fineSetup.graceDays || 5} days</strong> of grace. After that, a late fine of <strong>₹{fineSetup.fineType === 'Fixed Rate' ? fineSetup.fixedAmount || 100 : `${fineSetup.dailyRate || 5}/day`}</strong> will be automatically appended to the student invoice.
-              </p>
-            </div>
+            {fineSetup.status === 'Active' && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                    Monthly Due Date Cutoff Day (e.g. 10th of Month) *
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="28"
+                    value={fineSetup.dueDayCutoff || 10}
+                    onChange={(e) => setFineSetup({ ...fineSetup, dueDayCutoff: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                    Grace Period Days (No fine charged during grace) *
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="15"
+                    value={fineSetup.graceDays || 5}
+                    onChange={(e) => setFineSetup({ ...fineSetup, graceDays: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                    Fine Calculation Mode *
+                  </label>
+                  <select
+                    value={fineSetup.fineType || 'Fixed Rate'}
+                    onChange={(e) => setFineSetup({ ...fineSetup, fineType: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                  >
+                    <option value="Fixed Rate">Fixed Lump Sum Fine (e.g. ₹100 per term)</option>
+                    <option value="Daily Cumulative">Daily Cumulative Rate (e.g. ₹5 per overdue day)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                    Fine Amount / Daily Rate (₹) *
+                  </label>
+                  <input
+                    type="number"
+                    value={fineSetup.fineType === 'Fixed Rate' ? fineSetup.fixedAmount || 0 : fineSetup.dailyRate || 0}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (fineSetup.fineType === 'Fixed Rate') {
+                        setFineSetup({ ...fineSetup, fixedAmount: val });
+                      } else {
+                        setFineSetup({ ...fineSetup, dailyRate: val });
+                      }
+                    }}
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-bold text-rose-600"
+                    required
+                  />
+                </div>
+              </div>
+            )}
 
             <button
               type="submit"
-              className="px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow-md shadow-rose-500/20 flex items-center gap-2 hover:scale-105 active:scale-95 transition-all"
+              className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2 hover:scale-105 active:scale-95 transition-all"
             >
-              <CheckCircle2 className="w-4 h-4" /> Save & Activate Fine Rules
+              <CheckCircle2 className="w-4 h-4" /> Save Fine Settings
             </button>
           </form>
         </div>
       )}
 
       {/* ========================================================================= */}
-      {/* 📌 TAB 5: FEES ALLOCATION */}
+      {/* 📌 TAB 5: FEES ALLOCATION (SELECTIVE CHECKBOX TABLE) */}
       {/* ========================================================================= */}
       {activeTab === 'allocation' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
-          <div className="border-b border-slate-100 dark:border-slate-800 pb-3">
-            <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <Layers className="w-5 h-5 text-indigo-600" /> Bulk Class-Wise Fee Allocation
-            </h3>
-            <p className="text-xs text-slate-500 mt-0.5">
-              Assign full fee groups or customized fee structures to entire classes in 1 click
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+          <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                Select Target Class *
-              </label>
-              <select
-                value={allocTargetClass}
-                onChange={(e) => setAllocTargetClass(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold"
-              >
-                <option value="All">All Classes (School Wide)</option>
-                {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'].map(c => (
-                  <option key={c} value={c}>Class {c}</option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                Select Fee Group to Assign *
-              </label>
-              <select
-                value={allocSelectedGroup}
-                onChange={(e) => setAllocSelectedGroup(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold"
-              >
-                {feeGroups.map(g => (
-                  <option key={g.id} value={g.id}>
-                    {g.name} — ₹{g.totalAmount?.toLocaleString('en-IN')}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800">
-            <div>
-              <span className="text-xs font-bold text-indigo-900 dark:text-indigo-200">
-                Ready to allocate to {allocTargetClass === 'All' ? students.length : students.filter(s => s.class === allocTargetClass || s.class?.includes(allocTargetClass)).length} students
-              </span>
-              <p className="text-[11px] text-indigo-700 dark:text-indigo-400 mt-0.5">
-                Automatically recalculates tuition and leaves 11-month village transport fares untouched.
+              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <Layers className="w-5 h-5 text-indigo-600" /> Student-by-Student Fee Allocation Matrix
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Select specific students using checkboxes to assign fee groups or custom fee amounts. <strong>Already paid fees remain 100% safe & intact.</strong>
               </p>
             </div>
-            <button
-              onClick={handleBulkAllocate}
-              className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 hover:scale-105 active:scale-95 transition-all"
-            >
-              ⚡ Allocate Now
-            </button>
+
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200">
+                Selected: <strong>{selectedStudentIdsForAlloc.length}</strong> / {students.length}
+              </span>
+            </div>
+          </div>
+
+          {/* Allocation Settings & Controls Bar */}
+          <div className="p-5 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Filter by Class</label>
+                <select
+                  value={allocTargetClass}
+                  onChange={(e) => {
+                    setAllocTargetClass(e.target.value);
+                    setSelectedStudentIdsForAlloc([]);
+                  }}
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                >
+                  <option value="All">All Classes (School-Wide)</option>
+                  {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'].map(c => (
+                    <option key={c} value={c}>Class {c}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Search Student / Father</label>
+                <div className="relative">
+                  <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <input
+                    type="text"
+                    placeholder="Name / Father / Roll..."
+                    value={allocSearch}
+                    onChange={(e) => setAllocSearch(e.target.value)}
+                    className="w-full pl-8 pr-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Allocation Mode</label>
+                <select
+                  value={allocMode}
+                  onChange={(e) => setAllocMode(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                >
+                  <option value="group">Assign Existing Fee Group</option>
+                  <option value="custom">Custom Tuition Amount (₹)</option>
+                </select>
+              </div>
+
+              <div>
+                {allocMode === 'group' ? (
+                  <>
+                    <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Select Fee Group</label>
+                    <select
+                      value={allocSelectedGroup}
+                      onChange={(e) => setAllocSelectedGroup(e.target.value)}
+                      className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                    >
+                      {feeGroups.map(g => (
+                        <option key={g.id} value={g.id}>
+                          {g.name} (₹{g.totalAmount?.toLocaleString('en-IN')})
+                        </option>
+                      ))}
+                    </select>
+                  </>
+                ) : (
+                  <>
+                    <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Custom Amount (₹)</label>
+                    <input
+                      type="number"
+                      placeholder="e.g. 15000"
+                      value={allocCustomAmount}
+                      onChange={(e) => setAllocCustomAmount(e.target.value)}
+                      className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-bold text-emerald-600"
+                    />
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Action Bar */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-200 dark:border-slate-700">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const filtered = students.filter(s => {
+                      const matchClass = allocTargetClass === 'All' || s.class === allocTargetClass || s.class?.includes(allocTargetClass);
+                      const matchSearch = !allocSearch.trim() ||
+                        s.name.toLowerCase().includes(allocSearch.toLowerCase()) ||
+                        (s.parents?.fatherName || s.fatherName || '').toLowerCase().includes(allocSearch.toLowerCase()) ||
+                        (s.rollNo || '').toString().includes(allocSearch);
+                      return matchClass && matchSearch;
+                    });
+                    if (selectedStudentIdsForAlloc.length === filtered.length) {
+                      setSelectedStudentIdsForAlloc([]);
+                    } else {
+                      setSelectedStudentIdsForAlloc(filtered.map(s => s.id));
+                    }
+                  }}
+                  className="px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs font-bold hover:bg-slate-100"
+                >
+                  {selectedStudentIdsForAlloc.length > 0 ? 'Deselect All' : 'Select All Filtered'}
+                </button>
+                <span className="text-xs text-slate-500 font-medium">
+                  {selectedStudentIdsForAlloc.length} students selected for update
+                </span>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleAllocateToSelected}
+                disabled={selectedStudentIdsForAlloc.length === 0}
+                className={`px-5 py-2 rounded-xl text-xs font-bold shadow-md transition-all flex items-center gap-1.5 ${
+                  selectedStudentIdsForAlloc.length > 0
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white hover:scale-105 active:scale-95'
+                    : 'bg-slate-300 dark:bg-slate-700 text-slate-500 cursor-not-allowed'
+                }`}
+              >
+                ⚡ Allocate Fee to {selectedStudentIdsForAlloc.length} Students
+              </button>
+            </div>
+          </div>
+
+          {/* Student List Table with Checkboxes */}
+          <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden">
+            <div className="max-h-[500px] overflow-y-auto">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black uppercase text-[10px] sticky top-0 z-10">
+                  <tr>
+                    <th className="p-3.5 w-10 text-center">
+                      <input
+                        type="checkbox"
+                        checked={
+                          selectedStudentIdsForAlloc.length > 0 &&
+                          selectedStudentIdsForAlloc.length === students.filter(s => {
+                            const matchClass = allocTargetClass === 'All' || s.class === allocTargetClass || s.class?.includes(allocTargetClass);
+                            const matchSearch = !allocSearch.trim() ||
+                              s.name.toLowerCase().includes(allocSearch.toLowerCase()) ||
+                              (s.parents?.fatherName || s.fatherName || '').toLowerCase().includes(allocSearch.toLowerCase()) ||
+                              (s.rollNo || '').toString().includes(allocSearch);
+                            return matchClass && matchSearch;
+                          }).length
+                        }
+                        onChange={(e) => {
+                          const filtered = students.filter(s => {
+                            const matchClass = allocTargetClass === 'All' || s.class === allocTargetClass || s.class?.includes(allocTargetClass);
+                            const matchSearch = !allocSearch.trim() ||
+                              s.name.toLowerCase().includes(allocSearch.toLowerCase()) ||
+                              (s.parents?.fatherName || s.fatherName || '').toLowerCase().includes(allocSearch.toLowerCase()) ||
+                              (s.rollNo || '').toString().includes(allocSearch);
+                            return matchClass && matchSearch;
+                          });
+                          if (e.target.checked) {
+                            setSelectedStudentIdsForAlloc(filtered.map(s => s.id));
+                          } else {
+                            setSelectedStudentIdsForAlloc([]);
+                          }
+                        }}
+                        className="w-4 h-4 rounded text-blue-600 cursor-pointer"
+                      />
+                    </th>
+                    <th className="p-3.5">Ledger / Roll</th>
+                    <th className="p-3.5">Student Name</th>
+                    <th className="p-3.5">Father's Name</th>
+                    <th className="p-3.5">Class</th>
+                    <th className="p-3.5 font-mono">Current Total Due</th>
+                    <th className="p-3.5 font-mono text-emerald-600">Already Paid</th>
+                    <th className="p-3.5 font-mono text-rose-600">Remaining Balance</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {students
+                    .filter(s => {
+                      const matchClass = allocTargetClass === 'All' || s.class === allocTargetClass || s.class?.includes(allocTargetClass);
+                      const matchSearch = !allocSearch.trim() ||
+                        s.name.toLowerCase().includes(allocSearch.toLowerCase()) ||
+                        (s.parents?.fatherName || s.fatherName || '').toLowerCase().includes(allocSearch.toLowerCase()) ||
+                        (s.rollNo || '').toString().includes(allocSearch);
+                      return matchClass && matchSearch;
+                    })
+                    .map(s => {
+                      const isSelected = selectedStudentIdsForAlloc.includes(s.id);
+                      const totalDue = s.feeSummary?.totalDue || 0;
+                      const paid = s.feeSummary?.totalPaid || 0;
+                      const balance = s.feeSummary?.balance || 0;
+                      const father = s.parents?.fatherName || s.fatherName || 'Sh. Gaurav Sharma';
+                      const ledgerNo = s.ledgerNo || `LED-${s.rollNo || s.id.slice(-3)}`;
+
+                      return (
+                        <tr
+                          key={s.id}
+                          onClick={() => {
+                            if (isSelected) {
+                              setSelectedStudentIdsForAlloc(selectedStudentIdsForAlloc.filter(id => id !== s.id));
+                            } else {
+                              setSelectedStudentIdsForAlloc([...selectedStudentIdsForAlloc, s.id]);
+                            }
+                          }}
+                          className={`cursor-pointer transition-colors ${
+                            isSelected
+                              ? 'bg-blue-50/80 dark:bg-blue-950/40'
+                              : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                          }`}
+                        >
+                          <td className="p-3.5 text-center" onClick={(e) => e.stopPropagation()}>
+                            <input
+                              type="checkbox"
+                              checked={isSelected}
+                              onChange={(e) => {
+                                if (e.target.checked) {
+                                  setSelectedStudentIdsForAlloc([...selectedStudentIdsForAlloc, s.id]);
+                                } else {
+                                  setSelectedStudentIdsForAlloc(selectedStudentIdsForAlloc.filter(id => id !== s.id));
+                                }
+                              }}
+                              className="w-4 h-4 rounded text-blue-600 cursor-pointer"
+                            />
+                          </td>
+                          <td className="p-3.5 font-mono text-[11px] font-bold text-slate-500">
+                            {ledgerNo} <span className="text-slate-400">/ #{s.rollNo}</span>
+                          </td>
+                          <td className="p-3.5 font-bold text-slate-900 dark:text-white">
+                            {s.name}
+                          </td>
+                          <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-400">
+                            {father}
+                          </td>
+                          <td className="p-3.5 font-bold text-indigo-600 dark:text-indigo-400">
+                            {s.class}
+                          </td>
+                          <td className="p-3.5 font-mono font-bold text-slate-800 dark:text-slate-200">
+                            ₹{totalDue.toLocaleString('en-IN')}
+                          </td>
+                          <td className="p-3.5 font-mono font-black text-emerald-600">
+                            {paid > 0 ? (
+                              <span className="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">
+                                ₹{paid.toLocaleString('en-IN')}
+                              </span>
+                            ) : (
+                              '₹0'
+                            )}
+                          </td>
+                          <td className="p-3.5 font-mono font-bold text-rose-600">
+                            ₹{balance.toLocaleString('en-IN')}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       )}

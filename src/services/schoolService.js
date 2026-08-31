@@ -1488,16 +1488,18 @@ class SchoolService {
   // ==========================================
   // ⚖️ FINE SETUP CONFIGURATION
   // ==========================================
+  // ⚖️ FINE SETUP (DISABLED BY DEFAULT AS REQUESTED)
+  // ==========================================
   getFineSetup() {
     if (!this.data.fineSetup) {
       this.data.fineSetup = {
         dueDayCutoff: 10,
         graceDays: 5,
         fineType: 'Fixed Rate',
-        fixedAmount: 100,
-        dailyRate: 5,
+        fixedAmount: 0,
+        dailyRate: 0,
         applyTo: 'All Dues',
-        status: 'Active'
+        status: 'Disabled'
       };
       this.saveData();
     }
@@ -1510,11 +1512,66 @@ class SchoolService {
       ...fineConfig,
       dueDayCutoff: Number(fineConfig.dueDayCutoff) || 10,
       graceDays: Number(fineConfig.graceDays) || 5,
-      fixedAmount: Number(fineConfig.fixedAmount) || 100,
-      dailyRate: Number(fineConfig.dailyRate) || 5
+      fixedAmount: Number(fineConfig.fixedAmount) || 0,
+      dailyRate: Number(fineConfig.dailyRate) || 0,
+      status: fineConfig.status || 'Disabled'
     };
     this.saveData();
     return this.data.fineSetup;
+  }
+
+  // ==========================================
+  // 📌 SELECTIVE STUDENT FEE ALLOCATION METHOD (PRESERVES PAID FEES)
+  // ==========================================
+  allocateFeeToSelectedStudents(studentIds, config = {}) {
+    if (!Array.isArray(studentIds) || studentIds.length === 0) {
+      return { success: false, message: 'No students selected' };
+    }
+
+    const { feeGroupId, customTuitionAmount, customGroupName } = config;
+    const groups = this.getFeeGroups();
+    const selectedGroup = feeGroupId ? groups.find(g => g.id === feeGroupId) : null;
+    
+    let tuition = 0;
+    let groupName = 'Custom Fee Allocation';
+    
+    if (customTuitionAmount !== undefined && customTuitionAmount !== null && customTuitionAmount !== '') {
+      tuition = Number(customTuitionAmount) || 0;
+      groupName = customGroupName || `Custom Rate (₹${tuition.toLocaleString('en-IN')})`;
+    } else if (selectedGroup) {
+      tuition = selectedGroup.totalAmount || 0;
+      groupName = selectedGroup.name;
+    }
+
+    const students = this.getStudents();
+    let allocatedCount = 0;
+
+    students.forEach(s => {
+      if (studentIds.includes(s.id)) {
+        const transport = s.feeSummary?.transportDue11Months || 0;
+        const totalDue = tuition + transport;
+        // CRITICAL: KEEP ALREADY PAID AMOUNT 100% INTACT & PRESERVED!
+        const paid = Number(s.feeSummary?.totalPaid) || 0;
+        const balance = Math.max(0, totalDue - paid);
+        const status = balance === 0 ? 'Paid' : paid > 0 ? 'Partial' : 'Overdue';
+
+        s.feeSummary = {
+          ...s.feeSummary,
+          tuitionDue: tuition,
+          transportDue11Months: transport,
+          totalDue,
+          totalPaid: paid, // Completely Preserved!
+          balance,
+          status,
+          allocatedFeeGroupId: feeGroupId || 'CUSTOM',
+          allocatedFeeGroupName: groupName
+        };
+        allocatedCount++;
+      }
+    });
+
+    this.saveData();
+    return { success: true, count: allocatedCount, groupName, tuitionAmount: tuition };
   }
 
   // ==========================================
@@ -1534,7 +1591,7 @@ class SchoolService {
         const tuition = selectedGroup.totalAmount;
         const transport = s.feeSummary?.transportDue11Months || 0;
         const totalDue = tuition + transport;
-        const paid = s.feeSummary?.totalPaid || 0;
+        const paid = Number(s.feeSummary?.totalPaid) || 0;
         const balance = Math.max(0, totalDue - paid);
         const status = balance === 0 ? 'Paid' : paid > 0 ? 'Partial' : 'Overdue';
 
