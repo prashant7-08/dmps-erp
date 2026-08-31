@@ -30,7 +30,12 @@ import {
   ShieldCheck,
   Plus,
   Minus,
-  UserCheck
+  UserCheck,
+  UserPlus,
+  FileText,
+  CreditCard as CardIcon,
+  Globe,
+  GitBranch
 } from 'lucide-react';
 
 export const navigationGroups = [
@@ -52,17 +57,34 @@ export const navigationGroups = [
     ]
   },
   {
+    id: 'admission-group',
+    label: 'ADMISSION',
+    icon: UserPlus,
+    items: [
+      { id: 'students', label: 'New Student Admission', badge: '2026-27' },
+      { id: 'helpdesk-visitors', label: 'Online Web Inquiries', badge: 'Web' }
+    ]
+  },
+  {
     id: 'students-group',
     label: 'STUDENT DETAILS',
     icon: GraduationCap,
     items: [
       { id: 'students', label: 'Student List & Profiles', badge: 'Active' },
-      { id: 'certificates', label: 'Certificates & ID Cards', badge: 'Print' }
+      { id: 'students', label: 'Import Excel / CSV', badge: 'Bulk' }
+    ]
+  },
+  {
+    id: 'parents-group',
+    label: 'PARENTS',
+    icon: Users,
+    items: [
+      { id: 'parent-portal', label: 'Parent Portal & Comms', badge: 'Portal' }
     ]
   },
   {
     id: 'staff-group',
-    label: 'EMPLOYEES & STAFF',
+    label: 'EMPLOYEE / HR',
     icon: Users,
     items: [
       { id: 'staff', label: 'Teacher & Staff Directory', badge: null },
@@ -71,14 +93,31 @@ export const navigationGroups = [
     ]
   },
   {
-    id: 'academic-group',
-    label: 'ACADEMIC & LESSONS',
-    icon: BookOpen,
+    id: 'student-accounting-group',
+    label: 'STUDENT ACCOUNTING',
+    icon: CreditCard,
     items: [
-      { id: 'academics', label: 'Classes & Subjects', badge: null },
-      { id: 'timetable', label: 'Timetable & Classrooms', badge: null },
-      { id: 'homework', label: 'Homework & Tasks', badge: null },
-      { id: 'calendar', label: 'Academic Calendar', badge: null }
+      { id: 'fees', label: 'Fees Collection (POS)', badge: 'POS' },
+      { id: 'fees', label: 'Fee Invoices & Dues', badge: null }
+    ]
+  },
+  {
+    id: 'office-accounting-group',
+    label: 'OFFICE ACCOUNTING',
+    icon: DollarSign,
+    items: [
+      { id: 'inventory', label: 'Accounts & Ledger', badge: null },
+      { id: 'inventory', label: 'Income & Expenses', badge: null }
+    ]
+  },
+  {
+    id: 'supervision-group',
+    label: 'SUPERVISION',
+    icon: Home,
+    items: [
+      { id: 'transport', label: 'Transport & GPS Fleet', badge: 'GPS' },
+      { id: 'hostel', label: 'Hostel & Rooms', badge: null },
+      { id: 'medical', label: 'Medical & Health', badge: null }
     ]
   },
   {
@@ -86,56 +125,130 @@ export const navigationGroups = [
     label: 'ATTENDANCE',
     icon: CheckSquare,
     items: [
-      { id: 'attendance', label: 'Daily Student Attendance', badge: 'Daily' }
+      { id: 'attendance', label: 'Daily Student Attendance', badge: 'Daily' },
+      { id: 'attendance', label: 'Staff Attendance', badge: null }
     ]
   },
   {
-    id: 'examination-group',
-    label: 'EXAMINATION & MARKS',
+    id: 'inventory-group',
+    label: 'INVENTORY',
+    icon: Package,
+    items: [
+      { id: 'inventory', label: 'Item Stock & Store', badge: null }
+    ]
+  },
+  {
+    id: 'card-management-group',
+    label: 'CARD MANAGEMENT',
+    icon: Contact,
+    items: [
+      { id: 'card-management', label: "Student ID Card", badge: 'ID' },
+      { id: 'admit-cards', label: 'Admit Card (Exam Pass)', badge: 'Exam' },
+      { id: 'card-management', label: 'Transport Card / Bus Pass', badge: 'Bus' },
+      { id: 'card-management', label: 'Employee / Staff ID Card', badge: null },
+      { id: 'card-management', label: 'Card Templates Designer', badge: null }
+    ]
+  },
+  {
+    id: 'certificate-group',
+    label: 'CERTIFICATE',
     icon: Award,
     items: [
-      { id: 'examination', label: 'Exams & Marks Entry', badge: 'CBSE' }
+      { id: 'certificates', label: 'Transfer Certificate (TC)', badge: 'TC' },
+      { id: 'certificates', label: 'Character Certificate', badge: null },
+      { id: 'certificates', label: 'Bonafide Certificate', badge: null }
     ]
   },
   {
-    id: 'fees-group',
-    label: 'FEES & ACCOUNTING',
-    icon: CreditCard,
+    id: 'academic-group',
+    label: 'ACADEMIC',
+    icon: BookOpen,
     items: [
-      { id: 'fees', label: 'Fees Collection (POS)', badge: 'POS' },
-      { id: 'inventory', label: 'Accounts & Inventory', badge: null }
+      { id: 'academics', label: 'Classes & Sections', badge: null },
+      { id: 'timetable', label: 'Timetable & Classrooms', badge: null },
+      { id: 'academics', label: 'Subjects & Syllabus', badge: null }
     ]
   },
   {
-    id: 'facilities-group',
-    label: 'CAMPUS FACILITIES',
-    icon: Bus,
+    id: 'homework-group',
+    label: 'HOMEWORK',
+    icon: FileSpreadsheet,
     items: [
-      { id: 'library', label: 'Library Management', badge: null },
-      { id: 'transport', label: 'Transport & GPS Fleet', badge: null },
-      { id: 'hostel', label: 'Hostel & Rooms', badge: null },
-      { id: 'medical', label: 'Medical & Health', badge: null },
-      { id: 'sports', label: 'Sports & Events', badge: null }
+      { id: 'homework', label: 'Daily Homework & Tasks', badge: null }
     ]
   },
   {
-    id: 'portals-group',
-    label: 'PORTALS & USERS',
-    icon: UserCheck,
+    id: 'exam-master-group',
+    label: 'EXAM MASTER',
+    icon: Award,
     items: [
-      { id: 'parent-portal', label: 'Parent Portal', badge: 'Parent' },
-      { id: 'student-portal', label: 'Student Portal', badge: 'Student' }
+      { id: 'examination', label: 'Exams & Marks Entry', badge: 'CBSE' },
+      { id: 'examination', label: 'CBSE Report Cards', badge: 'PDF' }
     ]
   },
   {
-    id: 'system-group',
-    label: 'SETTINGS & SYSTEM',
+    id: 'library-group',
+    label: 'LIBRARY',
+    icon: BookMarked,
+    items: [
+      { id: 'library', label: 'Book List & Catalogs', badge: null },
+      { id: 'library', label: 'Issue & Return Ledger', badge: null }
+    ]
+  },
+  {
+    id: 'events-group',
+    label: 'EVENTS & SPORTS',
+    icon: Trophy,
+    items: [
+      { id: 'sports', label: 'Sports & Tournaments', badge: null },
+      { id: 'calendar', label: 'Academic & Holiday Calendar', badge: null }
+    ]
+  },
+  {
+    id: 'sms-notices-group',
+    label: 'BULK SMS AND NOTICES',
+    icon: Bell,
+    items: [
+      { id: 'notices', label: 'Circulars & Broadcast', badge: 'Notice' }
+    ]
+  },
+  {
+    id: 'reports-group',
+    label: 'REPORTS',
+    icon: BarChart3,
+    items: [
+      { id: 'reports', label: '1. Student Demographics', badge: 'All' },
+      { id: 'reports', label: '2. Attendance Defaulters', badge: '<75%' },
+      { id: 'reports', label: '3. Fee Collection vs Dues', badge: 'Ledger' },
+      { id: 'reports', label: '4. Examination Rank List', badge: 'Rank' }
+    ]
+  },
+  {
+    id: 'branch-group',
+    label: 'BRANCH',
+    icon: GitBranch,
+    items: [
+      { id: 'administration', label: 'Senior Campus (Jargwan)', badge: 'BR-01' },
+      { id: 'administration', label: 'Junior High (Barheti)', badge: 'BR-02' },
+      { id: 'administration', label: 'Dadheech Kids School', badge: 'BR-03' }
+    ]
+  },
+  {
+    id: 'frontend-group',
+    label: 'FRONTEND / WEBSITE',
+    icon: Globe,
+    items: [
+      { id: 'website-view', label: 'Public School Website', badge: 'Live', isExternalWebsite: true }
+    ]
+  },
+  {
+    id: 'settings-group',
+    label: 'SETTINGS',
     icon: Settings,
     items: [
-      { id: 'notices', label: 'Circulars & Notices', badge: 'Broadcast' },
-      { id: 'reports', label: 'Analytical Reports', badge: 'PDF' },
-      { id: 'administration', label: 'School Setup / Admin', badge: null },
-      { id: 'settings', label: 'Security & Multi-Branch', badge: null }
+      { id: 'settings', label: 'Global & School Settings', badge: null },
+      { id: 'settings', label: 'Role Permissions & Access', badge: 'RBAC' },
+      { id: 'settings', label: 'Database Backup & Restore', badge: 'SQL' }
     ]
   }
 ];
@@ -147,7 +260,8 @@ const rolePermissions = {
   'Head': ['*'],
   'Teacher': [
     'dashboard', 'academics', 'timetable', 'attendance', 'homework',
-    'examination', 'students', 'notices', 'sports', 'calendar', 'leave'
+    'examination', 'students', 'notices', 'sports', 'calendar', 'leave',
+    'card-management', 'admit-cards', 'reports'
   ],
   'Accountant': [
     'dashboard', 'fees', 'payroll', 'inventory', 'reports', 'notices', 'calendar'
@@ -159,7 +273,7 @@ const rolePermissions = {
     'parent-portal', 'fees', 'notices', 'calendar', 'helpdesk-visitors'
   ],
   'Student': [
-    'student-portal', 'timetable', 'homework', 'examination', 'library', 'notices', 'sports', 'calendar'
+    'student-portal', 'timetable', 'homework', 'examination', 'library', 'notices', 'sports', 'calendar', 'card-management', 'admit-cards'
   ]
 };
 
@@ -169,7 +283,8 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
   // State to track which accordion categories are expanded
   const [openGroups, setOpenGroups] = useState({
     'students-group': true,
-    'reception-group': true
+    'card-management-group': true,
+    'reports-group': true
   });
 
   // Automatically expand group containing activeTab
@@ -194,7 +309,7 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
       if (grp.isSingle) {
         return (allowed.includes('*') || allowed.includes(grp.targetTab)) ? grp : null;
       }
-      const validItems = grp.items.filter(item => allowed.includes('*') || allowed.includes(item.id));
+      const validItems = grp.items.filter(item => item.isExternalWebsite || allowed.includes('*') || allowed.includes(item.id));
       if (validItems.length === 0) return null;
       return { ...grp, items: validItems };
     })
@@ -210,7 +325,7 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
         />
       )}
 
-      {/* Sidebar Container: Light Sky-Blue in bright mode, Dark Slate in dark mode */}
+      {/* Sidebar Container */}
       <aside
         className={`fixed top-0 left-0 bottom-0 z-40 w-72 bg-gradient-to-b from-sky-50 via-blue-50/60 to-sky-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 text-slate-700 dark:text-slate-300 flex flex-col border-r border-sky-100 dark:border-slate-800 transition-transform duration-300 ease-in-out lg:translate-x-0 shadow-sm ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
@@ -238,37 +353,37 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
         </div>
 
         {/* AI Quick Trigger Banner */}
-        <div className="px-4 pt-4">
+        <div className="px-3 pt-3">
           <button
             onClick={onOpenAI}
-            className="w-full group p-3 rounded-2xl bg-white/90 dark:bg-slate-950 border border-sky-200/80 dark:border-indigo-500/30 hover:border-blue-400 dark:hover:border-indigo-400 flex items-center justify-between text-left transition-all shadow-sm hover:shadow-md hover:shadow-blue-500/10"
+            className="w-full group p-2.5 rounded-2xl bg-white/90 dark:bg-slate-950 border border-sky-200/80 dark:border-indigo-500/30 hover:border-blue-400 dark:hover:border-indigo-400 flex items-center justify-between text-left transition-all shadow-sm hover:shadow-md hover:shadow-blue-500/10"
           >
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2">
               <div className="p-1.5 rounded-xl bg-blue-600 text-white dark:bg-indigo-500/20 dark:text-amber-300 shadow-sm">
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-3.5 h-3.5" />
               </div>
               <div>
                 <p className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-indigo-300 transition-colors">
                   EduBot AI Assistant
                 </p>
-                <p className="text-[10px] text-slate-500 dark:text-indigo-300/80">
+                <p className="text-[9px] text-slate-500 dark:text-indigo-300/80">
                   Instant smart school insights
                 </p>
               </div>
             </div>
-            <ChevronRight className="w-4 h-4 text-blue-500 dark:text-indigo-400 group-hover:translate-x-0.5 transition-transform" />
+            <ChevronRight className="w-3.5 h-3.5 text-blue-500 dark:text-indigo-400 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
 
         {/* Section Label */}
-        <div className="px-5 pt-4 pb-1">
-          <p className="text-[10px] font-black uppercase tracking-wider text-sky-800 dark:text-slate-500">
-            MAIN ERP MENU
+        <div className="px-4 pt-3 pb-1">
+          <p className="text-[9px] font-black uppercase tracking-wider text-sky-800 dark:text-slate-500">
+            MAIN ERP MODULES
           </p>
         </div>
 
-        {/* Collapsible Accordion Navigation (Smart School / Professional ERP Style) */}
-        <nav className="flex-1 overflow-y-auto px-3 py-2 space-y-1.5 custom-scrollbar text-xs font-semibold">
+        {/* Collapsible Accordion Navigation (Smart School ERP Layout) */}
+        <nav className="flex-1 overflow-y-auto px-2.5 py-1.5 space-y-1 custom-scrollbar text-xs font-semibold">
           {visibleGroups.map((grp) => {
             const Icon = grp.icon;
 
@@ -282,15 +397,15 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
                     setActiveTab(grp.targetTab);
                     if (window.innerWidth < 1024) setIsOpen(false);
                   }}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-all ${
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl transition-all ${
                     isActive
                       ? 'bg-blue-600 dark:bg-indigo-600 text-white font-bold shadow-md shadow-blue-500/25 ring-1 ring-blue-400/40'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-blue-900 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-800/70 border border-transparent hover:border-sky-200 dark:hover:border-slate-700'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-blue-900 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-800/70 border border-transparent'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
                     <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-blue-600 dark:text-slate-400'}`} />
-                    <span className="font-bold">{grp.label}</span>
+                    <span className="font-bold text-xs">{grp.label}</span>
                   </div>
                 </button>
               );
@@ -305,19 +420,19 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
                 {/* Category Header */}
                 <button
                   onClick={() => toggleGroup(grp.id)}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-all text-left ${
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl transition-all text-left ${
                     hasActiveChild
-                      ? 'bg-blue-50 dark:bg-slate-800/90 text-blue-900 dark:text-white font-black border border-blue-200/80 dark:border-slate-700'
+                      ? 'bg-blue-50 dark:bg-slate-800/90 text-blue-900 dark:text-white font-black border border-blue-200/80 dark:border-slate-700 shadow-xs'
                       : 'text-slate-700 dark:text-slate-300 hover:text-blue-900 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-800/60 border border-transparent'
                   }`}
                 >
                   <div className="flex items-center gap-2.5 truncate">
                     <Icon className={`w-4 h-4 shrink-0 ${hasActiveChild ? 'text-blue-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400'}`} />
-                    <span className="truncate text-xs font-bold">{grp.label}</span>
+                    <span className="truncate text-xs font-bold uppercase tracking-tight">{grp.label}</span>
                   </div>
                   
-                  <div className="flex items-center gap-1 shrink-0 ml-2">
-                    <span className={`w-5 h-5 rounded-md flex items-center justify-center text-xs font-black transition-colors ${
+                  <div className="flex items-center gap-1 shrink-0 ml-1.5">
+                    <span className={`w-4 h-4 rounded flex items-center justify-center text-[11px] font-black transition-colors ${
                       isExpanded
                         ? 'bg-blue-600 text-white dark:bg-indigo-600'
                         : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
@@ -329,23 +444,28 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
 
                 {/* Sub-items (Expand/Collapse) */}
                 {isExpanded && (
-                  <div className="pl-6 pr-1 py-1.5 space-y-1 bg-white/40 dark:bg-slate-950/40 rounded-b-xl border-l-2 border-blue-400 dark:border-indigo-500 ml-3.5 mt-0.5 animate-in slide-in-from-top-1 duration-150">
+                  <div className="pl-5 pr-1 py-1 space-y-0.5 bg-white/40 dark:bg-slate-950/40 rounded-b-xl border-l-2 border-blue-400 dark:border-indigo-500 ml-3 mt-0.5 animate-in slide-in-from-top-1 duration-150">
                     {grp.items.map((sub, sIdx) => {
                       const isSubActive = activeTab === sub.id;
                       return (
                         <button
                           key={sIdx}
                           onClick={() => {
+                            if (sub.isExternalWebsite) {
+                              window.location.hash = '';
+                              window.location.reload();
+                              return;
+                            }
                             setActiveTab(sub.id);
                             if (window.innerWidth < 1024) setIsOpen(false);
                           }}
-                          className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-[11px] transition-all text-left ${
+                          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-[11px] transition-all text-left ${
                             isSubActive
-                              ? 'bg-blue-600 text-white font-bold shadow-sm'
+                              ? 'bg-blue-600 text-white font-bold shadow-xs'
                               : 'text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white hover:bg-sky-100/70 dark:hover:bg-slate-800'
                           }`}
                         >
-                          <div className="flex items-center gap-2 truncate">
+                          <div className="flex items-center gap-1.5 truncate">
                             <span className={`w-1.5 h-1.5 rounded-full ${isSubActive ? 'bg-white' : 'bg-slate-400 dark:bg-slate-600'}`} />
                             <span className="truncate">{sub.label}</span>
                           </div>
@@ -367,21 +487,21 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
         </nav>
 
         {/* Footer User Info */}
-        <div className="p-3.5 border-t border-sky-200/70 dark:border-slate-800 bg-white/70 dark:bg-slate-950/70 flex items-center justify-between">
-          <div className="flex items-center gap-2.5 overflow-hidden">
-            <div className="w-8 h-8 rounded-xl bg-blue-100 dark:bg-indigo-950 border border-blue-200 dark:border-indigo-700/50 flex items-center justify-center text-blue-700 dark:text-indigo-300 font-bold text-xs shrink-0">
-              <ShieldCheck className="w-4 h-4" />
+        <div className="p-3 border-t border-sky-200/70 dark:border-slate-800 bg-white/70 dark:bg-slate-950/70 flex items-center justify-between">
+          <div className="flex items-center gap-2 overflow-hidden">
+            <div className="w-7 h-7 rounded-lg bg-blue-100 dark:bg-indigo-950 border border-blue-200 dark:border-indigo-700/50 flex items-center justify-center text-blue-700 dark:text-indigo-300 font-bold text-xs shrink-0">
+              <ShieldCheck className="w-3.5 h-3.5" />
             </div>
             <div className="truncate">
               <p className="text-xs font-bold text-slate-900 dark:text-white truncate capitalize">{currentRole}</p>
-              <p className="text-[10px] text-sky-800 dark:text-slate-400 font-medium truncate">Session 2026-27</p>
+              <p className="text-[9px] text-sky-800 dark:text-slate-400 font-medium truncate">Session 2026-27</p>
             </div>
           </div>
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" title="System Online"></span>
+          <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" title="System Online"></span>
         </div>
 
         {/* 👑 Developer Credit */}
-        <div className="px-4 py-2 bg-sky-100/60 dark:bg-slate-950 text-center text-[10px] text-slate-500 dark:text-slate-400 border-t border-sky-200/60 dark:border-slate-800">
+        <div className="px-3 py-1.5 bg-sky-100/60 dark:bg-slate-950 text-center text-[10px] text-slate-500 dark:text-slate-400 border-t border-sky-200/60 dark:border-slate-800">
           Designed & Developed by <strong className="text-amber-600 dark:text-amber-400 font-black">Prashant Rajput</strong>
         </div>
       </aside>

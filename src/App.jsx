@@ -133,8 +133,12 @@ function AppContent() {
         return <CalendarPage />;
       case 'leave':
         return <LeaveManagementPage />;
+      case 'card-management':
+        return <CertificatesIdPage initialSection="student_cards" />;
+      case 'admit-cards':
+        return <CertificatesIdPage initialSection="admit_cards" />;
       case 'certificates':
-        return <CertificatesIdPage />;
+        return <CertificatesIdPage initialSection="certificates" />;
       case 'payroll':
         return <HRPayrollPage />;
       case 'inventory':

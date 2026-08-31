@@ -35,14 +35,20 @@ import { PrintableCertificate } from '../components/printables/PrintableCertific
 import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import schoolService from '../services/schoolService';
 
-export const CertificatesIdPage = () => {
+export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
   const { showToast } = useToast();
   const students = schoolService.getStudents();
   const teachers = schoolService.getTeachers();
   const schoolInfo = schoolService.getSchoolInfo();
 
   // Active Sub-Section: 'templates' | 'student_cards' | 'employee_cards' | 'admit_cards' | 'certificates'
-  const [activeSection, setActiveSection] = useState('templates');
+  const [activeSection, setActiveSection] = useState(initialSection || 'student_cards');
+  
+  useEffect(() => {
+    if (initialSection) {
+      setActiveSection(initialSection);
+    }
+  }, [initialSection]);
   
   // Template Manager Sub-tabs: 'list' | 'create_edit'
   const [templateTab, setTemplateTab] = useState('list');
