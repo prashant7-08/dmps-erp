@@ -1521,18 +1521,18 @@ class SchoolService {
   }
 
   // ==========================================
-  // 📌 SELECTIVE STUDENT FEE ALLOCATION METHOD (PRESERVES PAID FEES)
+  // 📌 SELECTIVE STUDENT FEE ALLOCATION METHOD (PRESERVES PAID FEES & INCLUDES MISC/OLD DUES)
   // ==========================================
   allocateFeeToSelectedStudents(studentIds, config = {}) {
     if (!Array.isArray(studentIds) || studentIds.length === 0) {
       return { success: false, message: 'No students selected' };
     }
 
-    const { feeGroupId, customTuitionAmount, customGroupName } = config;
+    const { feeGroupId, customTuitionAmount, customGroupName, previousSessionDues, miscellaneousDue, miscReason } = config;
     const groups = this.getFeeGroups();
     const selectedGroup = feeGroupId ? groups.find(g => g.id === feeGroupId) : null;
     
-    let tuition = 0;
+    let tuition = null;
     let groupName = 'Custom Fee Allocation';
     
     if (customTuitionAmount !== undefined && customTuitionAmount !== null && customTuitionAmount !== '') {
@@ -1548,30 +1548,65 @@ class SchoolService {
 
     students.forEach(s => {
       if (studentIds.includes(s.id)) {
+        const studentTuition = tuition !== null ? tuition : (s.feeSummary?.tuitionDue || 0);
         const transport = s.feeSummary?.transportDue11Months || 0;
-        const totalDue = tuition + transport;
-        // CRITICAL: KEEP ALREADY PAID AMOUNT 100% INTACT & PRESERVED!
+        const prev = previousSessionDues !== undefined && previousSessionDues !== '' ? Number(previousSessionDues) || 0 : (s.feeSummary?.previousSessionDues || 0);
+        const misc = miscellaneousDue !== undefined && miscellaneousDue !== '' ? Number(miscellaneousDue) || 0 : (s.feeSummary?.miscellaneousDue || 0);
+        
+        const totalDue = studentTuition + transport + prev + misc;
         const paid = Number(s.feeSummary?.totalPaid) || 0;
         const balance = Math.max(0, totalDue - paid);
         const status = balance === 0 ? 'Paid' : paid > 0 ? 'Partial' : 'Overdue';
 
         s.feeSummary = {
           ...s.feeSummary,
-          tuitionDue: tuition,
+          tuitionDue: studentTuition,
           transportDue11Months: transport,
+          previousSessionDues: prev,
+          miscellaneousDue: misc,
+          miscReason: miscReason || s.feeSummary?.miscReason || '',
           totalDue,
           totalPaid: paid, // Completely Preserved!
           balance,
           status,
-          allocatedFeeGroupId: feeGroupId || 'CUSTOM',
-          allocatedFeeGroupName: groupName
+          allocatedFeeGroupId: feeGroupId || s.feeSummary?.allocatedFeeGroupId || 'CUSTOM',
+          allocatedFeeGroupName: groupName || s.feeSummary?.allocatedFeeGroupName
         };
         allocatedCount++;
       }
     });
 
     this.saveData();
-    return { success: true, count: allocatedCount, groupName, tuitionAmount: tuition };
+    return { success: true, count: allocatedCount, groupName };
+  }
+
+  updateStudentMiscFee(studentId, { previousSessionDues, miscellaneousDue, miscReason }) {
+    const students = this.getStudents();
+    const s = students.find(st => st.id === studentId);
+    if (!s) return null;
+
+    const tuition = Number(s.feeSummary?.tuitionDue) || 0;
+    const transport = Number(s.feeSummary?.transportDue11Months) || 0;
+    const prev = previousSessionDues !== undefined ? Number(previousSessionDues) || 0 : (s.feeSummary?.previousSessionDues || 0);
+    const misc = miscellaneousDue !== undefined ? Number(miscellaneousDue) || 0 : (s.feeSummary?.miscellaneousDue || 0);
+    const totalDue = tuition + transport + prev + misc;
+    const paid = Number(s.feeSummary?.totalPaid) || 0;
+    const balance = Math.max(0, totalDue - paid);
+    const status = balance === 0 ? 'Paid' : paid > 0 ? 'Partial' : 'Overdue';
+
+    s.feeSummary = {
+      ...s.feeSummary,
+      previousSessionDues: prev,
+      miscellaneousDue: misc,
+      miscReason: miscReason || s.feeSummary?.miscReason || 'Previous Session Arrears / Books / Kit',
+      totalDue,
+      totalPaid: paid,
+      balance,
+      status
+    };
+
+    this.saveData();
+    return s;
   }
 
   // ==========================================

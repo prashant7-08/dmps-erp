@@ -57,7 +57,6 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
     if (tab === 'fees-groups' || tab === 'groups') return 'groups';
     if (tab === 'fees-fine' || tab === 'fine') return 'fine';
     if (tab === 'fees-allocation' || tab === 'allocation') return 'allocation';
-    if (tab === 'fees-misc' || tab === 'misc') return 'misc';
     if (tab === 'fees-dues' || tab === 'dues') return 'dues';
     if (tab === 'fees-siblings' || tab === 'siblings') return 'siblings';
     if (tab === 'fees-sibling-list' || tab === 'sibling-list') return 'sibling-list';
@@ -80,23 +79,15 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   const [feeTypes, setFeeTypes] = useState(() => schoolService.getFeeTypes() || []);
   const [feeGroups, setFeeGroups] = useState(() => schoolService.getFeeGroups() || []);
   const [fineSetup, setFineSetup] = useState(() => schoolService.getFineSetup() || {});
-  const [miscFees, setMiscFees] = useState(() => schoolService.getMiscFees() || []);
   const [offlinePayments, setOfflinePayments] = useState(() => schoolService.getOfflinePayments() || []);
   const [familyGroups, setFamilyGroups] = useState(() => schoolService.getAllFamilyGroups() || []);
 
-  // Miscellaneous Fee State & Form
-  const [isAddMiscModalOpen, setIsAddMiscModalOpen] = useState(false);
-  const [miscCategoryFilter, setMiscCategoryFilter] = useState('All');
-  const [miscSearch, setMiscSearch] = useState('');
-  const [miscForm, setMiscForm] = useState({
-    studentId: '',
-    category: 'Old Session Dues',
-    title: '',
-    amount: '',
-    isPaid: false,
-    paymentMode: 'Cash',
-    remarks: ''
-  });
+  // Individual Student Old Dues & Miscellaneous Popup State
+  const [isStudentMiscModalOpen, setIsStudentMiscModalOpen] = useState(false);
+  const [targetStudentForMisc, setTargetStudentForMisc] = useState(null);
+  const [studentMiscPrevDue, setStudentMiscPrevDue] = useState('');
+  const [studentMiscKitDue, setStudentMiscKitDue] = useState('');
+  const [studentMiscReason, setStudentMiscReason] = useState('');
 
   const schoolInfo = schoolService.getSchoolInfo();
 
@@ -141,6 +132,9 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   const [allocMode, setAllocMode] = useState('group'); // 'group' or 'custom'
   const [allocCustomAmount, setAllocCustomAmount] = useState('');
   const [allocCustomTitle, setAllocCustomTitle] = useState('');
+  const [allocOldSessionDues, setAllocOldSessionDues] = useState('');
+  const [allocMiscDue, setAllocMiscDue] = useState('');
+  const [allocMiscReason, setAllocMiscReason] = useState('');
   const [allocSearch, setAllocSearch] = useState('');
 
   // Sibling Assign Modal
@@ -303,61 +297,56 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
     }
 
     const config = allocMode === 'custom'
-      ? { customTuitionAmount: Number(allocCustomAmount) || 0, customGroupName: allocCustomTitle || `Custom Rate (₹${Number(allocCustomAmount).toLocaleString('en-IN')})` }
-      : { feeGroupId: allocSelectedGroup };
+      ? {
+          customTuitionAmount: Number(allocCustomAmount) || 0,
+          customGroupName: allocCustomTitle || `Custom Rate (₹${Number(allocCustomAmount).toLocaleString('en-IN')})`,
+          previousSessionDues: allocOldSessionDues,
+          miscellaneousDue: allocMiscDue,
+          miscReason: allocMiscReason
+        }
+      : {
+          feeGroupId: allocSelectedGroup,
+          previousSessionDues: allocOldSessionDues,
+          miscellaneousDue: allocMiscDue,
+          miscReason: allocMiscReason
+        };
 
     const res = schoolService.allocateFeeToSelectedStudents(selectedStudentIdsForAlloc, config);
     if (res.success) {
       showToast(`Successfully allocated "${res.groupName}" to ${res.count} selected students! Already paid fees remain 100% safe & intact.`, 'success');
       setSelectedStudentIdsForAlloc([]);
+      setAllocOldSessionDues('');
+      setAllocMiscDue('');
+      setAllocMiscReason('');
       refreshAll();
     } else {
       showToast(res.message || 'Allocation failed', 'error');
     }
   };
 
-  // Miscellaneous Fee Handlers
-  const handleAddMiscFee = (e) => {
-    e.preventDefault();
-    if (!miscForm.studentId || !miscForm.amount) {
-      showToast('Please select a student and enter amount', 'warning');
-      return;
-    }
-    const student = students.find(s => s.id === miscForm.studentId);
-    if (!student) return;
+  // Direct Student Old Dues & Misc Handlers (e.g. for Ram)
+  const handleOpenStudentMiscModal = (student, e) => {
+    if (e) e.stopPropagation();
+    setTargetStudentForMisc(student);
+    setStudentMiscPrevDue(student.feeSummary?.previousSessionDues || '');
+    setStudentMiscKitDue(student.feeSummary?.miscellaneousDue || '');
+    setStudentMiscReason(student.feeSummary?.miscReason || '');
+    setIsStudentMiscModalOpen(true);
+  };
 
-    schoolService.addMiscFee({
-      studentId: student.id,
-      studentName: student.name,
-      fatherName: student.parents?.fatherName || student.fatherName || 'Sh. Father Name',
-      class: student.class,
-      rollNo: student.rollNo,
-      ledgerNo: student.ledgerNo || `LED-${student.rollNo || student.id.slice(-3)}`,
-      category: miscForm.category,
-      title: miscForm.title || `${miscForm.category} Charge`,
-      amount: Number(miscForm.amount),
-      isPaid: miscForm.isPaid,
-      remarks: miscForm.remarks
+  const handleSaveStudentMisc = (e) => {
+    e.preventDefault();
+    if (!targetStudentForMisc) return;
+    
+    schoolService.updateStudentMiscFee(targetStudentForMisc.id, {
+      previousSessionDues: Number(studentMiscPrevDue) || 0,
+      miscellaneousDue: Number(studentMiscKitDue) || 0,
+      miscReason: studentMiscReason || 'Previous Session Arrears / Books & Kit'
     });
 
-    showToast(`Miscellaneous charge of ₹${Number(miscForm.amount).toLocaleString('en-IN')} added for ${student.name}!`, 'success');
+    showToast(`Updated Previous Arrears & Misc fees for ${targetStudentForMisc.name}!`, 'success');
     refreshAll();
-    setIsAddMiscModalOpen(false);
-    setMiscForm({ studentId: '', category: 'Old Session Dues', title: '', amount: '', isPaid: false, paymentMode: 'Cash', remarks: '' });
-  };
-
-  const handleDeleteMiscFee = (id) => {
-    if (window.confirm('Are you sure you want to delete this miscellaneous fee record?')) {
-      schoolService.deleteMiscFee(id);
-      showToast('Miscellaneous fee record deleted', 'info');
-      refreshAll();
-    }
-  };
-
-  const handleCollectMiscFee = (item) => {
-    schoolService.collectMiscFee(item.id, item.balance, 'Cash');
-    showToast(`Payment of ₹${item.balance.toLocaleString('en-IN')} collected for ${item.studentName}!`, 'success');
-    refreshAll();
+    setIsStudentMiscModalOpen(false);
   };
 
   // WhatsApp Dues Reminder
@@ -457,7 +446,6 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
             { id: 'groups', label: '📂 Fees Group', count: feeGroups.length },
             { id: 'fine', label: '⚖️ Fine Setup', badge: 'Rules' },
             { id: 'allocation', label: '📌 Fees Allocation', badge: 'Bulk' },
-            { id: 'misc', label: '📦 Miscellaneous Fees', count: miscFees.length },
             { id: 'dues', label: '⚠️ Due List / Reminder', count: totalDefaulters },
             { id: 'siblings', label: '👨‍👩‍👧‍👦 Setup Siblings', badge: null },
             { id: 'sibling-list', label: '📜 Sibling List', count: familyGroups.length },
@@ -1073,6 +1061,48 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
               </div>
             </div>
 
+            {/* Optional Additional Old Session Arrears & Kit Controls */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-2 border-t border-dashed border-slate-200 dark:border-slate-700">
+              <div>
+                <label className="font-bold text-amber-700 dark:text-amber-400 block mb-1">
+                  📦 Old Session Arrears (पिछला बकाया ₹) <span className="text-[10px] text-slate-400 font-normal">(Optional)</span>
+                </label>
+                <input
+                  type="number"
+                  placeholder="e.g. 4000"
+                  value={allocOldSessionDues}
+                  onChange={(e) => setAllocOldSessionDues(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/50 dark:bg-amber-950/30 font-mono font-bold text-amber-800 dark:text-amber-300"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-blue-700 dark:text-blue-400 block mb-1">
+                  📚 Course Books / Kit (कोर्स व पुस्तकें ₹) <span className="text-[10px] text-slate-400 font-normal">(Optional)</span>
+                </label>
+                <input
+                  type="number"
+                  placeholder="e.g. 2450"
+                  value={allocMiscDue}
+                  onChange={(e) => setAllocMiscDue(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-blue-200 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/30 font-mono font-bold text-blue-800 dark:text-blue-300"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  Remarks / Note <span className="text-[10px] text-slate-400 font-normal">(Optional)</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Old session 25-26 arrears & NCERT kit"
+                  value={allocMiscReason}
+                  onChange={(e) => setAllocMiscReason(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"
+                />
+              </div>
+            </div>
+
             {/* Action Bar */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-200 dark:border-slate-700">
               <div className="flex items-center gap-2">
@@ -1117,7 +1147,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
             </div>
           </div>
 
-          {/* Student List Table with Checkboxes */}
+          {/* Student List Table with Checkboxes & Direct Misc Edit */}
           <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden">
             <div className="max-h-[500px] overflow-y-auto">
               <table className="w-full text-left text-xs">
@@ -1159,9 +1189,13 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                     <th className="p-3.5">Student Name</th>
                     <th className="p-3.5">Father's Name</th>
                     <th className="p-3.5">Class</th>
-                    <th className="p-3.5 font-mono">Current Total Due</th>
+                    <th className="p-3.5 font-mono">Tuition</th>
+                    <th className="p-3.5 font-mono">Transport</th>
+                    <th className="p-3.5 font-mono text-amber-700 dark:text-amber-400">Old Dues / Misc</th>
+                    <th className="p-3.5 font-mono">Total Due</th>
                     <th className="p-3.5 font-mono text-emerald-600">Already Paid</th>
                     <th className="p-3.5 font-mono text-rose-600">Remaining Balance</th>
+                    <th className="p-3.5 text-right">Action</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
@@ -1176,10 +1210,13 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                     })
                     .map(s => {
                       const isSelected = selectedStudentIdsForAlloc.includes(s.id);
-                      const totalDue = s.feeSummary?.totalDue || 0;
+                      const tuition = s.feeSummary?.tuitionDue || 0;
+                      const transport = s.feeSummary?.transportDue11Months || 0;
+                      const oldDues = (s.feeSummary?.previousSessionDues || 0) + (s.feeSummary?.miscellaneousDue || 0);
+                      const totalDue = s.feeSummary?.totalDue || (tuition + transport + oldDues);
                       const paid = s.feeSummary?.totalPaid || 0;
-                      const balance = s.feeSummary?.balance || 0;
-                      const father = s.parents?.fatherName || s.fatherName || 'Sh. Gaurav Sharma';
+                      const balance = s.feeSummary?.balance !== undefined ? s.feeSummary.balance : Math.max(0, totalDue - paid);
+                      const father = s.parents?.fatherName || s.fatherName || 'Sh. Father Name';
                       const ledgerNo = s.ledgerNo || `LED-${s.rollNo || s.id.slice(-3)}`;
 
                       return (
@@ -1224,7 +1261,22 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                           <td className="p-3.5 font-bold text-indigo-600 dark:text-indigo-400">
                             {s.class}
                           </td>
-                          <td className="p-3.5 font-mono font-bold text-slate-800 dark:text-slate-200">
+                          <td className="p-3.5 font-mono font-bold text-slate-700 dark:text-slate-300">
+                            ₹{tuition.toLocaleString('en-IN')}
+                          </td>
+                          <td className="p-3.5 font-mono font-medium text-slate-500">
+                            ₹{transport.toLocaleString('en-IN')}
+                          </td>
+                          <td className="p-3.5 font-mono font-bold">
+                            {oldDues > 0 ? (
+                              <span className="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 font-bold">
+                                ₹{oldDues.toLocaleString('en-IN')}
+                              </span>
+                            ) : (
+                              <span className="text-slate-400">₹0</span>
+                            )}
+                          </td>
+                          <td className="p-3.5 font-mono font-bold text-slate-900 dark:text-white">
                             ₹{totalDue.toLocaleString('en-IN')}
                           </td>
                           <td className="p-3.5 font-mono font-black text-emerald-600">
@@ -1239,181 +1291,21 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                           <td className="p-3.5 font-mono font-bold text-rose-600">
                             ₹{balance.toLocaleString('en-IN')}
                           </td>
+                          <td className="p-3.5 text-right" onClick={(e) => e.stopPropagation()}>
+                            <button
+                              type="button"
+                              onClick={(e) => handleOpenStudentMiscModal(s, e)}
+                              className="px-2.5 py-1 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-[10px] font-bold shadow hover:scale-105 active:scale-95 transition-all"
+                            >
+                              ✏️ + Old Dues / Misc
+                            </button>
+                          </td>
                         </tr>
                       );
                     })}
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* 📦 TAB: MISCELLANEOUS FEES (OLD SESSION ARREARS & COURSE CHARGES) */}
-      {/* ========================================================================= */}
-      {activeTab === 'misc' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
-          <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div>
-              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-                <Layers className="w-5 h-5 text-amber-600" /> Miscellaneous Fees & Previous Arrears
-              </h3>
-              <p className="text-xs text-slate-500 mt-0.5">
-                Manage <strong>Old Session Dues (पिछला बकाया)</strong>, Course Books, Uniform Kits, Board Registrations, and Additional Charges with exact figures.
-              </p>
-            </div>
-
-            <button
-              onClick={() => setIsAddMiscModalOpen(true)}
-              className="px-4 py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
-            >
-              <Plus className="w-4 h-4" /> Add Miscellaneous Fee
-            </button>
-          </div>
-
-          {/* KPI Summary */}
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-            <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/40 space-y-1">
-              <span className="text-[10px] font-bold uppercase text-amber-700 dark:text-amber-400">Total Misc Charges</span>
-              <p className="text-xl font-black font-mono text-slate-900 dark:text-white">
-                ₹{miscFees.reduce((acc, m) => acc + (m.amount || 0), 0).toLocaleString('en-IN')}
-              </p>
-              <span className="text-[10px] text-slate-500">{miscFees.length} Recorded Entries</span>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/40 space-y-1">
-              <span className="text-[10px] font-bold uppercase text-emerald-700 dark:text-emerald-400">Total Misc Collected</span>
-              <p className="text-xl font-black font-mono text-emerald-600">
-                ₹{miscFees.reduce((acc, m) => acc + (m.paidAmount || 0), 0).toLocaleString('en-IN')}
-              </p>
-              <span className="text-[10px] text-emerald-600 font-medium">Clear Receipts</span>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/40 space-y-1">
-              <span className="text-[10px] font-bold uppercase text-rose-700 dark:text-rose-400">Total Misc Pending</span>
-              <p className="text-xl font-black font-mono text-rose-600">
-                ₹{miscFees.reduce((acc, m) => acc + (m.balance || 0), 0).toLocaleString('en-IN')}
-              </p>
-              <span className="text-[10px] text-rose-500 font-medium">To be collected</span>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900/40 space-y-1">
-              <span className="text-[10px] font-bold uppercase text-indigo-700 dark:text-indigo-400">Old Session Arrears</span>
-              <p className="text-xl font-black font-mono text-indigo-600">
-                ₹{miscFees.filter(m => m.category === 'Old Session Dues').reduce((acc, m) => acc + (m.amount || 0), 0).toLocaleString('en-IN')}
-              </p>
-              <span className="text-[10px] text-indigo-600 font-medium">2025-26 Session Rollover</span>
-            </div>
-          </div>
-
-          {/* Filters & Search */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-2 w-full sm:w-auto">
-              <span className="text-xs font-bold text-slate-500">Category:</span>
-              <select
-                value={miscCategoryFilter}
-                onChange={(e) => setMiscCategoryFilter(e.target.value)}
-                className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold"
-              >
-                <option value="All">All Categories</option>
-                <option value="Old Session Dues">Old Session Previous Dues (पिछला बकाया)</option>
-                <option value="Course Books & Kit">Course Books & Study Material (किताबें व कोर्स)</option>
-                <option value="Uniform & Dress">Uniform & Dress Set</option>
-                <option value="Board Registration">Board Exam Registration</option>
-              </select>
-            </div>
-
-            <div className="relative w-full sm:w-64">
-              <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                placeholder="Search student / father / ledger..."
-                value={miscSearch}
-                onChange={(e) => setMiscSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs"
-              />
-            </div>
-          </div>
-
-          {/* Table */}
-          <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black uppercase text-[10px]">
-                <tr>
-                  <th className="p-3.5">ID</th>
-                  <th className="p-3.5">Ledger / Roll</th>
-                  <th className="p-3.5">Student Name & Father</th>
-                  <th className="p-3.5">Class</th>
-                  <th className="p-3.5">Category</th>
-                  <th className="p-3.5">Fee Title / Details</th>
-                  <th className="p-3.5 font-mono">Amount</th>
-                  <th className="p-3.5 font-mono text-emerald-600">Paid</th>
-                  <th className="p-3.5 font-mono text-rose-600">Balance</th>
-                  <th className="p-3.5">Status</th>
-                  <th className="p-3.5 text-right">Action</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {miscFees
-                  .filter(m => {
-                    const matchCat = miscCategoryFilter === 'All' || m.category === miscCategoryFilter;
-                    const matchQuery = !miscSearch.trim() ||
-                      m.studentName.toLowerCase().includes(miscSearch.toLowerCase()) ||
-                      m.fatherName.toLowerCase().includes(miscSearch.toLowerCase()) ||
-                      m.ledgerNo.toLowerCase().includes(miscSearch.toLowerCase()) ||
-                      m.title.toLowerCase().includes(miscSearch.toLowerCase());
-                    return matchCat && matchQuery;
-                  })
-                  .map(m => (
-                    <tr key={m.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                      <td className="p-3.5 font-mono font-bold text-slate-400">{m.id}</td>
-                      <td className="p-3.5 font-mono font-bold text-slate-500">{m.ledgerNo}</td>
-                      <td className="p-3.5">
-                        <p className="font-bold text-slate-900 dark:text-white">{m.studentName}</p>
-                        <p className="text-[10px] text-slate-400 font-medium">S/O {m.fatherName}</p>
-                      </td>
-                      <td className="p-3.5 font-bold text-indigo-600 dark:text-indigo-400">{m.class}</td>
-                      <td className="p-3.5">
-                        <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                          m.category === 'Old Session Dues'
-                            ? 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300'
-                            : m.category === 'Course Books & Kit'
-                            ? 'bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300'
-                            : 'bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300'
-                        }`}>
-                          {m.category}
-                        </span>
-                      </td>
-                      <td className="p-3.5 font-medium text-slate-700 dark:text-slate-300 max-w-xs">{m.title}</td>
-                      <td className="p-3.5 font-mono font-bold text-slate-900 dark:text-white">₹{m.amount.toLocaleString('en-IN')}</td>
-                      <td className="p-3.5 font-mono font-bold text-emerald-600">₹{m.paidAmount.toLocaleString('en-IN')}</td>
-                      <td className="p-3.5 font-mono font-black text-rose-600">₹{m.balance.toLocaleString('en-IN')}</td>
-                      <td className="p-3.5">
-                        <Badge variant={m.status === 'Paid' ? 'success' : m.status === 'Partial' ? 'warning' : 'danger'}>
-                          {m.status}
-                        </Badge>
-                      </td>
-                      <td className="p-3.5 text-right space-x-1">
-                        {m.balance > 0 && (
-                          <button
-                            onClick={() => handleCollectMiscFee(m)}
-                            className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold text-[10px] shadow"
-                          >
-                            Collect ₹{m.balance}
-                          </button>
-                        )}
-                        <button
-                          onClick={() => handleDeleteMiscFee(m.id)}
-                          className="p-1 text-rose-500 hover:bg-rose-50 rounded-lg"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
           </div>
         </div>
       )}
@@ -2040,115 +1932,99 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 📦 MODAL: ADD MISCELLANEOUS FEE */}
+      {/* 📦 MODAL: DIRECT STUDENT OLD SESSION ARREARS & MISC DUES (e.g. FOR RAM) */}
       {/* ========================================================================= */}
-      {isAddMiscModalOpen && (
+      {isStudentMiscModalOpen && targetStudentForMisc && (
         <Modal
-          isOpen={isAddMiscModalOpen}
-          onClose={() => setIsAddMiscModalOpen(false)}
-          title="Add Miscellaneous Fee / Previous Arrears"
-          maxWidth="max-w-lg"
+          isOpen={isStudentMiscModalOpen}
+          onClose={() => setIsStudentMiscModalOpen(false)}
+          title={`Update Old Session Dues & Misc: ${targetStudentForMisc.name} (${targetStudentForMisc.class})`}
+          maxWidth="max-w-md"
         >
-          <form onSubmit={handleAddMiscFee} className="space-y-4 text-xs">
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Select Student *</label>
-              <select
-                required
-                value={miscForm.studentId}
-                onChange={(e) => setMiscForm({ ...miscForm, studentId: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
-              >
-                <option value="">-- Choose Student --</option>
-                {students.map(s => (
-                  <option key={s.id} value={s.id}>
-                    {s.name} • Class {s.class} (Roll #{s.rollNo} • {s.parents?.fatherName || s.fatherName || 'Father'})
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Fee Category *</label>
-                <select
-                  value={miscForm.category}
-                  onChange={(e) => setMiscForm({ ...miscForm, category: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
-                >
-                  <option value="Old Session Dues">Old Session Previous Dues (पिछला बकाया)</option>
-                  <option value="Course Books & Kit">Course Books & Study Material (किताबें व कोर्स)</option>
-                  <option value="Uniform & Dress">Uniform & Dress Set (ड्रेस व गणवेश)</option>
-                  <option value="Board Registration">Board Exam LOC Registration Fee</option>
-                  <option value="Tour / Excursion">School Tour / Trip Fee</option>
-                  <option value="Other Misc Charges">Other Miscellaneous Charges</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Fee Amount (₹) *</label>
-                <input
-                  type="number"
-                  required
-                  placeholder="e.g. 3500"
-                  value={miscForm.amount}
-                  onChange={(e) => setMiscForm({ ...miscForm, amount: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-bold text-emerald-600"
-                />
-              </div>
+          <form onSubmit={handleSaveStudentMisc} className="space-y-4 text-xs">
+            <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60">
+              <p className="font-bold text-amber-950 dark:text-amber-200 text-sm">{targetStudentForMisc.name}</p>
+              <p className="text-[11px] text-amber-800 dark:text-amber-300">
+                Father: {targetStudentForMisc.parents?.fatherName || targetStudentForMisc.fatherName || 'Father'} • Ledger: {targetStudentForMisc.ledgerNo || `LED-${targetStudentForMisc.rollNo}`}
+              </p>
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Fee Title / Specific Details *</label>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                📦 Previous Session 2025-26 Dues (पिछला बकाया ₹)
+              </label>
+              <input
+                type="number"
+                placeholder="e.g. 4000"
+                value={studentMiscPrevDue}
+                onChange={(e) => setStudentMiscPrevDue(e.target.value)}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-bold text-amber-700 dark:text-amber-400 text-sm"
+              />
+              <span className="text-[10px] text-slate-400">Previous year pending tuition/transport balance</span>
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                📚 Course Books / Kit / Uniform (कोर्स व अन्य शुल्क ₹)
+              </label>
+              <input
+                type="number"
+                placeholder="e.g. 2450"
+                value={studentMiscKitDue}
+                onChange={(e) => setStudentMiscKitDue(e.target.value)}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-bold text-blue-700 dark:text-blue-400 text-sm"
+              />
+              <span className="text-[10px] text-slate-400">Book set, study materials, uniform kit, etc.</span>
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                Reason / Description
+              </label>
               <input
                 type="text"
-                required
-                placeholder="e.g. Previous Session 2025-26 Balance Arrears or Class 10 NCERT Kit"
-                value={miscForm.title}
-                onChange={(e) => setMiscForm({ ...miscForm, title: e.target.value })}
+                placeholder="e.g. Previous 2025-26 year balance + NCERT Books"
+                value={studentMiscReason}
+                onChange={(e) => setStudentMiscReason(e.target.value)}
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-medium"
               />
             </div>
 
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 space-y-2 border border-slate-200 dark:border-slate-700">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={miscForm.isPaid}
-                  onChange={(e) => setMiscForm({ ...miscForm, isPaid: e.target.checked })}
-                  className="w-4 h-4 text-emerald-600 rounded cursor-pointer"
-                />
-                <span className="font-bold text-slate-900 dark:text-white">Already Paid & Collected Now (तुरंत रसीद बनाएं)</span>
-              </label>
-
-              {miscForm.isPaid && (
-                <div className="pt-2 flex items-center gap-2 text-xs">
-                  <span className="text-slate-500 font-medium">Payment Mode:</span>
-                  <select
-                    value={miscForm.paymentMode}
-                    onChange={(e) => setMiscForm({ ...miscForm, paymentMode: e.target.value })}
-                    className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 font-bold"
-                  >
-                    <option value="Cash">Cash Counter</option>
-                    <option value="UPI">UPI / QR Code</option>
-                    <option value="Bank Transfer">Bank Transfer (NEFT/RTGS)</option>
-                  </select>
-                </div>
-              )}
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 text-[11px] space-y-1">
+              <div className="flex justify-between">
+                <span className="text-slate-500">Regular Tuition Due:</span>
+                <span className="font-mono font-bold">₹{(targetStudentForMisc.feeSummary?.tuitionDue || 0).toLocaleString('en-IN')}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-500">11-Month Transport Due:</span>
+                <span className="font-mono font-bold">₹{(targetStudentForMisc.feeSummary?.transportDue11Months || 0).toLocaleString('en-IN')}</span>
+              </div>
+              <div className="flex justify-between text-amber-700 font-bold border-t border-slate-200 pt-1">
+                <span>New Total Annual Demand:</span>
+                <span className="font-mono">
+                  ₹{(
+                    (targetStudentForMisc.feeSummary?.tuitionDue || 0) +
+                    (targetStudentForMisc.feeSummary?.transportDue11Months || 0) +
+                    (Number(studentMiscPrevDue) || 0) +
+                    (Number(studentMiscKitDue) || 0)
+                  ).toLocaleString('en-IN')}
+                </span>
+              </div>
             </div>
 
             <div className="flex justify-end gap-2 pt-2">
               <button
                 type="button"
-                onClick={() => setIsAddMiscModalOpen(false)}
+                onClick={() => setIsStudentMiscModalOpen(false)}
                 className="px-4 py-2 rounded-xl text-xs font-bold text-slate-500 hover:bg-slate-100"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white shadow"
+                className="px-5 py-2 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white shadow hover:scale-105 active:scale-95 transition-all"
               >
-                Save Miscellaneous Charge
+                💾 Save Dues for {targetStudentForMisc.name}
               </button>
             </div>
           </form>

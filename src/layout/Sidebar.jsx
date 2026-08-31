@@ -99,7 +99,6 @@ export const navigationGroups = [
       { id: 'fees-groups', targetTab: 'fees', subTab: 'groups', label: 'Fees Group', badge: null },
       { id: 'fees-fine', targetTab: 'fees', subTab: 'fine', label: 'Fine Setup', badge: null },
       { id: 'fees-allocation', targetTab: 'fees', subTab: 'allocation', label: 'Fees Allocation', badge: null },
-      { id: 'fees-misc', targetTab: 'fees', subTab: 'misc', label: 'Miscellaneous Fees', badge: 'Old Dues' },
       { id: 'fees-pos', targetTab: 'fees', subTab: 'pos', label: 'Fee Collect / Payment', badge: 'POS' },
       { id: 'fees-dues', targetTab: 'fees', subTab: 'dues', label: 'Due List / Reminder', badge: 'Due' }
     ]
