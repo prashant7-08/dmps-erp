@@ -419,13 +419,18 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     }
   ];
 
-  // 5. Scanned Prospectus Pages
+  // 5. Scanned Official Prospectus Booklet (10 High-Res Pages)
   const prospectusPages = [
-    { id: 1, title: "Cover & Campus Branches", src: "/assets/prospectus/cover_campuses.jpg", description: "Our Educational Institutes & 3 Distinct Campuses across Bulandshahr & Aligarh" },
-    { id: 2, title: "Society & Founder Legacy", src: "/assets/prospectus/about_page.jpg", description: "About Dadheech Educational Society & Sacred Dedication to Late Dadheech Kumar Rajput" },
-    { id: 3, title: "Leadership Messages", src: "/assets/prospectus/messages_page.jpg", description: "Messages from Late Mr. Dauli Singh, Mr. Pramod Kumar Rajput, and Mrs. Kavita Rani" },
-    { id: 4, title: "AMU & JNV Qualifiers", src: "/assets/prospectus/qualifiers_amu_jnv.png", description: "23 AMU Entrance Qualifiers & 10 Jawahar Navodaya Vidyalaya Selections" },
-    { id: 5, title: "AECS Narora & Activities", src: "/assets/prospectus/qualifiers_aecs_gallery.png", description: "AECS Narora Qualifiers, Central School Selections & Annual Function Moments" }
+    { id: 1, title: "Cover Page", src: "/assets/prospectus/1.jpg", description: "Official Prospectus Booklet Cover Page" },
+    { id: 2, title: "Page 2", src: "/assets/prospectus/2.jpg", description: "Prospectus Page 2" },
+    { id: 3, title: "Page 3", src: "/assets/prospectus/3.jpg", description: "Prospectus Page 3" },
+    { id: 4, title: "Page 4", src: "/assets/prospectus/4.jpg", description: "Prospectus Page 4" },
+    { id: 5, title: "Page 5", src: "/assets/prospectus/5.jpg", description: "Prospectus Page 5" },
+    { id: 6, title: "Page 6", src: "/assets/prospectus/6.jpg", description: "Prospectus Page 6" },
+    { id: 7, title: "Page 7", src: "/assets/prospectus/7.jpg", description: "Prospectus Page 7" },
+    { id: 8, title: "Page 8", src: "/assets/prospectus/8.jpg", description: "Prospectus Page 8" },
+    { id: 9, title: "Page 9", src: "/assets/prospectus/9.jpg", description: "Prospectus Page 9" },
+    { id: 10, title: "Back Cover", src: "/assets/prospectus/10.jpg", description: "Prospectus Back Cover" }
   ];
 
   // 6. 📸 Dynamic Auto-Discovery & Natural Numerical Sorting (1, 2, 3... 10, 28)
