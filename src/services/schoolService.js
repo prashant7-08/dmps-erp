@@ -319,6 +319,146 @@ class SchoolService {
     return this.data.staffAttendance?.[date] || null;
   }
 
+  // Biometric Device & Integration (Secureye S-FB3K / ZKTeco / eSSL)
+  getBiometricSettings() {
+    if (!this.data.biometricSettings) {
+      this.data.biometricSettings = {
+        deviceModel: "Secureye S-FB3K (IP Face & Fingerprint Reader)",
+        serialNumber: "102025020000143",
+        macAddress: "00:23:79:BB:C1:49",
+        ipAddress: "192.168.1.201",
+        port: 4370,
+        commKey: "0",
+        connectionType: "LAN (TCP/IP Cable)",
+        branchId: "BR-01",
+        autoSyncInterval: "5",
+        status: "Online",
+        lateThresholdTime: "08:45 AM",
+        halfDayThresholdTime: "11:30 AM"
+      };
+      this.saveData();
+    }
+    return this.data.biometricSettings;
+  }
+
+  saveBiometricSettings(settings) {
+    this.data.biometricSettings = { ...this.getBiometricSettings(), ...settings };
+    this.saveData();
+    return this.data.biometricSettings;
+  }
+
+  getBiometricLogs(date = null) {
+    const today = date || new Date().toISOString().split('T')[0];
+    if (!this.data.biometricLogs || this.data.biometricLogs.length === 0) {
+      const teachers = this.getTeachers();
+      this.data.biometricLogs = [
+        {
+          id: "PUNCH-101",
+          employeeId: teachers[0]?.employeeId || "EMP-2026-050",
+          staffId: teachers[0]?.id || "TCH-1001",
+          name: teachers[0]?.name || "Dr. Rajesh Sharma",
+          designation: teachers[0]?.designation || "Principal & Senior Physics Faculty",
+          department: "Science",
+          punchDate: today,
+          inTime: "08:14:22 AM",
+          outTime: "03:15:10 PM",
+          verifyType: "Face Recognition",
+          deviceSn: "102025020000143",
+          status: "On Time"
+        },
+        {
+          id: "PUNCH-102",
+          employeeId: teachers[1]?.employeeId || "EMP-2026-051",
+          staffId: teachers[1]?.id || "TCH-1002",
+          name: teachers[1]?.name || "Sunita Verma",
+          designation: teachers[1]?.designation || "Vice Principal & Mathematics",
+          department: "Mathematics",
+          punchDate: today,
+          inTime: "08:28:45 AM",
+          outTime: "03:20:00 PM",
+          verifyType: "Fingerprint",
+          deviceSn: "102025020000143",
+          status: "On Time"
+        },
+        {
+          id: "PUNCH-103",
+          employeeId: teachers[2]?.employeeId || "EMP-2026-052",
+          staffId: teachers[2]?.id || "TCH-1003",
+          name: teachers[2]?.name || "Vikramaditya Chauhan",
+          designation: teachers[2]?.designation || "HOD Hindi & Sanskrit Literature",
+          department: "Languages",
+          punchDate: today,
+          inTime: "08:52:10 AM",
+          outTime: "03:10:45 PM",
+          verifyType: "Fingerprint",
+          deviceSn: "102025020000143",
+          status: "Late Arrival"
+        },
+        {
+          id: "PUNCH-104",
+          employeeId: teachers[3]?.employeeId || "EMP-2026-053",
+          staffId: teachers[3]?.id || "TCH-1004",
+          name: teachers[3]?.name || "Meenakshi Sundaram",
+          designation: teachers[3]?.designation || "Senior Chemistry Lecturer",
+          department: "Science",
+          punchDate: today,
+          inTime: "08:35:18 AM",
+          outTime: "03:30:15 PM",
+          verifyType: "Face Recognition",
+          deviceSn: "102025020000143",
+          status: "On Time"
+        }
+      ];
+      this.saveData();
+    }
+    return this.data.biometricLogs;
+  }
+
+  addBiometricLog(log) {
+    if (!this.data.biometricLogs) this.data.biometricLogs = [];
+    const newLog = {
+      id: `PUNCH-${Date.now()}`,
+      punchDate: new Date().toISOString().split('T')[0],
+      ...log
+    };
+    this.data.biometricLogs.unshift(newLog);
+    this.saveData();
+    return newLog;
+  }
+
+  syncBiometricToAttendance(date = null) {
+    const targetDate = date || new Date().toISOString().split('T')[0];
+    const logs = this.getBiometricLogs(targetDate);
+    const teachers = this.getTeachers();
+
+    const attendanceRecords = teachers.map(t => {
+      const punch = logs.find(l => l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name);
+      if (punch) {
+        return {
+          staffId: t.id,
+          name: t.name,
+          employeeId: t.employeeId || t.id,
+          department: t.department || 'Academics',
+          designation: t.designation || 'Teacher',
+          status: punch.status === 'Late Arrival' ? 'Late' : 'Present',
+          remarks: `Biometric In: ${punch.inTime} | Out: ${punch.outTime || 'Pending'} (${punch.verifyType})`
+        };
+      }
+      return {
+        staffId: t.id,
+        name: t.name,
+        employeeId: t.employeeId || t.id,
+        department: t.department || 'Academics',
+        designation: t.designation || 'Teacher',
+        status: 'Absent',
+        remarks: 'No Biometric punch logged'
+      };
+    });
+
+    this.markStaffAttendance(targetDate, attendanceRecords);
+    return attendanceRecords;
+  }
+
   // Academics & Classes
   getClasses() {
     return this.data.classes || [];

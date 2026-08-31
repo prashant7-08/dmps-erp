@@ -116,7 +116,8 @@ export const navigationGroups = [
     icon: CheckSquare,
     items: [
       { id: 'attendance', label: 'Daily Student Attendance', badge: 'Daily' },
-      { id: 'staff-attendance', label: 'Staff / Teacher Attendance', badge: 'Staff' }
+      { id: 'staff-attendance', label: 'Staff / Teacher Attendance', badge: 'Staff' },
+      { id: 'biometric', label: 'Biometric Machine & Sync', badge: 'Secureye' }
     ]
   },
   {

@@ -32,6 +32,7 @@ import { HelpdeskVisitorsPage } from './pages/HelpdeskVisitorsPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { StudentAdmissionPage } from './pages/StudentAdmissionPage';
+import { BiometricPage } from './pages/BiometricPage';
 
 function AppContent() {
   const { isAuthenticated, role: authRole } = useAuth();
@@ -120,6 +121,8 @@ function AppContent() {
         return <AttendancePage initialType="student" />;
       case 'staff-attendance':
         return <AttendancePage initialType="staff" />;
+      case 'biometric':
+        return <BiometricPage onNavigateToStaffAttendance={() => setActiveTab('staff-attendance')} />;
       case 'fees':
         return <FeesPage />;
       case 'examination':
