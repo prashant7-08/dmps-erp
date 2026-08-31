@@ -845,20 +845,9 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 <Users className="w-5 h-5" />
               </div>
               <h3 className="text-sm font-black text-slate-900 dark:text-white tracking-wide uppercase">
-                3. Guardian Details & Portal Credentials
+                3. Family & Guardian Details
               </h3>
             </div>
-            
-            <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-indigo-600">
-              <input
-                type="checkbox"
-                name="guardianAlreadyExist"
-                checked={formData.guardianAlreadyExist}
-                onChange={handleChange}
-                className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500"
-              />
-              <span>Guardian Already Exist (Sibling)</span>
-            </label>
           </div>
 
           {/* 🌟 Smart Auto Sibling Detector Box */}
