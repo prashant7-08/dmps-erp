@@ -175,7 +175,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
   // 1. Dynamic Hero Slides (3 Campuses + Gallery Photos 1, 6, 22)
   const heroSlides = [
     {
-      title: "Dadheech Memorial Public School (Jargwan) (Main Campus)",
+      title: "Dadheech Memorial Public School, Jargwan - Main Campus",
       subtitle: "Flagship campus offering Playgroup to 12th Senior Secondary education with modern science labs & sports facilities.",
       tag: "Main Campus • Jargwan",
       image: "/assets/campuses/main_campus.jpg",
@@ -183,7 +183,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       target: "campuses"
     },
     {
-      title: "Dadheech Memorial Public School (Barheti)",
+      title: "Dadheech Memorial Public School, Barheti",
       subtitle: "Dedicated faculty, modern laboratories, and holistic schooling from Nursery to Class 8th.",
       tag: "Barheti Campus • Aligarh",
       image: "/assets/campuses/barheti_campus.jpeg",
@@ -191,7 +191,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       target: "campuses"
     },
     {
-      title: "Dadheech Kids School (Vinay Nagar, Aligarh)",
+      title: "Dadheech Kids School, Vinay Nagar (Aligarh)",
       subtitle: "Early childhood learning sanctuary with theme-based activity rooms, phonics, and play-way curriculum.",
       tag: "Kids School • Vinay Nagar, Aligarh",
       image: "/assets/banners/slide3.jpg",
@@ -368,7 +368,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
   const campusesData = [
     {
       id: "main-campus",
-      name: "Dadheech Memorial Public School (Jargwan) (Main Campus)",
+      name: "Dadheech Memorial Public School, Jargwan - Main Campus",
       grades: "Playgroup (PG) to Class 12th (Senior Secondary)",
       location: "Ramghat Road Border, Jargwan, Bulandshahr (U.P.)",
       phone: "+91 97589 75880 / 96270 32626",
@@ -385,7 +385,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     },
     {
       id: "barheti-campus",
-      name: "Dadheech Memorial Public School (Barheti)",
+      name: "Dadheech Memorial Public School, Barheti",
       grades: "Playgroup (PG) to Class 8th (Junior High)",
       location: "Barheti ADF, Jawan, Chherat, Aligarh (U.P.)",
       phone: "+91 86300 08371",
@@ -402,7 +402,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     },
     {
       id: "kids-school",
-      name: "Dadheech Kids School (Vinay Nagar, Aligarh)",
+      name: "Dadheech Kids School, Vinay Nagar (Aligarh)",
       grades: "Playgroup, Nursery, LKG, UKG to Class 2nd",
       location: "Vinay Nagar, Sangwan City Road, Quarsi, P.A.C. Aligarh (U.P.)",
       phone: "+91 96270 32626",
@@ -584,13 +584,13 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               {openDropdown === 'campuses' && (
                 <div className="absolute top-full left-0 w-80 bg-white border border-slate-200 shadow-2xl rounded-xl py-2 z-50 text-slate-800 normal-case font-semibold">
                   <button onClick={() => navigateTo('campuses', 'main-campus')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700">
-                    🏫 Dadheech Memorial Public School (Jargwan) (Main Campus)
+                    🏫 DMPS Main Campus, Jargwan
                   </button>
                   <button onClick={() => navigateTo('campuses', 'barheti-campus')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700">
-                    🏫 Dadheech Memorial Public School (Barheti)
+                    🏫 DMPS Barheti Campus
                   </button>
                   <button onClick={() => navigateTo('campuses', 'kids-school')} className="w-full text-left px-4 py-2.5 text-xs hover:bg-sky-50 hover:text-sky-700">
-                    🏫 Dadheech Kids School (Vinay Nagar, Aligarh)
+                    🏫 Dadheech Kids School, Vinay Nagar (Aligarh)
                   </button>
                 </div>
               )}
@@ -2215,9 +2215,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-1">Select Campus Branch *</label>
                   <select value={inquiryForm.branch} onChange={(e) => setInquiryForm({ ...inquiryForm, branch: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                    <option>Dadheech Memorial Public School (Jargwan) (Main Campus)</option>
-                    <option>Dadheech Memorial Public School (Barheti)</option>
-                    <option>Dadheech Kids School (Vinay Nagar, Aligarh)</option>
+                    <option>Dadheech Memorial Public School, Jargwan - Main Campus</option>
+                    <option>Dadheech Memorial Public School, Barheti</option>
+                    <option>Dadheech Kids School, Vinay Nagar (Aligarh)</option>
                   </select>
                 </div>
 
@@ -2244,7 +2244,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
               <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-black">Main Campus</span>
-              <h3 className="text-base font-black text-[#0b1e38] font-serif">Dadheech Memorial Public School (Jargwan) (Main Campus)</h3>
+              <h3 className="text-base font-black text-[#0b1e38] font-serif">Dadheech Memorial Public School, Jargwan - Main Campus</h3>
               <p className="text-xs text-slate-600 flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                 Ramghat Road Border, Jargwan, Bulandshahr (U.P.)
@@ -2257,7 +2257,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
               <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-black">Barheti Campus</span>
-              <h3 className="text-base font-black text-[#0b1e38] font-serif">Dadheech Memorial Public School (Barheti)</h3>
+              <h3 className="text-base font-black text-[#0b1e38] font-serif">Dadheech Memorial Public School, Barheti</h3>
               <p className="text-xs text-slate-600 flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                 Barheti ADF, Jawan, Chherat, Aligarh (U.P.)
@@ -2270,7 +2270,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-3">
               <span className="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-black">Kids City Campus</span>
-              <h3 className="text-base font-black text-[#0b1e38] font-serif">Dadheech Kids School (Vinay Nagar, Aligarh)</h3>
+              <h3 className="text-base font-black text-[#0b1e38] font-serif">Dadheech Kids School, Vinay Nagar (Aligarh)</h3>
               <p className="text-xs text-slate-600 flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                 Vinay Nagar, Sangwan City Road, Quarsi, P.A.C. Aligarh (U.P.)
