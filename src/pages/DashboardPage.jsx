@@ -45,14 +45,14 @@ import schoolService from '../services/schoolService';
 export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpenAI }) => {
   const { activeBranchId, setActiveBranchId, isSuperAdmin, activeBranch, branches } = useAuth();
 
-  const [stats, setStats] = useState(() => schoolService.getDashboardStats(activeBranchId));
-  const schoolInfo = schoolService.getSchoolInfo();
-  const notices = schoolService.getNotices();
-  const exams = schoolService.getExams();
-  const events = schoolService.getEvents();
+  const [stats, setStats] = useState(() => schoolService.getDashboardStats(activeBranchId) || {});
+  const schoolInfo = schoolService.getSchoolInfo() || { name: 'Dadheech Memorial Public School', academicSession: '2026-2027', affiliationNo: 'UP-CBSE-83921' };
+  const notices = schoolService.getNotices() || [];
+  const exams = schoolService.getExams() || [];
+  const events = schoolService.getEvents() || [];
 
   // Task & Action Planner State
-  const [tasks, setTasks] = useState(schoolService.getTasks());
+  const [tasks, setTasks] = useState(() => schoolService.getTasks() || []);
   const [taskFilter, setTaskFilter] = useState('All');
   const [isAddingTask, setIsAddingTask] = useState(false);
   const [newTaskTitle, setNewTaskTitle] = useState('');
@@ -72,17 +72,17 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
 
   // Update stats dynamically when active branch changes
   useEffect(() => {
-    setStats(schoolService.getDashboardStats(activeBranchId));
+    setStats(schoolService.getDashboardStats(activeBranchId) || {});
   }, [activeBranchId]);
 
   const handleToggleTask = (id) => {
     schoolService.toggleTaskStatus(id);
-    setTasks([...schoolService.getTasks()]);
+    setTasks([...(schoolService.getTasks() || [])]);
   };
 
   const handleDeleteTask = (id) => {
     schoolService.deleteTask(id);
-    setTasks([...schoolService.getTasks()]);
+    setTasks([...(schoolService.getTasks() || [])]);
   };
 
   const handleCreateTask = (e) => {
@@ -94,7 +94,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       category: newTaskCategory,
       dueDate: newTaskDue
     });
-    setTasks([...schoolService.getTasks()]);
+    setTasks([...(schoolService.getTasks() || [])]);
     setNewTaskTitle('');
     setIsAddingTask(false);
   };
@@ -111,12 +111,14 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
     return true;
   });
 
-  const classAnalytics = stats.classAnalytics && stats.classAnalytics.length > 0
+  const classAnalytics = stats?.classAnalytics && stats.classAnalytics.length > 0
     ? stats.classAnalytics
     : [
-        { className: 'Class 10', students: 4, boys: 2, girls: 2, attendance: 95 },
-        { className: 'Class 9', students: 1, boys: 0, girls: 1, attendance: 96 },
-        { className: 'Class 6', students: 1, boys: 1, girls: 0, attendance: 94 }
+        { className: 'NURSERY', students: 54, boys: 28, girls: 26, attendance: 96 },
+        { className: 'LKG', students: 52, boys: 27, girls: 25, attendance: 95 },
+        { className: 'UKG', students: 42, boys: 22, girls: 20, attendance: 97 },
+        { className: 'Class 1st (I)', students: 57, boys: 30, girls: 27, attendance: 95 },
+        { className: 'Class 2nd (II)', students: 54, boys: 28, girls: 26, attendance: 96 }
       ];
 
   const colors = ['bg-indigo-500', 'bg-blue-500', 'bg-emerald-500', 'bg-amber-500', 'bg-rose-500', 'bg-purple-500', 'bg-cyan-500', 'bg-pink-500'];
@@ -133,16 +135,16 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-xs font-black uppercase px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border border-amber-300">
-                {stats.shortCode || 'CAMPUS'}
+                {stats?.shortCode || 'ALL'}
               </span>
               <h2 className="text-base sm:text-lg font-black text-[#0b1e38] dark:text-white font-serif">
-                {stats.branchName}
+                {stats?.branchName || 'Dadheech Memorial Public School'}
               </h2>
             </div>
             <p className="text-xs text-slate-500 mt-0.5">
               {isSuperAdmin
-                ? `Super Admin Overview • Showing statistics for ${stats.branchName}`
-                : `Logged in as ${currentRole} • Restricted to ${stats.branchName}`}
+                ? `Super Admin Overview • Showing statistics for ${stats?.branchName || 'All Campuses'}`
+                : `Logged in as ${currentRole} • Restricted to ${stats?.branchName || 'Main Campus'}`}
             </p>
           </div>
         </div>
@@ -193,11 +195,11 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/25 border border-indigo-400/40 text-indigo-200 text-xs font-bold shadow-inner">
                 <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-                Session {schoolInfo.academicSession}
+                Session {schoolInfo.academicSession || '2026-2027'}
               </span>
               <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                CBSE Affiliated • {schoolInfo.affiliationNo}
+                CBSE Affiliated • {schoolInfo.affiliationNo || 'UP-CBSE-83921'}
               </span>
               <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-slate-300 text-xs font-mono font-semibold">
                 <Clock className="w-3 h-3 text-indigo-300" /> {currentTime}
@@ -206,10 +208,10 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
 
             <div>
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2">
-                {schoolInfo.name}
+                {schoolInfo.name || 'Dadheech Memorial Public School'}
               </h2>
               <p className="text-xs sm:text-sm text-indigo-200/90 mt-1 font-medium leading-relaxed">
-                Viewing: <strong className="text-amber-300 font-bold">{stats.branchName}</strong> | {stats.totalStudents} Active Students Registered
+                Viewing: <strong className="text-amber-300 font-bold">{stats?.branchName || 'All Campuses'}</strong> | {stats?.totalStudents || 567} Active Students Registered
               </p>
             </div>
           </div>
@@ -245,8 +247,8 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         <StatCard
           title="Total Students"
-          value={stats.totalStudents.toString()}
-          subtext={`Active: ${stats.activeStudents || 566} | Inactive: ${stats.inactiveStudents || 1}`}
+          value={String(stats?.totalStudents ?? 567)}
+          subtext={`Active: ${stats?.activeStudents || 566} | Inactive: ${stats?.inactiveStudents || 1}`}
           icon={GraduationCap}
           trend="up"
           trendValue="567 Enrolled"
@@ -255,7 +257,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
         />
         <StatCard
           title="Teaching Staff"
-          value={stats.totalTeachers.toString()}
+          value={String(stats?.totalTeachers ?? 23)}
           subtext="23 Verified Faculty"
           icon={Users}
           trend="up"
@@ -265,7 +267,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
         />
         <StatCard
           title="Campus Attendance"
-          value={`${stats.attendanceRate}%`}
+          value={`${stats?.attendanceRate || '95.0'}%`}
           subtext="Daily Presence"
           icon={CheckCircle2}
           trend="up"
@@ -275,7 +277,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
         />
         <StatCard
           title="Collected Fees"
-          value={`₹${(stats.totalCollectedFees || 1034800).toLocaleString('en-IN')}`}
+          value={`₹${Number(stats?.totalCollectedFees || 1034800).toLocaleString('en-IN')}`}
           subtext="Total Paid to Date"
           icon={DollarSign}
           trend="up"
@@ -285,8 +287,8 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
         />
         <StatCard
           title="Total Fee Dues"
-          value={`₹${(stats.totalDueFees || 7870750).toLocaleString('en-IN')}`}
-          subtext={`Remaining: ₹${(stats.totalRemainingFees || 6835950).toLocaleString('en-IN')}`}
+          value={`₹${Number(stats?.totalDueFees || 7870750).toLocaleString('en-IN')}`}
+          subtext={`Remaining: ₹${Number(stats?.totalRemainingFees || 6835950).toLocaleString('en-IN')}`}
           icon={CreditCard}
           trend="down"
           trendValue="Annual Dues"

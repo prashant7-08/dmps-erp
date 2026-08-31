@@ -238,10 +238,20 @@ class ErrorBoundary extends React.Component {
             </div>
             <h2 className="text-xl font-black text-white font-serif">Dadheech Memorial ERP</h2>
             <p className="text-xs text-slate-400">
-              A view update occurred. Please refresh to load the latest verified portal cache.
+              A portal update occurred. Click below to load the verified school database and open the portal.
             </p>
             <button
               onClick={() => {
+                try {
+                  // Clear legacy outdated keys
+                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB');
+                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V2');
+                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V3');
+                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V4');
+                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V5');
+                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V6_AUTHENTIC');
+                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V7_AVATARS');
+                } catch (e) {}
                 window.location.hash = '';
                 window.location.reload();
               }}
