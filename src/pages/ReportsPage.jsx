@@ -100,7 +100,7 @@ export const ReportsPage = () => {
                   <tr key={s.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
                     <td className="p-3 font-mono font-bold">{s.admissionNo}</td>
                     <td className="p-3 font-bold text-slate-900 dark:text-white">{s.name}</td>
-                    <td className="p-3 font-semibold">{s.class}-{s.section}</td>
+                    <td className="p-3 font-semibold">{s.class}{s.class === 'Class 3' && s.section ? ` (${s.section})` : ''}</td>
                     <td className="p-3">{s.gender}</td>
                     <td className="p-3 font-semibold text-indigo-600">{s.house}</td>
                     <td className="p-3"><Badge variant="primary" size="sm">{s.category}</Badge></td>
@@ -135,7 +135,7 @@ export const ReportsPage = () => {
                     <tr key={s.id} className={isDefaulter ? "bg-rose-50/50 dark:bg-rose-950/20" : "hover:bg-slate-50"}>
                       <td className="p-3 font-mono font-bold">#{s.rollNo}</td>
                       <td className="p-3 font-bold text-slate-900 dark:text-white">{s.name}</td>
-                      <td className="p-3 font-semibold">{s.class}-{s.section}</td>
+                      <td className="p-3 font-semibold">{s.class}{s.class === 'Class 3' && s.section ? ` (${s.section})` : ''}</td>
                       <td className="p-3">{s.attendanceSummary?.totalDays} Days</td>
                       <td className="p-3 font-bold">{s.attendanceSummary?.presentDays} Days</td>
                       <td className={`p-3 font-black ${isDefaulter ? 'text-rose-600' : 'text-emerald-600'}`}>{pct}%</td>

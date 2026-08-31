@@ -75,8 +75,8 @@ export const PrintableReportCard = ({ marksData, student, schoolInfo, onPrint })
             <span className="font-bold text-slate-900">{student.rollNo} / {student.admissionNo}</span>
           </div>
           <div>
-            <span className="text-slate-500 font-semibold uppercase block">Class & Section</span>
-            <span className="font-bold text-slate-900">{student.class} - {student.section}</span>
+            <span className="text-slate-500 font-semibold uppercase block">Class</span>
+            <span className="font-bold text-slate-900">{student.class}{student.class === 'Class 3' && student.section ? ` - Sec ${student.section}` : ''}</span>
           </div>
           <div>
             <span className="text-slate-500 font-semibold uppercase block">House</span>

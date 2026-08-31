@@ -59,7 +59,7 @@ export const PrintableIDCard = ({ person, type = 'student', schoolInfo }) => {
               {person.name}
             </h3>
             <p className="text-xs font-semibold text-indigo-300 mt-0.5">
-              {isStudent ? `${person.class} - ${person.section}` : person.designation}
+              {isStudent ? `${person.class}${person.class === 'Class 3' && person.section ? ` (${person.section})` : ''}` : person.designation}
             </p>
           </div>
 

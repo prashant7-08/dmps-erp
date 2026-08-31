@@ -484,20 +484,20 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
               </select>
             </div>
 
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Section *</label>
-              <select
-                name="section"
-                value={formData.section}
-                onChange={handleChange}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
-              >
-                <option value="A">Section A</option>
-                <option value="B">Section B</option>
-                <option value="C">Section C</option>
-                <option value="D">Section D</option>
-              </select>
-            </div>
+            {formData.class === 'Class 3' && (
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Section (Class 3 Only) *</label>
+                <select
+                  name="section"
+                  value={formData.section}
+                  onChange={handleChange}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                >
+                  <option value="A">Section A</option>
+                  <option value="B">Section B</option>
+                </select>
+              </div>
+            )}
 
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Admission No. *</label>
@@ -1247,7 +1247,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 Admission Successful!
               </h3>
               <p className="text-xs text-slate-500">
-                Student <strong className="text-slate-900 dark:text-white">{createdStudent.name}</strong> is now officially enrolled in <strong>{createdStudent.class} ({createdStudent.section})</strong>.
+                Student <strong className="text-slate-900 dark:text-white">{createdStudent.name}</strong> is now officially enrolled in <strong>{createdStudent.class}{createdStudent.class === 'Class 3' && createdStudent.section ? ` (${createdStudent.section})` : ''}</strong>.
               </p>
             </div>
 

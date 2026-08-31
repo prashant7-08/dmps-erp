@@ -634,7 +634,9 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                     </td>
 
                     <td className="p-4 font-mono font-bold text-slate-700 dark:text-slate-300">{student.admissionNo}</td>
-                    <td className="p-4 font-bold text-slate-900 dark:text-white">{student.class} - {student.section}</td>
+                    <td className="p-4 font-bold text-slate-900 dark:text-white">
+                      {student.class}{student.class === 'Class 3' && student.section ? ` (${student.section})` : ''}
+                    </td>
                     <td className="p-4 font-mono font-bold text-indigo-600">#{student.rollNo}</td>
                     <td className="p-4">
                       <p className="font-semibold text-slate-800 dark:text-slate-200">{student.parents?.fatherName}</p>
@@ -699,7 +701,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                     <h3 className="text-lg font-black text-slate-900 dark:text-white">{selectedStudent.name}</h3>
                     <Badge variant="primary">Roll #{selectedStudent.rollNo}</Badge>
                   </div>
-                  <p className="text-xs text-slate-500 mt-0.5">{selectedStudent.class} • Section {selectedStudent.section} • {selectedStudent.branchName}</p>
+                  <p className="text-xs text-slate-500 mt-0.5">{selectedStudent.class}{selectedStudent.class === 'Class 3' && selectedStudent.section ? ` • Section ${selectedStudent.section}` : ''} • {selectedStudent.branchName}</p>
                   <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-bold mt-0.5">Adm No: {selectedStudent.admissionNo}</p>
                 </div>
               </div>
@@ -1172,18 +1174,19 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                 <option value="Class 12">Class 12</option>
               </select>
             </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Section</label>
-              <select
-                value={formData.section}
-                onChange={(e) => setFormData({ ...formData, section: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-              >
-                <option value="A">Section A</option>
-                <option value="B">Section B</option>
-                <option value="C">Section C</option>
-              </select>
-            </div>
+            {formData.class === 'Class 3' && (
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Section (Class 3 Only)</label>
+                <select
+                  value={formData.section}
+                  onChange={(e) => setFormData({ ...formData, section: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                >
+                  <option value="A">Section A</option>
+                  <option value="B">Section B</option>
+                </select>
+              </div>
+            )}
           </div>
 
           <div className="pt-2 border-t border-slate-200 dark:border-slate-700 font-bold text-slate-900 dark:text-white">
@@ -1326,7 +1329,9 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                       <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
                         <td className="p-2.5 font-mono font-bold text-indigo-600">{st.rollNo || idx + 1}</td>
                         <td className="p-2.5 font-bold text-slate-900 dark:text-white">{st.name}</td>
-                        <td className="p-2.5 text-slate-600 dark:text-slate-300">{st.class} ({st.section})</td>
+                        <td className="p-2.5 text-slate-600 dark:text-slate-300">
+                          {st.class}{st.class === 'Class 3' && st.section ? ` (${st.section})` : ''}
+                        </td>
                         <td className="p-2.5 text-slate-600 dark:text-slate-300">{st.fatherName || '-'}</td>
                         <td className="p-2.5 font-mono text-slate-500">{st.fatherMobile || '-'}</td>
                       </tr>
