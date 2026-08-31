@@ -235,19 +235,19 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
   // 3. Complete Authentic 44+ Hall of Fame Data
   const amuStudents = [
     { id: 1, name: "Km. Arati Rajput", father: "Mr. Anar Singh", org: "AMU Aligarh" },
-    { id: 2, name: "Km. Kalpana", father: "Mr. Ramprakash", org: "AMU Aligarh" },
+    { id: 2, name: "Km. Kalpana Rajput", father: "Mr. Ramprakash", org: "AMU Aligarh" },
     { id: 3, name: "Krishna Kumar", father: "Mr. Ramprakash", org: "AMU Aligarh" },
     { id: 4, name: "Bablu Kumar", father: "Veerpal Singh", org: "AMU Aligarh" },
     { id: 5, name: "Manoj Kumar", father: "Charan Singh", org: "AMU Aligarh" },
     { id: 6, name: "Prashant Kumar", father: "Suresh Chandra", org: "AMU Aligarh" },
-    { id: 7, name: "Nirankar", father: "Bhoodev Singh", org: "AMU Aligarh" },
+    { id: 7, name: "Nirankar Singh", father: "Bhoodev Singh", org: "AMU Aligarh" },
     { id: 8, name: "Sunil Kumar", father: "Ramesh Chandra", org: "AMU Aligarh" },
     { id: 9, name: "Abhishek Kumar", father: "Ashok Kumar", org: "AMU Aligarh" },
-    { id: 10, name: "Prashant", father: "Mr. Pramod Kumar", org: "AMU Aligarh" },
+    { id: 10, name: "Prashant Rajput", father: "Mr. Pramod Kumar", org: "AMU Aligarh" },
     { id: 11, name: "Divya Rajput", father: "Mr. Pramod Kumar", org: "AMU Aligarh" },
     { id: 12, name: "Neeresh Kumar", father: "Mr. Radhelal", org: "AMU Aligarh" },
     { id: 13, name: "Dushyant Kumar", father: "Sanjeev Ratan", org: "AMU Aligarh" },
-    { id: 14, name: "Km. Laxmi", father: "Mr. Billu Singh", org: "AMU Aligarh" },
+    { id: 14, name: "Km. Laxmi Rajput", father: "Mr. Billu Singh", org: "AMU Aligarh" },
     { id: 15, name: "Yashveer Singh", father: "Tilak Singh", org: "AMU Aligarh" },
     { id: 16, name: "Rahul Kumar", father: "Kailash Chandra", org: "AMU Aligarh" },
     { id: 17, name: "Vishnu Kumar", father: "Mr. Sunil Kumar", org: "AMU Aligarh" },
@@ -260,8 +260,8 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
   ];
 
   const jnvStudents = [
-    { id: 24, name: "Km. Jyoti", father: "Charan Singh", org: "JNV Entrance" },
-    { id: 25, name: "Km. Renu", father: "Suresh Chandra", org: "JNV Entrance" },
+    { id: 24, name: "Km. Jyoti Singh", father: "Charan Singh", org: "JNV Entrance" },
+    { id: 25, name: "Km. Renu Rajput", father: "Suresh Chandra", org: "JNV Entrance" },
     { id: 26, name: "Neha Rajput", father: "Mr. Pramod Kumar", org: "JNV Entrance" },
     { id: 27, name: "Divya Rajput", father: "Mr. Pramod Kumar", org: "JNV Entrance" },
     { id: 28, name: "Mani Rajput", father: "Mr. Pramod Kumar", org: "JNV Entrance" },
@@ -277,11 +277,11 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     { id: 35, name: "Dev Garg", father: "Anil Kumar", org: "Vidyagyan Academy" },
     { id: 36, name: "Neeresh Kumar", father: "Radhelal", org: "Vidyagyan Academy" },
     { id: 37, name: "Mani Rajput", father: "Pramod Kumar", org: "Vidyagyan Academy" },
-    { id: 38, name: "Prashant Kumar", father: "Pramod Kumar", org: "Vidyagyan Academy" }
+    { id: 38, name: "Prashant Kumar Rajput", father: "Pramod Kumar", org: "Vidyagyan Academy" }
   ];
 
   const aecsStudents = [
-    { id: 39, name: "Km. Ritika", father: "Charan Singh", org: "AECS Narora & Kendriya" },
+    { id: 39, name: "Km. Ritika Singh", father: "Charan Singh", org: "AECS Narora & Kendriya" },
     { id: 40, name: "Tarun Kumar", father: "Charan Singh", org: "AECS Narora & Kendriya" },
     { id: 41, name: "Nishant Kumar", father: "Charan Singh", org: "AECS Narora & Kendriya" },
     { id: 42, name: "Shirangi Pathak", father: "Bhagwan Shahay", org: "AECS Narora & Kendriya" },
