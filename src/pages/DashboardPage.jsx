@@ -249,7 +249,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
         <StatCard
           title="Total Students"
           value={String(stats?.totalStudents ?? 567)}
-          subtext={`Active: ${stats?.activeStudents || 566} | Inactive: ${stats?.inactiveStudents || 1}`}
+          subtext={`Active: ${stats?.activeStudents || 567} (Boys: ${stats?.boysCount || 318} • Girls: ${stats?.girlsCount || 249})`}
           icon={GraduationCap}
           trend="up"
           trendValue="567 Enrolled"
@@ -257,58 +257,58 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           delay={0.05}
         />
         <StatCard
-          title="Teaching Staff"
+          title="Staff & Faculty"
           value={String(stats?.totalTeachers ?? 23)}
-          subtext="23 Verified Faculty"
+          subtext={`Teaching: ${stats?.teachingStaff || 14} • Support: ${stats?.supportStaff || 9}`}
           icon={Users}
           trend="up"
-          trendValue="100% Active"
+          trendValue="100% Verified"
           color="purple"
           delay={0.1}
         />
         <StatCard
-          title="Campus Attendance"
-          value={`${stats?.attendanceRate || '95.0'}%`}
-          subtext="Daily Presence"
+          title="Today's Attendance"
+          value={`${stats?.attendanceRate || '95.4'}%`}
+          subtext={`Present: ${stats?.presentStudentsToday || 541} • Absent: ${stats?.absentStudentsToday || 26}`}
           icon={CheckCircle2}
           trend="up"
-          trendValue="Biometric Verified"
+          trendValue="Biometric Live"
           color="emerald"
           delay={0.15}
         />
         <StatCard
-          title="Collected Fees"
+          title="Grand Total Dues"
+          value={`₹${Number(stats?.totalDueFees || 11923985).toLocaleString('en-IN')}`}
+          subtext={`Tuition ₹81.99L + Bus ₹37.25L`}
+          icon={CreditCard}
+          trend="down"
+          trendValue="Annual Demand"
+          color="rose"
+          delay={0.2}
+        />
+        <StatCard
+          title="Total Collected"
           value={`₹${Number(stats?.totalCollectedFees || 1034800).toLocaleString('en-IN')}`}
-          subtext="Total Paid to Date"
+          subtext={`Collected to Date (8.7%)`}
           icon={DollarSign}
           trend="up"
           trendValue="Session 2026-27"
           color="emerald"
-          delay={0.2}
-        />
-        <StatCard
-          title="Total Fee Dues"
-          value={`₹${Number(stats?.totalDueFees || 7870750).toLocaleString('en-IN')}`}
-          subtext={`Remaining: ₹${Number(stats?.totalRemainingFees || 6835950).toLocaleString('en-IN')}`}
-          icon={CreditCard}
-          trend="down"
-          trendValue="Annual Dues"
-          color="rose"
           delay={0.25}
         />
         <StatCard
-          title="Active Classes"
-          value="16"
-          subtext="PG to Class 12th"
-          icon={BookMarked}
-          trend="up"
-          trendValue="All Wings"
-          color="cyan"
+          title="Remaining Balance"
+          value={`₹${Number(stats?.totalRemainingFees || 10889185).toLocaleString('en-IN')}`}
+          subtext={`Pending Balance (91.3%)`}
+          icon={Receipt}
+          trend="down"
+          trendValue="Net Pending"
+          color="amber"
           delay={0.3}
         />
       </div>
 
-      {/* 💰 FINANCIAL DASHBOARD SECTION (Exact Match with School Old Software Screenshot) */}
+      {/* 💰 FINANCIAL DASHBOARD SECTION (Grand Demand, August Surplus & Cumulative Cash Flow) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Income Vs Expense of August (Donut Chart & Breakdown) */}
@@ -317,7 +317,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
               <PieChart className="w-4 h-4 text-pink-600" /> Income Vs Expense Of August
             </h3>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300">
+            <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300">
               August 2026
             </span>
           </div>
