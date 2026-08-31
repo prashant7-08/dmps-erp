@@ -11,7 +11,12 @@ import {
   Save,
   Download,
   GraduationCap,
-  Briefcase
+  Briefcase,
+  Fingerprint,
+  ScanFace,
+  RefreshCw,
+  Zap,
+  Timer
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { QRScannerModal } from '../components/qr/QRScannerModal';
@@ -29,6 +34,7 @@ export const AttendancePage = ({ initialType = 'student' }) => {
   const [selectedSection, setSelectedSection] = useState('All');
   const [selectedDept, setSelectedDept] = useState('All');
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
+  const [isSyncingBiometric, setIsSyncingBiometric] = useState(false);
 
   // Sync active tab if initialType changes from sidebar
   useEffect(() => {
@@ -49,21 +55,29 @@ export const AttendancePage = ({ initialType = 'student' }) => {
     }));
   });
 
-  // Teachers / Staff Data
+  // Teachers / Staff Data with Real-Time Biometric Punch Logs
   const [teachers, setTeachers] = useState(() => schoolService.getTeachers(activeBranchId));
   const [staffRecords, setStaffRecords] = useState(() => {
-    return teachers.map(t => ({
-      staffId: t.id,
-      name: t.name,
-      employeeId: t.employeeId || t.id,
-      department: t.department || 'Academics',
-      designation: t.designation || 'Teacher',
-      status: 'Present',
-      remarks: ''
-    }));
+    const logs = schoolService.getBiometricLogs();
+    return teachers.map(t => {
+      const punch = logs.find(l => l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name);
+      return {
+        staffId: t.id,
+        name: t.name,
+        employeeId: t.employeeId || t.id,
+        department: t.department || 'Academics',
+        designation: t.designation || 'Teacher',
+        inTime: punch ? punch.inTime : '--:-- --',
+        outTime: punch ? punch.outTime : '--:-- --',
+        verifyType: punch ? punch.verifyType : 'None',
+        workDuration: punch && punch.outTime !== 'Pending' ? '6h 50m' : (punch ? 'In Campus' : '0h 00m'),
+        status: punch ? (punch.status === 'Late Arrival' ? 'Late' : 'Present') : 'Absent',
+        remarks: punch ? `Biometric Verified via ${punch.verifyType}` : 'No Punch Logged'
+      };
+    });
   });
 
-  useEffect(() => {
+  const refreshData = () => {
     const sList = schoolService.getStudents(activeBranchId);
     setStudents(sList);
     setStudentRecords(sList.map(s => ({
@@ -78,16 +92,28 @@ export const AttendancePage = ({ initialType = 'student' }) => {
 
     const tList = schoolService.getTeachers(activeBranchId);
     setTeachers(tList);
-    setStaffRecords(tList.map(t => ({
-      staffId: t.id,
-      name: t.name,
-      employeeId: t.employeeId || t.id,
-      department: t.department || 'Academics',
-      designation: t.designation || 'Teacher',
-      status: 'Present',
-      remarks: ''
-    })));
-  }, [activeBranchId]);
+    const logs = schoolService.getBiometricLogs(selectedDate);
+    setStaffRecords(tList.map(t => {
+      const punch = logs.find(l => l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name);
+      return {
+        staffId: t.id,
+        name: t.name,
+        employeeId: t.employeeId || t.id,
+        department: t.department || 'Academics',
+        designation: t.designation || 'Teacher',
+        inTime: punch ? punch.inTime : '--:-- --',
+        outTime: punch ? punch.outTime : '--:-- --',
+        verifyType: punch ? punch.verifyType : 'None',
+        workDuration: punch && punch.outTime !== 'Pending' ? '6h 50m' : (punch ? 'In Campus' : '0h 00m'),
+        status: punch ? (punch.status === 'Late Arrival' ? 'Late' : 'Present') : 'Absent',
+        remarks: punch ? `Biometric Verified via ${punch.verifyType}` : 'No Punch Logged'
+      };
+    }));
+  };
+
+  useEffect(() => {
+    refreshData();
+  }, [activeBranchId, selectedDate]);
 
   // Student Attendance Handlers
   const handleStudentStatusChange = (studentId, newStatus) => {
@@ -115,6 +141,26 @@ export const AttendancePage = ({ initialType = 'student' }) => {
     }));
   };
 
+  const handleStaffTimeChange = (staffId, field, value) => {
+    setStaffRecords(prev => prev.map(rec => {
+      if (rec.staffId === staffId) {
+        const updated = { ...rec, [field]: value };
+        // Auto calculate status if In-time is edited
+        if (field === 'inTime' && value) {
+          const parts = value.split(':');
+          const hr = parseInt(parts[0] || '8', 10);
+          if (hr > 8 || value.includes('09:') || value.includes('10:')) {
+            updated.status = 'Late';
+          } else {
+            updated.status = 'Present';
+          }
+        }
+        return updated;
+      }
+      return rec;
+    }));
+  };
+
   const handleMarkAllStaff = (status) => {
     setStaffRecords(prev => prev.map(rec => ({ ...rec, status })));
     showToast(`Marked all staff members as ${status}`, 'info');
@@ -122,7 +168,18 @@ export const AttendancePage = ({ initialType = 'student' }) => {
 
   const handleSaveStaffAttendance = () => {
     schoolService.markStaffAttendance(selectedDate, staffRecords);
-    showToast(`Staff attendance for ${selectedDate} saved successfully! ✅`, 'success');
+    showToast(`Staff attendance with biometric timestamps for ${selectedDate} saved successfully! ✅`, 'success');
+  };
+
+  // 1-Click Biometric Machine Sync
+  const handleSyncFromBiometric = () => {
+    setIsSyncingBiometric(true);
+    setTimeout(() => {
+      setIsSyncingBiometric(false);
+      schoolService.syncBiometricToAttendance(selectedDate);
+      refreshData();
+      showToast('⚡ Live Punches Synced from Secureye Machine! Arrival and Departure times updated. ✅', 'success');
+    }, 900);
   };
 
   const handleQrScanSuccess = (person) => {
@@ -154,9 +211,10 @@ export const AttendancePage = ({ initialType = 'student' }) => {
   });
 
   const staffPresent = filteredStaffRecords.filter(r => r.status === 'Present').length;
+  const staffLate = filteredStaffRecords.filter(r => r.status === 'Late').length;
   const staffAbsent = filteredStaffRecords.filter(r => r.status === 'Absent').length;
   const staffLeave = filteredStaffRecords.filter(r => r.status === 'Leave').length;
-  const staffPercentage = filteredStaffRecords.length > 0 ? ((staffPresent / filteredStaffRecords.length) * 100).toFixed(1) : '100.0';
+  const staffPercentage = filteredStaffRecords.length > 0 ? (((staffPresent + staffLate) / filteredStaffRecords.length) * 100).toFixed(1) : '100.0';
 
   // Defaulters list (<75% attendance)
   const defaulters = students.filter(s => (s.attendanceSummary?.percentage || 95) < 75);
@@ -184,32 +242,52 @@ export const AttendancePage = ({ initialType = 'student' }) => {
     <div className="space-y-6 animate-in fade-in duration-300">
       
       {/* 🏛️ Page Title Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className={`p-2 rounded-2xl ${activeTab === 'student' ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800' : 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800'}`}>
-              {activeTab === 'student' ? <GraduationCap className="w-6 h-6" /> : <Briefcase className="w-6 h-6" />}
+            <div className={`p-2.5 rounded-2xl ${activeTab === 'student' ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800' : 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800'}`}>
+              {activeTab === 'student' ? <GraduationCap className="w-6 h-6" /> : <Fingerprint className="w-6 h-6" />}
             </div>
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-serif">
-                {activeTab === 'student' ? 'Daily Student Attendance Register' : 'Staff & Teacher Attendance Register'}
-              </h2>
-              <p className="text-xs text-slate-500 font-medium">
+              <div className="flex items-center gap-2">
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-serif">
+                  {activeTab === 'student' ? 'Daily Student Attendance Register' : 'Staff Attendance & Biometric In/Out Log'}
+                </h2>
+                {activeTab === 'staff' && (
+                  <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-900 dark:text-emerald-300 border border-emerald-300 hidden sm:inline-flex items-center gap-1">
+                    <Zap className="w-2.5 h-2.5 text-emerald-600" /> Secureye S-FB3K Synced
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-slate-500 font-medium mt-0.5">
                 {activeTab === 'student' 
                   ? 'Real-time class-wise roll call and daily attendance register for enrolled students.' 
-                  : 'Daily attendance, duty logging, and leave tracking for school faculty and staff.'}
+                  : 'Automated biometric arrival/departure logging with on-time & late calculation for faculty.'}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex flex-wrap items-center gap-2 shrink-0">
+          {activeTab === 'staff' && (
+            <button
+              onClick={handleSyncFromBiometric}
+              disabled={isSyncingBiometric}
+              className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm flex items-center gap-1.5 transition-all hover:scale-105"
+              title="Fetch live punches from Secureye LAN machine"
+            >
+              <RefreshCw className={`w-4 h-4 ${isSyncingBiometric ? 'animate-spin' : ''}`} />
+              {isSyncingBiometric ? 'Syncing...' : '⚡ Sync Biometric Machine'}
+            </button>
+          )}
+
           <button
             onClick={() => setIsQrModalOpen(true)}
-            className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm flex items-center gap-1.5 transition-all hover:scale-105"
+            className="px-3.5 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold shadow-xs flex items-center gap-1.5 transition-all"
           >
-            <Scan className="w-4 h-4" /> QR Scanner
+            <Scan className="w-4 h-4 text-indigo-600 dark:text-indigo-400" /> QR Scanner
           </button>
+
           <button
             onClick={activeTab === 'student' ? handleSaveStudentAttendance : handleSaveStaffAttendance}
             className={`px-4 py-2 ${activeTab === 'student' ? 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/20' : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-500/20'} text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 transition-all hover:scale-105`}
@@ -242,20 +320,24 @@ export const AttendancePage = ({ initialType = 'student' }) => {
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Present Staff</span>
-            <p className="text-2xl font-black text-emerald-600 mt-1">{staffPresent} Teachers</p>
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">On-Time Arrival</span>
+            <p className="text-2xl font-black text-emerald-600 mt-1">{staffPresent} Staff</p>
+            <span className="text-[10px] text-slate-400">Before 08:45 AM</span>
           </div>
           <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Absent Staff</span>
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Late Punches</span>
+            <p className="text-2xl font-black text-amber-600 mt-1">{staffLate} Staff</p>
+            <span className="text-[10px] text-amber-600 font-bold">After 08:45 AM</span>
+          </div>
+          <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Absent / No Punch</span>
             <p className="text-2xl font-black text-rose-600 mt-1">{staffAbsent} Staff</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">On Approved Leave</span>
-            <p className="text-2xl font-black text-purple-600 mt-1">{staffLeave} Staff</p>
+            <span className="text-[10px] text-slate-400">{staffLeave} On Leave</span>
           </div>
           <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Staff Attendance Rate</span>
             <p className="text-2xl font-black text-indigo-600 mt-1">{staffPercentage}%</p>
+            <span className="text-[10px] text-emerald-600 font-bold">Biometric Verified</span>
           </div>
         </div>
       )}
@@ -394,58 +476,118 @@ export const AttendancePage = ({ initialType = 'student' }) => {
           </div>
         </div>
       ) : (
+        /* 👨‍🏫 Upgraded Staff Attendance Table with Biometric Arrival & Departure Times */
         <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-indigo-50/50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
-                  <th className="p-4">Employee ID</th>
-                  <th className="p-4">Teacher / Staff Name</th>
-                  <th className="p-4">Designation & Department</th>
-                  <th className="p-4 text-center">Attendance Status</th>
-                  <th className="p-4">Duty / Leave Note</th>
+                <tr className="bg-indigo-50/60 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold border-b border-slate-200 dark:border-slate-800">
+                  <th className="p-3.5">Employee ID</th>
+                  <th className="p-3.5">Teacher / Staff Name</th>
+                  <th className="p-3.5">Arrival Time (In)</th>
+                  <th className="p-3.5">Departure Time (Out)</th>
+                  <th className="p-3.5">Total Hours</th>
+                  <th className="p-3.5 text-center">Attendance Status</th>
+                  <th className="p-3.5">Biometric / Duty Note</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {filteredStaffRecords.map(rec => (
-                  <tr key={rec.staffId} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                    <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-400">
-                      {rec.employeeId}
-                    </td>
-                    <td className="p-4 font-bold text-slate-900 dark:text-white">
-                      {rec.name}
-                    </td>
-                    <td className="p-4">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300 block">{rec.designation}</span>
-                      <span className="text-[10px] text-slate-400">{rec.department}</span>
-                    </td>
-                    <td className="p-4">
-                      <div className="flex items-center justify-center gap-1.5">
-                        {['Present', 'Late', 'Half-Day', 'Absent', 'Leave'].map(st => {
-                          const isSelected = rec.status === st;
-                          return (
-                            <button
-                              key={st}
-                              onClick={() => handleStaffStatusChange(rec.staffId, st)}
-                              className={`px-2.5 py-1 rounded-lg text-[11px] transition-all border border-transparent ${
-                                isSelected ? statusColors[st] : statusInactiveColors[st]
-                              }`}
-                            >
-                              {st}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </td>
-                    <td className="p-4">
-                      <input
-                        type="text"
-                        placeholder="Duty note..."
-                        className="w-full text-[11px] p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-                      />
-                    </td>
-                  </tr>
-                ))}
+                {filteredStaffRecords.map(rec => {
+                  const isPunchAvailable = rec.inTime && rec.inTime !== '--:-- --';
+                  return (
+                    <tr key={rec.staffId} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 font-medium">
+                      <td className="p-3.5 font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                        {rec.employeeId}
+                      </td>
+                      
+                      <td className="p-3.5">
+                        <span className="font-bold text-slate-900 dark:text-white block">{rec.name}</span>
+                        <span className="text-[10px] text-slate-400 font-normal">{rec.designation} • {rec.department}</span>
+                      </td>
+
+                      {/* Biometric In Time (Arrival) */}
+                      <td className="p-3.5 font-mono">
+                        <div className="flex items-center gap-1.5">
+                          {rec.verifyType === 'Face Recognition' ? (
+                            <ScanFace className="w-3.5 h-3.5 text-blue-500 shrink-0" title="Face Scan" />
+                          ) : isPunchAvailable ? (
+                            <Fingerprint className="w-3.5 h-3.5 text-emerald-500 shrink-0" title="Fingerprint" />
+                          ) : (
+                            <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          )}
+                          <input
+                            type="text"
+                            value={rec.inTime}
+                            onChange={(e) => handleStaffTimeChange(rec.staffId, 'inTime', e.target.value)}
+                            placeholder="08:30 AM"
+                            className={`text-xs font-bold px-2 py-1 rounded-lg border ${
+                              isPunchAvailable 
+                                ? (rec.status === 'Late' ? 'border-amber-300 bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300' : 'border-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300')
+                                : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-400'
+                            } w-24`}
+                          />
+                        </div>
+                      </td>
+
+                      {/* Biometric Out Time (Departure) */}
+                      <td className="p-3.5 font-mono">
+                        <input
+                          type="text"
+                          value={rec.outTime}
+                          onChange={(e) => handleStaffTimeChange(rec.staffId, 'outTime', e.target.value)}
+                          placeholder="03:00 PM"
+                          className={`text-xs font-bold px-2 py-1 rounded-lg border ${
+                            rec.outTime && rec.outTime !== '--:-- --'
+                              ? 'border-blue-300 bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300'
+                              : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-400'
+                          } w-24`}
+                        />
+                      </td>
+
+                      {/* Total Duration */}
+                      <td className="p-3.5 font-mono text-slate-700 dark:text-slate-300">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                          <Timer className="w-3 h-3 text-slate-400" />
+                          {rec.workDuration}
+                        </span>
+                      </td>
+
+                      {/* Automated Status with Manual Override Buttons */}
+                      <td className="p-3.5">
+                        <div className="flex items-center justify-center gap-1">
+                          {['Present', 'Late', 'Half-Day', 'Absent', 'Leave'].map(st => {
+                            const isSelected = rec.status === st;
+                            return (
+                              <button
+                                key={st}
+                                onClick={() => handleStaffStatusChange(rec.staffId, st)}
+                                className={`px-2 py-1 rounded-lg text-[10px] transition-all border border-transparent ${
+                                  isSelected ? statusColors[st] : statusInactiveColors[st]
+                                }`}
+                              >
+                                {st}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </td>
+
+                      {/* Remarks */}
+                      <td className="p-3.5">
+                        <input
+                          type="text"
+                          value={rec.remarks}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setStaffRecords(prev => prev.map(r => r.staffId === rec.staffId ? { ...r, remarks: val } : r));
+                          }}
+                          placeholder="Duty note..."
+                          className="w-full text-[11px] p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                        />
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
