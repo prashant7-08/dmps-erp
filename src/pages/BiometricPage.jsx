@@ -18,7 +18,11 @@ import {
   Server,
   Radio,
   CheckSquare,
-  Calendar
+  Calendar,
+  AlertTriangle,
+  Bus,
+  UserCheck,
+  Timer
 } from 'lucide-react';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
@@ -33,7 +37,6 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
   const [isSyncing, setIsSyncing] = useState(false);
   const [isPinging, setIsPinging] = useState(false);
   const [pingSuccess, setPingSuccess] = useState(true);
-  const [autoSync, setAutoSync] = useState(true);
   const [selectedStaffForTest, setSelectedStaffForTest] = useState('');
   const [testVerifyType, setTestVerifyType] = useState('Fingerprint');
 
@@ -57,16 +60,16 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
   const handleSaveSettings = (e) => {
     e.preventDefault();
     schoolService.saveBiometricSettings(settings);
-    showToast('Secureye S-FB3K Device Configuration Saved Successfully! 💾', 'success');
+    showToast('Secureye S-FB3K Shift Timings & Policy Rules Saved! 💾', 'success');
   };
 
-  // Ping Test LAN Cable Connection
+  // Ping Test Wi-Fi Connection
   const handlePingTest = () => {
     setIsPinging(true);
     setTimeout(() => {
       setIsPinging(false);
       setPingSuccess(true);
-      showToast(`🟢 LAN Cable Active: Ping to Secureye (${settings.ipAddress}:${settings.port}) Successful! (Latency: 4ms)`, 'success');
+      showToast(`🟢 Wi-Fi Active: Ping to Secureye (${settings.ipAddress}:${settings.port}) Successful! (Latency: 5ms)`, 'success');
     }, 800);
   };
 
@@ -103,7 +106,7 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
 
     const now = new Date();
     const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    const isLate = now.getHours() >= 9;
+    const isLate = now.getHours() > 7 || (now.getHours() === 7 && now.getMinutes() > 45);
 
     const newLog = schoolService.addBiometricLog({
       employeeId: staffObj.employeeId || staffObj.id,
@@ -157,17 +160,17 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-900 dark:text-emerald-300 border border-emerald-300 flex items-center gap-1">
-                <Radio className="w-2.5 h-2.5 text-emerald-600 animate-pulse" /> LAN Active (12V DC)
+                <Wifi className="w-2.5 h-2.5 text-emerald-600 animate-pulse" /> Wi-Fi Connected ({settings.ipAddress})
               </span>
               <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300">
                 Secureye S-FB3K
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-serif mt-1">
-              Biometric Attendance & LAN Sync Hub
+              Biometric Attendance & Policy Hub
             </h2>
             <p className="text-xs text-slate-500 font-medium">
-              Direct Ethernet RJ45 cable integration with <strong>Secureye S-FB3K</strong> IP Face & Fingerprint Reader.
+              School Shifts: <strong>07:45 In / 14:15 Out</strong> • <strong>04:30-19:30 Support</strong> • <strong>24x7 Principal</strong> • <strong>Sandwich Rule Active</strong>
             </p>
           </div>
         </div>
@@ -194,40 +197,142 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
         </div>
       </div>
 
-      {/* 📊 Biometric Live Punch Stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Device Status</span>
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></span>
+      {/* 📜 Active School Attendance Rules & Penalties Summary */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-sm">
+            1/2
           </div>
-          <p className="text-xl font-black text-emerald-600 mt-1">Online (LAN Cable)</p>
-          <span className="text-[10px] text-slate-400">IP: {settings.ipAddress}:{settings.port}</span>
+          <div>
+            <h4 className="text-xs font-black text-amber-950 dark:text-amber-200 uppercase">Single Punch Miss</h4>
+            <p className="text-[11px] text-amber-800 dark:text-amber-300 font-medium">
+              Only In or Out punched → <strong>Half-Day (0.5 Day)</strong>
+            </p>
+          </div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total Punches Today</span>
-          <p className="text-2xl font-black text-indigo-600 mt-1">{logs.length} Punches</p>
-          <span className="text-[10px] text-slate-400">Staff & Teachers</span>
+        <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-sm">
+            2X
+          </div>
+          <div>
+            <h4 className="text-xs font-black text-rose-950 dark:text-rose-200 uppercase">Unannounced Absent</h4>
+            <p className="text-[11px] text-rose-800 dark:text-rose-300 font-medium">
+              Both punches missed → <strong>2 Days Cut</strong>
+            </p>
+          </div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">On-Time Arrivals</span>
-          <p className="text-2xl font-black text-emerald-600 mt-1">{onTimeCount} Staff</p>
-          <span className="text-[10px] text-emerald-600 font-bold">Before {settings.lateThresholdTime}</span>
+        <div className="p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-sm">
+            1X
+          </div>
+          <div>
+            <h4 className="text-xs font-black text-blue-950 dark:text-blue-200 uppercase">Approved Leave</h4>
+            <p className="text-[11px] text-blue-800 dark:text-blue-300 font-medium">
+              Prior informed leave → <strong>1 Day Cut</strong>
+            </p>
+          </div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Late Punches</span>
-          <p className="text-2xl font-black text-amber-600 mt-1">{lateCount} Staff</p>
-          <span className="text-[10px] text-amber-600 font-bold">After {settings.lateThresholdTime}</span>
+        <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-sm">
+            🥪
+          </div>
+          <div>
+            <h4 className="text-xs font-black text-purple-950 dark:text-purple-200 uppercase">Sandwich Rule Active</h4>
+            <p className="text-[11px] text-purple-800 dark:text-purple-300 font-medium">
+              Holiday between 2 leaves → <strong>Counted as Absent</strong>
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* ⚙️ Device Settings & USB Flash Drive Import Grid */}
+      {/* 🕒 3 Official School Shifts Configuration */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Shift 1: Teachers */}
+        <div className="p-5 rounded-3xl bg-white dark:bg-slate-900 border-2 border-indigo-200 dark:border-indigo-800 shadow-sm space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-black uppercase text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
+              <GraduationCap className="w-4 h-4" /> Shift 1: Academic Teachers
+            </span>
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
+              Standard
+            </span>
+          </div>
+          <div className="space-y-1.5 text-xs">
+            <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-slate-500 font-medium">Arrival Punch Cutoff:</span>
+              <span className="font-mono font-bold text-slate-900 dark:text-white">07:45 AM</span>
+            </div>
+            <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-slate-500 font-medium">Half-Day Early Exit:</span>
+              <span className="font-mono font-bold text-amber-600">09:00 AM - 12:30 PM</span>
+            </div>
+            <div className="flex justify-between py-1">
+              <span className="text-slate-500 font-medium">Chhuti / Departure Out:</span>
+              <span className="font-mono font-bold text-emerald-600">After 14:15 (02:15 PM)</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Shift 2: Drivers & Cleaners */}
+        <div className="p-5 rounded-3xl bg-white dark:bg-slate-900 border-2 border-amber-200 dark:border-amber-800 shadow-sm space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-black uppercase text-amber-600 dark:text-amber-400 flex items-center gap-1.5">
+              <Bus className="w-4 h-4" /> Shift 2: Drivers & Cleaners
+            </span>
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300">
+              Extended
+            </span>
+          </div>
+          <div className="space-y-1.5 text-xs">
+            <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-slate-500 font-medium">Morning Bus Route In:</span>
+              <span className="font-mono font-bold text-slate-900 dark:text-white">04:30 AM</span>
+            </div>
+            <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-slate-500 font-medium">Evening Duty Exit:</span>
+              <span className="font-mono font-bold text-slate-900 dark:text-white">19:30 (07:30 PM)</span>
+            </div>
+            <div className="flex justify-between py-1">
+              <span className="text-slate-500 font-medium">Coverage Area:</span>
+              <span className="font-bold text-amber-600">Bus Routes & School Cleaning</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Shift 3: Principal & Manager */}
+        <div className="p-5 rounded-3xl bg-white dark:bg-slate-900 border-2 border-purple-200 dark:border-purple-800 shadow-sm space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-black uppercase text-purple-600 dark:text-purple-400 flex items-center gap-1.5">
+              <UserCheck className="w-4 h-4" /> Shift 3: Principal & Manager
+            </span>
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-300">
+              Executive
+            </span>
+          </div>
+          <div className="space-y-1.5 text-xs">
+            <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-slate-500 font-medium">Duty Timing:</span>
+              <span className="font-mono font-bold text-purple-600">24 x 7 Flexible</span>
+            </div>
+            <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-slate-500 font-medium">Attendance Status:</span>
+              <span className="font-bold text-emerald-600">Always Present (Executive)</span>
+            </div>
+            <div className="flex justify-between py-1">
+              <span className="text-slate-500 font-medium">Miss Penalty:</span>
+              <span className="font-bold text-slate-400">Exempt from Auto-Deduction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ⚙️ Hardware Device Configuration & Simulator */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
-        {/* Left 2 Cols: Secureye S-FB3K TCP/IP Configuration */}
+        {/* Left 2 Cols: Secureye S-FB3K Device Setup */}
         <div className="lg:col-span-2 bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
             <div className="flex items-center gap-2.5">
@@ -236,67 +341,27 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
               </div>
               <div>
                 <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wide">
-                  1. Secureye Device Network & LAN Configuration
+                  Secureye S-FB3K Hardware & Network Settings
                 </h3>
                 <p className="text-[11px] text-slate-500">
-                  Matches your hardware label: <strong>Model S-FB3K</strong> • S/N: <strong>{settings.serialNumber}</strong> • MAC: <strong>{settings.macAddress}</strong>
+                  IP: <strong>{settings.ipAddress}</strong> • S/N: <strong>{settings.serialNumber}</strong> • MAC: <strong>{settings.macAddress}</strong>
                 </p>
               </div>
             </div>
           </div>
 
           <form onSubmit={handleSaveSettings} className="space-y-4 text-xs">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Device Hardware Model
-                </label>
-                <input
-                  type="text"
-                  name="deviceModel"
-                  value={settings.deviceModel}
-                  onChange={handleSettingChange}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Device Serial Number (S/N)
-                </label>
-                <input
-                  type="text"
-                  name="serialNumber"
-                  value={settings.serialNumber}
-                  onChange={handleSettingChange}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Hardware MAC Address
-                </label>
-                <input
-                  type="text"
-                  name="macAddress"
-                  value={settings.macAddress}
-                  onChange={handleSettingChange}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Machine IP Address (Ethernet LAN)
+                  Machine IP Address
                 </label>
                 <input
                   type="text"
                   name="ipAddress"
                   value={settings.ipAddress}
                   onChange={handleSettingChange}
-                  placeholder="192.168.1.201"
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-blue-600 dark:text-blue-400"
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-blue-600"
                 />
               </div>
 
@@ -309,7 +374,6 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
                   name="port"
                   value={settings.port}
                   onChange={handleSettingChange}
-                  placeholder="4370"
                   className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
                 />
               </div>
@@ -323,51 +387,8 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
                   name="commKey"
                   value={settings.commKey}
                   onChange={handleSettingChange}
-                  placeholder="0 (Default)"
                   className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
                 />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Morning Shift In Time
-                </label>
-                <input
-                  type="text"
-                  name="morningIn"
-                  defaultValue="08:30 AM"
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Late Arrival Cutoff Time
-                </label>
-                <input
-                  type="text"
-                  name="lateThresholdTime"
-                  value={settings.lateThresholdTime}
-                  onChange={handleSettingChange}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium text-amber-600"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Auto-Sync Interval
-                </label>
-                <select
-                  name="autoSyncInterval"
-                  value={settings.autoSyncInterval}
-                  onChange={handleSettingChange}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
-                >
-                  <option value="1">Every 1 Minute</option>
-                  <option value="5">Every 5 Minutes (Recommended)</option>
-                  <option value="15">Every 15 Minutes</option>
-                  <option value="60">Every 1 Hour</option>
-                </select>
               </div>
             </div>
 
@@ -382,118 +403,82 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
           </form>
         </div>
 
-        {/* Right 1 Col: USB Flash Pen-Drive Import & Manual Simulator */}
-        <div className="space-y-6">
-          
-          {/* USB Pen Drive Flash Import */}
-          <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400">
-                <UploadCloud className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wide">
-                  USB Pen-Drive Import
-                </h3>
-                <p className="text-[11px] text-slate-500">
-                  Upload exported <code>attlog.dat</code> or <code>.csv</code> file.
-                </p>
-              </div>
+        {/* Right 1 Col: Quick Punch Tester */}
+        <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-3 text-xs">
+          <div className="flex items-center gap-2.5">
+            <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400">
+              <Zap className="w-5 h-5" />
             </div>
-
-            <label className="block p-4 border-2 border-dashed border-purple-200 dark:border-purple-800 rounded-2xl hover:bg-purple-50/50 dark:hover:bg-purple-950/30 text-center cursor-pointer transition-all">
-              <FileText className="w-7 h-7 mx-auto text-purple-600 dark:text-purple-400 mb-1" />
-              <span className="text-xs font-bold text-purple-900 dark:text-purple-200 block">
-                Choose Biometric Log File
-              </span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">
-                Supports .dat, .csv, .txt from Secureye USB
-              </span>
-              <input
-                type="file"
-                accept=".dat,.csv,.txt"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
-            </label>
+            <div>
+              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wide">
+                Live Punch Simulator
+              </h3>
+              <p className="text-[11px] text-slate-500">
+                Test 07:45 In / 14:15 Out / Half-Day rules
+              </p>
+            </div>
           </div>
 
-          {/* Quick Punch Tester */}
-          <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-3 text-xs">
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400">
-                <Zap className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wide">
-                  Test Punch Simulator
-                </h3>
-                <p className="text-[11px] text-slate-500">
-                  Simulate live teacher check-in
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Select Teacher / Staff</label>
-                <select
-                  value={selectedStaffForTest}
-                  onChange={(e) => setSelectedStaffForTest(e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
-                >
-                  <option value="">-- Choose Teacher --</option>
-                  {teachers.map(t => (
-                    <option key={t.id} value={t.id}>
-                      {t.name} ({t.designation})
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Recognition Mode</label>
-                <select
-                  value={testVerifyType}
-                  onChange={(e) => setTestVerifyType(e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
-                >
-                  <option value="Fingerprint">👆 Fingerprint Scanner</option>
-                  <option value="Face Recognition">👤 Face Camera Recognition</option>
-                  <option value="RFID Card">💳 RFID Smart Card</option>
-                </select>
-              </div>
-
-              <button
-                type="button"
-                onClick={handleSimulatePunch}
-                className="w-full py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm transition-all"
+          <div className="space-y-2.5 pt-1">
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Choose Teacher / Staff</label>
+              <select
+                value={selectedStaffForTest}
+                onChange={(e) => setSelectedStaffForTest(e.target.value)}
+                className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               >
-                ⚡ Trigger Test Punch & Sync
-              </button>
+                <option value="">-- Select Staff --</option>
+                {teachers.map(t => (
+                  <option key={t.id} value={t.id}>
+                    {t.name} ({t.designation})
+                  </option>
+                ))}
+              </select>
             </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Verify Mode</label>
+              <select
+                value={testVerifyType}
+                onChange={(e) => setTestVerifyType(e.target.value)}
+                className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
+              >
+                <option value="Fingerprint">👆 Fingerprint Scanner</option>
+                <option value="Face Recognition">👤 Face Camera</option>
+              </select>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleSimulatePunch}
+              className="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm transition-all mt-2"
+            >
+              ⚡ Record Punch & Apply Rules
+            </button>
           </div>
         </div>
       </div>
 
-      {/* 📋 Live Biometric Punch Log Stream (Real-Time Feed) */}
+      {/* 📋 Live Biometric Feed Table */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden space-y-4 p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
           <div>
             <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
               <Radio className="w-4 h-4 text-emerald-500 animate-pulse" />
-              Live Secureye Biometric Punch Feed (Today's Logs)
+              Live Secureye Punches & Policy Deductions
             </h3>
             <p className="text-xs text-slate-500">
-              Live timestamps fetched directly from the RJ45 Ethernet cable.
+              Arrival Cutoff: 07:45 AM • Chhuti: 14:15 PM • Automated Half-Day & 2X Penalties
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-slate-500">
-              Showing {logs.length} Live Punches
-            </span>
-          </div>
+          <button
+            onClick={onNavigateToStaffAttendance}
+            className="px-3.5 py-1.5 bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 rounded-xl text-xs font-bold border border-indigo-200 dark:border-indigo-800 flex items-center gap-1.5"
+          >
+            <span>View Full Attendance Register</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
         </div>
 
         <div className="overflow-x-auto">
@@ -501,12 +486,12 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
             <thead>
               <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
                 <th className="p-3.5">Employee ID</th>
-                <th className="p-3.5">Staff Name</th>
-                <th className="p-3.5">Department</th>
-                <th className="p-3.5">Punch In Time</th>
-                <th className="p-3.5">Punch Out Time</th>
-                <th className="p-3.5">Verify Mode</th>
-                <th className="p-3.5 text-center">Status</th>
+                <th className="p-3.5">Staff Name & Designation</th>
+                <th className="p-3.5">Punch In (07:45)</th>
+                <th className="p-3.5">Punch Out (14:15)</th>
+                <th className="p-3.5">Status</th>
+                <th className="p-3.5">Policy Penalty</th>
+                <th className="p-3.5">Verification</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
@@ -521,39 +506,37 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
                       {log.name}
                       <span className="text-[10px] text-slate-400 block font-normal">{log.designation}</span>
                     </td>
-                    <td className="p-3.5 text-slate-600 dark:text-slate-300">
-                      {log.department}
-                    </td>
                     <td className="p-3.5 font-mono font-bold text-slate-900 dark:text-white">
-                      <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                      <span className={`px-2 py-0.5 rounded-md border ${
+                        log.inTime <= '07:45' ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-amber-50 text-amber-800 border-amber-300'
+                      }`}>
                         {log.inTime}
                       </span>
                     </td>
                     <td className="p-3.5 font-mono text-slate-600 dark:text-slate-400">
-                      {log.outTime !== 'Pending' ? (
-                        <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                          {log.outTime}
-                        </span>
-                      ) : (
-                        <span className="text-slate-400 italic">In Campus</span>
-                      )}
-                    </td>
-                    <td className="p-3.5">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300 text-[11px] font-bold border border-blue-200 dark:border-blue-900/50">
-                        {log.verifyType === 'Face Recognition' ? (
-                          <><ScanFace className="w-3.5 h-3.5" /> Face</>
-                        ) : (
-                          <><Fingerprint className="w-3.5 h-3.5" /> Fingerprint</>
-                        )}
+                      <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                        {log.outTime}
                       </span>
                     </td>
-                    <td className="p-3.5 text-center">
+                    <td className="p-3.5">
                       <span className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${
                         isOnTime 
                           ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300' 
                           : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300'
                       }`}>
                         {log.status}
+                      </span>
+                    </td>
+                    <td className="p-3.5 font-bold">
+                      {isOnTime ? (
+                        <span className="text-emerald-600 text-[11px]">0 Days Cut (Full Day)</span>
+                      ) : (
+                        <span className="text-amber-600 text-[11px]">Late Punch Warning</span>
+                      )}
+                    </td>
+                    <td className="p-3.5">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700 text-[11px] font-bold">
+                        {log.verifyType === 'Face Recognition' ? <><ScanFace className="w-3 h-3" /> Face</> : <><Fingerprint className="w-3 h-3" /> Finger</>}
                       </span>
                     </td>
                   </tr>

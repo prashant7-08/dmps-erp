@@ -478,17 +478,46 @@ export const AttendancePage = ({ initialType = 'student' }) => {
       ) : (
         /* 👨‍🏫 Upgraded Staff Attendance Table with Biometric Arrival & Departure Times */
         <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+          
+          {/* Active School Shift Timings & Penalty Policy Bar */}
+          <div className="bg-indigo-50/70 dark:bg-indigo-950/40 p-4 border-b border-indigo-100 dark:border-indigo-900/50 flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="font-black text-indigo-950 dark:text-indigo-200 uppercase tracking-wide flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-indigo-600" /> Active School Shifts:
+              </span>
+              <span className="px-2.5 py-1 rounded-xl bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800 font-bold text-slate-800 dark:text-slate-200">
+                👩‍🏫 Teachers: <strong>07:45 In</strong> / <strong>14:15 Out</strong> (Half-Day: 09:00-12:30)
+              </span>
+              <span className="px-2.5 py-1 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-amber-800 font-bold text-slate-800 dark:text-slate-200">
+                🚌 Drivers/Cleaners: <strong>04:30 - 19:30</strong>
+              </span>
+              <span className="px-2.5 py-1 rounded-xl bg-white dark:bg-slate-900 border border-purple-200 dark:border-purple-800 font-bold text-purple-700 dark:text-purple-300">
+                👔 Principal: <strong>24x7 Flexible</strong>
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-black px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 border border-purple-300">
+                🥪 Sandwich Rule Active
+              </span>
+              <span className="text-[11px] font-black px-2 py-0.5 rounded-md bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 border border-rose-300">
+                2X Absent Cut
+              </span>
+            </div>
+          </div>
+
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-indigo-50/60 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold border-b border-slate-200 dark:border-slate-800">
+                <tr className="bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold border-b border-slate-200 dark:border-slate-800">
                   <th className="p-3.5">Employee ID</th>
                   <th className="p-3.5">Teacher / Staff Name</th>
-                  <th className="p-3.5">Arrival Time (In)</th>
-                  <th className="p-3.5">Departure Time (Out)</th>
+                  <th className="p-3.5">Arrival (07:45 Cutoff)</th>
+                  <th className="p-3.5">Departure (14:15 Out)</th>
                   <th className="p-3.5">Total Hours</th>
                   <th className="p-3.5 text-center">Attendance Status</th>
-                  <th className="p-3.5">Biometric / Duty Note</th>
+                  <th className="p-3.5">Salary Deduction</th>
+                  <th className="p-3.5">Biometric Note</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
@@ -570,6 +599,31 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                             );
                           })}
                         </div>
+                      </td>
+
+                      {/* Salary Deduction / Penalty Display */}
+                      <td className="p-3.5 font-bold">
+                        {rec.status === 'Present' && (
+                          <span className="text-emerald-600 text-[11px] font-black">0 Days (Full Day)</span>
+                        )}
+                        {rec.status === 'Late' && (
+                          <span className="text-amber-600 text-[11px] font-bold">Late Warning (0 Day)</span>
+                        )}
+                        {rec.status === 'Half-Day' && (
+                          <span className="text-cyan-700 dark:text-cyan-300 text-[11px] font-black px-2 py-0.5 rounded-md bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-300">
+                            -0.5 Day Cut
+                          </span>
+                        )}
+                        {rec.status === 'Leave' && (
+                          <span className="text-purple-700 dark:text-purple-300 text-[11px] font-black px-2 py-0.5 rounded-md bg-purple-50 dark:bg-purple-950/60 border border-purple-300">
+                            -1 Day Leave
+                          </span>
+                        )}
+                        {rec.status === 'Absent' && (
+                          <span className="text-rose-700 dark:text-rose-300 text-[11px] font-black px-2 py-0.5 rounded-md bg-rose-50 dark:bg-rose-950/60 border border-rose-300 animate-pulse">
+                            -2 Days (2X Cut)
+                          </span>
+                        )}
                       </td>
 
                       {/* Remarks */}

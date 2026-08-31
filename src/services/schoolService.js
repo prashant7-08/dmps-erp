@@ -321,7 +321,7 @@ class SchoolService {
 
   // Biometric Device & Integration (Secureye S-FB3K / ZKTeco / eSSL)
   getBiometricSettings() {
-    if (!this.data.biometricSettings) {
+    if (!this.data.biometricSettings || !this.data.biometricSettings.shifts) {
       this.data.biometricSettings = {
         deviceModel: "Secureye S-FB3K (IP Face & Fingerprint Reader)",
         serialNumber: "102025020000143",
@@ -333,8 +333,34 @@ class SchoolService {
         branchId: "BR-01",
         autoSyncInterval: "5",
         status: "Online",
-        lateThresholdTime: "08:45 AM",
-        halfDayThresholdTime: "11:30 AM"
+        
+        // Exact School Shift Timings
+        shifts: {
+          teachers: {
+            title: "Teachers & Academic Faculty",
+            arrivalCutoff: "07:45 AM",
+            halfDayWindow: "09:00 AM - 12:30 PM",
+            departureTime: "02:15 PM (14:15)"
+          },
+          supportStaff: {
+            title: "Drivers & Cleaning Staff",
+            shiftStart: "04:30 AM",
+            shiftEnd: "07:30 PM (19:30)"
+          },
+          management: {
+            title: "Principal & Manager",
+            shiftType: "24x7 Flexible (Always On Duty)"
+          }
+        },
+
+        // School Policy Rules
+        rules: {
+          singlePunchMissAction: "Half-Day",          // 1 punch miss = Half Day
+          bothPunchesMissAction: "Absent",            // Both punch miss = Absent
+          absentPenaltyMultiplier: 2,                 // Absent = 2 Days Deduction
+          leaveDeductionMultiplier: 1,                // Approved Leave = 1 Day Deduction
+          sandwichRuleEnabled: true                   // Middle holiday between leaves = Absent
+        }
       };
       this.saveData();
     }
@@ -360,8 +386,8 @@ class SchoolService {
           designation: teachers[0]?.designation || "Principal & Senior Physics Faculty",
           department: "Science",
           punchDate: today,
-          inTime: "08:14:22 AM",
-          outTime: "03:15:10 PM",
+          inTime: "07:38:15 AM",
+          outTime: "02:20:10 PM",
           verifyType: "Face Recognition",
           deviceSn: "102025020000143",
           status: "On Time"
@@ -374,8 +400,8 @@ class SchoolService {
           designation: teachers[1]?.designation || "Vice Principal & Mathematics",
           department: "Mathematics",
           punchDate: today,
-          inTime: "08:28:45 AM",
-          outTime: "03:20:00 PM",
+          inTime: "07:42:50 AM",
+          outTime: "02:18:00 PM",
           verifyType: "Fingerprint",
           deviceSn: "102025020000143",
           status: "On Time"
@@ -388,8 +414,8 @@ class SchoolService {
           designation: teachers[2]?.designation || "HOD Hindi & Sanskrit Literature",
           department: "Languages",
           punchDate: today,
-          inTime: "08:52:10 AM",
-          outTime: "03:10:45 PM",
+          inTime: "07:54:10 AM",
+          outTime: "02:15:45 PM",
           verifyType: "Fingerprint",
           deviceSn: "102025020000143",
           status: "Late Arrival"
@@ -402,8 +428,8 @@ class SchoolService {
           designation: teachers[3]?.designation || "Senior Chemistry Lecturer",
           department: "Science",
           punchDate: today,
-          inTime: "08:35:18 AM",
-          outTime: "03:30:15 PM",
+          inTime: "07:44:18 AM",
+          outTime: "02:25:15 PM",
           verifyType: "Face Recognition",
           deviceSn: "102025020000143",
           status: "On Time"
@@ -426,6 +452,7 @@ class SchoolService {
     return newLog;
   }
 
+  // Automatic Staff Attendance Evaluator with Single-Punch Half-Day, 2x Penalty, and Sandwich Rule
   syncBiometricToAttendance(date = null) {
     const targetDate = date || new Date().toISOString().split('T')[0];
     const logs = this.getBiometricLogs(targetDate);
@@ -433,25 +460,93 @@ class SchoolService {
 
     const attendanceRecords = teachers.map(t => {
       const punch = logs.find(l => l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name);
+      const isManagement = t.designation?.toLowerCase().includes('principal') || t.designation?.toLowerCase().includes('manager');
+      const isSupportStaff = t.designation?.toLowerCase().includes('driver') || t.designation?.toLowerCase().includes('clean');
+
       if (punch) {
+        const hasIn = punch.inTime && punch.inTime !== '--:-- --';
+        const hasOut = punch.outTime && punch.outTime !== '--:-- --' && punch.outTime !== 'Pending';
+
+        // Management is 24x7 always Present
+        if (isManagement) {
+          return {
+            staffId: t.id,
+            name: t.name,
+            employeeId: t.employeeId || t.id,
+            department: t.department || 'Administration',
+            designation: t.designation || 'Principal',
+            inTime: punch.inTime || '07:30 AM',
+            outTime: punch.outTime !== 'Pending' ? punch.outTime : '03:00 PM',
+            workDuration: '8h 00m',
+            status: 'Present',
+            penalty: '0 Days',
+            remarks: '24x7 Management Duty (Present)'
+          };
+        }
+
+        // Single Punch Miss Rule -> Half-Day
+        if (hasIn && !hasOut) {
+          return {
+            staffId: t.id,
+            name: t.name,
+            employeeId: t.employeeId || t.id,
+            department: t.department || 'Academics',
+            designation: t.designation || 'Teacher',
+            inTime: punch.inTime,
+            outTime: 'Missed',
+            workDuration: '3h 30m',
+            status: 'Half-Day',
+            penalty: '0.5 Day',
+            remarks: 'Departure Punch Missed -> Auto Half-Day'
+          };
+        }
+
+        if (!hasIn && hasOut) {
+          return {
+            staffId: t.id,
+            name: t.name,
+            employeeId: t.employeeId || t.id,
+            department: t.department || 'Academics',
+            designation: t.designation || 'Teacher',
+            inTime: 'Missed',
+            outTime: punch.outTime,
+            workDuration: '3h 30m',
+            status: 'Half-Day',
+            penalty: '0.5 Day',
+            remarks: 'Arrival Punch Missed -> Auto Half-Day'
+          };
+        }
+
+        // Both Punches Present -> Check On-Time (<= 07:45 AM)
+        const isLate = punch.status === 'Late Arrival' || punch.inTime > '07:45';
         return {
           staffId: t.id,
           name: t.name,
           employeeId: t.employeeId || t.id,
           department: t.department || 'Academics',
           designation: t.designation || 'Teacher',
-          status: punch.status === 'Late Arrival' ? 'Late' : 'Present',
-          remarks: `Biometric In: ${punch.inTime} | Out: ${punch.outTime || 'Pending'} (${punch.verifyType})`
+          inTime: punch.inTime,
+          outTime: punch.outTime,
+          workDuration: '6h 35m',
+          status: isLate ? 'Late' : 'Present',
+          penalty: '0 Days',
+          remarks: isLate ? 'Late Arrival (Punched after 07:45 AM)' : `On-Time (${punch.verifyType})`
         };
       }
+
+      // Both Punches Missed -> ABSENT (2 Days Penalty) or LEAVE (1 Day Penalty)
       return {
         staffId: t.id,
         name: t.name,
         employeeId: t.employeeId || t.id,
         department: t.department || 'Academics',
         designation: t.designation || 'Teacher',
+        inTime: '--:-- --',
+        outTime: '--:-- --',
+        workDuration: '0h 00m',
         status: 'Absent',
-        remarks: 'No Biometric punch logged'
+        penalty: '2 Days Deduction',
+        remarks: 'Both Punches Missed -> Unapproved Absent (2 Days Cut)'
       };
     });
 
