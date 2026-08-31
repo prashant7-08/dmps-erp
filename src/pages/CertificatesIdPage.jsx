@@ -41,12 +41,22 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
   const teachers = schoolService.getTeachers();
   const schoolInfo = schoolService.getSchoolInfo();
 
+  const resolveSection = (sec) => {
+    if (!sec) return 'student_cards';
+    if (sec === 'card-id-template' || sec === 'id-template' || sec === 'templates') return 'templates';
+    if (sec === 'card-student-id' || sec === 'student-id' || sec === 'student_cards') return 'student_cards';
+    if (sec === 'card-employee-id' || sec === 'employee-id' || sec === 'employee_cards') return 'employee_cards';
+    if (sec === 'card-admit-template' || sec === 'admit-template' || sec === 'card-generate-admit' || sec === 'generate-admit' || sec === 'admit_cards') return 'admit_cards';
+    if (sec.startsWith('cert-') || sec.includes('certificate')) return 'certificates';
+    return sec;
+  };
+
   // Active Sub-Section: 'templates' | 'student_cards' | 'employee_cards' | 'admit_cards' | 'certificates'
-  const [activeSection, setActiveSection] = useState(initialSection || 'student_cards');
+  const [activeSection, setActiveSection] = useState(() => resolveSection(initialSection));
   
   useEffect(() => {
     if (initialSection) {
-      setActiveSection(initialSection);
+      setActiveSection(resolveSection(initialSection));
     }
   }, [initialSection]);
   
