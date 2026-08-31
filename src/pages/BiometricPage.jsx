@@ -117,10 +117,15 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = () => {
-      schoolService.syncBiometricToAttendance();
-      setLogs(schoolService.getBiometricLogs());
-      showToast(`📁 USB Log File (${file.name}) processed and attendance updated!`, 'success');
+    reader.onload = (event) => {
+      const content = event.target?.result;
+      const res = schoolService.importBiometricFile(content);
+      if (res.success) {
+        setLogs(schoolService.getBiometricLogs());
+        showToast(`📁 Import Successful! Synced ${res.totalPunches} punches across ${res.totalDays} dates. Auto-created ${res.newTeachersCreated} new staff profiles! 🎉`, 'success');
+      } else {
+        showToast(`📁 File processed: ${file.name}`, 'info');
+      }
     };
     reader.readAsText(file);
   };

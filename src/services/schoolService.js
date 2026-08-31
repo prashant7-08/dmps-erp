@@ -459,6 +459,123 @@ class SchoolService {
     return attendanceRecords;
   }
 
+  // Parse and import historical biometric logs (attlog.dat, CSV, TXT)
+  importBiometricFile(rawText) {
+    if (!rawText || !rawText.trim()) return { success: false, message: "File is empty" };
+
+    const lines = rawText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    let importedPunches = 0;
+    let newTeachersCreated = 0;
+    const parsedLogs = [];
+    const datesCovered = new Set();
+
+    lines.forEach(line => {
+      // Standard Secureye format: "101\t2026-04-10 08:32:15\t1\t0..." or space/comma separated
+      const tokens = line.split(/[\t, ]+/).filter(Boolean);
+      if (tokens.length >= 2) {
+        let empId = tokens[0].trim();
+        let dateStr = tokens[1].trim();
+        let timeStr = tokens[2] ? tokens[2].trim() : '08:30:00';
+
+        // Check if token1 is date and token2 is time
+        if (tokens[1].includes('-') || tokens[1].includes('/')) {
+          dateStr = tokens[1].replace(/\//g, '-');
+        }
+
+        if (dateStr.length >= 8) {
+          datesCovered.add(dateStr);
+          parsedLogs.push({
+            employeeId: empId,
+            date: dateStr,
+            time: timeStr
+          });
+        }
+      }
+    });
+
+    if (parsedLogs.length === 0) {
+      // If mock structure or json
+      try {
+        const json = JSON.parse(rawText);
+        if (Array.isArray(json.punches)) {
+          json.punches.forEach(p => {
+            parsedLogs.push({
+              employeeId: p.employeeId,
+              date: p.punchDate,
+              time: p.inTime
+            });
+            datesCovered.add(p.punchDate);
+          });
+        }
+      } catch (e) {}
+    }
+
+    // Auto-create missing teachers
+    const existingTeachers = this.getTeachers();
+    const uniqueEmpIds = [...new Set(parsedLogs.map(p => p.employeeId))];
+
+    uniqueEmpIds.forEach(empId => {
+      const exists = existingTeachers.find(t => t.employeeId === empId || t.id === empId || t.id === `TCH-${empId}`);
+      if (!exists) {
+        const newTeacher = {
+          id: `TCH-${empId}`,
+          employeeId: empId.startsWith('EMP') ? empId : `EMP-${empId}`,
+          name: `Staff Member #${empId}`,
+          designation: 'Faculty / Staff',
+          department: 'Academics',
+          phone: '9876543210',
+          email: `staff${empId}@dmps.edu.in`,
+          gender: 'Not Specified',
+          qualification: 'B.Ed / Graduate',
+          experience: '3+ Years',
+          status: 'Active',
+          branchId: 'BR-01'
+        };
+        this.data.teachers.push(newTeacher);
+        newTeachersCreated++;
+      }
+    });
+
+    // Populate historical attendance
+    datesCovered.forEach(d => {
+      const dayLogs = parsedLogs.filter(p => p.date === d);
+      const records = this.getTeachers().map(t => {
+        const userPunch = dayLogs.find(p => p.employeeId === t.employeeId || p.employeeId === t.id.replace('TCH-', ''));
+        if (userPunch) {
+          return {
+            staffId: t.id,
+            name: t.name,
+            employeeId: t.employeeId,
+            department: t.department,
+            designation: t.designation,
+            status: 'Present',
+            remarks: `Biometric In: ${userPunch.time}`
+          };
+        }
+        return {
+          staffId: t.id,
+          name: t.name,
+          employeeId: t.employeeId,
+          department: t.department,
+          designation: t.designation,
+          status: 'Absent',
+          remarks: 'No biometric punch'
+        };
+      });
+      this.markStaffAttendance(d, records);
+    });
+
+    this.saveData();
+
+    return {
+      success: true,
+      totalPunches: parsedLogs.length,
+      newTeachersCreated,
+      totalDays: datesCovered.size,
+      dates: Array.from(datesCovered)
+    };
+  }
+
   // Academics & Classes
   getClasses() {
     return this.data.classes || [];
