@@ -1,6 +1,6 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V4';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V5_REAL';
 
 class SchoolService {
   constructor() {
@@ -13,43 +13,7 @@ class SchoolService {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (parsed) {
-          // Always ensure branches are synced with the 3 authentic campuses
-          parsed.branches = JSON.parse(JSON.stringify(initialSchoolData.branches));
-          
-          if (Array.isArray(parsed.students)) {
-            // Update branchId on existing students and add missing seed students
-            initialSchoolData.students.forEach(seedStu => {
-              const existingIdx = parsed.students.findIndex(s => s.id === seedStu.id);
-              if (existingIdx !== -1) {
-                parsed.students[existingIdx].branchId = seedStu.branchId;
-                parsed.students[existingIdx].branchName = seedStu.branchName;
-              } else {
-                parsed.students.push(seedStu);
-              }
-            });
-          } else {
-            parsed.students = JSON.parse(JSON.stringify(initialSchoolData.students));
-          }
-
-          if (Array.isArray(parsed.teachers)) {
-            initialSchoolData.teachers.forEach(seedTch => {
-              const existingIdx = parsed.teachers.findIndex(t => t.id === seedTch.id);
-              if (existingIdx !== -1) {
-                parsed.teachers[existingIdx].branchId = seedTch.branchId;
-                parsed.teachers[existingIdx].branchName = seedTch.branchName;
-              } else {
-                parsed.teachers.push(seedTch);
-              }
-            });
-          } else {
-            parsed.teachers = JSON.parse(JSON.stringify(initialSchoolData.teachers));
-          }
-
-          if (!Array.isArray(parsed.feeInvoices) || parsed.feeInvoices.length < 5) {
-            parsed.feeInvoices = JSON.parse(JSON.stringify(initialSchoolData.feeInvoices));
-          }
-
+        if (parsed && Array.isArray(parsed.students) && parsed.students.length >= 100) {
           return parsed;
         }
       }
