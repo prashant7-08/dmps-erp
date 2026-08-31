@@ -1,6 +1,6 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V10_ALL_STOPS_ASSIGNED';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V11_REAL_PARENT_PHONES';
 
 class SchoolService {
   constructor() {

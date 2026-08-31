@@ -617,10 +617,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "Parent",
-            "motherName": "Mother",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "6396029548",
-            "address": "GOKULPUR, RAMGHAT"
+            "address": "GOKULPUR, RAMGHAT",
+            "fatherPhone": "+91 9758900000",
+            "motherPhone": "+91 9758900000",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -653,7 +656,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900000",
+        "fatherPhone": "+91 9758900000",
+        "fatherMobile": "+91 9758900000",
+        "mobile": "+91 9758900000",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-002",
@@ -671,10 +680,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HITESH KUMAR",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9719628771",
-            "address": "NAGLA VIDHI, JARGWAN (B.S.R)"
+            "address": "NAGLA VIDHI, JARGWAN (B.S.R)",
+            "fatherPhone": "+91 9758900001",
+            "motherPhone": "+91 9758900001",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -694,23 +706,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 29500,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 52000,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 52000,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-047",
-                    "name": "NITISH KUMAR",
-                    "class": "VIII",
-                    "admissionNo": "196",
-                    "tuitionDue": 17000,
-                    "transportDue11Months": 5500,
-                    "individualDue": 22500,
-                    "individualPaid": 0,
-                    "individualBalance": 22500
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -719,7 +719,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900001",
+        "fatherPhone": "+91 9758900001",
+        "fatherMobile": "+91 9758900001",
+        "mobile": "+91 9758900001",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-003",
@@ -740,7 +746,10 @@ export const initialSchoolData = {
             "fatherName": "MANOJ KUMAR",
             "motherName": "LAXMI",
             "fatherMobile": "9761089039",
-            "address": "KANAKPUR"
+            "address": "KANAKPUR",
+            "fatherPhone": "+91 9761089039",
+            "motherPhone": "+91 9761089039",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -760,23 +769,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 29500,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 54750,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 54750,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-045",
-                    "name": "NIDHI",
-                    "class": "VIII",
-                    "admissionNo": "193",
-                    "tuitionDue": 17000,
-                    "transportDue11Months": 8250,
-                    "individualDue": 25250,
-                    "individualPaid": 0,
-                    "individualBalance": 25250
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -785,7 +782,13 @@ export const initialSchoolData = {
             "stop": "KANAKPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9761089039",
+        "fatherPhone": "+91 9761089039",
+        "fatherMobile": "+91 9761089039",
+        "mobile": "+91 9761089039",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "LAXMI"
     },
     {
         "id": "STU-2026-004",
@@ -806,7 +809,10 @@ export const initialSchoolData = {
             "fatherName": "SURENDRA SINGH",
             "motherName": "KAMLESH",
             "fatherMobile": "9758882443",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9758882443",
+            "motherPhone": "+91 9758882443",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -839,7 +845,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758882443",
+        "fatherPhone": "+91 9758882443",
+        "fatherMobile": "+91 9758882443",
+        "mobile": "+91 9758882443",
+        "fatherName": "SURENDRA SINGH",
+        "motherName": "KAMLESH"
     },
     {
         "id": "STU-2026-005",
@@ -860,7 +872,10 @@ export const initialSchoolData = {
             "fatherName": "BHURE KHAN",
             "motherName": "NAZMA BEGAM",
             "fatherMobile": "9675652016",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9548255028",
+            "motherPhone": "+91 9675652016",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -893,7 +908,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9548255028",
+        "fatherPhone": "+91 9548255028",
+        "fatherMobile": "+91 9548255028",
+        "mobile": "+91 9548255028",
+        "fatherName": "BHURE KHAN",
+        "motherName": "NAZMA BEGAM"
     },
     {
         "id": "STU-2026-006",
@@ -914,7 +935,10 @@ export const initialSchoolData = {
             "fatherName": "DINESH KUMAR",
             "motherName": "JHHANKA DEVI",
             "fatherMobile": "9720002824",
-            "address": "BAIJALA KOTHI"
+            "address": "BAIJALA KOTHI",
+            "fatherPhone": "+91 9720002824",
+            "motherPhone": "+91 9720002824",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -947,7 +971,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9720002824",
+        "fatherPhone": "+91 9720002824",
+        "fatherMobile": "+91 9720002824",
+        "mobile": "+91 9720002824",
+        "fatherName": "DINESH KUMAR",
+        "motherName": "JHHANKA DEVI"
     },
     {
         "id": "STU-2026-007",
@@ -968,7 +998,10 @@ export const initialSchoolData = {
             "fatherName": "SANJAY KUMAR",
             "motherName": "VEENA",
             "fatherMobile": "6395011712",
-            "address": "MOUNIPURA Urf RAMVAS"
+            "address": "MOUNIPURA Urf RAMVAS",
+            "fatherPhone": "+91 6395011712",
+            "motherPhone": "+91 6395011712",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -988,23 +1021,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 31700,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 56000,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 56000,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-118",
-                    "name": "SAHIL KUMAR",
-                    "class": "V",
-                    "admissionNo": "319",
-                    "tuitionDue": 15500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 24300,
-                    "individualPaid": 0,
-                    "individualBalance": 24300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -1013,7 +1034,13 @@ export const initialSchoolData = {
             "stop": "MOUNIPURA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 6395011712",
+        "fatherPhone": "+91 6395011712",
+        "fatherMobile": "+91 6395011712",
+        "mobile": "+91 6395011712",
+        "fatherName": "SANJAY KUMAR",
+        "motherName": "VEENA"
     },
     {
         "id": "STU-2026-008",
@@ -1034,7 +1061,10 @@ export const initialSchoolData = {
             "fatherName": "RAJESH KUMAR",
             "motherName": "MITHLESH DEVI",
             "fatherMobile": "9758143201",
-            "address": "MUDAKHERA"
+            "address": "MUDAKHERA",
+            "fatherPhone": "+91 9758143201",
+            "motherPhone": "+91 9758143201",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1067,7 +1097,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758143201",
+        "fatherPhone": "+91 9758143201",
+        "fatherMobile": "+91 9758143201",
+        "mobile": "+91 9758143201",
+        "fatherName": "RAJESH KUMAR",
+        "motherName": "MITHLESH DEVI"
     },
     {
         "id": "STU-2026-009",
@@ -1088,7 +1124,10 @@ export const initialSchoolData = {
             "fatherName": "OMPAL SINGH",
             "motherName": "SUMITRA",
             "fatherMobile": "7668249844",
-            "address": "MUHAMMADPUR BADHAIRA"
+            "address": "MUHAMMADPUR BADHAIRA",
+            "fatherPhone": "+91 9719269114",
+            "motherPhone": "+91 7668249844",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1121,7 +1160,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9719269114",
+        "fatherPhone": "+91 9719269114",
+        "fatherMobile": "+91 9719269114",
+        "mobile": "+91 9719269114",
+        "fatherName": "OMPAL SINGH",
+        "motherName": "SUMITRA"
     },
     {
         "id": "STU-2026-010",
@@ -1139,10 +1184,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AMAR SINGH",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9719225225",
-            "address": "NAGLA DHARAKPUR, DHARAKPUR"
+            "address": "NAGLA DHARAKPUR, DHARAKPUR",
+            "fatherPhone": "+91 9758900009",
+            "motherPhone": "+91 9758900009",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1162,34 +1210,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 29250,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 76750,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 76750,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-097",
-                    "name": "CHHAYA RAJPUT",
-                    "class": "V",
-                    "admissionNo": "291",
-                    "tuitionDue": 15500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 23750,
-                    "individualPaid": 0,
-                    "individualBalance": 23750
-                },
-                {
-                    "id": "STU-2026-125",
-                    "name": "TARUN KUMAR",
-                    "class": "V",
-                    "admissionNo": "327",
-                    "tuitionDue": 15500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 23750,
-                    "individualPaid": 0,
-                    "individualBalance": 23750
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -1198,7 +1223,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900009",
+        "fatherPhone": "+91 9758900009",
+        "fatherMobile": "+91 9758900009",
+        "mobile": "+91 9758900009",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-011",
@@ -1219,7 +1250,10 @@ export const initialSchoolData = {
             "fatherName": "KANHAIYALAL",
             "motherName": "VIMLESH DEVI",
             "fatherMobile": "9557195022",
-            "address": "MUHAMMADPUR"
+            "address": "MUHAMMADPUR",
+            "fatherPhone": "+91 9528285732",
+            "motherPhone": "+91 9557195022",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1252,7 +1286,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9528285732",
+        "fatherPhone": "+91 9528285732",
+        "fatherMobile": "+91 9528285732",
+        "mobile": "+91 9528285732",
+        "fatherName": "KANHAIYALAL",
+        "motherName": "VIMLESH DEVI"
     },
     {
         "id": "STU-2026-012",
@@ -1273,7 +1313,10 @@ export const initialSchoolData = {
             "fatherName": "DEVESH KUMAR",
             "motherName": "MEENESH DEVI",
             "fatherMobile": "9012982367",
-            "address": "GANGA GARH"
+            "address": "GANGA GARH",
+            "fatherPhone": "+91 8057001707",
+            "motherPhone": "+91 9012982367",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1293,23 +1336,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 24850,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 50150,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 50150,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-075",
-                    "name": "UMA",
-                    "class": "VII",
-                    "admissionNo": "252",
-                    "tuitionDue": 16500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 25300,
-                    "individualPaid": 0,
-                    "individualBalance": 25300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -1318,7 +1349,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8057001707",
+        "fatherPhone": "+91 8057001707",
+        "fatherMobile": "+91 8057001707",
+        "mobile": "+91 8057001707",
+        "fatherName": "DEVESH KUMAR",
+        "motherName": "MEENESH DEVI"
     },
     {
         "id": "STU-2026-013",
@@ -1339,7 +1376,10 @@ export const initialSchoolData = {
             "fatherName": "ANIL TOMAR",
             "motherName": "POONAM DEVI",
             "fatherMobile": "9627228630",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 7505158052",
+            "motherPhone": "+91 9627228630",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1372,7 +1412,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 7505158052",
+        "fatherPhone": "+91 7505158052",
+        "fatherMobile": "+91 7505158052",
+        "mobile": "+91 7505158052",
+        "fatherName": "ANIL TOMAR",
+        "motherName": "POONAM DEVI"
     },
     {
         "id": "STU-2026-014",
@@ -1393,7 +1439,10 @@ export const initialSchoolData = {
             "fatherName": "JAYPAL SINGH",
             "motherName": "MEENA KUMARI",
             "fatherMobile": "9911665281",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9258459987",
+            "motherPhone": "+91 9911665281",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1426,7 +1475,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9258459987",
+        "fatherPhone": "+91 9258459987",
+        "fatherMobile": "+91 9258459987",
+        "mobile": "+91 9258459987",
+        "fatherName": "JAYPAL SINGH",
+        "motherName": "MEENA KUMARI"
     },
     {
         "id": "STU-2026-015",
@@ -1447,7 +1502,10 @@ export const initialSchoolData = {
             "fatherName": "AVDHESH KUMAR",
             "motherName": "REKHA",
             "fatherMobile": "7906570499",
-            "address": "HARVANSHPUR JIROULI DHOOM SINGH ALIGARH"
+            "address": "HARVANSHPUR JIROULI DHOOM SINGH ALIGARH",
+            "fatherPhone": "+91 522808879",
+            "motherPhone": "+91 7906570499",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1480,7 +1538,13 @@ export const initialSchoolData = {
             "stop": "JIROULI",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 522808879",
+        "fatherPhone": "+91 522808879",
+        "fatherMobile": "+91 522808879",
+        "mobile": "+91 522808879",
+        "fatherName": "AVDHESH KUMAR",
+        "motherName": "REKHA"
     },
     {
         "id": "STU-2026-016",
@@ -1501,7 +1565,10 @@ export const initialSchoolData = {
             "fatherName": "RAJESH KUMAR",
             "motherName": "SAROJ DEVI",
             "fatherMobile": "9719492498",
-            "address": "MOUNIPURA RAMGHAT"
+            "address": "MOUNIPURA RAMGHAT",
+            "fatherPhone": "+91 9719477271",
+            "motherPhone": "+91 9719492498",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1534,7 +1601,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9719477271",
+        "fatherPhone": "+91 9719477271",
+        "fatherMobile": "+91 9719477271",
+        "mobile": "+91 9719477271",
+        "fatherName": "RAJESH KUMAR",
+        "motherName": "SAROJ DEVI"
     },
     {
         "id": "STU-2026-017",
@@ -1552,10 +1625,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "CHARAN SINGH",
-            "motherName": "KESHVATI DEVI",
+            "fatherName": "REVADI SINGH",
+            "motherName": "SONI",
             "fatherMobile": "9027660846",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9761768321",
+            "motherPhone": "+91 9761768321",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1588,7 +1664,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9761768321",
+        "fatherPhone": "+91 9761768321",
+        "fatherMobile": "+91 9761768321",
+        "mobile": "+91 9761768321",
+        "fatherName": "REVADI SINGH",
+        "motherName": "SONI"
     },
     {
         "id": "STU-2026-018",
@@ -1606,10 +1688,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMBABU",
-            "motherName": "RANI DEVI",
+            "fatherName": "CHARAN SINGH",
+            "motherName": "KESHVATI DEVI",
             "fatherMobile": "6395604285",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9536221981",
+            "motherPhone": "+91 9027660846",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1642,7 +1727,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9536221981",
+        "fatherPhone": "+91 9536221981",
+        "fatherMobile": "+91 9536221981",
+        "mobile": "+91 9536221981",
+        "fatherName": "CHARAN SINGH",
+        "motherName": "KESHVATI DEVI"
     },
     {
         "id": "STU-2026-019",
@@ -1660,10 +1751,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJESHWAR SINGH",
-            "motherName": "BRIJESH DEVI",
+            "fatherName": "RAMBABU",
+            "motherName": "RANI DEVI",
             "fatherMobile": "8650200571",
-            "address": "CHIROURI"
+            "address": "CHIROURI",
+            "fatherPhone": "+91 9389530670",
+            "motherPhone": "+91 6395604285",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1683,23 +1777,11 @@ export const initialSchoolData = {
             "totalPaid": 10000.0,
             "balance": 19250.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 54000,
-            "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 34000.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-057",
-                    "name": "ANURAG",
-                    "class": "VII",
-                    "admissionNo": "217",
-                    "tuitionDue": 16500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 24750,
-                    "individualPaid": 10000.0,
-                    "individualBalance": 14750.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -1708,7 +1790,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9389530670",
+        "fatherPhone": "+91 9389530670",
+        "fatherMobile": "+91 9389530670",
+        "mobile": "+91 9389530670",
+        "fatherName": "RAMBABU",
+        "motherName": "RANI DEVI"
     },
     {
         "id": "STU-2026-020",
@@ -1726,10 +1814,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARPAL SINGH",
-            "motherName": "KAMLESH",
+            "fatherName": "RAJESHWAR SINGH",
+            "motherName": "BRIJESH DEVI",
             "fatherMobile": "9761862338",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 7037345114",
+            "motherPhone": "+91 8650200571",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1762,7 +1853,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 7037345114",
+        "fatherPhone": "+91 7037345114",
+        "fatherMobile": "+91 7037345114",
+        "mobile": "+91 7037345114",
+        "fatherName": "RAJESHWAR SINGH",
+        "motherName": "BRIJESH DEVI"
     },
     {
         "id": "STU-2026-021",
@@ -1780,10 +1877,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHRIPAL SINGH",
-            "motherName": "MEENA DEVI",
+            "fatherName": "HARPAL SINGH",
+            "motherName": "KAMLESH",
             "fatherMobile": "8395078179",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 7060800275",
+            "motherPhone": "+91 9761862338",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1816,7 +1916,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7060800275",
+        "fatherPhone": "+91 7060800275",
+        "fatherMobile": "+91 7060800275",
+        "mobile": "+91 7060800275",
+        "fatherName": "HARPAL SINGH",
+        "motherName": "KAMLESH"
     },
     {
         "id": "STU-2026-022",
@@ -1834,10 +1940,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHIVSHANKAR",
-            "motherName": "KALAVATI",
+            "fatherName": "SHRIPAL SINGH",
+            "motherName": "MEENA DEVI",
             "fatherMobile": "9536402620",
-            "address": "NAGLA SHUMALI BULANDSHAHR"
+            "address": "NAGLA SHUMALI BULANDSHAHR",
+            "fatherPhone": "+91 8869872067",
+            "motherPhone": "+91 8395078179",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1870,7 +1979,13 @@ export const initialSchoolData = {
             "stop": "NAGLA SHUMALI",
             "monthlyFare": 410,
             "annualTransportDue11Months": 4510
-        }
+        },
+        "phone": "+91 8869872067",
+        "fatherPhone": "+91 8869872067",
+        "fatherMobile": "+91 8869872067",
+        "mobile": "+91 8869872067",
+        "fatherName": "SHRIPAL SINGH",
+        "motherName": "MEENA DEVI"
     },
     {
         "id": "STU-2026-023",
@@ -1888,10 +2003,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KALIYAN SINGH",
-            "motherName": "PUSHPA DEVI",
+            "fatherName": "SHIVSHANKAR",
+            "motherName": "KALAVATI",
             "fatherMobile": "9627117495",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 7983438183",
+            "motherPhone": "+91 9536402620",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1924,7 +2042,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7983438183",
+        "fatherPhone": "+91 7983438183",
+        "fatherMobile": "+91 7983438183",
+        "mobile": "+91 7983438183",
+        "fatherName": "SHIVSHANKAR",
+        "motherName": "KALAVATI"
     },
     {
         "id": "STU-2026-024",
@@ -1945,7 +2069,10 @@ export const initialSchoolData = {
             "fatherName": "RAKESH KUMAR",
             "motherName": "NEERU VERMA",
             "fatherMobile": "9627722404",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 9627722404",
+            "motherPhone": "+91 9627722404",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -1966,21 +2093,10 @@ export const initialSchoolData = {
             "balance": 25000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 61000,
+            "consolidatedFamilyDue": 42000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 61000,
+            "consolidatedFamilyBalance": 42000,
             "familySiblings": [
-                {
-                    "id": "STU-2026-246",
-                    "name": "DAMINI LODHI",
-                    "class": "I",
-                    "admissionNo": "495",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 19000,
-                    "individualPaid": 0,
-                    "individualBalance": 19000
-                },
                 {
                     "id": "STU-2026-341",
                     "name": "YUVRAJ KUMAR LODHI",
@@ -2001,7 +2117,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9627722404",
+        "fatherPhone": "+91 9627722404",
+        "fatherMobile": "+91 9627722404",
+        "mobile": "+91 9627722404",
+        "fatherName": "RAKESH KUMAR",
+        "motherName": "NEERU VERMA"
     },
     {
         "id": "STU-2026-025",
@@ -2019,10 +2141,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGENDRA KUMAR",
-            "motherName": "DEEPIKA AGRAWAL",
+            "fatherName": "KALIYAN SINGH",
+            "motherName": "PUSHPA DEVI",
             "fatherMobile": "9027732734",
-            "address": "JARGAWAN"
+            "address": "JARGAWAN",
+            "fatherPhone": "+91 9627117495",
+            "motherPhone": "+91 9627117495",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2055,7 +2180,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9627117495",
+        "fatherPhone": "+91 9627117495",
+        "fatherMobile": "+91 9627117495",
+        "mobile": "+91 9627117495",
+        "fatherName": "KALIYAN SINGH",
+        "motherName": "PUSHPA DEVI"
     },
     {
         "id": "STU-2026-026",
@@ -2073,10 +2204,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJ KUMAR",
-            "motherName": "VIJAY DEVI",
+            "fatherName": "RAKESH KUMAR",
+            "motherName": "NEERU VERMA",
             "fatherMobile": "9536833650",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 9627722404",
+            "motherPhone": "+91 9627722404",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2109,7 +2243,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9627722404",
+        "fatherPhone": "+91 9627722404",
+        "fatherMobile": "+91 9627722404",
+        "mobile": "+91 9627722404",
+        "fatherName": "RAKESH KUMAR",
+        "motherName": "NEERU VERMA"
     },
     {
         "id": "STU-2026-027",
@@ -2127,10 +2267,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARENDRA KUMAR",
-            "motherName": "CHANCHAL DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8239322413",
-            "address": "NAGLA DHARAKPUR, DHARAKPUR"
+            "address": "NAGLA DHARAKPUR, DHARAKPUR",
+            "fatherPhone": "+91 9758900026",
+            "motherPhone": "+91 9758900026",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2163,7 +2306,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900026",
+        "fatherPhone": "+91 9758900026",
+        "fatherMobile": "+91 9758900026",
+        "mobile": "+91 9758900026",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-028",
@@ -2184,7 +2333,10 @@ export const initialSchoolData = {
             "fatherName": "JAGDISH AGRAWAL",
             "motherName": "AKHLESH AGRAWAL",
             "fatherMobile": "8377933435",
-            "address": "VILL+POST- JARGWAN"
+            "address": "VILL+POST- JARGWAN",
+            "fatherPhone": "+91 8377933435",
+            "motherPhone": "+91 8377933435",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2217,7 +2369,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8377933435",
+        "fatherPhone": "+91 8377933435",
+        "fatherMobile": "+91 8377933435",
+        "mobile": "+91 8377933435",
+        "fatherName": "JAGDISH AGRAWAL",
+        "motherName": "AKHLESH AGRAWAL"
     },
     {
         "id": "STU-2026-029",
@@ -2238,7 +2396,10 @@ export const initialSchoolData = {
             "fatherName": "HARGOVIND",
             "motherName": "RAJESH DEVI",
             "fatherMobile": "9761205726",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9675652080",
+            "motherPhone": "+91 9761205726",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2271,7 +2432,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675652080",
+        "fatherPhone": "+91 9675652080",
+        "fatherMobile": "+91 9675652080",
+        "mobile": "+91 9675652080",
+        "fatherName": "HARGOVIND",
+        "motherName": "RAJESH DEVI"
     },
     {
         "id": "STU-2026-030",
@@ -2292,7 +2459,10 @@ export const initialSchoolData = {
             "fatherName": "RATIRAM",
             "motherName": "SOUNKALI DEVI",
             "fatherMobile": "9761205726",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9761205726",
+            "motherPhone": "+91 9761205726",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2325,7 +2495,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9761205726",
+        "fatherPhone": "+91 9761205726",
+        "fatherMobile": "+91 9761205726",
+        "mobile": "+91 9761205726",
+        "fatherName": "RATIRAM",
+        "motherName": "SOUNKALI DEVI"
     },
     {
         "id": "STU-2026-031",
@@ -2343,10 +2519,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANOJ KUMAR",
-            "motherName": "ANITA DEVI",
+            "fatherName": "YOGENDRA KUMAR",
+            "motherName": "DEEPIKA AGRAWAL",
             "fatherMobile": "8650741987",
-            "address": "NAGLA KOTHI"
+            "address": "NAGLA KOTHI",
+            "fatherPhone": "+91 9027732734",
+            "motherPhone": "+91 9027732734",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2379,7 +2558,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9027732734",
+        "fatherPhone": "+91 9027732734",
+        "fatherMobile": "+91 9027732734",
+        "mobile": "+91 9027732734",
+        "fatherName": "YOGENDRA KUMAR",
+        "motherName": "DEEPIKA AGRAWAL"
     },
     {
         "id": "STU-2026-032",
@@ -2397,10 +2582,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KISHOR KUMAR",
-            "motherName": "MANJU DEVI",
+            "fatherName": "RAJ KUMAR",
+            "motherName": "VIJAY DEVI",
             "fatherMobile": "9627340293",
-            "address": "NAGLA KOTHI"
+            "address": "NAGLA KOTHI",
+            "fatherPhone": "+91 9720493362",
+            "motherPhone": "+91 9536833650",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2433,7 +2621,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9720493362",
+        "fatherPhone": "+91 9720493362",
+        "fatherMobile": "+91 9720493362",
+        "mobile": "+91 9720493362",
+        "fatherName": "RAJ KUMAR",
+        "motherName": "VIJAY DEVI"
     },
     {
         "id": "STU-2026-033",
@@ -2451,10 +2645,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JAY PAL SINGH",
-            "motherName": "MEENA KUMARI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9411873211",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9758900032",
+            "motherPhone": "+91 9758900032",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2487,7 +2684,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900032",
+        "fatherPhone": "+91 9758900032",
+        "fatherMobile": "+91 9758900032",
+        "mobile": "+91 9758900032",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-034",
@@ -2508,7 +2711,10 @@ export const initialSchoolData = {
             "fatherName": "SANJAY KUMAR",
             "motherName": "NIRMALA DEVI",
             "fatherMobile": "9719225317",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 9719225317",
+            "motherPhone": "+91 9719225317",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2528,23 +2734,11 @@ export const initialSchoolData = {
             "totalPaid": 2500.0,
             "balance": 22500.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 47000,
-            "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 42000.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-063",
-                    "name": "MAYANK RAJ VERMA",
-                    "class": "VII",
-                    "admissionNo": "231",
-                    "tuitionDue": 16500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 22000,
-                    "individualPaid": 2500.0,
-                    "individualBalance": 19500.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -2553,7 +2747,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9719225317",
+        "fatherPhone": "+91 9719225317",
+        "fatherMobile": "+91 9719225317",
+        "mobile": "+91 9719225317",
+        "fatherName": "SANJAY KUMAR",
+        "motherName": "NIRMALA DEVI"
     },
     {
         "id": "STU-2026-035",
@@ -2571,10 +2771,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SUBODH KUMAR",
-            "motherName": "KUSUM DEVI",
+            "fatherName": "JAGDISH AGRAWAL",
+            "motherName": "AKHLESH AGRAWAL",
             "fatherMobile": "8954486104",
-            "address": "NAGLA KOTHI"
+            "address": "NAGLA KOTHI",
+            "fatherPhone": "+91 8377933435",
+            "motherPhone": "+91 8377933435",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2594,23 +2797,11 @@ export const initialSchoolData = {
             "totalPaid": 2500.0,
             "balance": 20850.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 43700,
-            "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 38700.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-069",
-                    "name": "RISHITA",
-                    "class": "VII",
-                    "admissionNo": "241",
-                    "tuitionDue": 16500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 20350,
-                    "individualPaid": 2500.0,
-                    "individualBalance": 17850.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -2619,7 +2810,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8377933435",
+        "fatherPhone": "+91 8377933435",
+        "fatherMobile": "+91 8377933435",
+        "mobile": "+91 8377933435",
+        "fatherName": "JAGDISH AGRAWAL",
+        "motherName": "AKHLESH AGRAWAL"
     },
     {
         "id": "STU-2026-036",
@@ -2637,10 +2834,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGENDRA KUMAR",
-            "motherName": "RAJNI",
+            "fatherName": "HARGOVIND",
+            "motherName": "RAJESH DEVI",
             "fatherMobile": "8077004978",
-            "address": "KHEDIYA BAHADURGARI, ATRAULI"
+            "address": "KHEDIYA BAHADURGARI, ATRAULI",
+            "fatherPhone": "+91 9675652080",
+            "motherPhone": "+91 9761205726",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2673,7 +2873,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675652080",
+        "fatherPhone": "+91 9675652080",
+        "fatherMobile": "+91 9675652080",
+        "mobile": "+91 9675652080",
+        "fatherName": "HARGOVIND",
+        "motherName": "RAJESH DEVI"
     },
     {
         "id": "STU-2026-037",
@@ -2691,10 +2897,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "CHANDRAKESH",
-            "motherName": "HEERA DEVI",
+            "fatherName": "RATIRAM",
+            "motherName": "SOUNKALI DEVI",
             "fatherMobile": "9990879163",
-            "address": "NAGLA KOTHI"
+            "address": "NAGLA KOTHI",
+            "fatherPhone": "+91 9761205726",
+            "motherPhone": "+91 9761205726",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2727,7 +2936,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9761205726",
+        "fatherPhone": "+91 9761205726",
+        "fatherMobile": "+91 9761205726",
+        "mobile": "+91 9761205726",
+        "fatherName": "RATIRAM",
+        "motherName": "SOUNKALI DEVI"
     },
     {
         "id": "STU-2026-038",
@@ -2745,10 +2960,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "TEEKAM SINGH",
-            "motherName": "SAPANA DEVI",
+            "fatherName": "ASHOK KUMAR",
+            "motherName": "RINKI KUMARI",
             "fatherMobile": "8650515336",
-            "address": "DHARAKPUR"
+            "address": "DHARAKPUR",
+            "fatherPhone": "+91 8954102860",
+            "motherPhone": "+91 8954102860",
+            "occupation": "LABOUR"
         },
         "customFields": {
             "penNo": "",
@@ -2781,7 +2999,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8954102860",
+        "fatherPhone": "+91 8954102860",
+        "fatherMobile": "+91 8954102860",
+        "mobile": "+91 8954102860",
+        "fatherName": "ASHOK KUMAR",
+        "motherName": "RINKI KUMARI"
     },
     {
         "id": "STU-2026-039",
@@ -2802,7 +3026,10 @@ export const initialSchoolData = {
             "fatherName": "JAYPAL SINGH",
             "motherName": "SUMAN DEVI",
             "fatherMobile": "7505351193",
-            "address": "CHIROURI"
+            "address": "CHIROURI",
+            "fatherPhone": "+91 9728918721",
+            "motherPhone": "+91 7505351193",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2835,7 +3062,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9728918721",
+        "fatherPhone": "+91 9728918721",
+        "fatherMobile": "+91 9728918721",
+        "mobile": "+91 9728918721",
+        "fatherName": "JAYPAL SINGH",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-040",
@@ -2853,10 +3086,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PUNEET KUMAR",
-            "motherName": "VIMLESH DEVI",
+            "fatherName": "MANOJ KUMAR",
+            "motherName": "ANITA DEVI",
             "fatherMobile": "6397614402",
-            "address": "BAIJALA, JIROULI DHOOM SINGH, ATRAULI"
+            "address": "BAIJALA, JIROULI DHOOM SINGH, ATRAULI",
+            "fatherPhone": "+91 8650741987",
+            "motherPhone": "+91 8650741987",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2889,7 +3125,13 @@ export const initialSchoolData = {
             "stop": "JIROULI",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 8650741987",
+        "fatherPhone": "+91 8650741987",
+        "fatherMobile": "+91 8650741987",
+        "mobile": "+91 8650741987",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "ANITA DEVI"
     },
     {
         "id": "STU-2026-041",
@@ -2907,10 +3149,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAURAV KAUSHIK",
-            "motherName": "ARTI KAUSHIK",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9783856611",
-            "address": "BAGI NAGLA , RAMGHAT"
+            "address": "BAGI NAGLA , RAMGHAT",
+            "fatherPhone": "+91 9758900040",
+            "motherPhone": "+91 9758900040",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2943,7 +3188,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900040",
+        "fatherPhone": "+91 9758900040",
+        "fatherMobile": "+91 9758900040",
+        "mobile": "+91 9758900040",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-042",
@@ -2961,10 +3212,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ABHIJEET SINGH",
-            "motherName": "NARAYANI DEVI",
+            "fatherName": "KISHOR KUMAR",
+            "motherName": "MANJU DEVI",
             "fatherMobile": "7900443809",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9520755383",
+            "motherPhone": "+91 9627340293",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -2997,7 +3251,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9520755383",
+        "fatherPhone": "+91 9520755383",
+        "fatherMobile": "+91 9520755383",
+        "mobile": "+91 9520755383",
+        "fatherName": "KISHOR KUMAR",
+        "motherName": "MANJU DEVI"
     },
     {
         "id": "STU-2026-043",
@@ -3018,7 +3278,10 @@ export const initialSchoolData = {
             "fatherName": "SHASHIKANT",
             "motherName": "NEERAJ",
             "fatherMobile": "9627990924",
-            "address": "MAHARAJPUR"
+            "address": "MAHARAJPUR",
+            "fatherPhone": "+91 7253015262",
+            "motherPhone": "+91 9627990924",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3051,7 +3314,13 @@ export const initialSchoolData = {
             "stop": "MAHARAJPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7253015262",
+        "fatherPhone": "+91 7253015262",
+        "fatherMobile": "+91 7253015262",
+        "mobile": "+91 7253015262",
+        "fatherName": "SHASHIKANT",
+        "motherName": "NEERAJ"
     },
     {
         "id": "STU-2026-044",
@@ -3069,10 +3338,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJVEER SINGH",
-            "motherName": "GAYATRI DEVI",
+            "fatherName": "JAY PAL SINGH",
+            "motherName": "MEENA KUMARI",
             "fatherMobile": "9759755011",
-            "address": "BAIJALA, ATRAULI"
+            "address": "BAIJALA, ATRAULI",
+            "fatherPhone": "+91 7668249848",
+            "motherPhone": "+91 9411873211",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3092,34 +3364,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 23050,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 65650,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 65650,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-061",
-                    "name": "MANSI YADAV",
-                    "class": "VII",
-                    "admissionNo": "228",
-                    "tuitionDue": 16500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 22550,
-                    "individualPaid": 0,
-                    "individualBalance": 22550
-                },
-                {
-                    "id": "STU-2026-213",
-                    "name": "ANMOL YADAV",
-                    "class": "II",
-                    "admissionNo": "443",
-                    "tuitionDue": 14000,
-                    "transportDue11Months": 6050,
-                    "individualDue": 20050,
-                    "individualPaid": 0,
-                    "individualBalance": 20050
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -3128,7 +3377,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 7668249848",
+        "fatherPhone": "+91 7668249848",
+        "fatherMobile": "+91 7668249848",
+        "mobile": "+91 7668249848",
+        "fatherName": "JAY PAL SINGH",
+        "motherName": "MEENA KUMARI"
     },
     {
         "id": "STU-2026-045",
@@ -3146,10 +3401,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANOJ KUMAR",
-            "motherName": "LAXMI DEVI",
+            "fatherName": "DHAMENDRA KUMAR",
+            "motherName": "SUMIT",
             "fatherMobile": "9761089039",
-            "address": "KANAKPUR, LOHGARH"
+            "address": "KANAKPUR, LOHGARH",
+            "fatherPhone": "+91 7668306277",
+            "motherPhone": "+91 9761845736",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3173,14 +3431,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-003",
-                "name": "PRIYANSHU KUMAR",
-                "class": "XI",
-                "admissionNo": "121",
-                "fatherPhone": "9761089039"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -3189,7 +3440,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7668306277",
+        "fatherPhone": "+91 7668306277",
+        "fatherMobile": "+91 7668306277",
+        "mobile": "+91 7668306277",
+        "fatherName": "DHAMENDRA KUMAR",
+        "motherName": "SUMIT"
     },
     {
         "id": "STU-2026-046",
@@ -3207,10 +3464,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "OMPRAKASH SINGH",
-            "motherName": "REKHA DEVI",
+            "fatherName": "SANJAY KUMAR",
+            "motherName": "NIRMALA DEVI",
             "fatherMobile": "7409676908",
-            "address": "NOJALPUR BANGAR, RAMGHAT"
+            "address": "NOJALPUR BANGAR, RAMGHAT",
+            "fatherPhone": "+91 9719225317",
+            "motherPhone": "+91 9719225317",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3243,7 +3503,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9719225317",
+        "fatherPhone": "+91 9719225317",
+        "fatherMobile": "+91 9719225317",
+        "mobile": "+91 9719225317",
+        "fatherName": "SANJAY KUMAR",
+        "motherName": "NIRMALA DEVI"
     },
     {
         "id": "STU-2026-047",
@@ -3261,10 +3527,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HITESH KUMAR",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "SUBODH KUMAR",
+            "motherName": "KUSUM DEVI",
             "fatherMobile": "9719628771",
-            "address": "NAGLA VIDHI"
+            "address": "NAGLA VIDHI",
+            "fatherPhone": "+91 9675889195",
+            "motherPhone": "+91 8954486104",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3288,14 +3557,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-002",
-                "name": "KM. NIDHI",
-                "class": "XI",
-                "admissionNo": "120",
-                "fatherPhone": "9719628771"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -3304,7 +3566,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9675889195",
+        "fatherPhone": "+91 9675889195",
+        "fatherMobile": "+91 9675889195",
+        "mobile": "+91 9675889195",
+        "fatherName": "SUBODH KUMAR",
+        "motherName": "KUSUM DEVI"
     },
     {
         "id": "STU-2026-048",
@@ -3322,10 +3590,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMESH CHANDRA",
-            "motherName": "GEETA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9780410371",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9758900047",
+            "motherPhone": "+91 9758900047",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3370,7 +3641,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900047",
+        "fatherPhone": "+91 9758900047",
+        "fatherMobile": "+91 9758900047",
+        "mobile": "+91 9758900047",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-049",
@@ -3391,7 +3668,10 @@ export const initialSchoolData = {
             "fatherName": "ANSHUL KUMAR",
             "motherName": "POOJA DEVI",
             "fatherMobile": "9457076490",
-            "address": "SILHARI RAMGHAT"
+            "address": "SILHARI RAMGHAT",
+            "fatherPhone": "+91 9457076490",
+            "motherPhone": "+91 9457076490",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3411,34 +3691,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 20800.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 70900,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 60900.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-396",
-                    "name": "RIYANSHI GAUTAM",
-                    "class": "IV",
-                    "admissionNo": "743",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 8800,
-                    "individualDue": 23800,
-                    "individualPaid": 2500.0,
-                    "individualBalance": 21300.0
-                },
-                {
-                    "id": "STU-2026-397",
-                    "name": "THOMAS",
-                    "class": "UKG",
-                    "admissionNo": "744",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 21300,
-                    "individualPaid": 2500.0,
-                    "individualBalance": 18800.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -3447,7 +3704,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9457076490",
+        "fatherPhone": "+91 9457076490",
+        "fatherMobile": "+91 9457076490",
+        "mobile": "+91 9457076490",
+        "fatherName": "ANSHUL KUMAR",
+        "motherName": "POOJA DEVI"
     },
     {
         "id": "STU-2026-050",
@@ -3465,10 +3728,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARPAL SINGH",
-            "motherName": "RADHA DEVI",
+            "fatherName": "CHANDRAKESH",
+            "motherName": "HEERA DEVI",
             "fatherMobile": "9412642002",
-            "address": "BAIJALA KOTHI ALIGARH"
+            "address": "BAIJALA KOTHI ALIGARH",
+            "fatherPhone": "+91 9758917731",
+            "motherPhone": "+91 9990879163",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3501,7 +3767,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9758917731",
+        "fatherPhone": "+91 9758917731",
+        "fatherMobile": "+91 9758917731",
+        "mobile": "+91 9758917731",
+        "fatherName": "CHANDRAKESH",
+        "motherName": "HEERA DEVI"
     },
     {
         "id": "STU-2026-051",
@@ -3522,7 +3794,10 @@ export const initialSchoolData = {
             "fatherName": "NARENDRA KUMAR",
             "motherName": "JYOTI DEVI",
             "fatherMobile": "9761737488",
-            "address": "MAHARAJPUR"
+            "address": "MAHARAJPUR",
+            "fatherPhone": "+91 8395023508",
+            "motherPhone": "+91 9761737488",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3555,7 +3830,13 @@ export const initialSchoolData = {
             "stop": "MAHARAJPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8395023508",
+        "fatherPhone": "+91 8395023508",
+        "fatherMobile": "+91 8395023508",
+        "mobile": "+91 8395023508",
+        "fatherName": "NARENDRA KUMAR",
+        "motherName": "JYOTI DEVI"
     },
     {
         "id": "STU-2026-052",
@@ -3573,10 +3854,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BANTI KUMAR",
-            "motherName": "MEERA DEVI",
+            "fatherName": "TEEKAM SINGH",
+            "motherName": "SAPANA DEVI",
             "fatherMobile": "9996631761",
-            "address": "KALIYANPUR BHAGIRATHIPUR"
+            "address": "KALIYANPUR BHAGIRATHIPUR",
+            "fatherPhone": "+91 9149334245",
+            "motherPhone": "+91 8650515336",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3596,34 +3880,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 25800,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 71400,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 71400,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-326",
-                    "name": "NEERAJ",
-                    "class": "III",
-                    "admissionNo": "641",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 23300,
-                    "individualPaid": 0,
-                    "individualBalance": 23300
-                },
-                {
-                    "id": "STU-2026-325",
-                    "name": "KRISHNA KUMAR",
-                    "class": "I",
-                    "admissionNo": "640",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 22300,
-                    "individualPaid": 0,
-                    "individualBalance": 22300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -3632,7 +3893,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9149334245",
+        "fatherPhone": "+91 9149334245",
+        "fatherMobile": "+91 9149334245",
+        "mobile": "+91 9149334245",
+        "fatherName": "TEEKAM SINGH",
+        "motherName": "SAPANA DEVI"
     },
     {
         "id": "STU-2026-053",
@@ -3650,10 +3917,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJAY KUMAR",
-            "motherName": "VEENA",
+            "fatherName": "JAYPAL SINGH",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "9258596024",
-            "address": "MOUNIPURA URF RAMBAS ,RAMGHAT"
+            "address": "MOUNIPURA URF RAMBAS ,RAMGHAT",
+            "fatherPhone": "+91 9728918721",
+            "motherPhone": "+91 7505351193",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3686,7 +3956,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9728918721",
+        "fatherPhone": "+91 9728918721",
+        "fatherMobile": "+91 9728918721",
+        "mobile": "+91 9728918721",
+        "fatherName": "JAYPAL SINGH",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-054",
@@ -3704,10 +3980,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MATRU SINGH",
-            "motherName": "POOJA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8393008686",
-            "address": "NAGLA CHIRAURI, CHIRAURI"
+            "address": "NAGLA CHIRAURI, CHIRAURI",
+            "fatherPhone": "+91 9758900053",
+            "motherPhone": "+91 9758900053",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3740,7 +4019,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900053",
+        "fatherPhone": "+91 9758900053",
+        "fatherMobile": "+91 9758900053",
+        "mobile": "+91 9758900053",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-055",
@@ -3758,10 +4043,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MAHENDRA SINGH",
-            "motherName": "GAYATRI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7508181731",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9758900054",
+            "motherPhone": "+91 9758900054",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3794,7 +4082,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900054",
+        "fatherPhone": "+91 9758900054",
+        "fatherMobile": "+91 9758900054",
+        "mobile": "+91 9758900054",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-056",
@@ -3812,10 +4106,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RADHESHYAM",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9306279780",
-            "address": "GOKULPUR, KHADAR"
+            "address": "GOKULPUR, KHADAR",
+            "fatherPhone": "+91 9758900055",
+            "motherPhone": "+91 9758900055",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3848,7 +4145,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900055",
+        "fatherPhone": "+91 9758900055",
+        "fatherMobile": "+91 9758900055",
+        "mobile": "+91 9758900055",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-057",
@@ -3866,10 +4169,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJESHWAR SINGH",
-            "motherName": "BRIJESH DEVI",
+            "fatherName": "ABHIJEET SINGH",
+            "motherName": "NARAYANI DEVI",
             "fatherMobile": "8650200571",
-            "address": "CHIROURI (BULANDSHAHR)"
+            "address": "CHIROURI (BULANDSHAHR)",
+            "fatherPhone": "+91 9899289271",
+            "motherPhone": "+91 7900443809",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3893,14 +4199,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-019",
-                "name": "SHIVANI YADAV",
-                "class": "X",
-                "admissionNo": "143",
-                "fatherPhone": "8650200571"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -3909,7 +4208,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9899289271",
+        "fatherPhone": "+91 9899289271",
+        "fatherMobile": "+91 9899289271",
+        "mobile": "+91 9899289271",
+        "fatherName": "ABHIJEET SINGH",
+        "motherName": "NARAYANI DEVI"
     },
     {
         "id": "STU-2026-058",
@@ -3927,10 +4232,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATENDRA KUMAR",
-            "motherName": "SNEH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9500077994",
-            "address": "GOKULPUR, RAMGHAT, TEHSIL- DIBAI, DIST.- BULANDSHAHR"
+            "address": "GOKULPUR, RAMGHAT, TEHSIL- DIBAI, DIST.- BULANDSHAHR",
+            "fatherPhone": "+91 9758900057",
+            "motherPhone": "+91 9758900057",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -3963,7 +4271,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900057",
+        "fatherPhone": "+91 9758900057",
+        "fatherMobile": "+91 9758900057",
+        "mobile": "+91 9758900057",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-059",
@@ -3981,10 +4295,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJU KUMAR",
-            "motherName": "KASHMIRA DEVI",
+            "fatherName": "SHASHIKANT",
+            "motherName": "NEERAJ",
             "fatherMobile": "9761823950",
-            "address": "MUHAMMADSPUR BADHERA, ALIGARH"
+            "address": "MUHAMMADSPUR BADHERA, ALIGARH",
+            "fatherPhone": "+91 7253015262",
+            "motherPhone": "+91 9627990924",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4017,7 +4334,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7253015262",
+        "fatherPhone": "+91 7253015262",
+        "fatherMobile": "+91 7253015262",
+        "mobile": "+91 7253015262",
+        "fatherName": "SHASHIKANT",
+        "motherName": "NEERAJ"
     },
     {
         "id": "STU-2026-060",
@@ -4035,10 +4358,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ROOP KISHOR",
-            "motherName": "SEEMA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9990488266",
-            "address": "NAGLA GARVI, JARGWAN (BSR)"
+            "address": "NAGLA GARVI, JARGWAN (BSR)",
+            "fatherPhone": "+91 9758900059",
+            "motherPhone": "+91 9758900059",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4058,23 +4384,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 22000,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 42500,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42500,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-137",
-                    "name": "DEVESH KUMAR",
-                    "class": "IV",
-                    "admissionNo": "341",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 5500,
-                    "individualDue": 20500,
-                    "individualPaid": 0,
-                    "individualBalance": 20500
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -4083,7 +4397,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900059",
+        "fatherPhone": "+91 9758900059",
+        "fatherMobile": "+91 9758900059",
+        "mobile": "+91 9758900059",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-061",
@@ -4101,10 +4421,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJVEER SINGH",
-            "motherName": "GAYATRI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9759755011",
-            "address": "BAIJALA KOTHI, ATRAULI"
+            "address": "BAIJALA KOTHI, ATRAULI",
+            "fatherPhone": "+91 9758900060",
+            "motherPhone": "+91 9758900060",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4128,14 +4451,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-044",
-                "name": "NEHA YADAV",
-                "class": "VIII",
-                "admissionNo": "192",
-                "fatherPhone": "9759755011"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -4144,7 +4460,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9758900060",
+        "fatherPhone": "+91 9758900060",
+        "fatherMobile": "+91 9758900060",
+        "mobile": "+91 9758900060",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-062",
@@ -4162,10 +4484,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MAHESH CHANDRA",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9627106153",
-            "address": "MUDAKHERA"
+            "address": "MUDAKHERA",
+            "fatherPhone": "+91 9758900061",
+            "motherPhone": "+91 9758900061",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4198,7 +4523,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900061",
+        "fatherPhone": "+91 9758900061",
+        "fatherMobile": "+91 9758900061",
+        "mobile": "+91 9758900061",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-063",
@@ -4216,10 +4547,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJAY KUMAR",
-            "motherName": "NIRMALA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9719225317",
-            "address": "MUHAMMADPUR BADHERA, ALIGARH"
+            "address": "MUHAMMADPUR BADHERA, ALIGARH",
+            "fatherPhone": "+91 9758900062",
+            "motherPhone": "+91 9758900062",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4243,14 +4577,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-034",
-                "name": "SAIJAL VERMA",
-                "class": "IX",
-                "admissionNo": "170",
-                "fatherPhone": "9719225317"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -4259,7 +4586,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900062",
+        "fatherPhone": "+91 9758900062",
+        "fatherMobile": "+91 9758900062",
+        "mobile": "+91 9758900062",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-064",
@@ -4277,10 +4610,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SURENDRA SINGH",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7017094734",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9758900063",
+            "motherPhone": "+91 9758900063",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4313,7 +4649,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900063",
+        "fatherPhone": "+91 9758900063",
+        "fatherMobile": "+91 9758900063",
+        "mobile": "+91 9758900063",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-065",
@@ -4331,10 +4673,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAM KISHOR",
-            "motherName": "VANDANA DEVI",
+            "fatherName": "HITESH KUMAR",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "9759840340",
-            "address": "NATHPUR POST-NAHAL"
+            "address": "NATHPUR POST-NAHAL",
+            "fatherPhone": "+91 9719628771",
+            "motherPhone": "+91 9719628771",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4354,23 +4699,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 20350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 39200,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 39200,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-149",
-                    "name": "KHUSHI",
-                    "class": "IV",
-                    "admissionNo": "354",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 3850,
-                    "individualDue": 18850,
-                    "individualPaid": 0,
-                    "individualBalance": 18850
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -4379,7 +4712,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9719628771",
+        "fatherPhone": "+91 9719628771",
+        "fatherMobile": "+91 9719628771",
+        "mobile": "+91 9719628771",
+        "fatherName": "HITESH KUMAR",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-066",
@@ -4397,10 +4736,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHIV KUMAR",
-            "motherName": "REENA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8700327645",
-            "address": "CHIRAURI, JARGWAN"
+            "address": "CHIRAURI, JARGWAN",
+            "fatherPhone": "+91 9758900065",
+            "motherPhone": "+91 9758900065",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4421,21 +4763,10 @@ export const initialSchoolData = {
             "balance": 15350.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 56550,
+            "consolidatedFamilyDue": 38200,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 51550.0,
+            "consolidatedFamilyBalance": 33200.0,
             "familySiblings": [
-                {
-                    "id": "STU-2026-197",
-                    "name": "PRACHI",
-                    "class": "III",
-                    "admissionNo": "420",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 18350,
-                    "individualPaid": 0,
-                    "individualBalance": 18350
-                },
                 {
                     "id": "STU-2026-307",
                     "name": "MOHIT KUMAR",
@@ -4456,7 +4787,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900065",
+        "fatherPhone": "+91 9758900065",
+        "fatherMobile": "+91 9758900065",
+        "mobile": "+91 9758900065",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-067",
@@ -4474,10 +4811,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIJAY SINGH",
-            "motherName": "SUMANLATA",
+            "fatherName": "HARENDRA SINGH",
+            "motherName": "KAVITA DEVI",
             "fatherMobile": "7505506603",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9582984147",
+            "motherPhone": "+91 9582984147",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4510,7 +4850,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9582984147",
+        "fatherPhone": "+91 9582984147",
+        "fatherMobile": "+91 9582984147",
+        "mobile": "+91 9582984147",
+        "fatherName": "HARENDRA SINGH",
+        "motherName": "KAVITA DEVI"
     },
     {
         "id": "STU-2026-068",
@@ -4531,7 +4877,10 @@ export const initialSchoolData = {
             "fatherName": "JANGVEER SINGH",
             "motherName": "ROOPVATI DEVI",
             "fatherMobile": "9675863965",
-            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH",
+            "fatherPhone": "+91 9675863965",
+            "motherPhone": "+91 9675863965",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4552,21 +4901,10 @@ export const initialSchoolData = {
             "balance": 21300.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 73400,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 63400.0,
+            "consolidatedFamilyDue": 48600,
+            "consolidatedFamilyPaid": 7000.0,
+            "consolidatedFamilyBalance": 41600.0,
             "familySiblings": [
-                {
-                    "id": "STU-2026-076",
-                    "name": "AMIT KUMAR",
-                    "class": "VI",
-                    "admissionNo": "254",
-                    "tuitionDue": 16000,
-                    "transportDue11Months": 8800,
-                    "individualDue": 24800,
-                    "individualPaid": 3000.0,
-                    "individualBalance": 21800.0
-                },
                 {
                     "id": "STU-2026-206",
                     "name": "SUMIT",
@@ -4587,7 +4925,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9675863965",
+        "fatherPhone": "+91 9675863965",
+        "fatherMobile": "+91 9675863965",
+        "mobile": "+91 9675863965",
+        "fatherName": "JANGVEER SINGH",
+        "motherName": "ROOPVATI DEVI"
     },
     {
         "id": "STU-2026-069",
@@ -4605,10 +4949,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SUBODH KUMAR",
-            "motherName": "KUSUM DEVI",
+            "fatherName": "RAMESH CHANDRA",
+            "motherName": "GEETA DEVI",
             "fatherMobile": "8954486104",
-            "address": "NAGLA KOTHI, JARGWAN"
+            "address": "NAGLA KOTHI, JARGWAN",
+            "fatherPhone": "+91 9780410371",
+            "motherPhone": "+91 9780410371",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4632,14 +4979,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-035",
-                "name": "SANI KUMAR",
-                "class": "IX",
-                "admissionNo": "171",
-                "fatherPhone": "8954486104"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -4648,7 +4988,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9780410371",
+        "fatherPhone": "+91 9780410371",
+        "fatherMobile": "+91 9780410371",
+        "mobile": "+91 9780410371",
+        "fatherName": "RAMESH CHANDRA",
+        "motherName": "GEETA DEVI"
     },
     {
         "id": "STU-2026-070",
@@ -4669,7 +5015,10 @@ export const initialSchoolData = {
             "fatherName": "BALKISAN",
             "motherName": "SHEETAL DEVI",
             "fatherMobile": "9758785744",
-            "address": "NAGLA GARVI"
+            "address": "NAGLA GARVI",
+            "fatherPhone": "+91 7668414585",
+            "motherPhone": "+91 9758785744",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4702,7 +5051,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 7668414585",
+        "fatherPhone": "+91 7668414585",
+        "fatherMobile": "+91 7668414585",
+        "mobile": "+91 7668414585",
+        "fatherName": "BALKISAN",
+        "motherName": "SHEETAL DEVI"
     },
     {
         "id": "STU-2026-071",
@@ -4720,10 +5075,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SURENDRA KUMAR",
-            "motherName": "SUSHMA DEVI",
+            "fatherName": "ANSHUL KUMAR",
+            "motherName": "POOJA DEVI",
             "fatherMobile": "9758512771",
-            "address": "KALIYANPUR BHAGIRATHIPUR"
+            "address": "KALIYANPUR BHAGIRATHIPUR",
+            "fatherPhone": "+91 9457076490",
+            "motherPhone": "+91 9457076490",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4756,7 +5114,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9457076490",
+        "fatherPhone": "+91 9457076490",
+        "fatherMobile": "+91 9457076490",
+        "mobile": "+91 9457076490",
+        "fatherName": "ANSHUL KUMAR",
+        "motherName": "POOJA DEVI"
     },
     {
         "id": "STU-2026-072",
@@ -4774,10 +5138,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AVDHESH KUMAR",
-            "motherName": "KAJAL DEVI",
+            "fatherName": "HARPAL SINGH",
+            "motherName": "RADHA DEVI",
             "fatherMobile": "9719948606",
-            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI"
+            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI",
+            "fatherPhone": "+91 9412642002",
+            "motherPhone": "+91 9412642002",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4810,7 +5177,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9412642002",
+        "fatherPhone": "+91 9412642002",
+        "fatherMobile": "+91 9412642002",
+        "mobile": "+91 9412642002",
+        "fatherName": "HARPAL SINGH",
+        "motherName": "RADHA DEVI"
     },
     {
         "id": "STU-2026-073",
@@ -4828,10 +5201,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ARUN KUMAR",
-            "motherName": "KOMAL",
+            "fatherName": "NARENDRA KUMAR",
+            "motherName": "JYOTI DEVI",
             "fatherMobile": "9268386124",
-            "address": "HARVANSHPUR, ATRAULI"
+            "address": "HARVANSHPUR, ATRAULI",
+            "fatherPhone": "+91 8395023508",
+            "motherPhone": "+91 9761737488",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4851,23 +5227,11 @@ export const initialSchoolData = {
             "totalPaid": 4000.0,
             "balance": 16350.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 39200,
-            "consolidatedFamilyPaid": 8000.0,
-            "consolidatedFamilyBalance": 31200.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-139",
-                    "name": "DIVYA",
-                    "class": "IV",
-                    "admissionNo": "343",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 3850,
-                    "individualDue": 18850,
-                    "individualPaid": 4000.0,
-                    "individualBalance": 14850.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -4876,7 +5240,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8395023508",
+        "fatherPhone": "+91 8395023508",
+        "fatherMobile": "+91 8395023508",
+        "mobile": "+91 8395023508",
+        "fatherName": "NARENDRA KUMAR",
+        "motherName": "JYOTI DEVI"
     },
     {
         "id": "STU-2026-074",
@@ -4894,10 +5264,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIMAL KUMAR",
-            "motherName": "SARVESH DEVI",
+            "fatherName": "BANTI KUMAR",
+            "motherName": "MEERA DEVI",
             "fatherMobile": "9758364015",
-            "address": "NAGLA GARVI,( JARGWAN)"
+            "address": "NAGLA GARVI,( JARGWAN)",
+            "fatherPhone": "+91 7252826099",
+            "motherPhone": "+91 9996631761",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4930,7 +5303,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 7252826099",
+        "fatherPhone": "+91 7252826099",
+        "fatherMobile": "+91 7252826099",
+        "mobile": "+91 7252826099",
+        "fatherName": "BANTI KUMAR",
+        "motherName": "MEERA DEVI"
     },
     {
         "id": "STU-2026-075",
@@ -4948,10 +5327,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEVESH KUMAR",
-            "motherName": "MEENESH DEVI",
+            "fatherName": "DINESH KUMAR",
+            "motherName": "VEENESH KUMAR",
             "fatherMobile": "9012982367",
-            "address": "GANGAARH, RAMGHAT"
+            "address": "GANGAARH, RAMGHAT",
+            "fatherPhone": "+91 9259150523",
+            "motherPhone": "+91 9315468019",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -4975,14 +5357,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-012",
-                "name": "MANISH KUMAR",
-                "class": "X",
-                "admissionNo": "132",
-                "fatherPhone": "9012982367"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -4991,7 +5366,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9259150523",
+        "fatherPhone": "+91 9259150523",
+        "fatherMobile": "+91 9259150523",
+        "mobile": "+91 9259150523",
+        "fatherName": "DINESH KUMAR",
+        "motherName": "VEENESH KUMAR"
     },
     {
         "id": "STU-2026-076",
@@ -5009,10 +5390,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JANGVEER SINGH",
-            "motherName": "ROOPVATI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9675863965",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9758900075",
+            "motherPhone": "+91 9758900075",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5036,14 +5420,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-068",
-                "name": "RADHA",
-                "class": "VII",
-                "admissionNo": "240",
-                "fatherPhone": "9675863965"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -5052,7 +5429,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900075",
+        "fatherPhone": "+91 9758900075",
+        "fatherMobile": "+91 9758900075",
+        "mobile": "+91 9758900075",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-077",
@@ -5073,7 +5456,10 @@ export const initialSchoolData = {
             "fatherName": "JUGENDRA",
             "motherName": "SHANTI DEVI",
             "fatherMobile": "9720055152",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9720055152",
+            "motherPhone": "+91 9720055152",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5106,7 +5492,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9720055152",
+        "fatherPhone": "+91 9720055152",
+        "fatherMobile": "+91 9720055152",
+        "mobile": "+91 9720055152",
+        "fatherName": "JUGENDRA",
+        "motherName": "SHANTI DEVI"
     },
     {
         "id": "STU-2026-078",
@@ -5124,10 +5516,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "TEEKAM SINGH",
-            "motherName": "SAPNA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9711094843",
-            "address": "DHARAKPUR"
+            "address": "DHARAKPUR",
+            "fatherPhone": "+91 9758900077",
+            "motherPhone": "+91 9758900077",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5160,7 +5555,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900077",
+        "fatherPhone": "+91 9758900077",
+        "fatherMobile": "+91 9758900077",
+        "mobile": "+91 9758900077",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-079",
@@ -5178,10 +5579,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "CHANDRABHAN",
-            "motherName": "SONAM DEVI",
+            "fatherName": "MAHENDRA SINGH",
+            "motherName": "GAYATRI DEVI",
             "fatherMobile": "9675078707",
-            "address": "KALIYANPUR BHAGIRATHPUR, ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR, ALIGARH",
+            "fatherPhone": "+91 6396359958",
+            "motherPhone": "+91 7508181731",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5201,23 +5605,11 @@ export const initialSchoolData = {
             "totalPaid": 15500.0,
             "balance": 9300.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 44100,
-            "consolidatedFamilyPaid": 25000.0,
-            "consolidatedFamilyBalance": 19100.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-538",
-                    "name": "CHIRAG",
-                    "class": "NURSERY",
-                    "admissionNo": "941",
-                    "tuitionDue": 10500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 19300,
-                    "individualPaid": 9500.0,
-                    "individualBalance": 9800.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -5226,7 +5618,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 6396359958",
+        "fatherPhone": "+91 6396359958",
+        "fatherMobile": "+91 6396359958",
+        "mobile": "+91 6396359958",
+        "fatherName": "MAHENDRA SINGH",
+        "motherName": "GAYATRI DEVI"
     },
     {
         "id": "STU-2026-080",
@@ -5244,10 +5642,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINOD KUMAR",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8941891392",
-            "address": "UNCHA GAON BANGAR, RAMGHAT"
+            "address": "UNCHA GAON BANGAR, RAMGHAT",
+            "fatherPhone": "+91 9758900079",
+            "motherPhone": "+91 9758900079",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5267,23 +5668,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 19800.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 48600,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 38600.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-133",
-                    "name": "ANSHUL KUMAR",
-                    "class": "IV",
-                    "admissionNo": "336",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 8800,
-                    "individualDue": 23800,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 18800.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -5292,7 +5681,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900079",
+        "fatherPhone": "+91 9758900079",
+        "fatherMobile": "+91 9758900079",
+        "mobile": "+91 9758900079",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-081",
@@ -5310,10 +5705,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SWATANTRA KUMAR",
-            "motherName": "SANGEETA DEVI",
+            "fatherName": "RAJESHWAR SINGH",
+            "motherName": "BRIJESH DEVI",
             "fatherMobile": "9720524482",
-            "address": "CHIROURI BULANDSHAHR"
+            "address": "CHIROURI BULANDSHAHR",
+            "fatherPhone": "+91 9536057526",
+            "motherPhone": "+91 8650200571",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5346,7 +5744,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9536057526",
+        "fatherPhone": "+91 9536057526",
+        "fatherMobile": "+91 9536057526",
+        "mobile": "+91 9536057526",
+        "fatherName": "RAJESHWAR SINGH",
+        "motherName": "BRIJESH DEVI"
     },
     {
         "id": "STU-2026-082",
@@ -5364,10 +5768,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ROHIT KUMAR",
-            "motherName": "NEMVATI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9719312990",
-            "address": "NAGLA SHUMALI, JARGWAN"
+            "address": "NAGLA SHUMALI, JARGWAN",
+            "fatherPhone": "+91 9758900081",
+            "motherPhone": "+91 9758900081",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5412,7 +5819,13 @@ export const initialSchoolData = {
             "stop": "NAGLA SHUMALI",
             "monthlyFare": 410,
             "annualTransportDue11Months": 4510
-        }
+        },
+        "phone": "+91 9758900081",
+        "fatherPhone": "+91 9758900081",
+        "fatherMobile": "+91 9758900081",
+        "mobile": "+91 9758900081",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-083",
@@ -5430,10 +5843,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ATUL PATHAK",
-            "motherName": "NEERAJ DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9389943235",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9758900082",
+            "motherPhone": "+91 9758900082",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5466,7 +5882,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900082",
+        "fatherPhone": "+91 9758900082",
+        "fatherMobile": "+91 9758900082",
+        "mobile": "+91 9758900082",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-084",
@@ -5487,7 +5909,10 @@ export const initialSchoolData = {
             "fatherName": "HAR GOVIND",
             "motherName": "RAJESH DEVI",
             "fatherMobile": "9761205726",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9761205726",
+            "motherPhone": "+91 9761205726",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5520,7 +5945,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9761205726",
+        "fatherPhone": "+91 9761205726",
+        "fatherMobile": "+91 9761205726",
+        "mobile": "+91 9761205726",
+        "fatherName": "HAR GOVIND",
+        "motherName": "RAJESH DEVI"
     },
     {
         "id": "STU-2026-085",
@@ -5538,10 +5969,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LOKESH KUMAR",
-            "motherName": "NEHA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8630711835",
-            "address": "LOHGARH,ATRAULI"
+            "address": "LOHGARH,ATRAULI",
+            "fatherPhone": "+91 9758900084",
+            "motherPhone": "+91 9758900084",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5561,23 +5995,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 19250.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 46500,
-            "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 41500.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-228",
-                    "name": "KRISHNA KUMAR",
-                    "class": "II",
-                    "admissionNo": "468",
-                    "tuitionDue": 14000,
-                    "transportDue11Months": 8250,
-                    "individualDue": 22250,
-                    "individualPaid": 0,
-                    "individualBalance": 22250
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -5586,7 +6008,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900084",
+        "fatherPhone": "+91 9758900084",
+        "fatherMobile": "+91 9758900084",
+        "mobile": "+91 9758900084",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-086",
@@ -5607,7 +6035,10 @@ export const initialSchoolData = {
             "fatherName": "DEVRAJ SINGH",
             "motherName": "ANITA DEVI",
             "fatherMobile": "9720155624",
-            "address": "SILHARI RAMPUR DISTT BULANDSHAHR"
+            "address": "SILHARI RAMPUR DISTT BULANDSHAHR",
+            "fatherPhone": "+91 9720155624",
+            "motherPhone": "+91 9720155624",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5640,7 +6071,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9720155624",
+        "fatherPhone": "+91 9720155624",
+        "fatherMobile": "+91 9720155624",
+        "mobile": "+91 9720155624",
+        "fatherName": "DEVRAJ SINGH",
+        "motherName": "ANITA DEVI"
     },
     {
         "id": "STU-2026-087",
@@ -5658,10 +6095,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARISHANKAR",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8650724663",
-            "address": "KALIYANPUR BHAGIRATHPUR ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR ALIGARH",
+            "fatherPhone": "+91 9758900086",
+            "motherPhone": "+91 9758900086",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5706,7 +6146,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900086",
+        "fatherPhone": "+91 9758900086",
+        "fatherMobile": "+91 9758900086",
+        "mobile": "+91 9758900086",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-088",
@@ -5724,10 +6170,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BRAJESH KUMAR",
-            "motherName": "MANJU DEVI",
+            "fatherName": "MAHESH CHANDRA",
+            "motherName": "KAMLESH DEVI",
             "fatherMobile": "8218893277",
-            "address": "NAGLA CHIROURI"
+            "address": "NAGLA CHIROURI",
+            "fatherPhone": "+91 9627106153",
+            "motherPhone": "+91 9627106153",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5747,23 +6196,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 24250,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 42100,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42100,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-308",
-                    "name": "YASH KUMAR",
-                    "class": "II",
-                    "admissionNo": "598",
-                    "tuitionDue": 14000,
-                    "transportDue11Months": 3850,
-                    "individualDue": 17850,
-                    "individualPaid": 0,
-                    "individualBalance": 17850
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -5772,7 +6209,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9627106153",
+        "fatherPhone": "+91 9627106153",
+        "fatherMobile": "+91 9627106153",
+        "mobile": "+91 9627106153",
+        "fatherName": "MAHESH CHANDRA",
+        "motherName": "KAMLESH DEVI"
     },
     {
         "id": "STU-2026-089",
@@ -5790,10 +6233,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJKUMAR",
-            "motherName": "NEERAJ DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9760066073",
-            "address": "KUNJALPUR GAHTOLI NIRMAL ATRAULI"
+            "address": "KUNJALPUR GAHTOLI NIRMAL ATRAULI",
+            "fatherPhone": "+91 9758900088",
+            "motherPhone": "+91 9758900088",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5826,7 +6272,13 @@ export const initialSchoolData = {
             "stop": "KUNJALPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900088",
+        "fatherPhone": "+91 9758900088",
+        "fatherMobile": "+91 9758900088",
+        "mobile": "+91 9758900088",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-090",
@@ -5844,10 +6296,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJESH KUMAR",
-            "motherName": "PINKY DEVI",
+            "fatherName": "SURENDRA SINGH",
+            "motherName": "KAMLESH DEVI",
             "fatherMobile": "9719322033",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 7017094734",
+            "motherPhone": "+91 7017094734",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5880,7 +6335,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7017094734",
+        "fatherPhone": "+91 7017094734",
+        "fatherMobile": "+91 7017094734",
+        "mobile": "+91 7017094734",
+        "fatherName": "SURENDRA SINGH",
+        "motherName": "KAMLESH DEVI"
     },
     {
         "id": "STU-2026-091",
@@ -5898,10 +6359,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINOD KUMAR",
-            "motherName": "USHA DEVI",
+            "fatherName": "RAM KISHOR",
+            "motherName": "VANDANA DEVI",
             "fatherMobile": "9761205728",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9759840340",
+            "motherPhone": "+91 9759840340",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5921,23 +6385,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 19800.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 49100,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 39100.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-092",
-                    "name": "AAYUSH SINGH",
-                    "class": "V",
-                    "admissionNo": "282",
-                    "tuitionDue": 15500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 24300,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 19300.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -5946,7 +6398,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9759840340",
+        "fatherPhone": "+91 9759840340",
+        "fatherMobile": "+91 9759840340",
+        "mobile": "+91 9759840340",
+        "fatherName": "RAM KISHOR",
+        "motherName": "VANDANA DEVI"
     },
     {
         "id": "STU-2026-092",
@@ -5964,10 +6422,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINOD KUMAR",
-            "motherName": "USHA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9761205728",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9758900091",
+            "motherPhone": "+91 9758900091",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -5991,14 +6452,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-091",
-                "name": "VIKRANT SINGH",
-                "class": "VI",
-                "admissionNo": "281",
-                "fatherPhone": "9761205728"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -6007,7 +6461,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900091",
+        "fatherPhone": "+91 9758900091",
+        "fatherMobile": "+91 9758900091",
+        "mobile": "+91 9758900091",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-093",
@@ -6028,7 +6488,10 @@ export const initialSchoolData = {
             "fatherName": "PRAMOD KUMAR",
             "motherName": "DEEPIKA",
             "fatherMobile": "9719607274",
-            "address": "MALAHPUR ATRAULI"
+            "address": "MALAHPUR ATRAULI",
+            "fatherPhone": "+91 9719607274",
+            "motherPhone": "+91 9719607274",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6061,7 +6524,13 @@ export const initialSchoolData = {
             "stop": "MALAHPUR",
             "monthlyFare": 400,
             "annualTransportDue11Months": 4400
-        }
+        },
+        "phone": "+91 9719607274",
+        "fatherPhone": "+91 9719607274",
+        "fatherMobile": "+91 9719607274",
+        "mobile": "+91 9719607274",
+        "fatherName": "PRAMOD KUMAR",
+        "motherName": "DEEPIKA"
     },
     {
         "id": "STU-2026-094",
@@ -6079,10 +6548,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SAMMU SINGH",
-            "motherName": "RAJANI DEVI",
+            "fatherName": "VIJAY SINGH",
+            "motherName": "SUMANLATA",
             "fatherMobile": "9355473315",
-            "address": "MUHAMMADPUR BADHERA ALIGARH"
+            "address": "MUHAMMADPUR BADHERA ALIGARH",
+            "fatherPhone": "+91 7505506603",
+            "motherPhone": "+91 7505506603",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6115,7 +6587,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 7505506603",
+        "fatherPhone": "+91 7505506603",
+        "fatherMobile": "+91 7505506603",
+        "mobile": "+91 7505506603",
+        "fatherName": "VIJAY SINGH",
+        "motherName": "SUMANLATA"
     },
     {
         "id": "STU-2026-095",
@@ -6133,10 +6611,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANOJ KUMAR",
-            "motherName": "BEENA DEVI",
+            "fatherName": "JANGVEER SINGH",
+            "motherName": "ROOPVATI DEVI",
             "fatherMobile": "9368681376",
-            "address": "SILHARI RAMGHAT"
+            "address": "SILHARI RAMGHAT",
+            "fatherPhone": "+91 9675863965",
+            "motherPhone": "+91 9675863965",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6156,23 +6637,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 24800,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 48050,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 48050,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-130",
-                    "name": "ANKUSH KUMAR",
-                    "class": "IV",
-                    "admissionNo": "333",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 8250,
-                    "individualDue": 23250,
-                    "individualPaid": 0,
-                    "individualBalance": 23250
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -6181,7 +6650,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9675863965",
+        "fatherPhone": "+91 9675863965",
+        "fatherMobile": "+91 9675863965",
+        "mobile": "+91 9675863965",
+        "fatherName": "JANGVEER SINGH",
+        "motherName": "ROOPVATI DEVI"
     },
     {
         "id": "STU-2026-096",
@@ -6199,10 +6674,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGESH KUMAR",
-            "motherName": "RINKY DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9720966040",
-            "address": "SILHARI RAMPUR DISTT BULANDSHAHR"
+            "address": "SILHARI RAMPUR DISTT BULANDSHAHR",
+            "fatherPhone": "+91 9758900095",
+            "motherPhone": "+91 9758900095",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6222,23 +6700,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 24250,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 47500,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 47500,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-162",
-                    "name": "RAMAN KUMAR",
-                    "class": "IV",
-                    "admissionNo": "374",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 8250,
-                    "individualDue": 23250,
-                    "individualPaid": 0,
-                    "individualBalance": 23250
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -6247,7 +6713,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900095",
+        "fatherPhone": "+91 9758900095",
+        "fatherMobile": "+91 9758900095",
+        "mobile": "+91 9758900095",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-097",
@@ -6265,10 +6737,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AMAR SINGH",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "BALKISAN",
+            "motherName": "SHEETAL DEVI",
             "fatherMobile": "9719225225",
-            "address": "NAGLA DHARAKPUR, DHARAKPUR"
+            "address": "NAGLA DHARAKPUR, DHARAKPUR",
+            "fatherPhone": "+91 7668414585",
+            "motherPhone": "+91 9758785744",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6292,14 +6767,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-010",
-                "name": "ANJALI VERMA",
-                "class": "X",
-                "admissionNo": "128",
-                "fatherPhone": "9719225225"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -6308,7 +6776,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7668414585",
+        "fatherPhone": "+91 7668414585",
+        "fatherMobile": "+91 7668414585",
+        "mobile": "+91 7668414585",
+        "fatherName": "BALKISAN",
+        "motherName": "SHEETAL DEVI"
     },
     {
         "id": "STU-2026-098",
@@ -6326,10 +6800,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VERENDRA KUMAR SHARMA",
-            "motherName": "KAVITA DEVI",
+            "fatherName": "SURENDRA SINGH",
+            "motherName": "KAMLESH",
             "fatherMobile": "7830241141",
-            "address": "BAGI NAGLA, CHIRAURI"
+            "address": "BAGI NAGLA, CHIRAURI",
+            "fatherPhone": "+91 9758882443",
+            "motherPhone": "+91 0",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6362,7 +6839,13 @@ export const initialSchoolData = {
             "stop": "BAGI NAGLA",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758882443",
+        "fatherPhone": "+91 9758882443",
+        "fatherMobile": "+91 9758882443",
+        "mobile": "+91 9758882443",
+        "fatherName": "SURENDRA SINGH",
+        "motherName": "KAMLESH"
     },
     {
         "id": "STU-2026-099",
@@ -6380,10 +6863,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SAURABH PRATAP",
-            "motherName": "RAGINI",
+            "fatherName": "SURENDRA KUMAR",
+            "motherName": "SUSHMA DEVI",
             "fatherMobile": "9536149148",
-            "address": "LOHGARAH ATRAULI ALG."
+            "address": "LOHGARAH ATRAULI ALG.",
+            "fatherPhone": "+91 9758512771",
+            "motherPhone": "+91 9758512771",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6403,23 +6889,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 14850.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 42600,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 32600.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-174",
-                    "name": "AYANSH",
-                    "class": "III",
-                    "admissionNo": "389",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 22750,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 17750.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -6428,7 +6902,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758512771",
+        "fatherPhone": "+91 9758512771",
+        "fatherMobile": "+91 9758512771",
+        "mobile": "+91 9758512771",
+        "fatherName": "SURENDRA KUMAR",
+        "motherName": "SUSHMA DEVI"
     },
     {
         "id": "STU-2026-100",
@@ -6446,10 +6926,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRADEEP KUMAR",
-            "motherName": "PRITI DEVI",
+            "fatherName": "AVDHESH KUMAR",
+            "motherName": "KAJAL DEVI",
             "fatherMobile": "9761965033",
-            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI"
+            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI",
+            "fatherPhone": "+91 9719948606",
+            "motherPhone": "+91 9719948606",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6469,23 +6952,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 24300,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 45600,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 45600,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-288",
-                    "name": "ADABIKA",
-                    "class": "UKG",
-                    "admissionNo": "567",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 21300,
-                    "individualPaid": 0,
-                    "individualBalance": 21300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -6494,7 +6965,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9719948606",
+        "fatherPhone": "+91 9719948606",
+        "fatherMobile": "+91 9719948606",
+        "mobile": "+91 9719948606",
+        "fatherName": "AVDHESH KUMAR",
+        "motherName": "KAJAL DEVI"
     },
     {
         "id": "STU-2026-101",
@@ -6512,10 +6989,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KRISHNA KUMAR",
-            "motherName": "VUYA DEVI",
+            "fatherName": "ANIL KUMAR",
+            "motherName": "VINESH DEVI",
             "fatherMobile": "9927501907",
-            "address": "NAGLA GARVI POSTJARGWAN"
+            "address": "NAGLA GARVI POSTJARGWAN",
+            "fatherPhone": "+91 7983817850",
+            "motherPhone": "+91 7830214462",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6535,23 +7015,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 21000,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 41500,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 41500,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-170",
-                    "name": "VIRAT KUMAR",
-                    "class": "IV",
-                    "admissionNo": "384",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 5500,
-                    "individualDue": 20500,
-                    "individualPaid": 0,
-                    "individualBalance": 20500
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -6560,7 +7028,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 7983817850",
+        "fatherPhone": "+91 7983817850",
+        "fatherMobile": "+91 7983817850",
+        "mobile": "+91 7983817850",
+        "fatherName": "ANIL KUMAR",
+        "motherName": "VINESH DEVI"
     },
     {
         "id": "STU-2026-102",
@@ -6578,10 +7052,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINEET KUMAR",
-            "motherName": "POONAM SHARMA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8859343009",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 9758900101",
+            "motherPhone": "+91 9758900101",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6614,7 +7091,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900101",
+        "fatherPhone": "+91 9758900101",
+        "fatherMobile": "+91 9758900101",
+        "mobile": "+91 9758900101",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-103",
@@ -6632,10 +7115,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "FOUJI YADAV JI",
-            "motherName": "ROOPVATI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8968167475",
-            "address": "KALIYANPUR BHAGIRATHPUR ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR ALIGARH",
+            "fatherPhone": "+91 9758900102",
+            "motherPhone": "+91 9758900102",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6668,7 +7154,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900102",
+        "fatherPhone": "+91 9758900102",
+        "fatherMobile": "+91 9758900102",
+        "mobile": "+91 9758900102",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-104",
@@ -6689,7 +7181,10 @@ export const initialSchoolData = {
             "fatherName": "MULAYAM SINGH",
             "motherName": "SUMAN DEVI",
             "fatherMobile": "9720058659",
-            "address": "DADHAR ALUPURA POST- NARUPURA ATRAULI"
+            "address": "DADHAR ALUPURA POST- NARUPURA ATRAULI",
+            "fatherPhone": "+91 9720058659",
+            "motherPhone": "+91 9720058659",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6722,7 +7217,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 9720058659",
+        "fatherPhone": "+91 9720058659",
+        "fatherMobile": "+91 9720058659",
+        "mobile": "+91 9720058659",
+        "fatherName": "MULAYAM SINGH",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-105",
@@ -6740,10 +7241,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARISHANKAR",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8650724663",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9758900104",
+            "motherPhone": "+91 9758900104",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6783,7 +7287,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900104",
+        "fatherPhone": "+91 9758900104",
+        "fatherMobile": "+91 9758900104",
+        "mobile": "+91 9758900104",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-106",
@@ -6804,7 +7314,10 @@ export const initialSchoolData = {
             "fatherName": "AJAY KUMAR",
             "motherName": "NEERU DEVI",
             "fatherMobile": "9759262366",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9758962135",
+            "motherPhone": "+91 9759262366",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6824,23 +7337,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 24300,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 45600,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 45600,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-323",
-                    "name": "DIVYANSHI",
-                    "class": "UKG",
-                    "admissionNo": "637",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 21300,
-                    "individualPaid": 0,
-                    "individualBalance": 21300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -6849,7 +7350,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758962135",
+        "fatherPhone": "+91 9758962135",
+        "fatherMobile": "+91 9758962135",
+        "mobile": "+91 9758962135",
+        "fatherName": "AJAY KUMAR",
+        "motherName": "NEERU DEVI"
     },
     {
         "id": "STU-2026-107",
@@ -6867,10 +7374,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIJENDRA SINGH",
-            "motherName": "SAROJ DEVI",
+            "fatherName": "JANGVEER SINGH",
+            "motherName": "ROOPVATI DEVI",
             "fatherMobile": "9758605323",
-            "address": "SILHARI RAMGHAT"
+            "address": "SILHARI RAMGHAT",
+            "fatherPhone": "+91 9675863965",
+            "motherPhone": "+91 9675863965",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6903,7 +7413,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9675863965",
+        "fatherPhone": "+91 9675863965",
+        "fatherMobile": "+91 9675863965",
+        "mobile": "+91 9675863965",
+        "fatherName": "JANGVEER SINGH",
+        "motherName": "ROOPVATI DEVI"
     },
     {
         "id": "STU-2026-108",
@@ -6921,10 +7437,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHARMENDRA KUMAR",
-            "motherName": "HITESH DEVI",
+            "fatherName": "JUGENDRA",
+            "motherName": "SHANTI DEVI",
             "fatherMobile": "9719334408",
-            "address": "NAGLA KOTHI JARGWAN BULAND SHAHR"
+            "address": "NAGLA KOTHI JARGWAN BULAND SHAHR",
+            "fatherPhone": "+91 9720055152",
+            "motherPhone": "+91 9720055152",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -6957,7 +7476,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9720055152",
+        "fatherPhone": "+91 9720055152",
+        "fatherMobile": "+91 9720055152",
+        "mobile": "+91 9720055152",
+        "fatherName": "JUGENDRA",
+        "motherName": "SHANTI DEVI"
     },
     {
         "id": "STU-2026-109",
@@ -6975,10 +7500,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RADHEY SHYAM",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "TEEKAM SINGH",
+            "motherName": "SAPNA DEVI",
             "fatherMobile": "9027092592",
-            "address": "GOKULPUR, RAMGHAT, DIBAI,BULANDSHAHAR"
+            "address": "GOKULPUR, RAMGHAT, DIBAI,BULANDSHAHAR",
+            "fatherPhone": "+91 9711094843",
+            "motherPhone": "+91 9711094843",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7011,7 +7539,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9711094843",
+        "fatherPhone": "+91 9711094843",
+        "fatherMobile": "+91 9711094843",
+        "mobile": "+91 9711094843",
+        "fatherName": "TEEKAM SINGH",
+        "motherName": "SAPNA DEVI"
     },
     {
         "id": "STU-2026-110",
@@ -7029,10 +7563,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGESH KUMAR",
-            "motherName": "PINKY DEVI",
+            "fatherName": "BHOOP SINGH",
+            "motherName": "NEERAJ DEVI",
             "fatherMobile": "8859303073",
-            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI"
+            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI",
+            "fatherPhone": "+91 8",
+            "motherPhone": "+91 8",
+            "occupation": "H"
         },
         "customFields": {
             "penNo": "",
@@ -7052,23 +7589,11 @@ export const initialSchoolData = {
             "totalPaid": 10000.0,
             "balance": 14300.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 48100,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 38100.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-154",
-                    "name": "NISHANT KUMAR",
-                    "class": "IV",
-                    "admissionNo": "364",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 8800,
-                    "individualDue": 23800,
-                    "individualPaid": 0,
-                    "individualBalance": 23800
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -7077,7 +7602,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8",
+        "fatherPhone": "+91 8",
+        "fatherMobile": "+91 8",
+        "mobile": "+91 8",
+        "fatherName": "BHOOP SINGH",
+        "motherName": "NEERAJ DEVI"
     },
     {
         "id": "STU-2026-111",
@@ -7095,10 +7626,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BOBY KUMAR",
-            "motherName": "URMILA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "4593995796",
-            "address": "CHIROURI"
+            "address": "CHIROURI",
+            "fatherPhone": "+91 9758900110",
+            "motherPhone": "+91 9758900110",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7131,7 +7665,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900110",
+        "fatherPhone": "+91 9758900110",
+        "fatherMobile": "+91 9758900110",
+        "mobile": "+91 9758900110",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-112",
@@ -7149,10 +7689,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANDEEP KUMAR",
-            "motherName": "ANJU DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9759334814",
-            "address": "KUDHAINI, POST. CHIROURI"
+            "address": "KUDHAINI, POST. CHIROURI",
+            "fatherPhone": "+91 9758900111",
+            "motherPhone": "+91 9758900111",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7185,7 +7728,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900111",
+        "fatherPhone": "+91 9758900111",
+        "fatherMobile": "+91 9758900111",
+        "mobile": "+91 9758900111",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-113",
@@ -7203,10 +7752,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BHURE SINGH",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9719017603",
-            "address": "SILHARI (BULANDSHAHR)"
+            "address": "SILHARI (BULANDSHAHR)",
+            "fatherPhone": "+91 9758900112",
+            "motherPhone": "+91 9758900112",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7251,7 +7803,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900112",
+        "fatherPhone": "+91 9758900112",
+        "fatherMobile": "+91 9758900112",
+        "mobile": "+91 9758900112",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-114",
@@ -7269,10 +7827,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PUSHPENDRA SINGH",
-            "motherName": "PRITI DEVI",
+            "fatherName": "SWATANTRA KUMAR",
+            "motherName": "SANGEETA DEVI",
             "fatherMobile": "6396451120",
-            "address": "BAIJALA, ATRAULI"
+            "address": "BAIJALA, ATRAULI",
+            "fatherPhone": "+91 9720524482",
+            "motherPhone": "+91 9720524482",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7292,23 +7853,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 16550.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 41100,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 31100.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-255",
-                    "name": "JATIN KUMAR",
-                    "class": "I",
-                    "admissionNo": "506",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 19550,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 14550.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -7317,7 +7866,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9720524482",
+        "fatherPhone": "+91 9720524482",
+        "fatherMobile": "+91 9720524482",
+        "mobile": "+91 9720524482",
+        "fatherName": "SWATANTRA KUMAR",
+        "motherName": "SANGEETA DEVI"
     },
     {
         "id": "STU-2026-115",
@@ -7338,7 +7893,10 @@ export const initialSchoolData = {
             "fatherName": "PRAMOD KUMAR",
             "motherName": "CHANCHAL DEVI",
             "fatherMobile": "9412357470",
-            "address": "NAGLA KOTHI BULAND SHAHR"
+            "address": "NAGLA KOTHI BULAND SHAHR",
+            "fatherPhone": "+91 9412357470",
+            "motherPhone": "+91 9412357470",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7371,7 +7929,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9412357470",
+        "fatherPhone": "+91 9412357470",
+        "fatherMobile": "+91 9412357470",
+        "mobile": "+91 9412357470",
+        "fatherName": "PRAMOD KUMAR",
+        "motherName": "CHANCHAL DEVI"
     },
     {
         "id": "STU-2026-116",
@@ -7389,10 +7953,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAVI KUMAR",
-            "motherName": "PINKY DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7452883387",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9758900115",
+            "motherPhone": "+91 9758900115",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7437,7 +8004,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900115",
+        "fatherPhone": "+91 9758900115",
+        "fatherMobile": "+91 9758900115",
+        "mobile": "+91 9758900115",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-117",
@@ -7455,10 +8028,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAKESH KUMAR",
-            "motherName": "SAROJ DEVI",
+            "fatherName": "ATUL PATHAK",
+            "motherName": "NEERAJ DEVI",
             "fatherMobile": "9627728595",
-            "address": "CHIROURI, JARGWAN, BULANDSHAHAR"
+            "address": "CHIROURI, JARGWAN, BULANDSHAHAR",
+            "fatherPhone": "+91 7906380785",
+            "motherPhone": "+91 9389943235",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7491,7 +8067,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7906380785",
+        "fatherPhone": "+91 7906380785",
+        "fatherMobile": "+91 7906380785",
+        "mobile": "+91 7906380785",
+        "fatherName": "ATUL PATHAK",
+        "motherName": "NEERAJ DEVI"
     },
     {
         "id": "STU-2026-118",
@@ -7509,71 +8091,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJAY KUMAR",
-            "motherName": "VEENA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "6395011712",
-            "address": "MOUNIPURA, RAMGHAT"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 15500,
-            "transportDue11Months": 8800,
-            "totalDue": 24300,
-            "totalPaid": 0,
-            "balance": 24300,
-            "status": "Pending",
-            "isElderSibling": false,
-            "consolidatedFamilyDue": 0,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-007",
-                "name": "SUGANDHI",
-                "class": "XI",
-                "admissionNo": "125",
-                "fatherPhone": "6395011712"
-            }
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "RAMGHAT",
-            "monthlyFare": 800,
-            "annualTransportDue11Months": 8800
-        }
-    },
-    {
-        "id": "STU-2026-119",
-        "sqlId": "157",
-        "admissionNo": "320",
-        "rollNo": "127",
-        "name": "SANSKAR",
-        "photo": "https://ui-avatars.com/api/?name=SANSKAR&background=059669&color=fff&size=128&bold=true",
-        "dob": "2016-12-22",
-        "gender": "male",
-        "class": "V",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "GOPAL PRASAD",
-            "motherName": "RAVENDRI DEVI",
-            "fatherMobile": "9627887082",
-            "address": "RAMGHAT BULAND SHAHR"
+            "address": "MOUNIPURA, RAMGHAT",
+            "fatherPhone": "+91 9758900117",
+            "motherPhone": "+91 9758900117",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7606,7 +8130,76 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900117",
+        "fatherPhone": "+91 9758900117",
+        "fatherMobile": "+91 9758900117",
+        "mobile": "+91 9758900117",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
+    },
+    {
+        "id": "STU-2026-119",
+        "sqlId": "157",
+        "admissionNo": "320",
+        "rollNo": "127",
+        "name": "SANSKAR",
+        "photo": "https://ui-avatars.com/api/?name=SANSKAR&background=059669&color=fff&size=128&bold=true",
+        "dob": "2016-12-22",
+        "gender": "male",
+        "class": "V",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "GOPAL PRASAD",
+            "motherName": "RAVENDRI DEVI",
+            "fatherMobile": "9627887082",
+            "address": "RAMGHAT BULAND SHAHR",
+            "fatherPhone": "+91 9528646949",
+            "motherPhone": "+91 9627887082",
+            "occupation": "Farmer / Business"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 15500,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
+            "totalPaid": 0,
+            "balance": 24300,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
+        },
+        "phone": "+91 9528646949",
+        "fatherPhone": "+91 9528646949",
+        "fatherMobile": "+91 9528646949",
+        "mobile": "+91 9528646949",
+        "fatherName": "GOPAL PRASAD",
+        "motherName": "RAVENDRI DEVI"
     },
     {
         "id": "STU-2026-120",
@@ -7624,10 +8217,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANITPAL SINGH",
-            "motherName": "PREMLATA DEVI",
+            "fatherName": "HAR GOVIND",
+            "motherName": "RAJESH DEVI",
             "fatherMobile": "9149237488",
-            "address": "CHAINDAULA, SUJANPUR, ATRAULI (ALIGARH)"
+            "address": "CHAINDAULA, SUJANPUR, ATRAULI (ALIGARH)",
+            "fatherPhone": "+91 9761205726",
+            "motherPhone": "+91 9761205726",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7647,23 +8243,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 19350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 37700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 37700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-212",
-                    "name": "VISHAL KUMAR",
-                    "class": "III",
-                    "admissionNo": "440",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 18350,
-                    "individualPaid": 0,
-                    "individualBalance": 18350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -7672,7 +8256,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9761205726",
+        "fatherPhone": "+91 9761205726",
+        "fatherMobile": "+91 9761205726",
+        "mobile": "+91 9761205726",
+        "fatherName": "HAR GOVIND",
+        "motherName": "RAJESH DEVI"
     },
     {
         "id": "STU-2026-121",
@@ -7690,10 +8280,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANKUR MITTAL",
-            "motherName": "PARUSHI MITTAL",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9917938383",
-            "address": "RAMGHAT PO RAMGHAT BSR"
+            "address": "RAMGHAT PO RAMGHAT BSR",
+            "fatherPhone": "+91 9758900120",
+            "motherPhone": "+91 9758900120",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7738,7 +8331,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900120",
+        "fatherPhone": "+91 9758900120",
+        "fatherMobile": "+91 9758900120",
+        "mobile": "+91 9758900120",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-122",
@@ -7756,10 +8355,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RISHIPAL SINGH",
-            "motherName": "PUSHPA DEVI",
+            "fatherName": "DEVRAJ SINGH",
+            "motherName": "ANITA DEVI",
             "fatherMobile": "9650519842",
-            "address": "NAGLA GARVI, JARGWAN"
+            "address": "NAGLA GARVI, JARGWAN",
+            "fatherPhone": "+91 9720155624",
+            "motherPhone": "+91 9720155624",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7792,7 +8394,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9720155624",
+        "fatherPhone": "+91 9720155624",
+        "fatherMobile": "+91 9720155624",
+        "mobile": "+91 9720155624",
+        "fatherName": "DEVRAJ SINGH",
+        "motherName": "ANITA DEVI"
     },
     {
         "id": "STU-2026-123",
@@ -7810,10 +8418,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NEPAL SINGH",
-            "motherName": "SANTOSH DEVI",
+            "fatherName": "HARISHANKAR",
+            "motherName": "KAMLESH DEVI",
             "fatherMobile": "9675320274",
-            "address": "UNCHA GAONDIBAI BUANDSHAHR"
+            "address": "UNCHA GAONDIBAI BUANDSHAHR",
+            "fatherPhone": "+91 8650724663",
+            "motherPhone": "+91 8650724663",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7846,7 +8457,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8650724663",
+        "fatherPhone": "+91 8650724663",
+        "fatherMobile": "+91 8650724663",
+        "mobile": "+91 8650724663",
+        "fatherName": "HARISHANKAR",
+        "motherName": "KAMLESH DEVI"
     },
     {
         "id": "STU-2026-124",
@@ -7864,10 +8481,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DINESH KUMAR",
-            "motherName": "PREMVATI DEVI",
+            "fatherName": "AMIT KUMAR",
+            "motherName": "KRISHNA",
             "fatherMobile": "8650036847",
-            "address": "DHARAKPUR BULAND SHAHR"
+            "address": "DHARAKPUR BULAND SHAHR",
+            "fatherPhone": "+91 2",
+            "motherPhone": "+91 7830108749",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -7900,7 +8520,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 2",
+        "fatherPhone": "+91 2",
+        "fatherMobile": "+91 2",
+        "mobile": "+91 2",
+        "fatherName": "AMIT KUMAR",
+        "motherName": "KRISHNA"
     },
     {
         "id": "STU-2026-125",
@@ -7918,10 +8544,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AMAR SINGH",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "BRAJESH KUMAR",
+            "motherName": "MANJU DEVI",
             "fatherMobile": "9719225225",
-            "address": "NAGLA DHARAKPUR"
+            "address": "NAGLA DHARAKPUR",
+            "fatherPhone": "+91 8218893277",
+            "motherPhone": "+91 8218893277",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -7945,14 +8574,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-010",
-                "name": "ANJALI VERMA",
-                "class": "X",
-                "admissionNo": "128",
-                "fatherPhone": "9719225225"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -7961,7 +8583,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8218893277",
+        "fatherPhone": "+91 8218893277",
+        "fatherMobile": "+91 8218893277",
+        "mobile": "+91 8218893277",
+        "fatherName": "BRAJESH KUMAR",
+        "motherName": "MANJU DEVI"
     },
     {
         "id": "STU-2026-126",
@@ -7979,10 +8607,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ABHIJEET SINGH",
-            "motherName": "NARAYANI DEVI",
+            "fatherName": "RAJKUMAR",
+            "motherName": "NEERAJ DEVI",
             "fatherMobile": "9899289271",
-            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI (ALIGARH)"
+            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI (ALIGARH)",
+            "fatherPhone": "+91 9760066073",
+            "motherPhone": "+91 9760066073",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8015,7 +8646,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9760066073",
+        "fatherPhone": "+91 9760066073",
+        "fatherMobile": "+91 9760066073",
+        "mobile": "+91 9760066073",
+        "fatherName": "RAJKUMAR",
+        "motherName": "NEERAJ DEVI"
     },
     {
         "id": "STU-2026-127",
@@ -8033,10 +8670,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JAY PAL SINGH",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "RAJESH KUMAR",
+            "motherName": "PINKY DEVI",
             "fatherMobile": "7505351193",
-            "address": "CHIROURI BSR"
+            "address": "CHIROURI BSR",
+            "fatherPhone": "+91 9719164418",
+            "motherPhone": "+91 9719322033",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8069,7 +8709,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9719164418",
+        "fatherPhone": "+91 9719164418",
+        "fatherMobile": "+91 9719164418",
+        "mobile": "+91 9719164418",
+        "fatherName": "RAJESH KUMAR",
+        "motherName": "PINKY DEVI"
     },
     {
         "id": "STU-2026-128",
@@ -8087,10 +8733,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHYAMVEER SINGH",
-            "motherName": "ASHA DEVI",
+            "fatherName": "VINOD KUMAR",
+            "motherName": "USHA DEVI",
             "fatherMobile": "9761081386",
-            "address": "SILHARI DIBAI BULANDSHAHR"
+            "address": "SILHARI DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9761205728",
+            "motherPhone": "+91 9761205728",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8123,7 +8772,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9761205728",
+        "fatherPhone": "+91 9761205728",
+        "fatherMobile": "+91 9761205728",
+        "mobile": "+91 9761205728",
+        "fatherName": "VINOD KUMAR",
+        "motherName": "USHA DEVI"
     },
     {
         "id": "STU-2026-129",
@@ -8141,10 +8796,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATENDRA KUMAR",
-            "motherName": "SNEH DEVI",
+            "fatherName": "VINOD KUMAR",
+            "motherName": "USHA DEVI",
             "fatherMobile": "7500077994",
-            "address": "VILL.- GOKULPUR, POST- RAMGHAT, DIST.- BULANDSHAHR"
+            "address": "VILL.- GOKULPUR, POST- RAMGHAT, DIST.- BULANDSHAHR",
+            "fatherPhone": "+91 9761205728",
+            "motherPhone": "+91 9761205728",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8164,23 +8822,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 23800,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 46100,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 46100,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-245",
-                    "name": "CHESTA",
-                    "class": "I",
-                    "admissionNo": "494",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 22300,
-                    "individualPaid": 0,
-                    "individualBalance": 22300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -8189,7 +8835,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9761205728",
+        "fatherPhone": "+91 9761205728",
+        "fatherMobile": "+91 9761205728",
+        "mobile": "+91 9761205728",
+        "fatherName": "VINOD KUMAR",
+        "motherName": "USHA DEVI"
     },
     {
         "id": "STU-2026-130",
@@ -8207,10 +8859,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANOJ KUMAR",
-            "motherName": "BEENA DEVI",
+            "fatherName": "PRAMOD KUMAR",
+            "motherName": "DEEPIKA",
             "fatherMobile": "9368681376",
-            "address": "SILHARI DIBAI BULANDSHAHR"
+            "address": "SILHARI DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9719607274",
+            "motherPhone": "+91 9719607274",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8234,14 +8889,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-095",
-                "name": "ANUJ",
-                "class": "VI",
-                "admissionNo": "289",
-                "fatherPhone": "9368681376"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -8250,7 +8898,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9719607274",
+        "fatherPhone": "+91 9719607274",
+        "fatherMobile": "+91 9719607274",
+        "mobile": "+91 9719607274",
+        "fatherName": "PRAMOD KUMAR",
+        "motherName": "DEEPIKA"
     },
     {
         "id": "STU-2026-131",
@@ -8268,10 +8922,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINOD KUMAR",
-            "motherName": "SNEHLATA",
+            "fatherName": "SAMMU SINGH",
+            "motherName": "RAJANI DEVI",
             "fatherMobile": "7830242091",
-            "address": "MUDAKHERA / NAGLA ACHALA, ALMPUR FATAHPUR (ALIGARH)"
+            "address": "MUDAKHERA / NAGLA ACHALA, ALMPUR FATAHPUR (ALIGARH)",
+            "fatherPhone": "+91 9355473315",
+            "motherPhone": "+91 9355473315",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8304,7 +8961,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9355473315",
+        "fatherPhone": "+91 9355473315",
+        "fatherMobile": "+91 9355473315",
+        "mobile": "+91 9355473315",
+        "fatherName": "SAMMU SINGH",
+        "motherName": "RAJANI DEVI"
     },
     {
         "id": "STU-2026-132",
@@ -8322,10 +8985,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJAY KUMAR",
-            "motherName": "SEEMA DEVI",
+            "fatherName": "MANOJ KUMAR",
+            "motherName": "BEENA DEVI",
             "fatherMobile": "8650667436",
-            "address": "KALIYANPUR BHAGIRATHPUR, (ALIGARH)"
+            "address": "KALIYANPUR BHAGIRATHPUR, (ALIGARH)",
+            "fatherPhone": "+91 9368681376",
+            "motherPhone": "+91 9368681376",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8358,7 +9024,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9368681376",
+        "fatherPhone": "+91 9368681376",
+        "fatherMobile": "+91 9368681376",
+        "mobile": "+91 9368681376",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "BEENA DEVI"
     },
     {
         "id": "STU-2026-133",
@@ -8376,10 +9048,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINOD KUMAR",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "YOGESH KUMAR",
+            "motherName": "RINKY DEVI",
             "fatherMobile": "8941891392",
-            "address": "UNCHA GAON BANGAR, RAMGHAT"
+            "address": "UNCHA GAON BANGAR, RAMGHAT",
+            "fatherPhone": "+91 9720966040",
+            "motherPhone": "+91 9720966040",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8403,14 +9078,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-080",
-                "name": "GAURAV KUMAR",
-                "class": "VI",
-                "admissionNo": "260",
-                "fatherPhone": "8941891392"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -8419,7 +9087,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9720966040",
+        "fatherPhone": "+91 9720966040",
+        "fatherMobile": "+91 9720966040",
+        "mobile": "+91 9720966040",
+        "fatherName": "YOGESH KUMAR",
+        "motherName": "RINKY DEVI"
     },
     {
         "id": "STU-2026-134",
@@ -8437,10 +9111,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KAUSHAL KUMAR",
-            "motherName": "SARALA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9468205683",
-            "address": "GANESHPUR GOVINDPUR, ATRAULI"
+            "address": "GANESHPUR GOVINDPUR, ATRAULI",
+            "fatherPhone": "+91 9758900133",
+            "motherPhone": "+91 9758900133",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8460,23 +9137,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 21600,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 40700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-278",
-                    "name": "HIMANSHI RAJPUT",
-                    "class": "UKG",
-                    "admissionNo": "550",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 19100,
-                    "individualPaid": 0,
-                    "individualBalance": 19100
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -8485,7 +9150,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 9758900133",
+        "fatherPhone": "+91 9758900133",
+        "fatherMobile": "+91 9758900133",
+        "mobile": "+91 9758900133",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-135",
@@ -8503,10 +9174,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARBALLABH",
-            "motherName": "RUMANA DEVI",
+            "fatherName": "SURENDRA SINGH",
+            "motherName": "KAMLESH",
             "fatherMobile": "7217281688",
-            "address": "MAHRAJPUR BANJARA NAGLA"
+            "address": "MAHRAJPUR BANJARA NAGLA",
+            "fatherPhone": "+91 9758882443",
+            "motherPhone": "+91 0",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8539,7 +9213,13 @@ export const initialSchoolData = {
             "stop": "BANJARA NAGLA",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758882443",
+        "fatherPhone": "+91 9758882443",
+        "fatherMobile": "+91 9758882443",
+        "mobile": "+91 9758882443",
+        "fatherName": "SURENDRA SINGH",
+        "motherName": "KAMLESH"
     },
     {
         "id": "STU-2026-136",
@@ -8557,10 +9237,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MUKESH KUMAR",
-            "motherName": "SHEELA",
+            "fatherName": "SAURABH PRATAP",
+            "motherName": "RAGINI",
             "fatherMobile": "7088019598",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9536149148",
+            "motherPhone": "+91 9536149148",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8580,23 +9263,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 18800.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 46600,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 36600.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-298",
-                    "name": "ADITYA KUMAR",
-                    "class": "II",
-                    "admissionNo": "583",
-                    "tuitionDue": 14000,
-                    "transportDue11Months": 8800,
-                    "individualDue": 22800,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 17800.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -8605,7 +9276,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9536149148",
+        "fatherPhone": "+91 9536149148",
+        "fatherMobile": "+91 9536149148",
+        "mobile": "+91 9536149148",
+        "fatherName": "SAURABH PRATAP",
+        "motherName": "RAGINI"
     },
     {
         "id": "STU-2026-137",
@@ -8623,10 +9300,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ROOP KISHOR",
-            "motherName": "SEEMA DEVI",
+            "fatherName": "PRADEEP KUMAR",
+            "motherName": "PRITI DEVI",
             "fatherMobile": "9990488266",
-            "address": "NAGLA GARVI, JARGWAN"
+            "address": "NAGLA GARVI, JARGWAN",
+            "fatherPhone": "+91 9761965033",
+            "motherPhone": "+91 9761965033",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8650,14 +9330,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-060",
-                "name": "HOMESH KUMAR",
-                "class": "VII",
-                "admissionNo": "225",
-                "fatherPhone": "9990488266"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -8666,7 +9339,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9761965033",
+        "fatherPhone": "+91 9761965033",
+        "fatherMobile": "+91 9761965033",
+        "mobile": "+91 9761965033",
+        "fatherName": "PRADEEP KUMAR",
+        "motherName": "PRITI DEVI"
     },
     {
         "id": "STU-2026-138",
@@ -8684,10 +9363,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SURESH TIWARI",
-            "motherName": "SHIVANGI BHARDWAJ",
+            "fatherName": "KRISHNA KUMAR",
+            "motherName": "VUYA DEVI",
             "fatherMobile": "6396058127",
-            "address": "RAMGHAT, DEBAI"
+            "address": "RAMGHAT, DEBAI",
+            "fatherPhone": "+91 9927501907",
+            "motherPhone": "+91 9927501907",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8720,7 +9402,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9927501907",
+        "fatherPhone": "+91 9927501907",
+        "fatherMobile": "+91 9927501907",
+        "mobile": "+91 9927501907",
+        "fatherName": "KRISHNA KUMAR",
+        "motherName": "VUYA DEVI"
     },
     {
         "id": "STU-2026-139",
@@ -8738,10 +9426,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ARUN KUMAR",
-            "motherName": "KOMAL",
+            "fatherName": "VINEET KUMAR",
+            "motherName": "POONAM SHARMA",
             "fatherMobile": "9268386124",
-            "address": "HARVANSHPUR ATRAULI"
+            "address": "HARVANSHPUR ATRAULI",
+            "fatherPhone": "+91 8859343009",
+            "motherPhone": "+91 8859343009",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8765,14 +9456,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-073",
-                "name": "SONAKSHI",
-                "class": "VII",
-                "admissionNo": "248",
-                "fatherPhone": "9268386124"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -8781,7 +9465,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8859343009",
+        "fatherPhone": "+91 8859343009",
+        "fatherMobile": "+91 8859343009",
+        "mobile": "+91 8859343009",
+        "fatherName": "VINEET KUMAR",
+        "motherName": "POONAM SHARMA"
     },
     {
         "id": "STU-2026-140",
@@ -8799,142 +9489,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANIL KUMAR",
-            "motherName": "VINESH DEVI",
+            "fatherName": "FOUJI YADAV JI",
+            "motherName": "ROOPVATI DEVI",
             "fatherMobile": "7830214462",
-            "address": "JARGWAN BULAND SHAHR"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 15000,
-            "transportDue11Months": 3850,
-            "totalDue": 18850,
-            "totalPaid": 0,
-            "balance": 18850,
-            "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 34200,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 34200,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-402",
-                    "name": "PRIYAL",
-                    "class": "LKG",
-                    "admissionNo": "752",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 15350,
-                    "individualPaid": 0,
-                    "individualBalance": 15350
-                }
-            ]
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 350,
-            "annualTransportDue11Months": 3850
-        }
-    },
-    {
-        "id": "STU-2026-141",
-        "sqlId": "182",
-        "admissionNo": "345",
-        "rollNo": "139",
-        "name": "DRASHTI",
-        "photo": "https://ui-avatars.com/api/?name=DRASHTI&background=2563EB&color=fff&size=128&bold=true",
-        "dob": "2016-02-12",
-        "gender": "female",
-        "class": "IV",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "ROOP KISHOR",
-            "motherName": "KUSUM DEVI",
-            "fatherMobile": "9759711175",
-            "address": "NAGLA DHARAKPUR, DIBAI"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 15000,
-            "transportDue11Months": 8250,
-            "totalDue": 23250,
-            "totalPaid": 20150.0,
-            "balance": 3100.0,
-            "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 41100,
-            "consolidatedFamilyPaid": 38800.0,
-            "consolidatedFamilyBalance": 2300.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-236",
-                    "name": "RUDRANSH",
-                    "class": "II",
-                    "admissionNo": "481",
-                    "tuitionDue": 14000,
-                    "transportDue11Months": 3850,
-                    "individualDue": 17850,
-                    "individualPaid": 18650.0,
-                    "individualBalance": 0
-                }
-            ]
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
-        }
-    },
-    {
-        "id": "STU-2026-142",
-        "sqlId": "183",
-        "admissionNo": "346",
-        "rollNo": "86",
-        "name": "GOPAL PATHAK",
-        "photo": "https://ui-avatars.com/api/?name=GOPAL+PATHAK&background=DC2626&color=fff&size=128&bold=true",
-        "dob": "2016-08-15",
-        "gender": "male",
-        "class": "IV",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "ATUL PATHAK",
-            "motherName": "NEERAJ DEVI",
-            "fatherMobile": "6397628785",
-            "address": "VILL-POST JARGWAN"
+            "address": "JARGWAN BULAND SHAHR",
+            "fatherPhone": "+91 8968167475",
+            "motherPhone": "+91 8968167475",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -8967,7 +9528,139 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8968167475",
+        "fatherPhone": "+91 8968167475",
+        "fatherMobile": "+91 8968167475",
+        "mobile": "+91 8968167475",
+        "fatherName": "FOUJI YADAV JI",
+        "motherName": "ROOPVATI DEVI"
+    },
+    {
+        "id": "STU-2026-141",
+        "sqlId": "182",
+        "admissionNo": "345",
+        "rollNo": "139",
+        "name": "DRASHTI",
+        "photo": "https://ui-avatars.com/api/?name=DRASHTI&background=2563EB&color=fff&size=128&bold=true",
+        "dob": "2016-02-12",
+        "gender": "female",
+        "class": "IV",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "MULAYAM SINGH",
+            "motherName": "SUMAN DEVI",
+            "fatherMobile": "9759711175",
+            "address": "NAGLA DHARAKPUR, DIBAI",
+            "fatherPhone": "+91 9720058659",
+            "motherPhone": "+91 9720058659",
+            "occupation": "Farmer / Business"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 15000,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
+            "totalPaid": 20150.0,
+            "balance": 3100.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        },
+        "phone": "+91 9720058659",
+        "fatherPhone": "+91 9720058659",
+        "fatherMobile": "+91 9720058659",
+        "mobile": "+91 9720058659",
+        "fatherName": "MULAYAM SINGH",
+        "motherName": "SUMAN DEVI"
+    },
+    {
+        "id": "STU-2026-142",
+        "sqlId": "183",
+        "admissionNo": "346",
+        "rollNo": "86",
+        "name": "GOPAL PATHAK",
+        "photo": "https://ui-avatars.com/api/?name=GOPAL+PATHAK&background=DC2626&color=fff&size=128&bold=true",
+        "dob": "2016-08-15",
+        "gender": "male",
+        "class": "IV",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "HARISHANKAR",
+            "motherName": "KAMLESH DEVI",
+            "fatherMobile": "6397628785",
+            "address": "VILL-POST JARGWAN",
+            "fatherPhone": "+91 7982771566",
+            "motherPhone": "+91 8650724663",
+            "occupation": "Farmer / Business"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
+            "totalPaid": 0,
+            "balance": 18850,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
+        },
+        "phone": "+91 7982771566",
+        "fatherPhone": "+91 7982771566",
+        "fatherMobile": "+91 7982771566",
+        "mobile": "+91 7982771566",
+        "fatherName": "HARISHANKAR",
+        "motherName": "KAMLESH DEVI"
     },
     {
         "id": "STU-2026-143",
@@ -8985,10 +9678,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JAYVEER SINGH",
-            "motherName": "POONAM DEVI",
+            "fatherName": "AJAY KUMAR",
+            "motherName": "NEERU DEVI",
             "fatherMobile": "9719419975",
-            "address": "NAGLA GARVI, JARGWAN"
+            "address": "NAGLA GARVI, JARGWAN",
+            "fatherPhone": "+91 9758962135",
+            "motherPhone": "+91 9759262366",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9008,23 +9704,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 20500,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 38500,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 38500,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-285",
-                    "name": "SANJEEV KUMAR",
-                    "class": "UKG",
-                    "admissionNo": "560",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 18000,
-                    "individualPaid": 0,
-                    "individualBalance": 18000
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -9033,7 +9717,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758962135",
+        "fatherPhone": "+91 9758962135",
+        "fatherMobile": "+91 9758962135",
+        "mobile": "+91 9758962135",
+        "fatherName": "AJAY KUMAR",
+        "motherName": "NEERU DEVI"
     },
     {
         "id": "STU-2026-144",
@@ -9051,10 +9741,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "INDRAJEET SHARMA",
-            "motherName": "DULARI SHARMA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8077450141",
-            "address": "BAIJALA, ATRAULI"
+            "address": "BAIJALA, ATRAULI",
+            "fatherPhone": "+91 9758900143",
+            "motherPhone": "+91 9758900143",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9087,7 +9780,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9758900143",
+        "fatherPhone": "+91 9758900143",
+        "fatherMobile": "+91 9758900143",
+        "mobile": "+91 9758900143",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-145",
@@ -9105,10 +9804,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANTOSH KUMAR",
-            "motherName": "JYOTI DEVI",
+            "fatherName": "VIJENDRA SINGH",
+            "motherName": "SAROJ DEVI",
             "fatherMobile": "9758131285",
-            "address": "KUDHAINI, CHIRAURI"
+            "address": "KUDHAINI, CHIRAURI",
+            "fatherPhone": "+91 9758741530",
+            "motherPhone": "+91 9758605323",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9141,7 +9843,13 @@ export const initialSchoolData = {
             "stop": "KUDHAINI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758741530",
+        "fatherPhone": "+91 9758741530",
+        "fatherMobile": "+91 9758741530",
+        "mobile": "+91 9758741530",
+        "fatherName": "VIJENDRA SINGH",
+        "motherName": "SAROJ DEVI"
     },
     {
         "id": "STU-2026-146",
@@ -9159,10 +9867,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANIL KUMAR",
-            "motherName": "PINKY",
+            "fatherName": "DHARMENDRA KUMAR",
+            "motherName": "HITESH DEVI",
             "fatherMobile": "7448232379",
-            "address": "SILHARI RAMGHAT"
+            "address": "SILHARI RAMGHAT",
+            "fatherPhone": "+91 9719334408",
+            "motherPhone": "+91 9719334408",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9195,7 +9906,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9719334408",
+        "fatherPhone": "+91 9719334408",
+        "fatherMobile": "+91 9719334408",
+        "mobile": "+91 9719334408",
+        "fatherName": "DHARMENDRA KUMAR",
+        "motherName": "HITESH DEVI"
     },
     {
         "id": "STU-2026-147",
@@ -9213,10 +9930,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAVI KUMAR",
-            "motherName": "PINKY DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7452883387",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9758900146",
+            "motherPhone": "+91 9758900146",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9256,7 +9976,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900146",
+        "fatherPhone": "+91 9758900146",
+        "fatherMobile": "+91 9758900146",
+        "mobile": "+91 9758900146",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-148",
@@ -9274,10 +10000,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEVDUTTA",
-            "motherName": "CHANDRAPRABHA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8384814903",
-            "address": "NAGLA GARVI, JARGWAN"
+            "address": "NAGLA GARVI, JARGWAN",
+            "fatherPhone": "+91 9758900147",
+            "motherPhone": "+91 9758900147",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9297,23 +10026,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 15500.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 37500,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 27500.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-542",
-                    "name": "BHASKAR",
-                    "class": "LKG",
-                    "admissionNo": "937",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 17000,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 12000.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -9322,7 +10039,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900147",
+        "fatherPhone": "+91 9758900147",
+        "fatherMobile": "+91 9758900147",
+        "mobile": "+91 9758900147",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-149",
@@ -9340,71 +10063,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAM KISHOR",
-            "motherName": "VANDANA DEVI",
+            "fatherName": "BOBY KUMAR",
+            "motherName": "URMILA DEVI",
             "fatherMobile": "9759840340",
-            "address": "NATHPUR NAHAL ATRAULI ALIGARH"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 15000,
-            "transportDue11Months": 3850,
-            "totalDue": 18850,
-            "totalPaid": 0,
-            "balance": 18850,
-            "status": "Pending",
-            "isElderSibling": false,
-            "consolidatedFamilyDue": 0,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-065",
-                "name": "NITIN KUMAR",
-                "class": "VII",
-                "admissionNo": "233",
-                "fatherPhone": "9759840340"
-            }
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 350,
-            "annualTransportDue11Months": 3850
-        }
-    },
-    {
-        "id": "STU-2026-150",
-        "sqlId": "193",
-        "admissionNo": "356",
-        "rollNo": "147",
-        "name": "KRISHNA YADAV",
-        "photo": "https://ui-avatars.com/api/?name=KRISHNA+YADAV&background=2563EB&color=fff&size=128&bold=true",
-        "dob": "2017-12-30",
-        "gender": "male",
-        "class": "IV",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "SAHDEV SINGH",
-            "motherName": "SADHNA DEVI",
-            "fatherMobile": "6396453048",
-            "address": "CHIRAURI, DIBAI"
+            "address": "NATHPUR NAHAL ATRAULI ALIGARH",
+            "fatherPhone": "+91 8650739321",
+            "motherPhone": "+91 4593995796",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9437,7 +10102,76 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8650739321",
+        "fatherPhone": "+91 8650739321",
+        "fatherMobile": "+91 8650739321",
+        "mobile": "+91 8650739321",
+        "fatherName": "BOBY KUMAR",
+        "motherName": "URMILA DEVI"
+    },
+    {
+        "id": "STU-2026-150",
+        "sqlId": "193",
+        "admissionNo": "356",
+        "rollNo": "147",
+        "name": "KRISHNA YADAV",
+        "photo": "https://ui-avatars.com/api/?name=KRISHNA+YADAV&background=2563EB&color=fff&size=128&bold=true",
+        "dob": "2017-12-30",
+        "gender": "male",
+        "class": "IV",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
+            "fatherMobile": "6396453048",
+            "address": "CHIRAURI, DIBAI",
+            "fatherPhone": "+91 9758900149",
+            "motherPhone": "+91 9758900149",
+            "occupation": "Farmer / Business"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
+            "totalPaid": 0,
+            "balance": 18850,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
+        },
+        "phone": "+91 9758900149",
+        "fatherPhone": "+91 9758900149",
+        "fatherMobile": "+91 9758900149",
+        "mobile": "+91 9758900149",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-151",
@@ -9455,10 +10189,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HOSHIYAR SINGH",
+            "fatherName": "BHURE SINGH",
             "motherName": "SUMAN DEVI",
             "fatherMobile": "7830242051",
-            "address": "BAIJLA KOTHI ,JIRALI DHOOM SINGH ATRALI"
+            "address": "BAIJLA KOTHI ,JIRALI DHOOM SINGH ATRALI",
+            "fatherPhone": "+91 9719017603",
+            "motherPhone": "+91 9719017603",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9491,7 +10228,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9719017603",
+        "fatherPhone": "+91 9719017603",
+        "fatherMobile": "+91 9719017603",
+        "mobile": "+91 9719017603",
+        "fatherName": "BHURE SINGH",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-152",
@@ -9509,10 +10252,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MATRU SINGH",
-            "motherName": "POOJA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9758253973",
-            "address": "NAGLA CHIRAURI, CHIRAURI (BULANDSHAHR)"
+            "address": "NAGLA CHIRAURI, CHIRAURI (BULANDSHAHR)",
+            "fatherPhone": "+91 9758900151",
+            "motherPhone": "+91 9758900151",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9545,7 +10291,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900151",
+        "fatherPhone": "+91 9758900151",
+        "fatherMobile": "+91 9758900151",
+        "mobile": "+91 9758900151",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-153",
@@ -9563,10 +10315,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BHOORE SINGH",
-            "motherName": "ASHA DEVI",
+            "fatherName": "PRAMOD KUMAR",
+            "motherName": "CHANCHAL DEVI",
             "fatherMobile": "9568476692",
-            "address": "UNCHA GAWN BANGARBULANDSHAHR"
+            "address": "UNCHA GAWN BANGARBULANDSHAHR",
+            "fatherPhone": "+91 9412357470",
+            "motherPhone": "+91 9412357470",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9586,23 +10341,11 @@ export const initialSchoolData = {
             "totalPaid": 10000.0,
             "balance": 9350.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 38200,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 28200.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-200",
-                    "name": "ROHIT KUMAR",
-                    "class": "IV",
-                    "admissionNo": "425",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 3850,
-                    "individualDue": 18850,
-                    "individualPaid": 0,
-                    "individualBalance": 18850
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -9611,7 +10354,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9412357470",
+        "fatherPhone": "+91 9412357470",
+        "fatherMobile": "+91 9412357470",
+        "mobile": "+91 9412357470",
+        "fatherName": "PRAMOD KUMAR",
+        "motherName": "CHANCHAL DEVI"
     },
     {
         "id": "STU-2026-154",
@@ -9629,10 +10378,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGESH KUMAR",
+            "fatherName": "RAVI KUMAR",
             "motherName": "PINKY DEVI",
             "fatherMobile": "8859303073",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 7409726896",
+            "motherPhone": "+91 7452883387",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9656,14 +10408,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-110",
-                "name": "PRASHANT KUMAR",
-                "class": "V",
-                "admissionNo": "308",
-                "fatherPhone": "8859303073"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -9672,7 +10417,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7409726896",
+        "fatherPhone": "+91 7409726896",
+        "fatherMobile": "+91 7409726896",
+        "mobile": "+91 7409726896",
+        "fatherName": "RAVI KUMAR",
+        "motherName": "PINKY DEVI"
     },
     {
         "id": "STU-2026-155",
@@ -9690,10 +10441,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DINESH KUMAR",
-            "motherName": "VEENESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9536711508",
-            "address": "DADHAR ALIPURA"
+            "address": "DADHAR ALIPURA",
+            "fatherPhone": "+91 9758900154",
+            "motherPhone": "+91 9758900154",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9738,7 +10492,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 9758900154",
+        "fatherPhone": "+91 9758900154",
+        "fatherMobile": "+91 9758900154",
+        "mobile": "+91 9758900154",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-156",
@@ -9756,10 +10516,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PIYUSH CHAUHAN",
-            "motherName": "MOHINI CHAUHAN",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9528626183",
-            "address": "LOHGARH , ATRAULI"
+            "address": "LOHGARH , ATRAULI",
+            "fatherPhone": "+91 9758900155",
+            "motherPhone": "+91 9758900155",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9779,23 +10542,11 @@ export const initialSchoolData = {
             "totalPaid": 14000.0,
             "balance": 9750.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 46500,
-            "consolidatedFamilyPaid": 14000.0,
-            "consolidatedFamilyBalance": 32500.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-176",
-                    "name": "AYUSHI CHAUHAN",
-                    "class": "III",
-                    "admissionNo": "392",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 22750,
-                    "individualPaid": 0,
-                    "individualBalance": 22750
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -9804,7 +10555,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900155",
+        "fatherPhone": "+91 9758900155",
+        "fatherMobile": "+91 9758900155",
+        "mobile": "+91 9758900155",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-157",
@@ -9822,10 +10579,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "UDAYVEER SINGH",
-            "motherName": "NEKSI DEVI",
+            "fatherName": "GOPAL PRASAD",
+            "motherName": "RAVENDRI DEVI",
             "fatherMobile": "9675320274",
-            "address": "UNCHA GAON DIBAI BULANDSHAHR"
+            "address": "UNCHA GAON DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9528646949",
+            "motherPhone": "+91 9627887082",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9845,23 +10605,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 19850,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 37700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 37700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-221",
-                    "name": "GUNJAN KUMAR",
-                    "class": "II",
-                    "admissionNo": "456",
-                    "tuitionDue": 14000,
-                    "transportDue11Months": 3850,
-                    "individualDue": 17850,
-                    "individualPaid": 0,
-                    "individualBalance": 17850
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -9870,7 +10618,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9528646949",
+        "fatherPhone": "+91 9528646949",
+        "fatherMobile": "+91 9528646949",
+        "mobile": "+91 9528646949",
+        "fatherName": "GOPAL PRASAD",
+        "motherName": "RAVENDRI DEVI"
     },
     {
         "id": "STU-2026-158",
@@ -9888,10 +10642,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIJAY SINGH",
-            "motherName": "SUMANLATA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8650458433",
-            "address": "JARGWAN (BULANDSHAHR)"
+            "address": "JARGWAN (BULANDSHAHR)",
+            "fatherPhone": "+91 9758900157",
+            "motherPhone": "+91 9758900157",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9924,7 +10681,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900157",
+        "fatherPhone": "+91 9758900157",
+        "fatherMobile": "+91 9758900157",
+        "mobile": "+91 9758900157",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-159",
@@ -9942,10 +10705,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH KUMAR",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9627265417",
-            "address": "BAGI NAGLA CHIRURI BULANDSHAHR"
+            "address": "BAGI NAGLA CHIRURI BULANDSHAHR",
+            "fatherPhone": "+91 9758900158",
+            "motherPhone": "+91 9758900158",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -9966,9 +10732,9 @@ export const initialSchoolData = {
             "balance": 15250.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 67750,
-            "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 47750.0,
+            "consolidatedFamilyDue": 46000,
+            "consolidatedFamilyPaid": 14000.0,
+            "consolidatedFamilyBalance": 32000.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-209",
@@ -9980,17 +10746,6 @@ export const initialSchoolData = {
                     "individualDue": 22750,
                     "individualPaid": 6000.0,
                     "individualBalance": 16750.0
-                },
-                {
-                    "id": "STU-2026-247",
-                    "name": "DEEKSHA SHARMA",
-                    "class": "I",
-                    "admissionNo": "496",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 21750,
-                    "individualPaid": 6000.0,
-                    "individualBalance": 15750.0
                 }
             ]
         },
@@ -10001,7 +10756,13 @@ export const initialSchoolData = {
             "stop": "BAGI NAGLA",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900158",
+        "fatherPhone": "+91 9758900158",
+        "fatherMobile": "+91 9758900158",
+        "mobile": "+91 9758900158",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-160",
@@ -10022,7 +10783,10 @@ export const initialSchoolData = {
             "fatherName": "HARENDRA SINGH",
             "motherName": "KAVITA DEVI",
             "fatherMobile": "9582984147",
-            "address": "CHIROURI"
+            "address": "CHIROURI",
+            "fatherPhone": "+91 9582984147",
+            "motherPhone": "+91 9582984147",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10055,7 +10819,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9582984147",
+        "fatherPhone": "+91 9582984147",
+        "fatherMobile": "+91 9582984147",
+        "mobile": "+91 9582984147",
+        "fatherName": "HARENDRA SINGH",
+        "motherName": "KAVITA DEVI"
     },
     {
         "id": "STU-2026-161",
@@ -10073,10 +10843,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KANHAIYALAL",
-            "motherName": "POOJA SHARMA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8384808060",
-            "address": "RAMGHAT BULANDSHAHR"
+            "address": "RAMGHAT BULANDSHAHR",
+            "fatherPhone": "+91 9758900160",
+            "motherPhone": "+91 9758900160",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10109,7 +10882,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900160",
+        "fatherPhone": "+91 9758900160",
+        "fatherMobile": "+91 9758900160",
+        "mobile": "+91 9758900160",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-162",
@@ -10127,10 +10906,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGESH KUMAR",
-            "motherName": "PINKY DEVI",
+            "fatherName": "NEPAL SINGH",
+            "motherName": "SANTOSH DEVI",
             "fatherMobile": "9720966040",
-            "address": "SILHARI RAMPUR"
+            "address": "SILHARI RAMPUR",
+            "fatherPhone": "+91 9675320274",
+            "motherPhone": "+91 9675320274",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10154,14 +10936,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-096",
-                "name": "CHHAVI",
-                "class": "VI",
-                "admissionNo": "290",
-                "fatherPhone": "9720966040"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -10170,7 +10945,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9675320274",
+        "fatherPhone": "+91 9675320274",
+        "fatherMobile": "+91 9675320274",
+        "mobile": "+91 9675320274",
+        "fatherName": "NEPAL SINGH",
+        "motherName": "SANTOSH DEVI"
     },
     {
         "id": "STU-2026-163",
@@ -10188,10 +10969,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RINKOO KUMAR",
-            "motherName": "SUNITA DEVI",
+            "fatherName": "DINESH KUMAR",
+            "motherName": "PREMVATI DEVI",
             "fatherMobile": "9719175262",
-            "address": "MAHARAJPUR, RAMGHAT"
+            "address": "MAHARAJPUR, RAMGHAT",
+            "fatherPhone": "+91 6398633259",
+            "motherPhone": "+91 8650036847",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10224,7 +11008,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 6398633259",
+        "fatherPhone": "+91 6398633259",
+        "fatherMobile": "+91 6398633259",
+        "mobile": "+91 6398633259",
+        "fatherName": "DINESH KUMAR",
+        "motherName": "PREMVATI DEVI"
     },
     {
         "id": "STU-2026-164",
@@ -10242,10 +11032,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANTOSH KUMAR",
-            "motherName": "JYOTI DEVI",
+            "fatherName": "AMAR SINGH",
+            "motherName": "KAMLESH DEVI",
             "fatherMobile": "9759131285",
-            "address": "KUDHAINI, CHIROURI"
+            "address": "KUDHAINI, CHIROURI",
+            "fatherPhone": "+91 6398426834",
+            "motherPhone": "+91 9719225225",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10278,7 +11071,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 6398426834",
+        "fatherPhone": "+91 6398426834",
+        "fatherMobile": "+91 6398426834",
+        "mobile": "+91 6398426834",
+        "fatherName": "AMAR SINGH",
+        "motherName": "KAMLESH DEVI"
     },
     {
         "id": "STU-2026-165",
@@ -10296,10 +11095,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIPIN KUMAR",
-            "motherName": "ANSHU KUMARI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9260917139",
-            "address": "RAMGHAT DEBAI"
+            "address": "RAMGHAT DEBAI",
+            "fatherPhone": "+91 9758900164",
+            "motherPhone": "+91 9758900164",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10332,7 +11134,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900164",
+        "fatherPhone": "+91 9758900164",
+        "fatherMobile": "+91 9758900164",
+        "mobile": "+91 9758900164",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-166",
@@ -10350,10 +11158,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARIKESH KUMAR",
-            "motherName": "HEMLATA DEVI",
+            "fatherName": "JAY PAL SINGH",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "9643311163",
-            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI"
+            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI",
+            "fatherPhone": "+91 7505351193",
+            "motherPhone": "+91 7505351193",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10373,23 +11184,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 23800,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 47100,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 47100,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-196",
-                    "name": "PEEYUSH KUMAR",
-                    "class": "III",
-                    "admissionNo": "419",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 23300,
-                    "individualPaid": 0,
-                    "individualBalance": 23300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -10398,7 +11197,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7505351193",
+        "fatherPhone": "+91 7505351193",
+        "fatherMobile": "+91 7505351193",
+        "mobile": "+91 7505351193",
+        "fatherName": "JAY PAL SINGH",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-167",
@@ -10416,10 +11221,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SONU",
-            "motherName": "KAVITA DEVI",
+            "fatherName": "SHYAMVEER SINGH",
+            "motherName": "ASHA DEVI",
             "fatherMobile": "8630790647",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9761081386",
+            "motherPhone": "+91 9761081386",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10452,7 +11260,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9761081386",
+        "fatherPhone": "+91 9761081386",
+        "fatherMobile": "+91 9761081386",
+        "mobile": "+91 9761081386",
+        "fatherName": "SHYAMVEER SINGH",
+        "motherName": "ASHA DEVI"
     },
     {
         "id": "STU-2026-168",
@@ -10470,10 +11284,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RESHAMPAL SINGH",
-            "motherName": "KALPANA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9870778403",
-            "address": "GANGA GARH, RAMGHAT"
+            "address": "GANGA GARH, RAMGHAT",
+            "fatherPhone": "+91 9758900167",
+            "motherPhone": "+91 9758900167",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10506,7 +11323,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900167",
+        "fatherPhone": "+91 9758900167",
+        "fatherMobile": "+91 9758900167",
+        "mobile": "+91 9758900167",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-169",
@@ -10527,7 +11350,10 @@ export const initialSchoolData = {
             "fatherName": "MUNISH KUMAR",
             "motherName": "SUMAN DEVI",
             "fatherMobile": "9719198738",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 9719198738",
+            "motherPhone": "+91 9719198738",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10560,7 +11386,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9719198738",
+        "fatherPhone": "+91 9719198738",
+        "fatherMobile": "+91 9719198738",
+        "mobile": "+91 9719198738",
+        "fatherName": "MUNISH KUMAR",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-170",
@@ -10578,10 +11410,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KRISHNA KUMAR",
-            "motherName": "VUYA DEVI",
+            "fatherName": "MANOJ KUMAR",
+            "motherName": "BEENA DEVI",
             "fatherMobile": "9927501907",
-            "address": "NAGLA GARVI JARGWAN BULANDSHAHR"
+            "address": "NAGLA GARVI JARGWAN BULANDSHAHR",
+            "fatherPhone": "+91 9368681376",
+            "motherPhone": "+91 9368681376",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10605,14 +11440,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-101",
-                "name": "DIVYANSHU KUMAR",
-                "class": "V",
-                "admissionNo": "295",
-                "fatherPhone": "9927501907"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -10621,7 +11449,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9368681376",
+        "fatherPhone": "+91 9368681376",
+        "fatherMobile": "+91 9368681376",
+        "mobile": "+91 9368681376",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "BEENA DEVI"
     },
     {
         "id": "STU-2026-171",
@@ -10639,10 +11473,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARIKISHAN",
-            "motherName": "REENA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7729905845",
-            "address": "MAHARAJPUR URF RATUA NAGLA"
+            "address": "MAHARAJPUR URF RATUA NAGLA",
+            "fatherPhone": "+91 9758900170",
+            "motherPhone": "+91 9758900170",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10675,7 +11512,13 @@ export const initialSchoolData = {
             "stop": "MAHARAJPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900170",
+        "fatherPhone": "+91 9758900170",
+        "fatherMobile": "+91 9758900170",
+        "mobile": "+91 9758900170",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-172",
@@ -10693,10 +11536,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEVESH SHARMA",
-            "motherName": "KHUSHBOO",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9971318665",
-            "address": "KUDHAINI CHIRAURI"
+            "address": "KUDHAINI CHIRAURI",
+            "fatherPhone": "+91 9758900171",
+            "motherPhone": "+91 9758900171",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10729,7 +11575,13 @@ export const initialSchoolData = {
             "stop": "KUDHAINI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900171",
+        "fatherPhone": "+91 9758900171",
+        "fatherMobile": "+91 9758900171",
+        "mobile": "+91 9758900171",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-173",
@@ -10747,10 +11599,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BALAK DAS",
-            "motherName": "NEHA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "6351582814",
-            "address": "MOUNIPURA URF RAMVAS BULANDSHAHR"
+            "address": "MOUNIPURA URF RAMVAS BULANDSHAHR",
+            "fatherPhone": "+91 9758900172",
+            "motherPhone": "+91 9758900172",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10783,7 +11638,13 @@ export const initialSchoolData = {
             "stop": "MOUNIPURA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 9758900172",
+        "fatherPhone": "+91 9758900172",
+        "fatherMobile": "+91 9758900172",
+        "mobile": "+91 9758900172",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-174",
@@ -10801,10 +11662,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SAURABH PRATAP",
-            "motherName": "RAGINI",
+            "fatherName": "JITENDRA KUMAR",
+            "motherName": "PRITI DEVI",
             "fatherMobile": "9536149148",
-            "address": "LOHGARH, ATRAULI"
+            "address": "LOHGARH, ATRAULI",
+            "fatherPhone": "+91 9354135881",
+            "motherPhone": "+91 8810317983",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10828,14 +11692,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-099",
-                "name": "DIVYANSHI RAGHAV",
-                "class": "VI",
-                "admissionNo": "293",
-                "fatherPhone": "9536149148"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -10844,7 +11701,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9354135881",
+        "fatherPhone": "+91 9354135881",
+        "fatherMobile": "+91 9354135881",
+        "mobile": "+91 9354135881",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "PRITI DEVI"
     },
     {
         "id": "STU-2026-175",
@@ -10862,10 +11725,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMESH CHANDRA",
-            "motherName": "RAJVATI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8650648007",
-            "address": "BAJHERA, DHARAKPUR"
+            "address": "BAJHERA, DHARAKPUR",
+            "fatherPhone": "+91 9758900174",
+            "motherPhone": "+91 9758900174",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10898,7 +11764,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900174",
+        "fatherPhone": "+91 9758900174",
+        "fatherMobile": "+91 9758900174",
+        "mobile": "+91 9758900174",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-176",
@@ -10916,10 +11788,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PIYUSH CHAUHAN",
-            "motherName": "MOHINI CHAUHAN",
+            "fatherName": "HARBALLABH",
+            "motherName": "RUMANA DEVI",
             "fatherMobile": "9528626183",
-            "address": "LOHGARH, ATRAULI"
+            "address": "LOHGARH, ATRAULI",
+            "fatherPhone": "+91 7830373451",
+            "motherPhone": "+91 7217281688",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -10943,14 +11818,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-156",
-                "name": "PRAJWAL CHAUHAN",
-                "class": "V",
-                "admissionNo": "366",
-                "fatherPhone": "9528626183"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -10959,7 +11827,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7830373451",
+        "fatherPhone": "+91 7830373451",
+        "fatherMobile": "+91 7830373451",
+        "mobile": "+91 7830373451",
+        "fatherName": "HARBALLABH",
+        "motherName": "RUMANA DEVI"
     },
     {
         "id": "STU-2026-177",
@@ -10977,10 +11851,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AVNESH KUMAR",
-            "motherName": "ANOJ DEVI",
+            "fatherName": "MUKESH KUMAR",
+            "motherName": "SHEELA",
             "fatherMobile": "9761083561",
-            "address": "BAIJALA, ATRAULI (ALIGARH)"
+            "address": "BAIJALA, ATRAULI (ALIGARH)",
+            "fatherPhone": "+91 7037019598",
+            "motherPhone": "+91 7088019598",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11000,23 +11877,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 20550,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 40100,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40100,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-244",
-                    "name": "BANSHU KUMAR",
-                    "class": "I",
-                    "admissionNo": "493",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 19550,
-                    "individualPaid": 0,
-                    "individualBalance": 19550
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -11025,7 +11890,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 7037019598",
+        "fatherPhone": "+91 7037019598",
+        "fatherMobile": "+91 7037019598",
+        "mobile": "+91 7037019598",
+        "fatherName": "MUKESH KUMAR",
+        "motherName": "SHEELA"
     },
     {
         "id": "STU-2026-178",
@@ -11043,10 +11914,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH KUMAR",
-            "motherName": "MAMTA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9811700109",
-            "address": "SILHARI (BULANDSHAHR)"
+            "address": "SILHARI (BULANDSHAHR)",
+            "fatherPhone": "+91 9758900177",
+            "motherPhone": "+91 9758900177",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11079,7 +11953,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900177",
+        "fatherPhone": "+91 9758900177",
+        "fatherMobile": "+91 9758900177",
+        "mobile": "+91 9758900177",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-179",
@@ -11097,10 +11977,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "OMPAL YADAV",
-            "motherName": "NEELAM YADAV",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7838984933",
-            "address": "UNCHA GAON BANGAR RAMGHAT"
+            "address": "UNCHA GAON BANGAR RAMGHAT",
+            "fatherPhone": "+91 9758900178",
+            "motherPhone": "+91 9758900178",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11133,7 +12016,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900178",
+        "fatherPhone": "+91 9758900178",
+        "fatherMobile": "+91 9758900178",
+        "mobile": "+91 9758900178",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-180",
@@ -11151,10 +12040,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "UMESH BABU",
-            "motherName": "SHAKUNTALA VERMA",
+            "fatherName": "ARUN KUMAR",
+            "motherName": "KOMAL",
             "fatherMobile": "9759009379",
-            "address": "GANESHPUR GOVINDPUR"
+            "address": "GANESHPUR GOVINDPUR",
+            "fatherPhone": "+91 9268386124",
+            "motherPhone": "+91 9268386124",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11187,7 +12079,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 9268386124",
+        "fatherPhone": "+91 9268386124",
+        "fatherMobile": "+91 9268386124",
+        "mobile": "+91 9268386124",
+        "fatherName": "ARUN KUMAR",
+        "motherName": "KOMAL"
     },
     {
         "id": "STU-2026-181",
@@ -11205,10 +12103,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RINKU YADAV",
-            "motherName": "SEEMA",
+            "fatherName": "ANIL KUMAR",
+            "motherName": "VINESH DEVI",
             "fatherMobile": "8006520172",
-            "address": "SILHARI (BULANDSHAHR)"
+            "address": "SILHARI (BULANDSHAHR)",
+            "fatherPhone": "+91 7983817850",
+            "motherPhone": "+91 7830214462",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11241,7 +12142,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7983817850",
+        "fatherPhone": "+91 7983817850",
+        "fatherMobile": "+91 7983817850",
+        "mobile": "+91 7983817850",
+        "fatherName": "ANIL KUMAR",
+        "motherName": "VINESH DEVI"
     },
     {
         "id": "STU-2026-182",
@@ -11259,10 +12166,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHARMENDRA KUMAR",
-            "motherName": "HITESH",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8273892191",
-            "address": "NAGLA KOTHI, JARGWAN"
+            "address": "NAGLA KOTHI, JARGWAN",
+            "fatherPhone": "+91 9758900181",
+            "motherPhone": "+91 9758900181",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11295,7 +12205,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900181",
+        "fatherPhone": "+91 9758900181",
+        "fatherMobile": "+91 9758900181",
+        "mobile": "+91 9758900181",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-183",
@@ -11313,10 +12229,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JITENDRA KUMAR",
-            "motherName": "SHALINI",
+            "fatherName": "ATUL PATHAK",
+            "motherName": "NEERAJ DEVI",
             "fatherMobile": "8433255571",
-            "address": "NAGLA KOTHI, JARGWAN"
+            "address": "NAGLA KOTHI, JARGWAN",
+            "fatherPhone": "+91 7906380785",
+            "motherPhone": "+91 6397628785",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11336,23 +12255,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 18350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 34700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 34700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-351",
-                    "name": "LAKSHYA RAJPUT",
-                    "class": "UKG",
-                    "admissionNo": "678",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 16350,
-                    "individualPaid": 0,
-                    "individualBalance": 16350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -11361,7 +12268,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7906380785",
+        "fatherPhone": "+91 7906380785",
+        "fatherMobile": "+91 7906380785",
+        "mobile": "+91 7906380785",
+        "fatherName": "ATUL PATHAK",
+        "motherName": "NEERAJ DEVI"
     },
     {
         "id": "STU-2026-184",
@@ -11379,10 +12292,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BHURE SINGH",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9719017603",
-            "address": "SILHARI (BULANDSHAHR)"
+            "address": "SILHARI (BULANDSHAHR)",
+            "fatherPhone": "+91 9758900183",
+            "motherPhone": "+91 9758900183",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11422,7 +12338,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900183",
+        "fatherPhone": "+91 9758900183",
+        "fatherMobile": "+91 9758900183",
+        "mobile": "+91 9758900183",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-185",
@@ -11440,10 +12362,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIJAYPAL SINGH",
-            "motherName": "KAMLESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9058877250",
-            "address": "VILLAGE BAJHERA POST DHARAKPUR DISTRCT BULANDSHAHR"
+            "address": "VILLAGE BAJHERA POST DHARAKPUR DISTRCT BULANDSHAHR",
+            "fatherPhone": "+91 9758900184",
+            "motherPhone": "+91 9758900184",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11476,7 +12401,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900184",
+        "fatherPhone": "+91 9758900184",
+        "fatherMobile": "+91 9758900184",
+        "mobile": "+91 9758900184",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-186",
@@ -11494,10 +12425,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJAY KUMAR",
-            "motherName": "NIRMALA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9720096132",
-            "address": "NAGLA GARVI, JARGWAN"
+            "address": "NAGLA GARVI, JARGWAN",
+            "fatherPhone": "+91 9758900185",
+            "motherPhone": "+91 9758900185",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11530,7 +12464,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900185",
+        "fatherPhone": "+91 9758900185",
+        "fatherMobile": "+91 9758900185",
+        "mobile": "+91 9758900185",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-187",
@@ -11548,76 +12488,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEVESH KUMAR",
-            "motherName": "SANGEETA DEVI",
+            "fatherName": "ANIL KUMAR",
+            "motherName": "PINKY",
             "fatherMobile": "9758977960",
-            "address": "KANAKPUR, LOHGARH, ALIGARH"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 14500,
-            "transportDue11Months": 8250,
-            "totalDue": 22750,
-            "totalPaid": 0,
-            "balance": 22750,
-            "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 45500,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 45500,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-188",
-                    "name": "KIRTI",
-                    "class": "III",
-                    "admissionNo": "408",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 22750,
-                    "individualPaid": 0,
-                    "individualBalance": 22750
-                }
-            ]
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
-            "stop": "LOHGARH",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
-        }
-    },
-    {
-        "id": "STU-2026-188",
-        "sqlId": "237",
-        "admissionNo": "408",
-        "rollNo": "180",
-        "name": "KIRTI",
-        "photo": "https://ui-avatars.com/api/?name=KIRTI&background=0891B2&color=fff&size=128&bold=true",
-        "dob": "2015-11-14",
-        "gender": "female",
-        "class": "III",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "DEVESH KUMAR",
-            "motherName": "SANGEETA DEVI",
-            "fatherMobile": "9758977960",
-            "address": "KANAKPUR, LOHGARH, ALIGARH"
+            "address": "KANAKPUR, LOHGARH, ALIGARH",
+            "fatherPhone": "+91 9761825947",
+            "motherPhone": "+91 7448232379",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11641,14 +12518,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-187",
-                "name": "KESHAV KUMAR",
-                "class": "III",
-                "admissionNo": "407",
-                "fatherPhone": "9758977960"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -11657,7 +12527,76 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9761825947",
+        "fatherPhone": "+91 9761825947",
+        "fatherMobile": "+91 9761825947",
+        "mobile": "+91 9761825947",
+        "fatherName": "ANIL KUMAR",
+        "motherName": "PINKY"
+    },
+    {
+        "id": "STU-2026-188",
+        "sqlId": "237",
+        "admissionNo": "408",
+        "rollNo": "180",
+        "name": "KIRTI",
+        "photo": "https://ui-avatars.com/api/?name=KIRTI&background=0891B2&color=fff&size=128&bold=true",
+        "dob": "2015-11-14",
+        "gender": "female",
+        "class": "III",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
+            "fatherMobile": "9758977960",
+            "address": "KANAKPUR, LOHGARH, ALIGARH",
+            "fatherPhone": "+91 9758900187",
+            "motherPhone": "+91 9758900187",
+            "occupation": "Farmer / Business"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 14500,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
+            "totalPaid": 0,
+            "balance": 22750,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        },
+        "phone": "+91 9758900187",
+        "fatherPhone": "+91 9758900187",
+        "fatherMobile": "+91 9758900187",
+        "mobile": "+91 9758900187",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-189",
@@ -11675,10 +12614,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATYAVEER SINGH",
-            "motherName": "GIRJESH",
+            "fatherName": "RAVI KUMAR",
+            "motherName": "PINKY DEVI",
             "fatherMobile": "8006319945",
-            "address": "UNCHA GAON BULADSHAHR)"
+            "address": "UNCHA GAON BULADSHAHR)",
+            "fatherPhone": "+91 7452883387",
+            "motherPhone": "+91 7452883387",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11711,7 +12653,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7452883387",
+        "fatherPhone": "+91 7452883387",
+        "fatherMobile": "+91 7452883387",
+        "mobile": "+91 7452883387",
+        "fatherName": "RAVI KUMAR",
+        "motherName": "PINKY DEVI"
     },
     {
         "id": "STU-2026-190",
@@ -11729,10 +12677,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BRAJESH KUMAR",
-            "motherName": "MANJU DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "",
-            "address": "NAGLA CHIRAURI"
+            "address": "NAGLA CHIRAURI",
+            "fatherPhone": "+91 9758900189",
+            "motherPhone": "+91 9758900189",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11765,7 +12716,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900189",
+        "fatherPhone": "+91 9758900189",
+        "fatherMobile": "+91 9758900189",
+        "mobile": "+91 9758900189",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-191",
@@ -11783,10 +12740,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SOORAJPAL SINGH",
-            "motherName": "GYAN DEVI",
+            "fatherName": "RAM KISHOR",
+            "motherName": "VANDANA DEVI",
             "fatherMobile": "8860742634",
-            "address": "UNCHAGAWN BANGAR (BULANDSHAHR)"
+            "address": "UNCHAGAWN BANGAR (BULANDSHAHR)",
+            "fatherPhone": "+91 9759840340",
+            "motherPhone": "+91 9759840340",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11819,7 +12779,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9759840340",
+        "fatherPhone": "+91 9759840340",
+        "fatherMobile": "+91 9759840340",
+        "mobile": "+91 9759840340",
+        "fatherName": "RAM KISHOR",
+        "motherName": "VANDANA DEVI"
     },
     {
         "id": "STU-2026-192",
@@ -11837,10 +12803,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJU TOMAR",
-            "motherName": "PRITI TOMAR",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9761878883",
-            "address": "MUHAMMADPUR BADHERA, ATROULI ALIGARH"
+            "address": "MUHAMMADPUR BADHERA, ATROULI ALIGARH",
+            "fatherPhone": "+91 9758900191",
+            "motherPhone": "+91 9758900191",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11873,7 +12842,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900191",
+        "fatherPhone": "+91 9758900191",
+        "fatherMobile": "+91 9758900191",
+        "mobile": "+91 9758900191",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-193",
@@ -11891,10 +12866,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KRIPAL SINGH",
-            "motherName": "SAPANA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8882436584",
-            "address": "NAGLA GARVI, JARGWAN (BULANDSHAHR)"
+            "address": "NAGLA GARVI, JARGWAN (BULANDSHAHR)",
+            "fatherPhone": "+91 9758900192",
+            "motherPhone": "+91 9758900192",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -11927,7 +12905,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900192",
+        "fatherPhone": "+91 9758900192",
+        "fatherMobile": "+91 9758900192",
+        "mobile": "+91 9758900192",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-194",
@@ -11945,87 +12929,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "TEJVEER SINGH",
-            "motherName": "RACHNA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9719204696",
-            "address": "GADAIPUR, KASIMPUR GADAIPUR, KAZIMABAD, ALIGARH"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 14500,
-            "transportDue11Months": 3850,
-            "totalDue": 18350,
-            "totalPaid": 0,
-            "balance": 18350,
-            "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 52050,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 52050,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-249",
-                    "name": "DIMPAL",
-                    "class": "I",
-                    "admissionNo": "498",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 17350,
-                    "individualPaid": 0,
-                    "individualBalance": 17350
-                },
-                {
-                    "id": "STU-2026-272",
-                    "name": "YATIN KUMAR",
-                    "class": "UKG",
-                    "admissionNo": "541",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 16350,
-                    "individualPaid": 0,
-                    "individualBalance": 16350
-                }
-            ]
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 350,
-            "annualTransportDue11Months": 3850
-        }
-    },
-    {
-        "id": "STU-2026-195",
-        "sqlId": "245",
-        "admissionNo": "418",
-        "rollNo": "4",
-        "name": "PARIDHI AGARWAL",
-        "photo": "https://ui-avatars.com/api/?name=PARIDHI+AGARWAL&background=2563EB&color=fff&size=128&bold=true",
-        "dob": "2017-01-09",
-        "gender": "female",
-        "class": "III",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "YOGENDRA KUMAR",
-            "motherName": "DEEPIKA AGARWAL",
-            "fatherMobile": "9719420281",
-            "address": "JARGWAN ,"
+            "address": "GADAIPUR, KASIMPUR GADAIPUR, KAZIMABAD, ALIGARH",
+            "fatherPhone": "+91 9758900193",
+            "motherPhone": "+91 9758900193",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12058,77 +12968,22 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900193",
+        "fatherPhone": "+91 9758900193",
+        "fatherMobile": "+91 9758900193",
+        "mobile": "+91 9758900193",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
-        "id": "STU-2026-196",
-        "sqlId": "246",
-        "admissionNo": "419",
-        "rollNo": "161",
-        "name": "PEEYUSH KUMAR",
-        "photo": "https://ui-avatars.com/api/?name=PEEYUSH+KUMAR&background=DC2626&color=fff&size=128&bold=true",
-        "dob": "2019-10-07",
-        "gender": "male",
-        "class": "III",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "HARIKESH KUMAR",
-            "motherName": "HEMLATA DEVI",
-            "fatherMobile": "9643311163",
-            "address": "KALIYANPUR BHAGIRATHPUR"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 14500,
-            "transportDue11Months": 8800,
-            "totalDue": 23300,
-            "totalPaid": 0,
-            "balance": 23300,
-            "status": "Pending",
-            "isElderSibling": false,
-            "consolidatedFamilyDue": 0,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-166",
-                "name": "SANDHYA KUMARI",
-                "class": "IV",
-                "admissionNo": "379",
-                "fatherPhone": "9643311163"
-            }
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
-            "stop": "KALIYANPUR",
-            "monthlyFare": 800,
-            "annualTransportDue11Months": 8800
-        }
-    },
-    {
-        "id": "STU-2026-197",
-        "sqlId": "247",
-        "admissionNo": "420",
-        "rollNo": "64",
-        "name": "PRACHI",
-        "photo": "https://ui-avatars.com/api/?name=PRACHI&background=0891B2&color=fff&size=128&bold=true",
-        "dob": "2014-05-13",
+        "id": "STU-2026-195",
+        "sqlId": "245",
+        "admissionNo": "418",
+        "rollNo": "4",
+        "name": "PARIDHI AGARWAL",
+        "photo": "https://ui-avatars.com/api/?name=PARIDHI+AGARWAL&background=2563EB&color=fff&size=128&bold=true",
+        "dob": "2017-01-09",
         "gender": "female",
         "class": "III",
         "section": "A",
@@ -12137,10 +12992,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHIV KUMAR",
-            "motherName": "REENA DEVI",
-            "fatherMobile": "8700327645",
-            "address": "CHIRAURI"
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
+            "fatherMobile": "9719420281",
+            "address": "JARGWAN ,",
+            "fatherPhone": "+91 9758900194",
+            "motherPhone": "+91 9758900194",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12164,14 +13022,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-066",
-                "name": "PRINCE YADAV",
-                "class": "VII",
-                "admissionNo": "235",
-                "fatherPhone": "8700327645"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -12180,7 +13031,139 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900194",
+        "fatherPhone": "+91 9758900194",
+        "fatherMobile": "+91 9758900194",
+        "mobile": "+91 9758900194",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
+    },
+    {
+        "id": "STU-2026-196",
+        "sqlId": "246",
+        "admissionNo": "419",
+        "rollNo": "161",
+        "name": "PEEYUSH KUMAR",
+        "photo": "https://ui-avatars.com/api/?name=PEEYUSH+KUMAR&background=DC2626&color=fff&size=128&bold=true",
+        "dob": "2019-10-07",
+        "gender": "male",
+        "class": "III",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "BHOORE SINGH",
+            "motherName": "ASHA DEVI",
+            "fatherMobile": "9643311163",
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9568476692",
+            "motherPhone": "+91 9568476692",
+            "occupation": "Farmer / Business"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 14500,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
+            "totalPaid": 0,
+            "balance": 23300,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
+        },
+        "phone": "+91 9568476692",
+        "fatherPhone": "+91 9568476692",
+        "fatherMobile": "+91 9568476692",
+        "mobile": "+91 9568476692",
+        "fatherName": "BHOORE SINGH",
+        "motherName": "ASHA DEVI"
+    },
+    {
+        "id": "STU-2026-197",
+        "sqlId": "247",
+        "admissionNo": "420",
+        "rollNo": "64",
+        "name": "PRACHI",
+        "photo": "https://ui-avatars.com/api/?name=PRACHI&background=0891B2&color=fff&size=128&bold=true",
+        "dob": "2014-05-13",
+        "gender": "female",
+        "class": "III",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "PRAMOD KUMAR",
+            "motherName": "NIRVESH",
+            "fatherMobile": "8700327645",
+            "address": "CHIRAURI",
+            "fatherPhone": "+91 8810389748",
+            "motherPhone": "+91 9759625226",
+            "occupation": "AGRICULTURE"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
+            "totalPaid": 0,
+            "balance": 18350,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
+        },
+        "phone": "+91 8810389748",
+        "fatherPhone": "+91 8810389748",
+        "fatherMobile": "+91 8810389748",
+        "mobile": "+91 8810389748",
+        "fatherName": "PRAMOD KUMAR",
+        "motherName": "NIRVESH"
     },
     {
         "id": "STU-2026-198",
@@ -12198,10 +13181,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJAY KUMAR",
-            "motherName": "SANJU DEVI",
+            "fatherName": "RAJU",
+            "motherName": "KASHMIRA DEVI",
             "fatherMobile": "",
-            "address": "GANGAGARH, RAMGHAT"
+            "address": "GANGAGARH, RAMGHAT",
+            "fatherPhone": "+91 6395340434",
+            "motherPhone": "+91 6395340434",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12234,7 +13220,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 6395340434",
+        "fatherPhone": "+91 6395340434",
+        "fatherMobile": "+91 6395340434",
+        "mobile": "+91 6395340434",
+        "fatherName": "RAJU",
+        "motherName": "KASHMIRA DEVI"
     },
     {
         "id": "STU-2026-199",
@@ -12252,10 +13244,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIRESH KUMAR",
-            "motherName": "RANJANA",
+            "fatherName": "YOGESH KUMAR",
+            "motherName": "PINKY DEVI",
             "fatherMobile": "9675884056",
-            "address": "MOUNIPURA URF RAMVAS BULANDSHAHR"
+            "address": "MOUNIPURA URF RAMVAS BULANDSHAHR",
+            "fatherPhone": "+91 8859303073",
+            "motherPhone": "+91 8859303073",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12288,7 +13283,13 @@ export const initialSchoolData = {
             "stop": "MOUNIPURA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 8859303073",
+        "fatherPhone": "+91 8859303073",
+        "fatherMobile": "+91 8859303073",
+        "mobile": "+91 8859303073",
+        "fatherName": "YOGESH KUMAR",
+        "motherName": "PINKY DEVI"
     },
     {
         "id": "STU-2026-200",
@@ -12306,10 +13307,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BHOORE SINGH",
-            "motherName": "ASHA DEVI",
+            "fatherName": "DINESH KUMAR",
+            "motherName": "VEENESH DEVI",
             "fatherMobile": "9568476692",
-            "address": "UNCHA GAWN BANGAR BULANDSHAHR"
+            "address": "UNCHA GAWN BANGAR BULANDSHAHR",
+            "fatherPhone": "+91 9536711508",
+            "motherPhone": "+91 9536711508",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12333,14 +13337,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-153",
-                "name": "MOHIT KUMAR",
-                "class": "V",
-                "admissionNo": "361",
-                "fatherPhone": "9568476692"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -12349,7 +13346,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9536711508",
+        "fatherPhone": "+91 9536711508",
+        "fatherMobile": "+91 9536711508",
+        "mobile": "+91 9536711508",
+        "fatherName": "DINESH KUMAR",
+        "motherName": "VEENESH DEVI"
     },
     {
         "id": "STU-2026-201",
@@ -12367,10 +13370,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJESH KUMAR",
-            "motherName": "PINKY DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8433499094",
-            "address": "JARGWAN, BULANDSHAHAR"
+            "address": "JARGWAN, BULANDSHAHAR",
+            "fatherPhone": "+91 9758900200",
+            "motherPhone": "+91 9758900200",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12403,7 +13409,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900200",
+        "fatherPhone": "+91 9758900200",
+        "fatherMobile": "+91 9758900200",
+        "mobile": "+91 9758900200",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-202",
@@ -12421,10 +13433,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "TEJPAL SINGH",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "UDAYVEER SINGH",
+            "motherName": "NEKSI DEVI",
             "fatherMobile": "9027352955",
-            "address": "BAINI NAGLA UNCHAGAON DIBAI BULANDSHAHR"
+            "address": "BAINI NAGLA UNCHAGAON DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 8865087299",
+            "motherPhone": "+91 9675320274",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12444,23 +13459,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 24570,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 48140,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 48140,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-229",
-                    "name": "KULDEEP KISHOR",
-                    "class": "II",
-                    "admissionNo": "470",
-                    "tuitionDue": 14000,
-                    "transportDue11Months": 9570,
-                    "individualDue": 23570,
-                    "individualPaid": 0,
-                    "individualBalance": 23570
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -12469,7 +13472,13 @@ export const initialSchoolData = {
             "stop": "UNCHAGAON",
             "monthlyFare": 870,
             "annualTransportDue11Months": 9570
-        }
+        },
+        "phone": "+91 8865087299",
+        "fatherPhone": "+91 8865087299",
+        "fatherMobile": "+91 8865087299",
+        "mobile": "+91 8865087299",
+        "fatherName": "UDAYVEER SINGH",
+        "motherName": "NEKSI DEVI"
     },
     {
         "id": "STU-2026-203",
@@ -12487,10 +13496,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAM RAHEESH",
-            "motherName": "SUNITA DEVI",
+            "fatherName": "VIJAY SINGH",
+            "motherName": "SUMANLATA",
             "fatherMobile": "9675174620",
-            "address": "MOUNIPURA RAMVAS(BULANDSHAHR)"
+            "address": "MOUNIPURA RAMVAS(BULANDSHAHR)",
+            "fatherPhone": "+91 8650458433",
+            "motherPhone": "+91 8650458433",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12523,7 +13535,13 @@ export const initialSchoolData = {
             "stop": "MOUNIPURA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 8650458433",
+        "fatherPhone": "+91 8650458433",
+        "fatherMobile": "+91 8650458433",
+        "mobile": "+91 8650458433",
+        "fatherName": "VIJAY SINGH",
+        "motherName": "SUMANLATA"
     },
     {
         "id": "STU-2026-204",
@@ -12541,10 +13559,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MAHESHPAL",
-            "motherName": "NEERAJ DEVI",
+            "fatherName": "SATISH KUMAR",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "9758509524",
-            "address": "GANGA GARH, RAMGHAT"
+            "address": "GANGA GARH, RAMGHAT",
+            "fatherPhone": "+91 9627265417",
+            "motherPhone": "+91 9627265417",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12564,23 +13585,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 23300,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 44450,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 44450,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-355",
-                    "name": "YASHIKA",
-                    "class": "II",
-                    "admissionNo": "682",
-                    "tuitionDue": 14000,
-                    "transportDue11Months": 7150,
-                    "individualDue": 21150,
-                    "individualPaid": 0,
-                    "individualBalance": 21150
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -12589,7 +13598,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9627265417",
+        "fatherPhone": "+91 9627265417",
+        "fatherMobile": "+91 9627265417",
+        "mobile": "+91 9627265417",
+        "fatherName": "SATISH KUMAR",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-205",
@@ -12607,10 +13622,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANOJ KUMAR",
-            "motherName": "BHAVANA",
+            "fatherName": "HARENDRA SINGH",
+            "motherName": "KAVITA DEVI",
             "fatherMobile": "9761825084",
-            "address": "GAHTAULI NIRMAL"
+            "address": "GAHTAULI NIRMAL",
+            "fatherPhone": "+91 9582984147",
+            "motherPhone": "+91 9582984147",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12643,7 +13661,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9582984147",
+        "fatherPhone": "+91 9582984147",
+        "fatherMobile": "+91 9582984147",
+        "mobile": "+91 9582984147",
+        "fatherName": "HARENDRA SINGH",
+        "motherName": "KAVITA DEVI"
     },
     {
         "id": "STU-2026-206",
@@ -12664,7 +13688,10 @@ export const initialSchoolData = {
             "fatherName": "JANGVEER SINGH",
             "motherName": "ROOPVATI DEVI",
             "fatherMobile": "9675863965",
-            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH",
+            "fatherPhone": "+91 9675863965",
+            "motherPhone": "+91 9675863965",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12704,7 +13731,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9675863965",
+        "fatherPhone": "+91 9675863965",
+        "fatherMobile": "+91 9675863965",
+        "mobile": "+91 9675863965",
+        "fatherName": "JANGVEER SINGH",
+        "motherName": "ROOPVATI DEVI"
     },
     {
         "id": "STU-2026-207",
@@ -12722,10 +13755,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAURAV KAUSHIK",
-            "motherName": "AARTI KAUSHIK",
+            "fatherName": "KANHAIYALAL",
+            "motherName": "POOJA SHARMA",
             "fatherMobile": "9761012796",
-            "address": "BAGI NAGLA , RAMGHAT"
+            "address": "BAGI NAGLA , RAMGHAT",
+            "fatherPhone": "+91 8384808060",
+            "motherPhone": "+91 8384808060",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12758,7 +13794,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8384808060",
+        "fatherPhone": "+91 8384808060",
+        "fatherMobile": "+91 8384808060",
+        "mobile": "+91 8384808060",
+        "fatherName": "KANHAIYALAL",
+        "motherName": "POOJA SHARMA"
     },
     {
         "id": "STU-2026-208",
@@ -12776,10 +13818,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANTOSH KUMAR",
-            "motherName": "JYOTI DEVI",
+            "fatherName": "YOGESH KUMAR",
+            "motherName": "PINKY DEVI",
             "fatherMobile": "8218794196",
-            "address": "KUDHAINI, CHROURI"
+            "address": "KUDHAINI, CHROURI",
+            "fatherPhone": "+91 8859303073",
+            "motherPhone": "+91 9720966040",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12812,7 +13857,13 @@ export const initialSchoolData = {
             "stop": "KUDHAINI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8859303073",
+        "fatherPhone": "+91 8859303073",
+        "fatherMobile": "+91 8859303073",
+        "mobile": "+91 8859303073",
+        "fatherName": "YOGESH KUMAR",
+        "motherName": "PINKY DEVI"
     },
     {
         "id": "STU-2026-209",
@@ -12830,10 +13881,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH KUMAR",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9627265417",
-            "address": "BAGI NAGLA, CHIROURI"
+            "address": "BAGI NAGLA, CHIROURI",
+            "fatherPhone": "+91 9758900208",
+            "motherPhone": "+91 9758900208",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12873,7 +13927,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900208",
+        "fatherPhone": "+91 9758900208",
+        "fatherMobile": "+91 9758900208",
+        "mobile": "+91 9758900208",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-210",
@@ -12891,10 +13951,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGENDRA KUMAR",
-            "motherName": "LALVATI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9958880327",
-            "address": "NAGLA GARVI, JARGWAN"
+            "address": "NAGLA GARVI, JARGWAN",
+            "fatherPhone": "+91 9758900209",
+            "motherPhone": "+91 9758900209",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12914,23 +13977,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 15000.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 39500,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 29500.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-233",
-                    "name": "PUNEET KUMAR",
-                    "class": "II",
-                    "admissionNo": "477",
-                    "tuitionDue": 14000,
-                    "transportDue11Months": 5500,
-                    "individualDue": 19500,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 14500.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -12939,7 +13990,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900209",
+        "fatherPhone": "+91 9758900209",
+        "fatherMobile": "+91 9758900209",
+        "mobile": "+91 9758900209",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-211",
@@ -12957,10 +14014,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ATUL KUMAR",
-            "motherName": "KANCHAN",
+            "fatherName": "VIPIN KUMAR",
+            "motherName": "ANSHU KUMARI",
             "fatherMobile": "8375939398",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 9260917139",
+            "motherPhone": "+91 9260917139",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -12980,23 +14040,11 @@ export const initialSchoolData = {
             "totalPaid": 6000.0,
             "balance": 14000.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 37000,
-            "consolidatedFamilyPaid": 12000.0,
-            "consolidatedFamilyBalance": 25000.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-342",
-                    "name": "KUMARI PRAGATI",
-                    "class": "LKG",
-                    "admissionNo": "665",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 17000,
-                    "individualPaid": 6000.0,
-                    "individualBalance": 11000.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -13005,7 +14053,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9260917139",
+        "fatherPhone": "+91 9260917139",
+        "fatherMobile": "+91 9260917139",
+        "mobile": "+91 9260917139",
+        "fatherName": "VIPIN KUMAR",
+        "motherName": "ANSHU KUMARI"
     },
     {
         "id": "STU-2026-212",
@@ -13023,10 +14077,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANITPAL SINGH",
-            "motherName": "PREMLATA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9149237488",
-            "address": "CHAINDAULA, SUJANPUR, ATRAULI (ALIGARH)"
+            "address": "CHAINDAULA, SUJANPUR, ATRAULI (ALIGARH)",
+            "fatherPhone": "+91 9758900211",
+            "motherPhone": "+91 9758900211",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13050,14 +14107,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-120",
-                "name": "SAURABH KUMAR",
-                "class": "V",
-                "admissionNo": "321",
-                "fatherPhone": "9149237488"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -13066,7 +14116,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900211",
+        "fatherPhone": "+91 9758900211",
+        "fatherMobile": "+91 9758900211",
+        "mobile": "+91 9758900211",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-213",
@@ -13084,10 +14140,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJVEER SINGH",
-            "motherName": "GAYATRI DEVI",
+            "fatherName": "SONU",
+            "motherName": "KAVITA DEVI",
             "fatherMobile": "9759755011",
-            "address": "BAIJALA KOTHI, ATROULI, ALIGARH"
+            "address": "BAIJALA KOTHI, ATROULI, ALIGARH",
+            "fatherPhone": "+91 8630790647",
+            "motherPhone": "+91 8630790647",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13111,14 +14170,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-044",
-                "name": "NEHA YADAV",
-                "class": "VIII",
-                "admissionNo": "192",
-                "fatherPhone": "9759755011"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -13127,7 +14179,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 8630790647",
+        "fatherPhone": "+91 8630790647",
+        "fatherMobile": "+91 8630790647",
+        "mobile": "+91 8630790647",
+        "fatherName": "SONU",
+        "motherName": "KAVITA DEVI"
     },
     {
         "id": "STU-2026-214",
@@ -13145,10 +14203,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "TILAK SINGH",
-            "motherName": "RAJKUMARI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7055247312",
-            "address": "GANGAGARH BANGAR"
+            "address": "GANGAGARH BANGAR",
+            "fatherPhone": "+91 9758900213",
+            "motherPhone": "+91 9758900213",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13181,7 +14242,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 9758900213",
+        "fatherPhone": "+91 9758900213",
+        "fatherMobile": "+91 9758900213",
+        "mobile": "+91 9758900213",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-215",
@@ -13199,10 +14266,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MAHIPAL SINGH",
-            "motherName": "AARTI DEVI",
+            "fatherName": "MUNISH KUMAR",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "8076898797",
-            "address": "MUHAMMADPUR BADHERA LOHGARH"
+            "address": "MUHAMMADPUR BADHERA LOHGARH",
+            "fatherPhone": "+91 9719198738",
+            "motherPhone": "+91 9719198738",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13235,7 +14305,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9719198738",
+        "fatherPhone": "+91 9719198738",
+        "fatherMobile": "+91 9719198738",
+        "mobile": "+91 9719198738",
+        "fatherName": "MUNISH KUMAR",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-216",
@@ -13253,10 +14329,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATENDRA SINGH",
-            "motherName": "OMA DEVI",
+            "fatherName": "KRISHNA KUMAR",
+            "motherName": "VUYA DEVI",
             "fatherMobile": "7017071485",
-            "address": "GANGAGARH"
+            "address": "GANGAGARH",
+            "fatherPhone": "+91 9927501907",
+            "motherPhone": "+91 9927501907",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13289,7 +14368,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 9927501907",
+        "fatherPhone": "+91 9927501907",
+        "fatherMobile": "+91 9927501907",
+        "mobile": "+91 9927501907",
+        "fatherName": "KRISHNA KUMAR",
+        "motherName": "VUYA DEVI"
     },
     {
         "id": "STU-2026-217",
@@ -13307,10 +14392,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KAPTAN SINGH",
-            "motherName": "SHANTI DEVI",
+            "fatherName": "HARIKISHAN",
+            "motherName": "REENA DEVI",
             "fatherMobile": "7464958983",
-            "address": "UNCHA GAON, BANGAR (BULANDSHAHR)"
+            "address": "UNCHA GAON, BANGAR (BULANDSHAHR)",
+            "fatherPhone": "+91 7729905845",
+            "motherPhone": "+91 7729905845",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13330,23 +14418,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 17850,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 35200,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35200,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-333",
-                    "name": "KUNAL YADAV",
-                    "class": "I",
-                    "admissionNo": "651",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 17350,
-                    "individualPaid": 0,
-                    "individualBalance": 17350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -13355,7 +14431,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7729905845",
+        "fatherPhone": "+91 7729905845",
+        "fatherMobile": "+91 7729905845",
+        "mobile": "+91 7729905845",
+        "fatherName": "HARIKISHAN",
+        "motherName": "REENA DEVI"
     },
     {
         "id": "STU-2026-218",
@@ -13373,10 +14455,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHARMENDRA KUMAR",
-            "motherName": "MANJU VERMA",
+            "fatherName": "DEVESH SHARMA",
+            "motherName": "KHUSHBOO",
             "fatherMobile": "9719680948",
-            "address": "BAIJALA KOTHI"
+            "address": "BAIJALA KOTHI",
+            "fatherPhone": "+91 9971318665",
+            "motherPhone": "+91 9971318665",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13409,7 +14494,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9971318665",
+        "fatherPhone": "+91 9971318665",
+        "fatherMobile": "+91 9971318665",
+        "mobile": "+91 9971318665",
+        "fatherName": "DEVESH SHARMA",
+        "motherName": "KHUSHBOO"
     },
     {
         "id": "STU-2026-219",
@@ -13427,10 +14518,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMESH KUMAR",
-            "motherName": "GEETA DEVI",
+            "fatherName": "BALAK DAS",
+            "motherName": "NEHA DEVI",
             "fatherMobile": "9780410371",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 6351582814",
+            "motherPhone": "+91 6351582814",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13463,7 +14557,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 6351582814",
+        "fatherPhone": "+91 6351582814",
+        "fatherMobile": "+91 6351582814",
+        "mobile": "+91 6351582814",
+        "fatherName": "BALAK DAS",
+        "motherName": "NEHA DEVI"
     },
     {
         "id": "STU-2026-220",
@@ -13481,10 +14581,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PAWAN KUMAR",
-            "motherName": "RAJESHWARI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9012424556",
-            "address": "NAGLA DHARAKPUR DIBAI BULANDSHAHR"
+            "address": "NAGLA DHARAKPUR DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9758900219",
+            "motherPhone": "+91 9758900219",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13517,7 +14620,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900219",
+        "fatherPhone": "+91 9758900219",
+        "fatherMobile": "+91 9758900219",
+        "mobile": "+91 9758900219",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-221",
@@ -13538,7 +14647,10 @@ export const initialSchoolData = {
             "fatherName": "UDAYVEER SINGH",
             "motherName": "NEKASI DEVI",
             "fatherMobile": "9675320274",
-            "address": "UNCHA GOAN DIBAI BULANDSHAHR"
+            "address": "UNCHA GOAN DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9675320274",
+            "motherPhone": "+91 9675320274",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13562,14 +14674,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-157",
-                "name": "PRAVEEN KUMAR",
-                "class": "VI",
-                "admissionNo": "367",
-                "fatherPhone": "9675320274"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -13578,7 +14683,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675320274",
+        "fatherPhone": "+91 9675320274",
+        "fatherMobile": "+91 9675320274",
+        "mobile": "+91 9675320274",
+        "fatherName": "UDAYVEER SINGH",
+        "motherName": "NEKASI DEVI"
     },
     {
         "id": "STU-2026-222",
@@ -13596,10 +14707,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "OMPAL YADAV",
-            "motherName": "NEELAM YADAV",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7863984933",
-            "address": "UNCHA GAON BANGAR, RAMGHAT"
+            "address": "UNCHA GAON BANGAR, RAMGHAT",
+            "fatherPhone": "+91 9758900221",
+            "motherPhone": "+91 9758900221",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13632,7 +14746,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900221",
+        "fatherPhone": "+91 9758900221",
+        "fatherMobile": "+91 9758900221",
+        "mobile": "+91 9758900221",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-223",
@@ -13650,10 +14770,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMGOPAL",
-            "motherName": "RAJMALA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7830261455",
-            "address": "JARGWAN (BULANDSHAHR)"
+            "address": "JARGWAN (BULANDSHAHR)",
+            "fatherPhone": "+91 9758900222",
+            "motherPhone": "+91 9758900222",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13686,7 +14809,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900222",
+        "fatherPhone": "+91 9758900222",
+        "fatherMobile": "+91 9758900222",
+        "mobile": "+91 9758900222",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-224",
@@ -13704,10 +14833,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGENDRA KUMAR",
-            "motherName": "RAJNI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9536073703",
-            "address": "KHEDIYA BAHADURGARHI, ATRAULI ALIGARH"
+            "address": "KHEDIYA BAHADURGARHI, ATRAULI ALIGARH",
+            "fatherPhone": "+91 9758900223",
+            "motherPhone": "+91 9758900223",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13740,7 +14872,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900223",
+        "fatherPhone": "+91 9758900223",
+        "fatherMobile": "+91 9758900223",
+        "mobile": "+91 9758900223",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-225",
@@ -13758,10 +14896,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAUDAS",
-            "motherName": "VIDHYA DEVI",
+            "fatherName": "SATISH KUMAR",
+            "motherName": "MAMTA DEVI",
             "fatherMobile": "8650371683",
-            "address": "MOUNIPURA BULANDSHAHR"
+            "address": "MOUNIPURA BULANDSHAHR",
+            "fatherPhone": "+91 9811700109",
+            "motherPhone": "+91 9811700109",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13794,7 +14935,13 @@ export const initialSchoolData = {
             "stop": "MOUNIPURA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 9811700109",
+        "fatherPhone": "+91 9811700109",
+        "fatherMobile": "+91 9811700109",
+        "mobile": "+91 9811700109",
+        "fatherName": "SATISH KUMAR",
+        "motherName": "MAMTA DEVI"
     },
     {
         "id": "STU-2026-226",
@@ -13812,10 +14959,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "FOUJI",
-            "motherName": "ROOPVATI DEVI",
+            "fatherName": "OMPAL YADAV",
+            "motherName": "NEELAM YADAV",
             "fatherMobile": "9877350492",
-            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH",
+            "fatherPhone": "+91 9193083211",
+            "motherPhone": "+91 7838984933",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13848,7 +14998,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9193083211",
+        "fatherPhone": "+91 9193083211",
+        "fatherMobile": "+91 9193083211",
+        "mobile": "+91 9193083211",
+        "fatherName": "OMPAL YADAV",
+        "motherName": "NEELAM YADAV"
     },
     {
         "id": "STU-2026-227",
@@ -13866,10 +15022,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHARVENDRA KUMAR",
-            "motherName": "MADHURI",
+            "fatherName": "UMESH BABU",
+            "motherName": "SHAKUNTALA VERMA",
             "fatherMobile": "9719022928",
-            "address": "NAGLA DHARAKPUR, DHARAKPUR, DIBAI (BULANDSHAHR)"
+            "address": "NAGLA DHARAKPUR, DHARAKPUR, DIBAI (BULANDSHAHR)",
+            "fatherPhone": "+91 9759009379",
+            "motherPhone": "+91 9759009379",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13902,7 +15061,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9759009379",
+        "fatherPhone": "+91 9759009379",
+        "fatherMobile": "+91 9759009379",
+        "mobile": "+91 9759009379",
+        "fatherName": "UMESH BABU",
+        "motherName": "SHAKUNTALA VERMA"
     },
     {
         "id": "STU-2026-228",
@@ -13920,10 +15085,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LOKESH KUMAR",
-            "motherName": "NEHA",
+            "fatherName": "RINKU YADAV",
+            "motherName": "SEEMA",
             "fatherMobile": "8630711835",
-            "address": "LOHGARH ATRAULI"
+            "address": "LOHGARH ATRAULI",
+            "fatherPhone": "+91 8006520172",
+            "motherPhone": "+91 8006520172",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -13947,14 +15115,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-085",
-                "name": "MISHTI",
-                "class": "VI",
-                "admissionNo": "270",
-                "fatherPhone": "8630711835"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -13963,7 +15124,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8006520172",
+        "fatherPhone": "+91 8006520172",
+        "fatherMobile": "+91 8006520172",
+        "mobile": "+91 8006520172",
+        "fatherName": "RINKU YADAV",
+        "motherName": "SEEMA"
     },
     {
         "id": "STU-2026-229",
@@ -13981,10 +15148,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "TEJPAL SINGH",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9027352955",
-            "address": "BAINI NAGLA UNCHAGAON DIBAI BULANDSHAHR"
+            "address": "BAINI NAGLA UNCHAGAON DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9758900228",
+            "motherPhone": "+91 9758900228",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14008,14 +15178,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-202",
-                "name": "SHIVANI KUSHWAHA",
-                "class": "IV",
-                "admissionNo": "430",
-                "fatherPhone": "9027352955"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -14024,7 +15187,13 @@ export const initialSchoolData = {
             "stop": "UNCHAGAON",
             "monthlyFare": 870,
             "annualTransportDue11Months": 9570
-        }
+        },
+        "phone": "+91 9758900228",
+        "fatherPhone": "+91 9758900228",
+        "fatherMobile": "+91 9758900228",
+        "mobile": "+91 9758900228",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-230",
@@ -14042,10 +15211,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMESH CHANDRA",
-            "motherName": "RAJVATI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8126165339",
-            "address": "BAJHERA, DHARAKPUR"
+            "address": "BAJHERA, DHARAKPUR",
+            "fatherPhone": "+91 9758900229",
+            "motherPhone": "+91 9758900229",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14078,7 +15250,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900229",
+        "fatherPhone": "+91 9758900229",
+        "fatherMobile": "+91 9758900229",
+        "mobile": "+91 9758900229",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-231",
@@ -14096,10 +15274,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "REVADI",
-            "motherName": "SONI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9761768321",
-            "address": "SILHARI RAMGHAT, BULANDSHAHR"
+            "address": "SILHARI RAMGHAT, BULANDSHAHR",
+            "fatherPhone": "+91 9758900230",
+            "motherPhone": "+91 9758900230",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14132,7 +15313,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900230",
+        "fatherPhone": "+91 9758900230",
+        "fatherMobile": "+91 9758900230",
+        "mobile": "+91 9758900230",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-232",
@@ -14150,10 +15337,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH KUMAR",
-            "motherName": "VIMLESH DEVI",
+            "fatherName": "BHURE SINGH",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "8476978719",
-            "address": "KALIYANPURE BHAGIRATHPUR"
+            "address": "KALIYANPURE BHAGIRATHPUR",
+            "fatherPhone": "+91 9719017603",
+            "motherPhone": "+91 9719017603",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14173,23 +15363,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 22800,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 45100,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 45100,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-250",
-                    "name": "GAURAV KUMAR",
-                    "class": "I",
-                    "admissionNo": "500",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 22300,
-                    "individualPaid": 0,
-                    "individualBalance": 22300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -14198,7 +15376,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9719017603",
+        "fatherPhone": "+91 9719017603",
+        "fatherMobile": "+91 9719017603",
+        "mobile": "+91 9719017603",
+        "fatherName": "BHURE SINGH",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-233",
@@ -14219,7 +15403,10 @@ export const initialSchoolData = {
             "fatherName": "YOGENDRA KUMAR",
             "motherName": "LALVATI",
             "fatherMobile": "9958880327",
-            "address": "NAGLA GARVI JARGWAN"
+            "address": "NAGLA GARVI JARGWAN",
+            "fatherPhone": "+91 9958880327",
+            "motherPhone": "+91 9958880327",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14243,14 +15430,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-210",
-                "name": "VANDANI",
-                "class": "III",
-                "admissionNo": "438",
-                "fatherPhone": "9958880327"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -14259,7 +15439,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9958880327",
+        "fatherPhone": "+91 9958880327",
+        "fatherMobile": "+91 9958880327",
+        "mobile": "+91 9958880327",
+        "fatherName": "YOGENDRA KUMAR",
+        "motherName": "LALVATI"
     },
     {
         "id": "STU-2026-234",
@@ -14277,10 +15463,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJU",
-            "motherName": "KASHMIRA DEVI",
+            "fatherName": "VIJAYPAL SINGH",
+            "motherName": "KAMLESH DEVI",
             "fatherMobile": "6395340434",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 9675320274",
+            "motherPhone": "+91 9058877250",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14313,7 +15502,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9675320274",
+        "fatherPhone": "+91 9675320274",
+        "fatherMobile": "+91 9675320274",
+        "mobile": "+91 9675320274",
+        "fatherName": "VIJAYPAL SINGH",
+        "motherName": "KAMLESH DEVI"
     },
     {
         "id": "STU-2026-235",
@@ -14331,10 +15526,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PREMPAL SINGH",
-            "motherName": "JYOTI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9675515007",
-            "address": "NAGLA GURVI, JARGWAN"
+            "address": "NAGLA GURVI, JARGWAN",
+            "fatherPhone": "+91 9758900234",
+            "motherPhone": "+91 9758900234",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14367,7 +15565,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900234",
+        "fatherPhone": "+91 9758900234",
+        "fatherMobile": "+91 9758900234",
+        "mobile": "+91 9758900234",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-236",
@@ -14385,10 +15589,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ROOP KISHOR",
-            "motherName": "KUSUM DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9759711175",
-            "address": "NAGLA DHARKPUR, DIBAI"
+            "address": "NAGLA DHARKPUR, DIBAI",
+            "fatherPhone": "+91 9758900235",
+            "motherPhone": "+91 9758900235",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14412,14 +15619,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-141",
-                "name": "DRASHTI",
-                "class": "IV",
-                "admissionNo": "345",
-                "fatherPhone": "9759711175"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -14428,7 +15628,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900235",
+        "fatherPhone": "+91 9758900235",
+        "fatherMobile": "+91 9758900235",
+        "mobile": "+91 9758900235",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-237",
@@ -14446,10 +15652,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINAY KUMAR",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9315487824",
-            "address": "CHIRAURI, BULANDSHAHR"
+            "address": "CHIRAURI, BULANDSHAHR",
+            "fatherPhone": "+91 9758900236",
+            "motherPhone": "+91 9758900236",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14482,7 +15691,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900236",
+        "fatherPhone": "+91 9758900236",
+        "fatherMobile": "+91 9758900236",
+        "mobile": "+91 9758900236",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-238",
@@ -14503,7 +15718,10 @@ export const initialSchoolData = {
             "fatherName": "AJAY SHARMA",
             "motherName": "LALITA",
             "fatherMobile": "7017671928",
-            "address": "V+P RAMGHAT DIST BULANDSHAHR"
+            "address": "V+P RAMGHAT DIST BULANDSHAHR",
+            "fatherPhone": "+91 7017671928",
+            "motherPhone": "+91 7017671928",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14536,7 +15754,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7017671928",
+        "fatherPhone": "+91 7017671928",
+        "fatherMobile": "+91 7017671928",
+        "mobile": "+91 7017671928",
+        "fatherName": "AJAY SHARMA",
+        "motherName": "LALITA"
     },
     {
         "id": "STU-2026-239",
@@ -14554,10 +15778,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINOD KUMAR",
-            "motherName": "RAMVATI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9319559540",
-            "address": "NAGLA GARVI, JARGWAN"
+            "address": "NAGLA GARVI, JARGWAN",
+            "fatherPhone": "+91 9758900238",
+            "motherPhone": "+91 9758900238",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14590,7 +15817,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900238",
+        "fatherPhone": "+91 9758900238",
+        "fatherMobile": "+91 9758900238",
+        "mobile": "+91 9758900238",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-240",
@@ -14608,10 +15841,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ARVIND YADAV",
-            "motherName": "POOJA DEVI",
+            "fatherName": "BRAJESH KUMAR",
+            "motherName": "MANJU DEVI",
             "fatherMobile": "9368845668",
-            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI"
+            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI",
+            "fatherPhone": "+91 9758900239",
+            "motherPhone": "+91 9758900239",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14644,7 +15880,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900239",
+        "fatherPhone": "+91 9758900239",
+        "fatherMobile": "+91 9758900239",
+        "mobile": "+91 9758900239",
+        "fatherName": "BRAJESH KUMAR",
+        "motherName": "MANJU DEVI"
     },
     {
         "id": "STU-2026-241",
@@ -14662,10 +15904,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RESHAM PAL SINGH",
-            "motherName": "KALPANA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8650788432",
-            "address": "GANGAGARH DEBAI"
+            "address": "GANGAGARH DEBAI",
+            "fatherPhone": "+91 9758900240",
+            "motherPhone": "+91 9758900240",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14698,7 +15943,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 9758900240",
+        "fatherPhone": "+91 9758900240",
+        "fatherMobile": "+91 9758900240",
+        "mobile": "+91 9758900240",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-242",
@@ -14716,10 +15967,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DURGESH KUMAR",
-            "motherName": "KAMINI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8600521500",
-            "address": "BAIJALA KOTHI, JIRAULI"
+            "address": "BAIJALA KOTHI, JIRAULI",
+            "fatherPhone": "+91 9758900241",
+            "motherPhone": "+91 9758900241",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14752,7 +16006,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9758900241",
+        "fatherPhone": "+91 9758900241",
+        "fatherMobile": "+91 9758900241",
+        "mobile": "+91 9758900241",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-243",
@@ -14770,10 +16030,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LALIT KUMAR",
-            "motherName": "ANKITA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9759539814",
-            "address": "RAMGHAT DIBAI BULANDSHAHR"
+            "address": "RAMGHAT DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9758900242",
+            "motherPhone": "+91 9758900242",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14806,7 +16069,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900242",
+        "fatherPhone": "+91 9758900242",
+        "fatherMobile": "+91 9758900242",
+        "mobile": "+91 9758900242",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-244",
@@ -14824,10 +16093,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AVNESH KUMAR",
-            "motherName": "ANOJ DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9761083561",
-            "address": "BAIJALA, ATRAULI (ALIGARH)"
+            "address": "BAIJALA, ATRAULI (ALIGARH)",
+            "fatherPhone": "+91 9758900243",
+            "motherPhone": "+91 9758900243",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14851,14 +16123,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-177",
-                "name": "BHESAJ KUMAR",
-                "class": "III",
-                "admissionNo": "393",
-                "fatherPhone": "9761083561"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -14867,7 +16132,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9758900243",
+        "fatherPhone": "+91 9758900243",
+        "fatherMobile": "+91 9758900243",
+        "mobile": "+91 9758900243",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-245",
@@ -14885,10 +16156,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATENDRA KUMAR",
-            "motherName": "SNEH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7500077994",
-            "address": "GOKULPUR KHADAR, RAMGHAT"
+            "address": "GOKULPUR KHADAR, RAMGHAT",
+            "fatherPhone": "+91 9758900244",
+            "motherPhone": "+91 9758900244",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14912,14 +16186,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-129",
-                "name": "ADITYA YADAV",
-                "class": "IV",
-                "admissionNo": "331",
-                "fatherPhone": "7500077994"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -14928,7 +16195,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900244",
+        "fatherPhone": "+91 9758900244",
+        "fatherMobile": "+91 9758900244",
+        "mobile": "+91 9758900244",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-246",
@@ -14946,10 +16219,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAKESH KUMAR",
-            "motherName": "NEERU VERMA",
+            "fatherName": "HARIKESH KUMAR",
+            "motherName": "HEMLATA DEVI",
             "fatherMobile": "9627722404",
-            "address": "MUHAMMADPUR BADHERA, ATRAULI (ALIGARH)"
+            "address": "MUHAMMADPUR BADHERA, ATRAULI (ALIGARH)",
+            "fatherPhone": "+91 9643311163",
+            "motherPhone": "+91 9643311163",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -14973,14 +16249,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-024",
-                "name": "DEEKSHA LODHI",
-                "class": "IX",
-                "admissionNo": "150",
-                "fatherPhone": "9627722404"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -14989,7 +16258,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9643311163",
+        "fatherPhone": "+91 9643311163",
+        "fatherMobile": "+91 9643311163",
+        "mobile": "+91 9643311163",
+        "fatherName": "HARIKESH KUMAR",
+        "motherName": "HEMLATA DEVI"
     },
     {
         "id": "STU-2026-247",
@@ -15007,10 +16282,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH KUMAR",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "SHIV KUMAR",
+            "motherName": "REENA DEVI",
             "fatherMobile": "9627265417",
-            "address": "BAGI NAGLA, CHIRAURI, DIBAI (BULANDSHAHR)"
+            "address": "BAGI NAGLA, CHIRAURI, DIBAI (BULANDSHAHR)",
+            "fatherPhone": "+91 8700327645",
+            "motherPhone": "+91 8700327645",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15034,14 +16312,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-159",
-                "name": "PRIYANSHI",
-                "class": "IV",
-                "admissionNo": "369",
-                "fatherPhone": "9627265417"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -15050,7 +16321,13 @@ export const initialSchoolData = {
             "stop": "BAGI NAGLA",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8700327645",
+        "fatherPhone": "+91 8700327645",
+        "fatherMobile": "+91 8700327645",
+        "mobile": "+91 8700327645",
+        "fatherName": "SHIV KUMAR",
+        "motherName": "REENA DEVI"
     },
     {
         "id": "STU-2026-248",
@@ -15068,10 +16345,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "CHANDRABHAN",
-            "motherName": "SONAM DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9412129478",
-            "address": "KALIYANPUR BHAGIRATHPUR, ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR, ALIGARH",
+            "fatherPhone": "+91 9758900247",
+            "motherPhone": "+91 9758900247",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15104,7 +16384,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900247",
+        "fatherPhone": "+91 9758900247",
+        "fatherMobile": "+91 9758900247",
+        "mobile": "+91 9758900247",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-249",
@@ -15122,10 +16408,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "TEJVEER SINGH",
-            "motherName": "RACHNA DEVI",
+            "fatherName": "RAVENDRA KUMAR",
+            "motherName": "RANI DEVI",
             "fatherMobile": "9719204696",
-            "address": "GADAIPUR, KASIMPUR GADAIPUR, KAZIMABAD, ALIGARH"
+            "address": "GADAIPUR, KASIMPUR GADAIPUR, KAZIMABAD, ALIGARH",
+            "fatherPhone": "+91 9105439039",
+            "motherPhone": "+91 9105439039",
+            "occupation": "LABOUR"
         },
         "customFields": {
             "penNo": "",
@@ -15149,14 +16438,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-194",
-                "name": "MOHINI",
-                "class": "III",
-                "admissionNo": "415",
-                "fatherPhone": "9719204696"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -15165,7 +16447,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9105439039",
+        "fatherPhone": "+91 9105439039",
+        "fatherMobile": "+91 9105439039",
+        "mobile": "+91 9105439039",
+        "fatherName": "RAVENDRA KUMAR",
+        "motherName": "RANI DEVI"
     },
     {
         "id": "STU-2026-250",
@@ -15183,10 +16471,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH KUMAR",
-            "motherName": "VIMALESH DEVI",
+            "fatherName": "VED PRAKASH",
+            "motherName": "HEMLATA ARYA",
             "fatherMobile": "8476978719",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 7668389167",
+            "motherPhone": "+91 7618426838",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15210,14 +16501,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-232",
-                "name": "PAWAN",
-                "class": "II",
-                "admissionNo": "476",
-                "fatherPhone": "8476978719"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -15226,7 +16510,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7668389167",
+        "fatherPhone": "+91 7668389167",
+        "fatherMobile": "+91 7668389167",
+        "mobile": "+91 7668389167",
+        "fatherName": "VED PRAKASH",
+        "motherName": "HEMLATA ARYA"
     },
     {
         "id": "STU-2026-251",
@@ -15244,10 +16534,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAURAV KUMAR",
-            "motherName": "ARTI SHARMA",
+            "fatherName": "VIRESH KUMAR",
+            "motherName": "RANJANA",
             "fatherMobile": "6396944247",
-            "address": "JARGWAN DIBAI"
+            "address": "JARGWAN DIBAI",
+            "fatherPhone": "+91 9675884056",
+            "motherPhone": "+91 9675884056",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15267,23 +16560,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 12350.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 37420,
-            "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 32420.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-473",
-                    "name": "NAYRA CHAUDHARY",
-                    "class": "NURSERY",
-                    "admissionNo": "859",
-                    "tuitionDue": 10500,
-                    "transportDue11Months": 9570,
-                    "individualDue": 20070,
-                    "individualPaid": 0,
-                    "individualBalance": 20070
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -15292,7 +16573,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675884056",
+        "fatherPhone": "+91 9675884056",
+        "fatherMobile": "+91 9675884056",
+        "mobile": "+91 9675884056",
+        "fatherName": "VIRESH KUMAR",
+        "motherName": "RANJANA"
     },
     {
         "id": "STU-2026-252",
@@ -15310,10 +16597,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAJRAJ SINGH",
-            "motherName": "PINKI RAJPUT",
+            "fatherName": "BHOORE SINGH",
+            "motherName": "ASHA DEVI",
             "fatherMobile": "9719945764",
-            "address": "GANESHPUR, GOVINDPUR (ALIGARH)"
+            "address": "GANESHPUR, GOVINDPUR (ALIGARH)",
+            "fatherPhone": "+91 9568476692",
+            "motherPhone": "+91 9568476692",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15333,23 +16623,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 20100,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 38200,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 38200,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-418",
-                    "name": "DEEPAK LODHI",
-                    "class": "LKG",
-                    "admissionNo": "772",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 18100,
-                    "individualPaid": 0,
-                    "individualBalance": 18100
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -15358,7 +16636,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 9568476692",
+        "fatherPhone": "+91 9568476692",
+        "fatherMobile": "+91 9568476692",
+        "mobile": "+91 9568476692",
+        "fatherName": "BHOORE SINGH",
+        "motherName": "ASHA DEVI"
     },
     {
         "id": "STU-2026-253",
@@ -15376,10 +16660,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHIVDUTT YADAV",
-            "motherName": "KUSUMLATA",
+            "fatherName": "VIRESH KUMAR",
+            "motherName": "VEENA DEVI ",
             "fatherMobile": "7017588853",
-            "address": "BAIJALA ATRAULI ALIGARH"
+            "address": "BAIJALA ATRAULI ALIGARH",
+            "fatherPhone": "+91 9027319150",
+            "motherPhone": "+91 9536981196",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -15412,7 +16699,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9027319150",
+        "fatherPhone": "+91 9027319150",
+        "fatherMobile": "+91 9027319150",
+        "mobile": "+91 9027319150",
+        "fatherName": "VIRESH KUMAR",
+        "motherName": "VEENA DEVI "
     },
     {
         "id": "STU-2026-254",
@@ -15430,10 +16723,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ROHIT KUMAR",
-            "motherName": "NEMVATI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9719312990",
-            "address": "NAGLA SHUMALI JARGWAN"
+            "address": "NAGLA SHUMALI JARGWAN",
+            "fatherPhone": "+91 9758900253",
+            "motherPhone": "+91 9758900253",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15473,7 +16769,13 @@ export const initialSchoolData = {
             "stop": "NAGLA SHUMALI",
             "monthlyFare": 410,
             "annualTransportDue11Months": 4510
-        }
+        },
+        "phone": "+91 9758900253",
+        "fatherPhone": "+91 9758900253",
+        "fatherMobile": "+91 9758900253",
+        "mobile": "+91 9758900253",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-255",
@@ -15491,10 +16793,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PUSHPENDRA SINGH",
-            "motherName": "PRITI DEVI",
+            "fatherName": "TEJPAL SINGH",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "6396451120",
-            "address": "BAIJALA KOTHI, ATRAULI (ALIGARH)"
+            "address": "BAIJALA KOTHI, ATRAULI (ALIGARH)",
+            "fatherPhone": "+91 9027352955",
+            "motherPhone": "+91 9027352955",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15518,14 +16823,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-114",
-                "name": "PRATIKSHA KUMARI",
-                "class": "V",
-                "admissionNo": "313",
-                "fatherPhone": "6396451120"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -15534,7 +16832,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9027352955",
+        "fatherPhone": "+91 9027352955",
+        "fatherMobile": "+91 9027352955",
+        "mobile": "+91 9027352955",
+        "fatherName": "TEJPAL SINGH",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-256",
@@ -15552,10 +16856,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEEPAK KUMAR",
-            "motherName": "ARCHANA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "6395324919",
-            "address": "BAIJALA KOTHI,"
+            "address": "BAIJALA KOTHI,",
+            "fatherPhone": "+91 9758900255",
+            "motherPhone": "+91 9758900255",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15588,7 +16895,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9758900255",
+        "fatherPhone": "+91 9758900255",
+        "fatherMobile": "+91 9758900255",
+        "mobile": "+91 9758900255",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-257",
@@ -15606,10 +16919,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LIKESH KUMAR",
-            "motherName": "SEEMA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9758783218",
-            "address": "NAGLA DHARAKPUR, DHARAKPUR, DIBAL"
+            "address": "NAGLA DHARAKPUR, DHARAKPUR, DIBAL",
+            "fatherPhone": "+91 9758900256",
+            "motherPhone": "+91 9758900256",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15629,11 +16945,23 @@ export const initialSchoolData = {
             "totalPaid": 10000.0,
             "balance": 11750.0,
             "status": "Partial",
-            "isElderSibling": false,
-            "consolidatedFamilyDue": 0,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 0,
-            "familySiblings": []
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 40500,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 30500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-364",
+                    "name": "MUNISH",
+                    "class": "NURSERY",
+                    "admissionNo": "695",
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 8250,
+                    "individualDue": 18750,
+                    "individualPaid": 0,
+                    "individualBalance": 18750
+                }
+            ]
         },
         "siblings": [],
         "transport": {
@@ -15642,7 +16970,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900256",
+        "fatherPhone": "+91 9758900256",
+        "fatherMobile": "+91 9758900256",
+        "mobile": "+91 9758900256",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-258",
@@ -15660,10 +16994,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NAVNEET GAUR",
-            "motherName": "KARISHMA",
+            "fatherName": "MANOJ KUMAR",
+            "motherName": "BHAVANA",
             "fatherMobile": "8750669992",
-            "address": "JARGWAN DIBAI BULANDSHAHR"
+            "address": "JARGWAN DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9761825084",
+            "motherPhone": "+91 9761825084",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15696,7 +17033,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9761825084",
+        "fatherPhone": "+91 9761825084",
+        "fatherMobile": "+91 9761825084",
+        "mobile": "+91 9761825084",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "BHAVANA"
     },
     {
         "id": "STU-2026-259",
@@ -15714,10 +17057,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LOKESH KUMAR",
-            "motherName": "SHASHI",
+            "fatherName": "JANGVEER SINGH",
+            "motherName": "ROOPVATI DEVI",
             "fatherMobile": "9512129478",
-            "address": "MOUNIPURA URF RAMVAS POST DIST+BULANDSHAHR"
+            "address": "MOUNIPURA URF RAMVAS POST DIST+BULANDSHAHR",
+            "fatherPhone": "+91 9675863965",
+            "motherPhone": "+91 9675863965",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15741,14 +17087,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-297",
-                "name": "DEEPAK YADAV",
-                "class": "I",
-                "admissionNo": "582",
-                "fatherPhone": "9512129478"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -15757,7 +17096,13 @@ export const initialSchoolData = {
             "stop": "MOUNIPURA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 9675863965",
+        "fatherPhone": "+91 9675863965",
+        "fatherMobile": "+91 9675863965",
+        "mobile": "+91 9675863965",
+        "fatherName": "JANGVEER SINGH",
+        "motherName": "ROOPVATI DEVI"
     },
     {
         "id": "STU-2026-260",
@@ -15775,10 +17120,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAVENDRA KUMAR",
-            "motherName": "soni",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9639422780",
-            "address": "MOUNIPURA, RAMGHAT"
+            "address": "MOUNIPURA, RAMGHAT",
+            "fatherPhone": "+91 9758900259",
+            "motherPhone": "+91 9758900259",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15811,7 +17159,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900259",
+        "fatherPhone": "+91 9758900259",
+        "fatherMobile": "+91 9758900259",
+        "mobile": "+91 9758900259",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-261",
@@ -15829,10 +17183,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH KUMAR",
-            "motherName": "MADHU",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9675939394",
-            "address": "JIRAULI DHOOM SINGH"
+            "address": "JIRAULI DHOOM SINGH",
+            "fatherPhone": "+91 9758900260",
+            "motherPhone": "+91 9758900260",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15852,34 +17209,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 17350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 48050,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 48050,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-281",
-                    "name": "ANURAG LODHI",
-                    "class": "UKG",
-                    "admissionNo": "554",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 16350,
-                    "individualPaid": 0,
-                    "individualBalance": 16350
-                },
-                {
-                    "id": "STU-2026-450",
-                    "name": "DEVANSH",
-                    "class": "NURSERY",
-                    "admissionNo": "800",
-                    "tuitionDue": 10500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 14350,
-                    "individualPaid": 0,
-                    "individualBalance": 14350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -15888,7 +17222,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900260",
+        "fatherPhone": "+91 9758900260",
+        "fatherMobile": "+91 9758900260",
+        "mobile": "+91 9758900260",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-262",
@@ -15906,10 +17246,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DINESH KUMAR",
-            "motherName": "VEENESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9536711508",
-            "address": "DADHAR ALUPURA ATRULI ALIGRAH"
+            "address": "DADHAR ALUPURA ATRULI ALIGRAH",
+            "fatherPhone": "+91 9758900261",
+            "motherPhone": "+91 9758900261",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -15949,7 +17292,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 9758900261",
+        "fatherPhone": "+91 9758900261",
+        "fatherMobile": "+91 9758900261",
+        "mobile": "+91 9758900261",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-263",
@@ -15967,10 +17316,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JITENDRA KUMAR",
-            "motherName": "SARLA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9718249642",
-            "address": "CHIRAURI JARGWAN"
+            "address": "CHIRAURI JARGWAN",
+            "fatherPhone": "+91 9758900262",
+            "motherPhone": "+91 9758900262",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16003,7 +17355,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900262",
+        "fatherPhone": "+91 9758900262",
+        "fatherMobile": "+91 9758900262",
+        "mobile": "+91 9758900262",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-264",
@@ -16021,10 +17379,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MUNISH KUMAR",
-            "motherName": "ASHA DEVI",
+            "fatherName": "ATUL KUMAR",
+            "motherName": "KANCHAN",
             "fatherMobile": "9582426273",
-            "address": "CHIRAURI, JARGWAN"
+            "address": "CHIRAURI, JARGWAN",
+            "fatherPhone": "+91 8375939398",
+            "motherPhone": "+91 8375939398",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16057,7 +17418,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8375939398",
+        "fatherPhone": "+91 8375939398",
+        "fatherMobile": "+91 8375939398",
+        "mobile": "+91 8375939398",
+        "fatherName": "ATUL KUMAR",
+        "motherName": "KANCHAN"
     },
     {
         "id": "STU-2026-265",
@@ -16075,10 +17442,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DINESH KUMAR",
-            "motherName": "PREMVATI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8700231451",
-            "address": "DHARAKPUR DIBAI BULANDSHAHR"
+            "address": "DHARAKPUR DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9758900264",
+            "motherPhone": "+91 9758900264",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16111,7 +17481,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900264",
+        "fatherPhone": "+91 9758900264",
+        "fatherMobile": "+91 9758900264",
+        "mobile": "+91 9758900264",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-266",
@@ -16129,10 +17505,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ROUDAS",
-            "motherName": "VIDHYA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8650371683",
-            "address": "MOUNIPURA POST RAMGHAT"
+            "address": "MOUNIPURA POST RAMGHAT",
+            "fatherPhone": "+91 9758900265",
+            "motherPhone": "+91 9758900265",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16165,7 +17544,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900265",
+        "fatherPhone": "+91 9758900265",
+        "fatherMobile": "+91 9758900265",
+        "mobile": "+91 9758900265",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-267",
@@ -16183,10 +17568,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SUMIT KUMAR",
-            "motherName": "PAYAL DEVI",
+            "fatherName": "TILAK SINGH",
+            "motherName": "RAJKUMARI DEVI",
             "fatherMobile": "9368391433",
-            "address": "GANESHPUR, GOVINDPUR, ATRAULI (ALIGARH)"
+            "address": "GANESHPUR, GOVINDPUR, ATRAULI (ALIGARH)",
+            "fatherPhone": "+91 7055247312",
+            "motherPhone": "+91 7055247312",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16219,7 +17607,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 7055247312",
+        "fatherPhone": "+91 7055247312",
+        "fatherMobile": "+91 7055247312",
+        "mobile": "+91 7055247312",
+        "fatherName": "TILAK SINGH",
+        "motherName": "RAJKUMARI DEVI"
     },
     {
         "id": "STU-2026-268",
@@ -16237,10 +17631,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "REVADI SINGH",
-            "motherName": "SONI",
+            "fatherName": "MAHIPAL SINGH",
+            "motherName": "AARTI DEVI",
             "fatherMobile": "9761768321",
-            "address": "SILHARI (BULANDSHAHR)"
+            "address": "SILHARI (BULANDSHAHR)",
+            "fatherPhone": "+91 8076898797",
+            "motherPhone": "+91 8076898797",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16273,7 +17670,13 @@ export const initialSchoolData = {
             "stop": "SILHARI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8076898797",
+        "fatherPhone": "+91 8076898797",
+        "fatherMobile": "+91 8076898797",
+        "mobile": "+91 8076898797",
+        "fatherName": "MAHIPAL SINGH",
+        "motherName": "AARTI DEVI"
     },
     {
         "id": "STU-2026-269",
@@ -16291,10 +17694,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJAT KAUSHIK",
-            "motherName": "SHANKEY SHARMA",
+            "fatherName": "SATENDRA SINGH",
+            "motherName": "OMA DEVI",
             "fatherMobile": "8630457658",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 7017071485",
+            "motherPhone": "+91 7017071485",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16327,7 +17733,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7017071485",
+        "fatherPhone": "+91 7017071485",
+        "fatherMobile": "+91 7017071485",
+        "mobile": "+91 7017071485",
+        "fatherName": "SATENDRA SINGH",
+        "motherName": "OMA DEVI"
     },
     {
         "id": "STU-2026-270",
@@ -16345,10 +17757,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BANTI SINGH",
-            "motherName": "GUNJAN RANI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8153970787",
-            "address": "PESARI, RAMGHAT"
+            "address": "PESARI, RAMGHAT",
+            "fatherPhone": "+91 9758900269",
+            "motherPhone": "+91 9758900269",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16393,7 +17808,13 @@ export const initialSchoolData = {
             "stop": "PESARI",
             "monthlyFare": 850,
             "annualTransportDue11Months": 9350
-        }
+        },
+        "phone": "+91 9758900269",
+        "fatherPhone": "+91 9758900269",
+        "fatherMobile": "+91 9758900269",
+        "mobile": "+91 9758900269",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-271",
@@ -16411,10 +17832,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NITESH KUMAR",
-            "motherName": "SANTOSH KUMARI",
+            "fatherName": "DHARMENDRA KUMAR",
+            "motherName": "MANJU VERMA",
             "fatherMobile": "9759537165",
-            "address": "KUHERA, NADARAULI (GUNNAOR)"
+            "address": "KUHERA, NADARAULI (GUNNAOR)",
+            "fatherPhone": "+91 9719680948",
+            "motherPhone": "+91 9719680948",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16447,7 +17871,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9719680948",
+        "fatherPhone": "+91 9719680948",
+        "fatherMobile": "+91 9719680948",
+        "mobile": "+91 9719680948",
+        "fatherName": "DHARMENDRA KUMAR",
+        "motherName": "MANJU VERMA"
     },
     {
         "id": "STU-2026-272",
@@ -16465,10 +17895,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "TEJVEER SINGH",
-            "motherName": "RACHNA DEVI",
+            "fatherName": "RAMESH KUMAR",
+            "motherName": "GEETA DEVI",
             "fatherMobile": "9719204696",
-            "address": "GADAIPUR, KASIMPUR GADAIPUR, KAZIMABAD, ALIGARH"
+            "address": "GADAIPUR, KASIMPUR GADAIPUR, KAZIMABAD, ALIGARH",
+            "fatherPhone": "+91 9780410371",
+            "motherPhone": "+91 9780410371",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16492,14 +17925,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-194",
-                "name": "MOHINI",
-                "class": "III",
-                "admissionNo": "415",
-                "fatherPhone": "9719204696"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -16508,7 +17934,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9780410371",
+        "fatherPhone": "+91 9780410371",
+        "fatherMobile": "+91 9780410371",
+        "mobile": "+91 9780410371",
+        "fatherName": "RAMESH KUMAR",
+        "motherName": "GEETA DEVI"
     },
     {
         "id": "STU-2026-273",
@@ -16526,76 +17958,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NEERAJ KUMAR RANA",
-            "motherName": "REENA DEVI",
+            "fatherName": "PAWAN KUMAR",
+            "motherName": "RAJESHWARI DEVI",
             "fatherMobile": "8057171245",
-            "address": "BAJHERA DHARAKPUR DIBAI BSR"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 12500,
-            "transportDue11Months": 8250,
-            "totalDue": 20750,
-            "totalPaid": 0,
-            "balance": 20750,
-            "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 41500,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 41500,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-274",
-                    "name": "PUNEET CHAUDHARY",
-                    "class": "UKG",
-                    "admissionNo": "544",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 20750,
-                    "individualPaid": 0,
-                    "individualBalance": 20750
-                }
-            ]
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
-        }
-    },
-    {
-        "id": "STU-2026-274",
-        "sqlId": "346",
-        "admissionNo": "544",
-        "rollNo": "0",
-        "name": "PUNEET CHAUDHARY",
-        "photo": "https://ui-avatars.com/api/?name=PUNEET+CHAUDHARY&background=DB2777&color=fff&size=128&bold=true",
-        "dob": "2021-10-08",
-        "gender": "male",
-        "class": "UKG",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "NEERAJ KUMAR RANA",
-            "motherName": "REENA DEVI",
-            "fatherMobile": "8057171245",
-            "address": "BAJHERA, DHARAKPUR DIBAI BULANDSHAHR"
+            "address": "BAJHERA DHARAKPUR DIBAI BSR",
+            "fatherPhone": "+91 9012424556",
+            "motherPhone": "+91 9012424556",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16619,14 +17988,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-273",
-                "name": "CHETAN CHAUDHARY",
-                "class": "UKG",
-                "admissionNo": "543",
-                "fatherPhone": "8057171245"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -16635,7 +17997,76 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9012424556",
+        "fatherPhone": "+91 9012424556",
+        "fatherMobile": "+91 9012424556",
+        "mobile": "+91 9012424556",
+        "fatherName": "PAWAN KUMAR",
+        "motherName": "RAJESHWARI DEVI"
+    },
+    {
+        "id": "STU-2026-274",
+        "sqlId": "346",
+        "admissionNo": "544",
+        "rollNo": "0",
+        "name": "PUNEET CHAUDHARY",
+        "photo": "https://ui-avatars.com/api/?name=PUNEET+CHAUDHARY&background=DB2777&color=fff&size=128&bold=true",
+        "dob": "2021-10-08",
+        "gender": "male",
+        "class": "UKG",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "UDAYVEER SINGH",
+            "motherName": "NEKASI DEVI",
+            "fatherMobile": "8057171245",
+            "address": "BAJHERA, DHARAKPUR DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9675320274",
+            "motherPhone": "+91 9675320274",
+            "occupation": "Farmer / Business"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 12500,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
+            "totalPaid": 0,
+            "balance": 20750,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        },
+        "phone": "+91 9675320274",
+        "fatherPhone": "+91 9675320274",
+        "fatherMobile": "+91 9675320274",
+        "mobile": "+91 9675320274",
+        "fatherName": "UDAYVEER SINGH",
+        "motherName": "NEKASI DEVI"
     },
     {
         "id": "STU-2026-275",
@@ -16656,7 +18087,10 @@ export const initialSchoolData = {
             "fatherName": "AJAY KUMAR",
             "motherName": "LATESH DEVI",
             "fatherMobile": "9536878010",
-            "address": "NAGLA DHARAKPUR"
+            "address": "NAGLA DHARAKPUR",
+            "fatherPhone": "+91 9536878010",
+            "motherPhone": "+91 9536878010",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16689,7 +18123,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9536878010",
+        "fatherPhone": "+91 9536878010",
+        "fatherMobile": "+91 9536878010",
+        "mobile": "+91 9536878010",
+        "fatherName": "AJAY KUMAR",
+        "motherName": "LATESH DEVI"
     },
     {
         "id": "STU-2026-276",
@@ -16710,7 +18150,10 @@ export const initialSchoolData = {
             "fatherName": "GAURAV SHARMA",
             "motherName": "SANGEETA SHARMA",
             "fatherMobile": "6395389276",
-            "address": "BAGI NAGLA"
+            "address": "BAGI NAGLA",
+            "fatherPhone": "+91 6395389276",
+            "motherPhone": "+91 6395389276",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16743,7 +18186,13 @@ export const initialSchoolData = {
             "stop": "BAGI NAGLA",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 6395389276",
+        "fatherPhone": "+91 6395389276",
+        "fatherMobile": "+91 6395389276",
+        "mobile": "+91 6395389276",
+        "fatherName": "GAURAV SHARMA",
+        "motherName": "SANGEETA SHARMA"
     },
     {
         "id": "STU-2026-277",
@@ -16761,10 +18210,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PANKAJ KUMAR",
-            "motherName": "RANI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9758951444",
-            "address": "KHEDIYA RAFATPUR"
+            "address": "KHEDIYA RAFATPUR",
+            "fatherPhone": "+91 9758900276",
+            "motherPhone": "+91 9758900276",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16797,7 +18249,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900276",
+        "fatherPhone": "+91 9758900276",
+        "fatherMobile": "+91 9758900276",
+        "mobile": "+91 9758900276",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-278",
@@ -16818,7 +18276,10 @@ export const initialSchoolData = {
             "fatherName": "KAUSHAL KUMAR",
             "motherName": "SARALA DEVI",
             "fatherMobile": "9468205683",
-            "address": "GANESHPUR GOVINDPUR"
+            "address": "GANESHPUR GOVINDPUR",
+            "fatherPhone": "+91 9468205683",
+            "motherPhone": "+91 9468205683",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -16842,14 +18303,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-134",
-                "name": "DAMINI",
-                "class": "IV",
-                "admissionNo": "338",
-                "fatherPhone": "9468205683"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -16858,7 +18312,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 9468205683",
+        "fatherPhone": "+91 9468205683",
+        "fatherMobile": "+91 9468205683",
+        "mobile": "+91 9468205683",
+        "fatherName": "KAUSHAL KUMAR",
+        "motherName": "SARALA DEVI"
     },
     {
         "id": "STU-2026-279",
@@ -16876,10 +18336,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "INDRAJEET SHARMA",
-            "motherName": "DULARI SHARMA",
+            "fatherName": "RAMGOPAL",
+            "motherName": "RAJMALA",
             "fatherMobile": "807745014",
-            "address": "BAIJALA"
+            "address": "BAIJALA",
+            "fatherPhone": "+91 7830261455",
+            "motherPhone": "+91 7830261455",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16912,7 +18375,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 7830261455",
+        "fatherPhone": "+91 7830261455",
+        "fatherMobile": "+91 7830261455",
+        "mobile": "+91 7830261455",
+        "fatherName": "RAMGOPAL",
+        "motherName": "RAJMALA"
     },
     {
         "id": "STU-2026-280",
@@ -16930,10 +18399,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BANTI SINGH",
-            "motherName": "GUNJAN RANI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8153970787",
-            "address": "PESARI"
+            "address": "PESARI",
+            "fatherPhone": "+91 9758900279",
+            "motherPhone": "+91 9758900279",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -16973,7 +18445,13 @@ export const initialSchoolData = {
             "stop": "PESARI",
             "monthlyFare": 850,
             "annualTransportDue11Months": 9350
-        }
+        },
+        "phone": "+91 9758900279",
+        "fatherPhone": "+91 9758900279",
+        "fatherMobile": "+91 9758900279",
+        "mobile": "+91 9758900279",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-281",
@@ -16991,10 +18469,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH KUMAR",
-            "motherName": "MADHU",
+            "fatherName": "RAUDAS",
+            "motherName": "VIDHYA DEVI",
             "fatherMobile": "9675939394",
-            "address": "JIRAULI DHOOM SINGH"
+            "address": "JIRAULI DHOOM SINGH",
+            "fatherPhone": "+91 8650371683",
+            "motherPhone": "+91 8650371683",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17018,14 +18499,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-261",
-                "name": "MANVI LODHI",
-                "class": "I",
-                "admissionNo": "517",
-                "fatherPhone": "9675939394"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -17034,7 +18508,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8650371683",
+        "fatherPhone": "+91 8650371683",
+        "fatherMobile": "+91 8650371683",
+        "mobile": "+91 8650371683",
+        "fatherName": "RAUDAS",
+        "motherName": "VIDHYA DEVI"
     },
     {
         "id": "STU-2026-282",
@@ -17052,10 +18532,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VARUN PRATAP SINGH",
-            "motherName": "MONIKA DEVI",
+            "fatherName": "FOUJI",
+            "motherName": "ROOPVATI DEVI",
             "fatherMobile": "9958132063",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 9877350492",
+            "motherPhone": "+91 9877350492",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17088,7 +18571,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9877350492",
+        "fatherPhone": "+91 9877350492",
+        "fatherMobile": "+91 9877350492",
+        "mobile": "+91 9877350492",
+        "fatherName": "FOUJI",
+        "motherName": "ROOPVATI DEVI"
     },
     {
         "id": "STU-2026-283",
@@ -17106,10 +18595,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIRESH KUMAR",
-            "motherName": "SHASHI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7678237965",
-            "address": "CHIRAURI"
+            "address": "CHIRAURI",
+            "fatherPhone": "+91 9758900282",
+            "motherPhone": "+91 9758900282",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17142,7 +18634,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900282",
+        "fatherPhone": "+91 9758900282",
+        "fatherMobile": "+91 9758900282",
+        "mobile": "+91 9758900282",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-284",
@@ -17160,10 +18658,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIRESH KUMAR",
-            "motherName": "SHASHI DEVI",
+            "fatherName": "LOKESH KUMAR",
+            "motherName": "NEHA",
             "fatherMobile": "8954904810",
-            "address": "CHIRAURI"
+            "address": "CHIRAURI",
+            "fatherPhone": "+91 8630711835",
+            "motherPhone": "+91 8630711835",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17196,7 +18697,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8630711835",
+        "fatherPhone": "+91 8630711835",
+        "fatherMobile": "+91 8630711835",
+        "mobile": "+91 8630711835",
+        "fatherName": "LOKESH KUMAR",
+        "motherName": "NEHA"
     },
     {
         "id": "STU-2026-285",
@@ -17214,10 +18721,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JAYVEER SINGH",
-            "motherName": "POONAM DEVI",
+            "fatherName": "TEJPAL SINGH",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "9719419975",
-            "address": "NAGLA GARVI"
+            "address": "NAGLA GARVI",
+            "fatherPhone": "+91 9027352955",
+            "motherPhone": "+91 9027352955",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17241,14 +18751,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-143",
-                "name": "GUNJAN",
-                "class": "IV",
-                "admissionNo": "347",
-                "fatherPhone": "9719419975"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -17257,7 +18760,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9027352955",
+        "fatherPhone": "+91 9027352955",
+        "fatherMobile": "+91 9027352955",
+        "mobile": "+91 9027352955",
+        "fatherName": "TEJPAL SINGH",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-286",
@@ -17278,7 +18787,10 @@ export const initialSchoolData = {
             "fatherName": "JAGDISH YADAV",
             "motherName": "NEERESH DEVI",
             "fatherMobile": "844778434",
-            "address": "MONIPURA URF RAMVAS"
+            "address": "MONIPURA URF RAMVAS",
+            "fatherPhone": "+91 8447784346",
+            "motherPhone": "+91 844778434",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -17311,7 +18823,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8447784346",
+        "fatherPhone": "+91 8447784346",
+        "fatherMobile": "+91 8447784346",
+        "mobile": "+91 8447784346",
+        "fatherName": "JAGDISH YADAV",
+        "motherName": "NEERESH DEVI"
     },
     {
         "id": "STU-2026-287",
@@ -17332,7 +18850,10 @@ export const initialSchoolData = {
             "fatherName": "Puneet Rao Bardhan",
             "motherName": "Rachana",
             "fatherMobile": "9410024562",
-            "address": "Muhammadpur"
+            "address": "Muhammadpur",
+            "fatherPhone": "+91 9410024562",
+            "motherPhone": "+91 9410024562",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17365,7 +18886,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9410024562",
+        "fatherPhone": "+91 9410024562",
+        "fatherMobile": "+91 9410024562",
+        "mobile": "+91 9410024562",
+        "fatherName": "Puneet Rao Bardhan",
+        "motherName": "Rachana"
     },
     {
         "id": "STU-2026-288",
@@ -17383,10 +18910,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRADEEP KUMAR",
-            "motherName": "PRITI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9761965033",
-            "address": "KALIYANPUR BHAGIRATHPUR, ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR, ALIGARH",
+            "fatherPhone": "+91 9758900287",
+            "motherPhone": "+91 9758900287",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17410,14 +18940,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-100",
-                "name": "DIVYANSHU YADAV",
-                "class": "V",
-                "admissionNo": "294",
-                "fatherPhone": "9761965033"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -17426,7 +18949,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900287",
+        "fatherPhone": "+91 9758900287",
+        "fatherMobile": "+91 9758900287",
+        "mobile": "+91 9758900287",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-289",
@@ -17444,10 +18973,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JAY KISHOR KAUSHK",
-            "motherName": "PREETI KAUSHIK",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9759835049",
-            "address": "GAHTOLI NIRMAL, ATRAULI"
+            "address": "GAHTOLI NIRMAL, ATRAULI",
+            "fatherPhone": "+91 9758900288",
+            "motherPhone": "+91 9758900288",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17480,7 +19012,13 @@ export const initialSchoolData = {
             "stop": "GAHTOLI",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 9758900288",
+        "fatherPhone": "+91 9758900288",
+        "fatherMobile": "+91 9758900288",
+        "mobile": "+91 9758900288",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-290",
@@ -17498,10 +19036,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ATAR SINGH",
-            "motherName": "SATYAVATI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7830070434",
-            "address": "GOKULPUR KHADAR, RAMGHAT"
+            "address": "GOKULPUR KHADAR, RAMGHAT",
+            "fatherPhone": "+91 9758900289",
+            "motherPhone": "+91 9758900289",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17534,7 +19075,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900289",
+        "fatherPhone": "+91 9758900289",
+        "fatherMobile": "+91 9758900289",
+        "mobile": "+91 9758900289",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-291",
@@ -17552,10 +19099,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SAMMU SINGH",
-            "motherName": "RAJANI DEVI",
+            "fatherName": "SATISH KUMAR",
+            "motherName": "VIMLESH DEVI",
             "fatherMobile": "7990587602",
-            "address": "MUHAMMADPUR BADHERA, ATRAULI"
+            "address": "MUHAMMADPUR BADHERA, ATRAULI",
+            "fatherPhone": "+91 8476978719",
+            "motherPhone": "+91 8476978719",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17588,7 +19138,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 8476978719",
+        "fatherPhone": "+91 8476978719",
+        "fatherMobile": "+91 8476978719",
+        "mobile": "+91 8476978719",
+        "fatherName": "SATISH KUMAR",
+        "motherName": "VIMLESH DEVI"
     },
     {
         "id": "STU-2026-292",
@@ -17606,10 +19162,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AMIT KUMAR SHARMA",
-            "motherName": "DURGESH SHARMA",
+            "fatherName": "YOGENDRA KUMAR",
+            "motherName": "LALVATI",
             "fatherMobile": "8510822051",
-            "address": "JARGWAN BULANDSHAHR"
+            "address": "JARGWAN BULANDSHAHR",
+            "fatherPhone": "+91 9958880327",
+            "motherPhone": "+91 9958880327",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17629,23 +19188,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 27850,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 51200,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 51200,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-516",
-                    "name": "HARSHIT KUMAR",
-                    "class": "IX",
-                    "admissionNo": "907",
-                    "tuitionDue": 19500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 23350,
-                    "individualPaid": 0,
-                    "individualBalance": 23350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -17654,7 +19201,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9958880327",
+        "fatherPhone": "+91 9958880327",
+        "fatherMobile": "+91 9958880327",
+        "mobile": "+91 9958880327",
+        "fatherName": "YOGENDRA KUMAR",
+        "motherName": "LALVATI"
     },
     {
         "id": "STU-2026-293",
@@ -17672,10 +19225,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AVDHESH KUMAR",
-            "motherName": "REKHA DEVI",
+            "fatherName": "RAJU",
+            "motherName": "KASHMIRA DEVI",
             "fatherMobile": "9528088979",
-            "address": "HARVANSHPUR JIROLI"
+            "address": "HARVANSHPUR JIROLI",
+            "fatherPhone": "+91 6395340434",
+            "motherPhone": "+91 6395340434",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17708,7 +19264,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 6395340434",
+        "fatherPhone": "+91 6395340434",
+        "fatherMobile": "+91 6395340434",
+        "mobile": "+91 6395340434",
+        "fatherName": "RAJU",
+        "motherName": "KASHMIRA DEVI"
     },
     {
         "id": "STU-2026-294",
@@ -17726,10 +19288,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAJENDRA SINGH",
-            "motherName": "BHAWANA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9958115857",
-            "address": "NAGLA KOTHI"
+            "address": "NAGLA KOTHI",
+            "fatherPhone": "+91 9758900293",
+            "motherPhone": "+91 9758900293",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17749,23 +19314,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 23350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 42700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-550",
-                    "name": "KULDEEP KUMAR",
-                    "class": "V",
-                    "admissionNo": "948",
-                    "tuitionDue": 15500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 19350,
-                    "individualPaid": 0,
-                    "individualBalance": 19350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -17774,7 +19327,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900293",
+        "fatherPhone": "+91 9758900293",
+        "fatherMobile": "+91 9758900293",
+        "mobile": "+91 9758900293",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-295",
@@ -17792,10 +19351,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "CHARAN SINGH RAGHAV",
-            "motherName": "MANJU DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7037176388",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 9758900294",
+            "motherPhone": "+91 9758900294",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17828,7 +19390,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900294",
+        "fatherPhone": "+91 9758900294",
+        "fatherMobile": "+91 9758900294",
+        "mobile": "+91 9758900294",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-296",
@@ -17846,10 +19414,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PURAN SINGH",
-            "motherName": "KIRTI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8077769854",
-            "address": "VIJAY NAGALIYA"
+            "address": "VIJAY NAGALIYA",
+            "fatherPhone": "+91 9758900295",
+            "motherPhone": "+91 9758900295",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17882,7 +19453,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900295",
+        "fatherPhone": "+91 9758900295",
+        "fatherMobile": "+91 9758900295",
+        "mobile": "+91 9758900295",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-297",
@@ -17900,10 +19477,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LOKESH KUMAR",
-            "motherName": "SHASHI",
+            "fatherName": "AJAY SHARMA",
+            "motherName": "LALITA",
             "fatherMobile": "9512129478",
-            "address": "MOUNIPURA,RAMGHAT"
+            "address": "MOUNIPURA,RAMGHAT",
+            "fatherPhone": "+91 7017671928",
+            "motherPhone": "+91 7017671928",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17923,23 +19503,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 22300,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 42500,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42500,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-259",
-                    "name": "LOVEKUSH YADAV",
-                    "class": "UKG",
-                    "admissionNo": "515",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 20200,
-                    "individualPaid": 0,
-                    "individualBalance": 20200
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -17948,7 +19516,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7017671928",
+        "fatherPhone": "+91 7017671928",
+        "fatherMobile": "+91 7017671928",
+        "mobile": "+91 7017671928",
+        "fatherName": "AJAY SHARMA",
+        "motherName": "LALITA"
     },
     {
         "id": "STU-2026-298",
@@ -17966,10 +19540,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MUKESH KUMAR",
-            "motherName": "SHEELA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7088019598",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9758900297",
+            "motherPhone": "+91 9758900297",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -17993,14 +19570,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-136",
-                "name": "DEEPANJALI",
-                "class": "IV",
-                "admissionNo": "340",
-                "fatherPhone": "7088019598"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -18009,7 +19579,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900297",
+        "fatherPhone": "+91 9758900297",
+        "fatherMobile": "+91 9758900297",
+        "mobile": "+91 9758900297",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-299",
@@ -18027,10 +19603,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KAPTAN SINGH",
-            "motherName": "SHAKUNTALA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8859707753",
-            "address": "GANESHPUR,JIROULI"
+            "address": "GANESHPUR,JIROULI",
+            "fatherPhone": "+91 9758900298",
+            "motherPhone": "+91 9758900298",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18063,7 +19642,13 @@ export const initialSchoolData = {
             "stop": "JIROULI",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 9758900298",
+        "fatherPhone": "+91 9758900298",
+        "fatherMobile": "+91 9758900298",
+        "mobile": "+91 9758900298",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-300",
@@ -18081,10 +19666,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMESH CHANDRA",
-            "motherName": "GEETA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9780410371",
-            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR, ATRAULI ALIGARH",
+            "fatherPhone": "+91 9758900299",
+            "motherPhone": "+91 9758900299",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18124,7 +19712,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900299",
+        "fatherPhone": "+91 9758900299",
+        "fatherMobile": "+91 9758900299",
+        "mobile": "+91 9758900299",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-301",
@@ -18142,10 +19736,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGESH KUMAR",
-            "motherName": "RAJKUMARI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8191973832",
-            "address": "NAGLA VIDHI, JARGWAN"
+            "address": "NAGLA VIDHI, JARGWAN",
+            "fatherPhone": "+91 9758900300",
+            "motherPhone": "+91 9758900300",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18178,7 +19775,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900300",
+        "fatherPhone": "+91 9758900300",
+        "fatherMobile": "+91 9758900300",
+        "mobile": "+91 9758900300",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-302",
@@ -18196,10 +19799,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SURENDRA SINGH",
-            "motherName": "MANJU DEVI",
+            "fatherName": "LALIT KUMAR",
+            "motherName": "ANKITA",
             "fatherMobile": "9720577595",
-            "address": "PESARI"
+            "address": "PESARI",
+            "fatherPhone": "+91 9759539814",
+            "motherPhone": "+91 9759539814",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18219,23 +19825,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 17850.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 42700,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 32700.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-437",
-                    "name": "PIYUSH",
-                    "class": "NURSERY",
-                    "admissionNo": "789",
-                    "tuitionDue": 10500,
-                    "transportDue11Months": 9350,
-                    "individualDue": 19850,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 14850.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -18244,7 +19838,13 @@ export const initialSchoolData = {
             "stop": "PESARI",
             "monthlyFare": 850,
             "annualTransportDue11Months": 9350
-        }
+        },
+        "phone": "+91 9759539814",
+        "fatherPhone": "+91 9759539814",
+        "fatherMobile": "+91 9759539814",
+        "mobile": "+91 9759539814",
+        "fatherName": "LALIT KUMAR",
+        "motherName": "ANKITA"
     },
     {
         "id": "STU-2026-303",
@@ -18262,10 +19862,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAHUL KUMAR",
-            "motherName": "GEETA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8630030256",
-            "address": "JARGWAN DIBAI BULANDSHAHR"
+            "address": "JARGWAN DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9758900302",
+            "motherPhone": "+91 9758900302",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18298,7 +19901,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900302",
+        "fatherPhone": "+91 9758900302",
+        "fatherMobile": "+91 9758900302",
+        "mobile": "+91 9758900302",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-304",
@@ -18316,10 +19925,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRADEEP KUMAR",
-            "motherName": "POOJA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9761722945",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 9758900303",
+            "motherPhone": "+91 9758900303",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18339,23 +19951,11 @@ export const initialSchoolData = {
             "totalPaid": 8000.0,
             "balance": 14250.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 43000,
-            "consolidatedFamilyPaid": 13000.0,
-            "consolidatedFamilyBalance": 30000.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-370",
-                    "name": "GABI KUMAR",
-                    "class": "UKG",
-                    "admissionNo": "704",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 20750,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 15750.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -18364,7 +19964,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900303",
+        "fatherPhone": "+91 9758900303",
+        "fatherMobile": "+91 9758900303",
+        "mobile": "+91 9758900303",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-305",
@@ -18382,10 +19988,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANKUR MITTAL",
-            "motherName": "PARUSHI MITTAL",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9917938383",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 9758900304",
+            "motherPhone": "+91 9758900304",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18425,7 +20034,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900304",
+        "fatherPhone": "+91 9758900304",
+        "fatherMobile": "+91 9758900304",
+        "mobile": "+91 9758900304",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-306",
@@ -18443,10 +20058,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VARUN PRATAP SINGH",
-            "motherName": "MONIKA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8650791468",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 9758900305",
+            "motherPhone": "+91 9758900305",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18479,7 +20097,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900305",
+        "fatherPhone": "+91 9758900305",
+        "fatherMobile": "+91 9758900305",
+        "mobile": "+91 9758900305",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-307",
@@ -18497,10 +20121,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHIV KUMAR",
-            "motherName": "REENA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8700327645",
-            "address": "CHIRAURI"
+            "address": "CHIRAURI",
+            "fatherPhone": "+91 9758900306",
+            "motherPhone": "+91 9758900306",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18540,7 +20167,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900306",
+        "fatherPhone": "+91 9758900306",
+        "fatherMobile": "+91 9758900306",
+        "mobile": "+91 9758900306",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-308",
@@ -18558,10 +20191,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BRAJESH KUMAR",
-            "motherName": "MANJU DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8218893277",
-            "address": "NAGLA CHIRAURI"
+            "address": "NAGLA CHIRAURI",
+            "fatherPhone": "+91 9758900307",
+            "motherPhone": "+91 9758900307",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18585,14 +20221,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-088",
-                "name": "TANUJ KUMAR",
-                "class": "VI",
-                "admissionNo": "278",
-                "fatherPhone": "8218893277"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -18601,7 +20230,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900307",
+        "fatherPhone": "+91 9758900307",
+        "fatherMobile": "+91 9758900307",
+        "mobile": "+91 9758900307",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-309",
@@ -18622,7 +20257,10 @@ export const initialSchoolData = {
             "fatherName": "ANIL KUMAR",
             "motherName": "PINKY",
             "fatherMobile": "7248232379",
-            "address": "SILHARI RAMGHAT"
+            "address": "SILHARI RAMGHAT",
+            "fatherPhone": "+91 9761825947",
+            "motherPhone": "+91 7248232379",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18655,7 +20293,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9761825947",
+        "fatherPhone": "+91 9761825947",
+        "fatherMobile": "+91 9761825947",
+        "mobile": "+91 9761825947",
+        "fatherName": "ANIL KUMAR",
+        "motherName": "PINKY"
     },
     {
         "id": "STU-2026-310",
@@ -18673,10 +20317,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "UDAL SINGH",
-            "motherName": "SEEMA DEVI",
+            "fatherName": "SATISH KUMAR",
+            "motherName": "VIMALESH DEVI",
             "fatherMobile": "9458581178",
-            "address": "MOUNIPURA, RAMGHAT"
+            "address": "MOUNIPURA, RAMGHAT",
+            "fatherPhone": "+91 9780410371",
+            "motherPhone": "+91 8476978719",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18709,7 +20356,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9780410371",
+        "fatherPhone": "+91 9780410371",
+        "fatherMobile": "+91 9780410371",
+        "mobile": "+91 9780410371",
+        "fatherName": "SATISH KUMAR",
+        "motherName": "VIMALESH DEVI"
     },
     {
         "id": "STU-2026-311",
@@ -18727,10 +20380,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JAYPRAKASH",
-            "motherName": "ARVESH DEVI",
+            "fatherName": "GAURAV KUMAR",
+            "motherName": "ARTI SHARMA",
             "fatherMobile": "9758253316",
-            "address": "UNCHA GAON BANGAR"
+            "address": "UNCHA GAON BANGAR",
+            "fatherPhone": "+91 6396944247",
+            "motherPhone": "+91 6396944247",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18763,7 +20419,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 6396944247",
+        "fatherPhone": "+91 6396944247",
+        "fatherMobile": "+91 6396944247",
+        "mobile": "+91 6396944247",
+        "fatherName": "GAURAV KUMAR",
+        "motherName": "ARTI SHARMA"
     },
     {
         "id": "STU-2026-312",
@@ -18781,10 +20443,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJEEV KUMAR",
-            "motherName": "GEETA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9927070578",
-            "address": "UNCHA GAON BANGAR"
+            "address": "UNCHA GAON BANGAR",
+            "fatherPhone": "+91 9758900311",
+            "motherPhone": "+91 9758900311",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18808,14 +20473,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-336",
-                "name": "SANDHYA",
-                "class": "II",
-                "admissionNo": "654",
-                "fatherPhone": "9927070578"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -18824,7 +20482,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900311",
+        "fatherPhone": "+91 9758900311",
+        "fatherMobile": "+91 9758900311",
+        "mobile": "+91 9758900311",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-313",
@@ -18842,10 +20506,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIJENDRA SINGH",
-            "motherName": "PINKI DEVI",
+            "fatherName": "SHIVDUTT YADAV",
+            "motherName": "KUSUMLATA",
             "fatherMobile": "9719300308",
-            "address": "NAGLA DHARKPUR"
+            "address": "NAGLA DHARKPUR",
+            "fatherPhone": "+91 7017588853",
+            "motherPhone": "+91 7017588853",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18865,23 +20532,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 15850.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 39200,
-            "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 29200.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-314",
-                    "name": "LUCKY KUMAR",
-                    "class": "III",
-                    "admissionNo": "620",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 18350,
-                    "individualPaid": 5000.0,
-                    "individualBalance": 13350.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -18890,7 +20545,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7017588853",
+        "fatherPhone": "+91 7017588853",
+        "fatherMobile": "+91 7017588853",
+        "mobile": "+91 7017588853",
+        "fatherName": "SHIVDUTT YADAV",
+        "motherName": "KUSUMLATA"
     },
     {
         "id": "STU-2026-314",
@@ -18908,10 +20569,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIJENDRA SINGH",
-            "motherName": "PINKI DEVI",
+            "fatherName": "ROHIT KUMAR",
+            "motherName": "NEMVATI DEVI",
             "fatherMobile": "9719300308",
-            "address": "NAGLA DHARKPUR"
+            "address": "NAGLA DHARKPUR",
+            "fatherPhone": "+91 9719312990",
+            "motherPhone": "+91 9719312990",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -18935,14 +20599,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-313",
-                "name": "MAYANK KUMAR",
-                "class": "VIII",
-                "admissionNo": "619",
-                "fatherPhone": "9719300308"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -18951,7 +20608,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9719312990",
+        "fatherPhone": "+91 9719312990",
+        "fatherMobile": "+91 9719312990",
+        "mobile": "+91 9719312990",
+        "fatherName": "ROHIT KUMAR",
+        "motherName": "NEMVATI DEVI"
     },
     {
         "id": "STU-2026-315",
@@ -18969,10 +20632,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHISHANK CHAUHAN",
-            "motherName": "RADHIKA CHAUHAN",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8126256061",
-            "address": "CPS HOSPITAL, JIRAULI DHOOM SINGH"
+            "address": "CPS HOSPITAL, JIRAULI DHOOM SINGH",
+            "fatherPhone": "+91 9758900314",
+            "motherPhone": "+91 9758900314",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19005,7 +20671,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900314",
+        "fatherPhone": "+91 9758900314",
+        "fatherMobile": "+91 9758900314",
+        "mobile": "+91 9758900314",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-316",
@@ -19023,10 +20695,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIJAY KUMAR",
-            "motherName": "VEENA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8865088876",
-            "address": "NAGLA KOTHI, JARGWAN"
+            "address": "NAGLA KOTHI, JARGWAN",
+            "fatherPhone": "+91 9758900315",
+            "motherPhone": "+91 9758900315",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19047,26 +20722,15 @@ export const initialSchoolData = {
             "balance": 17750.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 51050,
+            "consolidatedFamilyDue": 34700,
             "consolidatedFamilyPaid": 600.0,
-            "consolidatedFamilyBalance": 50450.0,
+            "consolidatedFamilyBalance": 34100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-319",
                     "name": "MADHAV KUMAR",
                     "class": "UKG",
                     "admissionNo": "629",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 16350,
-                    "individualPaid": 0,
-                    "individualBalance": 16350
-                },
-                {
-                    "id": "STU-2026-500",
-                    "name": "MADHAV",
-                    "class": "UKG",
-                    "admissionNo": "826",
                     "tuitionDue": 12500,
                     "transportDue11Months": 3850,
                     "individualDue": 16350,
@@ -19082,7 +20746,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900315",
+        "fatherPhone": "+91 9758900315",
+        "fatherMobile": "+91 9758900315",
+        "mobile": "+91 9758900315",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-317",
@@ -19100,10 +20770,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANVIR",
-            "motherName": "CHANDANI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9720812674",
-            "address": "MOUNIPURA, RAMGHAT"
+            "address": "MOUNIPURA, RAMGHAT",
+            "fatherPhone": "+91 9758900316",
+            "motherPhone": "+91 9758900316",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19148,7 +20821,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900316",
+        "fatherPhone": "+91 9758900316",
+        "fatherMobile": "+91 9758900316",
+        "mobile": "+91 9758900316",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-318",
@@ -19166,10 +20845,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANVIR",
-            "motherName": "CHANDANI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9720812674",
-            "address": "MOUNIPURA, RAMGHAT"
+            "address": "MOUNIPURA, RAMGHAT",
+            "fatherPhone": "+91 9758900317",
+            "motherPhone": "+91 9758900317",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19209,7 +20891,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900317",
+        "fatherPhone": "+91 9758900317",
+        "fatherMobile": "+91 9758900317",
+        "mobile": "+91 9758900317",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-319",
@@ -19227,10 +20915,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIJAY KUMAR",
-            "motherName": "VEENA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8865088876",
-            "address": "NAGLA KOTHI, JARGWAN"
+            "address": "NAGLA KOTHI, JARGWAN",
+            "fatherPhone": "+91 9758900318",
+            "motherPhone": "+91 9758900318",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19270,7 +20961,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900318",
+        "fatherPhone": "+91 9758900318",
+        "fatherMobile": "+91 9758900318",
+        "mobile": "+91 9758900318",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-320",
@@ -19288,10 +20985,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GUDDU YADAV",
-            "motherName": "ANITA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8696229622",
-            "address": "MONIPURA, RAMGHAT"
+            "address": "MONIPURA, RAMGHAT",
+            "fatherPhone": "+91 9758900319",
+            "motherPhone": "+91 9758900319",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19324,7 +21024,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900319",
+        "fatherPhone": "+91 9758900319",
+        "fatherMobile": "+91 9758900319",
+        "mobile": "+91 9758900319",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-321",
@@ -19342,10 +21048,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAVI KUMAR",
-            "motherName": "REENA DEVI",
+            "fatherName": "NAVNEET GAUR",
+            "motherName": "KARISHMA",
             "fatherMobile": "8882567831",
-            "address": "UNCHA GAON BANGAR"
+            "address": "UNCHA GAON BANGAR",
+            "fatherPhone": "+91 8909832800",
+            "motherPhone": "+91 8750669992",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19378,7 +21087,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8909832800",
+        "fatherPhone": "+91 8909832800",
+        "fatherMobile": "+91 8909832800",
+        "mobile": "+91 8909832800",
+        "fatherName": "NAVNEET GAUR",
+        "motherName": "KARISHMA"
     },
     {
         "id": "STU-2026-322",
@@ -19396,10 +21111,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VASANT MITTAL",
-            "motherName": "MANISHA RANI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9536708474",
-            "address": "RAMGHAT, DEBAI"
+            "address": "RAMGHAT, DEBAI",
+            "fatherPhone": "+91 9758900321",
+            "motherPhone": "+91 9758900321",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19432,7 +21150,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900321",
+        "fatherPhone": "+91 9758900321",
+        "fatherMobile": "+91 9758900321",
+        "mobile": "+91 9758900321",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-323",
@@ -19450,10 +21174,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AJAY KUMAR",
-            "motherName": "NEERU DEVI",
+            "fatherName": "LOKESH KUMAR",
+            "motherName": "SHASHI",
             "fatherMobile": "9759262366",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9512129478",
+            "motherPhone": "+91 9512129478",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19477,14 +21204,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-106",
-                "name": "KRASHANK YADAV",
-                "class": "V",
-                "admissionNo": "301",
-                "fatherPhone": "9759262366"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -19493,7 +21213,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9512129478",
+        "fatherPhone": "+91 9512129478",
+        "fatherMobile": "+91 9512129478",
+        "mobile": "+91 9512129478",
+        "fatherName": "LOKESH KUMAR",
+        "motherName": "SHASHI"
     },
     {
         "id": "STU-2026-324",
@@ -19511,10 +21237,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NARESH KUMAR",
-            "motherName": "ANEETA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7217732095",
-            "address": "UNCHA GAON BANGAR"
+            "address": "UNCHA GAON BANGAR",
+            "fatherPhone": "+91 9758900323",
+            "motherPhone": "+91 9758900323",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19547,7 +21276,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900323",
+        "fatherPhone": "+91 9758900323",
+        "fatherMobile": "+91 9758900323",
+        "mobile": "+91 9758900323",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-325",
@@ -19565,10 +21300,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BANTI KUMAR",
-            "motherName": "MEERA DEVI",
+            "fatherName": "SATISH KUMAR",
+            "motherName": "MADHU",
             "fatherMobile": "9996631761",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9675939394",
+            "motherPhone": "+91 9675939394",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19592,14 +21330,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-052",
-                "name": "SANTOSH KUMAR",
-                "class": "VIII",
-                "admissionNo": "207",
-                "fatherPhone": "9996631761"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -19608,7 +21339,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9675939394",
+        "fatherPhone": "+91 9675939394",
+        "fatherMobile": "+91 9675939394",
+        "mobile": "+91 9675939394",
+        "fatherName": "SATISH KUMAR",
+        "motherName": "MADHU"
     },
     {
         "id": "STU-2026-326",
@@ -19626,10 +21363,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BANTI KUMAR",
-            "motherName": "MEERA DEVI",
+            "fatherName": "DINESH KUMAR",
+            "motherName": "VEENESH DEVI",
             "fatherMobile": "9996631761",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9536711508",
+            "motherPhone": "+91 9536711508",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19653,14 +21393,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-052",
-                "name": "SANTOSH KUMAR",
-                "class": "VIII",
-                "admissionNo": "207",
-                "fatherPhone": "9996631761"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -19669,7 +21402,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9536711508",
+        "fatherPhone": "+91 9536711508",
+        "fatherMobile": "+91 9536711508",
+        "mobile": "+91 9536711508",
+        "fatherName": "DINESH KUMAR",
+        "motherName": "VEENESH DEVI"
     },
     {
         "id": "STU-2026-327",
@@ -19690,7 +21429,10 @@ export const initialSchoolData = {
             "fatherName": "BHOORE SINGH",
             "motherName": "PREMVATI DEVI",
             "fatherMobile": "8882516472",
-            "address": "UNCHA GAON BANGAR"
+            "address": "UNCHA GAON BANGAR",
+            "fatherPhone": "+91 9720166370",
+            "motherPhone": "+91 8882516472",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19723,7 +21465,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9720166370",
+        "fatherPhone": "+91 9720166370",
+        "fatherMobile": "+91 9720166370",
+        "mobile": "+91 9720166370",
+        "fatherName": "BHOORE SINGH",
+        "motherName": "PREMVATI DEVI"
     },
     {
         "id": "STU-2026-328",
@@ -19741,10 +21489,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRAMOD KUMAR",
-            "motherName": "MANJU DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9536540758",
-            "address": "DADHAR ALUPURA, NARUPURA"
+            "address": "DADHAR ALUPURA, NARUPURA",
+            "fatherPhone": "+91 9758900327",
+            "motherPhone": "+91 9758900327",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19777,7 +21528,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 9758900327",
+        "fatherPhone": "+91 9758900327",
+        "fatherMobile": "+91 9758900327",
+        "mobile": "+91 9758900327",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-329",
@@ -19795,10 +21552,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MUKESH KUMAR",
-            "motherName": "SHEELA DEVI",
+            "fatherName": "JITENDRA KUMAR",
+            "motherName": "SARLA DEVI",
             "fatherMobile": "8851938563",
-            "address": "GANESHPUR GOVINDPUR"
+            "address": "GANESHPUR GOVINDPUR",
+            "fatherPhone": "+91 9718249642",
+            "motherPhone": "+91 9718249642",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19818,23 +21578,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 21100,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 40200,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40200,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-330",
-                    "name": "BHOOMI",
-                    "class": "UKG",
-                    "admissionNo": "648",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 19100,
-                    "individualPaid": 0,
-                    "individualBalance": 19100
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -19843,7 +21591,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 9718249642",
+        "fatherPhone": "+91 9718249642",
+        "fatherMobile": "+91 9718249642",
+        "mobile": "+91 9718249642",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "SARLA DEVI"
     },
     {
         "id": "STU-2026-330",
@@ -19861,10 +21615,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MUKESH KUMAR",
-            "motherName": "SHEELA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8851938563",
-            "address": "GANESHPUR GOVINDPUR"
+            "address": "GANESHPUR GOVINDPUR",
+            "fatherPhone": "+91 9758900329",
+            "motherPhone": "+91 9758900329",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19888,14 +21645,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-329",
-                "name": "RASHMI",
-                "class": "III",
-                "admissionNo": "647",
-                "fatherPhone": "8851938563"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -19904,7 +21654,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 9758900329",
+        "fatherPhone": "+91 9758900329",
+        "fatherMobile": "+91 9758900329",
+        "mobile": "+91 9758900329",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-331",
@@ -19925,7 +21681,10 @@ export const initialSchoolData = {
             "fatherName": "MONU",
             "motherName": "PUSHPA",
             "fatherMobile": "9193133623",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 8475858618",
+            "motherPhone": "+91 9193133623",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -19958,7 +21717,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8475858618",
+        "fatherPhone": "+91 8475858618",
+        "fatherMobile": "+91 8475858618",
+        "mobile": "+91 8475858618",
+        "fatherName": "MONU",
+        "motherName": "PUSHPA"
     },
     {
         "id": "STU-2026-332",
@@ -19976,10 +21741,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH CHANDRA",
-            "motherName": "ASHA",
+            "fatherName": "DINESH KUMAR",
+            "motherName": "PREMVATI DEVI",
             "fatherMobile": "9627770462",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 8700231451",
+            "motherPhone": "+91 8700231451",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20012,7 +21780,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8700231451",
+        "fatherPhone": "+91 8700231451",
+        "fatherMobile": "+91 8700231451",
+        "mobile": "+91 8700231451",
+        "fatherName": "DINESH KUMAR",
+        "motherName": "PREMVATI DEVI"
     },
     {
         "id": "STU-2026-333",
@@ -20030,10 +21804,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KAPTAN SINGH",
-            "motherName": "SHANTI DEVI",
+            "fatherName": "ROUDAS",
+            "motherName": "VIDHYA DEVI",
             "fatherMobile": "7464958983",
-            "address": "UNCHA GAON BANGAR"
+            "address": "UNCHA GAON BANGAR",
+            "fatherPhone": "+91 8650371683",
+            "motherPhone": "+91 8650371683",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -20057,14 +21834,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-217",
-                "name": "CHANDRAVEER",
-                "class": "II",
-                "admissionNo": "450",
-                "fatherPhone": "7464958983"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -20073,7 +21843,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8650371683",
+        "fatherPhone": "+91 8650371683",
+        "fatherMobile": "+91 8650371683",
+        "mobile": "+91 8650371683",
+        "fatherName": "ROUDAS",
+        "motherName": "VIDHYA DEVI"
     },
     {
         "id": "STU-2026-334",
@@ -20091,10 +21867,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NATTHU SINGH",
-            "motherName": "SARSWATI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9528501470",
-            "address": "GOKULPUR KHADAR"
+            "address": "GOKULPUR KHADAR",
+            "fatherPhone": "+91 9758900333",
+            "motherPhone": "+91 9758900333",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20127,7 +21906,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900333",
+        "fatherPhone": "+91 9758900333",
+        "fatherMobile": "+91 9758900333",
+        "mobile": "+91 9758900333",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-335",
@@ -20145,10 +21930,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KRIPAL SINGH",
-            "motherName": "SAPNA DEVI",
+            "fatherName": "REVADI SINGH",
+            "motherName": "SONI",
             "fatherMobile": "8859885387",
-            "address": "NAGLA GARVI, JARGWAN"
+            "address": "NAGLA GARVI, JARGWAN",
+            "fatherPhone": "+91 9761768321",
+            "motherPhone": "+91 9761768321",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20181,7 +21969,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9761768321",
+        "fatherPhone": "+91 9761768321",
+        "fatherMobile": "+91 9761768321",
+        "mobile": "+91 9761768321",
+        "fatherName": "REVADI SINGH",
+        "motherName": "SONI"
     },
     {
         "id": "STU-2026-336",
@@ -20199,10 +21993,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJEEV KUMAR",
-            "motherName": "GEETA DEVI",
+            "fatherName": "RAJAT KAUSHIK",
+            "motherName": "SHANKEY SHARMA",
             "fatherMobile": "9927070578",
-            "address": "UNCHA GAON BANGAR"
+            "address": "UNCHA GAON BANGAR",
+            "fatherPhone": "+91 8630457658",
+            "motherPhone": "+91 8630457658",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20222,23 +22019,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 17850,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 35200,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35200,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-312",
-                    "name": "KRATIK KUMAR",
-                    "class": "I",
-                    "admissionNo": "616",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 17350,
-                    "individualPaid": 0,
-                    "individualBalance": 17350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -20247,7 +22032,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8630457658",
+        "fatherPhone": "+91 8630457658",
+        "fatherMobile": "+91 8630457658",
+        "mobile": "+91 8630457658",
+        "fatherName": "RAJAT KAUSHIK",
+        "motherName": "SHANKEY SHARMA"
     },
     {
         "id": "STU-2026-337",
@@ -20265,10 +22056,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MOHIT RAGHAV",
-            "motherName": "SWATI RAGHAV",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7417956314",
-            "address": "LOHGARH,ATRAULI,ALIGARH"
+            "address": "LOHGARH,ATRAULI,ALIGARH",
+            "fatherPhone": "+91 9758900336",
+            "motherPhone": "+91 9758900336",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20301,7 +22095,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900336",
+        "fatherPhone": "+91 9758900336",
+        "fatherMobile": "+91 9758900336",
+        "mobile": "+91 9758900336",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-338",
@@ -20319,10 +22119,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VEERESH KUMAR",
-            "motherName": "SARVESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9058690405",
-            "address": "JARGWAN,DIBAI (BULANDSHAHR)"
+            "address": "JARGWAN,DIBAI (BULANDSHAHR)",
+            "fatherPhone": "+91 9758900337",
+            "motherPhone": "+91 9758900337",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20355,7 +22158,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900337",
+        "fatherPhone": "+91 9758900337",
+        "fatherMobile": "+91 9758900337",
+        "mobile": "+91 9758900337",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-339",
@@ -20373,10 +22182,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DILIP KUMAR BISWAS",
-            "motherName": "SHUKLA BISWAS",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9719060403",
-            "address": "RAMGHAT BANGAR DEBAI [BSR]"
+            "address": "RAMGHAT BANGAR DEBAI [BSR]",
+            "fatherPhone": "+91 9758900338",
+            "motherPhone": "+91 9758900338",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20409,7 +22221,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900338",
+        "fatherPhone": "+91 9758900338",
+        "fatherMobile": "+91 9758900338",
+        "mobile": "+91 9758900338",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-340",
@@ -20430,7 +22248,10 @@ export const initialSchoolData = {
             "fatherName": "VIJENDRA KUMAR",
             "motherName": "VIMLESH DEVI",
             "fatherMobile": "8433255571",
-            "address": "NAGLA KOTHI JARGWAN BULANDSHAHR"
+            "address": "NAGLA KOTHI JARGWAN BULANDSHAHR",
+            "fatherPhone": "+91 8433255571",
+            "motherPhone": "+91 8433255571",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20463,7 +22284,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8433255571",
+        "fatherPhone": "+91 8433255571",
+        "fatherMobile": "+91 8433255571",
+        "mobile": "+91 8433255571",
+        "fatherName": "VIJENDRA KUMAR",
+        "motherName": "VIMLESH DEVI"
     },
     {
         "id": "STU-2026-341",
@@ -20484,7 +22311,10 @@ export const initialSchoolData = {
             "fatherName": "RAKESH KUMAR",
             "motherName": "NEERU VERMA",
             "fatherMobile": "9627722404",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 9627722404",
+            "motherPhone": "+91 9627722404",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20524,7 +22354,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9627722404",
+        "fatherPhone": "+91 9627722404",
+        "fatherMobile": "+91 9627722404",
+        "mobile": "+91 9627722404",
+        "fatherName": "RAKESH KUMAR",
+        "motherName": "NEERU VERMA"
     },
     {
         "id": "STU-2026-342",
@@ -20545,7 +22381,10 @@ export const initialSchoolData = {
             "fatherName": "ATUL KUMAR",
             "motherName": "KANCHAN DEVI",
             "fatherMobile": "8375939398",
-            "address": "MUHAMMADPUR"
+            "address": "MUHAMMADPUR",
+            "fatherPhone": "+91 9675938712",
+            "motherPhone": "+91 8375939398",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20569,14 +22408,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-211",
-                "name": "VANSH SHARMA",
-                "class": "III",
-                "admissionNo": "439",
-                "fatherPhone": "8375939398"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -20585,7 +22417,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9675938712",
+        "fatherPhone": "+91 9675938712",
+        "fatherMobile": "+91 9675938712",
+        "mobile": "+91 9675938712",
+        "fatherName": "ATUL KUMAR",
+        "motherName": "KANCHAN DEVI"
     },
     {
         "id": "STU-2026-343",
@@ -20603,10 +22441,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEV DATT",
-            "motherName": "PUSHPA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8006118462",
-            "address": "NAGLA DHARAKPUR"
+            "address": "NAGLA DHARAKPUR",
+            "fatherPhone": "+91 9758900342",
+            "motherPhone": "+91 9758900342",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20639,7 +22480,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900342",
+        "fatherPhone": "+91 9758900342",
+        "fatherMobile": "+91 9758900342",
+        "mobile": "+91 9758900342",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-344",
@@ -20660,7 +22507,10 @@ export const initialSchoolData = {
             "fatherName": "ANUJ RAGHAV",
             "motherName": "SHWETA RAGHAV",
             "fatherMobile": "8395019675",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 9037412093",
+            "motherPhone": "+91 8395019675",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20693,7 +22543,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9037412093",
+        "fatherPhone": "+91 9037412093",
+        "fatherMobile": "+91 9037412093",
+        "mobile": "+91 9037412093",
+        "fatherName": "ANUJ RAGHAV",
+        "motherName": "SHWETA RAGHAV"
     },
     {
         "id": "STU-2026-345",
@@ -20711,10 +22567,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJAY KUMAR",
-            "motherName": "SEEMA",
+            "fatherName": "NEERAJ KUMAR RANA",
+            "motherName": "REENA DEVI",
             "fatherMobile": "9870743850",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 9258398453",
+            "motherPhone": "+91 8057171245",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20747,7 +22606,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9258398453",
+        "fatherPhone": "+91 9258398453",
+        "fatherMobile": "+91 9258398453",
+        "mobile": "+91 9258398453",
+        "fatherName": "NEERAJ KUMAR RANA",
+        "motherName": "REENA DEVI"
     },
     {
         "id": "STU-2026-346",
@@ -20765,10 +22630,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MADHAV SINGH",
-            "motherName": "PREMVATI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9720877612",
-            "address": "GANGAGARH"
+            "address": "GANGAGARH",
+            "fatherPhone": "+91 9758900345",
+            "motherPhone": "+91 9758900345",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20801,7 +22669,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 9758900345",
+        "fatherPhone": "+91 9758900345",
+        "fatherMobile": "+91 9758900345",
+        "mobile": "+91 9758900345",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-347",
@@ -20819,10 +22693,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MAHESHPAL SINGH",
-            "motherName": "NEERAJ DEVI",
+            "fatherName": "AJAY KUMAR",
+            "motherName": "LATESH DEVI",
             "fatherMobile": "9758509524",
-            "address": "GANGAGARH"
+            "address": "GANGAGARH",
+            "fatherPhone": "+91 9536878010",
+            "motherPhone": "+91 9536878010",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20855,7 +22732,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 9536878010",
+        "fatherPhone": "+91 9536878010",
+        "fatherMobile": "+91 9536878010",
+        "mobile": "+91 9536878010",
+        "fatherName": "AJAY KUMAR",
+        "motherName": "LATESH DEVI"
     },
     {
         "id": "STU-2026-348",
@@ -20873,10 +22756,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GANGAPRASAD",
-            "motherName": "DURGESH DEVI",
+            "fatherName": "GAURAV SHARMA",
+            "motherName": "SANGEETA SHARMA",
             "fatherMobile": "7906288160",
-            "address": "GANGAGARH"
+            "address": "GANGAGARH",
+            "fatherPhone": "+91 6395389276",
+            "motherPhone": "+91 6395389276",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20909,7 +22795,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 6395389276",
+        "fatherPhone": "+91 6395389276",
+        "fatherMobile": "+91 6395389276",
+        "mobile": "+91 6395389276",
+        "fatherName": "GAURAV SHARMA",
+        "motherName": "SANGEETA SHARMA"
     },
     {
         "id": "STU-2026-349",
@@ -20927,10 +22819,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AJAY KUMAR",
-            "motherName": "SARVESH DEVI",
+            "fatherName": "PANKAJ KUMAR",
+            "motherName": "RANI",
             "fatherMobile": "8057924967",
-            "address": "MOUNIPURA"
+            "address": "MOUNIPURA",
+            "fatherPhone": "+91 9758951444",
+            "motherPhone": "+91 9758951444",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -20963,7 +22858,13 @@ export const initialSchoolData = {
             "stop": "MOUNIPURA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 9758951444",
+        "fatherPhone": "+91 9758951444",
+        "fatherMobile": "+91 9758951444",
+        "mobile": "+91 9758951444",
+        "fatherName": "PANKAJ KUMAR",
+        "motherName": "RANI"
     },
     {
         "id": "STU-2026-350",
@@ -20981,10 +22882,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRAVEEN KUMAR",
-            "motherName": "ARTI DEVI",
+            "fatherName": "KAUSHAL KUMAR",
+            "motherName": "SARALA DEVI",
             "fatherMobile": "8750832158",
-            "address": "MOUNIPURA"
+            "address": "MOUNIPURA",
+            "fatherPhone": "+91 9468205683",
+            "motherPhone": "+91 9468205683",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -21017,7 +22921,13 @@ export const initialSchoolData = {
             "stop": "MOUNIPURA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 9468205683",
+        "fatherPhone": "+91 9468205683",
+        "fatherMobile": "+91 9468205683",
+        "mobile": "+91 9468205683",
+        "fatherName": "KAUSHAL KUMAR",
+        "motherName": "SARALA DEVI"
     },
     {
         "id": "STU-2026-351",
@@ -21035,10 +22945,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JITENDRA KUMAR",
-            "motherName": "SHALINI KUMARI",
+            "fatherName": "INDRAJEET SHARMA",
+            "motherName": "DULARI SHARMA",
             "fatherMobile": "8433255571",
-            "address": "NAGLA KOTHI"
+            "address": "NAGLA KOTHI",
+            "fatherPhone": "+91 8077450141",
+            "motherPhone": "+91 807745014",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21062,14 +22975,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-183",
-                "name": "GUNJAN RAJPUT",
-                "class": "III",
-                "admissionNo": "400",
-                "fatherPhone": "8433255571"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -21078,7 +22984,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8077450141",
+        "fatherPhone": "+91 8077450141",
+        "fatherMobile": "+91 8077450141",
+        "mobile": "+91 8077450141",
+        "fatherName": "INDRAJEET SHARMA",
+        "motherName": "DULARI SHARMA"
     },
     {
         "id": "STU-2026-352",
@@ -21096,10 +23008,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KIRANPAL",
-            "motherName": "MEENA DEVI",
+            "fatherName": "BANTI SINGH",
+            "motherName": "GUNJAN RANI",
             "fatherMobile": "9719337718",
-            "address": "GANGAGARH"
+            "address": "GANGAGARH",
+            "fatherPhone": "+91 8153970787",
+            "motherPhone": "+91 8153970787",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21132,7 +23047,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 8153970787",
+        "fatherPhone": "+91 8153970787",
+        "fatherMobile": "+91 8153970787",
+        "mobile": "+91 8153970787",
+        "fatherName": "BANTI SINGH",
+        "motherName": "GUNJAN RANI"
     },
     {
         "id": "STU-2026-353",
@@ -21153,73 +23074,10 @@ export const initialSchoolData = {
             "fatherName": "DEVENDRA KUMAR",
             "motherName": "URMILA",
             "fatherMobile": "8533908723",
-            "address": "JARGWAN"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 11500,
-            "transportDue11Months": 3850,
-            "totalDue": 15350,
-            "totalPaid": 0,
-            "balance": 15350,
-            "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 30700,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 30700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-354",
-                    "name": "YASHU KUMAR",
-                    "class": "LKG",
-                    "admissionNo": "681",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 15350,
-                    "individualPaid": 0,
-                    "individualBalance": 15350
-                }
-            ]
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 350,
-            "annualTransportDue11Months": 3850
-        }
-    },
-    {
-        "id": "STU-2026-354",
-        "sqlId": "446",
-        "admissionNo": "681",
-        "rollNo": "0",
-        "name": "YASHU KUMAR",
-        "photo": "https://ui-avatars.com/api/?name=YASHU+KUMAR&background=D97706&color=fff&size=128&bold=true",
-        "dob": "2021-08-17",
-        "gender": "male",
-        "class": "LKG",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "DEVENDRA KUMAR",
-            "motherName": "URMILA",
-            "fatherMobile": "8533908723",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9675311665",
+            "motherPhone": "+91 8533908723",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21243,14 +23101,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-353",
-                "name": "HIMANSHU",
-                "class": "LKG",
-                "admissionNo": "680",
-                "fatherPhone": "8533908723"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -21259,7 +23110,76 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675311665",
+        "fatherPhone": "+91 9675311665",
+        "fatherMobile": "+91 9675311665",
+        "mobile": "+91 9675311665",
+        "fatherName": "DEVENDRA KUMAR",
+        "motherName": "URMILA"
+    },
+    {
+        "id": "STU-2026-354",
+        "sqlId": "446",
+        "admissionNo": "681",
+        "rollNo": "0",
+        "name": "YASHU KUMAR",
+        "photo": "https://ui-avatars.com/api/?name=YASHU+KUMAR&background=D97706&color=fff&size=128&bold=true",
+        "dob": "2021-08-17",
+        "gender": "male",
+        "class": "LKG",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "SATISH KUMAR",
+            "motherName": "MADHU",
+            "fatherMobile": "8533908723",
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9675939394",
+            "motherPhone": "+91 9675939394",
+            "occupation": "Farmer / Business"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
+            "totalPaid": 0,
+            "balance": 15350,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
+        },
+        "phone": "+91 9675939394",
+        "fatherPhone": "+91 9675939394",
+        "fatherMobile": "+91 9675939394",
+        "mobile": "+91 9675939394",
+        "fatherName": "SATISH KUMAR",
+        "motherName": "MADHU"
     },
     {
         "id": "STU-2026-355",
@@ -21277,10 +23197,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MAHESHPAL",
-            "motherName": "NEERAJ DEVI",
+            "fatherName": "VARUN PRATAP SINGH",
+            "motherName": "MONIKA DEVI",
             "fatherMobile": "9758509524",
-            "address": "GANGAGARH"
+            "address": "GANGAGARH",
+            "fatherPhone": "+91 9958132063",
+            "motherPhone": "+91 9958132063",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21304,14 +23227,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-204",
-                "name": "SOURAV KUMAR",
-                "class": "III",
-                "admissionNo": "432",
-                "fatherPhone": "9758509524"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -21320,7 +23236,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 9958132063",
+        "fatherPhone": "+91 9958132063",
+        "fatherMobile": "+91 9958132063",
+        "mobile": "+91 9958132063",
+        "fatherName": "VARUN PRATAP SINGH",
+        "motherName": "MONIKA DEVI"
     },
     {
         "id": "STU-2026-356",
@@ -21338,10 +23260,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GOURI SHANKAR",
-            "motherName": "SHASHI",
+            "fatherName": "VIRESH KUMAR",
+            "motherName": "SHASHI DEVI",
             "fatherMobile": "9837524874",
-            "address": "NAGLA VIDHI"
+            "address": "NAGLA VIDHI",
+            "fatherPhone": "+91 7678237965",
+            "motherPhone": "+91 7678237965",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21374,7 +23299,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 7678237965",
+        "fatherPhone": "+91 7678237965",
+        "fatherMobile": "+91 7678237965",
+        "mobile": "+91 7678237965",
+        "fatherName": "VIRESH KUMAR",
+        "motherName": "SHASHI DEVI"
     },
     {
         "id": "STU-2026-357",
@@ -21392,10 +23323,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANAD KUMAR",
-            "motherName": "REKHA DEVI",
+            "fatherName": "VIRESH KUMAR",
+            "motherName": "SHASHI DEVI",
             "fatherMobile": "8285027701",
-            "address": "GANGAGARH"
+            "address": "GANGAGARH",
+            "fatherPhone": "+91 8954904810",
+            "motherPhone": "+91 8954904810",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21415,23 +23349,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 21150,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 39800,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 39800,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-358",
-                    "name": "SANI KUMAR",
-                    "class": "LKG",
-                    "admissionNo": "686",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 7150,
-                    "individualDue": 18650,
-                    "individualPaid": 0,
-                    "individualBalance": 18650
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -21440,7 +23362,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 8954904810",
+        "fatherPhone": "+91 8954904810",
+        "fatherMobile": "+91 8954904810",
+        "mobile": "+91 8954904810",
+        "fatherName": "VIRESH KUMAR",
+        "motherName": "SHASHI DEVI"
     },
     {
         "id": "STU-2026-358",
@@ -21458,10 +23386,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANAD KUMAR",
-            "motherName": "REKHA DEVI",
+            "fatherName": "JAYVEER SINGH",
+            "motherName": "POONAM DEVI",
             "fatherMobile": "8285027701",
-            "address": "GANGAGARH"
+            "address": "GANGAGARH",
+            "fatherPhone": "+91 9719419975",
+            "motherPhone": "+91 9719419975",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21485,14 +23416,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-357",
-                "name": "MAHI",
-                "class": "II",
-                "admissionNo": "685",
-                "fatherPhone": "8285027701"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -21501,7 +23425,13 @@ export const initialSchoolData = {
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
-        }
+        },
+        "phone": "+91 9719419975",
+        "fatherPhone": "+91 9719419975",
+        "fatherMobile": "+91 9719419975",
+        "mobile": "+91 9719419975",
+        "fatherName": "JAYVEER SINGH",
+        "motherName": "POONAM DEVI"
     },
     {
         "id": "STU-2026-359",
@@ -21519,10 +23449,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANDEEP KUMAR",
-            "motherName": "NALINI YADAV",
+            "fatherName": "JAGDISH YADAV",
+            "motherName": "NEERESH DEVI",
             "fatherMobile": "9412545159",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 8447784346",
+            "motherPhone": "+91 844778434",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -21555,7 +23488,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8447784346",
+        "fatherPhone": "+91 8447784346",
+        "fatherMobile": "+91 8447784346",
+        "mobile": "+91 8447784346",
+        "fatherName": "JAGDISH YADAV",
+        "motherName": "NEERESH DEVI"
     },
     {
         "id": "STU-2026-360",
@@ -21573,10 +23512,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BRAJESH",
-            "motherName": "SANDHYA KUMARI",
+            "fatherName": "Puneet Rao Bardhan",
+            "motherName": "Rachana",
             "fatherMobile": "9761122765",
-            "address": "BAIJALA"
+            "address": "BAIJALA",
+            "fatherPhone": "+91 9410024562",
+            "motherPhone": "+91 9410024562",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21609,7 +23551,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9410024562",
+        "fatherPhone": "+91 9410024562",
+        "fatherMobile": "+91 9410024562",
+        "mobile": "+91 9410024562",
+        "fatherName": "Puneet Rao Bardhan",
+        "motherName": "Rachana"
     },
     {
         "id": "STU-2026-361",
@@ -21630,7 +23578,10 @@ export const initialSchoolData = {
             "fatherName": "SUDHEER",
             "motherName": "KHUSHBOO",
             "fatherMobile": "9045278859",
-            "address": "NAGALA SUMALI"
+            "address": "NAGALA SUMALI",
+            "fatherPhone": "+91 8859478326",
+            "motherPhone": "+91 9045278859",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21663,7 +23614,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8859478326",
+        "fatherPhone": "+91 8859478326",
+        "fatherMobile": "+91 8859478326",
+        "mobile": "+91 8859478326",
+        "fatherName": "SUDHEER",
+        "motherName": "KHUSHBOO"
     },
     {
         "id": "STU-2026-362",
@@ -21684,7 +23641,10 @@ export const initialSchoolData = {
             "fatherName": "DHAMENDRA KUMAR",
             "motherName": "SUMIT",
             "fatherMobile": "9761845736",
-            "address": "AURANGABA KASER"
+            "address": "AURANGABA KASER",
+            "fatherPhone": "+91 7668306277",
+            "motherPhone": "+91 9761845736",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21704,23 +23664,11 @@ export const initialSchoolData = {
             "totalPaid": 8500.0,
             "balance": 10350.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 36200,
-            "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 16200.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-363",
-                    "name": "GOVIND",
-                    "class": "I",
-                    "admissionNo": "693",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 17350,
-                    "individualPaid": 11500.0,
-                    "individualBalance": 5850.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -21729,7 +23677,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7668306277",
+        "fatherPhone": "+91 7668306277",
+        "fatherMobile": "+91 7668306277",
+        "mobile": "+91 7668306277",
+        "fatherName": "DHAMENDRA KUMAR",
+        "motherName": "SUMIT"
     },
     {
         "id": "STU-2026-363",
@@ -21747,10 +23701,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHAMENDRA KUMAR",
-            "motherName": "SUMIT",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9761845736",
-            "address": "AURANGABAD KASER DIBAI BULANDSHAHR"
+            "address": "AURANGABAD KASER DIBAI BULANDSHAHR",
+            "fatherPhone": "+91 9758900362",
+            "motherPhone": "+91 9758900362",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21774,14 +23731,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-362",
-                "name": "NIDHI",
-                "class": "IV",
-                "admissionNo": "692",
-                "fatherPhone": "9761845736"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -21790,7 +23740,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900362",
+        "fatherPhone": "+91 9758900362",
+        "fatherMobile": "+91 9758900362",
+        "mobile": "+91 9758900362",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-364",
@@ -21808,10 +23764,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LEEKESH",
-            "motherName": "SEEMA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9758783218",
-            "address": "NAGLA DHARAKPUR"
+            "address": "NAGLA DHARAKPUR",
+            "fatherPhone": "+91 9758900363",
+            "motherPhone": "+91 9758900363",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21835,7 +23794,14 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": []
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-257",
+                "name": "KUMKUM RAJPUT",
+                "class": "I",
+                "admissionNo": "511",
+                "fatherPhone": "9758783218"
+            }
         },
         "siblings": [],
         "transport": {
@@ -21844,7 +23810,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900363",
+        "fatherPhone": "+91 9758900363",
+        "fatherMobile": "+91 9758900363",
+        "mobile": "+91 9758900363",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-365",
@@ -21862,10 +23834,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DINESH KUMAR",
-            "motherName": "VEENESH KUMAR",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9315468019",
-            "address": "MOUNIPURA RAMGHAT"
+            "address": "MOUNIPURA RAMGHAT",
+            "fatherPhone": "+91 9758900364",
+            "motherPhone": "+91 9758900364",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21898,7 +23873,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900364",
+        "fatherPhone": "+91 9758900364",
+        "fatherMobile": "+91 9758900364",
+        "mobile": "+91 9758900364",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-366",
@@ -21916,10 +23897,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINAY KUMAR",
-            "motherName": "ANITA DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9759979199",
-            "address": "GANGAPUR DEBAI"
+            "address": "GANGAPUR DEBAI",
+            "fatherPhone": "+91 9758900365",
+            "motherPhone": "+91 9758900365",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -21952,7 +23936,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900365",
+        "fatherPhone": "+91 9758900365",
+        "fatherMobile": "+91 9758900365",
+        "mobile": "+91 9758900365",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-367",
@@ -21970,10 +23960,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHARVENDRA KUMAR",
-            "motherName": "MADHURI DEVI",
+            "fatherName": "AMIT KUMAR SHARMA",
+            "motherName": "DURGESH SHARMA",
             "fatherMobile": "",
-            "address": "NAGLA DHARAKPUR"
+            "address": "NAGLA DHARAKPUR",
+            "fatherPhone": "+91 8395050888",
+            "motherPhone": "+91 8510822051",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22006,7 +23999,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8395050888",
+        "fatherPhone": "+91 8395050888",
+        "fatherMobile": "+91 8395050888",
+        "mobile": "+91 8395050888",
+        "fatherName": "AMIT KUMAR SHARMA",
+        "motherName": "DURGESH SHARMA"
     },
     {
         "id": "STU-2026-368",
@@ -22024,10 +24023,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SOMVEER",
-            "motherName": "PRABHA DEVI",
+            "fatherName": "AVDHESH KUMAR",
+            "motherName": "REKHA DEVI",
             "fatherMobile": "9758757129",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 9528088979",
+            "motherPhone": "+91 9528088979",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22060,7 +24062,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9528088979",
+        "fatherPhone": "+91 9528088979",
+        "fatherMobile": "+91 9528088979",
+        "mobile": "+91 9528088979",
+        "fatherName": "AVDHESH KUMAR",
+        "motherName": "REKHA DEVI"
     },
     {
         "id": "STU-2026-369",
@@ -22078,10 +24086,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KOUSHLESH",
-            "motherName": "MAMTA DEVI",
+            "fatherName": "GAJENDRA SINGH",
+            "motherName": "BHAWANA DEVI",
             "fatherMobile": "9528215235",
-            "address": "MUHAMMADPUR"
+            "address": "MUHAMMADPUR",
+            "fatherPhone": "+91 9667164771",
+            "motherPhone": "+91 9958115857",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22114,7 +24125,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9667164771",
+        "fatherPhone": "+91 9667164771",
+        "fatherMobile": "+91 9667164771",
+        "mobile": "+91 9667164771",
+        "fatherName": "GAJENDRA SINGH",
+        "motherName": "BHAWANA DEVI"
     },
     {
         "id": "STU-2026-370",
@@ -22132,10 +24149,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRADEEP KUMAR",
-            "motherName": "POOJA DEVI",
+            "fatherName": "CHARAN SINGH RAGHAV",
+            "motherName": "MANJU DEVI",
             "fatherMobile": "9761722945",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 7037176388",
+            "motherPhone": "+91 7037176388",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22159,14 +24179,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-304",
-                "name": "HARSHIT KUMAR",
-                "class": "II",
-                "admissionNo": "593",
-                "fatherPhone": "9761722945"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -22175,7 +24188,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7037176388",
+        "fatherPhone": "+91 7037176388",
+        "fatherMobile": "+91 7037176388",
+        "mobile": "+91 7037176388",
+        "fatherName": "CHARAN SINGH RAGHAV",
+        "motherName": "MANJU DEVI"
     },
     {
         "id": "STU-2026-371",
@@ -22193,10 +24212,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BABLU SHARMA",
-            "motherName": "LATA KUMARI",
+            "fatherName": "PURAN SINGH",
+            "motherName": "KIRTI DEVI",
             "fatherMobile": "9897878675",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 8954721951",
+            "motherPhone": "+91 8077769854",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22229,7 +24251,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8954721951",
+        "fatherPhone": "+91 8954721951",
+        "fatherMobile": "+91 8954721951",
+        "mobile": "+91 8954721951",
+        "fatherName": "PURAN SINGH",
+        "motherName": "KIRTI DEVI"
     },
     {
         "id": "STU-2026-372",
@@ -22250,7 +24278,10 @@ export const initialSchoolData = {
             "fatherName": "BEERESH KUMAR",
             "motherName": "AARTI",
             "fatherMobile": "9719434110",
-            "address": "SILHARI RAMGHAT"
+            "address": "SILHARI RAMGHAT",
+            "fatherPhone": "+91 9536710970",
+            "motherPhone": "+91 9719434110",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22283,7 +24314,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9536710970",
+        "fatherPhone": "+91 9536710970",
+        "fatherMobile": "+91 9536710970",
+        "mobile": "+91 9536710970",
+        "fatherName": "BEERESH KUMAR",
+        "motherName": "AARTI"
     },
     {
         "id": "STU-2026-373",
@@ -22301,10 +24338,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAURAV SHARMA",
-            "motherName": "PUNAM SHARMA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9174475812",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 9758900372",
+            "motherPhone": "+91 9758900372",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22337,7 +24377,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900372",
+        "fatherPhone": "+91 9758900372",
+        "fatherMobile": "+91 9758900372",
+        "mobile": "+91 9758900372",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-374",
@@ -22355,10 +24401,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AKASH SHARMA",
-            "motherName": "KAJAL KUMARI",
+            "fatherName": "MUKESH KUMAR",
+            "motherName": "SHEELA",
             "fatherMobile": "9639080730",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 7037019598",
+            "motherPhone": "+91 7088019598",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22391,7 +24440,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7037019598",
+        "fatherPhone": "+91 7037019598",
+        "fatherMobile": "+91 7037019598",
+        "mobile": "+91 7037019598",
+        "fatherName": "MUKESH KUMAR",
+        "motherName": "SHEELA"
     },
     {
         "id": "STU-2026-375",
@@ -22412,7 +24467,10 @@ export const initialSchoolData = {
             "fatherName": "HARIPRAKASH",
             "motherName": "GIRJESH DEVI",
             "fatherMobile": "7505838597",
-            "address": "DADHAR"
+            "address": "DADHAR",
+            "fatherPhone": "+91 7505838597",
+            "motherPhone": "+91 7505838597",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22445,7 +24503,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 7505838597",
+        "fatherPhone": "+91 7505838597",
+        "fatherMobile": "+91 7505838597",
+        "mobile": "+91 7505838597",
+        "fatherName": "HARIPRAKASH",
+        "motherName": "GIRJESH DEVI"
     },
     {
         "id": "STU-2026-376",
@@ -22466,7 +24530,10 @@ export const initialSchoolData = {
             "fatherName": "JITENDRA KUMAR",
             "motherName": "PRITI DEVI",
             "fatherMobile": "8810317983",
-            "address": "CHAKATHAL"
+            "address": "CHAKATHAL",
+            "fatherPhone": "+91 9394135881",
+            "motherPhone": "+91 8810317983",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22486,23 +24553,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 22250,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 43000,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43000,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-377",
-                    "name": "AYANSH",
-                    "class": "UKG",
-                    "admissionNo": "712",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 20750,
-                    "individualPaid": 0,
-                    "individualBalance": 20750
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -22511,7 +24566,13 @@ export const initialSchoolData = {
             "stop": "CHAKATHAL",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9394135881",
+        "fatherPhone": "+91 9394135881",
+        "fatherMobile": "+91 9394135881",
+        "mobile": "+91 9394135881",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "PRITI DEVI"
     },
     {
         "id": "STU-2026-377",
@@ -22529,10 +24590,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JITENDRA KUMAR",
-            "motherName": "PRITI DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8810317983",
-            "address": "CHAKATHAL"
+            "address": "CHAKATHAL",
+            "fatherPhone": "+91 9758900376",
+            "motherPhone": "+91 9758900376",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22556,14 +24620,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-376",
-                "name": "AILISH",
-                "class": "II",
-                "admissionNo": "711",
-                "fatherPhone": "8810317983"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -22572,7 +24629,13 @@ export const initialSchoolData = {
             "stop": "CHAKATHAL",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900376",
+        "fatherPhone": "+91 9758900376",
+        "fatherMobile": "+91 9758900376",
+        "mobile": "+91 9758900376",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-378",
@@ -22590,10 +24653,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHARAMVEER",
-            "motherName": "RENU",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7830987469",
-            "address": "PESARI"
+            "address": "PESARI",
+            "fatherPhone": "+91 9758900377",
+            "motherPhone": "+91 9758900377",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22626,7 +24692,13 @@ export const initialSchoolData = {
             "stop": "PESARI",
             "monthlyFare": 850,
             "annualTransportDue11Months": 9350
-        }
+        },
+        "phone": "+91 9758900377",
+        "fatherPhone": "+91 9758900377",
+        "fatherMobile": "+91 9758900377",
+        "mobile": "+91 9758900377",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-379",
@@ -22644,10 +24716,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AMIT KUMAR",
-            "motherName": "RACHANA CHOUDHARY",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9999488149",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9758900378",
+            "motherPhone": "+91 9758900378",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22680,7 +24755,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900378",
+        "fatherPhone": "+91 9758900378",
+        "fatherMobile": "+91 9758900378",
+        "mobile": "+91 9758900378",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-380",
@@ -22698,10 +24779,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MAHENDRA SINGH",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "SURENDRA SINGH",
+            "motherName": "MANJU DEVI",
             "fatherMobile": "8585963530",
-            "address": "DHARAKPUR"
+            "address": "DHARAKPUR",
+            "fatherPhone": "+91 6395926626",
+            "motherPhone": "+91 9720577595",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -22734,7 +24818,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 6395926626",
+        "fatherPhone": "+91 6395926626",
+        "fatherMobile": "+91 6395926626",
+        "mobile": "+91 6395926626",
+        "fatherName": "SURENDRA SINGH",
+        "motherName": "MANJU DEVI"
     },
     {
         "id": "STU-2026-381",
@@ -22752,10 +24842,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PREMPAL SINGH",
-            "motherName": "MALTI DEVI",
+            "fatherName": "RAHUL KUMAR",
+            "motherName": "GEETA DEVI",
             "fatherMobile": "9927438637",
-            "address": "BAJHERA"
+            "address": "BAJHERA",
+            "fatherPhone": "+91 8006240034",
+            "motherPhone": "+91 8630030256",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22788,7 +24881,13 @@ export const initialSchoolData = {
             "stop": "BAJHERA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 8006240034",
+        "fatherPhone": "+91 8006240034",
+        "fatherMobile": "+91 8006240034",
+        "mobile": "+91 8006240034",
+        "fatherName": "RAHUL KUMAR",
+        "motherName": "GEETA DEVI"
     },
     {
         "id": "STU-2026-382",
@@ -22806,10 +24905,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAHUL KUMAR",
-            "motherName": "MAHESHWARI",
+            "fatherName": "PRADEEP KUMAR",
+            "motherName": "POOJA DEVI",
             "fatherMobile": "8650468442",
-            "address": "DADHAR ALUPURA ATRAULI ALIGARH"
+            "address": "DADHAR ALUPURA ATRAULI ALIGARH",
+            "fatherPhone": "+91 9761722945",
+            "motherPhone": "+91 9761722945",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22829,23 +24931,11 @@ export const initialSchoolData = {
             "totalPaid": 10500.0,
             "balance": 13015.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 45530,
-            "consolidatedFamilyPaid": 17500.0,
-            "consolidatedFamilyBalance": 28030.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-383",
-                    "name": "MOHIT KUMAR",
-                    "class": "UKG",
-                    "admissionNo": "719",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 9515,
-                    "individualDue": 22015,
-                    "individualPaid": 7000.0,
-                    "individualBalance": 15015.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -22854,7 +24944,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 9761722945",
+        "fatherPhone": "+91 9761722945",
+        "fatherMobile": "+91 9761722945",
+        "mobile": "+91 9761722945",
+        "fatherName": "PRADEEP KUMAR",
+        "motherName": "POOJA DEVI"
     },
     {
         "id": "STU-2026-383",
@@ -22872,10 +24968,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAHUL KUMAR",
-            "motherName": "MAHESHWARI",
+            "fatherName": "ANKUR MITTAL",
+            "motherName": "PARUSHI MITTAL",
             "fatherMobile": "8650468442",
-            "address": "DADHAR ALUPURA"
+            "address": "DADHAR ALUPURA",
+            "fatherPhone": "+91 9917938383",
+            "motherPhone": "+91 9917938383",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22899,14 +24998,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-382",
-                "name": "ANUSHKA",
-                "class": "II",
-                "admissionNo": "718",
-                "fatherPhone": "8650468442"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -22915,7 +25007,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 9917938383",
+        "fatherPhone": "+91 9917938383",
+        "fatherMobile": "+91 9917938383",
+        "mobile": "+91 9917938383",
+        "fatherName": "ANKUR MITTAL",
+        "motherName": "PARUSHI MITTAL"
     },
     {
         "id": "STU-2026-384",
@@ -22933,10 +25031,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAHUL KUMAR",
-            "motherName": "MAHESHWARI",
+            "fatherName": "VARUN PRATAP SINGH",
+            "motherName": "MONIKA DEVI",
             "fatherMobile": "5650468442",
-            "address": "DADHAR"
+            "address": "DADHAR",
+            "fatherPhone": "+91 9958132063",
+            "motherPhone": "+91 8650791468",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -22969,7 +25070,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 9958132063",
+        "fatherPhone": "+91 9958132063",
+        "fatherMobile": "+91 9958132063",
+        "mobile": "+91 9958132063",
+        "fatherName": "VARUN PRATAP SINGH",
+        "motherName": "MONIKA DEVI"
     },
     {
         "id": "STU-2026-385",
@@ -22987,10 +25094,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGENDRA SHARMA",
-            "motherName": "SEEMA",
+            "fatherName": "SHIV KUMAR",
+            "motherName": "REENA DEVI",
             "fatherMobile": "8650468911",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 9711124780",
+            "motherPhone": "+91 8700327645",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23023,7 +25133,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9711124780",
+        "fatherPhone": "+91 9711124780",
+        "fatherMobile": "+91 9711124780",
+        "mobile": "+91 9711124780",
+        "fatherName": "SHIV KUMAR",
+        "motherName": "REENA DEVI"
     },
     {
         "id": "STU-2026-386",
@@ -23041,10 +25157,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ADESH KUMAR",
-            "motherName": "MEENA",
+            "fatherName": "BRAJESH KUMAR",
+            "motherName": "MANJU DEVI",
             "fatherMobile": "9627755236",
-            "address": "SILHARI RAMGHAT"
+            "address": "SILHARI RAMGHAT",
+            "fatherPhone": "+91 8218893277",
+            "motherPhone": "+91 8218893277",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23077,7 +25196,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8218893277",
+        "fatherPhone": "+91 8218893277",
+        "fatherMobile": "+91 8218893277",
+        "mobile": "+91 8218893277",
+        "fatherName": "BRAJESH KUMAR",
+        "motherName": "MANJU DEVI"
     },
     {
         "id": "STU-2026-387",
@@ -23098,7 +25223,10 @@ export const initialSchoolData = {
             "fatherName": "PRAMOD KUMAR",
             "motherName": "DEEPIKA",
             "fatherMobile": "8650906244",
-            "address": "MALAHPUR"
+            "address": "MALAHPUR",
+            "fatherPhone": "+91 9627806714",
+            "motherPhone": "+91 8650906244",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23131,7 +25259,13 @@ export const initialSchoolData = {
             "stop": "MALAHPUR",
             "monthlyFare": 400,
             "annualTransportDue11Months": 4400
-        }
+        },
+        "phone": "+91 9627806714",
+        "fatherPhone": "+91 9627806714",
+        "fatherMobile": "+91 9627806714",
+        "mobile": "+91 9627806714",
+        "fatherName": "PRAMOD KUMAR",
+        "motherName": "DEEPIKA"
     },
     {
         "id": "STU-2026-388",
@@ -23149,10 +25283,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DIPANSHU UPADHAYA",
-            "motherName": "GEETANJALI",
+            "fatherName": "ANIL KUMAR",
+            "motherName": "PINKY",
             "fatherMobile": "9837260584",
-            "address": "UNCHA GAON BANGER RAMGHAT"
+            "address": "UNCHA GAON BANGER RAMGHAT",
+            "fatherPhone": "+91 9761825947",
+            "motherPhone": "+91 7248232379",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23185,7 +25322,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9761825947",
+        "fatherPhone": "+91 9761825947",
+        "fatherMobile": "+91 9761825947",
+        "mobile": "+91 9761825947",
+        "fatherName": "ANIL KUMAR",
+        "motherName": "PINKY"
     },
     {
         "id": "STU-2026-389",
@@ -23206,7 +25349,10 @@ export const initialSchoolData = {
             "fatherName": "DIPANSHU UPADHAYA",
             "motherName": "GEETANJALI",
             "fatherMobile": "8937260584",
-            "address": "UNCHA GAON BANGER RAMGHAT"
+            "address": "UNCHA GAON BANGER RAMGHAT",
+            "fatherPhone": "+91 9027689245",
+            "motherPhone": "+91 8937260584",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23239,7 +25385,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9027689245",
+        "fatherPhone": "+91 9027689245",
+        "fatherMobile": "+91 9027689245",
+        "mobile": "+91 9027689245",
+        "fatherName": "DIPANSHU UPADHAYA",
+        "motherName": "GEETANJALI"
     },
     {
         "id": "STU-2026-390",
@@ -23257,10 +25409,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARGYAN SINGH",
-            "motherName": "KAVITA DEVI",
+            "fatherName": "MANOJ KUMAR",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "9654329622",
-            "address": "KALIYANPUR KHERA"
+            "address": "KALIYANPUR KHERA",
+            "fatherPhone": "+91 9720917852",
+            "motherPhone": "+91 9354146778",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23293,7 +25448,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9720917852",
+        "fatherPhone": "+91 9720917852",
+        "fatherMobile": "+91 9720917852",
+        "mobile": "+91 9720917852",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-391",
@@ -23311,10 +25472,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANOJ KUMAR",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9354146778",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 9758900390",
+            "motherPhone": "+91 9758900390",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23347,7 +25511,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900390",
+        "fatherPhone": "+91 9758900390",
+        "fatherMobile": "+91 9758900390",
+        "mobile": "+91 9758900390",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-392",
@@ -23368,7 +25538,10 @@ export const initialSchoolData = {
             "fatherName": "SURESH BABU",
             "motherName": "JYOTI",
             "fatherMobile": "9761099907",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 7302344463",
+            "motherPhone": "+91 9761099907",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23401,7 +25574,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7302344463",
+        "fatherPhone": "+91 7302344463",
+        "fatherMobile": "+91 7302344463",
+        "mobile": "+91 7302344463",
+        "fatherName": "SURESH BABU",
+        "motherName": "JYOTI"
     },
     {
         "id": "STU-2026-393",
@@ -23422,7 +25601,10 @@ export const initialSchoolData = {
             "fatherName": "NITIN SHARMA",
             "motherName": "RANI SHARMA",
             "fatherMobile": "7011735110",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 7820097256",
+            "motherPhone": "+91 7011735110",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23442,23 +25624,11 @@ export const initialSchoolData = {
             "totalPaid": 5000.0,
             "balance": 19300.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 47600,
-            "consolidatedFamilyPaid": 9000.0,
-            "consolidatedFamilyBalance": 38600.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-394",
-                    "name": "MAHI SHARMA",
-                    "class": "III",
-                    "admissionNo": "737",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 23300,
-                    "individualPaid": 4000.0,
-                    "individualBalance": 19300.0
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -23467,7 +25637,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7820097256",
+        "fatherPhone": "+91 7820097256",
+        "fatherMobile": "+91 7820097256",
+        "mobile": "+91 7820097256",
+        "fatherName": "NITIN SHARMA",
+        "motherName": "RANI SHARMA"
     },
     {
         "id": "STU-2026-394",
@@ -23485,10 +25661,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NITIN SHARMA",
-            "motherName": "RANI SHARMA",
+            "fatherName": "JAYPRAKASH",
+            "motherName": "ARVESH DEVI",
             "fatherMobile": "7011735110",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 9759358479",
+            "motherPhone": "+91 9758253316",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23512,14 +25691,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-393",
-                "name": "ROSHNI SHARMA",
-                "class": "V",
-                "admissionNo": "736",
-                "fatherPhone": "7011735110"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -23528,7 +25700,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9759358479",
+        "fatherPhone": "+91 9759358479",
+        "fatherMobile": "+91 9759358479",
+        "mobile": "+91 9759358479",
+        "fatherName": "JAYPRAKASH",
+        "motherName": "ARVESH DEVI"
     },
     {
         "id": "STU-2026-395",
@@ -23546,10 +25724,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHYAM SUNDAR",
-            "motherName": "BAVEETA",
+            "fatherName": "SANJEEV KUMAR",
+            "motherName": "GEETA DEVI",
             "fatherMobile": "9399994924",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 7310802948",
+            "motherPhone": "+91 9927070578",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23582,7 +25763,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7310802948",
+        "fatherPhone": "+91 7310802948",
+        "fatherMobile": "+91 7310802948",
+        "mobile": "+91 7310802948",
+        "fatherName": "SANJEEV KUMAR",
+        "motherName": "GEETA DEVI"
     },
     {
         "id": "STU-2026-396",
@@ -23600,10 +25787,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANSHUL KUMAR",
-            "motherName": "POOJA DEVI",
+            "fatherName": "VIJENDRA SINGH",
+            "motherName": "PINKI DEVI",
             "fatherMobile": "9457076490",
-            "address": "SILHARI RAMGHAT"
+            "address": "SILHARI RAMGHAT",
+            "fatherPhone": "+91 9528066204",
+            "motherPhone": "+91 9719300308",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23623,18 +25813,23 @@ export const initialSchoolData = {
             "totalPaid": 2500.0,
             "balance": 21300.0,
             "status": "Partial",
-            "isElderSibling": false,
-            "consolidatedFamilyDue": 0,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-049",
-                "name": "RIMSHA GAUTAM",
-                "class": "VIII",
-                "admissionNo": "204",
-                "fatherPhone": "9457076490"
-            }
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 45100,
+            "consolidatedFamilyPaid": 5000.0,
+            "consolidatedFamilyBalance": 40100.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-397",
+                    "name": "THOMAS",
+                    "class": "UKG",
+                    "admissionNo": "744",
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 8800,
+                    "individualDue": 21300,
+                    "individualPaid": 2500.0,
+                    "individualBalance": 18800.0
+                }
+            ]
         },
         "siblings": [],
         "transport": {
@@ -23643,7 +25838,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9528066204",
+        "fatherPhone": "+91 9528066204",
+        "fatherMobile": "+91 9528066204",
+        "mobile": "+91 9528066204",
+        "fatherName": "VIJENDRA SINGH",
+        "motherName": "PINKI DEVI"
     },
     {
         "id": "STU-2026-397",
@@ -23661,10 +25862,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ANSHUL KUMAR",
-            "motherName": "POOJA DEVI",
+            "fatherName": "VIJENDRA SINGH",
+            "motherName": "PINKI DEVI",
             "fatherMobile": "9457076490",
-            "address": "SILHARI RAMGHAT"
+            "address": "SILHARI RAMGHAT",
+            "fatherPhone": "+91 9528066204",
+            "motherPhone": "+91 9719300308",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23690,10 +25894,10 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": [],
             "linkedElderSibling": {
-                "id": "STU-2026-049",
-                "name": "RIMSHA GAUTAM",
-                "class": "VIII",
-                "admissionNo": "204",
+                "id": "STU-2026-396",
+                "name": "RIYANSHI GAUTAM",
+                "class": "IV",
+                "admissionNo": "743",
                 "fatherPhone": "9457076490"
             }
         },
@@ -23704,7 +25908,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9528066204",
+        "fatherPhone": "+91 9528066204",
+        "fatherMobile": "+91 9528066204",
+        "mobile": "+91 9528066204",
+        "fatherName": "VIJENDRA SINGH",
+        "motherName": "PINKI DEVI"
     },
     {
         "id": "STU-2026-398",
@@ -23722,10 +25932,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAM NARESH SINGH",
-            "motherName": "PRITI KUMARI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9891490059",
-            "address": "BAIJALA"
+            "address": "BAIJALA",
+            "fatherPhone": "+91 9758900397",
+            "motherPhone": "+91 9758900397",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23758,7 +25971,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9758900397",
+        "fatherPhone": "+91 9758900397",
+        "fatherMobile": "+91 9758900397",
+        "mobile": "+91 9758900397",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-399",
@@ -23776,10 +25995,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAM NARESH SINGH",
-            "motherName": "PRITI KUMARI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8991490059",
-            "address": "BAIJALA"
+            "address": "BAIJALA",
+            "fatherPhone": "+91 9758900398",
+            "motherPhone": "+91 9758900398",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23799,23 +26021,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 16550,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 33100,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 33100,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-530",
-                    "name": "YASH KUMAR",
-                    "class": "NURSERY",
-                    "admissionNo": "924",
-                    "tuitionDue": 10500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 16550,
-                    "individualPaid": 0,
-                    "individualBalance": 16550
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -23824,7 +26034,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9758900398",
+        "fatherPhone": "+91 9758900398",
+        "fatherMobile": "+91 9758900398",
+        "mobile": "+91 9758900398",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-400",
@@ -23842,10 +26058,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINOD KUMAR",
-            "motherName": "VIMLESH KUMAR",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9136064911",
-            "address": "MUHAMMADPUR"
+            "address": "MUHAMMADPUR",
+            "fatherPhone": "+91 9758900399",
+            "motherPhone": "+91 9758900399",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23878,7 +26097,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900399",
+        "fatherPhone": "+91 9758900399",
+        "fatherMobile": "+91 9758900399",
+        "mobile": "+91 9758900399",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-401",
@@ -23896,10 +26121,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARIOM KUMAR",
-            "motherName": "KIRTI KUMARI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "",
-            "address": "BAIJALA"
+            "address": "BAIJALA",
+            "fatherPhone": "+91 9758900400",
+            "motherPhone": "+91 9758900400",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23932,7 +26160,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 9758900400",
+        "fatherPhone": "+91 9758900400",
+        "fatherMobile": "+91 9758900400",
+        "mobile": "+91 9758900400",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-402",
@@ -23953,7 +26187,10 @@ export const initialSchoolData = {
             "fatherName": "ANIL KUMAR",
             "motherName": "BEENESH",
             "fatherMobile": "7830214462",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 7830214462",
+            "motherPhone": "+91 7830214462",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -23977,14 +26214,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-140",
-                "name": "DIVYANSHU KUMAR",
-                "class": "IV",
-                "admissionNo": "344",
-                "fatherPhone": "7830214462"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -23993,7 +26223,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7830214462",
+        "fatherPhone": "+91 7830214462",
+        "fatherMobile": "+91 7830214462",
+        "mobile": "+91 7830214462",
+        "fatherName": "ANIL KUMAR",
+        "motherName": "BEENESH"
     },
     {
         "id": "STU-2026-403",
@@ -24014,7 +26250,10 @@ export const initialSchoolData = {
             "fatherName": "RINESH",
             "motherName": "SUMAN",
             "fatherMobile": "9027913722",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9027913722",
+            "motherPhone": "+91 9027913722",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24047,7 +26286,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9027913722",
+        "fatherPhone": "+91 9027913722",
+        "fatherMobile": "+91 9027913722",
+        "mobile": "+91 9027913722",
+        "fatherName": "RINESH",
+        "motherName": "SUMAN"
     },
     {
         "id": "STU-2026-404",
@@ -24065,10 +26310,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NETRAPAL SINGH",
-            "motherName": "RAKHI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "999005806",
-            "address": "MOHAMMADPUR"
+            "address": "MOHAMMADPUR",
+            "fatherPhone": "+91 9758900403",
+            "motherPhone": "+91 9758900403",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24101,7 +26349,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900403",
+        "fatherPhone": "+91 9758900403",
+        "fatherMobile": "+91 9758900403",
+        "mobile": "+91 9758900403",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-405",
@@ -24122,7 +26376,10 @@ export const initialSchoolData = {
             "fatherName": "VIJENDRA SINGH",
             "motherName": "ANJALI",
             "fatherMobile": "7535818181",
-            "address": "MAHAJPUR"
+            "address": "MAHAJPUR",
+            "fatherPhone": "+91 7417417419",
+            "motherPhone": "+91 7535818181",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24155,7 +26412,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7417417419",
+        "fatherPhone": "+91 7417417419",
+        "fatherMobile": "+91 7417417419",
+        "mobile": "+91 7417417419",
+        "fatherName": "VIJENDRA SINGH",
+        "motherName": "ANJALI"
     },
     {
         "id": "STU-2026-406",
@@ -24173,10 +26436,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "UMESH YADAV",
-            "motherName": "RUVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "7819961153",
-            "address": "MUDAKHERA"
+            "address": "MUDAKHERA",
+            "fatherPhone": "+91 9758900405",
+            "motherPhone": "+91 9758900405",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24209,7 +26475,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900405",
+        "fatherPhone": "+91 9758900405",
+        "fatherMobile": "+91 9758900405",
+        "mobile": "+91 9758900405",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-407",
@@ -24227,10 +26499,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NITIN KUMAR",
-            "motherName": "RANI DEVI",
+            "fatherName": "RAVI KUMAR",
+            "motherName": "REENA DEVI",
             "fatherMobile": "",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 8192863063",
+            "motherPhone": "+91 8882567831",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24263,7 +26538,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8192863063",
+        "fatherPhone": "+91 8192863063",
+        "fatherMobile": "+91 8192863063",
+        "mobile": "+91 8192863063",
+        "fatherName": "RAVI KUMAR",
+        "motherName": "REENA DEVI"
     },
     {
         "id": "STU-2026-408",
@@ -24281,10 +26562,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINOD KUMAR",
-            "motherName": "PRAVESH DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8504995636",
-            "address": "PESARI"
+            "address": "PESARI",
+            "fatherPhone": "+91 9758900407",
+            "motherPhone": "+91 9758900407",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24317,7 +26601,13 @@ export const initialSchoolData = {
             "stop": "PESARI",
             "monthlyFare": 850,
             "annualTransportDue11Months": 9350
-        }
+        },
+        "phone": "+91 9758900407",
+        "fatherPhone": "+91 9758900407",
+        "fatherMobile": "+91 9758900407",
+        "mobile": "+91 9758900407",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-409",
@@ -24338,7 +26628,10 @@ export const initialSchoolData = {
             "fatherName": "PRATAP SINGH",
             "motherName": "RAJESHWARI DEVI",
             "fatherMobile": "9639383960",
-            "address": "Uncha gown"
+            "address": "Uncha gown",
+            "fatherPhone": "+91 6395659402",
+            "motherPhone": "+91 9639383960",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24371,7 +26664,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 6395659402",
+        "fatherPhone": "+91 6395659402",
+        "fatherMobile": "+91 6395659402",
+        "mobile": "+91 6395659402",
+        "fatherName": "PRATAP SINGH",
+        "motherName": "RAJESHWARI DEVI"
     },
     {
         "id": "STU-2026-410",
@@ -24389,10 +26688,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGENDRA KUMAR",
-            "motherName": "SUMITRA DEVI",
+            "fatherName": "AJAY KUMAR",
+            "motherName": "NEERU DEVI",
             "fatherMobile": "9910464431",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9758962135",
+            "motherPhone": "+91 9759262366",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24425,7 +26727,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758962135",
+        "fatherPhone": "+91 9758962135",
+        "fatherMobile": "+91 9758962135",
+        "mobile": "+91 9758962135",
+        "fatherName": "AJAY KUMAR",
+        "motherName": "NEERU DEVI"
     },
     {
         "id": "STU-2026-411",
@@ -24443,10 +26751,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGENDRA",
-            "motherName": "SUMITRA DEVI",
+            "fatherName": "NARESH KUMAR",
+            "motherName": "ANEETA",
             "fatherMobile": "7300991046",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 9368888254",
+            "motherPhone": "+91 7217732095",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24479,7 +26790,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9368888254",
+        "fatherPhone": "+91 9368888254",
+        "fatherMobile": "+91 9368888254",
+        "mobile": "+91 9368888254",
+        "fatherName": "NARESH KUMAR",
+        "motherName": "ANEETA"
     },
     {
         "id": "STU-2026-412",
@@ -24497,10 +26814,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KULDEEP",
-            "motherName": "RENU DEVI",
+            "fatherName": "BANTI KUMAR",
+            "motherName": "MEERA DEVI",
             "fatherMobile": "7830799794",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 7252826099",
+            "motherPhone": "+91 9996631761",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24520,11 +26840,23 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 20300,
             "status": "Pending",
-            "isElderSibling": false,
-            "consolidatedFamilyDue": 0,
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 34650,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 0,
-            "familySiblings": []
+            "consolidatedFamilyBalance": 34650,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-413",
+                    "name": "SOMESH",
+                    "class": "NURSERY",
+                    "admissionNo": "764",
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 14350,
+                    "individualPaid": 0,
+                    "individualBalance": 14350
+                }
+            ]
         },
         "siblings": [],
         "transport": {
@@ -24533,7 +26865,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7252826099",
+        "fatherPhone": "+91 7252826099",
+        "fatherMobile": "+91 7252826099",
+        "mobile": "+91 7252826099",
+        "fatherName": "BANTI KUMAR",
+        "motherName": "MEERA DEVI"
     },
     {
         "id": "STU-2026-413",
@@ -24551,10 +26889,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KULDEEP YADAV",
-            "motherName": "RENU DEVI",
+            "fatherName": "BANTI KUMAR",
+            "motherName": "MEERA DEVI",
             "fatherMobile": "7830799794",
-            "address": "JARGWAN, DEBAI"
+            "address": "JARGWAN, DEBAI",
+            "fatherPhone": "+91 7252826099",
+            "motherPhone": "+91 9996631761",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24578,7 +26919,14 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": []
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-412",
+                "name": "MAMTESH",
+                "class": "LKG",
+                "admissionNo": "763",
+                "fatherPhone": "7830799794"
+            }
         },
         "siblings": [],
         "transport": {
@@ -24587,7 +26935,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7252826099",
+        "fatherPhone": "+91 7252826099",
+        "fatherMobile": "+91 7252826099",
+        "mobile": "+91 7252826099",
+        "fatherName": "BANTI KUMAR",
+        "motherName": "MEERA DEVI"
     },
     {
         "id": "STU-2026-414",
@@ -24605,10 +26959,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VED PRAKASH",
-            "motherName": "HEMLATA ARYA",
+            "fatherName": "BHOORE SINGH",
+            "motherName": "PREMVATI DEVI",
             "fatherMobile": "7618426838",
-            "address": "MUHAMMADPUR"
+            "address": "MUHAMMADPUR",
+            "fatherPhone": "+91 9720166370",
+            "motherPhone": "+91 8882516472",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24641,7 +26998,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9720166370",
+        "fatherPhone": "+91 9720166370",
+        "fatherMobile": "+91 9720166370",
+        "mobile": "+91 9720166370",
+        "fatherName": "BHOORE SINGH",
+        "motherName": "PREMVATI DEVI"
     },
     {
         "id": "STU-2026-415",
@@ -24659,10 +27022,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHIVAM",
-            "motherName": "MANSI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8384837949",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9758900414",
+            "motherPhone": "+91 9758900414",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24682,23 +27048,11 @@ export const initialSchoolData = {
             "totalPaid": 3000.0,
             "balance": 11350.0,
             "status": "Partial",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 27700,
-            "consolidatedFamilyPaid": 3000.0,
-            "consolidatedFamilyBalance": 24700.0,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-513",
-                    "name": "RIYANSHI AGRAWAL",
-                    "class": "PG",
-                    "admissionNo": "904",
-                    "tuitionDue": 9500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 13350,
-                    "individualPaid": 0,
-                    "individualBalance": 13350
-                }
-            ]
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -24707,7 +27061,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900414",
+        "fatherPhone": "+91 9758900414",
+        "fatherMobile": "+91 9758900414",
+        "mobile": "+91 9758900414",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-416",
@@ -24725,10 +27085,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PREM SINGH",
-            "motherName": "GITA DEVI",
+            "fatherName": "BANI",
+            "motherName": "VINEETA",
             "fatherMobile": "9917732560",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 9690556281",
+            "motherPhone": "+91 9690556281",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -24748,23 +27111,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 22750,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 44500,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 44500,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-417",
-                    "name": "VIVEK KUMAR",
-                    "class": "I",
-                    "admissionNo": "771",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 21750,
-                    "individualPaid": 0,
-                    "individualBalance": 21750
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -24773,7 +27124,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9690556281",
+        "fatherPhone": "+91 9690556281",
+        "fatherMobile": "+91 9690556281",
+        "mobile": "+91 9690556281",
+        "fatherName": "BANI",
+        "motherName": "VINEETA"
     },
     {
         "id": "STU-2026-417",
@@ -24791,10 +27148,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PREM SINGH",
-            "motherName": "GITA DEVI",
+            "fatherName": "MUKESH KUMAR",
+            "motherName": "SHEELA DEVI",
             "fatherMobile": "9917732560",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 9354184290",
+            "motherPhone": "+91 8851938563",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24818,14 +27178,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-416",
-                "name": "PRASHANT",
-                "class": "III",
-                "admissionNo": "770",
-                "fatherPhone": "9917732560"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -24834,7 +27187,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9354184290",
+        "fatherPhone": "+91 9354184290",
+        "fatherMobile": "+91 9354184290",
+        "mobile": "+91 9354184290",
+        "fatherName": "MUKESH KUMAR",
+        "motherName": "SHEELA DEVI"
     },
     {
         "id": "STU-2026-418",
@@ -24852,10 +27211,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAJRAJ SINGH",
-            "motherName": "PINKI RAJPUT",
+            "fatherName": "MUKESH KUMAR",
+            "motherName": "SHEELA DEVI",
             "fatherMobile": "9719945764",
-            "address": "GANESHPUR GOVINDPUR"
+            "address": "GANESHPUR GOVINDPUR",
+            "fatherPhone": "+91 9354184290",
+            "motherPhone": "+91 8851938563",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24879,14 +27241,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-252",
-                "name": "HANSHIKA RAJPUT",
-                "class": "I",
-                "admissionNo": "502",
-                "fatherPhone": "9719945764"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -24895,7 +27250,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 9354184290",
+        "fatherPhone": "+91 9354184290",
+        "fatherMobile": "+91 9354184290",
+        "mobile": "+91 9354184290",
+        "fatherName": "MUKESH KUMAR",
+        "motherName": "SHEELA DEVI"
     },
     {
         "id": "STU-2026-419",
@@ -24913,10 +27274,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AMIT KUMAR",
-            "motherName": "KRISHNA",
+            "fatherName": "MONU",
+            "motherName": "PUSHPA",
             "fatherMobile": "7830108749",
-            "address": "NAGLA DHARAKPUR"
+            "address": "NAGLA DHARAKPUR",
+            "fatherPhone": "+91 8475858618",
+            "motherPhone": "+91 9193133623",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -24949,7 +27313,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8475858618",
+        "fatherPhone": "+91 8475858618",
+        "fatherMobile": "+91 8475858618",
+        "mobile": "+91 8475858618",
+        "fatherName": "MONU",
+        "motherName": "PUSHPA"
     },
     {
         "id": "STU-2026-420",
@@ -24967,10 +27337,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BHOOP SINGH",
-            "motherName": "NEERAJ DEVI",
+            "fatherName": "SATISH CHANDRA",
+            "motherName": "ASHA",
             "fatherMobile": "8",
-            "address": "KALIYANPUR BHAGIRATHPUR ATROLI ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR ATROLI ALIGARH",
+            "fatherPhone": "+91 6395168401",
+            "motherPhone": "+91 9627770462",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25003,7 +27376,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 6395168401",
+        "fatherPhone": "+91 6395168401",
+        "fatherMobile": "+91 6395168401",
+        "mobile": "+91 6395168401",
+        "fatherName": "SATISH CHANDRA",
+        "motherName": "ASHA"
     },
     {
         "id": "STU-2026-421",
@@ -25021,10 +27400,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARIOM SINGH",
-            "motherName": "SAROJ DEVI",
+            "fatherName": "KAPTAN SINGH",
+            "motherName": "SHANTI DEVI",
             "fatherMobile": "9568960828",
-            "address": "KALIYANPUTR  BHAGIRATHPUR"
+            "address": "KALIYANPUTR  BHAGIRATHPUR",
+            "fatherPhone": "+91 7409658983",
+            "motherPhone": "+91 7464958983",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25057,7 +27439,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7409658983",
+        "fatherPhone": "+91 7409658983",
+        "fatherMobile": "+91 7409658983",
+        "mobile": "+91 7409658983",
+        "fatherName": "KAPTAN SINGH",
+        "motherName": "SHANTI DEVI"
     },
     {
         "id": "STU-2026-422",
@@ -25075,10 +27463,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMPRAKASH",
-            "motherName": "TULSI",
+            "fatherName": "NATTHU SINGH",
+            "motherName": "SARSWATI DEVI",
             "fatherMobile": "7703956102",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9761258549",
+            "motherPhone": "+91 9528501470",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25111,7 +27502,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9761258549",
+        "fatherPhone": "+91 9761258549",
+        "fatherMobile": "+91 9761258549",
+        "mobile": "+91 9761258549",
+        "fatherName": "NATTHU SINGH",
+        "motherName": "SARSWATI DEVI"
     },
     {
         "id": "STU-2026-423",
@@ -25129,10 +27526,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIKASH",
-            "motherName": "KM. USHA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8533029749",
-            "address": "NAGLA VIDHI, JARGWAN"
+            "address": "NAGLA VIDHI, JARGWAN",
+            "fatherPhone": "+91 9758900422",
+            "motherPhone": "+91 9758900422",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25165,7 +27565,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900422",
+        "fatherPhone": "+91 9758900422",
+        "fatherMobile": "+91 9758900422",
+        "mobile": "+91 9758900422",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-424",
@@ -25183,10 +27589,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BABLU",
-            "motherName": "DURGESH",
+            "fatherName": "SANJEEV KUMAR",
+            "motherName": "GEETA DEVI",
             "fatherMobile": "8006168711",
-            "address": "NAGLA DHARAKPUR"
+            "address": "NAGLA DHARAKPUR",
+            "fatherPhone": "+91 7310802948",
+            "motherPhone": "+91 9927070578",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25219,7 +27628,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7310802948",
+        "fatherPhone": "+91 7310802948",
+        "fatherMobile": "+91 7310802948",
+        "mobile": "+91 7310802948",
+        "fatherName": "SANJEEV KUMAR",
+        "motherName": "GEETA DEVI"
     },
     {
         "id": "STU-2026-425",
@@ -25240,7 +27655,10 @@ export const initialSchoolData = {
             "fatherName": "ROKINSH KUMAR",
             "motherName": "LAKSHMI",
             "fatherMobile": "9719358200",
-            "address": "NAGLA KOTHI JARGWAN ALIGARH"
+            "address": "NAGLA KOTHI JARGWAN ALIGARH",
+            "fatherPhone": "+91 9520213582",
+            "motherPhone": "+91 9719358200",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -25273,7 +27691,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9520213582",
+        "fatherPhone": "+91 9520213582",
+        "fatherMobile": "+91 9520213582",
+        "mobile": "+91 9520213582",
+        "fatherName": "ROKINSH KUMAR",
+        "motherName": "LAKSHMI"
     },
     {
         "id": "STU-2026-426",
@@ -25291,10 +27715,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NARESH KUMAR",
-            "motherName": "SEEMA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9627975644",
-            "address": "NAGLA VIDHI"
+            "address": "NAGLA VIDHI",
+            "fatherPhone": "+91 9758900425",
+            "motherPhone": "+91 9758900425",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25327,7 +27754,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900425",
+        "fatherPhone": "+91 9758900425",
+        "fatherMobile": "+91 9758900425",
+        "mobile": "+91 9758900425",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-427",
@@ -25345,10 +27778,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KULDIP KUMAR",
-            "motherName": "TANISHA SHARMA",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "8851021560",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9758900426",
+            "motherPhone": "+91 9758900426",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25381,7 +27817,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900426",
+        "fatherPhone": "+91 9758900426",
+        "fatherMobile": "+91 9758900426",
+        "mobile": "+91 9758900426",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-428",
@@ -25399,76 +27841,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NARENDRA KUMAR",
-            "motherName": "SAROJ",
+            "fatherName": "DILIP KUMAR BISWAS",
+            "motherName": "SHUKLA BISWAS",
             "fatherMobile": "9582247889",
-            "address": "CHIRAURI TALUKA"
-        },
-        "customFields": {
-            "penNo": "",
-            "studentAadhaar": "",
-            "caste": "",
-            "religion": "Hindu"
-        },
-        "attendanceSummary": {
-            "totalDays": 88,
-            "presentDays": 84,
-            "percentage": 95.5
-        },
-        "feeSummary": {
-            "tuitionDue": 10500,
-            "transportDue11Months": 3850,
-            "totalDue": 14350,
-            "totalPaid": 0,
-            "balance": 14350,
-            "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 28700,
-            "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 28700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-429",
-                    "name": "PRIYANSHI",
-                    "class": "NURSERY",
-                    "admissionNo": "784",
-                    "tuitionDue": 10500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 14350,
-                    "individualPaid": 0,
-                    "individualBalance": 14350
-                }
-            ]
-        },
-        "siblings": [],
-        "transport": {
-            "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 350,
-            "annualTransportDue11Months": 3850
-        }
-    },
-    {
-        "id": "STU-2026-429",
-        "sqlId": "549",
-        "admissionNo": "784",
-        "rollNo": "0",
-        "name": "PRIYANSHI",
-        "photo": "https://ui-avatars.com/api/?name=PRIYANSHI&background=2563EB&color=fff&size=128&bold=true",
-        "dob": "1970-01-01",
-        "gender": "female",
-        "class": "NURSERY",
-        "section": "A",
-        "branchId": "BR-01",
-        "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
-        "deactivateInfo": null,
-        "parents": {
-            "fatherName": "NARENDRA KUMAR",
-            "motherName": "SAROJ",
-            "fatherMobile": "9582247889",
-            "address": "CHIRAURI TALUKA"
+            "address": "CHIRAURI TALUKA",
+            "fatherPhone": "+91 9719060403",
+            "motherPhone": "+91 9719060403",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25492,14 +27871,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-428",
-                "name": "PRASHANT YADAV",
-                "class": "NURSERY",
-                "admissionNo": "783",
-                "fatherPhone": "9582247889"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -25508,7 +27880,76 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9719060403",
+        "fatherPhone": "+91 9719060403",
+        "fatherMobile": "+91 9719060403",
+        "mobile": "+91 9719060403",
+        "fatherName": "DILIP KUMAR BISWAS",
+        "motherName": "SHUKLA BISWAS"
+    },
+    {
+        "id": "STU-2026-429",
+        "sqlId": "549",
+        "admissionNo": "784",
+        "rollNo": "0",
+        "name": "PRIYANSHI",
+        "photo": "https://ui-avatars.com/api/?name=PRIYANSHI&background=2563EB&color=fff&size=128&bold=true",
+        "dob": "1970-01-01",
+        "gender": "female",
+        "class": "NURSERY",
+        "section": "A",
+        "branchId": "BR-01",
+        "branchName": "Dadheech Memorial Public School (Main Campus)",
+        "status": "Active",
+        "deactivateInfo": null,
+        "parents": {
+            "fatherName": "VIJENDRA KUMAR",
+            "motherName": "VIMLESH DEVI",
+            "fatherMobile": "9582247889",
+            "address": "CHIRAURI TALUKA",
+            "fatherPhone": "+91 8433255571",
+            "motherPhone": "+91 8433255571",
+            "occupation": "Farmer / Business"
+        },
+        "customFields": {
+            "penNo": "",
+            "studentAadhaar": "",
+            "caste": "",
+            "religion": "Hindu"
+        },
+        "attendanceSummary": {
+            "totalDays": 88,
+            "presentDays": 84,
+            "percentage": 95.5
+        },
+        "feeSummary": {
+            "tuitionDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
+            "totalPaid": 0,
+            "balance": 14350,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
+        },
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
+        },
+        "phone": "+91 8433255571",
+        "fatherPhone": "+91 8433255571",
+        "fatherMobile": "+91 8433255571",
+        "mobile": "+91 8433255571",
+        "fatherName": "VIJENDRA KUMAR",
+        "motherName": "VIMLESH DEVI"
     },
     {
         "id": "STU-2026-430",
@@ -25526,10 +27967,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SONU",
-            "motherName": "RANJANA",
+            "fatherName": "RAKESH KUMAR",
+            "motherName": "NEERU VERMA",
             "fatherMobile": "9627739384",
-            "address": "JARGWAN DEBAI BULANDSHAHR"
+            "address": "JARGWAN DEBAI BULANDSHAHR",
+            "fatherPhone": "+91 9627722404",
+            "motherPhone": "+91 9627722404",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25562,7 +28006,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9627722404",
+        "fatherPhone": "+91 9627722404",
+        "fatherMobile": "+91 9627722404",
+        "mobile": "+91 9627722404",
+        "fatherName": "RAKESH KUMAR",
+        "motherName": "NEERU VERMA"
     },
     {
         "id": "STU-2026-431",
@@ -25580,10 +28030,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SOMVIR",
-            "motherName": "RACHANA DEVI",
+            "fatherName": "ATUL KUMAR",
+            "motherName": "KANCHAN DEVI",
             "fatherMobile": "8858676709",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9675938712",
+            "motherPhone": "+91 8375939398",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25616,7 +28069,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675938712",
+        "fatherPhone": "+91 9675938712",
+        "fatherMobile": "+91 9675938712",
+        "mobile": "+91 9675938712",
+        "fatherName": "ATUL KUMAR",
+        "motherName": "KANCHAN DEVI"
     },
     {
         "id": "STU-2026-432",
@@ -25634,10 +28093,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YASHVARDHAN",
-            "motherName": "PREETI",
+            "fatherName": "DEV DATT",
+            "motherName": "PUSHPA",
             "fatherMobile": "8130428303",
-            "address": "KANAKPUR LOHGARH"
+            "address": "KANAKPUR LOHGARH",
+            "fatherPhone": "+91 7817831909",
+            "motherPhone": "+91 8006118462",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25670,7 +28132,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7817831909",
+        "fatherPhone": "+91 7817831909",
+        "fatherMobile": "+91 7817831909",
+        "mobile": "+91 7817831909",
+        "fatherName": "DEV DATT",
+        "motherName": "PUSHPA"
     },
     {
         "id": "STU-2026-433",
@@ -25691,7 +28159,10 @@ export const initialSchoolData = {
             "fatherName": "SOMVIR",
             "motherName": "RACHANA DEVI",
             "fatherMobile": "9627739384",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 1",
+            "motherPhone": "+91 9627739384",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -25724,7 +28195,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 1",
+        "fatherPhone": "+91 1",
+        "fatherMobile": "+91 1",
+        "mobile": "+91 1",
+        "fatherName": "SOMVIR",
+        "motherName": "RACHANA DEVI"
     },
     {
         "id": "STU-2026-434",
@@ -25745,7 +28222,10 @@ export const initialSchoolData = {
             "fatherName": "LOVEKUSH",
             "motherName": "RAJNI KUMARI",
             "fatherMobile": "9758300938",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 8",
+            "motherPhone": "+91 9758300938",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -25778,7 +28258,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 8",
+        "fatherPhone": "+91 8",
+        "fatherMobile": "+91 8",
+        "mobile": "+91 8",
+        "fatherName": "LOVEKUSH",
+        "motherName": "RAJNI KUMARI"
     },
     {
         "id": "STU-2026-435",
@@ -25796,10 +28282,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NARENDRA KUMAR",
-            "motherName": "SEEMA",
+            "fatherName": "ANUJ RAGHAV",
+            "motherName": "SHWETA RAGHAV",
             "fatherMobile": "9675078440",
-            "address": "KALIYANPUR BHAGIRATHPUR"
+            "address": "KALIYANPUR BHAGIRATHPUR",
+            "fatherPhone": "+91 9037412093",
+            "motherPhone": "+91 8395019675",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25832,7 +28321,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9037412093",
+        "fatherPhone": "+91 9037412093",
+        "fatherMobile": "+91 9037412093",
+        "mobile": "+91 9037412093",
+        "fatherName": "ANUJ RAGHAV",
+        "motherName": "SHWETA RAGHAV"
     },
     {
         "id": "STU-2026-436",
@@ -25850,10 +28345,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LEELU",
-            "motherName": "LAXMI",
+            "fatherName": "SANJAY KUMAR",
+            "motherName": "SEEMA",
             "fatherMobile": "8505963663",
-            "address": "KALIYANPUR BHAGIRATHPUR  ATROLI ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR  ATROLI ALIGARH",
+            "fatherPhone": "+91 6504505705",
+            "motherPhone": "+91 9870743850",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25886,7 +28384,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 6504505705",
+        "fatherPhone": "+91 6504505705",
+        "fatherMobile": "+91 6504505705",
+        "mobile": "+91 6504505705",
+        "fatherName": "SANJAY KUMAR",
+        "motherName": "SEEMA"
     },
     {
         "id": "STU-2026-437",
@@ -25904,10 +28408,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SURENDRA SINGH",
-            "motherName": "MANJU DEVI",
+            "fatherName": "MADHAV SINGH",
+            "motherName": "PREMVATI",
             "fatherMobile": "9720577595",
-            "address": "PESARI"
+            "address": "PESARI",
+            "fatherPhone": "+91 8882764231",
+            "motherPhone": "+91 9720877612",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -25931,14 +28438,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-302",
-                "name": "HIMANSHU",
-                "class": "I",
-                "admissionNo": "589",
-                "fatherPhone": "9720577595"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -25947,7 +28447,13 @@ export const initialSchoolData = {
             "stop": "PESARI",
             "monthlyFare": 850,
             "annualTransportDue11Months": 9350
-        }
+        },
+        "phone": "+91 8882764231",
+        "fatherPhone": "+91 8882764231",
+        "fatherMobile": "+91 8882764231",
+        "mobile": "+91 8882764231",
+        "fatherName": "MADHAV SINGH",
+        "motherName": "PREMVATI"
     },
     {
         "id": "STU-2026-438",
@@ -25965,10 +28471,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PUNEET RAO BARDHAN",
-            "motherName": "RACHNA KUMARI",
+            "fatherName": "MAHESHPAL SINGH",
+            "motherName": "NEERAJ DEVI",
             "fatherMobile": "9410020562",
-            "address": "MUHAMMADPUR BADHERA ATRAULI ALIGARH"
+            "address": "MUHAMMADPUR BADHERA ATRAULI ALIGARH",
+            "fatherPhone": "+91 9758509524",
+            "motherPhone": "+91 9758509524",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26001,7 +28510,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758509524",
+        "fatherPhone": "+91 9758509524",
+        "fatherMobile": "+91 9758509524",
+        "mobile": "+91 9758509524",
+        "fatherName": "MAHESHPAL SINGH",
+        "motherName": "NEERAJ DEVI"
     },
     {
         "id": "STU-2026-439",
@@ -26020,9 +28535,12 @@ export const initialSchoolData = {
         "deactivateInfo": null,
         "parents": {
             "fatherName": "MALKHAN SINGH",
-            "motherName": "OMVATI",
+            "motherName": "OMVATI ",
             "fatherMobile": "8859904907",
-            "address": "NAGLA VIDHI"
+            "address": "NAGLA VIDHI",
+            "fatherPhone": "+91 8859904907",
+            "motherPhone": "+91 8859904907",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -26055,7 +28573,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 8859904907",
+        "fatherPhone": "+91 8859904907",
+        "fatherMobile": "+91 8859904907",
+        "mobile": "+91 8859904907",
+        "fatherName": "MALKHAN SINGH",
+        "motherName": "OMVATI "
     },
     {
         "id": "STU-2026-440",
@@ -26073,10 +28597,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MEGHENDRA SHARMA",
-            "motherName": "POOJA  DEVI",
+            "fatherName": "GANGAPRASAD",
+            "motherName": "DURGESH DEVI",
             "fatherMobile": "7906340619",
-            "address": "KUDHANI CHIRAURI DIBAI"
+            "address": "KUDHANI CHIRAURI DIBAI",
+            "fatherPhone": "+91 7906288160",
+            "motherPhone": "+91 7906288160",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26096,23 +28623,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 19850,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 43100,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43100,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-518",
-                    "name": "HARSH SHARMA",
-                    "class": "IV",
-                    "admissionNo": "871",
-                    "tuitionDue": 15000,
-                    "transportDue11Months": 8250,
-                    "individualDue": 23250,
-                    "individualPaid": 0,
-                    "individualBalance": 23250
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26121,7 +28636,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7906288160",
+        "fatherPhone": "+91 7906288160",
+        "fatherMobile": "+91 7906288160",
+        "mobile": "+91 7906288160",
+        "fatherName": "GANGAPRASAD",
+        "motherName": "DURGESH DEVI"
     },
     {
         "id": "STU-2026-441",
@@ -26139,10 +28660,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JITENDRA KUMAR",
-            "motherName": "MAMTA DEVI",
+            "fatherName": "AJAY KUMAR",
+            "motherName": "SARVESH DEVI",
             "fatherMobile": "7893204122",
-            "address": "MAHARAJPUR"
+            "address": "MAHARAJPUR",
+            "fatherPhone": "+91 8057924967",
+            "motherPhone": "+91 8057924967",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26162,23 +28686,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 22300,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 43600,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43600,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-442",
-                    "name": "MAYANK",
-                    "class": "UKG",
-                    "admissionNo": "792",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 21300,
-                    "individualPaid": 0,
-                    "individualBalance": 21300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26187,7 +28699,13 @@ export const initialSchoolData = {
             "stop": "MAHARAJPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8057924967",
+        "fatherPhone": "+91 8057924967",
+        "fatherMobile": "+91 8057924967",
+        "mobile": "+91 8057924967",
+        "fatherName": "AJAY KUMAR",
+        "motherName": "SARVESH DEVI"
     },
     {
         "id": "STU-2026-442",
@@ -26205,10 +28723,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JITENDRA KUMAR",
-            "motherName": "MAMTA DEVI",
+            "fatherName": "PRAVEEN KUMAR",
+            "motherName": "ARTI DEVI",
             "fatherMobile": "7893204122",
-            "address": "MAHARAJPUR"
+            "address": "MAHARAJPUR",
+            "fatherPhone": "+91 7618543732",
+            "motherPhone": "+91 8750832158",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26232,14 +28753,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-441",
-                "name": "KALPANA",
-                "class": "I",
-                "admissionNo": "791",
-                "fatherPhone": "7893204122"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26248,7 +28762,13 @@ export const initialSchoolData = {
             "stop": "MAHARAJPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7618543732",
+        "fatherPhone": "+91 7618543732",
+        "fatherMobile": "+91 7618543732",
+        "mobile": "+91 7618543732",
+        "fatherName": "PRAVEEN KUMAR",
+        "motherName": "ARTI DEVI"
     },
     {
         "id": "STU-2026-443",
@@ -26267,9 +28787,12 @@ export const initialSchoolData = {
         "deactivateInfo": null,
         "parents": {
             "fatherName": "JITENDRA KUMAR",
-            "motherName": "PINKI",
+            "motherName": "SHALINI KUMARI",
             "fatherMobile": "9720557778",
-            "address": "NAGLA VIDHI"
+            "address": "NAGLA VIDHI",
+            "fatherPhone": "+91 9520103310",
+            "motherPhone": "+91 8433255571",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26302,7 +28825,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9520103310",
+        "fatherPhone": "+91 9520103310",
+        "fatherMobile": "+91 9520103310",
+        "mobile": "+91 9520103310",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "SHALINI KUMARI"
     },
     {
         "id": "STU-2026-444",
@@ -26320,10 +28849,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHRAWAN KUMAR",
-            "motherName": "SARVESH DEVI",
+            "fatherName": "KIRANPAL",
+            "motherName": "MEENA DEVI",
             "fatherMobile": "8130905457",
-            "address": "GOKULPUR KHADAR"
+            "address": "GOKULPUR KHADAR",
+            "fatherPhone": "+91 9456675112",
+            "motherPhone": "+91 9719337718",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26347,14 +28879,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-445",
-                "name": "SAHIL",
-                "class": "UKG",
-                "admissionNo": "795",
-                "fatherPhone": "8130905457"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26363,7 +28888,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9456675112",
+        "fatherPhone": "+91 9456675112",
+        "fatherMobile": "+91 9456675112",
+        "mobile": "+91 9456675112",
+        "fatherName": "KIRANPAL",
+        "motherName": "MEENA DEVI"
     },
     {
         "id": "STU-2026-445",
@@ -26381,10 +28912,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHRAWAN KUMAR",
-            "motherName": "SARVESH DEVI",
+            "fatherName": "DEVENDRA KUMAR",
+            "motherName": "URMILA",
             "fatherMobile": "8130905457",
-            "address": "GOKULPUR KHADAR"
+            "address": "GOKULPUR KHADAR",
+            "fatherPhone": "+91 9675311665",
+            "motherPhone": "+91 8533908723",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26404,23 +28938,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 16350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 31700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 31700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-444",
-                    "name": "KANAK",
-                    "class": "LKG",
-                    "admissionNo": "794",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 15350,
-                    "individualPaid": 0,
-                    "individualBalance": 15350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26429,7 +28951,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675311665",
+        "fatherPhone": "+91 9675311665",
+        "fatherMobile": "+91 9675311665",
+        "mobile": "+91 9675311665",
+        "fatherName": "DEVENDRA KUMAR",
+        "motherName": "URMILA"
     },
     {
         "id": "STU-2026-446",
@@ -26447,10 +28975,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SACHIN KUMAR",
-            "motherName": "ROSHNI",
+            "fatherName": "DEVENDRA KUMAR",
+            "motherName": "URMILA",
             "fatherMobile": "8650965580",
-            "address": "NAGLA DHARKPUR"
+            "address": "NAGLA DHARKPUR",
+            "fatherPhone": "+91 9675311665",
+            "motherPhone": "+91 8533908723",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26483,7 +29014,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675311665",
+        "fatherPhone": "+91 9675311665",
+        "fatherMobile": "+91 9675311665",
+        "mobile": "+91 9675311665",
+        "fatherName": "DEVENDRA KUMAR",
+        "motherName": "URMILA"
     },
     {
         "id": "STU-2026-447",
@@ -26501,10 +29038,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEEPAK KUMAR",
-            "motherName": "RENU",
+            "fatherName": "MAHESHPAL",
+            "motherName": "NEERAJ DEVI",
             "fatherMobile": "9536165087",
-            "address": "NAGLA DHARKPUR"
+            "address": "NAGLA DHARKPUR",
+            "fatherPhone": "+91 9758509524",
+            "motherPhone": "+91 9758509524",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26537,7 +29077,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758509524",
+        "fatherPhone": "+91 9758509524",
+        "fatherMobile": "+91 9758509524",
+        "mobile": "+91 9758509524",
+        "fatherName": "MAHESHPAL",
+        "motherName": "NEERAJ DEVI"
     },
     {
         "id": "STU-2026-448",
@@ -26556,9 +29102,12 @@ export const initialSchoolData = {
         "deactivateInfo": null,
         "parents": {
             "fatherName": "AMIT KUMAR",
-            "motherName": "SHIKHA",
+            "motherName": "SHIKHA ",
             "fatherMobile": "9627131068",
-            "address": "NAGLA GARVI"
+            "address": "NAGLA GARVI",
+            "fatherPhone": "+91 9627131068",
+            "motherPhone": "+91 9627131068",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -26591,7 +29140,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9627131068",
+        "fatherPhone": "+91 9627131068",
+        "fatherMobile": "+91 9627131068",
+        "mobile": "+91 9627131068",
+        "fatherName": "AMIT KUMAR",
+        "motherName": "SHIKHA "
     },
     {
         "id": "STU-2026-449",
@@ -26609,10 +29164,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANVEER SINGH",
-            "motherName": "POOJA",
+            "fatherName": "GOURI SHANKAR",
+            "motherName": "SHASHI",
             "fatherMobile": "7205223578",
-            "address": "DADHAR ALUPURA"
+            "address": "DADHAR ALUPURA",
+            "fatherPhone": "+91 8006516436",
+            "motherPhone": "+91 9837524874",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26645,7 +29203,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 8006516436",
+        "fatherPhone": "+91 8006516436",
+        "fatherMobile": "+91 8006516436",
+        "mobile": "+91 8006516436",
+        "fatherName": "GOURI SHANKAR",
+        "motherName": "SHASHI"
     },
     {
         "id": "STU-2026-450",
@@ -26663,10 +29227,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SATISH KUMAR",
-            "motherName": "MADHU",
+            "fatherName": "ANAD KUMAR",
+            "motherName": "REKHA DEVI",
             "fatherMobile": "9675939394",
-            "address": "JIRAULI DHOOM SINGH"
+            "address": "JIRAULI DHOOM SINGH",
+            "fatherPhone": "+91 8285027701",
+            "motherPhone": "+91 8285027701",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26690,14 +29257,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-261",
-                "name": "MANVI LODHI",
-                "class": "I",
-                "admissionNo": "517",
-                "fatherPhone": "9675939394"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26706,7 +29266,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8285027701",
+        "fatherPhone": "+91 8285027701",
+        "fatherMobile": "+91 8285027701",
+        "mobile": "+91 8285027701",
+        "fatherName": "ANAD KUMAR",
+        "motherName": "REKHA DEVI"
     },
     {
         "id": "STU-2026-451",
@@ -26724,10 +29290,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIRESH KUMAR",
-            "motherName": "VEENA DEVI",
+            "fatherName": "ANAD KUMAR",
+            "motherName": "REKHA DEVI",
             "fatherMobile": "9536981196",
-            "address": "MONIPURA RAMGHAT"
+            "address": "MONIPURA RAMGHAT",
+            "fatherPhone": "+91 8285027701",
+            "motherPhone": "+91 8285027701",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26747,23 +29316,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 24800,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 49100,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 49100,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-453",
-                    "name": "HARSHIT YADAV",
-                    "class": "V",
-                    "admissionNo": "802",
-                    "tuitionDue": 15500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 24300,
-                    "individualPaid": 0,
-                    "individualBalance": 24300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26772,7 +29329,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8285027701",
+        "fatherPhone": "+91 8285027701",
+        "fatherMobile": "+91 8285027701",
+        "mobile": "+91 8285027701",
+        "fatherName": "ANAD KUMAR",
+        "motherName": "REKHA DEVI"
     },
     {
         "id": "STU-2026-452",
@@ -26793,7 +29356,10 @@ export const initialSchoolData = {
             "fatherName": "SUMIT KUMAR",
             "motherName": "SHIVANI SHARMA",
             "fatherMobile": "8395050888",
-            "address": "JARGWAN DIBAI"
+            "address": "JARGWAN DIBAI",
+            "fatherPhone": "+91 9149043576",
+            "motherPhone": "+91 8395050888",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -26813,23 +29379,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 17850,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 35200,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35200,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-454",
-                    "name": "SIDDHARTH BHARDWAJ",
-                    "class": "I",
-                    "admissionNo": "846",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 17350,
-                    "individualPaid": 0,
-                    "individualBalance": 17350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26838,7 +29392,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9149043576",
+        "fatherPhone": "+91 9149043576",
+        "fatherMobile": "+91 9149043576",
+        "mobile": "+91 9149043576",
+        "fatherName": "SUMIT KUMAR",
+        "motherName": "SHIVANI SHARMA"
     },
     {
         "id": "STU-2026-453",
@@ -26856,10 +29416,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIRESH KUMAR",
-            "motherName": "VEENA DEVI",
+            "fatherName": "SANDEEP KUMAR",
+            "motherName": "NALINI YADAV",
             "fatherMobile": "9536981196",
-            "address": "MONIPURA RAMGHAT"
+            "address": "MONIPURA RAMGHAT",
+            "fatherPhone": "+91 9808678959",
+            "motherPhone": "+91 9412545159",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26883,14 +29446,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-451",
-                "name": "TAKSHIT",
-                "class": "VI",
-                "admissionNo": "33",
-                "fatherPhone": "9536981196"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26899,7 +29455,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9808678959",
+        "fatherPhone": "+91 9808678959",
+        "fatherMobile": "+91 9808678959",
+        "mobile": "+91 9808678959",
+        "fatherName": "SANDEEP KUMAR",
+        "motherName": "NALINI YADAV"
     },
     {
         "id": "STU-2026-454",
@@ -26917,10 +29479,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SUMIT KUMAR",
-            "motherName": "SHIVANI SHARMA",
+            "fatherName": "BRAJESH",
+            "motherName": "SANDHYA KUMARI",
             "fatherMobile": "8395050888",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 8954931950",
+            "motherPhone": "+91 9761122765",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -26944,14 +29509,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-452",
-                "name": "KANISHKA BHARDWAJ",
-                "class": "II",
-                "admissionNo": "845",
-                "fatherPhone": "8395050888"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -26960,7 +29518,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8954931950",
+        "fatherPhone": "+91 8954931950",
+        "fatherMobile": "+91 8954931950",
+        "mobile": "+91 8954931950",
+        "fatherName": "BRAJESH",
+        "motherName": "SANDHYA KUMARI"
     },
     {
         "id": "STU-2026-455",
@@ -26978,10 +29542,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NEERAJ KUMAR",
-            "motherName": "RINKI DEVI",
+            "fatherName": "SUDHEER",
+            "motherName": "KHUSHBOO",
             "fatherMobile": "9536981196",
-            "address": "MONIPURA RAMGHAT"
+            "address": "MONIPURA RAMGHAT",
+            "fatherPhone": "+91 8859478326",
+            "motherPhone": "+91 9045278859",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27014,7 +29581,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8859478326",
+        "fatherPhone": "+91 8859478326",
+        "fatherMobile": "+91 8859478326",
+        "mobile": "+91 8859478326",
+        "fatherName": "SUDHEER",
+        "motherName": "KHUSHBOO"
     },
     {
         "id": "STU-2026-456",
@@ -27032,10 +29605,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AVINASH GAUR",
-            "motherName": "JYOTI GAUR",
+            "fatherName": "DHAMENDRA KUMAR",
+            "motherName": "SUMIT",
             "fatherMobile": "9758598789",
-            "address": "RAMGHAT DIBAI"
+            "address": "RAMGHAT DIBAI",
+            "fatherPhone": "+91 7668306277",
+            "motherPhone": "+91 9761845736",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27068,7 +29644,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7668306277",
+        "fatherPhone": "+91 7668306277",
+        "fatherMobile": "+91 7668306277",
+        "mobile": "+91 7668306277",
+        "fatherName": "DHAMENDRA KUMAR",
+        "motherName": "SUMIT"
     },
     {
         "id": "STU-2026-457",
@@ -27086,10 +29668,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JITENDRA KUMAR",
-            "motherName": "SHITAL",
+            "fatherName": "DHAMENDRA KUMAR",
+            "motherName": "SUMIT",
             "fatherMobile": "7836811431",
-            "address": "BAIJALA"
+            "address": "BAIJALA",
+            "fatherPhone": "+91 7668306277",
+            "motherPhone": "+91 9761845736",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27113,14 +29698,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-458",
-                "name": "MANVI KUMARI",
-                "class": "I",
-                "admissionNo": "805",
-                "fatherPhone": "7836811431"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -27129,7 +29707,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 7668306277",
+        "fatherPhone": "+91 7668306277",
+        "fatherMobile": "+91 7668306277",
+        "mobile": "+91 7668306277",
+        "fatherName": "DHAMENDRA KUMAR",
+        "motherName": "SUMIT"
     },
     {
         "id": "STU-2026-458",
@@ -27150,7 +29734,10 @@ export const initialSchoolData = {
             "fatherName": "JITENDRA KUMAR",
             "motherName": "SHITAL",
             "fatherMobile": "7836811431",
-            "address": "BAIJALA"
+            "address": "BAIJALA",
+            "fatherPhone": "+91 7836811431",
+            "motherPhone": "+91 7836811431",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -27170,23 +29757,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 19550,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 37100,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 37100,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-457",
-                    "name": "DIVYANSHI KUMARI",
-                    "class": "LKG",
-                    "admissionNo": "804",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 17550,
-                    "individualPaid": 0,
-                    "individualBalance": 17550
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -27195,7 +29770,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 7836811431",
+        "fatherPhone": "+91 7836811431",
+        "fatherMobile": "+91 7836811431",
+        "mobile": "+91 7836811431",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "SHITAL"
     },
     {
         "id": "STU-2026-459",
@@ -27213,10 +29794,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIKRAM",
-            "motherName": "JYOTI",
+            "fatherName": "LEEKESH",
+            "motherName": "SEEMA",
             "fatherMobile": "8433106825",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 7668083141",
+            "motherPhone": "+91 9758783218",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27249,7 +29833,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7668083141",
+        "fatherPhone": "+91 7668083141",
+        "fatherMobile": "+91 7668083141",
+        "mobile": "+91 7668083141",
+        "fatherName": "LEEKESH",
+        "motherName": "SEEMA"
     },
     {
         "id": "STU-2026-460",
@@ -27267,10 +29857,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VISHNUDATT",
-            "motherName": "PRITI",
+            "fatherName": "DINESH KUMAR",
+            "motherName": "VEENESH KUMAR",
             "fatherMobile": "8755083275",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 9259150523",
+            "motherPhone": "+91 9315468019",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27290,23 +29883,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 25300,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 46600,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 46600,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-462",
-                    "name": "YUVANG BHARDWAJ",
-                    "class": "UKG",
-                    "admissionNo": "807",
-                    "tuitionDue": 12500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 21300,
-                    "individualPaid": 0,
-                    "individualBalance": 21300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -27315,7 +29896,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9259150523",
+        "fatherPhone": "+91 9259150523",
+        "fatherMobile": "+91 9259150523",
+        "mobile": "+91 9259150523",
+        "fatherName": "DINESH KUMAR",
+        "motherName": "VEENESH KUMAR"
     },
     {
         "id": "STU-2026-461",
@@ -27333,10 +29920,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JAGDISH YADAV",
-            "motherName": "NEERESH DEVI",
+            "fatherName": "VINAY KUMAR",
+            "motherName": "ANITA DEVI",
             "fatherMobile": "7664869979",
-            "address": "RAMVAS MONIPURA"
+            "address": "RAMVAS MONIPURA",
+            "fatherPhone": "+91 9711269176",
+            "motherPhone": "+91 9759979199",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27369,7 +29959,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9711269176",
+        "fatherPhone": "+91 9711269176",
+        "fatherMobile": "+91 9711269176",
+        "mobile": "+91 9711269176",
+        "fatherName": "VINAY KUMAR",
+        "motherName": "ANITA DEVI"
     },
     {
         "id": "STU-2026-462",
@@ -27387,10 +29983,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VISHNUDATT",
-            "motherName": "PRITI",
+            "fatherName": "DHARVENDRA KUMAR",
+            "motherName": "MADHURI DEVI",
             "fatherMobile": "8755083275",
-            "address": "RAMGHAT"
+            "address": "RAMGHAT",
+            "fatherPhone": "+91 9758900461",
+            "motherPhone": "+91 9758900461",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27414,14 +30013,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-460",
-                "name": "LAKSHY BHARDWAJ",
-                "class": "VII",
-                "admissionNo": "806",
-                "fatherPhone": "8755083275"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -27430,7 +30022,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9758900461",
+        "fatherPhone": "+91 9758900461",
+        "fatherMobile": "+91 9758900461",
+        "mobile": "+91 9758900461",
+        "fatherName": "DHARVENDRA KUMAR",
+        "motherName": "MADHURI DEVI"
     },
     {
         "id": "STU-2026-463",
@@ -27451,7 +30049,10 @@ export const initialSchoolData = {
             "fatherName": "RAVI KUMAR",
             "motherName": "SUMAN",
             "fatherMobile": "9675315744",
-            "address": "NAGLA DHARAKPUR"
+            "address": "NAGLA DHARAKPUR",
+            "fatherPhone": "+91 9675315744",
+            "motherPhone": "+91 9675315744",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -27484,7 +30085,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9675315744",
+        "fatherPhone": "+91 9675315744",
+        "fatherMobile": "+91 9675315744",
+        "mobile": "+91 9675315744",
+        "fatherName": "RAVI KUMAR",
+        "motherName": "SUMAN"
     },
     {
         "id": "STU-2026-464",
@@ -27505,7 +30112,10 @@ export const initialSchoolData = {
             "fatherName": "SHYAM KUMAR SHARMA",
             "motherName": "POOJA SHARMA",
             "fatherMobile": "9536723700",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 9536723700",
+            "motherPhone": "+91 9536723700",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -27538,7 +30148,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9536723700",
+        "fatherPhone": "+91 9536723700",
+        "fatherMobile": "+91 9536723700",
+        "mobile": "+91 9536723700",
+        "fatherName": "SHYAM KUMAR SHARMA",
+        "motherName": "POOJA SHARMA"
     },
     {
         "id": "STU-2026-465",
@@ -27559,7 +30175,10 @@ export const initialSchoolData = {
             "fatherName": "NAURANG SINGH",
             "motherName": "SUNITA DEVI",
             "fatherMobile": "8142594231",
-            "address": "RETUKA NAGLA / MAHARAJPUR"
+            "address": "RETUKA NAGLA / MAHARAJPUR",
+            "fatherPhone": "+91 8142594231",
+            "motherPhone": "+91 8142594231",
+            "occupation": "LABOUR"
         },
         "customFields": {
             "penNo": "",
@@ -27592,7 +30211,13 @@ export const initialSchoolData = {
             "stop": "MAHARAJPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8142594231",
+        "fatherPhone": "+91 8142594231",
+        "fatherMobile": "+91 8142594231",
+        "mobile": "+91 8142594231",
+        "fatherName": "NAURANG SINGH",
+        "motherName": "SUNITA DEVI"
     },
     {
         "id": "STU-2026-466",
@@ -27610,10 +30235,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PUSHPENDRA  KUMAR",
-            "motherName": "KM.BHOORI",
+            "fatherName": "SOMVEER",
+            "motherName": "PRABHA DEVI",
             "fatherMobile": "6396452835",
-            "address": "BAGINAGLA, CHIRAURI,"
+            "address": "BAGINAGLA, CHIRAURI,",
+            "fatherPhone": "+91 9720408425",
+            "motherPhone": "+91 9758757129",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27646,7 +30274,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9720408425",
+        "fatherPhone": "+91 9720408425",
+        "fatherMobile": "+91 9720408425",
+        "mobile": "+91 9720408425",
+        "fatherName": "SOMVEER",
+        "motherName": "PRABHA DEVI"
     },
     {
         "id": "STU-2026-467",
@@ -27664,10 +30298,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SOMVEER  SINGH",
-            "motherName": "GAYTRI",
+            "fatherName": "KOUSHLESH",
+            "motherName": "MAMTA DEVI",
             "fatherMobile": "9301173742",
-            "address": "KALIYANPUR BHAGIRATHPUR  ATRAULI  ALIGARH"
+            "address": "KALIYANPUR BHAGIRATHPUR  ATRAULI  ALIGARH",
+            "fatherPhone": "+91 7452883051",
+            "motherPhone": "+91 9528215235",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27700,7 +30337,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7452883051",
+        "fatherPhone": "+91 7452883051",
+        "fatherMobile": "+91 7452883051",
+        "mobile": "+91 7452883051",
+        "fatherName": "KOUSHLESH",
+        "motherName": "MAMTA DEVI"
     },
     {
         "id": "STU-2026-468",
@@ -27718,10 +30361,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VINOD KUMAR",
+            "fatherName": "PRADEEP KUMAR",
             "motherName": "POOJA DEVI",
             "fatherMobile": "9718402012",
-            "address": "NAGLA DHARAKPUR"
+            "address": "NAGLA DHARAKPUR",
+            "fatherPhone": "+91 9536827592",
+            "motherPhone": "+91 9761722945",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27754,7 +30400,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9536827592",
+        "fatherPhone": "+91 9536827592",
+        "fatherMobile": "+91 9536827592",
+        "mobile": "+91 9536827592",
+        "fatherName": "PRADEEP KUMAR",
+        "motherName": "POOJA DEVI"
     },
     {
         "id": "STU-2026-469",
@@ -27772,10 +30424,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ASHEESH KUMAR",
-            "motherName": "KRISHNA SHARMA",
+            "fatherName": "BABLU SHARMA",
+            "motherName": "LATA KUMARI",
             "fatherMobile": "9997620644",
-            "address": "RAMGHAT BULANDSHAHR"
+            "address": "RAMGHAT BULANDSHAHR",
+            "fatherPhone": "+91 8630259199",
+            "motherPhone": "+91 9897878675",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27799,14 +30454,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-470",
-                "name": "DEVANSH",
-                "class": "UKG",
-                "admissionNo": "856",
-                "fatherPhone": "9997620644"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -27815,7 +30463,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8630259199",
+        "fatherPhone": "+91 8630259199",
+        "fatherMobile": "+91 8630259199",
+        "mobile": "+91 8630259199",
+        "fatherName": "BABLU SHARMA",
+        "motherName": "LATA KUMARI"
     },
     {
         "id": "STU-2026-470",
@@ -27833,10 +30487,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ASHEESH KUMAR",
-            "motherName": "KRISHNA SHARMA",
+            "fatherName": "BEERESH KUMAR",
+            "motherName": "AARTI",
             "fatherMobile": "9997620644",
-            "address": "RAMGHAT BULANDSHAHR"
+            "address": "RAMGHAT BULANDSHAHR",
+            "fatherPhone": "+91 9536710970",
+            "motherPhone": "+91 9719434110",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27856,23 +30513,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 21300,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 41600,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 41600,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-469",
-                    "name": "MANYA SHARMA",
-                    "class": "LKG",
-                    "admissionNo": "855",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 20300,
-                    "individualPaid": 0,
-                    "individualBalance": 20300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -27881,7 +30526,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9536710970",
+        "fatherPhone": "+91 9536710970",
+        "fatherMobile": "+91 9536710970",
+        "mobile": "+91 9536710970",
+        "fatherName": "BEERESH KUMAR",
+        "motherName": "AARTI"
     },
     {
         "id": "STU-2026-471",
@@ -27899,10 +30550,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJENDRA KUMAR",
-            "motherName": "NIKKI YADAV",
+            "fatherName": "JITENDRA KUMAR",
+            "motherName": "CHANCHAL",
             "fatherMobile": "9654980558",
-            "address": "MONIPURA RAMGHAT"
+            "address": "MONIPURA RAMGHAT",
+            "fatherPhone": "+91 9899395892",
+            "motherPhone": "+91 9719759053",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -27935,7 +30589,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9899395892",
+        "fatherPhone": "+91 9899395892",
+        "fatherMobile": "+91 9899395892",
+        "mobile": "+91 9899395892",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "CHANCHAL"
     },
     {
         "id": "STU-2026-472",
@@ -27953,10 +30613,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAURAV KUMAR",
-            "motherName": "PRABHA CHAUDHARY",
+            "fatherName": "GAURAV SHARMA",
+            "motherName": "PUNAM SHARMA",
             "fatherMobile": "9897573635",
-            "address": "MAHAKA PANHERA"
+            "address": "MAHAKA PANHERA",
+            "fatherPhone": "+91 7579393895",
+            "motherPhone": "+91 9174475812",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -27989,7 +30652,13 @@ export const initialSchoolData = {
             "stop": "MAHAKA",
             "monthlyFare": 870,
             "annualTransportDue11Months": 9570
-        }
+        },
+        "phone": "+91 7579393895",
+        "fatherPhone": "+91 7579393895",
+        "fatherMobile": "+91 7579393895",
+        "mobile": "+91 7579393895",
+        "fatherName": "GAURAV SHARMA",
+        "motherName": "PUNAM SHARMA"
     },
     {
         "id": "STU-2026-473",
@@ -28007,10 +30676,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAURAV KUMAR",
-            "motherName": "ARTI SHARMA",
+            "fatherName": "AKASH SHARMA",
+            "motherName": "KAJAL KUMARI",
             "fatherMobile": "6396944247",
-            "address": "MAHAKA PANHERA"
+            "address": "MAHAKA PANHERA",
+            "fatherPhone": "+91 9368751908",
+            "motherPhone": "+91 9639080730",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28034,14 +30706,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-251",
-                "name": "GURMEET SHARMA",
-                "class": "I",
-                "admissionNo": "501",
-                "fatherPhone": "6396944247"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -28050,7 +30715,13 @@ export const initialSchoolData = {
             "stop": "MAHAKA",
             "monthlyFare": 870,
             "annualTransportDue11Months": 9570
-        }
+        },
+        "phone": "+91 9368751908",
+        "fatherPhone": "+91 9368751908",
+        "fatherMobile": "+91 9368751908",
+        "mobile": "+91 9368751908",
+        "fatherName": "AKASH SHARMA",
+        "motherName": "KAJAL KUMARI"
     },
     {
         "id": "STU-2026-474",
@@ -28068,10 +30739,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LEELADHAR SINGH",
-            "motherName": "SUSHILA DEVI",
+            "fatherName": "HARIPRAKASH",
+            "motherName": "GIRJESH DEVI",
             "fatherMobile": "8006178283",
-            "address": "BAJHERA DHARAKPUR"
+            "address": "BAJHERA DHARAKPUR",
+            "fatherPhone": "+91 7505838597",
+            "motherPhone": "+91 7505838597",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28104,7 +30778,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7505838597",
+        "fatherPhone": "+91 7505838597",
+        "fatherMobile": "+91 7505838597",
+        "mobile": "+91 7505838597",
+        "fatherName": "HARIPRAKASH",
+        "motherName": "GIRJESH DEVI"
     },
     {
         "id": "STU-2026-475",
@@ -28122,10 +30802,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LEELADHAR SINGH",
-            "motherName": "SUSHILA DEVI",
+            "fatherName": "JITENDRA KUMAR",
+            "motherName": "PRITI DEVI",
             "fatherMobile": "7409641142",
-            "address": "BAJHERA DHARAKPUR"
+            "address": "BAJHERA DHARAKPUR",
+            "fatherPhone": "+91 9394135881",
+            "motherPhone": "+91 8810317983",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28158,7 +30841,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9394135881",
+        "fatherPhone": "+91 9394135881",
+        "fatherMobile": "+91 9394135881",
+        "mobile": "+91 9394135881",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "PRITI DEVI"
     },
     {
         "id": "STU-2026-476",
@@ -28176,10 +30865,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "UMESH KUMAR",
-            "motherName": "RUBI  DEVI",
+            "fatherName": "JITENDRA KUMAR",
+            "motherName": "PRITI DEVI",
             "fatherMobile": "8394870177",
-            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI"
+            "address": "KALIYANPUR BHAGIRATHPUR ATRAULI",
+            "fatherPhone": "+91 9354135881",
+            "motherPhone": "+91 8810317983",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28212,7 +30904,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9354135881",
+        "fatherPhone": "+91 9354135881",
+        "fatherMobile": "+91 9354135881",
+        "mobile": "+91 9354135881",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "PRITI DEVI"
     },
     {
         "id": "STU-2026-477",
@@ -28230,10 +30928,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRAVESH KUMAR",
-            "motherName": "PRITI DEVI",
+            "fatherName": "DHARAMVEER",
+            "motherName": "RENU",
             "fatherMobile": "9758494344",
-            "address": "POOTHRI KHURD SHIKARPUR"
+            "address": "POOTHRI KHURD SHIKARPUR",
+            "fatherPhone": "+91 8630282310",
+            "motherPhone": "+91 7830987469",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28266,7 +30967,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8630282310",
+        "fatherPhone": "+91 8630282310",
+        "fatherMobile": "+91 8630282310",
+        "mobile": "+91 8630282310",
+        "fatherName": "DHARAMVEER",
+        "motherName": "RENU"
     },
     {
         "id": "STU-2026-478",
@@ -28284,10 +30991,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJKUMAR",
-            "motherName": "ROOBI",
+            "fatherName": "AMIT KUMAR",
+            "motherName": "RACHANA CHOUDHARY",
             "fatherMobile": "9634623967",
-            "address": "MUHAMMADPUR BADHERA ATRAULI ALIGARH"
+            "address": "MUHAMMADPUR BADHERA ATRAULI ALIGARH",
+            "fatherPhone": "+91 9720731803",
+            "motherPhone": "+91 9999488149",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28320,7 +31030,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9720731803",
+        "fatherPhone": "+91 9720731803",
+        "fatherMobile": "+91 9720731803",
+        "mobile": "+91 9720731803",
+        "fatherName": "AMIT KUMAR",
+        "motherName": "RACHANA CHOUDHARY"
     },
     {
         "id": "STU-2026-479",
@@ -28338,10 +31054,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "VIKAS VERMA",
-            "motherName": "PRIYANKA KUMARI",
+            "fatherName": "MAHENDRA SINGH",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "9660960201",
-            "address": "RAMGHAT BANGER"
+            "address": "RAMGHAT BANGER",
+            "fatherPhone": "+91 9720553497",
+            "motherPhone": "+91 8585963530",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28374,7 +31093,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9720553497",
+        "fatherPhone": "+91 9720553497",
+        "fatherMobile": "+91 9720553497",
+        "mobile": "+91 9720553497",
+        "fatherName": "MAHENDRA SINGH",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-480",
@@ -28392,10 +31117,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RINKU KUMAR",
-            "motherName": "POONAM DEVI",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9568894183",
-            "address": "HARVANSHPUR JIRAULI DHOOM SINGH"
+            "address": "HARVANSHPUR JIRAULI DHOOM SINGH",
+            "fatherPhone": "+91 9758900479",
+            "motherPhone": "+91 9758900479",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28428,7 +31156,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758900479",
+        "fatherPhone": "+91 9758900479",
+        "fatherMobile": "+91 9758900479",
+        "mobile": "+91 9758900479",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-481",
@@ -28446,10 +31180,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SANJEEV YADAV",
-            "motherName": "MEERA",
+            "fatherName": "RAHUL KUMAR",
+            "motherName": "MAHESHWARI",
             "fatherMobile": "6398937867",
-            "address": "NAGLA AJMERI GUNNOR SAMBHAL"
+            "address": "NAGLA AJMERI GUNNOR SAMBHAL",
+            "fatherPhone": "+91 6395089415",
+            "motherPhone": "+91 8650468442",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28482,7 +31219,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 6395089415",
+        "fatherPhone": "+91 6395089415",
+        "fatherMobile": "+91 6395089415",
+        "mobile": "+91 6395089415",
+        "fatherName": "RAHUL KUMAR",
+        "motherName": "MAHESHWARI"
     },
     {
         "id": "STU-2026-482",
@@ -28500,10 +31243,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MUKESH",
-            "motherName": "BHOORI",
+            "fatherName": "RAHUL KUMAR",
+            "motherName": "MAHESHWARI",
             "fatherMobile": "6395434933",
-            "address": "NAGLA AJMERI GUNNOR SAMBHAL"
+            "address": "NAGLA AJMERI GUNNOR SAMBHAL",
+            "fatherPhone": "+91 6395089415",
+            "motherPhone": "+91 8650468442",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28536,7 +31282,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 6395089415",
+        "fatherPhone": "+91 6395089415",
+        "fatherMobile": "+91 6395089415",
+        "mobile": "+91 6395089415",
+        "fatherName": "RAHUL KUMAR",
+        "motherName": "MAHESHWARI"
     },
     {
         "id": "STU-2026-483",
@@ -28554,10 +31306,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGESH  KUMAR",
-            "motherName": "MEENA KUMARI",
+            "fatherName": "RAHUL KUMAR",
+            "motherName": "MAHESHWARI",
             "fatherMobile": "8445454712",
-            "address": "NAGLA KOTHI JARGWAN BULANDSHAHR"
+            "address": "NAGLA KOTHI JARGWAN BULANDSHAHR",
+            "fatherPhone": "+91 6395089415",
+            "motherPhone": "+91 5650468442",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28590,7 +31345,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 6395089415",
+        "fatherPhone": "+91 6395089415",
+        "fatherMobile": "+91 6395089415",
+        "mobile": "+91 6395089415",
+        "fatherName": "RAHUL KUMAR",
+        "motherName": "MAHESHWARI"
     },
     {
         "id": "STU-2026-484",
@@ -28608,10 +31369,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "NARESH KUMAR",
-            "motherName": "SUNITA DEVI",
+            "fatherName": "YOGENDRA SHARMA",
+            "motherName": "SEEMA",
             "fatherMobile": "7668611207",
-            "address": "GANESHPUR GOVINDPUR"
+            "address": "GANESHPUR GOVINDPUR",
+            "fatherPhone": "+91 8650468911",
+            "motherPhone": "+91 8650468911",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28644,7 +31408,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 8650468911",
+        "fatherPhone": "+91 8650468911",
+        "fatherMobile": "+91 8650468911",
+        "mobile": "+91 8650468911",
+        "fatherName": "YOGENDRA SHARMA",
+        "motherName": "SEEMA"
     },
     {
         "id": "STU-2026-485",
@@ -28662,10 +31432,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "UMESH KUMAR",
-            "motherName": "HEMLATA DEVI",
+            "fatherName": "ADESH KUMAR",
+            "motherName": "MEENA",
             "fatherMobile": "8800498878",
-            "address": "NAGLA VIDHI JARGWAN"
+            "address": "NAGLA VIDHI JARGWAN",
+            "fatherPhone": "+91 8859391978",
+            "motherPhone": "+91 9627755236",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28685,23 +31458,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 18000,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 35000,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35000,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-486",
-                    "name": "RIYANSH KUMAR",
-                    "class": "LKG",
-                    "admissionNo": "812",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 17000,
-                    "individualPaid": 0,
-                    "individualBalance": 17000
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -28710,7 +31471,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 8859391978",
+        "fatherPhone": "+91 8859391978",
+        "fatherMobile": "+91 8859391978",
+        "mobile": "+91 8859391978",
+        "fatherName": "ADESH KUMAR",
+        "motherName": "MEENA"
     },
     {
         "id": "STU-2026-486",
@@ -28728,10 +31495,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "UMESH KUMAR",
-            "motherName": "HEMLATA DEVI",
+            "fatherName": "PRAMOD KUMAR",
+            "motherName": "DEEPIKA",
             "fatherMobile": "8800498878",
-            "address": "NAGLA VIDHI JARGWAN"
+            "address": "NAGLA VIDHI JARGWAN",
+            "fatherPhone": "+91 9627806714",
+            "motherPhone": "+91 8650906244",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28755,14 +31525,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-485",
-                "name": "MOHIT KUMAR",
-                "class": "UKG",
-                "admissionNo": "811",
-                "fatherPhone": "8800498878"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -28771,7 +31534,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9627806714",
+        "fatherPhone": "+91 9627806714",
+        "fatherMobile": "+91 9627806714",
+        "mobile": "+91 9627806714",
+        "fatherName": "PRAMOD KUMAR",
+        "motherName": "DEEPIKA"
     },
     {
         "id": "STU-2026-487",
@@ -28792,7 +31561,10 @@ export const initialSchoolData = {
             "fatherName": "PAVAN KUMAR GUPTA",
             "motherName": "SEEMA GUPTA",
             "fatherMobile": "7505645260",
-            "address": "RAMGHAT BANGER"
+            "address": "RAMGHAT BANGER",
+            "fatherPhone": "+91 7505645260",
+            "motherPhone": "+91 7505645260",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -28816,14 +31588,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-488",
-                "name": "DAKSH KUMAR GUPTA",
-                "class": "I",
-                "admissionNo": "814",
-                "fatherPhone": "7505645260"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -28832,7 +31597,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7505645260",
+        "fatherPhone": "+91 7505645260",
+        "fatherMobile": "+91 7505645260",
+        "mobile": "+91 7505645260",
+        "fatherName": "PAVAN KUMAR GUPTA",
+        "motherName": "SEEMA GUPTA"
     },
     {
         "id": "STU-2026-488",
@@ -28850,10 +31621,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PAVAN KUMAR GUPTA",
-            "motherName": "SEEMA GUPTA",
+            "fatherName": "DIPANSHU UPADHAYA",
+            "motherName": "GEETANJALI",
             "fatherMobile": "7505645260",
-            "address": "RAMGHAT BULANDSHAHR"
+            "address": "RAMGHAT BULANDSHAHR",
+            "fatherPhone": "+91 9027689245",
+            "motherPhone": "+91 9837260584",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28873,23 +31647,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 22300,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 42600,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42600,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-487",
-                    "name": "DEEP",
-                    "class": "LKG",
-                    "admissionNo": "813",
-                    "tuitionDue": 11500,
-                    "transportDue11Months": 8800,
-                    "individualDue": 20300,
-                    "individualPaid": 0,
-                    "individualBalance": 20300
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -28898,7 +31660,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9027689245",
+        "fatherPhone": "+91 9027689245",
+        "fatherMobile": "+91 9027689245",
+        "mobile": "+91 9027689245",
+        "fatherName": "DIPANSHU UPADHAYA",
+        "motherName": "GEETANJALI"
     },
     {
         "id": "STU-2026-489",
@@ -28916,10 +31684,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARENDRA KUMAR",
-            "motherName": "ANJALI",
+            "fatherName": "DIPANSHU UPADHAYA",
+            "motherName": "GEETANJALI",
             "fatherMobile": "9719713665",
-            "address": "BAJHERA POST DHARAKPUR"
+            "address": "BAJHERA POST DHARAKPUR",
+            "fatherPhone": "+91 9027689245",
+            "motherPhone": "+91 8937260584",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -28952,7 +31723,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9027689245",
+        "fatherPhone": "+91 9027689245",
+        "fatherMobile": "+91 9027689245",
+        "mobile": "+91 9027689245",
+        "fatherName": "DIPANSHU UPADHAYA",
+        "motherName": "GEETANJALI"
     },
     {
         "id": "STU-2026-490",
@@ -28973,7 +31750,10 @@ export const initialSchoolData = {
             "fatherName": "RAMBABU SINGH",
             "motherName": "URMILA",
             "fatherMobile": "9719304150",
-            "address": "NAGLA   SHUMALI"
+            "address": "NAGLA   SHUMALI",
+            "fatherPhone": "+91 9719304150",
+            "motherPhone": "+91 9719304150",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -29006,7 +31786,13 @@ export const initialSchoolData = {
             "stop": "NAGLA SHUMALI",
             "monthlyFare": 410,
             "annualTransportDue11Months": 4510
-        }
+        },
+        "phone": "+91 9719304150",
+        "fatherPhone": "+91 9719304150",
+        "fatherMobile": "+91 9719304150",
+        "mobile": "+91 9719304150",
+        "fatherName": "RAMBABU SINGH",
+        "motherName": "URMILA"
     },
     {
         "id": "STU-2026-491",
@@ -29027,7 +31813,10 @@ export const initialSchoolData = {
             "fatherName": "MUNISH KUMAR",
             "motherName": "MANOJ BHARTI",
             "fatherMobile": "9368185424",
-            "address": "SILHARI RAMGHAT BULANDSHAR"
+            "address": "SILHARI RAMGHAT BULANDSHAR",
+            "fatherPhone": "+91 9457076490",
+            "motherPhone": "+91 9368185424",
+            "occupation": "LABOUR"
         },
         "customFields": {
             "penNo": "",
@@ -29060,7 +31849,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9457076490",
+        "fatherPhone": "+91 9457076490",
+        "fatherMobile": "+91 9457076490",
+        "mobile": "+91 9457076490",
+        "fatherName": "MUNISH KUMAR",
+        "motherName": "MANOJ BHARTI"
     },
     {
         "id": "STU-2026-492",
@@ -29081,7 +31876,10 @@ export const initialSchoolData = {
             "fatherName": "DURGESH KUMAR",
             "motherName": "SEEMA DEVI",
             "fatherMobile": "9720542899",
-            "address": "KUNJALPUR  GAHTOLI"
+            "address": "KUNJALPUR  GAHTOLI",
+            "fatherPhone": "+91 9720542899",
+            "motherPhone": "+91 9720542899",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -29114,7 +31912,13 @@ export const initialSchoolData = {
             "stop": "KUNJALPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9720542899",
+        "fatherPhone": "+91 9720542899",
+        "fatherMobile": "+91 9720542899",
+        "mobile": "+91 9720542899",
+        "fatherName": "DURGESH KUMAR",
+        "motherName": "SEEMA DEVI"
     },
     {
         "id": "STU-2026-493",
@@ -29132,10 +31936,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHARMVEER",
-            "motherName": "KM. RENU",
+            "fatherName": "HARGYAN SINGH",
+            "motherName": "KAVITA DEVI",
             "fatherMobile": "7830987469",
-            "address": "PESARI RAMGHAT"
+            "address": "PESARI RAMGHAT",
+            "fatherPhone": "+91 9654329622",
+            "motherPhone": "+91 9654329622",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -29168,7 +31975,13 @@ export const initialSchoolData = {
             "stop": "PESARI",
             "monthlyFare": 850,
             "annualTransportDue11Months": 9350
-        }
+        },
+        "phone": "+91 9654329622",
+        "fatherPhone": "+91 9654329622",
+        "fatherMobile": "+91 9654329622",
+        "mobile": "+91 9654329622",
+        "fatherName": "HARGYAN SINGH",
+        "motherName": "KAVITA DEVI"
     },
     {
         "id": "STU-2026-494",
@@ -29189,7 +32002,10 @@ export const initialSchoolData = {
             "fatherName": "JITENDRA",
             "motherName": "SUDHA",
             "fatherMobile": "8937053454",
-            "address": "NAGLA VIDHI"
+            "address": "NAGLA VIDHI",
+            "fatherPhone": "+91 8937053454",
+            "motherPhone": "+91 8937053454",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -29222,7 +32038,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 8937053454",
+        "fatherPhone": "+91 8937053454",
+        "fatherMobile": "+91 8937053454",
+        "mobile": "+91 8937053454",
+        "fatherName": "JITENDRA",
+        "motherName": "SUDHA"
     },
     {
         "id": "STU-2026-495",
@@ -29240,10 +32062,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ASHOK KUMAR",
-            "motherName": "RINKI KUMARI",
+            "fatherName": "MANOJ KUMAR",
+            "motherName": "SUMAN DEVI",
             "fatherMobile": "8954102860",
-            "address": "SAME"
+            "address": "SAME",
+            "fatherPhone": "+91 9720917852",
+            "motherPhone": "+91 9354146778",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -29276,7 +32101,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9720917852",
+        "fatherPhone": "+91 9720917852",
+        "fatherMobile": "+91 9720917852",
+        "mobile": "+91 9720917852",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-496",
@@ -29294,10 +32125,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMKISHAN VERMA",
-            "motherName": "MAMTA DEVI",
+            "fatherName": "SURESH BABU",
+            "motherName": "JYOTI",
             "fatherMobile": "7505408627",
-            "address": "GANESHPUR GOVINDPUR"
+            "address": "GANESHPUR GOVINDPUR",
+            "fatherPhone": "+91 7302344463",
+            "motherPhone": "+91 9761099907",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -29330,7 +32164,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 7302344463",
+        "fatherPhone": "+91 7302344463",
+        "fatherMobile": "+91 7302344463",
+        "mobile": "+91 7302344463",
+        "fatherName": "SURESH BABU",
+        "motherName": "JYOTI"
     },
     {
         "id": "STU-2026-497",
@@ -29348,10 +32188,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAMKISHAN VERMA",
-            "motherName": "MAMTA DEVI",
+            "fatherName": "NITIN SHARMA",
+            "motherName": "RANI SHARMA",
             "fatherMobile": "9536931983",
-            "address": "GANESHPUR GOVINDPUR"
+            "address": "GANESHPUR GOVINDPUR",
+            "fatherPhone": "+91 7820097256",
+            "motherPhone": "+91 7011735110",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -29384,7 +32227,13 @@ export const initialSchoolData = {
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
-        }
+        },
+        "phone": "+91 7820097256",
+        "fatherPhone": "+91 7820097256",
+        "fatherMobile": "+91 7820097256",
+        "mobile": "+91 7820097256",
+        "fatherName": "NITIN SHARMA",
+        "motherName": "RANI SHARMA"
     },
     {
         "id": "STU-2026-498",
@@ -29402,10 +32251,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JASVANT SINGH",
-            "motherName": "BALA DEVI",
+            "fatherName": "NITIN SHARMA",
+            "motherName": "RANI SHARMA",
             "fatherMobile": "7830636123",
-            "address": "CHAKATHAL ATRAULI"
+            "address": "CHAKATHAL ATRAULI",
+            "fatherPhone": "+91 7820097256",
+            "motherPhone": "+91 7011735110",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -29425,23 +32277,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 27750,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 51500,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 51500,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-499",
-                    "name": "AARUSH CHAUDHARY",
-                    "class": "V",
-                    "admissionNo": "825",
-                    "tuitionDue": 15500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 23750,
-                    "individualPaid": 0,
-                    "individualBalance": 23750
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -29450,7 +32290,13 @@ export const initialSchoolData = {
             "stop": "CHAKATHAL",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7820097256",
+        "fatherPhone": "+91 7820097256",
+        "fatherMobile": "+91 7820097256",
+        "mobile": "+91 7820097256",
+        "fatherName": "NITIN SHARMA",
+        "motherName": "RANI SHARMA"
     },
     {
         "id": "STU-2026-499",
@@ -29468,10 +32314,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JASVANT SINGH",
-            "motherName": "BALA DEVI",
+            "fatherName": "SHYAM SUNDAR",
+            "motherName": "BAVEETA",
             "fatherMobile": "7830636123",
-            "address": "CHAKATHAL ATRAULI"
+            "address": "CHAKATHAL ATRAULI",
+            "fatherPhone": "+91 7668457469",
+            "motherPhone": "+91 9399994924",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -29495,14 +32344,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-498",
-                "name": "CHANDANI CHAUDHARY",
-                "class": "IX",
-                "admissionNo": "824",
-                "fatherPhone": "7830636123"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -29511,7 +32353,13 @@ export const initialSchoolData = {
             "stop": "CHAKATHAL",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7668457469",
+        "fatherPhone": "+91 7668457469",
+        "fatherMobile": "+91 7668457469",
+        "mobile": "+91 7668457469",
+        "fatherName": "SHYAM SUNDAR",
+        "motherName": "BAVEETA"
     },
     {
         "id": "STU-2026-500",
@@ -29532,7 +32380,10 @@ export const initialSchoolData = {
             "fatherName": "VIJAY KUMAR",
             "motherName": "RAJNI KUMARI",
             "fatherMobile": "8865088876",
-            "address": "NAGLA KOTHI JARGWAN BULANDSHAHR"
+            "address": "NAGLA KOTHI JARGWAN BULANDSHAHR",
+            "fatherPhone": "+91 8865088876",
+            "motherPhone": "+91 8865088876",
+            "occupation": "LABOUR"
         },
         "customFields": {
             "penNo": "",
@@ -29556,14 +32407,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-316",
-                "name": "KANAK",
-                "class": "III",
-                "admissionNo": "622",
-                "fatherPhone": "8865088876"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -29572,7 +32416,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8865088876",
+        "fatherPhone": "+91 8865088876",
+        "fatherMobile": "+91 8865088876",
+        "mobile": "+91 8865088876",
+        "fatherName": "VIJAY KUMAR",
+        "motherName": "RAJNI KUMARI"
     },
     {
         "id": "STU-2026-501",
@@ -29593,7 +32443,10 @@ export const initialSchoolData = {
             "fatherName": "MUNISH KUMAR",
             "motherName": "REKHA",
             "fatherMobile": "9412129478",
-            "address": "RAMVVAS URF MONIPURA RAMGHAT BULANDSHSHR"
+            "address": "RAMVVAS URF MONIPURA RAMGHAT BULANDSHSHR",
+            "fatherPhone": "+91 9412129478",
+            "motherPhone": "+91 9412129478",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -29626,7 +32479,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9412129478",
+        "fatherPhone": "+91 9412129478",
+        "fatherMobile": "+91 9412129478",
+        "mobile": "+91 9412129478",
+        "fatherName": "MUNISH KUMAR",
+        "motherName": "REKHA"
     },
     {
         "id": "STU-2026-502",
@@ -29647,7 +32506,10 @@ export const initialSchoolData = {
             "fatherName": "INDRAVESH",
             "motherName": "ANITA",
             "fatherMobile": "7505641639",
-            "address": "NAGLA AJMERI DANDA SAMBHAL"
+            "address": "NAGLA AJMERI DANDA SAMBHAL",
+            "fatherPhone": "+91 7505641639",
+            "motherPhone": "+91 7505641639",
+            "occupation": "12TH"
         },
         "customFields": {
             "penNo": "",
@@ -29667,23 +32529,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 23350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 42700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-503",
-                    "name": "SONU",
-                    "class": "V",
-                    "admissionNo": "891",
-                    "tuitionDue": 15500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 19350,
-                    "individualPaid": 0,
-                    "individualBalance": 19350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -29692,7 +32542,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7505641639",
+        "fatherPhone": "+91 7505641639",
+        "fatherMobile": "+91 7505641639",
+        "mobile": "+91 7505641639",
+        "fatherName": "INDRAVESH",
+        "motherName": "ANITA"
     },
     {
         "id": "STU-2026-503",
@@ -29710,10 +32566,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "INDRAVESH",
-            "motherName": "ANITA",
+            "fatherName": "ANSHUL KUMAR",
+            "motherName": "POOJA DEVI",
             "fatherMobile": "7505641639",
-            "address": "NAGLA AJMERI DANDA SAMBHAL"
+            "address": "NAGLA AJMERI DANDA SAMBHAL",
+            "fatherPhone": "+91 9457076490",
+            "motherPhone": "+91 9457076490",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -29737,14 +32596,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-502",
-                "name": "BABLU",
-                "class": "IX",
-                "admissionNo": "830",
-                "fatherPhone": "7505641639"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -29753,7 +32605,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9457076490",
+        "fatherPhone": "+91 9457076490",
+        "fatherMobile": "+91 9457076490",
+        "mobile": "+91 9457076490",
+        "fatherName": "ANSHUL KUMAR",
+        "motherName": "POOJA DEVI"
     },
     {
         "id": "STU-2026-504",
@@ -29771,10 +32629,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJU",
-            "motherName": "ASHA DEVI",
+            "fatherName": "ANSHUL KUMAR",
+            "motherName": "POOJA DEVI",
             "fatherMobile": "9761122723",
-            "address": "NAGLA AJMERI DANDA SAMBHAL"
+            "address": "NAGLA AJMERI DANDA SAMBHAL",
+            "fatherPhone": "+91 9457076490",
+            "motherPhone": "+91 9457076490",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -29807,7 +32668,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9457076490",
+        "fatherPhone": "+91 9457076490",
+        "fatherMobile": "+91 9457076490",
+        "mobile": "+91 9457076490",
+        "fatherName": "ANSHUL KUMAR",
+        "motherName": "POOJA DEVI"
     },
     {
         "id": "STU-2026-505",
@@ -29828,7 +32695,10 @@ export const initialSchoolData = {
             "fatherName": "HARENDRA SHARMA",
             "motherName": "POOJA SHARMA",
             "fatherMobile": "8445897089",
-            "address": "RAMGHAT BANGER DEBAI BULANDSHAHR"
+            "address": "RAMGHAT BANGER DEBAI BULANDSHAHR",
+            "fatherPhone": "+91 8445897089",
+            "motherPhone": "+91 8445897089",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -29861,7 +32731,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8445897089",
+        "fatherPhone": "+91 8445897089",
+        "fatherMobile": "+91 8445897089",
+        "mobile": "+91 8445897089",
+        "fatherName": "HARENDRA SHARMA",
+        "motherName": "POOJA SHARMA"
     },
     {
         "id": "STU-2026-506",
@@ -29882,7 +32758,10 @@ export const initialSchoolData = {
             "fatherName": "DEVENDRA KUMAR",
             "motherName": "SUMAN DEVI",
             "fatherMobile": "7417319689",
-            "address": "NAGLA DHARAKPUR DEBAI BULANDSHAHR"
+            "address": "NAGLA DHARAKPUR DEBAI BULANDSHAHR",
+            "fatherPhone": "+91 7417319689",
+            "motherPhone": "+91 7417319689",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -29915,7 +32794,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7417319689",
+        "fatherPhone": "+91 7417319689",
+        "fatherMobile": "+91 7417319689",
+        "mobile": "+91 7417319689",
+        "fatherName": "DEVENDRA KUMAR",
+        "motherName": "SUMAN DEVI"
     },
     {
         "id": "STU-2026-507",
@@ -29933,10 +32818,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRASHANT KUMAR",
-            "motherName": "CHANDANI",
+            "fatherName": "RAM NARESH SINGH",
+            "motherName": "PRITI KUMARI",
             "fatherMobile": "8384888479",
-            "address": "JARGWAN BULANDSHAHR"
+            "address": "JARGWAN BULANDSHAHR",
+            "fatherPhone": "+91 9891490059",
+            "motherPhone": "+91 9891490059",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -29969,7 +32857,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9891490059",
+        "fatherPhone": "+91 9891490059",
+        "fatherMobile": "+91 9891490059",
+        "mobile": "+91 9891490059",
+        "fatherName": "RAM NARESH SINGH",
+        "motherName": "PRITI KUMARI"
     },
     {
         "id": "STU-2026-508",
@@ -29990,7 +32884,10 @@ export const initialSchoolData = {
             "fatherName": "MANOJ KUMAR",
             "motherName": "MADHU",
             "fatherMobile": "9870897428",
-            "address": "NAGLA JATNI RAMGHAT BULANDSHAHR"
+            "address": "NAGLA JATNI RAMGHAT BULANDSHAHR",
+            "fatherPhone": "+91 9870897428",
+            "motherPhone": "+91 9870897428",
+            "occupation": "AGRICULTURE/PRIVATE JOB"
         },
         "customFields": {
             "penNo": "",
@@ -30030,7 +32927,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9870897428",
+        "fatherPhone": "+91 9870897428",
+        "fatherMobile": "+91 9870897428",
+        "mobile": "+91 9870897428",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "MADHU"
     },
     {
         "id": "STU-2026-509",
@@ -30048,10 +32951,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LOVKESH",
-            "motherName": "SEEMA DEVI",
+            "fatherName": "RAM NARESH SINGH",
+            "motherName": "PRITI KUMARI",
             "fatherMobile": "9560118289",
-            "address": "MUHAMMADPUR BADHERA ATRAULI ALIGARH"
+            "address": "MUHAMMADPUR BADHERA ATRAULI ALIGARH",
+            "fatherPhone": "+91 8991490059",
+            "motherPhone": "+91 8991490059",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30084,7 +32990,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 8991490059",
+        "fatherPhone": "+91 8991490059",
+        "fatherMobile": "+91 8991490059",
+        "mobile": "+91 8991490059",
+        "fatherName": "RAM NARESH SINGH",
+        "motherName": "PRITI KUMARI"
     },
     {
         "id": "STU-2026-510",
@@ -30102,10 +33014,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "HARENDRA KUMAR",
-            "motherName": "Manju DEVI",
+            "fatherName": "VINOD KUMAR",
+            "motherName": "VIMLESH KUMAR",
             "fatherMobile": "9873569964",
-            "address": "JARGWAN BULANDSHAHR"
+            "address": "JARGWAN BULANDSHAHR",
+            "fatherPhone": "+91 9759708431",
+            "motherPhone": "+91 9136064911",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30138,7 +33053,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9759708431",
+        "fatherPhone": "+91 9759708431",
+        "fatherMobile": "+91 9759708431",
+        "mobile": "+91 9759708431",
+        "fatherName": "VINOD KUMAR",
+        "motherName": "VIMLESH KUMAR"
     },
     {
         "id": "STU-2026-511",
@@ -30156,10 +33077,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YATENDRA",
-            "motherName": "MEENA",
+            "fatherName": "HARIOM KUMAR",
+            "motherName": "KIRTI KUMARI",
             "fatherMobile": "8439048856",
-            "address": "BAJHERA"
+            "address": "BAJHERA",
+            "fatherPhone": "+91 9758900510",
+            "motherPhone": "+91 9758900510",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30192,7 +33116,13 @@ export const initialSchoolData = {
             "stop": "BAJHERA",
             "monthlyFare": 700,
             "annualTransportDue11Months": 7700
-        }
+        },
+        "phone": "+91 9758900510",
+        "fatherPhone": "+91 9758900510",
+        "fatherMobile": "+91 9758900510",
+        "mobile": "+91 9758900510",
+        "fatherName": "HARIOM KUMAR",
+        "motherName": "KIRTI KUMARI"
     },
     {
         "id": "STU-2026-512",
@@ -30210,10 +33140,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHARMENDRA",
-            "motherName": "SHIVA",
+            "fatherName": "ANIL KUMAR",
+            "motherName": "BEENESH",
             "fatherMobile": "6396536661",
-            "address": "JIRAULI DHOOM SINGH"
+            "address": "JIRAULI DHOOM SINGH",
+            "fatherPhone": "+91 7830214462",
+            "motherPhone": "+91 7830214462",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30246,7 +33179,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7830214462",
+        "fatherPhone": "+91 7830214462",
+        "fatherMobile": "+91 7830214462",
+        "mobile": "+91 7830214462",
+        "fatherName": "ANIL KUMAR",
+        "motherName": "BEENESH"
     },
     {
         "id": "STU-2026-513",
@@ -30264,10 +33203,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHIVAM",
-            "motherName": "MANSI",
+            "fatherName": "RINESH",
+            "motherName": "SUMAN",
             "fatherMobile": "8384837949",
-            "address": "JARGWAN BULANDSHAHR"
+            "address": "JARGWAN BULANDSHAHR",
+            "fatherPhone": "+91 9027913722",
+            "motherPhone": "+91 9027913722",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30291,14 +33233,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-415",
-                "name": "MANYA",
-                "class": "NURSERY",
-                "admissionNo": "767",
-                "fatherPhone": "8384837949"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -30307,7 +33242,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9027913722",
+        "fatherPhone": "+91 9027913722",
+        "fatherMobile": "+91 9027913722",
+        "mobile": "+91 9027913722",
+        "fatherName": "RINESH",
+        "motherName": "SUMAN"
     },
     {
         "id": "STU-2026-514",
@@ -30325,10 +33266,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAVENDRA KUMAR",
-            "motherName": "RANI DEVI",
+            "fatherName": "NETRAPAL SINGH",
+            "motherName": "RAKHI",
             "fatherMobile": "9105439039",
-            "address": "NAGLA VIDHI JARGWAN"
+            "address": "NAGLA VIDHI JARGWAN",
+            "fatherPhone": "+91 7248033715",
+            "motherPhone": "+91 999005806",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30361,7 +33305,13 @@ export const initialSchoolData = {
             "stop": "NAGLA VIDHI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 7248033715",
+        "fatherPhone": "+91 7248033715",
+        "fatherMobile": "+91 7248033715",
+        "mobile": "+91 7248033715",
+        "fatherName": "NETRAPAL SINGH",
+        "motherName": "RAKHI"
     },
     {
         "id": "STU-2026-515",
@@ -30379,10 +33329,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ARUN KUMAR",
-            "motherName": "SARASWATI",
+            "fatherName": "VIJENDRA SINGH",
+            "motherName": "ANJALI",
             "fatherMobile": "7536023654",
-            "address": "MUHAMMADPUR BADHERA"
+            "address": "MUHAMMADPUR BADHERA",
+            "fatherPhone": "+91 7417417419",
+            "motherPhone": "+91 7535818181",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30415,7 +33368,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 7417417419",
+        "fatherPhone": "+91 7417417419",
+        "fatherMobile": "+91 7417417419",
+        "mobile": "+91 7417417419",
+        "fatherName": "VIJENDRA SINGH",
+        "motherName": "ANJALI"
     },
     {
         "id": "STU-2026-516",
@@ -30433,10 +33392,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AMIT KUMAR SHARMA",
-            "motherName": "DURGESH SHARMA",
+            "fatherName": "UMESH YADAV",
+            "motherName": "RUVI",
             "fatherMobile": "8510822051",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 7819961153",
+            "motherPhone": "+91 7819961153",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30460,14 +33422,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-292",
-                "name": "VISHAKA SHARMA",
-                "class": "XI",
-                "admissionNo": "576",
-                "fatherPhone": "8510822051"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -30476,7 +33431,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7819961153",
+        "fatherPhone": "+91 7819961153",
+        "fatherMobile": "+91 7819961153",
+        "mobile": "+91 7819961153",
+        "fatherName": "UMESH YADAV",
+        "motherName": "RUVI"
     },
     {
         "id": "STU-2026-517",
@@ -30494,10 +33455,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AKASH SHARMA",
-            "motherName": "KAJAL KUMARI",
+            "fatherName": "NITIN KUMAR",
+            "motherName": "RANI DEVI",
             "fatherMobile": "9368751908",
-            "address": "LOHGARH"
+            "address": "LOHGARH",
+            "fatherPhone": "+91 9758900516",
+            "motherPhone": "+91 9758900516",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30530,7 +33494,13 @@ export const initialSchoolData = {
             "stop": "LOHGARH",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9758900516",
+        "fatherPhone": "+91 9758900516",
+        "fatherMobile": "+91 9758900516",
+        "mobile": "+91 9758900516",
+        "fatherName": "NITIN KUMAR",
+        "motherName": "RANI DEVI"
     },
     {
         "id": "STU-2026-518",
@@ -30548,10 +33518,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MEGHENDRA SHARMA",
-            "motherName": "POOJA  DEVI",
+            "fatherName": "VINOD KUMAR",
+            "motherName": "PRAVESH DEVI",
             "fatherMobile": "7906340619",
-            "address": "KUDHAINI CHIROURI"
+            "address": "KUDHAINI CHIROURI",
+            "fatherPhone": "+91 790679947",
+            "motherPhone": "+91 8504995636",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30575,14 +33548,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-440",
-                "name": "KAUSHIK SHARMA",
-                "class": "VI",
-                "admissionNo": "844",
-                "fatherPhone": "7906340619"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -30591,7 +33557,13 @@ export const initialSchoolData = {
             "stop": "CHIROURI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 790679947",
+        "fatherPhone": "+91 790679947",
+        "fatherMobile": "+91 790679947",
+        "mobile": "+91 790679947",
+        "fatherName": "VINOD KUMAR",
+        "motherName": "PRAVESH DEVI"
     },
     {
         "id": "STU-2026-519",
@@ -30609,10 +33581,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RUKAMPAL",
-            "motherName": "BAUBEE",
+            "fatherName": "PRATAP SINGH",
+            "motherName": "RAJESHWARI DEVI",
             "fatherMobile": "9758687733",
-            "address": "NOJALPUR KHADAR"
+            "address": "NOJALPUR KHADAR",
+            "fatherPhone": "+91 6395659402",
+            "motherPhone": "+91 9639383960",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30645,7 +33620,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 6395659402",
+        "fatherPhone": "+91 6395659402",
+        "fatherMobile": "+91 6395659402",
+        "mobile": "+91 6395659402",
+        "fatherName": "PRATAP SINGH",
+        "motherName": "RAJESHWARI DEVI"
     },
     {
         "id": "STU-2026-520",
@@ -30663,10 +33644,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRAVESH KUMAR",
-            "motherName": "PRIYANKA",
+            "fatherName": "YOGENDRA KUMAR",
+            "motherName": "SUMITRA DEVI",
             "fatherMobile": "8954589440",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 7300991046",
+            "motherPhone": "+91 9910464431",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30699,7 +33683,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7300991046",
+        "fatherPhone": "+91 7300991046",
+        "fatherMobile": "+91 7300991046",
+        "mobile": "+91 7300991046",
+        "fatherName": "YOGENDRA KUMAR",
+        "motherName": "SUMITRA DEVI"
     },
     {
         "id": "STU-2026-521",
@@ -30717,10 +33707,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "BANI",
-            "motherName": "VINEETA",
+            "fatherName": "YOGENDRA",
+            "motherName": "SUMITRA DEVI",
             "fatherMobile": "9690556281",
-            "address": "NOJALPUR KHADAR"
+            "address": "NOJALPUR KHADAR",
+            "fatherPhone": "+91 9910464431",
+            "motherPhone": "+91 7300991046",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30753,7 +33746,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9910464431",
+        "fatherPhone": "+91 9910464431",
+        "fatherMobile": "+91 9910464431",
+        "mobile": "+91 9910464431",
+        "fatherName": "YOGENDRA",
+        "motherName": "SUMITRA DEVI"
     },
     {
         "id": "STU-2026-522",
@@ -30771,10 +33770,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MAHIPAL",
-            "motherName": "PREMLATA DEVI",
+            "fatherName": "KULDEEP",
+            "motherName": "RENU DEVI",
             "fatherMobile": "9909583035",
-            "address": "VIJAY NAGLIYA"
+            "address": "VIJAY NAGLIYA",
+            "fatherPhone": "+91 9675318376",
+            "motherPhone": "+91 7830799794",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30807,7 +33809,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675318376",
+        "fatherPhone": "+91 9675318376",
+        "fatherMobile": "+91 9675318376",
+        "mobile": "+91 9675318376",
+        "fatherName": "KULDEEP",
+        "motherName": "RENU DEVI"
     },
     {
         "id": "STU-2026-523",
@@ -30825,10 +33833,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJESH KUMAR",
-            "motherName": "RAM DEVI",
+            "fatherName": "KULDEEP YADAV",
+            "motherName": "RENU DEVI",
             "fatherMobile": "7409788792",
-            "address": "MUDHAKHERA, JARGWAN"
+            "address": "MUDHAKHERA, JARGWAN",
+            "fatherPhone": "+91 7675318376",
+            "motherPhone": "+91 7830799794",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30861,7 +33872,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7675318376",
+        "fatherPhone": "+91 7675318376",
+        "fatherMobile": "+91 7675318376",
+        "mobile": "+91 7675318376",
+        "fatherName": "KULDEEP YADAV",
+        "motherName": "RENU DEVI"
     },
     {
         "id": "STU-2026-524",
@@ -30879,10 +33896,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRAMOD KUMAR",
-            "motherName": "LADO DEVI",
+            "fatherName": "VED PRAKASH",
+            "motherName": "HEMLATA ARYA",
             "fatherMobile": "8006515632",
-            "address": "NAGLA JATNI RAMGHAT BULANDSHAHR"
+            "address": "NAGLA JATNI RAMGHAT BULANDSHAHR",
+            "fatherPhone": "+91 7668389167",
+            "motherPhone": "+91 7618426838",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -30915,7 +33935,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7668389167",
+        "fatherPhone": "+91 7668389167",
+        "fatherMobile": "+91 7668389167",
+        "mobile": "+91 7668389167",
+        "fatherName": "VED PRAKASH",
+        "motherName": "HEMLATA ARYA"
     },
     {
         "id": "STU-2026-525",
@@ -30936,7 +33962,10 @@ export const initialSchoolData = {
             "fatherName": "OMKAR SINGH",
             "motherName": "MUNNI DEVI",
             "fatherMobile": "9719613145",
-            "address": "NAGLA TODI"
+            "address": "NAGLA TODI",
+            "fatherPhone": "+91 9719613145",
+            "motherPhone": "+91 9719613145",
+            "occupation": "BUSINESS"
         },
         "customFields": {
             "penNo": "",
@@ -30969,7 +33998,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9719613145",
+        "fatherPhone": "+91 9719613145",
+        "fatherMobile": "+91 9719613145",
+        "mobile": "+91 9719613145",
+        "fatherName": "OMKAR SINGH",
+        "motherName": "MUNNI DEVI"
     },
     {
         "id": "STU-2026-526",
@@ -30987,10 +34022,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SOMVEER",
-            "motherName": "SEEMA",
+            "fatherName": "SHIVAM",
+            "motherName": " MANSI",
             "fatherMobile": "9058636403",
-            "address": "KUDHAINI"
+            "address": "KUDHAINI",
+            "fatherPhone": "+91 6398983141",
+            "motherPhone": "+91 8384837949",
+            "occupation": "BUSSUNESS"
         },
         "customFields": {
             "penNo": "",
@@ -31023,7 +34061,13 @@ export const initialSchoolData = {
             "stop": "KUDHAINI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 6398983141",
+        "fatherPhone": "+91 6398983141",
+        "fatherMobile": "+91 6398983141",
+        "mobile": "+91 6398983141",
+        "fatherName": "SHIVAM",
+        "motherName": " MANSI"
     },
     {
         "id": "STU-2026-527",
@@ -31044,7 +34088,10 @@ export const initialSchoolData = {
             "fatherName": "MANOJ KUMAR",
             "motherName": "ANGOORI DEVI",
             "fatherMobile": "9761145042",
-            "address": "NAGLA JATANI RAMGHAT BULANDSHAHR"
+            "address": "NAGLA JATANI RAMGHAT BULANDSHAHR",
+            "fatherPhone": "+91 9761145042",
+            "motherPhone": "+91 9761145042",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -31077,7 +34124,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9761145042",
+        "fatherPhone": "+91 9761145042",
+        "fatherMobile": "+91 9761145042",
+        "mobile": "+91 9761145042",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "ANGOORI DEVI"
     },
     {
         "id": "STU-2026-528",
@@ -31098,7 +34151,10 @@ export const initialSchoolData = {
             "fatherName": "SANJAY KUMAR",
             "motherName": "NEETU KUMARI",
             "fatherMobile": "8368791082",
-            "address": "CHIRAURI"
+            "address": "CHIRAURI",
+            "fatherPhone": "+91 8368791082",
+            "motherPhone": "+91 8368791082",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -31131,7 +34187,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8368791082",
+        "fatherPhone": "+91 8368791082",
+        "fatherMobile": "+91 8368791082",
+        "mobile": "+91 8368791082",
+        "fatherName": "SANJAY KUMAR",
+        "motherName": "NEETU KUMARI"
     },
     {
         "id": "STU-2026-529",
@@ -31149,10 +34211,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SHILENDRA KUMAR",
-            "motherName": "KUSUM",
+            "fatherName": "PREM SINGH",
+            "motherName": "GITA DEVI",
             "fatherMobile": "9720882749",
-            "address": "BAIJALA KOTHI ATRAULI ALIGARH"
+            "address": "BAIJALA KOTHI ATRAULI ALIGARH",
+            "fatherPhone": "+91 7818858356",
+            "motherPhone": "+91 9917732560",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -31185,7 +34250,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 7818858356",
+        "fatherPhone": "+91 7818858356",
+        "fatherMobile": "+91 7818858356",
+        "mobile": "+91 7818858356",
+        "fatherName": "PREM SINGH",
+        "motherName": "GITA DEVI"
     },
     {
         "id": "STU-2026-530",
@@ -31203,10 +34274,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAM NARESH SINGH",
-            "motherName": "PRITI KUMARI",
+            "fatherName": "PREM SINGH",
+            "motherName": "GITA DEVI",
             "fatherMobile": "8991490059",
-            "address": "BAIJALA ATRAULI ALIGARH"
+            "address": "BAIJALA ATRAULI ALIGARH",
+            "fatherPhone": "+91 7818858356",
+            "motherPhone": "+91 9917732560",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -31230,14 +34304,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-399",
-                "name": "MAYANK KUMAR",
-                "class": "NURSERY",
-                "admissionNo": "749",
-                "fatherPhone": "8991490059"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -31246,7 +34313,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 7818858356",
+        "fatherPhone": "+91 7818858356",
+        "fatherMobile": "+91 7818858356",
+        "mobile": "+91 7818858356",
+        "fatherName": "PREM SINGH",
+        "motherName": "GITA DEVI"
     },
     {
         "id": "STU-2026-531",
@@ -31264,10 +34337,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PRAKASHI",
-            "motherName": "URMILA DEVI",
+            "fatherName": "GAJRAJ SINGH",
+            "motherName": "PINKI RAJPUT",
             "fatherMobile": "8650678109",
-            "address": "CHIRAURI"
+            "address": "CHIRAURI",
+            "fatherPhone": "+91 9719945764",
+            "motherPhone": "+91 9719945764",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -31287,23 +34363,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 17350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 31700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 31700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-535",
-                    "name": "GAURAV",
-                    "class": "NURSERY",
-                    "admissionNo": "869",
-                    "tuitionDue": 10500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 14350,
-                    "individualPaid": 0,
-                    "individualBalance": 14350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -31312,7 +34376,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9719945764",
+        "fatherPhone": "+91 9719945764",
+        "fatherMobile": "+91 9719945764",
+        "mobile": "+91 9719945764",
+        "fatherName": "GAJRAJ SINGH",
+        "motherName": "PINKI RAJPUT"
     },
     {
         "id": "STU-2026-532",
@@ -31330,10 +34400,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "YOGESH KUMAR",
-            "motherName": "MAMTA",
+            "fatherName": "AMIT KUMAR",
+            "motherName": "KRISHNA",
             "fatherMobile": "902796118",
-            "address": "PESARI"
+            "address": "PESARI",
+            "fatherPhone": "+91 2",
+            "motherPhone": "+91 7830108749",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -31366,7 +34439,13 @@ export const initialSchoolData = {
             "stop": "PESARI",
             "monthlyFare": 850,
             "annualTransportDue11Months": 9350
-        }
+        },
+        "phone": "+91 2",
+        "fatherPhone": "+91 2",
+        "fatherMobile": "+91 2",
+        "mobile": "+91 2",
+        "fatherName": "AMIT KUMAR",
+        "motherName": "KRISHNA"
     },
     {
         "id": "STU-2026-533",
@@ -31384,10 +34463,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DHARMVEER",
-            "motherName": "ARTI",
+            "fatherName": "BHOOP SINGH",
+            "motherName": "NEERAJ DEVI",
             "fatherMobile": "7983644053",
-            "address": "GANGAGARH RAMGHAT BULANDSHAR"
+            "address": "GANGAGARH RAMGHAT BULANDSHAR",
+            "fatherPhone": "+91 8",
+            "motherPhone": "+91 8",
+            "occupation": "H"
         },
         "customFields": {
             "penNo": "",
@@ -31420,7 +34502,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8",
+        "fatherPhone": "+91 8",
+        "fatherMobile": "+91 8",
+        "mobile": "+91 8",
+        "fatherName": "BHOOP SINGH",
+        "motherName": "NEERAJ DEVI"
     },
     {
         "id": "STU-2026-534",
@@ -31441,7 +34529,10 @@ export const initialSchoolData = {
             "fatherName": "MANOJ KUMAR",
             "motherName": "MADHU",
             "fatherMobile": "9870897428",
-            "address": "NAGLA JATANI"
+            "address": "NAGLA JATANI",
+            "fatherPhone": "+91 9627156530",
+            "motherPhone": "+91 9870897428",
+            "occupation": "AGRICULTURE      PRIVATE JOB"
         },
         "customFields": {
             "penNo": "",
@@ -31486,7 +34577,13 @@ export const initialSchoolData = {
             "stop": "NAGLA JATANI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 9627156530",
+        "fatherPhone": "+91 9627156530",
+        "fatherMobile": "+91 9627156530",
+        "mobile": "+91 9627156530",
+        "fatherName": "MANOJ KUMAR",
+        "motherName": "MADHU"
     },
     {
         "id": "STU-2026-535",
@@ -31507,7 +34604,10 @@ export const initialSchoolData = {
             "fatherName": "PRAKASHI",
             "motherName": "URMILA DEVI",
             "fatherMobile": "8650678109",
-            "address": "CHIRAURI"
+            "address": "CHIRAURI",
+            "fatherPhone": "+91 8650678109",
+            "motherPhone": "+91 8650678109",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -31531,14 +34631,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-531",
-                "name": "GAURI",
-                "class": "I",
-                "admissionNo": "927",
-                "fatherPhone": "8650678109"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -31547,7 +34640,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8650678109",
+        "fatherPhone": "+91 8650678109",
+        "fatherMobile": "+91 8650678109",
+        "mobile": "+91 8650678109",
+        "fatherName": "PRAKASHI",
+        "motherName": "URMILA DEVI"
     },
     {
         "id": "STU-2026-536",
@@ -31565,10 +34664,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "TILAK SINGH",
-            "motherName": "SUMAN DEVI",
+            "fatherName": "HARIOM SINGH",
+            "motherName": "SAROJ DEVI",
             "fatherMobile": "9627628176",
-            "address": "RAIPUR KHAS ATRAULI ALLIGARH"
+            "address": "RAIPUR KHAS ATRAULI ALLIGARH",
+            "fatherPhone": "+91 1",
+            "motherPhone": "+91 9568960828",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -31601,7 +34703,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 1",
+        "fatherPhone": "+91 1",
+        "fatherMobile": "+91 1",
+        "mobile": "+91 1",
+        "fatherName": "HARIOM SINGH",
+        "motherName": "SAROJ DEVI"
     },
     {
         "id": "STU-2026-537",
@@ -31619,10 +34727,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJESH KUMAR",
-            "motherName": "RENU",
+            "fatherName": "RAMPRAKASH",
+            "motherName": "TULSI",
             "fatherMobile": "9627567717",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 7703956102",
+            "motherPhone": "+91 7703956102",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -31655,7 +34766,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7703956102",
+        "fatherPhone": "+91 7703956102",
+        "fatherMobile": "+91 7703956102",
+        "mobile": "+91 7703956102",
+        "fatherName": "RAMPRAKASH",
+        "motherName": "TULSI"
     },
     {
         "id": "STU-2026-538",
@@ -31676,7 +34793,10 @@ export const initialSchoolData = {
             "fatherName": "CHANDRABHAN",
             "motherName": "SONAM DEVI",
             "fatherMobile": "9675078707",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 9149093558",
+            "motherPhone": "+91 9675078707",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -31700,14 +34820,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-079",
-                "name": "DIVYA",
-                "class": "VI",
-                "admissionNo": "259",
-                "fatherPhone": "9675078707"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -31716,7 +34829,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 9149093558",
+        "fatherPhone": "+91 9149093558",
+        "fatherMobile": "+91 9149093558",
+        "mobile": "+91 9149093558",
+        "fatherName": "CHANDRABHAN",
+        "motherName": "SONAM DEVI"
     },
     {
         "id": "STU-2026-539",
@@ -31734,10 +34853,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AMIT",
-            "motherName": "KANCHAN",
+            "fatherName": "Sh. Gaurav Sharma",
+            "motherName": "Smt. Sunita Sharma",
             "fatherMobile": "9650381343",
-            "address": "MUHAMMADPUR BADHERAATRAULI  ALIGARH"
+            "address": "MUHAMMADPUR BADHERAATRAULI  ALIGARH",
+            "fatherPhone": "+91 9758900538",
+            "motherPhone": "+91 9758900538",
+            "occupation": "Farmer / Business"
         },
         "customFields": {
             "penNo": "",
@@ -31770,7 +34892,13 @@ export const initialSchoolData = {
             "stop": "MUHAMMADPUR",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 9758900538",
+        "fatherPhone": "+91 9758900538",
+        "fatherMobile": "+91 9758900538",
+        "mobile": "+91 9758900538",
+        "fatherName": "Sh. Gaurav Sharma",
+        "motherName": "Smt. Sunita Sharma"
     },
     {
         "id": "STU-2026-540",
@@ -31788,10 +34916,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SAURAV SHARMA",
-            "motherName": "SEEMA SHARMA",
+            "fatherName": "BABLU",
+            "motherName": "DURGESH",
             "fatherMobile": "7409588071",
-            "address": "BAGI NAGLA CHIRAURI"
+            "address": "BAGI NAGLA CHIRAURI",
+            "fatherPhone": "+91 7",
+            "motherPhone": "+91 8006168711",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -31824,7 +34955,13 @@ export const initialSchoolData = {
             "stop": "BAGI NAGLA",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 7",
+        "fatherPhone": "+91 7",
+        "fatherMobile": "+91 7",
+        "mobile": "+91 7",
+        "fatherName": "BABLU",
+        "motherName": "DURGESH"
     },
     {
         "id": "STU-2026-541",
@@ -31842,10 +34979,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "KAILASH KUMAR",
-            "motherName": "SANGEETA DEVI",
+            "fatherName": "ROKINSH KUMAR",
+            "motherName": "LAKSHMI",
             "fatherMobile": "9027143934",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9520213582",
+            "motherPhone": "+91 9719358200",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -31878,7 +35018,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9520213582",
+        "fatherPhone": "+91 9520213582",
+        "fatherMobile": "+91 9520213582",
+        "mobile": "+91 9520213582",
+        "fatherName": "ROKINSH KUMAR",
+        "motherName": "LAKSHMI"
     },
     {
         "id": "STU-2026-542",
@@ -31896,10 +35042,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEVDUTTA",
-            "motherName": "CHANDRAPRABHA",
+            "fatherName": "NARESH KUMAR",
+            "motherName": "SEEMA",
             "fatherMobile": "8384814903",
-            "address": "NAGLA GARVI"
+            "address": "NAGLA GARVI",
+            "fatherPhone": "+91 8",
+            "motherPhone": "+91 9627975644",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -31923,14 +35072,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-148",
-                "name": "JATIN KUMAR",
-                "class": "IV",
-                "admissionNo": "353",
-                "fatherPhone": "8384814903"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -31939,7 +35081,13 @@ export const initialSchoolData = {
             "stop": "NAGLA GARVI",
             "monthlyFare": 500,
             "annualTransportDue11Months": 5500
-        }
+        },
+        "phone": "+91 8",
+        "fatherPhone": "+91 8",
+        "fatherMobile": "+91 8",
+        "mobile": "+91 8",
+        "fatherName": "NARESH KUMAR",
+        "motherName": "SEEMA"
     },
     {
         "id": "STU-2026-543",
@@ -31960,7 +35108,10 @@ export const initialSchoolData = {
             "fatherName": "NEMPAL KUMAR",
             "motherName": "BABITA",
             "fatherMobile": "7018264597",
-            "address": "UNCHAGAWN RAMGHAT"
+            "address": "UNCHAGAWN RAMGHAT",
+            "fatherPhone": "+91 7018264597",
+            "motherPhone": "+91 7018264597",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -31993,7 +35144,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7018264597",
+        "fatherPhone": "+91 7018264597",
+        "fatherMobile": "+91 7018264597",
+        "mobile": "+91 7018264597",
+        "fatherName": "NEMPAL KUMAR",
+        "motherName": "BABITA"
     },
     {
         "id": "STU-2026-544",
@@ -32014,7 +35171,10 @@ export const initialSchoolData = {
             "fatherName": "HARIOM",
             "motherName": "KIRTI",
             "fatherMobile": "9720002824",
-            "address": "BAIJALA ATRAULI ALIGARH"
+            "address": "BAIJALA ATRAULI ALIGARH",
+            "fatherPhone": "+91 8279963704",
+            "motherPhone": "+91 9720002824",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -32047,7 +35207,13 @@ export const initialSchoolData = {
             "stop": "BAIJALA",
             "monthlyFare": 550,
             "annualTransportDue11Months": 6050
-        }
+        },
+        "phone": "+91 8279963704",
+        "fatherPhone": "+91 8279963704",
+        "fatherMobile": "+91 8279963704",
+        "mobile": "+91 8279963704",
+        "fatherName": "HARIOM",
+        "motherName": "KIRTI"
     },
     {
         "id": "STU-2026-545",
@@ -32068,7 +35234,10 @@ export const initialSchoolData = {
             "fatherName": "PRAMOD KUMAR",
             "motherName": "NIRVESH",
             "fatherMobile": "9759625226",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 8810389748",
+            "motherPhone": "+91 9759625226",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -32101,7 +35270,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 8810389748",
+        "fatherPhone": "+91 8810389748",
+        "fatherMobile": "+91 8810389748",
+        "mobile": "+91 8810389748",
+        "fatherName": "PRAMOD KUMAR",
+        "motherName": "NIRVESH"
     },
     {
         "id": "STU-2026-546",
@@ -32119,10 +35294,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PAPPU SINGH",
-            "motherName": "FOOLMALA",
+            "fatherName": "KULDIP KUMAR",
+            "motherName": "TANISHA SHARMA",
             "fatherMobile": "9627165176",
-            "address": "DADAR ALUPURA"
+            "address": "DADAR ALUPURA",
+            "fatherPhone": "+91 8851021560",
+            "motherPhone": "+91 8851021560",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -32142,23 +35320,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 15350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 29700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 29700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-547",
-                    "name": "MANVI",
-                    "class": "NURSERY",
-                    "admissionNo": "945",
-                    "tuitionDue": 10500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 14350,
-                    "individualPaid": 0,
-                    "individualBalance": 14350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -32167,7 +35333,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8851021560",
+        "fatherPhone": "+91 8851021560",
+        "fatherMobile": "+91 8851021560",
+        "mobile": "+91 8851021560",
+        "fatherName": "KULDIP KUMAR",
+        "motherName": "TANISHA SHARMA"
     },
     {
         "id": "STU-2026-547",
@@ -32188,7 +35360,10 @@ export const initialSchoolData = {
             "fatherName": "PAPPU SINGH",
             "motherName": "FOOLMALA",
             "fatherMobile": "9627165176",
-            "address": "DADAR ALUPURA"
+            "address": "DADAR ALUPURA",
+            "fatherPhone": "+91 9758566371",
+            "motherPhone": "+91 9627165176",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -32212,14 +35387,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-546",
-                "name": "MAYANK",
-                "class": "LKG",
-                "admissionNo": "944",
-                "fatherPhone": "9627165176"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -32228,7 +35396,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9758566371",
+        "fatherPhone": "+91 9758566371",
+        "fatherMobile": "+91 9758566371",
+        "mobile": "+91 9758566371",
+        "fatherName": "PAPPU SINGH",
+        "motherName": "FOOLMALA"
     },
     {
         "id": "STU-2026-548",
@@ -32246,10 +35420,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PAWAN",
-            "motherName": "SHAKUNTALA",
+            "fatherName": "NARENDRA KUMAR",
+            "motherName": "SAROJ",
             "fatherMobile": "9719433808",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 8650048902",
+            "motherPhone": "+91 9582247889",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -32269,23 +35446,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 18350,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 36700,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 36700,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-560",
-                    "name": "NITIN",
-                    "class": "III",
-                    "admissionNo": "957",
-                    "tuitionDue": 14500,
-                    "transportDue11Months": 3850,
-                    "individualDue": 18350,
-                    "individualPaid": 0,
-                    "individualBalance": 18350
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -32294,7 +35459,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8650048902",
+        "fatherPhone": "+91 8650048902",
+        "fatherMobile": "+91 8650048902",
+        "mobile": "+91 8650048902",
+        "fatherName": "NARENDRA KUMAR",
+        "motherName": "SAROJ"
     },
     {
         "id": "STU-2026-549",
@@ -32312,10 +35483,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "SURESH CHANDRA",
-            "motherName": "SANTOSH DEVI",
+            "fatherName": "NARENDRA KUMAR",
+            "motherName": "SAROJ",
             "fatherMobile": "9305643279",
-            "address": "PESARI"
+            "address": "PESARI",
+            "fatherPhone": "+91 8650048902",
+            "motherPhone": "+91 9582247889",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -32348,7 +35522,13 @@ export const initialSchoolData = {
             "stop": "PESARI",
             "monthlyFare": 850,
             "annualTransportDue11Months": 9350
-        }
+        },
+        "phone": "+91 8650048902",
+        "fatherPhone": "+91 8650048902",
+        "fatherMobile": "+91 8650048902",
+        "mobile": "+91 8650048902",
+        "fatherName": "NARENDRA KUMAR",
+        "motherName": "SAROJ"
     },
     {
         "id": "STU-2026-550",
@@ -32366,10 +35546,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAJENDRA SINGH",
-            "motherName": "BHAWANA DEVI",
+            "fatherName": "SONU",
+            "motherName": "RANJANA",
             "fatherMobile": "9958115857",
-            "address": "NAGLA KOTHI"
+            "address": "NAGLA KOTHI",
+            "fatherPhone": "+91 9",
+            "motherPhone": "+91 9627739384",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -32393,14 +35576,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-294",
-                "name": "LUCKY KUMAR",
-                "class": "IX",
-                "admissionNo": "578",
-                "fatherPhone": "9958115857"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -32409,7 +35585,13 @@ export const initialSchoolData = {
             "stop": "NAGLA KOTHI",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9",
+        "fatherPhone": "+91 9",
+        "fatherMobile": "+91 9",
+        "mobile": "+91 9",
+        "fatherName": "SONU",
+        "motherName": "RANJANA"
     },
     {
         "id": "STU-2026-551",
@@ -32428,9 +35610,12 @@ export const initialSchoolData = {
         "deactivateInfo": null,
         "parents": {
             "fatherName": "MURARILAL",
-            "motherName": "ASHA DEVI",
+            "motherName": "ASHA DEVI ",
             "fatherMobile": "7678265395",
-            "address": "DADHAR ALUPURA NARUPURA ATRAULI ALIGARH"
+            "address": "DADHAR ALUPURA NARUPURA ATRAULI ALIGARH",
+            "fatherPhone": "+91 7678265395",
+            "motherPhone": "+91 7678265395",
+            "occupation": "AGRICULTURE "
         },
         "customFields": {
             "penNo": "",
@@ -32450,23 +35635,11 @@ export const initialSchoolData = {
             "totalPaid": 0,
             "balance": 24015,
             "status": "Pending",
-            "isElderSibling": true,
-            "consolidatedFamilyDue": 47030,
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 47030,
-            "familySiblings": [
-                {
-                    "id": "STU-2026-552",
-                    "name": "TANISHKA",
-                    "class": "I",
-                    "admissionNo": "9",
-                    "tuitionDue": 13500,
-                    "transportDue11Months": 9515,
-                    "individualDue": 23015,
-                    "individualPaid": 0,
-                    "individualBalance": 23015
-                }
-            ]
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -32475,7 +35648,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 7678265395",
+        "fatherPhone": "+91 7678265395",
+        "fatherMobile": "+91 7678265395",
+        "mobile": "+91 7678265395",
+        "fatherName": "MURARILAL",
+        "motherName": "ASHA DEVI "
     },
     {
         "id": "STU-2026-552",
@@ -32493,10 +35672,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MURARILAL",
-            "motherName": "ASHA DEVI",
+            "fatherName": "SOMVIR",
+            "motherName": "RACHANA DEVI",
             "fatherMobile": "7678265395",
-            "address": "DADHAR ALUPURA"
+            "address": "DADHAR ALUPURA",
+            "fatherPhone": "+91 1",
+            "motherPhone": "+91 8858676709",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -32520,14 +35702,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-551",
-                "name": "VIVEK KUMAR",
-                "class": "III",
-                "admissionNo": "946",
-                "fatherPhone": "7678265395"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -32536,7 +35711,13 @@ export const initialSchoolData = {
             "stop": "DADHAR",
             "monthlyFare": 865,
             "annualTransportDue11Months": 9515
-        }
+        },
+        "phone": "+91 1",
+        "fatherPhone": "+91 1",
+        "fatherMobile": "+91 1",
+        "mobile": "+91 1",
+        "fatherName": "SOMVIR",
+        "motherName": "RACHANA DEVI"
     },
     {
         "id": "STU-2026-553",
@@ -32554,10 +35735,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "LEELADHAR",
-            "motherName": "SHUSHILA DEVI",
+            "fatherName": "YASHVARDHAN",
+            "motherName": "PREETI",
             "fatherMobile": "0061782883",
-            "address": "BAJHERA  DHARAKPUR"
+            "address": "BAJHERA  DHARAKPUR",
+            "fatherPhone": "+91 1",
+            "motherPhone": "+91 8130428303",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -32590,7 +35774,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 1",
+        "fatherPhone": "+91 1",
+        "fatherMobile": "+91 1",
+        "mobile": "+91 1",
+        "fatherName": "YASHVARDHAN",
+        "motherName": "PREETI"
     },
     {
         "id": "STU-2026-554",
@@ -32608,10 +35798,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "AVDESH KUMAR",
-            "motherName": "LALITESH",
+            "fatherName": "SOMVIR",
+            "motherName": "RACHANA DEVI",
             "fatherMobile": "8954157203",
-            "address": "NEAR CD INTER COLLEGE JARGWAN BULANDSHAHR"
+            "address": "NEAR CD INTER COLLEGE JARGWAN BULANDSHAHR",
+            "fatherPhone": "+91 1",
+            "motherPhone": "+91 9627739384",
+            "occupation": "A"
         },
         "customFields": {
             "penNo": "",
@@ -32644,7 +35837,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 1",
+        "fatherPhone": "+91 1",
+        "fatherMobile": "+91 1",
+        "mobile": "+91 1",
+        "fatherName": "SOMVIR",
+        "motherName": "RACHANA DEVI"
     },
     {
         "id": "STU-2026-555",
@@ -32662,10 +35861,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "JITENDRA KUMAR",
-            "motherName": "CHANCHAL",
+            "fatherName": "LOVEKUSH",
+            "motherName": "RAJNI KUMARI",
             "fatherMobile": "9719759053",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 8",
+            "motherPhone": "+91 9758300938",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -32698,7 +35900,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8",
+        "fatherPhone": "+91 8",
+        "fatherMobile": "+91 8",
+        "mobile": "+91 8",
+        "fatherName": "LOVEKUSH",
+        "motherName": "RAJNI KUMARI"
     },
     {
         "id": "STU-2026-556",
@@ -32719,7 +35927,10 @@ export const initialSchoolData = {
             "fatherName": "SONU KUMAR",
             "motherName": "SHUSHILA DEVI",
             "fatherMobile": "9910912997",
-            "address": "MONIPURA"
+            "address": "MONIPURA",
+            "fatherPhone": "+91 9910912997",
+            "motherPhone": "+91 9910912997",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -32752,7 +35963,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9910912997",
+        "fatherPhone": "+91 9910912997",
+        "fatherMobile": "+91 9910912997",
+        "mobile": "+91 9910912997",
+        "fatherName": "SONU KUMAR",
+        "motherName": "SHUSHILA DEVI"
     },
     {
         "id": "STU-2026-557",
@@ -32770,10 +35987,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJKUMAR",
-            "motherName": "BHARTI YADAV",
+            "fatherName": "NARENDRA KUMAR",
+            "motherName": "SEEMA",
             "fatherMobile": "8920537215",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 1",
+            "motherPhone": "+91 9675078440",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -32806,7 +36026,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 1",
+        "fatherPhone": "+91 1",
+        "fatherMobile": "+91 1",
+        "mobile": "+91 1",
+        "fatherName": "NARENDRA KUMAR",
+        "motherName": "SEEMA"
     },
     {
         "id": "STU-2026-558",
@@ -32824,10 +36050,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "ARVIND KUMAR",
-            "motherName": "BABITA",
+            "fatherName": "LEELU",
+            "motherName": "LAXMI",
             "fatherMobile": "9720882749",
-            "address": "ATARASI  BAMASHA"
+            "address": "ATARASI  BAMASHA",
+            "fatherPhone": "+91 8505963663",
+            "motherPhone": "+91 8505963663",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -32860,7 +36089,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8505963663",
+        "fatherPhone": "+91 8505963663",
+        "fatherMobile": "+91 8505963663",
+        "mobile": "+91 8505963663",
+        "fatherName": "LEELU",
+        "motherName": "LAXMI"
     },
     {
         "id": "STU-2026-559",
@@ -32878,10 +36113,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "OMKAR",
-            "motherName": "SEEMA",
+            "fatherName": "SURENDRA SINGH",
+            "motherName": "MANJU DEVI",
             "fatherMobile": "9625910048",
-            "address": "KALIYANPUR"
+            "address": "KALIYANPUR",
+            "fatherPhone": "+91 6395926626",
+            "motherPhone": "+91 9720577595",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -32914,7 +36152,13 @@ export const initialSchoolData = {
             "stop": "KALIYANPUR",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 6395926626",
+        "fatherPhone": "+91 6395926626",
+        "fatherMobile": "+91 6395926626",
+        "mobile": "+91 6395926626",
+        "fatherName": "SURENDRA SINGH",
+        "motherName": "MANJU DEVI"
     },
     {
         "id": "STU-2026-560",
@@ -32932,10 +36176,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "PAWAN",
-            "motherName": "SHAKUNTALA",
+            "fatherName": "PUNEET RAO BARDHAN",
+            "motherName": "RACHNA KUMARI",
             "fatherMobile": "9719433808",
-            "address": "JARGWAN"
+            "address": "JARGWAN",
+            "fatherPhone": "+91 9675737053",
+            "motherPhone": "+91 9410020562",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -32959,14 +36206,7 @@ export const initialSchoolData = {
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
             "consolidatedFamilyBalance": 0,
-            "familySiblings": [],
-            "linkedElderSibling": {
-                "id": "STU-2026-548",
-                "name": "RAJAT",
-                "class": "III",
-                "admissionNo": "887",
-                "fatherPhone": "9719433808"
-            }
+            "familySiblings": []
         },
         "siblings": [],
         "transport": {
@@ -32975,7 +36215,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9675737053",
+        "fatherPhone": "+91 9675737053",
+        "fatherMobile": "+91 9675737053",
+        "mobile": "+91 9675737053",
+        "fatherName": "PUNEET RAO BARDHAN",
+        "motherName": "RACHNA KUMARI"
     },
     {
         "id": "STU-2026-561",
@@ -32993,10 +36239,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "GAURAV KUMAR",
-            "motherName": "ARATI SHARMA",
+            "fatherName": "MALKHAN SINGH",
+            "motherName": "OMVATI ",
             "fatherMobile": "8447662688",
-            "address": "JARGWAN, DEBAI"
+            "address": "JARGWAN, DEBAI",
+            "fatherPhone": "+91 8859904907",
+            "motherPhone": "+91 8859904907",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -33029,7 +36278,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 8859904907",
+        "fatherPhone": "+91 8859904907",
+        "fatherMobile": "+91 8859904907",
+        "mobile": "+91 8859904907",
+        "fatherName": "MALKHAN SINGH",
+        "motherName": "OMVATI "
     },
     {
         "id": "STU-2026-562",
@@ -33047,10 +36302,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "MANAK CHANDRA",
-            "motherName": "SOMVATI DEVI",
+            "fatherName": "MEGHENDRA SHARMA",
+            "motherName": "POOJA  DEVI",
             "fatherMobile": "7818051188",
-            "address": "UNCHA GAON"
+            "address": "UNCHA GAON",
+            "fatherPhone": "+91 7906340619",
+            "motherPhone": "+91 7906340619",
+            "occupation": "AGRICULTURE"
         },
         "customFields": {
             "penNo": "",
@@ -33083,7 +36341,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7906340619",
+        "fatherPhone": "+91 7906340619",
+        "fatherMobile": "+91 7906340619",
+        "mobile": "+91 7906340619",
+        "fatherName": "MEGHENDRA SHARMA",
+        "motherName": "POOJA  DEVI"
     },
     {
         "id": "STU-2026-563",
@@ -33101,10 +36365,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "RAJKUMAR",
-            "motherName": "MINESH DEVI",
+            "fatherName": "JITENDRA KUMAR",
+            "motherName": "MAMTA DEVI ",
             "fatherMobile": "9719334268",
-            "address": "SILHARI, RAMGHAT (BSR)"
+            "address": "SILHARI, RAMGHAT (BSR)",
+            "fatherPhone": "+91 7893204122",
+            "motherPhone": "+91 7893204122",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -33137,7 +36404,13 @@ export const initialSchoolData = {
             "stop": "RAMGHAT",
             "monthlyFare": 800,
             "annualTransportDue11Months": 8800
-        }
+        },
+        "phone": "+91 7893204122",
+        "fatherPhone": "+91 7893204122",
+        "fatherMobile": "+91 7893204122",
+        "mobile": "+91 7893204122",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "MAMTA DEVI "
     },
     {
         "id": "STU-2026-564",
@@ -33155,10 +36428,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "CHHOTELAL",
-            "motherName": "PREMLATA",
+            "fatherName": "JITENDRA KUMAR",
+            "motherName": "MAMTA DEVI ",
             "fatherMobile": "8384894873",
-            "address": "MONIPURA"
+            "address": "MONIPURA",
+            "fatherPhone": "+91 7893204122",
+            "motherPhone": "+91 7893204122",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -33191,7 +36467,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 7893204122",
+        "fatherPhone": "+91 7893204122",
+        "fatherMobile": "+91 7893204122",
+        "mobile": "+91 7893204122",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "MAMTA DEVI "
     },
     {
         "id": "STU-2026-565",
@@ -33209,10 +36491,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "UMESH YADAV",
-            "motherName": "VAVLI",
+            "fatherName": "JITENDRA KUMAR",
+            "motherName": "PINKI",
             "fatherMobile": "9759109754",
-            "address": "KATAK NARUPURA"
+            "address": "KATAK NARUPURA",
+            "fatherPhone": "+91 9719247840",
+            "motherPhone": "+91 9720557778",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -33245,7 +36530,13 @@ export const initialSchoolData = {
             "stop": "JARGWAN",
             "monthlyFare": 350,
             "annualTransportDue11Months": 3850
-        }
+        },
+        "phone": "+91 9719247840",
+        "fatherPhone": "+91 9719247840",
+        "fatherMobile": "+91 9719247840",
+        "mobile": "+91 9719247840",
+        "fatherName": "JITENDRA KUMAR",
+        "motherName": "PINKI"
     },
     {
         "id": "STU-2026-566",
@@ -33263,10 +36554,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEEPAK KUMAR",
-            "motherName": "KIRAN",
+            "fatherName": "SHRAWAN KUMAR",
+            "motherName": "SARVESH DEVI ",
             "fatherMobile": "9758689700",
-            "address": "NAGLA DHARAKPUR DEBAI BULANDSHAHR"
+            "address": "NAGLA DHARAKPUR DEBAI BULANDSHAHR",
+            "fatherPhone": "+91 8958127235",
+            "motherPhone": "+91 8130905457",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -33311,7 +36605,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8958127235",
+        "fatherPhone": "+91 8958127235",
+        "fatherMobile": "+91 8958127235",
+        "mobile": "+91 8958127235",
+        "fatherName": "SHRAWAN KUMAR",
+        "motherName": "SARVESH DEVI "
     },
     {
         "id": "STU-2026-567",
@@ -33329,10 +36629,13 @@ export const initialSchoolData = {
         "status": "Active",
         "deactivateInfo": null,
         "parents": {
-            "fatherName": "DEEPAK KUMAR",
-            "motherName": "KIRAN",
+            "fatherName": "SHRAWAN KUMAR",
+            "motherName": "SARVESH DEVI ",
             "fatherMobile": "9758689700",
-            "address": "NAGLA DHARAKPUR DEBAI BULANDSHAHR"
+            "address": "NAGLA DHARAKPUR DEBAI BULANDSHAHR",
+            "fatherPhone": "+91 8958127235",
+            "motherPhone": "+91 8130905457",
+            "occupation": "AGRICULTURAL"
         },
         "customFields": {
             "penNo": "",
@@ -33372,7 +36675,13 @@ export const initialSchoolData = {
             "stop": "NAGLA DHARAKPUR",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
-        }
+        },
+        "phone": "+91 8958127235",
+        "fatherPhone": "+91 8958127235",
+        "fatherMobile": "+91 8958127235",
+        "mobile": "+91 8958127235",
+        "fatherName": "SHRAWAN KUMAR",
+        "motherName": "SARVESH DEVI "
     }
 ],
 
