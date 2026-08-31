@@ -1686,6 +1686,258 @@ class SchoolService {
     return item;
   }
 
+  // ==========================================
+  // 📦 MISCELLANEOUS FEES METHODS (OLD SESSION ARREARS & COURSE CHARGES)
+  // ==========================================
+  getMiscFees() {
+    if (!this.data.miscFees || this.data.miscFees.length === 0) {
+      this.data.miscFees = [
+        {
+          id: 'MISC-001',
+          studentId: 'STU-001',
+          studentName: 'Aarav Sharma',
+          fatherName: 'Sh. Rajesh Sharma',
+          class: 'Class 10-A',
+          rollNo: '101',
+          ledgerNo: 'LED-101',
+          category: 'Old Session Dues',
+          title: 'Previous Session 2025-26 Balance Arrears',
+          amount: 4200,
+          paidAmount: 4200,
+          balance: 0,
+          status: 'Paid',
+          receiptNo: 'REC-MISC-2026-001',
+          date: '2026-08-10',
+          remarks: 'Old session fee cleared via cash counter'
+        },
+        {
+          id: 'MISC-002',
+          studentId: 'STU-005',
+          studentName: 'Aditya Singh',
+          fatherName: 'Sh. Dharmender Singh',
+          class: 'Class 8-B',
+          rollNo: '105',
+          ledgerNo: 'LED-105',
+          category: 'Course Books & Kit',
+          title: 'Class 8 NCERT Book Set & Notebooks Kit',
+          amount: 2450,
+          paidAmount: 2450,
+          balance: 0,
+          status: 'Paid',
+          receiptNo: 'REC-MISC-2026-002',
+          date: '2026-08-12',
+          remarks: 'Full course kit issued from book store'
+        },
+        {
+          id: 'MISC-003',
+          studentId: 'STU-008',
+          studentName: 'Ananya Verma',
+          fatherName: 'Sh. Sunil Verma',
+          class: 'Class 6-A',
+          rollNo: '108',
+          ledgerNo: 'LED-108',
+          category: 'Old Session Dues',
+          title: 'Previous Session 2025-26 Pending Dues',
+          amount: 3500,
+          paidAmount: 0,
+          balance: 3500,
+          status: 'Due',
+          receiptNo: null,
+          date: '2026-08-15',
+          remarks: 'Pending previous year tuition fee'
+        },
+        {
+          id: 'MISC-004',
+          studentId: 'STU-012',
+          studentName: 'Ayush Kumar',
+          fatherName: 'Sh. Mukesh Kumar',
+          class: 'Class 9-A',
+          rollNo: '112',
+          ledgerNo: 'LED-112',
+          category: 'Course Books & Kit',
+          title: 'Class 9 Science Practical Manual & Book Set',
+          amount: 2100,
+          paidAmount: 0,
+          balance: 2100,
+          status: 'Due',
+          receiptNo: null,
+          date: '2026-08-18',
+          remarks: 'Awaiting payment at book counter'
+        },
+        {
+          id: 'MISC-005',
+          studentId: 'STU-015',
+          studentName: 'Bhavya Rajput',
+          fatherName: 'Sh. Virender Rajput',
+          class: 'Class 11-Science',
+          rollNo: '115',
+          ledgerNo: 'LED-115',
+          category: 'Old Session Dues',
+          title: 'Previous Session Bus Transport Arrears',
+          amount: 2800,
+          paidAmount: 2800,
+          balance: 0,
+          status: 'Paid',
+          receiptNo: 'REC-MISC-2026-005',
+          date: '2026-08-20',
+          remarks: 'Old transport arrears settled via UPI'
+        },
+        {
+          id: 'MISC-006',
+          studentId: 'STU-019',
+          studentName: 'Chirag Gupta',
+          fatherName: 'Sh. Amit Gupta',
+          class: 'Class 4-A',
+          rollNo: '119',
+          ledgerNo: 'LED-119',
+          category: 'Course Books & Kit',
+          title: 'Primary Wing Full Course Book Set',
+          amount: 1850,
+          paidAmount: 1850,
+          balance: 0,
+          status: 'Paid',
+          receiptNo: 'REC-MISC-2026-006',
+          date: '2026-08-22',
+          remarks: 'Books delivered'
+        },
+        {
+          id: 'MISC-007',
+          studentId: 'STU-022',
+          studentName: 'Deepak Sharma',
+          fatherName: 'Sh. Sanjay Sharma',
+          class: 'Class 10-A',
+          rollNo: '122',
+          ledgerNo: 'LED-122',
+          category: 'Board Registration',
+          title: 'CBSE Board Class 10 LOC Exam Registration Fee',
+          amount: 2100,
+          paidAmount: 2100,
+          balance: 0,
+          status: 'Paid',
+          receiptNo: 'REC-MISC-2026-007',
+          date: '2026-08-24',
+          remarks: 'CBSE Portal registration fee submitted'
+        },
+        {
+          id: 'MISC-008',
+          studentId: 'STU-025',
+          studentName: 'Divyansh Yadav',
+          fatherName: 'Sh. Satish Yadav',
+          class: 'Class 7-B',
+          rollNo: '125',
+          ledgerNo: 'LED-125',
+          category: 'Old Session Dues',
+          title: 'Previous Session 2025-26 Arrears',
+          amount: 5000,
+          paidAmount: 2500,
+          balance: 2500,
+          status: 'Partial',
+          receiptNo: 'REC-MISC-2026-008',
+          date: '2026-08-25',
+          remarks: 'Partial payment received, balance ₹2500'
+        },
+        {
+          id: 'MISC-009',
+          studentId: 'STU-028',
+          studentName: 'Gauri Singh',
+          fatherName: 'Sh. Kamal Singh',
+          class: 'Class 5-A',
+          rollNo: '128',
+          ledgerNo: 'LED-128',
+          category: 'Uniform & Dress',
+          title: 'School Uniform Set + Tracksuit + Tie/Belt',
+          amount: 1600,
+          paidAmount: 1600,
+          balance: 0,
+          status: 'Paid',
+          receiptNo: 'REC-MISC-2026-009',
+          date: '2026-08-26',
+          remarks: 'Uniform kit delivered'
+        },
+        {
+          id: 'MISC-010',
+          studentId: 'STU-032',
+          studentName: 'Harsh Vardhan',
+          fatherName: 'Sh. Rakesh Vardhan',
+          class: 'Class 12-Science',
+          rollNo: '132',
+          ledgerNo: 'LED-132',
+          category: 'Course Books & Kit',
+          title: 'Class 12 Science Lab Kits & Books',
+          amount: 3200,
+          paidAmount: 0,
+          balance: 3200,
+          status: 'Due',
+          receiptNo: null,
+          date: '2026-08-27',
+          remarks: 'Payment pending at accounts counter'
+        }
+      ];
+      this.saveData();
+    }
+    return this.data.miscFees;
+  }
+
+  addMiscFee(feeData) {
+    const list = this.getMiscFees();
+    const newId = `MISC-${String(list.length + 1).padStart(3, '0')}`;
+    const amount = Number(feeData.amount) || 0;
+    const paidAmount = Number(feeData.paidAmount) || (feeData.isPaid ? amount : 0);
+    const balance = Math.max(0, amount - paidAmount);
+    const status = balance === 0 ? 'Paid' : paidAmount > 0 ? 'Partial' : 'Due';
+    const receiptNo = feeData.receiptNo || (paidAmount > 0 ? `REC-MISC-${new Date().getFullYear()}-${String(list.length + 1).padStart(3, '0')}` : null);
+
+    const newFee = {
+      id: newId,
+      studentId: feeData.studentId,
+      studentName: feeData.studentName,
+      fatherName: feeData.fatherName || 'Sh. Father Name',
+      class: feeData.class,
+      rollNo: feeData.rollNo || '',
+      ledgerNo: feeData.ledgerNo || `LED-${feeData.rollNo || '001'}`,
+      category: feeData.category || 'Old Session Dues',
+      title: feeData.title,
+      amount,
+      paidAmount,
+      balance,
+      status,
+      receiptNo,
+      date: feeData.date || new Date().toISOString().split('T')[0],
+      remarks: feeData.remarks || ''
+    };
+
+    list.unshift(newFee);
+    this.data.miscFees = list;
+    this.saveData();
+    return newFee;
+  }
+
+  deleteMiscFee(id) {
+    const list = this.getMiscFees();
+    this.data.miscFees = list.filter(m => m.id !== id);
+    this.saveData();
+    return true;
+  }
+
+  collectMiscFee(id, payAmount, paymentMode = 'Cash') {
+    const list = this.getMiscFees();
+    const item = list.find(m => m.id === id);
+    if (!item) return null;
+
+    const addPay = Number(payAmount) || item.balance;
+    item.paidAmount = (item.paidAmount || 0) + addPay;
+    item.balance = Math.max(0, item.amount - item.paidAmount);
+    item.status = item.balance === 0 ? 'Paid' : 'Partial';
+    if (!item.receiptNo) {
+      item.receiptNo = `REC-MISC-${new Date().getFullYear()}-${Date.now().toString().slice(-4)}`;
+    }
+    item.paymentMode = paymentMode;
+
+    this.data.miscFees = list;
+    this.saveData();
+    return item;
+  }
+
   // Attendance Module
   markStudentAttendance(date, attendanceRecords) {
     if (!this.data.studentAttendance) this.data.studentAttendance = {};

@@ -170,6 +170,7 @@ function AppContent() {
       case 'fees-groups':
       case 'fees-fine':
       case 'fees-allocation':
+      case 'fees-misc':
       case 'fees-pos':
       case 'fees-dues':
         return <FeesPage initialTab={activeTab} />;
