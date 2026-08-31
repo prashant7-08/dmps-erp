@@ -187,15 +187,17 @@ export const AttendancePage = ({ initialType = 'student' }) => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800">
-              <CheckSquare className="w-6 h-6" />
+            <div className={`p-2 rounded-2xl ${activeTab === 'student' ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800' : 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800'}`}>
+              {activeTab === 'student' ? <GraduationCap className="w-6 h-6" /> : <Briefcase className="w-6 h-6" />}
             </div>
             <div>
               <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-serif">
-                Daily Attendance Register
+                {activeTab === 'student' ? 'Daily Student Attendance Register' : 'Staff & Teacher Attendance Register'}
               </h2>
               <p className="text-xs text-slate-500 font-medium">
-                Real-time daily roll call for students, teachers, and school staff.
+                {activeTab === 'student' 
+                  ? 'Real-time class-wise roll call and daily attendance register for enrolled students.' 
+                  : 'Daily attendance, duty logging, and leave tracking for school faculty and staff.'}
               </p>
             </div>
           </div>
@@ -210,38 +212,11 @@ export const AttendancePage = ({ initialType = 'student' }) => {
           </button>
           <button
             onClick={activeTab === 'student' ? handleSaveStudentAttendance : handleSaveStaffAttendance}
-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-1.5 transition-all hover:scale-105"
+            className={`px-4 py-2 ${activeTab === 'student' ? 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/20' : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-500/20'} text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 transition-all hover:scale-105`}
           >
             <Save className="w-4 h-4" /> Save {activeTab === 'student' ? 'Student' : 'Staff'} Register
           </button>
         </div>
-      </div>
-
-      {/* 🔘 Student vs Staff Register Selector Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2">
-        <button
-          onClick={() => setActiveTab('student')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-black transition-all ${
-            activeTab === 'student'
-              ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
-              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
-          }`}
-        >
-          <GraduationCap className="w-4 h-4" />
-          <span>👨‍🎓 Daily Student Attendance ({students.length})</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('staff')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-black transition-all ${
-            activeTab === 'staff'
-              ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/20'
-              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
-          }`}
-        >
-          <Briefcase className="w-4 h-4" />
-          <span>👨‍🏫 Staff & Teacher Attendance ({teachers.length})</span>
-        </button>
       </div>
 
       {/* 📊 KPI Stats Bar */}

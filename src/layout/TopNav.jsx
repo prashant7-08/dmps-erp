@@ -68,9 +68,9 @@ export const TopNav = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/80 px-3 sm:px-4 lg:px-6 flex items-center justify-between gap-2 sm:gap-4 transition-colors w-full max-w-full overflow-hidden">
+    <header className="sticky top-0 z-30 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/80 px-3 sm:px-4 lg:px-6 flex items-center justify-between gap-3 sm:gap-4 transition-colors w-full">
       {/* Left: Sidebar Toggle Button (Mobile & Desktop) & Spacious Global Search */}
-      <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+      <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
         <button
           onClick={() => {
             if (window.innerWidth >= 1024) {
@@ -86,7 +86,7 @@ export const TopNav = ({
         </button>
 
         {/* Spacious Global Search Bar with Live Popover Results */}
-        <div className="relative flex-1 min-w-[140px] sm:min-w-[220px] max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+        <div className="relative flex-1 min-w-0">
           <div className="relative">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
