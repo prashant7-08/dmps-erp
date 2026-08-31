@@ -672,30 +672,12 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       {currentPage === 'home' && (
         <main className="flex-1 space-y-16 pb-16">
           
-          {/* 🌟 1. AMU Style Top Green Announcement Banner */}
-          <div className="bg-[#00703c] text-white py-2 px-4 shadow-sm -mt-6">
-            <div className="max-w-7xl mx-auto flex items-center justify-between text-xs sm:text-[13px] font-bold tracking-wide">
-              <div className="flex items-center gap-2 truncate">
-                <span className="w-2 h-2 rounded-full bg-amber-300 animate-ping shrink-0" />
-                <span className="truncate">
-                  Application Forms and Admission Guide for Programmes Offered by the School / Group of Education (Session 2026–27)
-                </span>
-              </div>
-              <button 
-                onClick={() => navigateTo('admissions')}
-                className="hidden md:inline-flex items-center gap-1 bg-white/15 hover:bg-white/30 text-white px-3 py-1 rounded text-xs font-bold shrink-0 ml-4 transition-colors"
-              >
-                <span>Apply Online</span> &rarr;
-              </button>
-            </div>
-          </div>
-
-          {/* 🌟 2. AMU Portal Style Split Hero Section (Left: Slider | Right: Notices & Updates) */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* 🌟 Split Hero Banner (Left: Compact HD Slider | Right: Live Notice Board & Circulars) */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
               
-              {/* 🖼️ LEFT COLUMN (8 Cols): Hero Image Carousel */}
-              <div className="lg:col-span-8 relative h-[340px] sm:h-[420px] lg:h-[460px] bg-slate-900 overflow-hidden shadow-md flex items-center border border-slate-200">
+              {/* 🖼️ LEFT COLUMN (8 Cols): HD Hero Banner Carousel */}
+              <div className="lg:col-span-8 relative h-[360px] sm:h-[440px] lg:h-[470px] bg-slate-900 rounded-3xl overflow-hidden shadow-xl flex items-center border border-slate-200">
                 {heroSlides.map((slide, idx) => (
                   <div
                     key={idx}
@@ -704,15 +686,15 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     }`}
                   >
                     <img src={slide.image} alt={slide.title} className="w-full h-full object-cover object-center" />
-                    {/* Soft gradient bottom shadow for captions */}
-                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/75 to-transparent pointer-events-none" />
+                    {/* Soft gradient bottom shadow for captions & dots */}
+                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/75 to-transparent pointer-events-none" />
                   </div>
                 ))}
 
                 {/* ⬅️ Previous Slide Button */}
                 <button
                   onClick={() => setActiveHeroSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
-                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all shadow-lg hover:scale-110 cursor-pointer"
+                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/60 transition-all shadow-xl hover:scale-110 cursor-pointer"
                   aria-label="Previous Slide"
                 >
                   <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -721,19 +703,19 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 {/* ➡️ Next Slide Button */}
                 <button
                   onClick={() => setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length)}
-                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all shadow-lg hover:scale-110 cursor-pointer"
+                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/60 transition-all shadow-xl hover:scale-110 cursor-pointer"
                   aria-label="Next Slide"
                 >
                   <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
 
-                {/* 🏷️ Slide Caption & Dots */}
-                <div className="absolute bottom-3 inset-x-0 z-20 flex flex-col items-center gap-1.5 px-4 pointer-events-none">
-                  <div className="px-3 py-1 rounded bg-black/70 backdrop-blur-md border border-white/20 text-white text-center shadow-lg flex items-center gap-2 pointer-events-auto max-w-xl">
-                    <span className="px-1.5 py-0.5 rounded bg-amber-400 text-slate-950 text-[9px] font-black uppercase tracking-wider shrink-0">
+                {/* 🏷️ Floating Caption & Dots */}
+                <div className="absolute bottom-4 inset-x-0 z-20 flex flex-col items-center gap-2 px-4 pointer-events-none">
+                  <div className="px-3.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white text-center shadow-xl flex items-center gap-2 pointer-events-auto max-w-xl">
+                    <span className="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[9px] font-black uppercase tracking-wider shrink-0">
                       {heroSlides[activeHeroSlide].tag}
                     </span>
-                    <span className="font-bold text-xs tracking-wide text-white truncate">
+                    <span className="font-bold text-xs sm:text-sm tracking-wide text-white truncate">
                       {heroSlides[activeHeroSlide].title}
                     </span>
                   </div>
@@ -744,7 +726,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                       <button
                         key={i}
                         onClick={() => setActiveHeroSlide(i)}
-                        className={`h-1.5 rounded-full transition-all duration-300 ${activeHeroSlide === i ? 'w-5 bg-amber-400' : 'w-2 bg-white/60 hover:bg-white'}`}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${activeHeroSlide === i ? 'w-6 bg-amber-400' : 'w-2 bg-white/60 hover:bg-white'}`}
                         aria-label={`Slide ${i + 1}`}
                       />
                     ))}
@@ -752,63 +734,79 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 </div>
               </div>
 
-              {/* 📢 RIGHT COLUMN (4 Cols): AMU Style "Notices & Updates" Box */}
-              <div className="lg:col-span-4 bg-white border border-slate-300 shadow-md flex flex-col h-[340px] sm:h-[420px] lg:h-[460px]">
-                {/* Solid Green AMU Header */}
-                <div className="bg-[#00703c] text-white px-4 py-2.5 font-bold text-sm sm:text-base tracking-wide flex items-center justify-between border-b-2 border-emerald-800 shrink-0">
+              {/* 📢 RIGHT COLUMN (4 Cols): Notice Board & Circulars Box */}
+              <div className="lg:col-span-4 bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-xl flex flex-col h-[360px] sm:h-[440px] lg:h-[470px]">
+                {/* Notice Board Header */}
+                <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
                   <div className="flex items-center gap-2">
-                    <Bell className="w-4 h-4 text-amber-300" />
-                    <span className="font-serif">Notices & Updates</span>
+                    <div className="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                      <Bell className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h3 className="font-black text-[#0b1e38] text-base font-serif leading-tight">
+                        Notice Board
+                      </h3>
+                      <p className="text-[10px] text-slate-500 font-medium">Click subject to view circular</p>
+                    </div>
                   </div>
-                  <span className="flex items-center gap-1 text-[10px] font-semibold text-emerald-100 bg-emerald-800/60 px-2 py-0.5 rounded">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-300 animate-ping" />
-                    <span>Live</span>
+                  <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                    <span>Live Updates</span>
                   </span>
                 </div>
 
-                {/* AMU Style Notice Items List */}
-                <div className="flex-1 overflow-y-auto divide-y divide-slate-100 p-2 sm:p-3 custom-scrollbar bg-white">
+                {/* Notice Items List */}
+                <div className="flex-1 overflow-y-auto divide-y divide-slate-100 pr-1 my-2 custom-scrollbar">
                   {noticesData.map((notice) => (
                     <div
                       key={notice.id}
                       onClick={() => setSelectedNotice(notice)}
-                      className="py-2.5 px-2 hover:bg-slate-50 transition-colors cursor-pointer group flex items-start gap-2.5"
+                      className="py-3 px-2 rounded-xl hover:bg-sky-50/70 transition-all cursor-pointer group"
                     >
-                      <span className="text-[#d32f2f] font-black text-lg leading-none shrink-0 mt-[-1px]">
-                        ›
-                      </span>
-                      <div className="space-y-1">
-                        <h4 className="text-xs sm:text-[13px] font-semibold text-[#0056b3] group-hover:text-blue-900 group-hover:underline leading-snug">
-                          {notice.title}
-                        </h4>
-                        <div className="flex items-center gap-2 text-[10px] text-slate-500 flex-wrap">
-                          <span>{notice.date}</span>
-                          {notice.image && (
-                            <span className="inline-flex items-center gap-0.5 px-1.5 py-0.2 rounded bg-amber-50 text-amber-900 font-bold border border-amber-200 text-[9px]">
-                              <Eye className="w-2.5 h-2.5 text-amber-600" />
-                              <span>Attachment</span>
-                            </span>
-                          )}
-                          {notice.isNew && (
-                            <span className="px-1.5 py-0.2 rounded bg-rose-600 text-white font-black text-[9px] uppercase tracking-wider">
-                              NEW
-                            </span>
-                          )}
-                        </div>
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="text-[10px] font-black px-2 py-0.5 rounded bg-slate-100 text-slate-700 group-hover:bg-sky-100 group-hover:text-sky-800 transition-colors">
+                          {notice.category}
+                        </span>
+                        <span className="text-[10px] text-slate-400 font-medium">{notice.date}</span>
+                      </div>
+
+                      {/* Main Subject Clickable */}
+                      <h4 className="text-xs sm:text-[13px] font-bold text-[#0b1e38] group-hover:text-sky-700 transition-colors line-clamp-2 leading-snug">
+                        {notice.title}
+                      </h4>
+
+                      {/* Attachment indicator pill if has image */}
+                      <div className="flex items-center gap-2 mt-1.5">
+                        {notice.image ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-black text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 group-hover:bg-amber-100 transition-colors">
+                            <Eye className="w-3 h-3 text-amber-600" />
+                            <span>Photo Attachment Included</span>
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded">
+                            <FileText className="w-3 h-3 text-slate-400" />
+                            <span>Official Text Circular</span>
+                          </span>
+                        )}
+                        {notice.isNew && (
+                          <span className="px-1.5 py-0.2 rounded bg-rose-600 text-white text-[9px] font-black uppercase tracking-wider">
+                            NEW
+                          </span>
+                        )}
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Notice Box Bottom Bar */}
-                <div className="bg-slate-50 px-3.5 py-2 border-t border-slate-200 flex items-center justify-between text-xs shrink-0">
-                  <span className="text-[11px] text-slate-500 font-medium">Dadheech Memorial Public School</span>
+                {/* Notice Board Footer */}
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span className="text-[11px] text-slate-500 font-medium">All Campuses (DMPS)</span>
                   <button
                     onClick={() => navigateTo('admissions')}
-                    className="text-xs font-bold text-[#00703c] hover:underline flex items-center gap-0.5"
+                    className="text-xs font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1"
                   >
-                    <span>Admission Forms</span>
-                    <span>&rarr;</span>
+                    <span>Apply Online</span>
+                    <ArrowRight className="w-3 h-3" />
                   </button>
                 </div>
               </div>
@@ -816,132 +814,62 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
           </section>
 
-          {/* 🌟 3. AMU Style 4 Quick Action Feature Cards (Directly Below Slider) */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              
-              {/* CARD 1: Featured */}
-              <div className="bg-white border border-slate-300 shadow-sm overflow-hidden flex flex-col">
-                <div className="bg-[#00703c] text-white px-3.5 py-2 font-bold text-xs sm:text-sm border-b border-emerald-800">
-                  Featured
+          {/* ⚡ Clean Quick Action & Highlights Bar */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-xl border border-slate-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+              <button
+                onClick={() => navigateTo('admissions')}
+                className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white shadow-md transition-all flex items-center gap-3 text-left group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-5 h-5 text-amber-300" />
                 </div>
-                <div className="p-3 space-y-2 text-xs flex-1 divide-y divide-slate-100">
-                  <div 
-                    onClick={() => navigateTo('admissions')} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-1 first:pt-0"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Online Admission / Counselling Portal</span>
-                  </div>
-                  <div 
-                    onClick={() => setProspectusModalOpen(true)} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-2"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Download Official Prospectus Booklet</span>
-                  </div>
-                  <div 
-                    onClick={() => navigateTo('admissions')} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-2"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Fee Structure & Payment Guidelines</span>
-                  </div>
+                <div>
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">Admissions Open</div>
+                  <div className="text-[10px] sm:text-xs text-sky-100 font-medium">Session 2026–27 • Apply Now</div>
                 </div>
-              </div>
+              </button>
 
-              {/* CARD 2: Admissions */}
-              <div className="bg-white border border-slate-300 shadow-sm overflow-hidden flex flex-col">
-                <div className="bg-[#00703c] text-white px-3.5 py-2 font-bold text-xs sm:text-sm border-b border-emerald-800">
-                  Admissions
+              <button
+                onClick={() => navigateTo('campuses')}
+                className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 hover:bg-sky-50 border border-slate-200 text-slate-800 shadow-sm transition-all flex items-center gap-3 text-left group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
+                  <Building2 className="w-5 h-5" />
                 </div>
-                <div className="p-3 space-y-2 text-xs flex-1 divide-y divide-slate-100">
-                  <div 
-                    onClick={() => navigateTo('admissions')} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-1 first:pt-0"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Online Registration (Playgroup to Class 12)</span>
-                  </div>
-                  <div 
-                    onClick={() => navigateTo('academic')} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-2"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Curriculum & Academic Wings</span>
-                  </div>
-                  <div 
-                    onClick={() => navigateTo('campuses')} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-2"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Campus Selection (3 Distinct Campuses)</span>
-                  </div>
+                <div>
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">Our 3 Campuses</div>
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-medium">Jargwan • Barheti • Quarsi</div>
                 </div>
-              </div>
+              </button>
 
-              {/* CARD 3: Examinations & Results */}
-              <div className="bg-white border border-slate-300 shadow-sm overflow-hidden flex flex-col">
-                <div className="bg-[#00703c] text-white px-3.5 py-2 font-bold text-xs sm:text-sm border-b border-emerald-800">
-                  Examinations
+              <button
+                onClick={() => navigateTo('selections')}
+                className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 hover:bg-amber-50 border border-slate-200 text-slate-800 shadow-sm transition-all flex items-center gap-3 text-left group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+                  <Trophy className="w-5 h-5" />
                 </div>
-                <div className="p-3 space-y-2 text-xs flex-1 divide-y divide-slate-100">
-                  <div 
-                    onClick={() => setSelectedNotice(noticesData[3])} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-1 first:pt-0"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Quarterly Assessment & Unit Test Schedule</span>
-                  </div>
-                  <div 
-                    onClick={() => setSelectedNotice(noticesData[2])} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-2"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Bhartiya Shiksha Board (BSB Code 00065)</span>
-                  </div>
-                  <div 
-                    onClick={() => navigateTo('selections')} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-2"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Competitive Exam Selections (AMU, JNV)</span>
-                  </div>
+                <div>
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">Student Selections</div>
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-medium">AMU, JNV & Vidyagyan</div>
                 </div>
-              </div>
+              </button>
 
-              {/* CARD 4: Our Campuses */}
-              <div className="bg-white border border-slate-300 shadow-sm overflow-hidden flex flex-col">
-                <div className="bg-[#00703c] text-white px-3.5 py-2 font-bold text-xs sm:text-sm border-b border-emerald-800">
-                  Campuses
+              <button
+                onClick={() => setProspectusModalOpen(true)}
+                className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 hover:bg-indigo-50 border border-slate-200 text-slate-800 shadow-sm transition-all flex items-center gap-3 text-left group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0">
+                  <FileText className="w-5 h-5" />
                 </div>
-                <div className="p-3 space-y-2 text-xs flex-1 divide-y divide-slate-100">
-                  <div 
-                    onClick={() => { setSelectedCampusTab(0); navigateTo('campuses'); }} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-1 first:pt-0"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Main Senior Secondary Campus (Jargwan)</span>
-                  </div>
-                  <div 
-                    onClick={() => { setSelectedCampusTab(1); navigateTo('campuses'); }} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-2"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>DMPS Barheti ADF Campus (Aligarh)</span>
-                  </div>
-                  <div 
-                    onClick={() => { setSelectedCampusTab(2); navigateTo('campuses'); }} 
-                    className="flex items-start gap-1.5 text-[#0056b3] font-semibold hover:underline cursor-pointer pt-2"
-                  >
-                    <span className="text-[#d32f2f] font-bold">›</span>
-                    <span>Dadheech Kids School (Quarsi Aligarh)</span>
-                  </div>
+                <div>
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-wider">Prospectus Booklet</div>
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-medium">Fee Structure & Info</div>
                 </div>
-              </div>
-
+              </button>
             </div>
-          </section>
+          </div>
 
           {/* 👑 5. DYNAMIC LEADERSHIP & FOUNDER SHOWCASE RIGHT ON HOME (Interactive Tabbed View) */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
