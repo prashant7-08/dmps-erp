@@ -136,86 +136,15 @@ export const LoginPage = ({ onLoginSuccess, onBackToWebsite }) => {
             </button>
           </form>
 
-          {/* Collapsible Multi-Branch Roles Guide */}
-          <div className="pt-2">
-            <button
-              type="button"
-              onClick={() => setShowRolesGuide(!showRolesGuide)}
-              className="w-full py-2 px-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
-            >
-              <div className="flex items-center gap-2">
-                <Users className="w-3.5 h-3.5 text-amber-500" />
-                <span>Quick Test Logins (Multi-Branch)</span>
-              </div>
-              {showRolesGuide ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-            </button>
-
-            {showRolesGuide && (
-              <div className="mt-2 p-3 bg-slate-50 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2 text-[11px] animate-in fade-in">
-                <div
-                  onClick={() => { setEmail('admin'); setPassword('admin123'); }}
-                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-amber-300 dark:border-amber-700 cursor-pointer hover:bg-amber-50 dark:hover:bg-amber-950/40 transition-colors flex items-center justify-between"
-                >
-                  <div>
-                    <strong className="text-amber-700 dark:text-amber-300 block">👑 Super Admin (MD / All Campuses)</strong>
-                    <span className="text-slate-500 font-mono text-[10px]">User: admin | Pass: admin123</span>
-                  </div>
-                  <span className="text-[10px] font-bold text-amber-600">Auto-fill ➔</span>
-                </div>
-
-                <div
-                  onClick={() => { setEmail('principal'); setPassword('principal123'); }}
-                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-between"
-                >
-                  <div>
-                    <strong className="text-slate-900 dark:text-white block">🏢 Principal (Senior Campus Jargwan)</strong>
-                    <span className="text-slate-500 font-mono text-[10px]">User: principal | Pass: principal123</span>
-                  </div>
-                  <span className="text-[10px] font-bold text-sky-600">Auto-fill ➔</span>
-                </div>
-
-                <div
-                  onClick={() => { setEmail('barheti'); setPassword('barheti123'); }}
-                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-between"
-                >
-                  <div>
-                    <strong className="text-slate-900 dark:text-white block">🏫 In-Charge (Barheti Campus Aligarh)</strong>
-                    <span className="text-slate-500 font-mono text-[10px]">User: barheti | Pass: barheti123</span>
-                  </div>
-                  <span className="text-[10px] font-bold text-emerald-600">Auto-fill ➔</span>
-                </div>
-
-                <div
-                  onClick={() => { setEmail('kids'); setPassword('kids123'); }}
-                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-between"
-                >
-                  <div>
-                    <strong className="text-slate-900 dark:text-white block">🧸 Head (Dadheech Kids School)</strong>
-                    <span className="text-slate-500 font-mono text-[10px]">User: kids | Pass: kids123</span>
-                  </div>
-                  <span className="text-[10px] font-bold text-purple-600">Auto-fill ➔</span>
-                </div>
-
-                <div
-                  onClick={() => { setEmail('teacher'); setPassword('teacher123'); }}
-                  className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-between"
-                >
-                  <div>
-                    <strong className="text-slate-900 dark:text-white block">👨‍🏫 Teacher (Faculty Portal)</strong>
-                    <span className="text-slate-500 font-mono text-[10px]">User: teacher | Pass: teacher123</span>
-                  </div>
-                  <span className="text-[10px] font-bold text-indigo-600">Auto-fill ➔</span>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Footer Security Note */}
-          <div className="text-center text-[11px] text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-800 space-y-1">
-            <p>Protected by DMPS Multi-Branch Access Control</p>
-            <p className="text-[10px] text-slate-400">
-              Assigned branch security active.
+          {/* Footer Security Note & Developer Credit */}
+          <div className="text-center pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2">
+            <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+              🔒 Protected by DMPS Multi-Branch Access Control
             </p>
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] text-slate-600 dark:text-slate-300 font-bold shadow-sm">
+              <span>Designed & Developed by</span>
+              <span className="text-amber-600 dark:text-amber-400 font-black">Prashant Rajput</span>
+            </div>
           </div>
         </div>
       </div>

@@ -197,6 +197,11 @@ export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpe
           </div>
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" title="System Online"></span>
         </div>
+
+        {/* 👑 Developer Credit */}
+        <div className="px-4 py-2 bg-sky-100/60 dark:bg-slate-950 text-center text-[10px] text-slate-500 dark:text-slate-400 border-t border-sky-200/60 dark:border-slate-800">
+          Designed & Developed by <strong className="text-amber-600 dark:text-amber-400 font-black">Prashant Rajput</strong>
+        </div>
       </aside>
     </>
   );
