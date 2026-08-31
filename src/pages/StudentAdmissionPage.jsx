@@ -340,6 +340,23 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
     'Class 12 (Sci)', 'Class 12 (Comm)', 'Class 12 (Arts)'
   ];
 
+  const detectedSibling = schoolService.findSiblingByPhone(formData.fatherMobile);
+
+  const handleApplySiblingData = (sib) => {
+    setFormData(prev => ({
+      ...prev,
+      fatherName: sib.parents?.fatherName || sib.fatherName || prev.fatherName,
+      motherName: sib.parents?.motherName || sib.motherName || prev.motherName,
+      fatherOccupation: sib.parents?.fatherOccupation || sib.fatherOccupation || prev.fatherOccupation,
+      fatherEducation: sib.parents?.fatherEducation || sib.fatherEducation || prev.fatherEducation,
+      motherOccupation: sib.parents?.motherOccupation || sib.motherOccupation || prev.motherOccupation,
+      presentAddress: sib.parents?.address || sib.address || prev.presentAddress,
+      permanentAddress: sib.permanentAddress || prev.permanentAddress,
+      guardianAlreadyExist: true
+    }));
+    showToast(`👨‍👩‍👧 Family details auto-filled from sibling: ${sib.name}!`, 'success');
+  };
+
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
       
@@ -835,6 +852,32 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
               <span>Guardian Already Exist (Sibling)</span>
             </label>
           </div>
+
+          {/* 🌟 Smart Auto Sibling Detector Box */}
+          {detectedSibling && (
+            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-950/40 dark:to-indigo-950/40 border border-purple-200 dark:border-purple-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-in fade-in">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-purple-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-sm">
+                  👨‍👩‍👧
+                </div>
+                <div>
+                  <h4 className="text-xs font-black text-purple-950 dark:text-purple-200">
+                    Existing Family Sibling Found: {detectedSibling.name} ({detectedSibling.class})
+                  </h4>
+                  <p className="text-[11px] text-purple-800 dark:text-purple-300">
+                    Father: <strong>{detectedSibling.parents?.fatherName || detectedSibling.fatherName}</strong> • Phone: <strong>{formData.fatherMobile}</strong>
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => handleApplySiblingData(detectedSibling)}
+                className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold rounded-xl shadow-sm transition-all hover:scale-105 shrink-0"
+              >
+                ⚡ Auto-Fill Family Details & Link
+              </button>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
             <div>

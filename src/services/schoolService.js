@@ -175,6 +175,19 @@ class SchoolService {
     return (this.data.students || []).find(s => s.id === id || s.admissionNo === id || s.rollNo === id);
   }
 
+  findSiblingByPhone(phone) {
+    if (!phone || String(phone).trim().length < 6) return null;
+    const cleanPhone = String(phone).replace(/[^0-9]/g, '');
+    return (this.data.students || []).find(s => {
+      const pPhone = String(s.parents?.fatherMobile || s.fatherMobile || s.mobile || '').replace(/[^0-9]/g, '');
+      const mPhone = String(s.parents?.motherMobile || s.motherMobile || '').replace(/[^0-9]/g, '');
+      const gPhone = String(s.parents?.guardianMobile || s.guardianMobile || '').replace(/[^0-9]/g, '');
+      return (pPhone && pPhone.endsWith(cleanPhone.slice(-10))) ||
+             (mPhone && mPhone.endsWith(cleanPhone.slice(-10))) ||
+             (gPhone && gPhone.endsWith(cleanPhone.slice(-10)));
+    });
+  }
+
   addStudent(studentData) {
     const newId = `STU-2026-${String((this.data.students || []).length + 1).padStart(3, '0')}`;
     const newAdm = `ADM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
