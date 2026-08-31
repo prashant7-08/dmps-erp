@@ -75,14 +75,6 @@ export const navigationGroups = [
     ]
   },
   {
-    id: 'parents-group',
-    label: 'PARENTS',
-    icon: Users,
-    items: [
-      { id: 'parent-portal', label: 'Parent Portal & Comms', badge: 'Portal' }
-    ]
-  },
-  {
     id: 'staff-group',
     label: 'EMPLOYEE / HR',
     icon: Users,

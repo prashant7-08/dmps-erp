@@ -983,64 +983,6 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
               />
             </div>
           </div>
-
-          {/* User Access Credentials Box */}
-          <div className="p-4 rounded-2xl bg-indigo-50/70 dark:bg-slate-800/80 border border-indigo-200 dark:border-slate-700 space-y-3">
-            <div className="flex items-center gap-2 text-xs font-black text-indigo-900 dark:text-indigo-200 uppercase tracking-wider">
-              <KeyRound className="w-4 h-4 text-indigo-600" />
-              <span>Portal Login Credentials (Auto-Generated if left empty)</span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Parent's Username</label>
-                <input
-                  type="text"
-                  name="parentUsername"
-                  value={formData.parentUsername}
-                  onChange={handleChange}
-                  placeholder="Auto-generated if empty"
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-medium"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Parent's Password</label>
-                <input
-                  type="text"
-                  name="parentPassword"
-                  value={formData.parentPassword}
-                  onChange={handleChange}
-                  placeholder="e.g. parent@dmps2026"
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-medium"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student's Username</label>
-                <input
-                  type="text"
-                  name="studentUsername"
-                  value={formData.studentUsername}
-                  onChange={handleChange}
-                  placeholder="Auto-generated if empty"
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-medium"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student's Password</label>
-                <input
-                  type="text"
-                  name="studentPassword"
-                  value={formData.studentPassword}
-                  onChange={handleChange}
-                  placeholder="e.g. student@dmps2026"
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-medium"
-                />
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* ========================================================
