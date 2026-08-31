@@ -370,11 +370,11 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 <TrendingUp className="w-4 h-4 text-amber-600" /> Annual Fee Summary (Tuition + 11-Month Transport)
               </h3>
               <p className="text-xs text-slate-500 font-mono mt-0.5">
-                Total Dues: <strong className="text-slate-800 dark:text-white">₹1,09,21,500</strong> | Collected: <strong className="text-emerald-600">₹10,34,800</strong> | Remaining: <strong className="text-rose-600">₹98,86,700</strong>
+                Total Dues: <strong className="text-slate-800 dark:text-white">₹1,19,23,985</strong> | Collected: <strong className="text-emerald-600">₹10,34,800</strong> | Remaining: <strong className="text-rose-600">₹1,08,89,185</strong>
               </p>
             </div>
             <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200">
-              🚌 Transport 11-Months System
+              🚌 All 567 Students Assigned Stops
             </span>
           </div>
 
@@ -382,13 +382,13 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           <div className="space-y-4 pt-2">
             <div>
               <div className="flex justify-between text-xs font-bold mb-1.5">
-                <span className="text-emerald-600 font-extrabold">Collected: ₹10,34,800 (9.5%)</span>
-                <span className="text-rose-600 font-extrabold">Remaining: ₹98,86,700 (90.5%)</span>
+                <span className="text-emerald-600 font-extrabold">Collected: ₹10,34,800 (8.7%)</span>
+                <span className="text-rose-600 font-extrabold">Remaining: ₹1,08,89,185 (91.3%)</span>
               </div>
               <div className="w-full bg-rose-100 dark:bg-rose-950/60 h-4 rounded-full overflow-hidden flex shadow-inner">
-                <div className="bg-emerald-500 h-full rounded-l-full transition-all duration-700" style={{ width: '9.5%' }}></div>
+                <div className="bg-emerald-500 h-full rounded-l-full transition-all duration-700" style={{ width: '8.7%' }}></div>
                 <div className="bg-amber-500 h-full" style={{ width: '0%' }}></div>
-                <div className="bg-rose-500 h-full rounded-r-full" style={{ width: '90.5%' }}></div>
+                <div className="bg-rose-500 h-full rounded-r-full" style={{ width: '91.3%' }}></div>
               </div>
             </div>
 
@@ -399,7 +399,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               </div>
               <div className="p-2.5 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800">
                 <span className="text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase">Transport (11M)</span>
-                <p className="text-sm font-black text-purple-900 dark:text-purple-100 mt-0.5 font-mono">₹27,22,500</p>
+                <p className="text-sm font-black text-purple-900 dark:text-purple-100 mt-0.5 font-mono">₹37,24,985</p>
               </div>
               <div className="p-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">
                 <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase">Collected</span>
@@ -407,7 +407,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               </div>
               <div className="p-2.5 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800">
                 <span className="text-[10px] font-bold text-rose-700 dark:text-rose-300 uppercase">Remaining</span>
-                <p className="text-sm font-black text-rose-900 dark:text-rose-100 mt-0.5 font-mono">₹98,86,700</p>
+                <p className="text-sm font-black text-rose-900 dark:text-rose-100 mt-0.5 font-mono">₹1,08,89,185</p>
               </div>
             </div>
           </div>

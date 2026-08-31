@@ -635,10 +635,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 7700,
-            "totalDue": 31700,
+            "transportDue11Months": 8800,
+            "totalDue": 32800,
             "totalPaid": 0,
-            "balance": 31700,
+            "balance": 32800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -649,10 +649,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -689,15 +689,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 0,
-            "totalDue": 24000,
+            "transportDue11Months": 5500,
+            "totalDue": 29500,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 29500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 49250,
+            "consolidatedFamilyDue": 52000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 49250,
+            "consolidatedFamilyBalance": 52000,
             "familySiblings": [
                 {
                     "id": "STU-2026-047",
@@ -705,20 +705,20 @@ export const initialSchoolData = {
                     "class": "VIII",
                     "admissionNo": "196",
                     "tuitionDue": 17000,
-                    "transportDue11Months": 8250,
-                    "individualDue": 25250,
+                    "transportDue11Months": 5500,
+                    "individualDue": 22500,
                     "individualPaid": 0,
-                    "individualBalance": 25250
+                    "individualBalance": 22500
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -755,15 +755,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 8250,
-            "totalDue": 32250,
+            "transportDue11Months": 5500,
+            "totalDue": 29500,
             "totalPaid": 0,
-            "balance": 32250,
+            "balance": 29500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 55850,
+            "consolidatedFamilyDue": 54750,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 55850,
+            "consolidatedFamilyBalance": 54750,
             "familySiblings": [
                 {
                     "id": "STU-2026-045",
@@ -771,20 +771,20 @@ export const initialSchoolData = {
                     "class": "VIII",
                     "admissionNo": "193",
                     "tuitionDue": 17000,
-                    "transportDue11Months": 6600,
-                    "individualDue": 23600,
+                    "transportDue11Months": 8250,
+                    "individualDue": 25250,
                     "individualPaid": 0,
-                    "individualBalance": 23600
+                    "individualBalance": 25250
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "KANAKPUR",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -821,10 +821,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 0,
-            "totalDue": 24000,
+            "transportDue11Months": 3850,
+            "totalDue": 27850,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 27850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -834,11 +834,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -875,10 +875,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 6050,
-            "totalDue": 30050,
+            "transportDue11Months": 8800,
+            "totalDue": 32800,
             "totalPaid": 0,
-            "balance": 30050,
+            "balance": 32800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -889,10 +889,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -929,10 +929,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 4950,
-            "totalDue": 28950,
+            "transportDue11Months": 6050,
+            "totalDue": 30050,
             "totalPaid": 0,
-            "balance": 28950,
+            "balance": 30050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -943,10 +943,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -983,15 +983,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 6600,
-            "totalDue": 30600,
+            "transportDue11Months": 7700,
+            "totalDue": 31700,
             "totalPaid": 0,
-            "balance": 30600,
+            "balance": 31700,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 52700,
+            "consolidatedFamilyDue": 56000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 52700,
+            "consolidatedFamilyBalance": 56000,
             "familySiblings": [
                 {
                     "id": "STU-2026-118",
@@ -999,20 +999,20 @@ export const initialSchoolData = {
                     "class": "V",
                     "admissionNo": "319",
                     "tuitionDue": 15500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 22100,
+                    "transportDue11Months": 8800,
+                    "individualDue": 24300,
                     "individualPaid": 0,
-                    "individualBalance": 22100
+                    "individualBalance": 24300
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -1049,10 +1049,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 0,
-            "totalDue": 24000,
+            "transportDue11Months": 3850,
+            "totalDue": 27850,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 27850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1062,11 +1062,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -1103,10 +1103,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6600,
-            "totalDue": 27600,
+            "transportDue11Months": 5500,
+            "totalDue": 26500,
             "totalPaid": 0,
-            "balance": 27600,
+            "balance": 26500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1117,10 +1117,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -1157,15 +1157,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 4950,
-            "totalDue": 25950,
+            "transportDue11Months": 8250,
+            "totalDue": 29250,
             "totalPaid": 0,
-            "balance": 25950,
+            "balance": 29250,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 66850,
+            "consolidatedFamilyDue": 76750,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 66850,
+            "consolidatedFamilyBalance": 76750,
             "familySiblings": [
                 {
                     "id": "STU-2026-097",
@@ -1173,10 +1173,10 @@ export const initialSchoolData = {
                     "class": "V",
                     "admissionNo": "291",
                     "tuitionDue": 15500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 20450,
+                    "transportDue11Months": 8250,
+                    "individualDue": 23750,
                     "individualPaid": 0,
-                    "individualBalance": 20450
+                    "individualBalance": 23750
                 },
                 {
                     "id": "STU-2026-125",
@@ -1184,20 +1184,20 @@ export const initialSchoolData = {
                     "class": "V",
                     "admissionNo": "327",
                     "tuitionDue": 15500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 20450,
+                    "transportDue11Months": 8250,
+                    "individualDue": 23750,
                     "individualPaid": 0,
-                    "individualBalance": 20450
+                    "individualBalance": 23750
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -1234,10 +1234,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6600,
-            "totalDue": 27600,
+            "transportDue11Months": 5500,
+            "totalDue": 26500,
             "totalPaid": 10000.0,
-            "balance": 17600.0,
+            "balance": 16500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1248,10 +1248,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -1288,15 +1288,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 0,
-            "totalDue": 21000,
+            "transportDue11Months": 3850,
+            "totalDue": 24850,
             "totalPaid": 0,
-            "balance": 21000,
+            "balance": 24850,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 45200,
+            "consolidatedFamilyDue": 50150,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 45200,
+            "consolidatedFamilyBalance": 50150,
             "familySiblings": [
                 {
                     "id": "STU-2026-075",
@@ -1304,20 +1304,20 @@ export const initialSchoolData = {
                     "class": "VII",
                     "admissionNo": "252",
                     "tuitionDue": 16500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 24200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 25300,
                     "individualPaid": 0,
-                    "individualBalance": 24200
+                    "individualBalance": 25300
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -1354,10 +1354,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6600,
-            "totalDue": 27600,
+            "transportDue11Months": 5500,
+            "totalDue": 26500,
             "totalPaid": 5500.0,
-            "balance": 22100.0,
+            "balance": 21000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1368,10 +1368,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -1408,10 +1408,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 0,
-            "totalDue": 21000,
+            "transportDue11Months": 3850,
+            "totalDue": 24850,
             "totalPaid": 3000.0,
-            "balance": 18000.0,
+            "balance": 21850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1421,11 +1421,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -1462,10 +1462,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6600,
-            "totalDue": 27600,
+            "transportDue11Months": 7150,
+            "totalDue": 28150,
             "totalPaid": 0,
-            "balance": 27600,
+            "balance": 28150,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1476,10 +1476,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "JIROULI",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
         }
     },
     {
@@ -1516,10 +1516,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6600,
-            "totalDue": 27600,
+            "transportDue11Months": 8800,
+            "totalDue": 29800,
             "totalPaid": 0,
-            "balance": 27600,
+            "balance": 29800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1530,10 +1530,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -1570,10 +1570,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6050,
-            "totalDue": 27050,
+            "transportDue11Months": 8800,
+            "totalDue": 29800,
             "totalPaid": 0,
-            "balance": 27050,
+            "balance": 29800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1584,10 +1584,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -1624,10 +1624,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6050,
-            "totalDue": 27050,
+            "transportDue11Months": 8800,
+            "totalDue": 29800,
             "totalPaid": 0,
-            "balance": 27050,
+            "balance": 29800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1638,10 +1638,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -1678,15 +1678,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 5500,
-            "totalDue": 26500,
+            "transportDue11Months": 8250,
+            "totalDue": 29250,
             "totalPaid": 10000.0,
-            "balance": 16500.0,
+            "balance": 19250.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 48500,
+            "consolidatedFamilyDue": 54000,
             "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 28500.0,
+            "consolidatedFamilyBalance": 34000.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-057",
@@ -1694,10 +1694,10 @@ export const initialSchoolData = {
                     "class": "VII",
                     "admissionNo": "217",
                     "tuitionDue": 16500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 22000,
+                    "transportDue11Months": 8250,
+                    "individualDue": 24750,
                     "individualPaid": 10000.0,
-                    "individualBalance": 12000.0
+                    "individualBalance": 14750.0
                 }
             ]
         },
@@ -1706,8 +1706,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "CHIROURI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -1744,10 +1744,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6600,
-            "totalDue": 27600,
+            "transportDue11Months": 5500,
+            "totalDue": 26500,
             "totalPaid": 0,
-            "balance": 27600,
+            "balance": 26500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1758,10 +1758,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -1798,10 +1798,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6050,
-            "totalDue": 27050,
+            "transportDue11Months": 8800,
+            "totalDue": 29800,
             "totalPaid": 0,
-            "balance": 27050,
+            "balance": 29800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1812,10 +1812,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -1852,10 +1852,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 7150,
-            "totalDue": 28150,
+            "transportDue11Months": 4510,
+            "totalDue": 25510,
             "totalPaid": 19000.0,
-            "balance": 9150.0,
+            "balance": 6510.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1866,10 +1866,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "NAGLA SHUMALI",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "monthlyFare": 410,
+            "annualTransportDue11Months": 4510
         }
     },
     {
@@ -1906,10 +1906,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 6050,
-            "totalDue": 25550,
+            "transportDue11Months": 8800,
+            "totalDue": 28300,
             "totalPaid": 0,
-            "balance": 25550,
+            "balance": 28300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1920,10 +1920,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -1960,15 +1960,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 6600,
-            "totalDue": 26100,
+            "transportDue11Months": 5500,
+            "totalDue": 25000,
             "totalPaid": 0,
-            "balance": 26100,
+            "balance": 25000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 64300,
+            "consolidatedFamilyDue": 61000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 64300,
+            "consolidatedFamilyBalance": 61000,
             "familySiblings": [
                 {
                     "id": "STU-2026-246",
@@ -1976,10 +1976,10 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "495",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 20100,
+                    "transportDue11Months": 5500,
+                    "individualDue": 19000,
                     "individualPaid": 0,
-                    "individualBalance": 20100
+                    "individualBalance": 19000
                 },
                 {
                     "id": "STU-2026-341",
@@ -1987,20 +1987,20 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "664",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 18100,
+                    "transportDue11Months": 5500,
+                    "individualDue": 17000,
                     "individualPaid": 0,
-                    "individualBalance": 18100
+                    "individualBalance": 17000
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -2037,10 +2037,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 0,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2050,11 +2050,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2091,10 +2091,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 6600,
-            "totalDue": 26100,
+            "transportDue11Months": 5500,
+            "totalDue": 25000,
             "totalPaid": 0,
-            "balance": 26100,
+            "balance": 25000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2105,10 +2105,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -2145,10 +2145,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 4950,
-            "totalDue": 25950,
+            "transportDue11Months": 8250,
+            "totalDue": 29250,
             "totalPaid": 15000.0,
-            "balance": 10950.0,
+            "balance": 14250.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2159,10 +2159,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -2199,10 +2199,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 0,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2212,11 +2212,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2253,10 +2253,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 0,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2266,11 +2266,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2307,10 +2307,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 0,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2320,11 +2320,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2361,10 +2361,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 8250,
-            "totalDue": 27750,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 27750,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2375,10 +2375,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA KOTHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2415,10 +2415,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 8250,
-            "totalDue": 27750,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 27750,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2429,10 +2429,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA KOTHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2469,10 +2469,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 4400,
-            "totalDue": 23900,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 23900,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2483,10 +2483,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2523,15 +2523,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 6600,
-            "totalDue": 26100,
+            "transportDue11Months": 5500,
+            "totalDue": 25000,
             "totalPaid": 2500.0,
-            "balance": 23600.0,
+            "balance": 22500.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 49200,
+            "consolidatedFamilyDue": 47000,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 44200.0,
+            "consolidatedFamilyBalance": 42000.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-063",
@@ -2539,20 +2539,20 @@ export const initialSchoolData = {
                     "class": "VII",
                     "admissionNo": "231",
                     "tuitionDue": 16500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 23100,
+                    "transportDue11Months": 5500,
+                    "individualDue": 22000,
                     "individualPaid": 2500.0,
-                    "individualBalance": 20600.0
+                    "individualBalance": 19500.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -2589,15 +2589,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 8250,
-            "totalDue": 27750,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 2500.0,
-            "balance": 25250.0,
+            "balance": 20850.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 44250,
+            "consolidatedFamilyDue": 43700,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 39250.0,
+            "consolidatedFamilyBalance": 38700.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-069",
@@ -2605,20 +2605,20 @@ export const initialSchoolData = {
                     "class": "VII",
                     "admissionNo": "241",
                     "tuitionDue": 16500,
-                    "transportDue11Months": 0,
-                    "individualDue": 16500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 20350,
                     "individualPaid": 2500.0,
-                    "individualBalance": 14000.0
+                    "individualBalance": 17850.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA KOTHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2655,10 +2655,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 0,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 7500.0,
-            "balance": 12000.0,
+            "balance": 15850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2668,11 +2668,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2709,10 +2709,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 8250,
-            "totalDue": 27750,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 27750,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2723,10 +2723,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA KOTHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -2763,10 +2763,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 4950,
-            "totalDue": 21950,
+            "transportDue11Months": 8250,
+            "totalDue": 25250,
             "totalPaid": 0,
-            "balance": 21950,
+            "balance": 25250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2778,9 +2778,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -2817,10 +2817,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 5500,
-            "totalDue": 22500,
+            "transportDue11Months": 8250,
+            "totalDue": 25250,
             "totalPaid": 10000.0,
-            "balance": 12500.0,
+            "balance": 15250.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2831,10 +2831,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "CHIROURI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -2871,10 +2871,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 4950,
-            "totalDue": 21950,
+            "transportDue11Months": 7150,
+            "totalDue": 24150,
             "totalPaid": 0,
-            "balance": 21950,
+            "balance": 24150,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2885,10 +2885,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
+            "stop": "JIROULI",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
         }
     },
     {
@@ -2925,10 +2925,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 6600,
-            "totalDue": 23600,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 7500.0,
-            "balance": 16100.0,
+            "balance": 18300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2939,10 +2939,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -2979,10 +2979,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 6050,
-            "totalDue": 23050,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 2500.0,
-            "balance": 20550.0,
+            "balance": 23300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2993,10 +2993,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3033,10 +3033,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 7150,
-            "totalDue": 24150,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 10000.0,
-            "balance": 14150.0,
+            "balance": 15800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3048,9 +3048,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MALAHPUR",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "stop": "MAHARAJPUR",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3087,15 +3087,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 4950,
-            "totalDue": 21950,
+            "transportDue11Months": 6050,
+            "totalDue": 23050,
             "totalPaid": 0,
-            "balance": 21950,
+            "balance": 23050,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 62350,
+            "consolidatedFamilyDue": 65650,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 62350,
+            "consolidatedFamilyBalance": 65650,
             "familySiblings": [
                 {
                     "id": "STU-2026-061",
@@ -3103,10 +3103,10 @@ export const initialSchoolData = {
                     "class": "VII",
                     "admissionNo": "228",
                     "tuitionDue": 16500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 21450,
+                    "transportDue11Months": 6050,
+                    "individualDue": 22550,
                     "individualPaid": 0,
-                    "individualBalance": 21450
+                    "individualBalance": 22550
                 },
                 {
                     "id": "STU-2026-213",
@@ -3114,20 +3114,20 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "443",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 4950,
-                    "individualDue": 18950,
+                    "transportDue11Months": 6050,
+                    "individualDue": 20050,
                     "individualPaid": 0,
-                    "individualBalance": 18950
+                    "individualBalance": 20050
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -3164,10 +3164,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 6600,
-            "totalDue": 23600,
+            "transportDue11Months": 8250,
+            "totalDue": 25250,
             "totalPaid": 0,
-            "balance": 23600,
+            "balance": 25250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3185,10 +3185,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -3225,10 +3225,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 7700,
-            "totalDue": 24700,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 0,
-            "balance": 24700,
+            "balance": 25800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3239,10 +3239,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3279,10 +3279,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 8250,
-            "totalDue": 25250,
+            "transportDue11Months": 5500,
+            "totalDue": 22500,
             "totalPaid": 0,
-            "balance": 25250,
+            "balance": 22500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3300,10 +3300,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA VIDHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -3340,15 +3340,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 6050,
-            "totalDue": 23050,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 0,
-            "balance": 23050,
+            "balance": 25800,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43600,
+            "consolidatedFamilyDue": 49100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43600,
+            "consolidatedFamilyBalance": 49100,
             "familySiblings": [
                 {
                     "id": "STU-2026-300",
@@ -3356,20 +3356,20 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "587",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 20550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 23300,
                     "individualPaid": 0,
-                    "individualBalance": 20550
+                    "individualBalance": 23300
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3406,15 +3406,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 7700,
-            "totalDue": 24700,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 5000.0,
-            "balance": 19700.0,
+            "balance": 20800.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 67600,
+            "consolidatedFamilyDue": 70900,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 57600.0,
+            "consolidatedFamilyBalance": 60900.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-396",
@@ -3422,10 +3422,10 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "743",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 7700,
-                    "individualDue": 22700,
+                    "transportDue11Months": 8800,
+                    "individualDue": 23800,
                     "individualPaid": 2500.0,
-                    "individualBalance": 20200.0
+                    "individualBalance": 21300.0
                 },
                 {
                     "id": "STU-2026-397",
@@ -3433,20 +3433,20 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "744",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 20200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 21300,
                     "individualPaid": 2500.0,
-                    "individualBalance": 17700.0
+                    "individualBalance": 18800.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3483,10 +3483,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 4950,
-            "totalDue": 21950,
+            "transportDue11Months": 6050,
+            "totalDue": 23050,
             "totalPaid": 0,
-            "balance": 21950,
+            "balance": 23050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3497,10 +3497,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -3537,10 +3537,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 7700,
-            "totalDue": 24700,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 0,
-            "balance": 24700,
+            "balance": 25800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3553,8 +3553,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "MAHARAJPUR",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3591,15 +3591,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 6050,
-            "totalDue": 23050,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 0,
-            "balance": 23050,
+            "balance": 25800,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 63150,
+            "consolidatedFamilyDue": 71400,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 63150,
+            "consolidatedFamilyBalance": 71400,
             "familySiblings": [
                 {
                     "id": "STU-2026-326",
@@ -3607,10 +3607,10 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "641",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 20550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 23300,
                     "individualPaid": 0,
-                    "individualBalance": 20550
+                    "individualBalance": 23300
                 },
                 {
                     "id": "STU-2026-325",
@@ -3618,20 +3618,20 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "640",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 19550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 22300,
                     "individualPaid": 0,
-                    "individualBalance": 19550
+                    "individualBalance": 22300
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3668,10 +3668,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 6600,
-            "totalDue": 23600,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 0,
-            "balance": 23600,
+            "balance": 25800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3682,10 +3682,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3722,10 +3722,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 0,
-            "totalDue": 17000,
+            "transportDue11Months": 3850,
+            "totalDue": 20850,
             "totalPaid": 0,
-            "balance": 17000,
+            "balance": 20850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3735,11 +3735,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -3776,10 +3776,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 6050,
-            "totalDue": 23050,
+            "transportDue11Months": 8800,
+            "totalDue": 25800,
             "totalPaid": 0,
-            "balance": 23050,
+            "balance": 25800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3790,10 +3790,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3830,10 +3830,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 0,
-            "balance": 16500,
+            "balance": 20350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3843,11 +3843,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -3884,10 +3884,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 5500,
-            "totalDue": 22000,
+            "transportDue11Months": 8250,
+            "totalDue": 24750,
             "totalPaid": 10000.0,
-            "balance": 12000.0,
+            "balance": 14750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3905,10 +3905,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "CHIROURI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -3945,10 +3945,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 7700,
-            "totalDue": 24200,
+            "transportDue11Months": 8800,
+            "totalDue": 25300,
             "totalPaid": 0,
-            "balance": 24200,
+            "balance": 25300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3960,9 +3960,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MAHARAJPUR",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -3999,10 +3999,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 0,
-            "balance": 16500,
+            "balance": 20350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4012,11 +4012,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -4053,15 +4053,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 5500,
+            "totalDue": 22000,
             "totalPaid": 0,
-            "balance": 16500,
+            "balance": 22000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 31500,
+            "consolidatedFamilyDue": 42500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 31500,
+            "consolidatedFamilyBalance": 42500,
             "familySiblings": [
                 {
                     "id": "STU-2026-137",
@@ -4069,20 +4069,20 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "341",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 0,
-                    "individualDue": 15000,
+                    "transportDue11Months": 5500,
+                    "individualDue": 20500,
                     "individualPaid": 0,
-                    "individualBalance": 15000
+                    "individualBalance": 20500
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -4119,10 +4119,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 4950,
-            "totalDue": 21450,
+            "transportDue11Months": 6050,
+            "totalDue": 22550,
             "totalPaid": 0,
-            "balance": 21450,
+            "balance": 22550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4140,10 +4140,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -4180,10 +4180,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 4950,
-            "totalDue": 21450,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 0,
-            "balance": 21450,
+            "balance": 20350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4195,9 +4195,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -4234,10 +4234,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 6600,
-            "totalDue": 23100,
+            "transportDue11Months": 5500,
+            "totalDue": 22000,
             "totalPaid": 2500.0,
-            "balance": 20600.0,
+            "balance": 19500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4255,10 +4255,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -4295,10 +4295,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 0,
-            "balance": 16500,
+            "balance": 20350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4308,11 +4308,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -4349,15 +4349,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 7150,
-            "totalDue": 23650,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 0,
-            "balance": 23650,
+            "balance": 20350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 45800,
+            "consolidatedFamilyDue": 39200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 45800,
+            "consolidatedFamilyBalance": 39200,
             "familySiblings": [
                 {
                     "id": "STU-2026-149",
@@ -4365,20 +4365,20 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "354",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 7150,
-                    "individualDue": 22150,
+                    "transportDue11Months": 3850,
+                    "individualDue": 18850,
                     "individualPaid": 0,
-                    "individualBalance": 22150
+                    "individualBalance": 18850
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "GANGAGARH",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -4415,15 +4415,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 5000.0,
-            "balance": 11500.0,
+            "balance": 15350.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 56000,
+            "consolidatedFamilyDue": 56550,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 51000.0,
+            "consolidatedFamilyBalance": 51550.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-197",
@@ -4431,10 +4431,10 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "420",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 20000,
+                    "transportDue11Months": 3850,
+                    "individualDue": 18350,
                     "individualPaid": 0,
-                    "individualBalance": 20000
+                    "individualBalance": 18350
                 },
                 {
                     "id": "STU-2026-307",
@@ -4442,20 +4442,20 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "596",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 5500,
-                    "individualDue": 19500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 17850,
                     "individualPaid": 0,
-                    "individualBalance": 19500
+                    "individualBalance": 17850
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -4492,10 +4492,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 5000.0,
-            "balance": 11500.0,
+            "balance": 15350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4505,11 +4505,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -4546,15 +4546,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 6050,
-            "totalDue": 22550,
+            "transportDue11Months": 8800,
+            "totalDue": 25300,
             "totalPaid": 4000.0,
-            "balance": 18550.0,
+            "balance": 21300.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 65150,
+            "consolidatedFamilyDue": 73400,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 55150.0,
+            "consolidatedFamilyBalance": 63400.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-076",
@@ -4562,10 +4562,10 @@ export const initialSchoolData = {
                     "class": "VI",
                     "admissionNo": "254",
                     "tuitionDue": 16000,
-                    "transportDue11Months": 6050,
-                    "individualDue": 22050,
+                    "transportDue11Months": 8800,
+                    "individualDue": 24800,
                     "individualPaid": 3000.0,
-                    "individualBalance": 19050.0
+                    "individualBalance": 21800.0
                 },
                 {
                     "id": "STU-2026-206",
@@ -4573,20 +4573,20 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "434",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 20550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 23300,
                     "individualPaid": 3000.0,
-                    "individualBalance": 17550.0
+                    "individualBalance": 20300.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -4623,10 +4623,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 2500.0,
-            "balance": 14000.0,
+            "balance": 17850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4643,11 +4643,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -4684,10 +4684,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 4950,
-            "totalDue": 21450,
+            "transportDue11Months": 5500,
+            "totalDue": 22000,
             "totalPaid": 0,
-            "balance": 21450,
+            "balance": 22000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4698,10 +4698,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA GARVI",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -4738,10 +4738,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 6050,
-            "totalDue": 22550,
+            "transportDue11Months": 8800,
+            "totalDue": 25300,
             "totalPaid": 0,
-            "balance": 22550,
+            "balance": 25300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4754,8 +4754,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -4792,10 +4792,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 6050,
-            "totalDue": 22550,
+            "transportDue11Months": 8800,
+            "totalDue": 25300,
             "totalPaid": 5000.0,
-            "balance": 17550.0,
+            "balance": 20300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4806,10 +4806,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -4846,15 +4846,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 4000.0,
-            "balance": 12500.0,
+            "balance": 16350.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 31500,
+            "consolidatedFamilyDue": 39200,
             "consolidatedFamilyPaid": 8000.0,
-            "consolidatedFamilyBalance": 23500.0,
+            "consolidatedFamilyBalance": 31200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-139",
@@ -4862,20 +4862,20 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "343",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 0,
-                    "individualDue": 15000,
+                    "transportDue11Months": 3850,
+                    "individualDue": 18850,
                     "individualPaid": 4000.0,
-                    "individualBalance": 11000.0
+                    "individualBalance": 14850.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -4912,10 +4912,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 5500,
+            "totalDue": 22000,
             "totalPaid": 0,
-            "balance": 16500,
+            "balance": 22000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4925,11 +4925,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -4966,10 +4966,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 7700,
-            "totalDue": 24200,
+            "transportDue11Months": 8800,
+            "totalDue": 25300,
             "totalPaid": 0,
-            "balance": 24200,
+            "balance": 25300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4987,10 +4987,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -5027,10 +5027,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 6050,
-            "totalDue": 22050,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 3000.0,
-            "balance": 19050.0,
+            "balance": 21800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5048,10 +5048,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -5088,10 +5088,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 0,
-            "totalDue": 16000,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 0,
-            "balance": 16000,
+            "balance": 19850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5101,11 +5101,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -5142,10 +5142,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 4950,
-            "totalDue": 20950,
+            "transportDue11Months": 8250,
+            "totalDue": 24250,
             "totalPaid": 0,
-            "balance": 20950,
+            "balance": 24250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5157,9 +5157,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -5196,15 +5196,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 6050,
-            "totalDue": 22050,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 15500.0,
-            "balance": 6550.0,
+            "balance": 9300.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38600,
+            "consolidatedFamilyDue": 44100,
             "consolidatedFamilyPaid": 25000.0,
-            "consolidatedFamilyBalance": 13600.0,
+            "consolidatedFamilyBalance": 19100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-538",
@@ -5212,10 +5212,10 @@ export const initialSchoolData = {
                     "class": "NURSERY",
                     "admissionNo": "941",
                     "tuitionDue": 10500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 16550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 19300,
                     "individualPaid": 9500.0,
-                    "individualBalance": 7050.0
+                    "individualBalance": 9800.0
                 }
             ]
         },
@@ -5224,8 +5224,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -5262,15 +5262,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 6600,
-            "totalDue": 22600,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 5000.0,
-            "balance": 17600.0,
+            "balance": 19800.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 44200,
+            "consolidatedFamilyDue": 48600,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 34200.0,
+            "consolidatedFamilyBalance": 38600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-133",
@@ -5278,10 +5278,10 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "336",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 6600,
-                    "individualDue": 21600,
+                    "transportDue11Months": 8800,
+                    "individualDue": 23800,
                     "individualPaid": 5000.0,
-                    "individualBalance": 16600.0
+                    "individualBalance": 18800.0
                 }
             ]
         },
@@ -5289,9 +5289,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -5328,10 +5328,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 5500,
-            "totalDue": 21500,
+            "transportDue11Months": 8250,
+            "totalDue": 24250,
             "totalPaid": 0,
-            "balance": 21500,
+            "balance": 24250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5344,8 +5344,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "CHIROURI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -5382,15 +5382,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 4510,
+            "totalDue": 20510,
             "totalPaid": 3500.0,
-            "balance": 20200.0,
+            "balance": 17010.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 44900,
+            "consolidatedFamilyDue": 38520,
             "consolidatedFamilyPaid": 3500.0,
-            "consolidatedFamilyBalance": 41400.0,
+            "consolidatedFamilyBalance": 35020.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-254",
@@ -5398,20 +5398,20 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "505",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 21200,
+                    "transportDue11Months": 4510,
+                    "individualDue": 18010,
                     "individualPaid": 0,
-                    "individualBalance": 21200
+                    "individualBalance": 18010
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "NAGLA SHUMALI",
+            "monthlyFare": 410,
+            "annualTransportDue11Months": 4510
         }
     },
     {
@@ -5448,10 +5448,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 0,
-            "totalDue": 16000,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 7000.0,
-            "balance": 9000.0,
+            "balance": 12850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5461,11 +5461,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -5502,10 +5502,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 0,
-            "totalDue": 16000,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 0,
-            "balance": 16000,
+            "balance": 19850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5515,11 +5515,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -5556,15 +5556,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 6600,
-            "totalDue": 22600,
+            "transportDue11Months": 8250,
+            "totalDue": 24250,
             "totalPaid": 5000.0,
-            "balance": 17600.0,
+            "balance": 19250.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43200,
+            "consolidatedFamilyDue": 46500,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 38200.0,
+            "consolidatedFamilyBalance": 41500.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-228",
@@ -5572,10 +5572,10 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "468",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 6600,
-                    "individualDue": 20600,
+                    "transportDue11Months": 8250,
+                    "individualDue": 22250,
                     "individualPaid": 0,
-                    "individualBalance": 20600
+                    "individualBalance": 22250
                 }
             ]
         },
@@ -5584,8 +5584,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -5622,10 +5622,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 8250,
+            "totalDue": 24250,
             "totalPaid": 0,
-            "balance": 23700,
+            "balance": 24250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5636,10 +5636,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -5676,15 +5676,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 6050,
-            "totalDue": 22050,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 5000.0,
-            "balance": 17050.0,
+            "balance": 19800.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43600,
+            "consolidatedFamilyDue": 49100,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 33600.0,
+            "consolidatedFamilyBalance": 39100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-105",
@@ -5692,10 +5692,10 @@ export const initialSchoolData = {
                     "class": "V",
                     "admissionNo": "300",
                     "tuitionDue": 15500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 21550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 24300,
                     "individualPaid": 5000.0,
-                    "individualBalance": 16550.0
+                    "individualBalance": 19300.0
                 }
             ]
         },
@@ -5704,8 +5704,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -5742,15 +5742,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 5500,
-            "totalDue": 21500,
+            "transportDue11Months": 8250,
+            "totalDue": 24250,
             "totalPaid": 0,
-            "balance": 21500,
+            "balance": 24250,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35500,
+            "consolidatedFamilyDue": 42100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35500,
+            "consolidatedFamilyBalance": 42100,
             "familySiblings": [
                 {
                     "id": "STU-2026-308",
@@ -5758,20 +5758,20 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "598",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 0,
-                    "individualDue": 14000,
+                    "transportDue11Months": 3850,
+                    "individualDue": 17850,
                     "individualPaid": 0,
-                    "individualBalance": 14000
+                    "individualBalance": 17850
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "CHIROURI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -5808,10 +5808,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 5500,
-            "totalDue": 21500,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 10000.0,
-            "balance": 11500.0,
+            "balance": 14800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5823,9 +5823,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
-            "stop": "GAHTOLI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "stop": "KUNJALPUR",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -5862,10 +5862,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 4400,
-            "totalDue": 20400,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 9000.0,
-            "balance": 11400.0,
+            "balance": 10850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5876,10 +5876,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -5916,15 +5916,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 6050,
-            "totalDue": 22050,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 5000.0,
-            "balance": 17050.0,
+            "balance": 19800.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43600,
+            "consolidatedFamilyDue": 49100,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 33600.0,
+            "consolidatedFamilyBalance": 39100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-092",
@@ -5932,10 +5932,10 @@ export const initialSchoolData = {
                     "class": "V",
                     "admissionNo": "282",
                     "tuitionDue": 15500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 21550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 24300,
                     "individualPaid": 5000.0,
-                    "individualBalance": 16550.0
+                    "individualBalance": 19300.0
                 }
             ]
         },
@@ -5944,8 +5944,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -5982,10 +5982,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6050,
-            "totalDue": 21550,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 5000.0,
-            "balance": 16550.0,
+            "balance": 19300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6005,8 +6005,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -6043,10 +6043,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7150,
-            "totalDue": 22650,
+            "transportDue11Months": 4400,
+            "totalDue": 19900,
             "totalPaid": 0,
-            "balance": 22650,
+            "balance": 19900,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6057,10 +6057,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MALAHPUR",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
         }
     },
     {
@@ -6097,10 +6097,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6600,
-            "totalDue": 22100,
+            "transportDue11Months": 5500,
+            "totalDue": 21000,
             "totalPaid": 0,
-            "balance": 22100,
+            "balance": 21000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6111,10 +6111,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -6151,15 +6151,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 0,
-            "balance": 23700,
+            "balance": 24800,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 46400,
+            "consolidatedFamilyDue": 48050,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 46400,
+            "consolidatedFamilyBalance": 48050,
             "familySiblings": [
                 {
                     "id": "STU-2026-130",
@@ -6167,20 +6167,20 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "333",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 7700,
-                    "individualDue": 22700,
+                    "transportDue11Months": 8250,
+                    "individualDue": 23250,
                     "individualPaid": 0,
-                    "individualBalance": 22700
+                    "individualBalance": 23250
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -6217,15 +6217,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 8250,
+            "totalDue": 24250,
             "totalPaid": 0,
-            "balance": 23700,
+            "balance": 24250,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 46400,
+            "consolidatedFamilyDue": 47500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 46400,
+            "consolidatedFamilyBalance": 47500,
             "familySiblings": [
                 {
                     "id": "STU-2026-162",
@@ -6233,10 +6233,10 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "374",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 7700,
-                    "individualDue": 22700,
+                    "transportDue11Months": 8250,
+                    "individualDue": 23250,
                     "individualPaid": 0,
-                    "individualBalance": 22700
+                    "individualBalance": 23250
                 }
             ]
         },
@@ -6245,8 +6245,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -6283,10 +6283,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 4950,
-            "totalDue": 20450,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 0,
-            "balance": 20450,
+            "balance": 23750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6306,8 +6306,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -6344,10 +6344,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 5500,
-            "totalDue": 21000,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 0,
-            "balance": 21000,
+            "balance": 23750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6360,8 +6360,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -6398,15 +6398,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 0,
-            "totalDue": 16000,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 5000.0,
-            "balance": 11000.0,
+            "balance": 14850.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 37100,
+            "consolidatedFamilyDue": 42600,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 27100.0,
+            "consolidatedFamilyBalance": 32600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-174",
@@ -6414,20 +6414,20 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "389",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 21100,
+                    "transportDue11Months": 8250,
+                    "individualDue": 22750,
                     "individualPaid": 5000.0,
-                    "individualBalance": 16100.0
+                    "individualBalance": 17750.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -6464,15 +6464,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6050,
-            "totalDue": 21550,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 21550,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40100,
+            "consolidatedFamilyDue": 45600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40100,
+            "consolidatedFamilyBalance": 45600,
             "familySiblings": [
                 {
                     "id": "STU-2026-288",
@@ -6480,10 +6480,10 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "567",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 18550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 21300,
                     "individualPaid": 0,
-                    "individualBalance": 18550
+                    "individualBalance": 21300
                 }
             ]
         },
@@ -6492,8 +6492,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -6530,15 +6530,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 0,
-            "totalDue": 15500,
+            "transportDue11Months": 5500,
+            "totalDue": 21000,
             "totalPaid": 0,
-            "balance": 15500,
+            "balance": 21000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 30500,
+            "consolidatedFamilyDue": 41500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 30500,
+            "consolidatedFamilyBalance": 41500,
             "familySiblings": [
                 {
                     "id": "STU-2026-170",
@@ -6546,20 +6546,20 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "384",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 0,
-                    "individualDue": 15000,
+                    "transportDue11Months": 5500,
+                    "individualDue": 20500,
                     "individualPaid": 0,
-                    "individualBalance": 15000
+                    "individualBalance": 20500
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -6596,10 +6596,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 10000.0,
-            "balance": 13200.0,
+            "balance": 14300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6610,10 +6610,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -6650,10 +6650,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6050,
-            "totalDue": 21550,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 21550,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6664,10 +6664,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -6704,10 +6704,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6050,
-            "totalDue": 21550,
+            "transportDue11Months": 9515,
+            "totalDue": 25015,
             "totalPaid": 12000.0,
-            "balance": 9550.0,
+            "balance": 13015.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6720,8 +6720,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -6758,10 +6758,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6050,
-            "totalDue": 21550,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 5000.0,
-            "balance": 16550.0,
+            "balance": 19300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6781,8 +6781,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -6819,15 +6819,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6050,
-            "totalDue": 21550,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 21550,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40100,
+            "consolidatedFamilyDue": 45600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40100,
+            "consolidatedFamilyBalance": 45600,
             "familySiblings": [
                 {
                     "id": "STU-2026-323",
@@ -6835,10 +6835,10 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "637",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 18550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 21300,
                     "individualPaid": 0,
-                    "individualBalance": 18550
+                    "individualBalance": 21300
                 }
             ]
         },
@@ -6847,8 +6847,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -6885,10 +6885,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 2000.0,
-            "balance": 21700.0,
+            "balance": 22800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6899,10 +6899,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -6939,10 +6939,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 0,
-            "totalDue": 15500,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 2500.0,
-            "balance": 13000.0,
+            "balance": 16850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6952,11 +6952,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -6993,10 +6993,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 23200,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7007,10 +7007,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -7047,15 +7047,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6050,
-            "totalDue": 21550,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 10000.0,
-            "balance": 11550.0,
+            "balance": 14300.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 42600,
+            "consolidatedFamilyDue": 48100,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 32600.0,
+            "consolidatedFamilyBalance": 38100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-154",
@@ -7063,10 +7063,10 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "364",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 6050,
-                    "individualDue": 21050,
+                    "transportDue11Months": 8800,
+                    "individualDue": 23800,
                     "individualPaid": 0,
-                    "individualBalance": 21050
+                    "individualBalance": 23800
                 }
             ]
         },
@@ -7075,8 +7075,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -7113,10 +7113,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 5500,
-            "totalDue": 21000,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 3000.0,
-            "balance": 18000.0,
+            "balance": 20750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7127,10 +7127,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "CHIROURI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -7167,10 +7167,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 5500,
-            "totalDue": 21000,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 10000.0,
-            "balance": 11000.0,
+            "balance": 13750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7182,9 +7182,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "stop": "CHIROURI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -7221,15 +7221,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 8250,
+            "totalDue": 24250,
             "totalPaid": 12900.0,
-            "balance": 10800.0,
+            "balance": 11350.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 45900,
+            "consolidatedFamilyDue": 47000,
             "consolidatedFamilyPaid": 12900.0,
-            "consolidatedFamilyBalance": 33000.0,
+            "consolidatedFamilyBalance": 34100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-184",
@@ -7237,20 +7237,20 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "402",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 22200,
+                    "transportDue11Months": 8250,
+                    "individualDue": 22750,
                     "individualPaid": 0,
-                    "individualBalance": 22200
+                    "individualBalance": 22750
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -7287,15 +7287,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 4950,
-            "totalDue": 20450,
+            "transportDue11Months": 6050,
+            "totalDue": 21550,
             "totalPaid": 5000.0,
-            "balance": 15450.0,
+            "balance": 16550.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38900,
+            "consolidatedFamilyDue": 41100,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 28900.0,
+            "consolidatedFamilyBalance": 31100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-255",
@@ -7303,10 +7303,10 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "506",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 18450,
+                    "transportDue11Months": 6050,
+                    "individualDue": 19550,
                     "individualPaid": 5000.0,
-                    "individualBalance": 13450.0
+                    "individualBalance": 14550.0
                 }
             ]
         },
@@ -7315,8 +7315,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -7353,10 +7353,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 8250,
-            "totalDue": 23750,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 9000.0,
-            "balance": 14750.0,
+            "balance": 10350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7367,10 +7367,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA KOTHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -7407,15 +7407,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 0,
-            "totalDue": 15500,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 0,
-            "balance": 15500,
+            "balance": 19350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 30500,
+            "consolidatedFamilyDue": 38200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 30500,
+            "consolidatedFamilyBalance": 38200,
             "familySiblings": [
                 {
                     "id": "STU-2026-147",
@@ -7423,20 +7423,20 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "352",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 0,
-                    "individualDue": 15000,
+                    "transportDue11Months": 3850,
+                    "individualDue": 18850,
                     "individualPaid": 0,
-                    "individualBalance": 15000
+                    "individualBalance": 18850
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -7473,10 +7473,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 0,
-            "totalDue": 15500,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 0,
-            "balance": 15500,
+            "balance": 23750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7486,11 +7486,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "CHIROURI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -7527,10 +7527,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6600,
-            "totalDue": 22100,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 22100,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7548,10 +7548,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -7588,10 +7588,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 23200,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7602,10 +7602,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -7642,15 +7642,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 0,
-            "totalDue": 15500,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 0,
-            "balance": 15500,
+            "balance": 19350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 30000,
+            "consolidatedFamilyDue": 37700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 30000,
+            "consolidatedFamilyBalance": 37700,
             "familySiblings": [
                 {
                     "id": "STU-2026-212",
@@ -7658,20 +7658,20 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "440",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 0,
-                    "individualDue": 14500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 18350,
                     "individualPaid": 0,
-                    "individualBalance": 14500
+                    "individualBalance": 18350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -7708,15 +7708,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 23200,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 44400,
+            "consolidatedFamilyDue": 46600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 44400,
+            "consolidatedFamilyBalance": 46600,
             "familySiblings": [
                 {
                     "id": "STU-2026-305",
@@ -7724,20 +7724,20 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "594",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 21200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 22300,
                     "individualPaid": 0,
-                    "individualBalance": 21200
+                    "individualBalance": 22300
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -7774,10 +7774,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 0,
-            "totalDue": 15500,
+            "transportDue11Months": 5500,
+            "totalDue": 21000,
             "totalPaid": 0,
-            "balance": 15500,
+            "balance": 21000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7787,11 +7787,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -7828,10 +7828,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 0,
-            "totalDue": 16000,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 4000.0,
-            "balance": 12000.0,
+            "balance": 15850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7841,11 +7841,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -7882,10 +7882,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 4950,
-            "totalDue": 20450,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 10000.0,
-            "balance": 10450.0,
+            "balance": 13750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7897,9 +7897,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -7936,10 +7936,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 4950,
-            "totalDue": 20450,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 0,
-            "balance": 20450,
+            "balance": 23750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7957,10 +7957,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -7997,10 +7997,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6050,
-            "totalDue": 21550,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 2500.0,
-            "balance": 19050.0,
+            "balance": 21800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8013,8 +8013,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -8051,10 +8051,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 5500,
-            "totalDue": 21000,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 10000.0,
-            "balance": 11000.0,
+            "balance": 13750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8065,10 +8065,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "CHIROURI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -8105,10 +8105,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 0,
-            "balance": 23200,
+            "balance": 23750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8121,8 +8121,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -8159,15 +8159,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 5500,
-            "totalDue": 20500,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 0,
-            "balance": 20500,
+            "balance": 23800,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 41700,
+            "consolidatedFamilyDue": 46100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 41700,
+            "consolidatedFamilyBalance": 46100,
             "familySiblings": [
                 {
                     "id": "STU-2026-245",
@@ -8175,10 +8175,10 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "494",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 21200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 22300,
                     "individualPaid": 0,
-                    "individualBalance": 21200
+                    "individualBalance": 22300
                 }
             ]
         },
@@ -8186,9 +8186,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "CHIROURI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -8225,10 +8225,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 0,
-            "balance": 22700,
+            "balance": 23250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8248,8 +8248,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -8286,10 +8286,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8299,11 +8299,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -8340,10 +8340,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6050,
-            "totalDue": 21050,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 10000.0,
-            "balance": 11050.0,
+            "balance": 13800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8356,8 +8356,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -8394,10 +8394,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6600,
-            "totalDue": 21600,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 5000.0,
-            "balance": 16600.0,
+            "balance": 18800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8416,9 +8416,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -8481,7 +8481,7 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
@@ -8521,10 +8521,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7150,
-            "totalDue": 22650,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 22650,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8535,10 +8535,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BANJARA NAGLA",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -8575,15 +8575,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6050,
-            "totalDue": 21050,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 5000.0,
-            "balance": 16050.0,
+            "balance": 18800.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 41100,
+            "consolidatedFamilyDue": 46600,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 31100.0,
+            "consolidatedFamilyBalance": 36600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-298",
@@ -8591,10 +8591,10 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "583",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 6050,
-                    "individualDue": 20050,
+                    "transportDue11Months": 8800,
+                    "individualDue": 22800,
                     "individualPaid": 5000.0,
-                    "individualBalance": 15050.0
+                    "individualBalance": 17800.0
                 }
             ]
         },
@@ -8603,8 +8603,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -8641,10 +8641,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 20500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8661,11 +8661,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -8702,10 +8702,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 6000.0,
-            "balance": 16700.0,
+            "balance": 17800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8716,10 +8716,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -8756,10 +8756,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 4000.0,
-            "balance": 11000.0,
+            "balance": 14850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8776,11 +8776,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -8817,15 +8817,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 26500,
+            "consolidatedFamilyDue": 34200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 26500,
+            "consolidatedFamilyBalance": 34200,
             "familySiblings": [
                 {
                     "id": "STU-2026-402",
@@ -8833,20 +8833,20 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "752",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 0,
-                    "individualDue": 11500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 15350,
                     "individualPaid": 0,
-                    "individualBalance": 11500
+                    "individualBalance": 15350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -8883,15 +8883,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 4950,
-            "totalDue": 19950,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 20150.0,
-            "balance": 0,
-            "status": "Paid",
+            "balance": 3100.0,
+            "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38900,
+            "consolidatedFamilyDue": 41100,
             "consolidatedFamilyPaid": 38800.0,
-            "consolidatedFamilyBalance": 100.0,
+            "consolidatedFamilyBalance": 2300.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-236",
@@ -8899,10 +8899,10 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "481",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 4950,
-                    "individualDue": 18950,
+                    "transportDue11Months": 3850,
+                    "individualDue": 17850,
                     "individualPaid": 18650.0,
-                    "individualBalance": 300.0
+                    "individualBalance": 0
                 }
             ]
         },
@@ -8911,8 +8911,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -8949,10 +8949,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8962,11 +8962,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -9003,15 +9003,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 20500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 32450,
+            "consolidatedFamilyDue": 38500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 32450,
+            "consolidatedFamilyBalance": 38500,
             "familySiblings": [
                 {
                     "id": "STU-2026-285",
@@ -9019,20 +9019,20 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "560",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 17450,
+                    "transportDue11Months": 5500,
+                    "individualDue": 18000,
                     "individualPaid": 0,
-                    "individualBalance": 17450
+                    "individualBalance": 18000
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -9069,10 +9069,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 4950,
-            "totalDue": 19950,
+            "transportDue11Months": 6050,
+            "totalDue": 21050,
             "totalPaid": 10000.0,
-            "balance": 9950.0,
+            "balance": 11050.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9085,8 +9085,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -9123,10 +9123,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 5500,
-            "totalDue": 20500,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 0,
-            "balance": 20500,
+            "balance": 23250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9139,8 +9139,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -9177,10 +9177,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 23200,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9191,10 +9191,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -9231,10 +9231,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9251,11 +9251,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -9292,15 +9292,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 4400,
-            "totalDue": 19400,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 5000.0,
-            "balance": 14400.0,
+            "balance": 15500.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35850,
+            "consolidatedFamilyDue": 37500,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 25850.0,
+            "consolidatedFamilyBalance": 27500.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-542",
@@ -9308,10 +9308,10 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "937",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 16450,
+                    "transportDue11Months": 5500,
+                    "individualDue": 17000,
                     "individualPaid": 5000.0,
-                    "individualBalance": 11450.0
+                    "individualBalance": 12000.0
                 }
             ]
         },
@@ -9319,9 +9319,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -9358,10 +9358,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7150,
-            "totalDue": 22150,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 22150,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9379,10 +9379,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "GANGAGARH",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -9419,10 +9419,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 5500,
-            "totalDue": 20500,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 20500,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9433,10 +9433,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -9473,10 +9473,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9486,11 +9486,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -9527,10 +9527,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9540,11 +9540,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -9581,15 +9581,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6600,
-            "totalDue": 22100,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 10000.0,
-            "balance": 12100.0,
+            "balance": 9350.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43700,
+            "consolidatedFamilyDue": 38200,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 33700.0,
+            "consolidatedFamilyBalance": 28200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-200",
@@ -9597,20 +9597,20 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "425",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 6600,
-                    "individualDue": 21600,
+                    "transportDue11Months": 3850,
+                    "individualDue": 18850,
                     "individualPaid": 0,
-                    "individualBalance": 21600
+                    "individualBalance": 18850
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -9647,10 +9647,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6050,
-            "totalDue": 21050,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 0,
-            "balance": 21050,
+            "balance": 23800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9670,8 +9670,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -9708,15 +9708,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6050,
-            "totalDue": 21050,
+            "transportDue11Months": 9515,
+            "totalDue": 24515,
             "totalPaid": 10000.0,
-            "balance": 11050.0,
+            "balance": 14515.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40600,
+            "consolidatedFamilyDue": 47530,
             "consolidatedFamilyPaid": 13000.0,
-            "consolidatedFamilyBalance": 27600.0,
+            "consolidatedFamilyBalance": 34530.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-262",
@@ -9724,10 +9724,10 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "518",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 19550,
+                    "transportDue11Months": 9515,
+                    "individualDue": 23015,
                     "individualPaid": 3000.0,
-                    "individualBalance": 16550.0
+                    "individualBalance": 20015.0
                 }
             ]
         },
@@ -9736,8 +9736,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -9774,15 +9774,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6600,
-            "totalDue": 22100,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 14000.0,
-            "balance": 8100.0,
+            "balance": 9750.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43200,
+            "consolidatedFamilyDue": 46500,
             "consolidatedFamilyPaid": 14000.0,
-            "consolidatedFamilyBalance": 29200.0,
+            "consolidatedFamilyBalance": 32500.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-176",
@@ -9790,10 +9790,10 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "392",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 21100,
+                    "transportDue11Months": 8250,
+                    "individualDue": 22750,
                     "individualPaid": 0,
-                    "individualBalance": 21100
+                    "individualBalance": 22750
                 }
             ]
         },
@@ -9802,8 +9802,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -9840,15 +9840,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 0,
-            "totalDue": 16000,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 0,
-            "balance": 16000,
+            "balance": 19850,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 30000,
+            "consolidatedFamilyDue": 37700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 30000,
+            "consolidatedFamilyBalance": 37700,
             "familySiblings": [
                 {
                     "id": "STU-2026-221",
@@ -9856,20 +9856,20 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "456",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 0,
-                    "individualDue": 14000,
+                    "transportDue11Months": 3850,
+                    "individualDue": 17850,
                     "individualPaid": 0,
-                    "individualBalance": 14000
+                    "individualBalance": 17850
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -9906,10 +9906,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 4400,
-            "totalDue": 19400,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 4000.0,
-            "balance": 15400.0,
+            "balance": 14850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9920,10 +9920,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -9960,15 +9960,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 5500,
-            "totalDue": 20500,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 8000.0,
-            "balance": 12500.0,
+            "balance": 15250.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 59500,
+            "consolidatedFamilyDue": 67750,
             "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 39500.0,
+            "consolidatedFamilyBalance": 47750.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-209",
@@ -9976,10 +9976,10 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "437",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 20000,
+                    "transportDue11Months": 8250,
+                    "individualDue": 22750,
                     "individualPaid": 6000.0,
-                    "individualBalance": 14000.0
+                    "individualBalance": 16750.0
                 },
                 {
                     "id": "STU-2026-247",
@@ -9987,10 +9987,10 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "496",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 19000,
+                    "transportDue11Months": 8250,
+                    "individualDue": 21750,
                     "individualPaid": 6000.0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 15750.0
                 }
             ]
         },
@@ -9999,8 +9999,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -10037,10 +10037,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 5500,
-            "totalDue": 20500,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 3000.0,
-            "balance": 17500.0,
+            "balance": 20250.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10051,10 +10051,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "CHIROURI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -10091,10 +10091,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 6000.0,
-            "balance": 16700.0,
+            "balance": 17800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10105,10 +10105,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -10145,10 +10145,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 0,
-            "balance": 22700,
+            "balance": 23250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10168,8 +10168,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -10206,10 +10206,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7150,
-            "totalDue": 22150,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 3500.0,
-            "balance": 18650.0,
+            "balance": 20300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10221,9 +10221,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MALAHPUR",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -10260,10 +10260,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 5500,
-            "totalDue": 20500,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 0,
-            "balance": 20500,
+            "balance": 23250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10275,9 +10275,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "stop": "CHIROURI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -10314,10 +10314,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 6500.0,
-            "balance": 16200.0,
+            "balance": 17300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10328,10 +10328,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -10368,15 +10368,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6050,
-            "totalDue": 21050,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 0,
-            "balance": 21050,
+            "balance": 23800,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 41600,
+            "consolidatedFamilyDue": 47100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 41600,
+            "consolidatedFamilyBalance": 47100,
             "familySiblings": [
                 {
                     "id": "STU-2026-196",
@@ -10384,10 +10384,10 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "419",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 20550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 23300,
                     "individualPaid": 0,
-                    "individualBalance": 20550
+                    "individualBalance": 23300
                 }
             ]
         },
@@ -10396,8 +10396,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -10434,10 +10434,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 4400,
-            "totalDue": 19900,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 0,
-            "balance": 19900,
+            "balance": 19350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10448,10 +10448,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -10488,10 +10488,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 5000.0,
-            "balance": 17700.0,
+            "balance": 18800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10502,10 +10502,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -10542,10 +10542,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6600,
-            "totalDue": 21600,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 7000.0,
-            "balance": 14600.0,
+            "balance": 16800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10557,9 +10557,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANESHPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -10596,10 +10596,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 20500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10616,11 +10616,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -10657,10 +10657,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 0,
-            "balance": 22700,
+            "balance": 23800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10673,8 +10673,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "MAHARAJPUR",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -10711,10 +10711,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 5500,
-            "totalDue": 20000,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 5000.0,
-            "balance": 15000.0,
+            "balance": 17750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10727,8 +10727,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -10765,10 +10765,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 7700,
+            "totalDue": 22200,
             "totalPaid": 0,
-            "balance": 21100,
+            "balance": 22200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10779,10 +10779,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -10819,10 +10819,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 5000.0,
-            "balance": 16100.0,
+            "balance": 17750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10840,10 +10840,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -10880,10 +10880,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 4950,
-            "totalDue": 19450,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 10300.0,
-            "balance": 9150.0,
+            "balance": 12450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10895,9 +10895,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -10934,10 +10934,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 0,
-            "balance": 21100,
+            "balance": 22750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10957,8 +10957,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -10995,15 +10995,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 4950,
-            "totalDue": 19450,
+            "transportDue11Months": 6050,
+            "totalDue": 20550,
             "totalPaid": 0,
-            "balance": 19450,
+            "balance": 20550,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 37900,
+            "consolidatedFamilyDue": 40100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 37900,
+            "consolidatedFamilyBalance": 40100,
             "familySiblings": [
                 {
                     "id": "STU-2026-244",
@@ -11011,10 +11011,10 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "493",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 18450,
+                    "transportDue11Months": 6050,
+                    "individualDue": 19550,
                     "individualPaid": 0,
-                    "individualBalance": 18450
+                    "individualBalance": 19550
                 }
             ]
         },
@@ -11023,8 +11023,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -11061,10 +11061,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 7700,
-            "totalDue": 22200,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 0,
-            "balance": 22200,
+            "balance": 22750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11077,8 +11077,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -11115,10 +11115,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 0,
-            "balance": 21100,
+            "balance": 23300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11130,9 +11130,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -11223,10 +11223,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 7700,
-            "totalDue": 22200,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 0,
-            "balance": 22200,
+            "balance": 22750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11239,8 +11239,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -11277,10 +11277,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 2500.0,
-            "balance": 12000.0,
+            "balance": 15850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11290,11 +11290,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -11331,15 +11331,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35250,
+            "consolidatedFamilyDue": 34700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35250,
+            "consolidatedFamilyBalance": 34700,
             "familySiblings": [
                 {
                     "id": "STU-2026-351",
@@ -11347,20 +11347,20 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "678",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 20750,
+                    "transportDue11Months": 3850,
+                    "individualDue": 16350,
                     "individualPaid": 0,
-                    "individualBalance": 20750
+                    "individualBalance": 16350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -11397,10 +11397,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 7700,
-            "totalDue": 22200,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 0,
-            "balance": 22200,
+            "balance": 22750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11420,8 +11420,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -11458,10 +11458,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 4950,
-            "totalDue": 19450,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 0,
-            "balance": 19450,
+            "balance": 22750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11472,10 +11472,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -11512,10 +11512,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 10000.0,
-            "balance": 4500.0,
+            "balance": 10000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11525,11 +11525,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -11566,15 +11566,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 0,
-            "balance": 21100,
+            "balance": 22750,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 42200,
+            "consolidatedFamilyDue": 45500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42200,
+            "consolidatedFamilyBalance": 45500,
             "familySiblings": [
                 {
                     "id": "STU-2026-188",
@@ -11582,20 +11582,20 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "408",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 21100,
+                    "transportDue11Months": 8250,
+                    "individualDue": 22750,
                     "individualPaid": 0,
-                    "individualBalance": 21100
+                    "individualBalance": 22750
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -11632,10 +11632,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 0,
-            "balance": 21100,
+            "balance": 22750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11653,10 +11653,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -11693,10 +11693,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 6000.0,
-            "balance": 15100.0,
+            "balance": 12350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11707,10 +11707,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -11747,10 +11747,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11760,11 +11760,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -11801,10 +11801,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 0,
-            "totalDue": 15500,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 0,
-            "balance": 15500,
+            "balance": 19350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11814,11 +11814,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -11855,10 +11855,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 0,
-            "balance": 21100,
+            "balance": 20000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11869,10 +11869,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -11909,10 +11909,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 4400,
-            "totalDue": 18900,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 5000.0,
-            "balance": 13900.0,
+            "balance": 15000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11924,9 +11924,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -11963,15 +11963,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40500,
+            "consolidatedFamilyDue": 52050,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40500,
+            "consolidatedFamilyBalance": 52050,
             "familySiblings": [
                 {
                     "id": "STU-2026-249",
@@ -11979,10 +11979,10 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "498",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 0,
-                    "individualDue": 13500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 17350,
                     "individualPaid": 0,
-                    "individualBalance": 13500
+                    "individualBalance": 17350
                 },
                 {
                     "id": "STU-2026-272",
@@ -11990,20 +11990,20 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "541",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 0,
-                    "individualDue": 12500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 16350,
                     "individualPaid": 0,
-                    "individualBalance": 12500
+                    "individualBalance": 16350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -12040,10 +12040,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12053,11 +12053,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -12094,10 +12094,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6050,
-            "totalDue": 20550,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 0,
-            "balance": 20550,
+            "balance": 23300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12117,8 +12117,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -12155,10 +12155,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 5500,
-            "totalDue": 20000,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 20000,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12176,10 +12176,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -12216,10 +12216,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 7150,
-            "totalDue": 21650,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 0,
-            "balance": 21650,
+            "balance": 23300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12230,10 +12230,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "GANGAGARH",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -12270,10 +12270,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 7700,
+            "totalDue": 22200,
             "totalPaid": 0,
-            "balance": 21100,
+            "balance": 22200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12284,10 +12284,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -12324,10 +12324,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6600,
-            "totalDue": 21600,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 21600,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12345,10 +12345,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -12385,10 +12385,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 4400,
-            "totalDue": 18900,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 9000.0,
-            "balance": 9900.0,
+            "balance": 9350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12399,10 +12399,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -12439,15 +12439,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6600,
-            "totalDue": 21600,
+            "transportDue11Months": 9570,
+            "totalDue": 24570,
             "totalPaid": 0,
-            "balance": 21600,
+            "balance": 24570,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 42200,
+            "consolidatedFamilyDue": 48140,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42200,
+            "consolidatedFamilyBalance": 48140,
             "familySiblings": [
                 {
                     "id": "STU-2026-229",
@@ -12455,10 +12455,10 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "470",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 6600,
-                    "individualDue": 20600,
+                    "transportDue11Months": 9570,
+                    "individualDue": 23570,
                     "individualPaid": 0,
-                    "individualBalance": 20600
+                    "individualBalance": 23570
                 }
             ]
         },
@@ -12466,9 +12466,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANESHPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "UNCHAGAON",
+            "monthlyFare": 870,
+            "annualTransportDue11Months": 9570
         }
     },
     {
@@ -12505,10 +12505,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6600,
-            "totalDue": 22100,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 22100,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12519,10 +12519,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -12559,15 +12559,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 7700,
-            "totalDue": 22200,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 0,
-            "balance": 22200,
+            "balance": 23300,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43350,
+            "consolidatedFamilyDue": 44450,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43350,
+            "consolidatedFamilyBalance": 44450,
             "familySiblings": [
                 {
                     "id": "STU-2026-355",
@@ -12585,10 +12585,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -12625,10 +12625,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6050,
-            "totalDue": 20550,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 10000.0,
-            "balance": 10550.0,
+            "balance": 8350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12639,10 +12639,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
-            "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -12679,10 +12679,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6050,
-            "totalDue": 20550,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 3000.0,
-            "balance": 17550.0,
+            "balance": 20300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12700,10 +12700,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -12740,10 +12740,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 5500,
-            "totalDue": 20000,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 7500.0,
-            "balance": 12500.0,
+            "balance": 15800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12754,10 +12754,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -12794,10 +12794,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 5500,
-            "totalDue": 20000,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 0,
-            "balance": 20000,
+            "balance": 22750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12810,8 +12810,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -12848,10 +12848,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 5500,
-            "totalDue": 20000,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 6000.0,
-            "balance": 14000.0,
+            "balance": 16750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12870,9 +12870,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "stop": "CHIROURI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -12909,15 +12909,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 4400,
-            "totalDue": 18900,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 5000.0,
-            "balance": 13900.0,
+            "balance": 15000.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 37300,
+            "consolidatedFamilyDue": 39500,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 27300.0,
+            "consolidatedFamilyBalance": 29500.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-233",
@@ -12925,10 +12925,10 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "477",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 4400,
-                    "individualDue": 18400,
+                    "transportDue11Months": 5500,
+                    "individualDue": 19500,
                     "individualPaid": 5000.0,
-                    "individualBalance": 13400.0
+                    "individualBalance": 14500.0
                 }
             ]
         },
@@ -12936,9 +12936,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -12975,15 +12975,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 6000.0,
-            "balance": 15100.0,
+            "balance": 14000.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 39200,
+            "consolidatedFamilyDue": 37000,
             "consolidatedFamilyPaid": 12000.0,
-            "consolidatedFamilyBalance": 27200.0,
+            "consolidatedFamilyBalance": 25000.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-342",
@@ -12991,20 +12991,20 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "665",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 18100,
+                    "transportDue11Months": 5500,
+                    "individualDue": 17000,
                     "individualPaid": 6000.0,
-                    "individualBalance": 12100.0
+                    "individualBalance": 11000.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -13041,10 +13041,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13061,11 +13061,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -13102,10 +13102,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4950,
-            "totalDue": 18950,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 0,
-            "balance": 18950,
+            "balance": 20050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13123,10 +13123,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -13217,10 +13217,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 20600,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13231,10 +13231,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -13325,15 +13325,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 20600,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40700,
+            "consolidatedFamilyDue": 35200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40700,
+            "consolidatedFamilyBalance": 35200,
             "familySiblings": [
                 {
                     "id": "STU-2026-333",
@@ -13341,20 +13341,20 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "651",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 20100,
+                    "transportDue11Months": 3850,
+                    "individualDue": 17350,
                     "individualPaid": 0,
-                    "individualBalance": 20100
+                    "individualBalance": 17350
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -13391,10 +13391,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4950,
-            "totalDue": 18950,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 0,
-            "balance": 18950,
+            "balance": 20050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13405,10 +13405,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -13445,10 +13445,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6050,
-            "totalDue": 20550,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 0,
-            "balance": 20550,
+            "balance": 23300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13459,10 +13459,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -13499,10 +13499,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4950,
-            "totalDue": 18950,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 18950,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13515,8 +13515,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -13553,10 +13553,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 0,
-            "totalDue": 14000,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 14000,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13573,11 +13573,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -13614,10 +13614,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 20600,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13629,9 +13629,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -13668,10 +13668,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 22700,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13682,10 +13682,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MAHARAJPUR",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -13722,10 +13722,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 0,
-            "totalDue": 14000,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 7500.0,
-            "balance": 6500.0,
+            "balance": 10350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13735,11 +13735,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -13776,10 +13776,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 7700,
+            "totalDue": 21700,
             "totalPaid": 0,
-            "balance": 20600,
+            "balance": 21700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13790,10 +13790,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -13830,10 +13830,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6050,
-            "totalDue": 20050,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 20050,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13846,8 +13846,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -13884,10 +13884,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4950,
-            "totalDue": 18950,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 18950,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13900,8 +13900,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -13938,10 +13938,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 20600,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13961,8 +13961,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -13999,10 +13999,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 9570,
+            "totalDue": 23570,
             "totalPaid": 0,
-            "balance": 20600,
+            "balance": 23570,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14021,9 +14021,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANESHPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "UNCHAGAON",
+            "monthlyFare": 870,
+            "annualTransportDue11Months": 9570
         }
     },
     {
@@ -14060,10 +14060,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4950,
-            "totalDue": 18950,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 18950,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14075,9 +14075,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -14114,10 +14114,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 7700,
-            "totalDue": 21700,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 21700,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14128,10 +14128,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -14168,15 +14168,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6050,
-            "totalDue": 20050,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 20050,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 39600,
+            "consolidatedFamilyDue": 45100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 39600,
+            "consolidatedFamilyBalance": 45100,
             "familySiblings": [
                 {
                     "id": "STU-2026-250",
@@ -14184,10 +14184,10 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "500",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 19550,
+                    "transportDue11Months": 8800,
+                    "individualDue": 22300,
                     "individualPaid": 0,
-                    "individualBalance": 19550
+                    "individualBalance": 22300
                 }
             ]
         },
@@ -14196,8 +14196,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -14234,10 +14234,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4400,
-            "totalDue": 18400,
+            "transportDue11Months": 5500,
+            "totalDue": 19500,
             "totalPaid": 5000.0,
-            "balance": 13400.0,
+            "balance": 14500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14256,9 +14256,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -14295,10 +14295,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 5500,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 20600,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14309,10 +14309,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -14349,10 +14349,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 0,
-            "totalDue": 14000,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 14000,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14362,11 +14362,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -14403,11 +14403,11 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4950,
-            "totalDue": 18950,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 18650.0,
-            "balance": 300.0,
-            "status": "Partial",
+            "balance": 0,
+            "status": "Paid",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -14425,9 +14425,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -14464,10 +14464,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 5500,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14478,10 +14478,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -14518,10 +14518,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 7700,
-            "totalDue": 21700,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 21700,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14532,10 +14532,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -14572,10 +14572,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4400,
-            "totalDue": 18400,
+            "transportDue11Months": 5500,
+            "totalDue": 19500,
             "totalPaid": 5000.0,
-            "balance": 13400.0,
+            "balance": 14500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14587,9 +14587,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -14626,10 +14626,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6050,
-            "totalDue": 20050,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 20050,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14642,8 +14642,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -14734,10 +14734,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4950,
-            "totalDue": 18950,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 10000.0,
-            "balance": 8950.0,
+            "balance": 10050.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14748,10 +14748,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -14788,10 +14788,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14802,10 +14802,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -14842,10 +14842,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4950,
-            "totalDue": 18450,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 0,
-            "balance": 18450,
+            "balance": 19550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14865,8 +14865,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -14903,10 +14903,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14924,10 +14924,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -14964,10 +14964,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6600,
-            "totalDue": 20100,
+            "transportDue11Months": 5500,
+            "totalDue": 19000,
             "totalPaid": 0,
-            "balance": 20100,
+            "balance": 19000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14985,10 +14985,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -15025,10 +15025,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 5500,
-            "totalDue": 19000,
+            "transportDue11Months": 8250,
+            "totalDue": 21750,
             "totalPaid": 6000.0,
-            "balance": 13000.0,
+            "balance": 15750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15048,8 +15048,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -15086,10 +15086,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6050,
-            "totalDue": 19550,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 10000.0,
-            "balance": 9550.0,
+            "balance": 12300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15102,8 +15102,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -15140,10 +15140,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15160,11 +15160,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -15201,10 +15201,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6050,
-            "totalDue": 19550,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 19550,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15224,8 +15224,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -15262,15 +15262,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 5000.0,
-            "balance": 8500.0,
+            "balance": 12350.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 31700,
+            "consolidatedFamilyDue": 37420,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 26700.0,
+            "consolidatedFamilyBalance": 32420.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-473",
@@ -15278,20 +15278,20 @@ export const initialSchoolData = {
                     "class": "NURSERY",
                     "admissionNo": "859",
                     "tuitionDue": 10500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 18200,
+                    "transportDue11Months": 9570,
+                    "individualDue": 20070,
                     "individualPaid": 0,
-                    "individualBalance": 18200
+                    "individualBalance": 20070
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -15355,7 +15355,7 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
-            "stop": "LOHGARH",
+            "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
         }
@@ -15394,10 +15394,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4950,
-            "totalDue": 18450,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 0,
-            "balance": 18450,
+            "balance": 19550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15408,10 +15408,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -15448,10 +15448,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 4510,
+            "totalDue": 18010,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 18010,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15469,10 +15469,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "NAGLA SHUMALI",
+            "monthlyFare": 410,
+            "annualTransportDue11Months": 4510
         }
     },
     {
@@ -15509,10 +15509,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4950,
-            "totalDue": 18450,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 5000.0,
-            "balance": 13450.0,
+            "balance": 14550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15532,8 +15532,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -15570,10 +15570,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4950,
-            "totalDue": 18450,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 0,
-            "balance": 18450,
+            "balance": 19550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15584,10 +15584,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -15624,10 +15624,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4950,
-            "totalDue": 18450,
+            "transportDue11Months": 8250,
+            "totalDue": 21750,
             "totalPaid": 10000.0,
-            "balance": 8450.0,
+            "balance": 11750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15640,8 +15640,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -15678,10 +15678,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 10000.0,
-            "balance": 3500.0,
+            "balance": 7350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15691,11 +15691,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -15732,10 +15732,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 5500,
-            "totalDue": 18000,
+            "transportDue11Months": 7700,
+            "totalDue": 20200,
             "totalPaid": 0,
-            "balance": 18000,
+            "balance": 20200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15753,10 +15753,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -15793,10 +15793,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 5000.0,
-            "balance": 16100.0,
+            "balance": 18300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15807,10 +15807,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -15847,15 +15847,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6050,
-            "totalDue": 19550,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 19550,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 54650,
+            "consolidatedFamilyDue": 48050,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 54650,
+            "consolidatedFamilyBalance": 48050,
             "familySiblings": [
                 {
                     "id": "STU-2026-281",
@@ -15863,10 +15863,10 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "554",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 18550,
+                    "transportDue11Months": 3850,
+                    "individualDue": 16350,
                     "individualPaid": 0,
-                    "individualBalance": 18550
+                    "individualBalance": 16350
                 },
                 {
                     "id": "STU-2026-450",
@@ -15874,20 +15874,20 @@ export const initialSchoolData = {
                     "class": "NURSERY",
                     "admissionNo": "800",
                     "tuitionDue": 10500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 16550,
+                    "transportDue11Months": 3850,
+                    "individualDue": 14350,
                     "individualPaid": 0,
-                    "individualBalance": 16550
+                    "individualBalance": 14350
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
-            "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -15924,10 +15924,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6050,
-            "totalDue": 19550,
+            "transportDue11Months": 9515,
+            "totalDue": 23015,
             "totalPaid": 3000.0,
-            "balance": 16550.0,
+            "balance": 20015.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15947,8 +15947,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -15985,10 +15985,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4400,
-            "totalDue": 17900,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 17900,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15999,10 +15999,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -16039,10 +16039,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4400,
-            "totalDue": 17900,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 17900,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16053,10 +16053,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -16093,10 +16093,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4950,
-            "totalDue": 18450,
+            "transportDue11Months": 8250,
+            "totalDue": 21750,
             "totalPaid": 10000.0,
-            "balance": 8450.0,
+            "balance": 11750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16108,9 +16108,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -16147,10 +16147,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6600,
-            "totalDue": 20100,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 20100,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16161,10 +16161,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -16215,7 +16215,7 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
@@ -16255,10 +16255,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8250,
+            "totalDue": 21750,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 21750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16271,8 +16271,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "SILHARI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -16309,10 +16309,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 7700,
-            "totalDue": 21700,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 21700,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16323,10 +16323,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -16363,15 +16363,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 7150,
-            "totalDue": 21150,
+            "transportDue11Months": 9350,
+            "totalDue": 23350,
             "totalPaid": 10000.0,
-            "balance": 11150.0,
+            "balance": 13350.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40800,
+            "consolidatedFamilyDue": 45200,
             "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 20800.0,
+            "consolidatedFamilyBalance": 25200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-280",
@@ -16379,20 +16379,20 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "552",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 7150,
-                    "individualDue": 19650,
+                    "transportDue11Months": 9350,
+                    "individualDue": 21850,
                     "individualPaid": 10000.0,
-                    "individualBalance": 9650.0
+                    "individualBalance": 11850.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANGAGARH ROAD",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "PESARI",
+            "monthlyFare": 850,
+            "annualTransportDue11Months": 9350
         }
     },
     {
@@ -16429,10 +16429,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6600,
-            "totalDue": 20100,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 20100,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16443,10 +16443,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANESHPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -16483,10 +16483,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 12500,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16503,11 +16503,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -16544,15 +16544,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 4950,
-            "totalDue": 17450,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
             "totalPaid": 0,
-            "balance": 17450,
+            "balance": 20750,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 34900,
+            "consolidatedFamilyDue": 41500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 34900,
+            "consolidatedFamilyBalance": 41500,
             "familySiblings": [
                 {
                     "id": "STU-2026-274",
@@ -16560,20 +16560,20 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "544",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 17450,
+                    "transportDue11Months": 8250,
+                    "individualDue": 20750,
                     "individualPaid": 0,
-                    "individualBalance": 17450
+                    "individualBalance": 20750
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -16610,10 +16610,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 4950,
-            "totalDue": 17450,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
             "totalPaid": 0,
-            "balance": 17450,
+            "balance": 20750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16631,10 +16631,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -16671,10 +16671,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 4950,
-            "totalDue": 17450,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
             "totalPaid": 3000.0,
-            "balance": 14450.0,
+            "balance": 17750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16687,8 +16687,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -16725,10 +16725,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 5500,
-            "totalDue": 17000,
+            "transportDue11Months": 8250,
+            "totalDue": 19750,
             "totalPaid": 0,
-            "balance": 17000,
+            "balance": 19750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16739,10 +16739,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -16779,10 +16779,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 5000.0,
-            "balance": 6500.0,
+            "balance": 10350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16792,11 +16792,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -16854,7 +16854,7 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
@@ -16894,10 +16894,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 4950,
-            "totalDue": 17450,
+            "transportDue11Months": 6050,
+            "totalDue": 18550,
             "totalPaid": 10000.0,
-            "balance": 7450.0,
+            "balance": 8550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16910,8 +16910,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -16948,10 +16948,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 7150,
-            "totalDue": 19650,
+            "transportDue11Months": 9350,
+            "totalDue": 21850,
             "totalPaid": 10000.0,
-            "balance": 9650.0,
+            "balance": 11850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16969,10 +16969,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANGAGARH ROAD",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "PESARI",
+            "monthlyFare": 850,
+            "annualTransportDue11Months": 9350
         }
     },
     {
@@ -17009,10 +17009,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6050,
-            "totalDue": 18550,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 18550,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17030,10 +17030,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
-            "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -17070,10 +17070,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6600,
-            "totalDue": 19100,
+            "transportDue11Months": 5500,
+            "totalDue": 18000,
             "totalPaid": 0,
-            "balance": 19100,
+            "balance": 18000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17084,10 +17084,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -17124,10 +17124,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 12500,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17137,11 +17137,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -17178,10 +17178,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17191,11 +17191,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -17232,10 +17232,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 4950,
-            "totalDue": 17450,
+            "transportDue11Months": 5500,
+            "totalDue": 18000,
             "totalPaid": 0,
-            "balance": 17450,
+            "balance": 18000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17253,10 +17253,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA GARVI",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -17293,10 +17293,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 7150,
-            "totalDue": 19650,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 19650,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17307,10 +17307,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "GANGAGARH",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -17347,10 +17347,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 18100,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17361,10 +17361,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -17401,10 +17401,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6050,
-            "totalDue": 18550,
+            "transportDue11Months": 8800,
+            "totalDue": 21300,
             "totalPaid": 0,
-            "balance": 18550,
+            "balance": 21300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17424,8 +17424,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -17462,10 +17462,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 5500,
-            "totalDue": 29500,
+            "transportDue11Months": 7700,
+            "totalDue": 31700,
             "totalPaid": 0,
-            "balance": 29500,
+            "balance": 31700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17476,10 +17476,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "GAHTOLI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -17516,10 +17516,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 7700,
-            "totalDue": 31700,
+            "transportDue11Months": 8800,
+            "totalDue": 32800,
             "totalPaid": 0,
-            "balance": 31700,
+            "balance": 32800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17530,10 +17530,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -17570,10 +17570,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 6600,
-            "totalDue": 30600,
+            "transportDue11Months": 5500,
+            "totalDue": 29500,
             "totalPaid": 0,
-            "balance": 30600,
+            "balance": 29500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17584,10 +17584,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -17624,15 +17624,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 24000,
-            "transportDue11Months": 0,
-            "totalDue": 24000,
+            "transportDue11Months": 3850,
+            "totalDue": 27850,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 27850,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43500,
+            "consolidatedFamilyDue": 51200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43500,
+            "consolidatedFamilyBalance": 51200,
             "familySiblings": [
                 {
                     "id": "STU-2026-516",
@@ -17640,20 +17640,20 @@ export const initialSchoolData = {
                     "class": "IX",
                     "admissionNo": "907",
                     "tuitionDue": 19500,
-                    "transportDue11Months": 0,
-                    "individualDue": 19500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 23350,
                     "individualPaid": 0,
-                    "individualBalance": 19500
+                    "individualBalance": 23350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -17690,10 +17690,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 0,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17703,11 +17703,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -17744,15 +17744,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 8250,
-            "totalDue": 27750,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 27750,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 51500,
+            "consolidatedFamilyDue": 42700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 51500,
+            "consolidatedFamilyBalance": 42700,
             "familySiblings": [
                 {
                     "id": "STU-2026-550",
@@ -17760,20 +17760,20 @@ export const initialSchoolData = {
                     "class": "V",
                     "admissionNo": "948",
                     "tuitionDue": 15500,
-                    "transportDue11Months": 8250,
-                    "individualDue": 23750,
+                    "transportDue11Months": 3850,
+                    "individualDue": 19350,
                     "individualPaid": 0,
-                    "individualBalance": 23750
+                    "individualBalance": 19350
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA KOTHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -17810,10 +17810,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 6600,
-            "totalDue": 23600,
+            "transportDue11Months": 8250,
+            "totalDue": 25250,
             "totalPaid": 2000.0,
-            "balance": 21600.0,
+            "balance": 23250.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17824,10 +17824,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -17864,10 +17864,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 0,
-            "totalDue": 17000,
+            "transportDue11Months": 3850,
+            "totalDue": 20850,
             "totalPaid": 0,
-            "balance": 17000,
+            "balance": 20850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17877,11 +17877,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -17918,15 +17918,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 5500,
-            "totalDue": 19000,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 19000,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 37000,
+            "consolidatedFamilyDue": 42500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 37000,
+            "consolidatedFamilyBalance": 42500,
             "familySiblings": [
                 {
                     "id": "STU-2026-259",
@@ -17934,20 +17934,20 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "515",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 18000,
+                    "transportDue11Months": 7700,
+                    "individualDue": 20200,
                     "individualPaid": 0,
-                    "individualBalance": 18000
+                    "individualBalance": 20200
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -17984,10 +17984,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6050,
-            "totalDue": 20050,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 5000.0,
-            "balance": 15050.0,
+            "balance": 17800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18007,8 +18007,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -18045,10 +18045,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 6600,
-            "totalDue": 23100,
+            "transportDue11Months": 7150,
+            "totalDue": 23650,
             "totalPaid": 2000.0,
-            "balance": 21100.0,
+            "balance": 21650.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18059,10 +18059,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "JIROULI",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
         }
     },
     {
@@ -18099,10 +18099,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6050,
-            "totalDue": 20550,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 0,
-            "balance": 20550,
+            "balance": 23300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18120,10 +18120,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -18160,10 +18160,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 5500,
+            "totalDue": 19000,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 19000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18173,11 +18173,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -18214,15 +18214,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7150,
-            "totalDue": 20650,
+            "transportDue11Months": 9350,
+            "totalDue": 22850,
             "totalPaid": 5000.0,
-            "balance": 15650.0,
+            "balance": 17850.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38300,
+            "consolidatedFamilyDue": 42700,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 28300.0,
+            "consolidatedFamilyBalance": 32700.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-437",
@@ -18230,20 +18230,20 @@ export const initialSchoolData = {
                     "class": "NURSERY",
                     "admissionNo": "789",
                     "tuitionDue": 10500,
-                    "transportDue11Months": 7150,
-                    "individualDue": 17650,
+                    "transportDue11Months": 9350,
+                    "individualDue": 19850,
                     "individualPaid": 5000.0,
-                    "individualBalance": 12650.0
+                    "individualBalance": 14850.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANGAGARH ROAD",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "PESARI",
+            "monthlyFare": 850,
+            "annualTransportDue11Months": 9350
         }
     },
     {
@@ -18280,10 +18280,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 4400,
-            "totalDue": 19900,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 2000.0,
-            "balance": 17900.0,
+            "balance": 17350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18294,10 +18294,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -18334,15 +18334,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 8000.0,
-            "balance": 12600.0,
+            "balance": 14250.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 39700,
+            "consolidatedFamilyDue": 43000,
             "consolidatedFamilyPaid": 13000.0,
-            "consolidatedFamilyBalance": 26700.0,
+            "consolidatedFamilyBalance": 30000.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-370",
@@ -18350,10 +18350,10 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "704",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 19100,
+                    "transportDue11Months": 8250,
+                    "individualDue": 20750,
                     "individualPaid": 5000.0,
-                    "individualBalance": 14100.0
+                    "individualBalance": 15750.0
                 }
             ]
         },
@@ -18362,8 +18362,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -18400,10 +18400,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18421,10 +18421,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -18461,10 +18461,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 5500,
+            "totalDue": 19500,
             "totalPaid": 5000.0,
-            "balance": 15600.0,
+            "balance": 14500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18475,10 +18475,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -18515,10 +18515,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 5500,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18536,10 +18536,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -18576,10 +18576,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 0,
-            "totalDue": 14000,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 14000,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18596,11 +18596,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -18637,10 +18637,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 0,
-            "balance": 22700,
+            "balance": 23800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18651,10 +18651,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -18691,10 +18691,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 6600,
-            "totalDue": 22100,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 22100,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18705,10 +18705,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -18745,10 +18745,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6600,
-            "totalDue": 19100,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 19100,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18759,10 +18759,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -18799,10 +18799,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 5500,
-            "totalDue": 19000,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 19000,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18820,10 +18820,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -18860,10 +18860,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 7700,
-            "totalDue": 24700,
+            "transportDue11Months": 3850,
+            "totalDue": 20850,
             "totalPaid": 5000.0,
-            "balance": 19700.0,
+            "balance": 15850.0,
             "status": "Partial",
             "isElderSibling": true,
             "consolidatedFamilyDue": 39200,
@@ -18876,10 +18876,10 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "620",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 0,
-                    "individualDue": 14500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 18350,
                     "individualPaid": 5000.0,
-                    "individualBalance": 9500.0
+                    "individualBalance": 13350.0
                 }
             ]
         },
@@ -18887,9 +18887,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "UNCHAGAON",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -18926,10 +18926,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 5000.0,
-            "balance": 9500.0,
+            "balance": 13350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18946,11 +18946,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -18987,10 +18987,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 3000.0,
-            "balance": 9500.0,
+            "balance": 13350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19000,11 +19000,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -19041,15 +19041,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 4400,
-            "totalDue": 18900,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 600.0,
-            "balance": 18300.0,
+            "balance": 17750.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 48300,
+            "consolidatedFamilyDue": 51050,
             "consolidatedFamilyPaid": 600.0,
-            "consolidatedFamilyBalance": 47700.0,
+            "consolidatedFamilyBalance": 50450.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-319",
@@ -19057,10 +19057,10 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "629",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 4400,
-                    "individualDue": 16900,
+                    "transportDue11Months": 3850,
+                    "individualDue": 16350,
                     "individualPaid": 0,
-                    "individualBalance": 16900
+                    "individualBalance": 16350
                 },
                 {
                     "id": "STU-2026-500",
@@ -19068,20 +19068,20 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "826",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 0,
-                    "individualDue": 12500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 16350,
                     "individualPaid": 0,
-                    "individualBalance": 12500
+                    "individualBalance": 16350
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -19118,15 +19118,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6600,
-            "totalDue": 20100,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 2000.0,
-            "balance": 18100.0,
+            "balance": 20300.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38200,
+            "consolidatedFamilyDue": 42600,
             "consolidatedFamilyPaid": 2000.0,
-            "consolidatedFamilyBalance": 36200.0,
+            "consolidatedFamilyBalance": 40600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-318",
@@ -19134,20 +19134,20 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "626",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 18100,
+                    "transportDue11Months": 8800,
+                    "individualDue": 20300,
                     "individualPaid": 0,
-                    "individualBalance": 18100
+                    "individualBalance": 20300
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -19184,10 +19184,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 0,
-            "balance": 18100,
+            "balance": 20300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19205,10 +19205,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -19245,10 +19245,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 4400,
-            "totalDue": 16900,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 16900,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19266,10 +19266,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -19306,10 +19306,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 10000.0,
-            "balance": 11200.0,
+            "balance": 12300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19320,10 +19320,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -19360,10 +19360,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6600,
-            "totalDue": 20100,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 20100,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19374,10 +19374,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -19414,10 +19414,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 5000.0,
-            "balance": 16200.0,
+            "balance": 17300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19428,10 +19428,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -19468,10 +19468,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6050,
-            "totalDue": 18550,
+            "transportDue11Months": 8800,
+            "totalDue": 21300,
             "totalPaid": 0,
-            "balance": 18550,
+            "balance": 21300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19491,8 +19491,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -19529,10 +19529,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6600,
-            "totalDue": 20100,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 20100,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19543,10 +19543,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -19583,10 +19583,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6050,
-            "totalDue": 19550,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 19550,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19604,10 +19604,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -19644,10 +19644,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6050,
-            "totalDue": 20550,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 0,
-            "balance": 20550,
+            "balance": 23300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19667,8 +19667,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -19705,10 +19705,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 5500,
-            "totalDue": 20000,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 20000,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19719,10 +19719,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -19759,10 +19759,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6050,
-            "totalDue": 20050,
+            "transportDue11Months": 9515,
+            "totalDue": 23515,
             "totalPaid": 0,
-            "balance": 20050,
+            "balance": 23515,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19775,8 +19775,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -19839,7 +19839,7 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
@@ -19900,7 +19900,7 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
@@ -19940,10 +19940,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 4400,
-            "totalDue": 16900,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 12000.0,
-            "balance": 4900.0,
+            "balance": 4350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19954,10 +19954,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -19994,10 +19994,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6050,
-            "totalDue": 27050,
+            "transportDue11Months": 8800,
+            "totalDue": 29800,
             "totalPaid": 0,
-            "balance": 27050,
+            "balance": 29800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20008,10 +20008,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -20048,10 +20048,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6600,
-            "totalDue": 20100,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 20100,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20069,10 +20069,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -20109,10 +20109,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 9000.0,
-            "balance": 6000.0,
+            "balance": 9850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20122,11 +20122,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -20163,10 +20163,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 0,
-            "totalDue": 19500,
+            "transportDue11Months": 5500,
+            "totalDue": 25000,
             "totalPaid": 5000.0,
-            "balance": 14500.0,
+            "balance": 20000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20176,11 +20176,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -20217,15 +20217,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 5500,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38500,
+            "consolidatedFamilyDue": 35200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 38500,
+            "consolidatedFamilyBalance": 35200,
             "familySiblings": [
                 {
                     "id": "STU-2026-312",
@@ -20233,20 +20233,20 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "616",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 5500,
-                    "individualDue": 19000,
+                    "transportDue11Months": 3850,
+                    "individualDue": 17350,
                     "individualPaid": 0,
-                    "individualBalance": 19000
+                    "individualBalance": 17350
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -20283,10 +20283,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6600,
-            "totalDue": 19100,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
             "totalPaid": 0,
-            "balance": 19100,
+            "balance": 20750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20297,10 +20297,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -20337,10 +20337,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20350,11 +20350,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -20391,10 +20391,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 20600,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20406,9 +20406,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANESHPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -20445,10 +20445,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20458,11 +20458,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -20499,10 +20499,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 18100,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20520,10 +20520,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -20560,10 +20560,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 6000.0,
-            "balance": 12100.0,
+            "balance": 11000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20581,10 +20581,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -20621,10 +20621,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 4950,
-            "totalDue": 16450,
+            "transportDue11Months": 8250,
+            "totalDue": 19750,
             "totalPaid": 0,
-            "balance": 16450,
+            "balance": 19750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20637,8 +20637,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -20675,10 +20675,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 8250,
+            "totalDue": 19750,
             "totalPaid": 0,
-            "balance": 18100,
+            "balance": 19750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20689,10 +20689,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -20729,10 +20729,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6050,
-            "totalDue": 17550,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 10000.0,
-            "balance": 7550.0,
+            "balance": 10300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20745,8 +20745,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -20945,10 +20945,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6600,
-            "totalDue": 20600,
+            "transportDue11Months": 7700,
+            "totalDue": 21700,
             "totalPaid": 0,
-            "balance": 20600,
+            "balance": 21700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20959,10 +20959,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -20999,10 +20999,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 7700,
+            "totalDue": 19200,
             "totalPaid": 0,
-            "balance": 18100,
+            "balance": 19200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21013,10 +21013,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -21053,10 +21053,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 8250,
-            "totalDue": 20750,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 20750,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21074,10 +21074,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA KOTHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -21168,15 +21168,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 23000,
+            "consolidatedFamilyDue": 30700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 23000,
+            "consolidatedFamilyBalance": 30700,
             "familySiblings": [
                 {
                     "id": "STU-2026-354",
@@ -21184,20 +21184,20 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "681",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 0,
-                    "individualDue": 11500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 15350,
                     "individualPaid": 0,
-                    "individualBalance": 11500
+                    "individualBalance": 15350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -21234,10 +21234,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21254,11 +21254,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -21356,10 +21356,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 8250,
-            "totalDue": 18750,
+            "transportDue11Months": 5500,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 18750,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21370,10 +21370,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA VIDHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -21436,7 +21436,7 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
@@ -21497,7 +21497,7 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "GANGAGARH",
             "monthlyFare": 650,
             "annualTransportDue11Months": 7150
@@ -21537,10 +21537,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 5000.0,
-            "balance": 5500.0,
+            "balance": 9350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21550,11 +21550,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -21591,10 +21591,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 4950,
-            "totalDue": 15450,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 15450,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21607,8 +21607,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -21645,10 +21645,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 2000.0,
-            "balance": 8500.0,
+            "balance": 12350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21658,11 +21658,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -21699,15 +21699,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 8500.0,
-            "balance": 6500.0,
+            "balance": 10350.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 28500,
+            "consolidatedFamilyDue": 36200,
             "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 8500.0,
+            "consolidatedFamilyBalance": 16200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-363",
@@ -21715,20 +21715,20 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "693",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 0,
-                    "individualDue": 13500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 17350,
                     "individualPaid": 11500.0,
-                    "individualBalance": 2000.0
+                    "individualBalance": 5850.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -21765,10 +21765,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 11500.0,
-            "balance": 2000.0,
+            "balance": 5850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21785,11 +21785,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -21826,10 +21826,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 4950,
-            "totalDue": 15450,
+            "transportDue11Months": 8250,
+            "totalDue": 18750,
             "totalPaid": 0,
-            "balance": 15450,
+            "balance": 18750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21842,8 +21842,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -21880,10 +21880,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 0,
-            "balance": 18100,
+            "balance": 20300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21894,10 +21894,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -21934,10 +21934,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 4950,
-            "totalDue": 19450,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 7500.0,
-            "balance": 11950.0,
+            "balance": 10850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21949,9 +21949,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -21988,10 +21988,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 4950,
-            "totalDue": 16450,
+            "transportDue11Months": 8250,
+            "totalDue": 19750,
             "totalPaid": 0,
-            "balance": 16450,
+            "balance": 19750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22004,8 +22004,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -22042,10 +22042,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 6600,
-            "totalDue": 22600,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 5000.0,
-            "balance": 17600.0,
+            "balance": 19800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22057,9 +22057,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANESHPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -22096,10 +22096,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6600,
-            "totalDue": 17100,
+            "transportDue11Months": 5500,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 17100,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22110,10 +22110,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -22150,10 +22150,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6600,
-            "totalDue": 19100,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
             "totalPaid": 5000.0,
-            "balance": 14100.0,
+            "balance": 15750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22173,8 +22173,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -22211,10 +22211,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 0,
-            "totalDue": 17000,
+            "transportDue11Months": 3850,
+            "totalDue": 20850,
             "totalPaid": 0,
-            "balance": 17000,
+            "balance": 20850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22224,11 +22224,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -22265,10 +22265,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 7700,
-            "totalDue": 18200,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 18200,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22279,10 +22279,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -22319,10 +22319,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 8250,
+            "totalDue": 19750,
             "totalPaid": 0,
-            "balance": 18100,
+            "balance": 19750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22335,8 +22335,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -22373,10 +22373,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 8250,
+            "totalDue": 19750,
             "totalPaid": 10000.0,
-            "balance": 8100.0,
+            "balance": 9750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22389,8 +22389,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -22427,10 +22427,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6050,
-            "totalDue": 18550,
+            "transportDue11Months": 9515,
+            "totalDue": 22015,
             "totalPaid": 0,
-            "balance": 18550,
+            "balance": 22015,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22443,8 +22443,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -22481,15 +22481,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 7700,
-            "totalDue": 21700,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 21700,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 41900,
+            "consolidatedFamilyDue": 43000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 41900,
+            "consolidatedFamilyBalance": 43000,
             "familySiblings": [
                 {
                     "id": "STU-2026-377",
@@ -22497,20 +22497,20 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "712",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 20200,
+                    "transportDue11Months": 8250,
+                    "individualDue": 20750,
                     "individualPaid": 0,
-                    "individualBalance": 20200
+                    "individualBalance": 20750
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "CHAKATHAL",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -22547,10 +22547,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 7700,
-            "totalDue": 20200,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
             "totalPaid": 0,
-            "balance": 20200,
+            "balance": 20750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22568,10 +22568,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "CHAKATHAL",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -22608,10 +22608,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 7150,
-            "totalDue": 17650,
+            "transportDue11Months": 9350,
+            "totalDue": 19850,
             "totalPaid": 6500.0,
-            "balance": 11150.0,
+            "balance": 13350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22622,10 +22622,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANGAGARH ROAD",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "PESARI",
+            "monthlyFare": 850,
+            "annualTransportDue11Months": 9350
         }
     },
     {
@@ -22662,10 +22662,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 5000.0,
-            "balance": 6500.0,
+            "balance": 10350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22675,11 +22675,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -22716,10 +22716,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 4950,
-            "totalDue": 19450,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 5000.0,
-            "balance": 14450.0,
+            "balance": 17750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22730,10 +22730,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -22770,10 +22770,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 4950,
-            "totalDue": 25950,
+            "transportDue11Months": 7700,
+            "totalDue": 28700,
             "totalPaid": 11000.0,
-            "balance": 14950.0,
+            "balance": 17700.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22784,10 +22784,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAJHERA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -22824,15 +22824,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6050,
-            "totalDue": 20050,
+            "transportDue11Months": 9515,
+            "totalDue": 23515,
             "totalPaid": 10500.0,
-            "balance": 9550.0,
+            "balance": 13015.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38600,
+            "consolidatedFamilyDue": 45530,
             "consolidatedFamilyPaid": 17500.0,
-            "consolidatedFamilyBalance": 21100.0,
+            "consolidatedFamilyBalance": 28030.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-383",
@@ -22840,10 +22840,10 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "719",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 18550,
+                    "transportDue11Months": 9515,
+                    "individualDue": 22015,
                     "individualPaid": 7000.0,
-                    "individualBalance": 11550.0
+                    "individualBalance": 15015.0
                 }
             ]
         },
@@ -22852,8 +22852,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -22890,10 +22890,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6050,
-            "totalDue": 18550,
+            "transportDue11Months": 9515,
+            "totalDue": 22015,
             "totalPaid": 7000.0,
-            "balance": 11550.0,
+            "balance": 15015.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22913,8 +22913,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -22951,10 +22951,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6050,
-            "totalDue": 17550,
+            "transportDue11Months": 9515,
+            "totalDue": 21015,
             "totalPaid": 7000.0,
-            "balance": 10550.0,
+            "balance": 14015.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22967,8 +22967,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -23005,10 +23005,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6050,
-            "totalDue": 16550,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 16550,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23021,8 +23021,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23059,10 +23059,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 7500.0,
-            "balance": 16200.0,
+            "balance": 17300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23073,10 +23073,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23113,10 +23113,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7150,
-            "totalDue": 20650,
+            "transportDue11Months": 4400,
+            "totalDue": 17900,
             "totalPaid": 0,
-            "balance": 20650,
+            "balance": 17900,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23127,10 +23127,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MALAHPUR",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
         }
     },
     {
@@ -23167,10 +23167,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6600,
-            "totalDue": 19100,
+            "transportDue11Months": 8800,
+            "totalDue": 21300,
             "totalPaid": 0,
-            "balance": 19100,
+            "balance": 21300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23182,9 +23182,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23221,10 +23221,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6600,
-            "totalDue": 17100,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 17100,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23236,9 +23236,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23275,10 +23275,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 6050,
-            "totalDue": 22050,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 0,
-            "balance": 22050,
+            "balance": 24800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23289,10 +23289,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23329,10 +23329,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6050,
-            "totalDue": 19550,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 2000.0,
-            "balance": 17550.0,
+            "balance": 20300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23345,8 +23345,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23383,10 +23383,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23396,11 +23396,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -23437,15 +23437,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 5000.0,
-            "balance": 18200.0,
+            "balance": 19300.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 45400,
+            "consolidatedFamilyDue": 47600,
             "consolidatedFamilyPaid": 9000.0,
-            "consolidatedFamilyBalance": 36400.0,
+            "consolidatedFamilyBalance": 38600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-394",
@@ -23453,20 +23453,20 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "737",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 22200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 23300,
                     "individualPaid": 4000.0,
-                    "individualBalance": 18200.0
+                    "individualBalance": 19300.0
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23503,10 +23503,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 7700,
-            "totalDue": 22200,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 4000.0,
-            "balance": 18200.0,
+            "balance": 19300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23524,10 +23524,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23564,10 +23564,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 7700,
-            "totalDue": 20200,
+            "transportDue11Months": 8800,
+            "totalDue": 21300,
             "totalPaid": 5000.0,
-            "balance": 15200.0,
+            "balance": 16300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23578,10 +23578,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23618,10 +23618,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 7700,
-            "totalDue": 22700,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 2500.0,
-            "balance": 20200.0,
+            "balance": 21300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23639,10 +23639,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23679,10 +23679,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 7700,
-            "totalDue": 20200,
+            "transportDue11Months": 8800,
+            "totalDue": 21300,
             "totalPaid": 2500.0,
-            "balance": 17700.0,
+            "balance": 18800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23700,10 +23700,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -23740,10 +23740,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 4950,
-            "totalDue": 16450,
+            "transportDue11Months": 6050,
+            "totalDue": 17550,
             "totalPaid": 5000.0,
-            "balance": 11450.0,
+            "balance": 12550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23754,10 +23754,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -23794,15 +23794,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 4950,
-            "totalDue": 15450,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 15450,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 30900,
+            "consolidatedFamilyDue": 33100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 30900,
+            "consolidatedFamilyBalance": 33100,
             "familySiblings": [
                 {
                     "id": "STU-2026-530",
@@ -23810,20 +23810,20 @@ export const initialSchoolData = {
                     "class": "NURSERY",
                     "admissionNo": "924",
                     "tuitionDue": 10500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 15450,
+                    "transportDue11Months": 6050,
+                    "individualDue": 16550,
                     "individualPaid": 0,
-                    "individualBalance": 15450
+                    "individualBalance": 16550
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -23860,10 +23860,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6600,
-            "totalDue": 20100,
+            "transportDue11Months": 5500,
+            "totalDue": 19000,
             "totalPaid": 2000.0,
-            "balance": 18100.0,
+            "balance": 17000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23874,10 +23874,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -23914,10 +23914,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 4950,
-            "totalDue": 15450,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 15450,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23928,10 +23928,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -23968,10 +23968,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23988,11 +23988,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -24029,10 +24029,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24042,11 +24042,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -24083,10 +24083,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24096,11 +24096,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -24137,10 +24137,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 12500,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24150,11 +24150,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -24191,10 +24191,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 4000.0,
-            "balance": 6500.0,
+            "balance": 10350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24204,11 +24204,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -24245,10 +24245,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 7700,
-            "totalDue": 18200,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 4000.0,
-            "balance": 14200.0,
+            "balance": 15300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24259,10 +24259,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -24299,10 +24299,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 5500,
-            "totalDue": 26500,
+            "transportDue11Months": 9350,
+            "totalDue": 30350,
             "totalPaid": 0,
-            "balance": 26500,
+            "balance": 30350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24313,10 +24313,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "PESARI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 850,
+            "annualTransportDue11Months": 9350
         }
     },
     {
@@ -24353,10 +24353,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 10000.0,
-            "balance": 11100.0,
+            "balance": 8350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24367,10 +24367,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -24407,10 +24407,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6050,
-            "totalDue": 20550,
+            "transportDue11Months": 8800,
+            "totalDue": 23300,
             "totalPaid": 0,
-            "balance": 20550,
+            "balance": 23300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24421,10 +24421,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -24461,10 +24461,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6050,
-            "totalDue": 20050,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 20050,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24475,10 +24475,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -24515,10 +24515,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6050,
-            "totalDue": 17550,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 0,
-            "balance": 17550,
+            "balance": 20300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24529,10 +24529,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -24569,10 +24569,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24582,11 +24582,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -24623,10 +24623,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 21000,
-            "transportDue11Months": 6600,
-            "totalDue": 27600,
+            "transportDue11Months": 5500,
+            "totalDue": 26500,
             "totalPaid": 0,
-            "balance": 27600,
+            "balance": 26500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24637,10 +24637,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -24677,15 +24677,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 3000.0,
-            "balance": 7500.0,
+            "balance": 11350.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 20000,
+            "consolidatedFamilyDue": 27700,
             "consolidatedFamilyPaid": 3000.0,
-            "consolidatedFamilyBalance": 17000.0,
+            "consolidatedFamilyBalance": 24700.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-513",
@@ -24693,20 +24693,20 @@ export const initialSchoolData = {
                     "class": "PG",
                     "admissionNo": "904",
                     "tuitionDue": 9500,
-                    "transportDue11Months": 0,
-                    "individualDue": 9500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 13350,
                     "individualPaid": 0,
-                    "individualBalance": 9500
+                    "individualBalance": 13350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -24743,15 +24743,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6600,
-            "totalDue": 21100,
+            "transportDue11Months": 8250,
+            "totalDue": 22750,
             "totalPaid": 0,
-            "balance": 21100,
+            "balance": 22750,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 41200,
+            "consolidatedFamilyDue": 44500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 41200,
+            "consolidatedFamilyBalance": 44500,
             "familySiblings": [
                 {
                     "id": "STU-2026-417",
@@ -24759,20 +24759,20 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "771",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 20100,
+                    "transportDue11Months": 8250,
+                    "individualDue": 21750,
                     "individualPaid": 0,
-                    "individualBalance": 20100
+                    "individualBalance": 21750
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -24809,10 +24809,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6600,
-            "totalDue": 20100,
+            "transportDue11Months": 8250,
+            "totalDue": 21750,
             "totalPaid": 0,
-            "balance": 20100,
+            "balance": 21750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24830,10 +24830,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -24891,7 +24891,7 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
@@ -24931,10 +24931,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 4950,
-            "totalDue": 14450,
+            "transportDue11Months": 8250,
+            "totalDue": 17750,
             "totalPaid": 0,
-            "balance": 14450,
+            "balance": 17750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24947,8 +24947,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -24985,10 +24985,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 6050,
-            "totalDue": 22550,
+            "transportDue11Months": 8800,
+            "totalDue": 25300,
             "totalPaid": 0,
-            "balance": 22550,
+            "balance": 25300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24999,10 +24999,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -25039,10 +25039,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6050,
-            "totalDue": 16550,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 16550,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25053,10 +25053,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
-            "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -25093,10 +25093,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6050,
-            "totalDue": 16550,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 16550,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25109,8 +25109,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -25147,10 +25147,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 4400,
-            "totalDue": 15900,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 15900,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25161,10 +25161,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -25201,10 +25201,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 4950,
-            "totalDue": 16450,
+            "transportDue11Months": 8250,
+            "totalDue": 19750,
             "totalPaid": 0,
-            "balance": 16450,
+            "balance": 19750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25217,8 +25217,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -25255,10 +25255,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25268,11 +25268,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -25309,10 +25309,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 8250,
-            "totalDue": 18750,
+            "transportDue11Months": 5500,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 18750,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25323,10 +25323,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA VIDHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -25363,10 +25363,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 0,
-            "totalDue": 9500,
+            "transportDue11Months": 3850,
+            "totalDue": 13350,
             "totalPaid": 0,
-            "balance": 9500,
+            "balance": 13350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25376,11 +25376,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -25417,15 +25417,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 21000,
+            "consolidatedFamilyDue": 28700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 21000,
+            "consolidatedFamilyBalance": 28700,
             "familySiblings": [
                 {
                     "id": "STU-2026-429",
@@ -25433,20 +25433,20 @@ export const initialSchoolData = {
                     "class": "NURSERY",
                     "admissionNo": "784",
                     "tuitionDue": 10500,
-                    "transportDue11Months": 0,
-                    "individualDue": 10500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 14350,
                     "individualPaid": 0,
-                    "individualBalance": 10500
+                    "individualBalance": 14350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -25483,10 +25483,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25503,11 +25503,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -25544,10 +25544,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 12500,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25557,11 +25557,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -25598,10 +25598,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25611,11 +25611,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -25652,10 +25652,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6600,
-            "totalDue": 19100,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
             "totalPaid": 0,
-            "balance": 19100,
+            "balance": 20750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25666,10 +25666,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -25706,10 +25706,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25719,11 +25719,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -25760,10 +25760,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 6600,
-            "totalDue": 16100,
+            "transportDue11Months": 5500,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 16100,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25774,10 +25774,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -25814,10 +25814,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6050,
-            "totalDue": 16550,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 16550,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25830,8 +25830,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -25868,10 +25868,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6050,
-            "totalDue": 17550,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 0,
-            "balance": 17550,
+            "balance": 20300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25882,10 +25882,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -25922,10 +25922,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 7150,
-            "totalDue": 17650,
+            "transportDue11Months": 9350,
+            "totalDue": 19850,
             "totalPaid": 5000.0,
-            "balance": 12650.0,
+            "balance": 14850.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25943,10 +25943,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANGAGARH ROAD",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "PESARI",
+            "monthlyFare": 850,
+            "annualTransportDue11Months": 9350
         }
     },
     {
@@ -25983,10 +25983,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6600,
-            "totalDue": 17100,
+            "transportDue11Months": 5500,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 17100,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25997,10 +25997,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -26037,10 +26037,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 8250,
-            "totalDue": 18750,
+            "transportDue11Months": 5500,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 18750,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26051,10 +26051,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA VIDHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -26091,15 +26091,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 0,
-            "totalDue": 16000,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 0,
-            "balance": 16000,
+            "balance": 19850,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 36500,
+            "consolidatedFamilyDue": 43100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 36500,
+            "consolidatedFamilyBalance": 43100,
             "familySiblings": [
                 {
                     "id": "STU-2026-518",
@@ -26107,20 +26107,20 @@ export const initialSchoolData = {
                     "class": "IV",
                     "admissionNo": "871",
                     "tuitionDue": 15000,
-                    "transportDue11Months": 5500,
-                    "individualDue": 20500,
+                    "transportDue11Months": 8250,
+                    "individualDue": 23250,
                     "individualPaid": 0,
-                    "individualBalance": 20500
+                    "individualBalance": 23250
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -26157,15 +26157,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 41400,
+            "consolidatedFamilyDue": 43600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 41400,
+            "consolidatedFamilyBalance": 43600,
             "familySiblings": [
                 {
                     "id": "STU-2026-442",
@@ -26173,10 +26173,10 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "792",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 20200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 21300,
                     "individualPaid": 0,
-                    "individualBalance": 20200
+                    "individualBalance": 21300
                 }
             ]
         },
@@ -26185,8 +26185,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "MAHARAJPUR",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -26223,10 +26223,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 7700,
-            "totalDue": 20200,
+            "transportDue11Months": 8800,
+            "totalDue": 21300,
             "totalPaid": 0,
-            "balance": 20200,
+            "balance": 21300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26246,8 +26246,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "MAHARAJPUR",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -26284,10 +26284,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 8250,
-            "totalDue": 19750,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 19750,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26298,10 +26298,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA VIDHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -26338,10 +26338,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26358,11 +26358,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -26399,15 +26399,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 12500,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 24000,
+            "consolidatedFamilyDue": 31700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 24000,
+            "consolidatedFamilyBalance": 31700,
             "familySiblings": [
                 {
                     "id": "STU-2026-444",
@@ -26415,20 +26415,20 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "794",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 0,
-                    "individualDue": 11500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 15350,
                     "individualPaid": 0,
-                    "individualBalance": 11500
+                    "individualBalance": 15350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -26465,10 +26465,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26478,11 +26478,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -26519,10 +26519,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 4950,
-            "totalDue": 15450,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 15450,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26534,9 +26534,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -26573,10 +26573,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 4950,
-            "totalDue": 20450,
+            "transportDue11Months": 5500,
+            "totalDue": 21000,
             "totalPaid": 0,
-            "balance": 20450,
+            "balance": 21000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26589,8 +26589,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA GARVI",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -26627,10 +26627,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 6050,
-            "totalDue": 15550,
+            "transportDue11Months": 9515,
+            "totalDue": 19015,
             "totalPaid": 0,
-            "balance": 15550,
+            "balance": 19015,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26643,8 +26643,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -26681,10 +26681,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6050,
-            "totalDue": 16550,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 16550,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26702,10 +26702,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
-            "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -26742,15 +26742,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 0,
-            "balance": 23700,
+            "balance": 24800,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 46900,
+            "consolidatedFamilyDue": 49100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 46900,
+            "consolidatedFamilyBalance": 49100,
             "familySiblings": [
                 {
                     "id": "STU-2026-453",
@@ -26758,20 +26758,20 @@ export const initialSchoolData = {
                     "class": "V",
                     "admissionNo": "802",
                     "tuitionDue": 15500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 23200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 24300,
                     "individualPaid": 0,
-                    "individualBalance": 23200
+                    "individualBalance": 24300
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -26808,15 +26808,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 0,
-            "totalDue": 14000,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 14000,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 27500,
+            "consolidatedFamilyDue": 35200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 27500,
+            "consolidatedFamilyBalance": 35200,
             "familySiblings": [
                 {
                     "id": "STU-2026-454",
@@ -26824,20 +26824,20 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "846",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 0,
-                    "individualDue": 13500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 17350,
                     "individualPaid": 0,
-                    "individualBalance": 13500
+                    "individualBalance": 17350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -26874,10 +26874,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 23200,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26895,10 +26895,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -26935,10 +26935,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26955,11 +26955,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -26996,10 +26996,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 7700,
-            "totalDue": 18200,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 18200,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27010,10 +27010,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27050,10 +27050,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 7700,
-            "totalDue": 18200,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 18200,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27064,10 +27064,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27104,10 +27104,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 4950,
-            "totalDue": 16450,
+            "transportDue11Months": 6050,
+            "totalDue": 17550,
             "totalPaid": 0,
-            "balance": 16450,
+            "balance": 17550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27127,8 +27127,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -27165,15 +27165,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4950,
-            "totalDue": 18450,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 0,
-            "balance": 18450,
+            "balance": 19550,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 34900,
+            "consolidatedFamilyDue": 37100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 34900,
+            "consolidatedFamilyBalance": 37100,
             "familySiblings": [
                 {
                     "id": "STU-2026-457",
@@ -27181,10 +27181,10 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "804",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 4950,
-                    "individualDue": 16450,
+                    "transportDue11Months": 6050,
+                    "individualDue": 17550,
                     "individualPaid": 0,
-                    "individualBalance": 16450
+                    "individualBalance": 17550
                 }
             ]
         },
@@ -27193,8 +27193,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -27231,10 +27231,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 7700,
-            "totalDue": 18200,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 18200,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27245,10 +27245,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27285,15 +27285,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 6600,
-            "totalDue": 23100,
+            "transportDue11Months": 8800,
+            "totalDue": 25300,
             "totalPaid": 0,
-            "balance": 23100,
+            "balance": 25300,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 42200,
+            "consolidatedFamilyDue": 46600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42200,
+            "consolidatedFamilyBalance": 46600,
             "familySiblings": [
                 {
                     "id": "STU-2026-462",
@@ -27301,10 +27301,10 @@ export const initialSchoolData = {
                     "class": "UKG",
                     "admissionNo": "807",
                     "tuitionDue": 12500,
-                    "transportDue11Months": 6600,
-                    "individualDue": 19100,
+                    "transportDue11Months": 8800,
+                    "individualDue": 21300,
                     "individualPaid": 0,
-                    "individualBalance": 19100
+                    "individualBalance": 21300
                 }
             ]
         },
@@ -27312,9 +27312,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANESHPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27351,10 +27351,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 3000.0,
-            "balance": 7500.0,
+            "balance": 11350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27364,11 +27364,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -27405,10 +27405,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6600,
-            "totalDue": 19100,
+            "transportDue11Months": 8800,
+            "totalDue": 21300,
             "totalPaid": 0,
-            "balance": 19100,
+            "balance": 21300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27427,9 +27427,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANESHPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27466,10 +27466,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 4950,
-            "totalDue": 15450,
+            "transportDue11Months": 8250,
+            "totalDue": 18750,
             "totalPaid": 0,
-            "balance": 15450,
+            "balance": 18750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27480,10 +27480,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -27520,10 +27520,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 6600,
-            "totalDue": 19100,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
             "totalPaid": 0,
-            "balance": 19100,
+            "balance": 20750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27536,8 +27536,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -27574,10 +27574,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 7700,
-            "totalDue": 27200,
+            "transportDue11Months": 8800,
+            "totalDue": 28300,
             "totalPaid": 0,
-            "balance": 27200,
+            "balance": 28300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27590,8 +27590,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "MAHARAJPUR",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27628,10 +27628,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 5500,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 13350,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 13350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27642,10 +27642,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -27682,10 +27682,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6050,
-            "totalDue": 16550,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 16550,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27698,8 +27698,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27736,10 +27736,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 4950,
-            "totalDue": 19950,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 0,
-            "balance": 19950,
+            "balance": 23250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27752,8 +27752,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -27790,10 +27790,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 7700,
-            "totalDue": 19200,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 0,
-            "balance": 19200,
+            "balance": 20300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27813,8 +27813,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27851,15 +27851,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 7700,
-            "totalDue": 20200,
+            "transportDue11Months": 8800,
+            "totalDue": 21300,
             "totalPaid": 0,
-            "balance": 20200,
+            "balance": 21300,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 39400,
+            "consolidatedFamilyDue": 41600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 39400,
+            "consolidatedFamilyBalance": 41600,
             "familySiblings": [
                 {
                     "id": "STU-2026-469",
@@ -27867,10 +27867,10 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "855",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 19200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 20300,
                     "individualPaid": 0,
-                    "individualBalance": 19200
+                    "individualBalance": 20300
                 }
             ]
         },
@@ -27879,8 +27879,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27917,10 +27917,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 7700,
-            "totalDue": 17200,
+            "transportDue11Months": 8800,
+            "totalDue": 18300,
             "totalPaid": 0,
-            "balance": 17200,
+            "balance": 18300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27931,10 +27931,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -27971,10 +27971,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 7700,
-            "totalDue": 21700,
+            "transportDue11Months": 9570,
+            "totalDue": 23570,
             "totalPaid": 0,
-            "balance": 21700,
+            "balance": 23570,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27985,10 +27985,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "MAHAKA",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 870,
+            "annualTransportDue11Months": 9570
         }
     },
     {
@@ -28025,10 +28025,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 7700,
-            "totalDue": 18200,
+            "transportDue11Months": 9570,
+            "totalDue": 20070,
             "totalPaid": 0,
-            "balance": 18200,
+            "balance": 20070,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28046,10 +28046,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "MAHAKA",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 870,
+            "annualTransportDue11Months": 9570
         }
     },
     {
@@ -28086,10 +28086,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4950,
-            "totalDue": 18950,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 18950,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28100,10 +28100,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -28140,10 +28140,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 4950,
-            "totalDue": 19950,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 0,
-            "balance": 19950,
+            "balance": 23250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28154,10 +28154,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -28194,10 +28194,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6050,
-            "totalDue": 17550,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 0,
-            "balance": 17550,
+            "balance": 20300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28210,8 +28210,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -28248,10 +28248,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28261,11 +28261,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -28302,10 +28302,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6600,
-            "totalDue": 17100,
+            "transportDue11Months": 5500,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 17100,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28316,10 +28316,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -28356,10 +28356,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28370,10 +28370,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -28410,10 +28410,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28423,11 +28423,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -28464,10 +28464,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28477,11 +28477,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -28518,10 +28518,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 0,
-            "totalDue": 14000,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 14000,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28531,11 +28531,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -28572,10 +28572,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28585,11 +28585,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -28640,7 +28640,7 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "GANESHPUR",
             "monthlyFare": 600,
             "annualTransportDue11Months": 6600
@@ -28680,15 +28680,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 5500,
+            "totalDue": 18000,
             "totalPaid": 0,
-            "balance": 12500,
+            "balance": 18000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 24000,
+            "consolidatedFamilyDue": 35000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 24000,
+            "consolidatedFamilyBalance": 35000,
             "familySiblings": [
                 {
                     "id": "STU-2026-486",
@@ -28696,20 +28696,20 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "812",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 0,
-                    "individualDue": 11500,
+                    "transportDue11Months": 5500,
+                    "individualDue": 17000,
                     "individualPaid": 0,
-                    "individualBalance": 11500
+                    "individualBalance": 17000
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -28746,10 +28746,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28766,11 +28766,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -28807,10 +28807,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 7700,
-            "totalDue": 19200,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 0,
-            "balance": 19200,
+            "balance": 20300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28828,10 +28828,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -28868,15 +28868,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40400,
+            "consolidatedFamilyDue": 42600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40400,
+            "consolidatedFamilyBalance": 42600,
             "familySiblings": [
                 {
                     "id": "STU-2026-487",
@@ -28884,20 +28884,20 @@ export const initialSchoolData = {
                     "class": "LKG",
                     "admissionNo": "813",
                     "tuitionDue": 11500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 19200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 20300,
                     "individualPaid": 0,
-                    "individualBalance": 19200
+                    "individualBalance": 20300
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -28934,10 +28934,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 4950,
-            "totalDue": 19950,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 0,
-            "balance": 19950,
+            "balance": 23250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28948,10 +28948,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -28988,10 +28988,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 4510,
+            "totalDue": 16010,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 16010,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29001,11 +29001,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "NAGLA SHUMALI",
+            "monthlyFare": 410,
+            "annualTransportDue11Months": 4510
         }
     },
     {
@@ -29042,10 +29042,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 23200,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29056,10 +29056,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -29096,10 +29096,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 5500,
-            "totalDue": 25000,
+            "transportDue11Months": 8800,
+            "totalDue": 28300,
             "totalPaid": 0,
-            "balance": 25000,
+            "balance": 28300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29111,9 +29111,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
-            "stop": "GAHTOLI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "stop": "KUNJALPUR",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -29150,10 +29150,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 7150,
-            "totalDue": 16650,
+            "transportDue11Months": 9350,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 16650,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29164,10 +29164,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "GANGAGARH ROAD",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "PESARI",
+            "monthlyFare": 850,
+            "annualTransportDue11Months": 9350
         }
     },
     {
@@ -29204,10 +29204,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 8250,
-            "totalDue": 24250,
+            "transportDue11Months": 5500,
+            "totalDue": 21500,
             "totalPaid": 0,
-            "balance": 24250,
+            "balance": 21500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29218,10 +29218,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA VIDHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -29258,10 +29258,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 5500,
-            "totalDue": 17000,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 17000,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29272,10 +29272,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -29420,15 +29420,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 7700,
-            "totalDue": 27200,
+            "transportDue11Months": 8250,
+            "totalDue": 27750,
             "totalPaid": 0,
-            "balance": 27200,
+            "balance": 27750,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 50400,
+            "consolidatedFamilyDue": 51500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 50400,
+            "consolidatedFamilyBalance": 51500,
             "familySiblings": [
                 {
                     "id": "STU-2026-499",
@@ -29436,20 +29436,20 @@ export const initialSchoolData = {
                     "class": "V",
                     "admissionNo": "825",
                     "tuitionDue": 15500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 23200,
+                    "transportDue11Months": 8250,
+                    "individualDue": 23750,
                     "individualPaid": 0,
-                    "individualBalance": 23200
+                    "individualBalance": 23750
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "CHAKATHAL",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -29486,10 +29486,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 0,
-            "balance": 23200,
+            "balance": 23750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29507,10 +29507,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "CHAKATHAL",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -29547,10 +29547,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 12500,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29567,11 +29567,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -29608,10 +29608,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 7700,
-            "totalDue": 19200,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 0,
-            "balance": 19200,
+            "balance": 20300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29622,10 +29622,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -29662,15 +29662,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 0,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35000,
+            "consolidatedFamilyDue": 42700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35000,
+            "consolidatedFamilyBalance": 42700,
             "familySiblings": [
                 {
                     "id": "STU-2026-503",
@@ -29678,20 +29678,20 @@ export const initialSchoolData = {
                     "class": "V",
                     "admissionNo": "891",
                     "tuitionDue": 15500,
-                    "transportDue11Months": 0,
-                    "individualDue": 15500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 19350,
                     "individualPaid": 0,
-                    "individualBalance": 15500
+                    "individualBalance": 19350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -29728,10 +29728,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 0,
-            "totalDue": 15500,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 0,
-            "balance": 15500,
+            "balance": 19350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29748,11 +29748,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -29789,10 +29789,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29802,11 +29802,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -29843,10 +29843,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 7700,
-            "totalDue": 23200,
+            "transportDue11Months": 8800,
+            "totalDue": 24300,
             "totalPaid": 0,
-            "balance": 23200,
+            "balance": 24300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29857,10 +29857,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -29897,10 +29897,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 4950,
-            "totalDue": 15450,
+            "transportDue11Months": 8250,
+            "totalDue": 18750,
             "totalPaid": 0,
-            "balance": 15450,
+            "balance": 18750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29913,8 +29913,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -29951,10 +29951,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 0,
-            "totalDue": 9500,
+            "transportDue11Months": 3850,
+            "totalDue": 13350,
             "totalPaid": 0,
-            "balance": 9500,
+            "balance": 13350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -29964,11 +29964,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30005,10 +30005,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30028,8 +30028,8 @@ export const initialSchoolData = {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -30066,10 +30066,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 18100,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30080,10 +30080,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -30120,10 +30120,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 4400,
-            "totalDue": 19900,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 0,
-            "balance": 19900,
+            "balance": 19350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30134,10 +30134,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30174,10 +30174,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 4950,
-            "totalDue": 20950,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 0,
-            "balance": 20950,
+            "balance": 23700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30188,10 +30188,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAJHERA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
         }
     },
     {
@@ -30228,10 +30228,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30241,11 +30241,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30282,10 +30282,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 0,
-            "totalDue": 9500,
+            "transportDue11Months": 3850,
+            "totalDue": 13350,
             "totalPaid": 0,
-            "balance": 9500,
+            "balance": 13350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30302,11 +30302,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30343,10 +30343,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 4400,
-            "totalDue": 18400,
+            "transportDue11Months": 5500,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 18400,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30358,9 +30358,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "JARGWAN",
-            "monthlyFare": 400,
-            "annualTransportDue11Months": 4400
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -30397,10 +30397,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6600,
-            "totalDue": 17100,
+            "transportDue11Months": 5500,
+            "totalDue": 16000,
             "totalPaid": 1000.0,
-            "balance": 16100.0,
+            "balance": 15000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30411,10 +30411,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -30451,10 +30451,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 19500,
-            "transportDue11Months": 0,
-            "totalDue": 19500,
+            "transportDue11Months": 3850,
+            "totalDue": 23350,
             "totalPaid": 0,
-            "balance": 19500,
+            "balance": 23350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30471,11 +30471,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30512,10 +30512,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 6600,
-            "totalDue": 16100,
+            "transportDue11Months": 8250,
+            "totalDue": 17750,
             "totalPaid": 0,
-            "balance": 16100,
+            "balance": 17750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30526,10 +30526,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "LOHGARH",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -30566,10 +30566,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 5500,
-            "totalDue": 20500,
+            "transportDue11Months": 8250,
+            "totalDue": 23250,
             "totalPaid": 0,
-            "balance": 20500,
+            "balance": 23250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30587,10 +30587,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "CHIROURI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -30627,10 +30627,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30640,11 +30640,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30681,10 +30681,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30694,11 +30694,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30735,10 +30735,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 0,
-            "totalDue": 15000,
+            "transportDue11Months": 3850,
+            "totalDue": 18850,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 18850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30748,11 +30748,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30789,10 +30789,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30802,11 +30802,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30843,10 +30843,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 17000,
-            "transportDue11Months": 0,
-            "totalDue": 17000,
+            "transportDue11Months": 3850,
+            "totalDue": 20850,
             "totalPaid": 0,
-            "balance": 17000,
+            "balance": 20850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30856,11 +30856,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -30897,10 +30897,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 0,
-            "balance": 23700,
+            "balance": 24800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30911,10 +30911,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -30951,10 +30951,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 0,
-            "totalDue": 16000,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 0,
-            "balance": 16000,
+            "balance": 19850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -30964,11 +30964,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -31005,10 +31005,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 5500,
-            "totalDue": 21500,
+            "transportDue11Months": 8250,
+            "totalDue": 24250,
             "totalPaid": 0,
-            "balance": 21500,
+            "balance": 24250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31019,10 +31019,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -31059,10 +31059,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 7700,
-            "totalDue": 23700,
+            "transportDue11Months": 8800,
+            "totalDue": 24800,
             "totalPaid": 0,
-            "balance": 23700,
+            "balance": 24800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31073,10 +31073,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -31113,10 +31113,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 0,
-            "totalDue": 13500,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31126,11 +31126,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -31167,10 +31167,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 4950,
-            "totalDue": 15450,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 15450,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31181,10 +31181,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -31221,10 +31221,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 4950,
-            "totalDue": 15450,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 15450,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31242,10 +31242,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -31282,15 +31282,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 5500,
-            "totalDue": 19000,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 19000,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 29500,
+            "consolidatedFamilyDue": 31700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 29500,
+            "consolidatedFamilyBalance": 31700,
             "familySiblings": [
                 {
                     "id": "STU-2026-535",
@@ -31298,20 +31298,20 @@ export const initialSchoolData = {
                     "class": "NURSERY",
                     "admissionNo": "869",
                     "tuitionDue": 10500,
-                    "transportDue11Months": 0,
-                    "individualDue": 10500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 14350,
                     "individualPaid": 0,
-                    "individualBalance": 10500
+                    "individualBalance": 14350
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
-            "stop": "KUDHAINI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -31348,10 +31348,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 5500,
-            "totalDue": 16000,
+            "transportDue11Months": 9350,
+            "totalDue": 19850,
             "totalPaid": 0,
-            "balance": 16000,
+            "balance": 19850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31362,10 +31362,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "PESARI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 850,
+            "annualTransportDue11Months": 9350
         }
     },
     {
@@ -31402,10 +31402,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 7150,
-            "totalDue": 16650,
+            "transportDue11Months": 8800,
+            "totalDue": 18300,
             "totalPaid": 0,
-            "balance": 16650,
+            "balance": 18300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31416,10 +31416,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "GANGAGARH",
-            "monthlyFare": 650,
-            "annualTransportDue11Months": 7150
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -31462,9 +31462,9 @@ export const initialSchoolData = {
             "balance": 22250,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43450,
+            "consolidatedFamilyDue": 44550,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43450,
+            "consolidatedFamilyBalance": 44550,
             "familySiblings": [
                 {
                     "id": "STU-2026-508",
@@ -31472,17 +31472,17 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "899",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 7700,
-                    "individualDue": 21200,
+                    "transportDue11Months": 8800,
+                    "individualDue": 22300,
                     "individualPaid": 0,
-                    "individualBalance": 21200
+                    "individualBalance": 22300
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA JATANI",
             "monthlyFare": 750,
             "annualTransportDue11Months": 8250
@@ -31522,10 +31522,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31542,11 +31542,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -31583,10 +31583,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16500,
-            "transportDue11Months": 0,
-            "totalDue": 16500,
+            "transportDue11Months": 3850,
+            "totalDue": 20350,
             "totalPaid": 0,
-            "balance": 16500,
+            "balance": 20350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31596,11 +31596,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -31637,10 +31637,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6050,
-            "totalDue": 16550,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 0,
-            "balance": 16550,
+            "balance": 19300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31651,10 +31651,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -31691,10 +31691,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6050,
-            "totalDue": 16550,
+            "transportDue11Months": 8800,
+            "totalDue": 19300,
             "totalPaid": 9500.0,
-            "balance": 7050.0,
+            "balance": 9800.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31712,10 +31712,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -31752,10 +31752,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6600,
-            "totalDue": 17100,
+            "transportDue11Months": 5500,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 17100,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31766,10 +31766,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -31806,10 +31806,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 5500,
-            "totalDue": 15000,
+            "transportDue11Months": 8250,
+            "totalDue": 17750,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 17750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31820,10 +31820,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
             "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -31860,10 +31860,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31873,11 +31873,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -31914,10 +31914,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 4950,
-            "totalDue": 16450,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 5000.0,
-            "balance": 11450.0,
+            "balance": 12000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31935,10 +31935,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA GARVI",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
         }
     },
     {
@@ -31975,10 +31975,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 6600,
-            "totalDue": 18100,
+            "transportDue11Months": 8800,
+            "totalDue": 20300,
             "totalPaid": 0,
-            "balance": 18100,
+            "balance": 20300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -31990,9 +31990,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "stop": "RAMGHAT",
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -32029,10 +32029,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 9500,
-            "transportDue11Months": 4950,
-            "totalDue": 14450,
+            "transportDue11Months": 6050,
+            "totalDue": 15550,
             "totalPaid": 4000.0,
-            "balance": 10450.0,
+            "balance": 11550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32043,10 +32043,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
         }
     },
     {
@@ -32083,10 +32083,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 6050,
-            "totalDue": 20050,
+            "transportDue11Months": 8800,
+            "totalDue": 22800,
             "totalPaid": 0,
-            "balance": 20050,
+            "balance": 22800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32097,10 +32097,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -32137,15 +32137,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 22000,
+            "consolidatedFamilyDue": 29700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 22000,
+            "consolidatedFamilyBalance": 29700,
             "familySiblings": [
                 {
                     "id": "STU-2026-547",
@@ -32153,20 +32153,20 @@ export const initialSchoolData = {
                     "class": "NURSERY",
                     "admissionNo": "945",
                     "tuitionDue": 10500,
-                    "transportDue11Months": 0,
-                    "individualDue": 10500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 14350,
                     "individualPaid": 0,
-                    "individualBalance": 10500
+                    "individualBalance": 14350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -32203,10 +32203,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 10500,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32223,11 +32223,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -32264,15 +32264,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 29000,
+            "consolidatedFamilyDue": 36700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 29000,
+            "consolidatedFamilyBalance": 36700,
             "familySiblings": [
                 {
                     "id": "STU-2026-560",
@@ -32280,20 +32280,20 @@ export const initialSchoolData = {
                     "class": "III",
                     "admissionNo": "957",
                     "tuitionDue": 14500,
-                    "transportDue11Months": 0,
-                    "individualDue": 14500,
+                    "transportDue11Months": 3850,
+                    "individualDue": 18350,
                     "individualPaid": 0,
-                    "individualBalance": 14500
+                    "individualBalance": 18350
                 }
             ]
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -32330,10 +32330,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 5500,
-            "totalDue": 21500,
+            "transportDue11Months": 9350,
+            "totalDue": 25350,
             "totalPaid": 0,
-            "balance": 21500,
+            "balance": 25350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32344,10 +32344,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "PESARI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 850,
+            "annualTransportDue11Months": 9350
         }
     },
     {
@@ -32384,10 +32384,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15500,
-            "transportDue11Months": 8250,
-            "totalDue": 23750,
+            "transportDue11Months": 3850,
+            "totalDue": 19350,
             "totalPaid": 0,
-            "balance": 23750,
+            "balance": 19350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32405,10 +32405,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA KOTHI",
-            "monthlyFare": 750,
-            "annualTransportDue11Months": 8250
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -32445,15 +32445,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 6050,
-            "totalDue": 20550,
+            "transportDue11Months": 9515,
+            "totalDue": 24015,
             "totalPaid": 0,
-            "balance": 20550,
+            "balance": 24015,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40100,
+            "consolidatedFamilyDue": 47030,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40100,
+            "consolidatedFamilyBalance": 47030,
             "familySiblings": [
                 {
                     "id": "STU-2026-552",
@@ -32461,20 +32461,20 @@ export const initialSchoolData = {
                     "class": "I",
                     "admissionNo": "9",
                     "tuitionDue": 13500,
-                    "transportDue11Months": 6050,
-                    "individualDue": 19550,
+                    "transportDue11Months": 9515,
+                    "individualDue": 23015,
                     "individualPaid": 0,
-                    "individualBalance": 19550
+                    "individualBalance": 23015
                 }
             ]
         },
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -32511,10 +32511,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 6050,
-            "totalDue": 19550,
+            "transportDue11Months": 9515,
+            "totalDue": 23015,
             "totalPaid": 0,
-            "balance": 19550,
+            "balance": 23015,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32532,10 +32532,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "DADHAR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 865,
+            "annualTransportDue11Months": 9515
         }
     },
     {
@@ -32572,10 +32572,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 4950,
-            "totalDue": 18450,
+            "transportDue11Months": 8250,
+            "totalDue": 21750,
             "totalPaid": 0,
-            "balance": 18450,
+            "balance": 21750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32586,10 +32586,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
-            "stop": "DHARAKPUR",
-            "monthlyFare": 450,
-            "annualTransportDue11Months": 4950
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -32626,10 +32626,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32639,11 +32639,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -32680,10 +32680,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 11500,
-            "transportDue11Months": 0,
-            "totalDue": 11500,
+            "transportDue11Months": 3850,
+            "totalDue": 15350,
             "totalPaid": 0,
-            "balance": 11500,
+            "balance": 15350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32693,11 +32693,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -32734,10 +32734,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 12500,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32747,11 +32747,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -32788,10 +32788,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 12500,
-            "transportDue11Months": 0,
-            "totalDue": 12500,
+            "transportDue11Months": 3850,
+            "totalDue": 16350,
             "totalPaid": 0,
-            "balance": 12500,
+            "balance": 16350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32801,11 +32801,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -32842,10 +32842,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 0,
-            "totalDue": 14000,
+            "transportDue11Months": 3850,
+            "totalDue": 17850,
             "totalPaid": 0,
-            "balance": 14000,
+            "balance": 17850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32855,11 +32855,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -32896,10 +32896,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 15000,
-            "transportDue11Months": 6050,
-            "totalDue": 21050,
+            "transportDue11Months": 8800,
+            "totalDue": 23800,
             "totalPaid": 0,
-            "balance": 21050,
+            "balance": 23800,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32910,10 +32910,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -32950,10 +32950,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14500,
-            "transportDue11Months": 0,
-            "totalDue": 14500,
+            "transportDue11Months": 3850,
+            "totalDue": 18350,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 18350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -32970,11 +32970,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -33011,10 +33011,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 0,
-            "totalDue": 10500,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 2000.0,
-            "balance": 8500.0,
+            "balance": 12350.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -33024,11 +33024,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -33065,10 +33065,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 10500,
-            "transportDue11Months": 6600,
-            "totalDue": 17100,
+            "transportDue11Months": 3850,
+            "totalDue": 14350,
             "totalPaid": 0,
-            "balance": 17100,
+            "balance": 14350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -33079,10 +33079,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
-            "stop": "MOUNIPURA",
-            "monthlyFare": 600,
-            "annualTransportDue11Months": 6600
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -33119,10 +33119,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 7700,
-            "totalDue": 21200,
+            "transportDue11Months": 8800,
+            "totalDue": 22300,
             "totalPaid": 0,
-            "balance": 21200,
+            "balance": 22300,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -33133,10 +33133,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 800,
+            "annualTransportDue11Months": 8800
         }
     },
     {
@@ -33173,10 +33173,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 13500,
-            "transportDue11Months": 5500,
-            "totalDue": 19000,
+            "transportDue11Months": 3850,
+            "totalDue": 17350,
             "totalPaid": 0,
-            "balance": 19000,
+            "balance": 17350,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -33187,10 +33187,10 @@ export const initialSchoolData = {
         "siblings": [],
         "transport": {
             "isEnrolled": true,
-            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
-            "stop": "BAGI NAGLA",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -33227,10 +33227,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 16000,
-            "transportDue11Months": 0,
-            "totalDue": 16000,
+            "transportDue11Months": 3850,
+            "totalDue": 19850,
             "totalPaid": 0,
-            "balance": 16000,
+            "balance": 19850,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -33240,11 +33240,11 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": false,
-            "route": "",
-            "stop": "",
-            "monthlyFare": 0,
-            "annualTransportDue11Months": 0
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 350,
+            "annualTransportDue11Months": 3850
         }
     },
     {
@@ -33281,15 +33281,15 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 7700,
-            "totalDue": 21700,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 21700,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43400,
+            "consolidatedFamilyDue": 44500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43400,
+            "consolidatedFamilyBalance": 44500,
             "familySiblings": [
                 {
                     "id": "STU-2026-567",
@@ -33297,10 +33297,10 @@ export const initialSchoolData = {
                     "class": "II",
                     "admissionNo": "876",
                     "tuitionDue": 14000,
-                    "transportDue11Months": 7700,
-                    "individualDue": 21700,
+                    "transportDue11Months": 8250,
+                    "individualDue": 22250,
                     "individualPaid": 0,
-                    "individualBalance": 21700
+                    "individualBalance": 22250
                 }
             ]
         },
@@ -33308,9 +33308,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "UNCHAGAON",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     },
     {
@@ -33347,10 +33347,10 @@ export const initialSchoolData = {
         },
         "feeSummary": {
             "tuitionDue": 14000,
-            "transportDue11Months": 7700,
-            "totalDue": 21700,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 21700,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -33369,9 +33369,9 @@ export const initialSchoolData = {
         "transport": {
             "isEnrolled": true,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
-            "stop": "UNCHAGAON",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
         }
     }
 ],
