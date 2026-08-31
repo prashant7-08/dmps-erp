@@ -5,23 +5,11 @@ import {
   GraduationCap,
   Users,
   Bus,
-  Home,
   FileText,
-  Calendar,
-  CreditCard,
   Upload,
-  Camera,
   CheckCircle2,
-  ArrowRight,
-  ShieldCheck,
-  Printer,
-  Sparkles,
-  RefreshCw,
   Phone,
-  Mail,
   MapPin,
-  HeartPulse,
-  Award,
   Lock,
   User,
   KeyRound,
@@ -31,44 +19,36 @@ import { Badge } from '../components/common/Badge';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
 import schoolService from '../services/schoolService';
-import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 
 export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
   const { showToast } = useToast();
-  const { activeBranchId, isSuperAdmin, branches } = useAuth();
+  const { activeBranchId, branches } = useAuth();
 
-  const [activeStep, setActiveStep] = useState(1);
   const [createdStudent, setCreatedStudent] = useState(null);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const fileInputRef = useRef(null);
-  const guardianFileInputRef = useRef(null);
-
-  // Generate Unique Initial Numbers
-  const initialRegNo = `REG-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-  const initialAdmNo = `ADM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-  const initialRollNo = String(Math.floor(100 + Math.random() * 900));
 
   const [formData, setFormData] = useState({
     // 1. Academic Details
     academicSession: '2026-2027',
     branchId: activeBranchId === 'all' ? 'BR-01' : activeBranchId,
-    registerNo: initialRegNo,
-    rollNo: initialRollNo,
+    registerNo: '',
+    rollNo: '',
     admissionDate: new Date().toISOString().split('T')[0],
-    class: 'Class 1',
+    class: '',
     section: 'A',
-    admissionNo: initialAdmNo,
+    admissionNo: '',
 
     // 2. Student Details
     firstName: '',
     lastName: '',
-    gender: 'Male',
-    dob: '2019-05-15',
-    bloodGroup: 'O+',
-    motherTongue: 'Hindi',
-    category: 'General',
-    religion: 'Hindu',
+    gender: '',
+    dob: '',
+    bloodGroup: '',
+    motherTongue: '',
+    category: '',
+    religion: '',
     caste: '',
     aadhaarNo: '',
     nameAsPerAadhaar: '',
@@ -85,21 +65,21 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
     guardianAlreadyExist: false,
     fatherName: '',
     fatherMobile: '',
-    fatherOccupation: 'Business / Service',
-    fatherEducation: 'Graduate',
+    fatherOccupation: '',
+    fatherEducation: '',
     motherName: '',
     motherMobile: '',
-    motherOccupation: 'Homemaker',
-    motherEducation: 'Graduate',
+    motherOccupation: '',
+    motherEducation: '',
     guardianName: '',
-    guardianRelation: "Father",
+    guardianRelation: '',
     guardianMobile: '',
     guardianAddress: '',
     guardianPhoto: '',
     parentUsername: '',
-    parentPassword: 'parent@dmps2026',
+    parentPassword: '',
     studentUsername: '',
-    studentPassword: 'student@dmps2026',
+    studentPassword: '',
 
     // 4. Transport Details
     facilityType: 'None', // 'Transport' | 'Hostel' | 'Both' | 'None'
@@ -183,6 +163,10 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
       showToast('Student First Name is required!', 'error');
       return;
     }
+    if (!formData.class) {
+      showToast('Please select a Class for admission!', 'error');
+      return;
+    }
     if (!formData.fatherName.trim()) {
       showToast("Father's Name is required!", 'error');
       return;
@@ -198,79 +182,83 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
       name: formData.branchId === 'BR-02' ? 'Dadheech Memorial Public School (Barheti Campus)' : formData.branchId === 'BR-03' ? 'Dadheech Kids School (Vinay Nagar PAC)' : 'Dadheech Memorial Public School (Main Campus)'
     };
 
+    const autoReg = formData.registerNo.trim() || `REG-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    const autoAdm = formData.admissionNo.trim() || `ADM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    const autoRoll = formData.rollNo.trim() || String(Math.floor(100 + Math.random() * 900));
+
     const newStudentData = {
       name: fullName,
       firstName: formData.firstName.trim(),
       lastName: formData.lastName.trim(),
       branchId: formData.branchId,
       branchName: branchObj.name,
-      admissionNo: formData.admissionNo || initialAdmNo,
-      registerNo: formData.registerNo || initialRegNo,
-      rollNo: formData.rollNo || initialRollNo,
-      admissionDate: formData.admissionDate,
+      admissionNo: autoAdm,
+      registerNo: autoReg,
+      rollNo: autoRoll,
+      admissionDate: formData.admissionDate || new Date().toISOString().split('T')[0],
       class: formData.class,
-      section: formData.section,
-      gender: formData.gender,
-      dob: formData.dob,
-      bloodGroup: formData.bloodGroup,
-      motherTongue: formData.motherTongue,
-      category: formData.category,
-      religion: formData.religion,
-      caste: formData.caste,
-      aadhaarNo: formData.aadhaarNo,
-      nameAsPerAadhaar: formData.nameAsPerAadhaar,
-      penNo: formData.penNo,
+      section: formData.class === 'Class 3' ? (formData.section || 'A') : 'A',
+      gender: formData.gender || 'Male',
+      dob: formData.dob || '',
+      bloodGroup: formData.bloodGroup || 'O+',
+      motherTongue: formData.motherTongue || 'Hindi',
+      category: formData.category || 'General',
+      religion: formData.religion || 'Hindu',
+      caste: formData.caste || '',
+      aadhaarNo: formData.aadhaarNo || '',
+      nameAsPerAadhaar: formData.nameAsPerAadhaar || '',
+      penNo: formData.penNo || '',
       mobile: formData.mobileNo || formData.fatherMobile,
-      heightCms: formData.heightCms,
-      weightKg: formData.weightKg,
+      heightCms: formData.heightCms || '',
+      weightKg: formData.weightKg || '',
       address: formData.presentAddress || formData.permanentAddress || 'Aligarh / Bulandshahr',
-      permanentAddress: formData.permanentAddress,
+      permanentAddress: formData.permanentAddress || '',
       photo: formData.photo || 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=80',
       
       // Parents
       fatherName: formData.fatherName,
       fatherMobile: formData.fatherMobile,
-      fatherOccupation: formData.fatherOccupation,
-      fatherEducation: formData.fatherEducation,
-      motherName: formData.motherName,
-      motherMobile: formData.motherMobile,
-      motherOccupation: formData.motherOccupation,
-      motherEducation: formData.motherEducation,
+      fatherOccupation: formData.fatherOccupation || '',
+      fatherEducation: formData.fatherEducation || '',
+      motherName: formData.motherName || '',
+      motherMobile: formData.motherMobile || '',
+      motherOccupation: formData.motherOccupation || '',
+      motherEducation: formData.motherEducation || '',
       guardianName: formData.guardianName || formData.fatherName,
-      guardianRelation: formData.guardianRelation,
+      guardianRelation: formData.guardianRelation || 'Father',
       guardianMobile: formData.guardianMobile || formData.fatherMobile,
-      guardianAddress: formData.guardianAddress || formData.presentAddress,
-      guardianPhoto: formData.guardianPhoto,
+      guardianAddress: formData.guardianAddress || formData.presentAddress || '',
+      guardianPhoto: formData.guardianPhoto || '',
 
       // Credentials
       parentCredentials: {
-        username: formData.parentUsername || `parent_${formData.admissionNo.toLowerCase().replace(/[^a-z0-9]/g, '')}`,
-        password: formData.parentPassword
+        username: formData.parentUsername || `parent_${autoAdm.toLowerCase().replace(/[^a-z0-9]/g, '')}`,
+        password: formData.parentPassword || 'parent@dmps2026'
       },
       studentCredentials: {
-        username: formData.studentUsername || `student_${formData.admissionNo.toLowerCase().replace(/[^a-z0-9]/g, '')}`,
-        password: formData.studentPassword
+        username: formData.studentUsername || `student_${autoAdm.toLowerCase().replace(/[^a-z0-9]/g, '')}`,
+        password: formData.studentPassword || 'student@dmps2026'
       },
 
       // Transport & Hostel
       transport: {
-        route: formData.transportRoute,
-        stoppage: formData.transportStop,
-        vehicle: formData.transportVehicle,
+        route: formData.transportRoute || '',
+        stoppage: formData.transportStop || '',
+        vehicle: formData.transportVehicle || '',
         isOpted: formData.facilityType === 'Transport' || formData.facilityType === 'Both'
       },
       hostel: {
-        name: formData.hostelName,
-        room: formData.hostelRoom,
+        name: formData.hostelName || '',
+        room: formData.hostelRoom || '',
         isOpted: formData.facilityType === 'Hostel' || formData.facilityType === 'Both'
       },
 
       // Previous Academic
       previousSchool: {
-        name: formData.previousSchoolName,
-        qualification: formData.previousClass,
-        tcNo: formData.previousTcNo,
-        remarks: formData.previousRemarks
+        name: formData.previousSchoolName || '',
+        qualification: formData.previousClass || '',
+        tcNo: formData.previousTcNo || '',
+        remarks: formData.previousRemarks || ''
       },
 
       status: 'Active'
@@ -286,20 +274,20 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
     setFormData({
       academicSession: '2026-2027',
       branchId: activeBranchId === 'all' ? 'BR-01' : activeBranchId,
-      registerNo: `REG-2026-${Math.floor(1000 + Math.random() * 9000)}`,
-      rollNo: String(Math.floor(100 + Math.random() * 900)),
+      registerNo: '',
+      rollNo: '',
       admissionDate: new Date().toISOString().split('T')[0],
-      class: 'Class 1',
+      class: '',
       section: 'A',
-      admissionNo: `ADM-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+      admissionNo: '',
       firstName: '',
       lastName: '',
-      gender: 'Male',
-      dob: '2019-05-15',
-      bloodGroup: 'O+',
-      motherTongue: 'Hindi',
-      category: 'General',
-      religion: 'Hindu',
+      gender: '',
+      dob: '',
+      bloodGroup: '',
+      motherTongue: '',
+      category: '',
+      religion: '',
       caste: '',
       aadhaarNo: '',
       nameAsPerAadhaar: '',
@@ -314,21 +302,21 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
       guardianAlreadyExist: false,
       fatherName: '',
       fatherMobile: '',
-      fatherOccupation: 'Business / Service',
-      fatherEducation: 'Graduate',
+      fatherOccupation: '',
+      fatherEducation: '',
       motherName: '',
       motherMobile: '',
-      motherOccupation: 'Homemaker',
-      motherEducation: 'Graduate',
+      motherOccupation: '',
+      motherEducation: '',
       guardianName: '',
-      guardianRelation: "Father",
+      guardianRelation: '',
       guardianMobile: '',
       guardianAddress: '',
       guardianPhoto: '',
       parentUsername: '',
-      parentPassword: 'parent@dmps2026',
+      parentPassword: '',
       studentUsername: '',
-      studentPassword: 'student@dmps2026',
+      studentPassword: '',
       facilityType: 'None',
       transportRoute: '',
       transportStop: '',
@@ -342,7 +330,6 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
     });
     setIsSuccessModalOpen(false);
     setCreatedStudent(null);
-    setActiveStep(1);
   };
 
   const classesList = [
@@ -368,11 +355,11 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 Session 2026-2027
               </span>
               <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white font-serif">
-                Student Admission Form (Official)
+                Student Admission Form
               </h2>
             </div>
             <p className="text-xs text-slate-500 mt-0.5">
-              Comprehensive CBSE admission dossier with automated ID Card & receipt generator.
+              Official student admission dossier. Clean blank entry to avoid accidental duplicate data.
             </p>
           </div>
         </div>
@@ -388,7 +375,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
         )}
       </div>
 
-      {/* 📝 Full Comprehensive Admission Form */}
+      {/* 📝 Full Clean Admission Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
 
         {/* ========================================================
@@ -404,7 +391,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 1. Academic Details
               </h3>
             </div>
-            <span className="text-[11px] font-bold text-slate-400">Mandatory Information *</span>
+            <span className="text-[11px] font-bold text-slate-400">Mandatory Fields *</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
@@ -436,48 +423,15 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Register No / SR No *</label>
-              <input
-                type="text"
-                name="registerNo"
-                value={formData.registerNo}
-                onChange={handleChange}
-                placeholder="REG-2026-001"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
-              />
-            </div>
-
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Roll Number</label>
-              <input
-                type="text"
-                name="rollNo"
-                value={formData.rollNo}
-                onChange={handleChange}
-                placeholder="101"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
-              />
-            </div>
-
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Admission Date *</label>
-              <input
-                type="date"
-                name="admissionDate"
-                value={formData.admissionDate}
-                onChange={handleChange}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
-              />
-            </div>
-
-            <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Class *</label>
               <select
+                required
                 name="class"
                 value={formData.class}
                 onChange={handleChange}
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
               >
+                <option value="">-- Select Class --</option>
                 {classesList.map(c => (
                   <option key={c} value={c}>{c}</option>
                 ))}
@@ -500,14 +454,50 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
             )}
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Admission No. *</label>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Admission Date *</label>
+              <input
+                type="date"
+                required
+                name="admissionDate"
+                value={formData.admissionDate}
+                onChange={handleChange}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+              />
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Register No / SR No</label>
+              <input
+                type="text"
+                name="registerNo"
+                value={formData.registerNo}
+                onChange={handleChange}
+                placeholder="Leave blank to auto-generate"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
+              />
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Roll Number</label>
+              <input
+                type="text"
+                name="rollNo"
+                value={formData.rollNo}
+                onChange={handleChange}
+                placeholder="e.g. 101 (or auto)"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
+              />
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Admission No.</label>
               <input
                 type="text"
                 name="admissionNo"
                 value={formData.admissionNo}
                 onChange={handleChange}
-                placeholder="ADM-2026-001"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
+                placeholder="Leave blank to auto-generate"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
               />
             </div>
           </div>
@@ -526,7 +516,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 2. Student Personal Details
               </h3>
             </div>
-            <span className="text-[11px] font-bold text-emerald-600">Student Profile Information</span>
+            <span className="text-[11px] font-bold text-emerald-600">Student Profile</span>
           </div>
 
           {/* Photo Upload & Preview Row */}
@@ -583,7 +573,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                placeholder="Aarav"
+                placeholder="Enter First Name"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
               />
             </div>
@@ -595,7 +585,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                placeholder="Rajput"
+                placeholder="Enter Last Name"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
               />
             </div>
@@ -603,11 +593,13 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Gender *</label>
               <select
+                required
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
               >
+                <option value="">-- Select Gender --</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -615,10 +607,9 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Date of Birth *</label>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Date of Birth</label>
               <input
                 type="date"
-                required
                 name="dob"
                 value={formData.dob}
                 onChange={handleChange}
@@ -634,6 +625,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 onChange={handleChange}
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
               >
+                <option value="">-- Select Blood Group --</option>
                 <option value="O+">O+</option>
                 <option value="A+">A+</option>
                 <option value="B+">B+</option>
@@ -652,8 +644,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="motherTongue"
                 value={formData.motherTongue}
                 onChange={handleChange}
-                placeholder="Hindi / English"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="Hindi, English, etc."
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -665,6 +657,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 onChange={handleChange}
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
               >
+                <option value="">-- Select Category --</option>
                 <option value="General">General</option>
                 <option value="OBC">OBC</option>
                 <option value="SC">SC</option>
@@ -681,6 +674,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 onChange={handleChange}
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
               >
+                <option value="">-- Select Religion --</option>
                 <option value="Hindu">Hindu</option>
                 <option value="Muslim">Muslim</option>
                 <option value="Sikh">Sikh</option>
@@ -697,8 +691,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="caste"
                 value={formData.caste}
                 onChange={handleChange}
-                placeholder="Rajput, Sharma, etc."
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="Enter Caste (Optional)"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -711,7 +705,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 onChange={handleChange}
                 placeholder="12-digit Aadhaar"
                 maxLength="14"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
               />
             </div>
 
@@ -722,8 +716,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="nameAsPerAadhaar"
                 value={formData.nameAsPerAadhaar}
                 onChange={handleChange}
-                placeholder="Official Name on Aadhaar"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="Name on Aadhaar Card"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -735,19 +729,19 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 value={formData.penNo}
                 onChange={handleChange}
                 placeholder="Permanent Education Number"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
               />
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mobile No</label>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student Mobile No</label>
               <input
                 type="text"
                 name="mobileNo"
                 value={formData.mobileNo}
                 onChange={handleChange}
-                placeholder="+91 97589 75880"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
+                placeholder="Student Contact Number"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
               />
             </div>
 
@@ -758,8 +752,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="heightCms"
                 value={formData.heightCms}
                 onChange={handleChange}
-                placeholder="125"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="e.g. 120"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -770,8 +764,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="weightKg"
                 value={formData.weightKg}
                 onChange={handleChange}
-                placeholder="28"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="e.g. 25"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -783,7 +777,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 value={formData.houseMobileNo}
                 onChange={handleChange}
                 placeholder="Alternate Landline / Mobile"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
               />
             </div>
           </div>
@@ -864,7 +858,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="fatherMobile"
                 value={formData.fatherMobile}
                 onChange={handleChange}
-                placeholder="+91 97589 75880"
+                placeholder="10-digit mobile number"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
               />
             </div>
@@ -876,8 +870,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="fatherOccupation"
                 value={formData.fatherOccupation}
                 onChange={handleChange}
-                placeholder="Business / Farming / Govt"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="Business / Service / Farming"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -888,8 +882,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="fatherEducation"
                 value={formData.fatherEducation}
                 onChange={handleChange}
-                placeholder="Post Graduate / Graduate"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="Graduate / Post Graduate"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -901,7 +895,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 value={formData.motherName}
                 onChange={handleChange}
                 placeholder="Mother's full name"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -912,8 +906,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="motherMobile"
                 value={formData.motherMobile}
                 onChange={handleChange}
-                placeholder="+91 96270 32626"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
+                placeholder="Mother's mobile number"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
               />
             </div>
 
@@ -924,8 +918,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="motherOccupation"
                 value={formData.motherOccupation}
                 onChange={handleChange}
-                placeholder="Homemaker / Teacher"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="Homemaker / Teacher / Other"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -936,8 +930,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="motherEducation"
                 value={formData.motherEducation}
                 onChange={handleChange}
-                placeholder="Graduate"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="Graduate / 12th / Other"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -949,7 +943,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 value={formData.guardianName}
                 onChange={handleChange}
                 placeholder="Guardian Name (if different)"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -960,8 +954,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="guardianRelation"
                 value={formData.guardianRelation}
                 onChange={handleChange}
-                placeholder="Father / Uncle / Brother"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="Father / Mother / Uncle"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -973,7 +967,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 value={formData.guardianMobile}
                 onChange={handleChange}
                 placeholder="Guardian Phone"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
               />
             </div>
 
@@ -985,7 +979,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 value={formData.guardianAddress}
                 onChange={handleChange}
                 placeholder="Guardian Residential Address"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
           </div>
@@ -994,7 +988,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
           <div className="p-4 rounded-2xl bg-indigo-50/70 dark:bg-slate-800/80 border border-indigo-200 dark:border-slate-700 space-y-3">
             <div className="flex items-center gap-2 text-xs font-black text-indigo-900 dark:text-indigo-200 uppercase tracking-wider">
               <KeyRound className="w-4 h-4 text-indigo-600" />
-              <span>Portal Login Credentials (Auto-Generated)</span>
+              <span>Portal Login Credentials (Auto-Generated if left empty)</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
@@ -1005,8 +999,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                   name="parentUsername"
                   value={formData.parentUsername}
                   onChange={handleChange}
-                  placeholder={`p_${formData.admissionNo.toLowerCase()}`}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-bold"
+                  placeholder="Auto-generated if empty"
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-medium"
                 />
               </div>
 
@@ -1017,7 +1011,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                   name="parentPassword"
                   value={formData.parentPassword}
                   onChange={handleChange}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-bold"
+                  placeholder="e.g. parent@dmps2026"
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-medium"
                 />
               </div>
 
@@ -1028,8 +1023,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                   name="studentUsername"
                   value={formData.studentUsername}
                   onChange={handleChange}
-                  placeholder={`s_${formData.admissionNo.toLowerCase()}`}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-bold"
+                  placeholder="Auto-generated if empty"
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-medium"
                 />
               </div>
 
@@ -1040,7 +1035,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                   name="studentPassword"
                   value={formData.studentPassword}
                   onChange={handleChange}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-bold"
+                  placeholder="e.g. student@dmps2026"
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs font-medium"
                 />
               </div>
             </div>
@@ -1085,9 +1081,9 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 value={formData.transportRoute}
                 onChange={handleChange}
                 disabled={formData.facilityType !== 'Transport' && formData.facilityType !== 'Both'}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 disabled:opacity-50 text-slate-900 dark:text-white font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 disabled:opacity-50 text-slate-900 dark:text-white font-medium"
               >
-                <option value="">Select Route</option>
+                <option value="">-- Select Route --</option>
                 <option value="Route 1 (Jargwan - Barheti - Aligarh)">Route 1 (Jargwan - Barheti - Aligarh)</option>
                 <option value="Route 2 (PAC Ramghat Road - Vinay Nagar)">Route 2 (PAC Ramghat Road - Vinay Nagar)</option>
                 <option value="Route 3 (Chharra - Harduaganj - Main Campus)">Route 3 (Chharra - Harduaganj - Main Campus)</option>
@@ -1103,7 +1099,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 onChange={handleChange}
                 disabled={formData.facilityType !== 'Transport' && formData.facilityType !== 'Both'}
                 placeholder="Near Main Chauraha / Gate"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 disabled:opacity-50 text-slate-900 dark:text-white font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 disabled:opacity-50 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -1114,9 +1110,9 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 value={formData.hostelName}
                 onChange={handleChange}
                 disabled={formData.facilityType !== 'Hostel' && formData.facilityType !== 'Both'}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 disabled:opacity-50 text-slate-900 dark:text-white font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 disabled:opacity-50 text-slate-900 dark:text-white font-medium"
               >
-                <option value="">Select Hostel</option>
+                <option value="">-- Select Hostel --</option>
                 <option value="Main Campus Boys Hostel">Main Campus Boys Hostel</option>
                 <option value="Junior Girls Residency">Junior Girls Residency</option>
               </select>
@@ -1131,7 +1127,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 onChange={handleChange}
                 disabled={formData.facilityType !== 'Hostel' && formData.facilityType !== 'Both'}
                 placeholder="Room 102 (Bed A)"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 disabled:opacity-50 text-slate-900 dark:text-white font-bold"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 disabled:opacity-50 text-slate-900 dark:text-white font-medium"
               />
             </div>
           </div>
@@ -1161,8 +1157,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="previousSchoolName"
                 value={formData.previousSchoolName}
                 onChange={handleChange}
-                placeholder="XYZ Convent / Public School"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="Enter Previous School Name"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -1173,8 +1169,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="previousClass"
                 value={formData.previousClass}
                 onChange={handleChange}
-                placeholder="Class UKG Passed (92%)"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                placeholder="e.g. Class UKG Passed (92%)"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
               />
             </div>
 
@@ -1185,8 +1181,8 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 name="previousTcNo"
                 value={formData.previousTcNo}
                 onChange={handleChange}
-                placeholder="TC-2026-991"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
+                placeholder="Enter TC Number"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
               />
             </div>
           </div>
@@ -1198,7 +1194,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
               name="previousRemarks"
               value={formData.previousRemarks}
               onChange={handleChange}
-              placeholder="Any special medical condition, talent, or sibling details..."
+              placeholder="Any special remarks or notes..."
               className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-medium"
             />
           </div>
