@@ -76,8 +76,19 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
       setIsSyncing(false);
       const syncedRecords = schoolService.syncBiometricToAttendance();
       setLogs(schoolService.getBiometricLogs());
-      showToast(`⚡ Synced ${syncedRecords.length} staff attendance records directly from Secureye Biometric Machine! ✅`, 'success');
-    }, 1200);
+      showToast(`⚡ Live Wi-Fi Synced: Updated today's staff attendance records directly from Secureye (${settings.ipAddress})! ✅`, 'success');
+    }, 1000);
+  };
+
+  // Full Wi-Fi Sync from April to Today
+  const handleSyncAllPastPunches = () => {
+    setIsSyncing(true);
+    setTimeout(() => {
+      setIsSyncing(false);
+      const res = schoolService.syncAllPastBiometricOverWifi();
+      setLogs(schoolService.getBiometricLogs());
+      showToast(`🎉 Full Wi-Fi Sync Complete! Imported ${res.totalPunches} punches from April to August across ${res.totalDays} school days! 📅`, 'success');
+    }, 1500);
   };
 
   // Simulate Instant Punch (for Testing or Device Ping)
@@ -162,12 +173,13 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
 
         <div className="flex flex-wrap items-center gap-2 shrink-0">
           <button
-            onClick={handlePingTest}
-            disabled={isPinging}
-            className="px-3.5 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 flex items-center gap-1.5 transition-all shadow-xs"
+            onClick={handleSyncAllPastPunches}
+            disabled={isSyncing}
+            className="px-3.5 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold shadow-md shadow-purple-500/25 flex items-center gap-1.5 transition-all hover:scale-105"
+            title="Import all historical punches from April 2026 till Today over Wi-Fi"
           >
-            <Cable className={`w-4 h-4 ${isPinging ? 'animate-spin' : 'text-blue-500'}`} />
-            {isPinging ? 'Pinging LAN...' : 'Test Cable Ping'}
+            <Calendar className="w-4 h-4" />
+            <span>🌐 Wi-Fi Sync (April - Today)</span>
           </button>
 
           <button
@@ -176,7 +188,7 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
             className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/25 flex items-center gap-1.5 transition-all hover:scale-105"
           >
             <RefreshCw className={`w-4 h-4 ${isSyncing ? 'animate-spin' : ''}`} />
-            {isSyncing ? 'Fetching Machine Logs...' : '⚡ Fetch & Sync Live Punches'}
+            {isSyncing ? 'Syncing...' : '⚡ Sync Live Today'}
           </button>
         </div>
       </div>
