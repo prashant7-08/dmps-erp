@@ -175,17 +175,37 @@ class SchoolService {
     return (this.data.students || []).find(s => s.id === id || s.admissionNo === id || s.rollNo === id);
   }
 
-  findSiblingByPhone(phone) {
-    if (!phone || String(phone).trim().length < 6) return null;
-    const cleanPhone = String(phone).replace(/[^0-9]/g, '');
+  findSiblingByAnyPhone(phoneList = []) {
+    const phones = Array.isArray(phoneList) ? phoneList : [phoneList];
+    const cleanQueries = phones
+      .map(p => String(p || '').replace(/[^0-9]/g, ''))
+      .filter(p => p.length >= 6)
+      .map(p => p.slice(-10));
+
+    if (cleanQueries.length === 0) return null;
+
     return (this.data.students || []).find(s => {
-      const pPhone = String(s.parents?.fatherMobile || s.fatherMobile || s.mobile || '').replace(/[^0-9]/g, '');
-      const mPhone = String(s.parents?.motherMobile || s.motherMobile || '').replace(/[^0-9]/g, '');
-      const gPhone = String(s.parents?.guardianMobile || s.guardianMobile || '').replace(/[^0-9]/g, '');
-      return (pPhone && pPhone.endsWith(cleanPhone.slice(-10))) ||
-             (mPhone && mPhone.endsWith(cleanPhone.slice(-10))) ||
-             (gPhone && gPhone.endsWith(cleanPhone.slice(-10)));
+      const studentPhones = [
+        s.parents?.fatherMobile,
+        s.fatherMobile,
+        s.parents?.motherMobile,
+        s.motherMobile,
+        s.parents?.guardianMobile,
+        s.guardianMobile,
+        s.parents?.emergencyContact,
+        s.houseMobileNo,
+        s.mobile
+      ]
+        .map(p => String(p || '').replace(/[^0-9]/g, ''))
+        .filter(p => p.length >= 6)
+        .map(p => p.slice(-10));
+
+      return cleanQueries.some(cq => studentPhones.includes(cq));
     });
+  }
+
+  findSiblingByPhone(phone) {
+    return this.findSiblingByAnyPhone([phone]);
   }
 
   addStudent(studentData) {

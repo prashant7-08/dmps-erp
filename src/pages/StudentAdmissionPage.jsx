@@ -340,13 +340,21 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
     'Class 12 (Sci)', 'Class 12 (Comm)', 'Class 12 (Arts)'
   ];
 
-  const detectedSibling = schoolService.findSiblingByPhone(formData.fatherMobile);
+  const detectedSibling = schoolService.findSiblingByAnyPhone([
+    formData.fatherMobile,
+    formData.motherMobile,
+    formData.guardianMobile,
+    formData.houseMobileNo,
+    formData.mobileNo
+  ]);
 
   const handleApplySiblingData = (sib) => {
     setFormData(prev => ({
       ...prev,
       fatherName: sib.parents?.fatherName || sib.fatherName || prev.fatherName,
+      fatherMobile: sib.parents?.fatherMobile || sib.fatherMobile || prev.fatherMobile,
       motherName: sib.parents?.motherName || sib.motherName || prev.motherName,
+      motherMobile: sib.parents?.motherMobile || sib.motherMobile || prev.motherMobile,
       fatherOccupation: sib.parents?.fatherOccupation || sib.fatherOccupation || prev.fatherOccupation,
       fatherEducation: sib.parents?.fatherEducation || sib.fatherEducation || prev.fatherEducation,
       motherOccupation: sib.parents?.motherOccupation || sib.motherOccupation || prev.motherOccupation,
