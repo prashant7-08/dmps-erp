@@ -209,6 +209,33 @@ class SchoolService {
     this.saveData();
   }
 
+  deactivateStudent(id, reason = 'Transfer with T C', note = '', date = null) {
+    const student = (this.data.students || []).find(s => s.id === id || s.admissionNo === id);
+    if (student) {
+      student.status = 'Inactive';
+      student.deactivateInfo = {
+        isInactive: true,
+        reason: reason || 'Transfer with T C',
+        note: note || 'Student Left / Discontinued',
+        date: date || new Date().toISOString().split('T')[0]
+      };
+      this.saveData();
+      return student;
+    }
+    return null;
+  }
+
+  reactivateStudent(id) {
+    const student = (this.data.students || []).find(s => s.id === id || s.admissionNo === id);
+    if (student) {
+      student.status = 'Active';
+      student.deactivateInfo = null;
+      this.saveData();
+      return student;
+    }
+    return null;
+  }
+
   bulkAddStudents(studentsArray) {
     if (!this.data.students) this.data.students = [];
     const added = [];

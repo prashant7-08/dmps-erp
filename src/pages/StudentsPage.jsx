@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   GraduationCap,
   Plus,
@@ -8,1365 +8,881 @@ import {
   Edit,
   Trash2,
   Phone,
-  Mail,
-  UserCheck,
-  FileText,
-  CreditCard,
-  HeartPulse,
   Printer,
   X,
   CheckCircle2,
-  Droplet,
-  ArrowRight,
-  ShieldCheck,
-  Award,
-  Camera,
-  Upload,
-  Image as ImageIcon,
   Building2,
-  Lock,
-  GitBranch,
-  Users
+  FileSpreadsheet,
+  Copy,
+  FileText,
+  UserX,
+  UserCheck,
+  Calendar,
+  AlertTriangle,
+  RotateCcw,
+  CheckSquare,
+  Square,
+  Download,
+  Share2
 } from 'lucide-react';
-import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
 import { PrintableIDCard } from '../components/printables/PrintableIDCard';
-import { PrintableReportCard } from '../components/printables/PrintableReportCard';
-import { PrintableFeeReceipt } from '../components/printables/PrintableFeeReceipt';
 import schoolService from '../services/schoolService';
 
 export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission = null }) => {
   const { showToast } = useToast();
-  const { activeBranchId, setActiveBranchId, isSuperAdmin, activeBranch, branches, user } = useAuth();
+  const { activeBranchId, setActiveBranchId, branches } = useAuth();
   
-  const [students, setStudents] = useState(schoolService.getStudents(activeBranchId));
+  // Data State
+  const [allStudents, setAllStudents] = useState(() => schoolService.getStudents('all'));
+  const [activeTab, setActiveTab] = useState('active'); // 'active' | 'inactive' | 'reasons'
+
+  // Filter States ("Select Ground" matching user's software)
+  const [selectedBranch, setSelectedBranch] = useState('all');
+  const [selectedClass, setSelectedClass] = useState('all');
+  const [selectedSection, setSelectedSection] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [classFilter, setClassFilter] = useState('All');
-  
-  // Modals & Drawers
+  const [rowsPerPage, setRowsPerPage] = useState(20);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Selection for bulk actions
+  const [selectedStudentIds, setSelectedStudentIds] = useState([]);
+
+  // Modals
   const [selectedStudent, setSelectedStudent] = useState(initialSelectedStudent);
-  const [isAdmissionModalOpen, setIsAdmissionModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
   const [isIdCardModalOpen, setIsIdCardModalOpen] = useState(false);
-  const [isReportCardModalOpen, setIsReportCardModalOpen] = useState(false);
-  const [isCollectFeeModalOpen, setIsCollectFeeModalOpen] = useState(false);
-  const [generatedReceipt, setGeneratedReceipt] = useState(null);
-  const [isReceiptModalOpen, setIsReceiptModalOpen] = useState(false);
+  const [isDeactivateModalOpen, setIsDeactivateModalOpen] = useState(false);
+  const [studentToDeactivate, setStudentToDeactivate] = useState(null);
 
-  // Bulk Excel/CSV Import States
-  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
-  const [importedStudentsList, setImportedStudentsList] = useState([]);
-  const [importError, setImportError] = useState('');
-  const [targetBranchForImport, setTargetBranchForImport] = useState(activeBranchId === 'all' ? 'BR-01' : activeBranchId);
-  const csvFileInputRef = useRef(null);
+  // Deactivation Form State
+  const [deactivateReason, setDeactivateReason] = useState('Transfer with T C');
+  const [deactivateDate, setDeactivateDate] = useState(new Date().toISOString().split('T')[0]);
+  const [deactivateNote, setDeactivateNote] = useState('');
 
-  const fileInputRef = useRef(null);
-  const editFileInputRef = useRef(null);
+  // Class list definition from SQL database
+  const classList = [
+    { id: 'all', label: 'All Classes' },
+    { id: 'PG', label: 'PG (Playgroup)' },
+    { id: 'NURSERY', label: 'NURSERY' },
+    { id: 'LKG', label: 'LKG' },
+    { id: 'UKG', label: 'UKG' },
+    { id: 'I', label: 'Class 1st (I)' },
+    { id: 'II', label: 'Class 2nd (II)' },
+    { id: 'III', label: 'Class 3rd (III)' },
+    { id: 'IV', label: 'Class 4th (IV)' },
+    { id: 'V', label: 'Class 5th (V)' },
+    { id: 'VI', label: 'Class 6th (VI)' },
+    { id: 'VII', label: 'Class 7th (VII)' },
+    { id: 'VIII', label: 'Class 8th (VIII)' },
+    { id: 'IX', label: 'Class 9th (IX)' },
+    { id: 'X', label: 'Class 10th (X)' },
+    { id: 'XI', label: 'Class 11th (XI)' },
+    { id: 'XII', label: 'Class 12th (XII)' }
+  ];
 
-  // Edit Form State
-  const [editFormData, setEditFormData] = useState({
-    id: '',
-    name: '',
-    branchId: 'BR-01',
-    class: 'Class 10',
-    section: 'A',
-    rollNo: '',
-    bloodGroup: 'O+',
-    house: 'Phoenix (Red House)',
-    fatherName: '',
-    fatherMobile: '',
-    address: '',
-    status: 'Active',
-    photo: ''
-  });
+  const sectionList = ['All Sections', 'A', 'B', 'C'];
 
-  // Collect Fee POS Form State
-  const [feeForm, setFeeForm] = useState({
-    amount: '45000',
-    feeType: 'Q1 & Q2 Tuition Fee',
-    paymentMode: 'UPI',
-    remarks: 'Regular academic fee installment'
-  });
+  const deactivateReasonsList = [
+    'Transfer with T C',
+    'Continuous Absent',
+    'Fee not paid till now',
+    "Parents' Wish",
+    'Shifted to Other City / Village',
+    'Duplicate / Wrong Entry'
+  ];
 
-  // New Admission Form State
-  const [formData, setFormData] = useState({
-    name: '',
-    branchId: activeBranchId === 'all' ? 'BR-01' : activeBranchId,
-    dob: '',
-    gender: 'Male',
-    bloodGroup: '',
-    class: 'Class 1',
-    section: 'A',
-    house: '',
-    category: 'General',
-    aadhaarNo: '',
-    fatherName: '',
-    fatherMobile: '',
-    motherName: '',
-    email: '',
-    address: '',
-    photo: ''
-  });
-
-  useEffect(() => {
-    refreshData();
-  }, [activeBranchId]);
-
-  useEffect(() => {
-    if (initialSelectedStudent) {
-      setSelectedStudent(initialSelectedStudent);
-    }
-  }, [initialSelectedStudent]);
-
-  const refreshData = () => {
-    setStudents([...schoolService.getStudents(activeBranchId)]);
+  // Refresh students list
+  const refreshStudents = () => {
+    setAllStudents(schoolService.getStudents('all'));
   };
 
-  // Fast Client-Side Image Compressor (Compresses 5MB photo to crisp ~25KB WebP/JPEG)
-  const compressImage = (file, callback) => {
-    if (!file) return;
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = (event) => {
-      const img = new window.Image();
-      img.src = event.target.result;
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        const MAX_WIDTH = 250;
-        const MAX_HEIGHT = 250;
-        let width = img.width;
-        let height = img.height;
+  // Filtered Students List
+  const filteredStudents = useMemo(() => {
+    return allStudents.filter(stu => {
+      // Tab Filter: Active vs Inactive
+      if (activeTab === 'active' && stu.status === 'Inactive') return false;
+      if (activeTab === 'inactive' && stu.status !== 'Inactive') return false;
 
-        if (width > height) {
-          if (width > MAX_WIDTH) {
-            height *= MAX_WIDTH / width;
-            width = MAX_WIDTH;
-          }
-        } else {
-          if (height > MAX_HEIGHT) {
-            width *= MAX_HEIGHT / height;
-            height = MAX_HEIGHT;
-          }
-        }
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0, width, height);
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-        callback(dataUrl);
-      };
-    };
-  };
-
-  const handlePhotoSelect = (e, isEdit = false) => {
-    const file = e.target.files[0];
-    if (file) {
-      compressImage(file, (compressedBase64) => {
-        if (isEdit) {
-          setEditFormData(prev => ({ ...prev, photo: compressedBase64 }));
-        } else {
-          setFormData(prev => ({ ...prev, photo: compressedBase64 }));
-        }
-        showToast('Photo uploaded & optimized successfully! 📸', 'success');
-      });
-    }
-  };
-
-  // Handle New Student Admission
-  const handleAdmissionSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name.trim() || !formData.fatherName.trim()) {
-      showToast('Please fill all required student and parent fields', 'error');
-      return;
-    }
-
-    const assignedBranch = formData.branchId || (activeBranchId === 'all' ? 'BR-01' : activeBranchId);
-    const branchObj = branches.find(b => b.id === assignedBranch);
-
-    const newStudent = schoolService.addStudent({
-      ...formData,
-      branchId: assignedBranch,
-      branchName: branchObj?.name || "Dadheech Memorial Public School",
-      admissionNo: `ADM-${assignedBranch.replace('BR-0', 'B')}-${Math.floor(1000 + Math.random() * 9000)}`,
-      status: 'Active',
-      photo: formData.photo || 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80',
-      parents: {
-        fatherName: formData.fatherName,
-        fatherMobile: formData.fatherMobile,
-        motherName: formData.motherName || '',
-        address: formData.address || ''
+      // Branch Filter
+      if (selectedBranch !== 'all' && stu.branchId !== selectedBranch) {
+        return false;
       }
-    });
 
-    refreshData();
-    setIsAdmissionModalOpen(false);
-    showToast(`Student ${newStudent.name} admitted to ${branchObj?.shortCode || 'Campus'}! 🎉`, 'success');
-    setSelectedStudent(newStudent);
-  };
+      // Class Filter (Normalize: e.g. "NURSERY", "I", "Class 1")
+      if (selectedClass !== 'all') {
+        const stuCls = (stu.class || '').toUpperCase().trim();
+        const selCls = selectedClass.toUpperCase().trim();
+        
+        // Exact match or contains
+        const isMatch = stuCls === selCls || 
+          stuCls.replace('CLASS', '').trim() === selCls ||
+          (selCls === 'I' && (stuCls === 'I' || stuCls === '1' || stuCls === 'CLASS 1')) ||
+          (selCls === 'II' && (stuCls === 'II' || stuCls === '2' || stuCls === 'CLASS 2')) ||
+          (selCls === 'III' && (stuCls === 'III' || stuCls === '3' || stuCls === 'CLASS 3')) ||
+          (selCls === 'IV' && (stuCls === 'IV' || stuCls === '4' || stuCls === 'CLASS 4')) ||
+          (selCls === 'V' && (stuCls === 'V' || stuCls === '5' || stuCls === 'CLASS 5')) ||
+          (selCls === 'VI' && (stuCls === 'VI' || stuCls === '6' || stuCls === 'CLASS 6')) ||
+          (selCls === 'VII' && (stuCls === 'VII' || stuCls === '7' || stuCls === 'CLASS 7')) ||
+          (selCls === 'VIII' && (stuCls === 'VIII' || stuCls === '8' || stuCls === 'CLASS 8')) ||
+          (selCls === 'IX' && (stuCls === 'IX' || stuCls === '9' || stuCls === 'CLASS 9')) ||
+          (selCls === 'X' && (stuCls === 'X' || stuCls === '10' || stuCls === 'CLASS 10')) ||
+          (selCls === 'XI' && (stuCls === 'XI' || stuCls === '11' || stuCls === 'CLASS 11')) ||
+          (selCls === 'XII' && (stuCls === 'XII' || stuCls === '12' || stuCls === 'CLASS 12'));
 
-  // Open Edit Modal
-  const openEditModal = (student) => {
-    setEditFormData({
-      id: student.id,
-      name: student.name,
-      branchId: student.branchId || 'BR-01',
-      class: student.class || 'Class 10',
-      section: student.section || 'A',
-      rollNo: student.rollNo || '',
-      bloodGroup: student.bloodGroup || 'O+',
-      house: student.house || 'Phoenix (Red House)',
-      fatherName: student.parents?.fatherName || '',
-      fatherMobile: student.parents?.fatherMobile || '',
-      address: student.parents?.address || '',
-      status: student.status || 'Active',
-      photo: student.photo || ''
-    });
-    setIsEditModalOpen(true);
-  };
-
-  // Submit Edit Form
-  const handleEditSubmit = (e) => {
-    e.preventDefault();
-    const branchObj = branches.find(b => b.id === editFormData.branchId);
-    const updated = schoolService.updateStudent(editFormData.id, {
-      name: editFormData.name,
-      branchId: editFormData.branchId,
-      branchName: branchObj?.name,
-      class: editFormData.class,
-      section: editFormData.section,
-      rollNo: editFormData.rollNo,
-      bloodGroup: editFormData.bloodGroup,
-      house: editFormData.house,
-      status: editFormData.status,
-      photo: editFormData.photo || selectedStudent?.photo,
-      parents: {
-        ...selectedStudent?.parents,
-        fatherName: editFormData.fatherName,
-        fatherMobile: editFormData.fatherMobile,
-        address: editFormData.address
+        if (!isMatch) return false;
       }
-    });
 
-    refreshData();
-    setIsEditModalOpen(false);
-    if (selectedStudent && selectedStudent.id === editFormData.id) {
-      setSelectedStudent(updated);
-    }
-    showToast(`Student record for ${editFormData.name} updated successfully! ✏️`, 'success');
-  };
-
-  // Handle Quick Fee Collection from Student Profile
-  const handleCollectFeeSubmit = (e) => {
-    e.preventDefault();
-    if (!selectedStudent) return;
-
-    const receipt = schoolService.collectFee({
-      studentId: selectedStudent.id,
-      studentName: selectedStudent.name,
-      class: `${selectedStudent.class}-${selectedStudent.section}`,
-      rollNo: selectedStudent.rollNo,
-      amount: Number(feeForm.amount),
-      paidAmount: Number(feeForm.amount),
-      paymentMode: feeForm.paymentMode,
-      feeType: feeForm.feeType,
-      remarks: feeForm.remarks
-    });
-
-    // Update Student Fee Summary
-    schoolService.updateStudent(selectedStudent.id, {
-      feeSummary: {
-        totalDue: Math.max(0, (selectedStudent.feeSummary?.totalDue || 45000) - Number(feeForm.amount)),
-        totalPaid: (selectedStudent.feeSummary?.totalPaid || 0) + Number(feeForm.amount),
-        balance: Math.max(0, (selectedStudent.feeSummary?.balance || 45000) - Number(feeForm.amount)),
-        status: "Paid"
+      // Section Filter
+      if (selectedSection !== 'all' && selectedSection !== 'All Sections') {
+        if ((stu.section || '').toUpperCase() !== selectedSection.toUpperCase()) return false;
       }
-    });
 
-    refreshData();
-    setIsCollectFeeModalOpen(false);
-    setGeneratedReceipt(receipt);
-    setIsReceiptModalOpen(true);
-    showToast(`Fee payment of ₹${Number(feeForm.amount).toLocaleString('en-IN')} collected! Receipt: ${receipt.receiptNo} 🧾`, 'success');
+      // Search Query
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase().trim();
+        const matchName = (stu.name || '').toLowerCase().includes(q);
+        const matchFather = (stu.parents?.fatherName || '').toLowerCase().includes(q);
+        const matchMother = (stu.parents?.motherName || '').toLowerCase().includes(q);
+        const matchPhone = (stu.parents?.fatherMobile || '').toLowerCase().includes(q);
+        const matchAdm = (stu.admissionNo || '').toLowerCase().includes(q);
+        const matchRoll = (stu.rollNo || '').toLowerCase().includes(q);
+        const matchAadhaar = (stu.customFields?.studentAadhaar || '').toLowerCase().includes(q);
+        const matchPen = (stu.customFields?.penNo || '').toLowerCase().includes(q);
+        const matchAddress = (stu.parents?.address || '').toLowerCase().includes(q);
+
+        return matchName || matchFather || matchMother || matchPhone || matchAdm || matchRoll || matchAadhaar || matchPen || matchAddress;
+      }
+
+      return true;
+    });
+  }, [allStudents, activeTab, selectedBranch, selectedClass, selectedSection, searchQuery]);
+
+  // Pagination
+  const paginatedStudents = useMemo(() => {
+    if (rowsPerPage === 'All') return filteredStudents;
+    const start = (currentPage - 1) * Number(rowsPerPage);
+    return filteredStudents.slice(start, start + Number(rowsPerPage));
+  }, [filteredStudents, currentPage, rowsPerPage]);
+
+  const totalPages = rowsPerPage === 'All' ? 1 : Math.ceil(filteredStudents.length / Number(rowsPerPage));
+
+  // Counts
+  const activeCount = useMemo(() => allStudents.filter(s => s.status !== 'Inactive').length, [allStudents]);
+  const inactiveCount = useMemo(() => allStudents.filter(s => s.status === 'Inactive').length, [allStudents]);
+
+  // Handle Mark Inactive (Deactivate Student)
+  const handleOpenDeactivateModal = (student) => {
+    setStudentToDeactivate(student);
+    setDeactivateReason('Transfer with T C');
+    setDeactivateDate(new Date().toISOString().split('T')[0]);
+    setDeactivateNote('');
+    setIsDeactivateModalOpen(true);
   };
 
-  const handleDelete = (id, name) => {
-    if (window.confirm(`Are you sure you want to delete student record for ${name}?`)) {
-      schoolService.deleteStudent(id);
-      refreshData();
-      if (selectedStudent?.id === id) setSelectedStudent(null);
-      showToast(`Student record for ${name} removed`, 'info');
+  const handleConfirmDeactivate = () => {
+    if (!studentToDeactivate) return;
+    schoolService.deactivateStudent(studentToDeactivate.id, deactivateReason, deactivateNote, deactivateDate);
+    refreshStudents();
+    setIsDeactivateModalOpen(false);
+    showToast(`Student ${studentToDeactivate.name} (Adm No: ${studentToDeactivate.admissionNo}) marked as Inactive (${deactivateReason})! 🚫`, 'info');
+  };
+
+  // Handle Reactivate Student
+  const handleReactivateStudent = (student) => {
+    schoolService.reactivateStudent(student.id);
+    refreshStudents();
+    showToast(`Student ${student.name} (Adm No: ${student.admissionNo}) successfully Re-activated! 🟢`, 'success');
+  };
+
+  // Handle Bulk Select
+  const handleSelectAll = (e) => {
+    if (e.target.checked) {
+      setSelectedStudentIds(paginatedStudents.map(s => s.id));
+    } else {
+      setSelectedStudentIds([]);
     }
   };
 
-  // Download Sample Excel/CSV Template
-  const handleDownloadSampleCSV = () => {
-    const csvContent = "data:text/csv;charset=utf-8," +
-      "AdmissionNo,RollNo,StudentName,Class,Section,Gender,FatherName,FatherMobile,MotherName,DOB,BloodGroup,Address\n" +
-      "ADM-2026-001,101,Aman Rajput,Class 10,A,Male,Rajesh Kumar,9758975880,Sunita Devi,2010-05-15,O+,Jargwan Bulandshahr\n" +
-      "ADM-2026-002,102,Km. Riya Sharma,Class 9,A,Female,Mukesh Sharma,9837123456,Anita Sharma,2011-08-20,B+,Aligarh\n" +
-      "ADM-2026-003,103,Rohit Singh,Class 8,B,Male,Dharmendra Singh,9627032626,Geeta Singh,2012-01-10,A+,Barheti Aligarh";
-    
+  const handleToggleStudent = (id) => {
+    setSelectedStudentIds(prev => 
+      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
+    );
+  };
+
+  // Export functions
+  const handleExportCSV = () => {
+    const headers = ['Register No', 'Student Name', 'Father Name', 'Mother Name', 'DOB', 'Mobile', 'Address', 'Class', 'Section', 'Gender', 'Roll', 'Aadhaar', 'Status'];
+    const rows = filteredStudents.map(s => [
+      s.admissionNo,
+      `"${s.name}"`,
+      `"${s.parents?.fatherName || ''}"`,
+      `"${s.parents?.motherName || ''}"`,
+      s.dob,
+      s.parents?.fatherMobile || '',
+      `"${s.parents?.address || ''}"`,
+      s.class,
+      s.section,
+      s.gender,
+      s.rollNo,
+      s.customFields?.studentAadhaar || '',
+      s.status
+    ]);
+    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
     const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "DMPS_Students_Import_Template.csv");
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `DMPS_Student_List_${selectedClass}_${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    showToast('Sample CSV template downloaded! 📥', 'info');
+    showToast('Student List exported to CSV successfully! 📄', 'success');
   };
 
-  // Parse Uploaded CSV / Excel File
-  const handleCSVFileChange = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    setImportError('');
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-      try {
-        const text = event.target.result;
-        const lines = text.split(/\r\n|\n/).filter(line => line.trim().length > 0);
-        
-        if (lines.length < 2) {
-          setImportError('File is empty or does not have data rows.');
-          return;
-        }
-
-        const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/[^a-z0-9]/g, ''));
-        const parsedRows = [];
-
-        for (let i = 1; i < lines.length; i++) {
-          const cols = lines[i].split(',').map(c => c.trim().replace(/^["']|["']$/g, ''));
-          if (cols.length === 0 || !cols[0]) continue;
-
-          const rowData = {};
-          headers.forEach((h, idx) => {
-            rowData[h] = cols[idx] || '';
-          });
-
-          // Map smart variations of field names
-          const studentName = rowData['studentname'] || rowData['name'] || rowData['student'] || cols[2] || cols[0] || 'New Student';
-          const rollNo = rowData['rollno'] || rowData['roll'] || cols[1] || '';
-          const admNo = rowData['admissionno'] || rowData['admno'] || rowData['admission'] || cols[0] || '';
-          const studentClass = rowData['class'] || cols[3] || 'Class 1';
-          const section = rowData['section'] || cols[4] || 'A';
-          const gender = rowData['gender'] || cols[5] || 'Male';
-          const fatherName = rowData['fathername'] || rowData['father'] || cols[6] || '';
-          const fatherMobile = rowData['fathermobile'] || rowData['mobile'] || rowData['phone'] || cols[7] || '';
-          const motherName = rowData['mothername'] || rowData['mother'] || cols[8] || '';
-          const dob = rowData['dob'] || cols[9] || '2014-01-01';
-          const bloodGroup = rowData['bloodgroup'] || cols[10] || 'O+';
-          const address = rowData['address'] || cols[11] || 'Aligarh / Bulandshahr';
-
-          parsedRows.push({
-            name: studentName,
-            rollNo: rollNo,
-            admissionNo: admNo,
-            class: studentClass.startsWith('Class') ? studentClass : `Class ${studentClass}`,
-            section: section,
-            gender: gender,
-            fatherName: fatherName,
-            fatherMobile: fatherMobile,
-            motherName: motherName,
-            dob: dob,
-            bloodGroup: bloodGroup,
-            address: address,
-            branchId: targetBranchForImport
-          });
-        }
-
-        if (parsedRows.length === 0) {
-          setImportError('Could not find any student records in the file.');
-          return;
-        }
-
-        setImportedStudentsList(parsedRows);
-        showToast(`Successfully parsed ${parsedRows.length} student records! Please review & confirm.`, 'success');
-      } catch (err) {
-        setImportError('Failed to parse file: ' + err.message);
-      }
-    };
-
-    reader.readAsText(file);
+  const handleCopyTable = () => {
+    const text = filteredStudents.map(s => `${s.admissionNo}\t${s.name}\t${s.parents?.fatherName || ''}\t${s.class}-${s.section}\t${s.parents?.fatherMobile || ''}`).join('\n');
+    navigator.clipboard.writeText(text);
+    showToast('Student summary copied to clipboard! 📋', 'success');
   };
-
-  // Confirm Bulk Student Import
-  const handleConfirmBulkImport = () => {
-    if (importedStudentsList.length === 0) return;
-
-    schoolService.bulkAddStudents(importedStudentsList);
-    refreshData();
-    setIsImportModalOpen(false);
-    showToast(`🎉 Successfully imported ${importedStudentsList.length} students into ERP Database!`, 'success');
-    setImportedStudentsList([]);
-  };
-
-  const filteredStudents = students.filter(s => {
-    const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) || s.rollNo.includes(searchQuery) || (s.admissionNo && s.admissionNo.toLowerCase().includes(searchQuery.toLowerCase()));
-    const matchesClass = classFilter === 'All' || s.class === classFilter;
-    return matchesSearch && matchesClass;
-  });
-
-  const totalBoys = filteredStudents.filter(s => s.gender === 'Male').length;
-  const totalGirls = filteredStudents.filter(s => s.gender === 'Female').length;
-  const totalFeesCollected = filteredStudents.reduce((acc, s) => acc + (s.feeSummary?.totalPaid || 0), 0);
-
-  const schoolInfo = schoolService.getSchoolInfo();
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
       
-      {/* 🏛️ Top Campus Banner & Access Security Info */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700 flex items-center justify-center text-amber-700 dark:text-amber-300 shadow-sm shrink-0">
-            <Building2 className="w-6 h-6" />
+      {/* 🏛️ Top "Select Ground" Filter Card (Exact Matching Old Software) */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+        <div className="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 px-5 py-3 text-white flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <GraduationCap className="w-5 h-5" />
+            <h3 className="text-sm font-bold tracking-wide uppercase">
+              Select Ground (Filter Students)
+            </h3>
           </div>
+          <span className="text-xs bg-white/20 px-3 py-1 rounded-full font-medium backdrop-blur-xs">
+            Academic Session 2026-2027
+          </span>
+        </div>
+
+        <div className="p-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 items-end bg-slate-50/50 dark:bg-slate-900">
+          
+          {/* Branch Dropdown */}
           <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-black uppercase px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border border-amber-300">
-                {activeBranch?.shortCode || 'CAMPUS'}
-              </span>
-              <h2 className="text-base sm:text-lg font-black text-[#0b1e38] dark:text-white font-serif">
-                {activeBranch?.name || 'All Campuses (Consolidated Overview)'}
-              </h2>
-            </div>
-            <p className="text-xs text-slate-500 mt-0.5">
-              {isSuperAdmin
-                ? 'Super Admin Access • Viewing & Managing records for this selected branch.'
-                : `Logged in as ${user?.role} • Restricted to your assigned campus records.`}
-            </p>
+            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
+              Branch <span className="text-rose-500">*</span>
+            </label>
+            <select
+              value={selectedBranch}
+              onChange={(e) => {
+                setSelectedBranch(e.target.value);
+                setCurrentPage(1);
+              }}
+              className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-white shadow-xs focus:ring-2 focus:ring-sky-500"
+            >
+              <option value="all">ALL BRANCHES / CONSOLIDATED</option>
+              <option value="BR-01">DADHEECH MEMORIAL PUBLIC SCHOOL (MAIN CAMPUS - JARGWAN)</option>
+              <option value="BR-02">DADHEECH MEMORIAL PUBLIC SCHOOL (BARHETI CAMPUS)</option>
+              <option value="BR-03">DADHEECH KIDS SCHOOL (PAC CAMPUS)</option>
+            </select>
           </div>
-        </div>
 
-        {/* Super Admin Quick Branch Switcher Chips */}
-        {isSuperAdmin && (
-          <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 flex-wrap sm:flex-nowrap">
-            <button
-              onClick={() => setActiveBranchId('BR-01')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                activeBranchId === 'BR-01' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
+          {/* Class Dropdown */}
+          <div>
+            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
+              Class <span className="text-rose-500">*</span>
+            </label>
+            <select
+              value={selectedClass}
+              onChange={(e) => {
+                setSelectedClass(e.target.value);
+                setCurrentPage(1);
+              }}
+              className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-white shadow-xs focus:ring-2 focus:ring-sky-500"
             >
-              🏢 Senior (Jargwan)
-            </button>
-            <button
-              onClick={() => setActiveBranchId('BR-02')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                activeBranchId === 'BR-02' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
+              {classList.map(c => (
+                <option key={c.id} value={c.id}>
+                  {c.label.toUpperCase()}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Section Dropdown */}
+          <div>
+            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
+              Section <span className="text-rose-500">*</span>
+            </label>
+            <select
+              value={selectedSection}
+              onChange={(e) => {
+                setSelectedSection(e.target.value);
+                setCurrentPage(1);
+              }}
+              className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-white shadow-xs focus:ring-2 focus:ring-sky-500"
             >
-              🏫 Barheti (Aligarh)
-            </button>
+              {sectionList.map(sec => (
+                <option key={sec} value={sec}>{sec.toUpperCase()}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Filter Action Button */}
+          <div>
             <button
-              onClick={() => setActiveBranchId('BR-03')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                activeBranchId === 'BR-03' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
+              onClick={() => {
+                setCurrentPage(1);
+                showToast(`Filter applied: Class ${selectedClass}, Section ${selectedSection} (${filteredStudents.length} Students found)`, 'info');
+              }}
+              className="w-full py-2.5 px-4 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-xl text-xs shadow-md shadow-sky-500/20 flex items-center justify-center gap-2 transition-all"
             >
-              🏫 Kids School (PAC)
-            </button>
-            <button
-              onClick={() => setActiveBranchId('all')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                activeBranchId === 'all' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              🌐 All (Consolidated)
+              <Filter className="w-4 h-4" /> Filter Student Records
             </button>
           </div>
-        )}
-      </div>
-
-      {/* 📊 Campus KPI Metric Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-1">
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Branch Enrolled</span>
-          <div className="text-2xl font-black text-slate-900 dark:text-white font-mono">{filteredStudents.length}</div>
-          <span className="text-[10px] text-sky-600 font-semibold">{activeBranch?.classesOffered || 'Active Classes'}</span>
-        </div>
-
-        <div className="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-1">
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Gender Diversity</span>
-          <div className="text-2xl font-black text-indigo-600 font-mono">{totalBoys}B • {totalGirls}G</div>
-          <span className="text-[10px] text-slate-500 font-semibold">Boys & Girls Ratio</span>
-        </div>
-
-        <div className="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-1">
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Fee Collection</span>
-          <div className="text-2xl font-black text-emerald-600 font-mono">₹{totalFeesCollected.toLocaleString('en-IN')}</div>
-          <span className="text-[10px] text-emerald-600 font-semibold">Collected this Session</span>
-        </div>
-
-        <div className="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-1">
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Average Attendance</span>
-          <div className="text-2xl font-black text-amber-600 font-mono">94.8%</div>
-          <span className="text-[10px] text-slate-500 font-semibold">Active Presence Rate</span>
         </div>
       </div>
 
-      {/* Page Header Actions & Filters */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-            <GraduationCap className="w-6 h-6 text-indigo-600" /> Student Enrollment & Profiles
-          </h2>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Managing students of <strong>{activeBranch?.name}</strong>.
-          </p>
-        </div>
-
-        <div className="flex items-center gap-3">
+      {/* 📑 Tab Navigation: Active List vs Inactive List vs Reasons */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-2">
+        <div className="flex items-center gap-2">
           <button
-            onClick={() => { setImportedStudentsList([]); setImportError(''); setIsImportModalOpen(true); }}
-            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-emerald-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+            onClick={() => {
+              setActiveTab('active');
+              setCurrentPage(1);
+            }}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+              activeTab === 'active'
+                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25'
+                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100'
+            }`}
           >
-            <Upload className="w-4 h-4" /> Import Excel / CSV
+            <UserCheck className="w-4 h-4" />
+            Active Student List
+            <span className="px-2 py-0.5 rounded-full text-[10px] bg-white/20">
+              {activeCount}
+            </span>
           </button>
 
           <button
             onClick={() => {
-              if (onOpenNewAdmission) {
-                onOpenNewAdmission();
-              } else {
-                setIsAdmissionModalOpen(true);
-              }
+              setActiveTab('inactive');
+              setCurrentPage(1);
             }}
-            className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+              activeTab === 'inactive'
+                ? 'bg-rose-600 text-white shadow-md shadow-rose-500/25'
+                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100'
+            }`}
           >
-            <Plus className="w-4 h-4" /> New Student Admission
+            <UserX className="w-4 h-4" />
+            Inactive / Left List (TC)
+            <span className="px-2 py-0.5 rounded-full text-[10px] bg-white/20">
+              {inactiveCount}
+            </span>
           </button>
         </div>
-      </div>
 
-      {/* Filter and Search Bar */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col md:flex-row gap-3 items-center justify-between">
-        <div className="relative w-full md:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Search by student name, roll number, or adm no..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
-          />
-        </div>
-
-        <div className="flex items-center gap-3 w-full md:w-auto">
-          <div className="flex items-center gap-2 text-xs text-slate-500 font-bold">
-            <Filter className="w-4 h-4 text-indigo-600" /> Filter Class:
-          </div>
-          <select
-            value={classFilter}
-            onChange={(e) => setClassFilter(e.target.value)}
-            className="p-2 text-xs font-bold rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none"
+        {/* New Admission Button */}
+        {onOpenNewAdmission && (
+          <button
+            onClick={onOpenNewAdmission}
+            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-md flex items-center gap-2 self-start sm:self-auto transition-all"
           >
-            <option value="All">All Grades in this Campus</option>
-            <option value="Playgroup">Playgroup</option>
-            <option value="Nursery">Nursery</option>
-            <option value="LKG">LKG</option>
-            <option value="UKG">UKG</option>
-            <option value="Class 1">Class 1</option>
-            <option value="Class 2">Class 2</option>
-            <option value="Class 5">Class 5</option>
-            <option value="Class 6">Class 6</option>
-            <option value="Class 7">Class 7</option>
-            <option value="Class 8">Class 8</option>
-            <option value="Class 10">Class 10</option>
-            <option value="Class 12">Class 12</option>
-          </select>
-        </div>
+            <Plus className="w-4 h-4" /> + New Student Admission
+          </button>
+        )}
       </div>
 
-      {/* Students Table with Branch Badge */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
+      {/* 📊 Main Table Container with Export Toolbar */}
+      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+        
+        {/* Table Toolbar Header */}
+        <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-3 bg-slate-50/50 dark:bg-slate-800/40">
+          
+          {/* Export Icons Toolbar (Matching Screenshot 2) */}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <button
+              onClick={handleCopyTable}
+              title="Copy Summary"
+              className="p-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg border border-slate-300 dark:border-slate-700 text-xs font-bold flex items-center gap-1 shadow-2xs"
+            >
+              <Copy className="w-3.5 h-3.5 text-slate-600" />
+            </button>
+
+            <button
+              onClick={handleExportCSV}
+              title="Export to Excel/CSV"
+              className="p-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg border border-slate-300 dark:border-slate-700 text-xs font-bold flex items-center gap-1 shadow-2xs"
+            >
+              <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-600" />
+            </button>
+
+            <button
+              onClick={() => window.print()}
+              title="Print Table"
+              className="p-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg border border-slate-300 dark:border-slate-700 text-xs font-bold flex items-center gap-1 shadow-2xs"
+            >
+              <Printer className="w-3.5 h-3.5 text-blue-600" />
+            </button>
+
+            {/* Rows Per Page Dropdown */}
+            <div className="flex items-center gap-1.5 ml-2 pl-2 border-l border-slate-300 dark:border-slate-700">
+              <select
+                value={rowsPerPage}
+                onChange={(e) => {
+                  setRowsPerPage(e.target.value);
+                  setCurrentPage(1);
+                }}
+                className="p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-white"
+              >
+                <option value={20}>20 rows per page</option>
+                <option value={50}>50 rows per page</option>
+                <option value={100}>100 rows per page</option>
+                <option value="All">All ({filteredStudents.length})</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Quick Search Input */}
+          <div className="relative w-full lg:w-80">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setCurrentPage(1);
+              }}
+              placeholder="Search by name, father, phone, admission no..."
+              className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white placeholder-slate-400 font-medium focus:ring-2 focus:ring-sky-500 shadow-2xs"
+            />
+          </div>
+        </div>
+
+        {/* 📜 Responsive Table View (Exact Columns from Old Software Screenshot) */}
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="bg-slate-50 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
-                <th className="p-4">Student Profile</th>
-                <th className="p-4">Campus / Branch</th>
-                <th className="p-4">Admission No</th>
-                <th className="p-4">Class & Sec</th>
-                <th className="p-4">Roll No</th>
-                <th className="p-4">Parent Details</th>
-                <th className="p-4">Attendance</th>
-                <th className="p-4">Fee Status</th>
-                <th className="p-4 text-right">Actions</th>
+              <tr className="bg-slate-100/90 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold border-b border-slate-200 dark:border-slate-700 select-none">
+                <th className="p-3 text-center w-10">
+                  <input
+                    type="checkbox"
+                    onChange={handleSelectAll}
+                    checked={paginatedStudents.length > 0 && selectedStudentIds.length === paginatedStudents.length}
+                    className="rounded text-sky-600 focus:ring-sky-500"
+                  />
+                </th>
+                <th className="p-3">Photo</th>
+                <th className="p-3">Name</th>
+                <th className="p-3">Father Name</th>
+                <th className="p-3">Mother Name</th>
+                <th className="p-3">Date Of Birth</th>
+                <th className="p-3">Mobile Number</th>
+                <th className="p-3">Address</th>
+                <th className="p-3">Class</th>
+                <th className="p-3">Section</th>
+                <th className="p-3">Register No</th>
+                <th className="p-3">Gender</th>
+                <th className="p-3">Roll</th>
+                <th className="p-3">PEN No.</th>
+                <th className="p-3">Student Aadhaar</th>
+                <th className="p-3 text-center">Status</th>
+                <th className="p-3 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-              {filteredStudents.length === 0 ? (
+
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
+              {paginatedStudents.length === 0 ? (
                 <tr>
-                  <td colSpan="9" className="p-8 text-center text-slate-500 text-xs">
-                    No student records found for {activeBranch?.name}.
+                  <td colSpan={17} className="p-12 text-center text-slate-400">
+                    <GraduationCap className="w-12 h-12 mx-auto mb-2 text-slate-300 dark:text-slate-600" />
+                    <p className="text-sm font-bold text-slate-600 dark:text-slate-300">
+                      No student records found matching the selected class / filter.
+                    </p>
+                    <p className="text-xs text-slate-400 mt-1">
+                      Try selecting "All Classes" or clear the search query.
+                    </p>
                   </td>
                 </tr>
               ) : (
-                filteredStudents.map(student => (
-                  <tr
-                    key={student.id}
-                    onClick={() => setSelectedStudent(student)}
-                    className="hover:bg-indigo-50/50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors"
-                  >
-                    <td className="p-4">
-                      <div className="flex items-center gap-3">
-                        <img src={student.photo} alt={student.name} className="w-9 h-9 rounded-xl object-cover ring-1 ring-slate-200 dark:ring-slate-700" />
-                        <div>
-                          <p className="font-bold text-slate-900 dark:text-white text-xs">{student.name}</p>
-                          <p className="text-[10px] text-slate-400">{student.gender} • Blood: {student.bloodGroup}</p>
+                paginatedStudents.map((student) => {
+                  const isSelected = selectedStudentIds.includes(student.id);
+                  const isInactive = student.status === 'Inactive';
+
+                  return (
+                    <tr
+                      key={student.id}
+                      className={`hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors ${
+                        isInactive ? 'bg-rose-50/30 dark:bg-rose-950/10' : ''
+                      }`}
+                    >
+                      {/* Checkbox */}
+                      <td className="p-3 text-center">
+                        <input
+                          type="checkbox"
+                          checked={isSelected}
+                          onChange={() => handleToggleStudent(student.id)}
+                          className="rounded text-sky-600 focus:ring-sky-500"
+                        />
+                      </td>
+
+                      {/* Photo Thumbnail */}
+                      <td className="p-3">
+                        <img
+                          src={student.photo || `https://api.dicebear.com/7.x/bottts/svg?seed=${student.name}`}
+                          alt={student.name}
+                          className="w-9 h-9 rounded-lg object-cover border border-slate-200 dark:border-slate-700 bg-slate-100 shrink-0"
+                          onError={(e) => {
+                            e.target.src = `https://api.dicebear.com/7.x/bottts/svg?seed=${student.name}`;
+                          }}
+                        />
+                      </td>
+
+                      {/* Name */}
+                      <td className="p-3 font-bold text-slate-900 dark:text-white uppercase tracking-tight whitespace-nowrap">
+                        {student.name}
+                      </td>
+
+                      {/* Father Name */}
+                      <td className="p-3 text-slate-700 dark:text-slate-300 uppercase whitespace-nowrap">
+                        {student.parents?.fatherName || '-'}
+                      </td>
+
+                      {/* Mother Name */}
+                      <td className="p-3 text-slate-700 dark:text-slate-300 uppercase whitespace-nowrap">
+                        {student.parents?.motherName || '-'}
+                      </td>
+
+                      {/* DOB */}
+                      <td className="p-3 text-slate-600 dark:text-slate-400 whitespace-nowrap font-mono">
+                        {student.dob || '-'}
+                      </td>
+
+                      {/* Mobile Number */}
+                      <td className="p-3 font-mono font-bold text-slate-800 dark:text-slate-200 whitespace-nowrap">
+                        {student.parents?.fatherMobile ? (
+                          <a href={`tel:${student.parents.fatherMobile}`} className="hover:text-indigo-600">
+                            {student.parents.fatherMobile}
+                          </a>
+                        ) : '-'}
+                      </td>
+
+                      {/* Address */}
+                      <td className="p-3 text-slate-600 dark:text-slate-400 max-w-xs truncate" title={student.parents?.address}>
+                        {student.parents?.address || '-'}
+                      </td>
+
+                      {/* Class */}
+                      <td className="p-3 font-bold text-indigo-600 dark:text-indigo-400 uppercase">
+                        {student.class}
+                      </td>
+
+                      {/* Section */}
+                      <td className="p-3 font-bold text-slate-700 dark:text-slate-300 text-center">
+                        {student.section || 'A'}
+                      </td>
+
+                      {/* Register No (Admission No) */}
+                      <td className="p-3 font-mono font-bold text-slate-900 dark:text-white">
+                        {student.admissionNo}
+                      </td>
+
+                      {/* Gender */}
+                      <td className="p-3 capitalize text-slate-600 dark:text-slate-400">
+                        {student.gender || '-'}
+                      </td>
+
+                      {/* Roll No */}
+                      <td className="p-3 font-mono text-center text-slate-600 dark:text-slate-400">
+                        {student.rollNo || '0'}
+                      </td>
+
+                      {/* PEN No. */}
+                      <td className="p-3 font-mono text-slate-600 dark:text-slate-400">
+                        {student.customFields?.penNo || '-'}
+                      </td>
+
+                      {/* Student Aadhaar */}
+                      <td className="p-3 font-mono text-slate-600 dark:text-slate-400">
+                        {student.customFields?.studentAadhaar || '-'}
+                      </td>
+
+                      {/* Status */}
+                      <td className="p-3 text-center">
+                        {isInactive ? (
+                          <span
+                            title={`Reason: ${student.deactivateInfo?.reason || 'Inactive'}`}
+                            className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 border border-rose-300"
+                          >
+                            Inactive
+                          </span>
+                        ) : (
+                          <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300">
+                            Active
+                          </span>
+                        )}
+                      </td>
+
+                      {/* Actions */}
+                      <td className="p-3 text-right whitespace-nowrap">
+                        <div className="flex items-center justify-end gap-1.5">
+                          
+                          {/* View Profile */}
+                          <button
+                            onClick={() => {
+                              setSelectedStudent(student);
+                              setIsProfileModalOpen(true);
+                            }}
+                            title="View 360° Profile"
+                            className="p-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg transition-all"
+                          >
+                            <Eye className="w-3.5 h-3.5 text-sky-600" />
+                          </button>
+
+                          {/* ID Card */}
+                          <button
+                            onClick={() => {
+                              setSelectedStudent(student);
+                              setIsIdCardModalOpen(true);
+                            }}
+                            title="Print ID Card"
+                            className="p-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg transition-all"
+                          >
+                            <Printer className="w-3.5 h-3.5 text-purple-600" />
+                          </button>
+
+                          {/* Deactivate (Mark Inactive/TC) or Reactivate Button */}
+                          {isInactive ? (
+                            <button
+                              onClick={() => handleReactivateStudent(student)}
+                              title="Re-activate Student"
+                              className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold text-[10px] flex items-center gap-1 shadow-xs transition-all"
+                            >
+                              <RotateCcw className="w-3 h-3" /> Re-activate
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => handleOpenDeactivateModal(student)}
+                              title="Mark Inactive / Left (TC)"
+                              className="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 rounded-lg font-bold text-[10px] flex items-center gap-1 transition-all"
+                            >
+                              <UserX className="w-3 h-3 text-rose-600" /> Inactive
+                            </button>
+                          )}
                         </div>
-                      </div>
-                    </td>
-
-                    <td className="p-4">
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                        student.branchId === 'BR-01' ? 'bg-blue-100 text-blue-900 dark:bg-blue-950 dark:text-blue-200' :
-                        student.branchId === 'BR-02' ? 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200' :
-                        'bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200'
-                      }`}>
-                        {student.branchId === 'BR-01' ? '🏢 Senior Jargwan' : student.branchId === 'BR-02' ? '🏫 Barheti Campus' : '🏫 Kids School PAC'}
-                      </span>
-                    </td>
-
-                    <td className="p-4 font-mono font-bold text-slate-700 dark:text-slate-300">{student.admissionNo}</td>
-                    <td className="p-4 font-bold text-slate-900 dark:text-white">
-                      {student.class}{student.class === 'Class 3' && student.section ? ` (${student.section})` : ''}
-                    </td>
-                    <td className="p-4 font-mono font-bold text-indigo-600">#{student.rollNo}</td>
-                    <td className="p-4">
-                      <p className="font-semibold text-slate-800 dark:text-slate-200">{student.parents?.fatherName}</p>
-                      <p className="text-[10px] text-slate-400">{student.parents?.fatherMobile}</p>
-                    </td>
-                    <td className="p-4">
-                      <span className="font-bold text-emerald-600">{student.attendanceSummary?.percentage || 95.4}%</span>
-                    </td>
-                    <td className="p-4">
-                      <Badge variant={student.feeSummary?.status === 'Paid' ? 'success' : 'warning'}>
-                        {student.feeSummary?.status || 'Paid'}
-                      </Badge>
-                    </td>
-                    <td className="p-4 text-right" onClick={(e) => e.stopPropagation()}>
-                      <div className="flex items-center justify-end gap-1.5">
-                        <button
-                          onClick={() => setSelectedStudent(student)}
-                          title="View 360° Profile"
-                          className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100"
-                        >
-                          <Eye className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => openEditModal(student)}
-                          title="Edit Student Information"
-                          className="p-1.5 rounded-lg bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 hover:bg-amber-100"
-                        >
-                          <Edit className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleDelete(student.id, student.name)}
-                          title="Delete Student Record"
-                          className="p-1.5 rounded-lg bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 hover:bg-rose-100"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))
+                      </td>
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>
         </div>
-      </div>
 
-      {/* 🌟 360° Student Profile Modal */}
-      <Modal
-        isOpen={!!selectedStudent}
-        onClose={() => setSelectedStudent(null)}
-        title="Student 360° Comprehensive Profile"
-        maxWidth="max-w-4xl"
-      >
-        {selectedStudent && (
-          <div className="space-y-6 text-xs">
-            {/* Top Identity Card */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/40 dark:to-purple-950/40 rounded-2xl border border-indigo-100 dark:border-indigo-900/50">
-              <div className="flex items-center gap-4">
-                <img src={selectedStudent.photo} alt={selectedStudent.name} className="w-16 h-16 rounded-2xl object-cover shadow-md ring-2 ring-indigo-500/20" />
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-black text-slate-900 dark:text-white">{selectedStudent.name}</h3>
-                    <Badge variant="primary">Roll #{selectedStudent.rollNo}</Badge>
-                  </div>
-                  <p className="text-xs text-slate-500 mt-0.5">{selectedStudent.class}{selectedStudent.class === 'Class 3' && selectedStudent.section ? ` • Section ${selectedStudent.section}` : ''} • {selectedStudent.branchName}</p>
-                  <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-bold mt-0.5">Adm No: {selectedStudent.admissionNo}</p>
-                </div>
-              </div>
-
-              {/* Action Buttons: 💳 Collect Fee & ✏️ Edit */}
-              <div className="flex flex-wrap items-center gap-2">
-                <button
-                  onClick={() => setIsCollectFeeModalOpen(true)}
-                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold shadow-md shadow-emerald-500/20 flex items-center gap-1.5 transition-all hover:scale-105"
-                >
-                  <CreditCard className="w-4 h-4" /> Collect Fee (POS)
-                </button>
-                <button
-                  onClick={() => { openEditModal(selectedStudent); setSelectedStudent(null); }}
-                  className="px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-bold shadow-md shadow-amber-500/20 flex items-center gap-1.5 transition-all hover:scale-105"
-                >
-                  <Edit className="w-4 h-4" /> Edit Student
-                </button>
-                <button
-                  onClick={() => setIsIdCardModalOpen(true)}
-                  className="px-3 py-2 bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 rounded-xl font-bold border border-indigo-200 dark:border-indigo-800 flex items-center gap-1.5"
-                >
-                  <Printer className="w-4 h-4" /> ID Card
-                </button>
-                <button
-                  onClick={() => setIsReportCardModalOpen(true)}
-                  className="px-3 py-2 bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-300 rounded-xl font-bold border border-purple-200 dark:border-purple-800 flex items-center gap-1.5"
-                >
-                  <Award className="w-4 h-4" /> Report Card
-                </button>
-              </div>
-            </div>
-
-            {/* Quick Metrics Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Attendance Performance</span>
-                <p className="text-xl font-black text-emerald-600 mt-1">{selectedStudent.attendanceSummary?.percentage || 95.4}%</p>
-                <span className="text-[11px] text-slate-500">Present: 84 / 88 Days</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Fee Status</span>
-                <p className="text-xl font-black text-indigo-600 mt-1">₹{selectedStudent.feeSummary?.totalPaid?.toLocaleString('en-IN') || "45,000"}</p>
-                <span className="text-[11px] text-slate-500">Balance Due: ₹{selectedStudent.feeSummary?.balance?.toLocaleString('en-IN') || "0"}</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Medical & Blood Group</span>
-                <p className="text-xl font-black text-rose-600 mt-1 flex items-center gap-1">
-                  <Droplet className="w-4 h-4" /> {selectedStudent.bloodGroup || "O+"}
-                </p>
-                <span className="text-[11px] text-slate-500">Physician Verified</span>
-              </div>
-            </div>
-
-            {/* Parent & Contact Details */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-2">
-                <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-indigo-600" /> Parent & Guardian Information
-                </h4>
-                <div className="text-slate-600 dark:text-slate-300 space-y-1">
-                  <p>Father: <strong className="text-slate-900 dark:text-white">{selectedStudent.parents?.fatherName}</strong></p>
-                  <p>Mobile: <strong className="text-slate-900 dark:text-white">{selectedStudent.parents?.fatherMobile}</strong></p>
-                  <p>Mother: <strong className="text-slate-900 dark:text-white">{selectedStudent.parents?.motherName}</strong></p>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-2">
-                <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-indigo-600" /> Address & Identification
-                </h4>
-                <div className="text-slate-600 dark:text-slate-300 space-y-1">
-                  <p>Residential Address: {selectedStudent.parents?.address}</p>
-                  <p>Aadhaar UID: <span className="font-mono">{selectedStudent.aadhaarNo || "1234-5678-9012"}</span></p>
-                  <p>Category: {selectedStudent.category || "General"}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </Modal>
-
-      {/* ✏️ Edit Student Modal */}
-      <Modal
-        isOpen={isEditModalOpen}
-        onClose={() => setIsEditModalOpen(false)}
-        title="Edit Student Information"
-        maxWidth="max-w-xl"
-      >
-        <form onSubmit={handleEditSubmit} className="space-y-4 text-xs">
-          {/* Photo Picker in Edit Modal */}
-          <div className="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700">
-            <div className="w-14 h-14 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 overflow-hidden flex items-center justify-center shrink-0">
-              {editFormData.photo ? (
-                <img src={editFormData.photo} alt="Preview" className="w-full h-full object-cover" />
-              ) : (
-                <Camera className="w-6 h-6 text-slate-400" />
-              )}
-            </div>
-            <div className="flex-1">
-              <label className="font-bold text-slate-800 dark:text-slate-200 block">Student Passport Photo</label>
-              <p className="text-[10px] text-slate-500">Auto-compressed for ID Card & Profile (~25KB)</p>
-              <div className="flex items-center gap-2 mt-1.5">
-                <input
-                  type="file"
-                  ref={editFileInputRef}
-                  onChange={(e) => handlePhotoSelect(e, true)}
-                  accept="image/*"
-                  className="hidden"
-                />
-                <button
-                  type="button"
-                  onClick={() => editFileInputRef.current?.click()}
-                  className="px-3 py-1 rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300 hover:bg-indigo-100 text-xs font-bold flex items-center gap-1.5 transition-colors"
-                >
-                  <Upload className="w-3.5 h-3.5" /> Change Photo
-                </button>
-                {editFormData.photo && (
-                  <button
-                    type="button"
-                    onClick={() => setEditFormData(prev => ({ ...prev, photo: '' }))}
-                    className="text-xs text-rose-500 hover:text-rose-700 font-semibold"
-                  >
-                    Remove
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
+        {/* 📑 Table Pagination Footer */}
+        {filteredStudents.length > 0 && rowsPerPage !== 'All' && (
+          <div className="p-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400 bg-slate-50/50 dark:bg-slate-800/40">
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Campus / Branch</label>
-              {isSuperAdmin ? (
-                <select
-                  value={editFormData.branchId}
-                  onChange={(e) => setEditFormData({ ...editFormData, branchId: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-                >
-                  <option value="BR-01">DMPS Senior Campus (Jargwan)</option>
-                  <option value="BR-02">DMPS Junior High (Barheti)</option>
-                  <option value="BR-03">Dadheech Kids School (PAC)</option>
-                </select>
-              ) : (
-                <input
-                  type="text"
-                  disabled
-                  value={activeBranch?.name}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-500 font-semibold cursor-not-allowed"
-                />
-              )}
+              Showing <span className="font-bold text-slate-900 dark:text-white">{(currentPage - 1) * Number(rowsPerPage) + 1}</span> to{' '}
+              <span className="font-bold text-slate-900 dark:text-white">
+                {Math.min(currentPage * Number(rowsPerPage), filteredStudents.length)}
+              </span>{' '}
+              of <span className="font-bold text-slate-900 dark:text-white">{filteredStudents.length}</span> students
             </div>
 
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student Full Name *</label>
-              <input
-                type="text"
-                required
-                value={editFormData.name}
-                onChange={(e) => setEditFormData({ ...editFormData, name: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Roll Number</label>
-              <input
-                type="text"
-                required
-                value={editFormData.rollNo}
-                onChange={(e) => setEditFormData({ ...editFormData, rollNo: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Class</label>
-              <select
-                value={editFormData.class}
-                onChange={(e) => setEditFormData({ ...editFormData, class: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
+            <div className="flex items-center gap-1.5 self-start sm:self-auto">
+              <button
+                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 disabled:opacity-40 font-bold"
               >
-                <option value="Playgroup">Playgroup</option>
-                <option value="Nursery">Nursery</option>
-                <option value="LKG">LKG</option>
-                <option value="UKG">UKG</option>
-                <option value="Class 1">Class 1</option>
-                <option value="Class 2">Class 2</option>
-                <option value="Class 5">Class 5</option>
-                <option value="Class 6">Class 6</option>
-                <option value="Class 7">Class 7</option>
-                <option value="Class 8">Class 8</option>
-                <option value="Class 9">Class 9</option>
-                <option value="Class 10">Class 10</option>
-                <option value="Class 11">Class 11</option>
-                <option value="Class 12">Class 12</option>
-              </select>
-            </div>
-          </div>
+                Previous
+              </button>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Name</label>
-              <input
-                type="text"
-                value={editFormData.fatherName}
-                onChange={(e) => setEditFormData({ ...editFormData, fatherName: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Mobile</label>
-              <input
-                type="text"
-                value={editFormData.fatherMobile}
-                onChange={(e) => setEditFormData({ ...editFormData, fatherMobile: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono"
-              />
-            </div>
-          </div>
-
-          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
-            <button type="button" onClick={() => setIsEditModalOpen(false)} className="px-4 py-2 text-slate-500 font-bold">Cancel</button>
-            <button type="submit" className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg">Save Changes</button>
-          </div>
-        </form>
-      </Modal>
-
-      {/* 💳 Quick Fee Collection POS Modal */}
-      <Modal
-        isOpen={isCollectFeeModalOpen}
-        onClose={() => setIsCollectFeeModalOpen(false)}
-        title="Point-of-Sale (POS) Fee Payment Counter"
-        maxWidth="max-w-lg"
-      >
-        {selectedStudent && (
-          <form onSubmit={handleCollectFeeSubmit} className="space-y-4 text-xs">
-            <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl border border-emerald-200 dark:border-emerald-800 flex items-center justify-between">
-              <div>
-                <h4 className="font-black text-emerald-900 dark:text-emerald-200 text-sm">{selectedStudent.name}</h4>
-                <p className="text-[11px] text-emerald-700 dark:text-emerald-400">Roll #{selectedStudent.rollNo} • {selectedStudent.class}-{selectedStudent.section} • {selectedStudent.branchName}</p>
-              </div>
-              <span className="font-bold text-emerald-700 text-xs bg-white dark:bg-slate-900 px-3 py-1 rounded-xl border">
-                Due: ₹{selectedStudent.feeSummary?.balance || "45,000"}
+              <span className="px-3 py-1.5 font-bold text-slate-800 dark:text-white">
+                Page {currentPage} of {totalPages || 1}
               </span>
-            </div>
 
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Fee Category / Description</label>
-              <input
-                type="text"
-                required
-                value={feeForm.feeType}
-                onChange={(e) => setFeeForm({ ...feeForm, feeType: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Amount to Collect (₹) *</label>
-                <input
-                  type="number"
-                  required
-                  value={feeForm.amount}
-                  onChange={(e) => setFeeForm({ ...feeForm, amount: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-black text-sm"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Payment Mode *</label>
-                <select
-                  value={feeForm.paymentMode}
-                  onChange={(e) => setFeeForm({ ...feeForm, paymentMode: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
-                >
-                  <option value="UPI">UPI (GooglePay/PhonePe)</option>
-                  <option value="Cash">Cash Counter</option>
-                  <option value="Credit/Debit Card">Credit/Debit Card</option>
-                  <option value="NetBanking">Net Banking</option>
-                  <option value="Cheque">Cheque Deposit</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
-              <button type="button" onClick={() => setIsCollectFeeModalOpen(false)} className="px-4 py-2 text-slate-500 font-bold">Cancel</button>
-              <button type="submit" className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg flex items-center gap-1.5">
-                <CreditCard className="w-4 h-4" /> Collect & Generate Receipt
+              <button
+                onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                disabled={currentPage === totalPages || totalPages === 0}
+                className="px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 disabled:opacity-40 font-bold"
+              >
+                Next
               </button>
             </div>
-          </form>
+          </div>
         )}
-      </Modal>
+      </div>
 
-      {/* 🧾 Printable Fee Receipt Modal */}
+      {/* ========================================================== */}
+      {/* 🚫 MODAL: DEACTIVATE / MARK INACTIVE (TC / LEFT)           */}
+      {/* ========================================================== */}
       <Modal
-        isOpen={isReceiptModalOpen}
-        onClose={() => setIsReceiptModalOpen(false)}
-        title="Official Fee Payment Receipt"
-        maxWidth="max-w-3xl"
+        isOpen={isDeactivateModalOpen}
+        onClose={() => setIsDeactivateModalOpen(false)}
+        title="Mark Student as Inactive / Left (TC)"
+        maxWidth="max-w-md"
       >
-        {generatedReceipt && (
-          <PrintableFeeReceipt invoice={generatedReceipt} schoolInfo={schoolInfo} />
+        {studentToDeactivate && (
+          <div className="space-y-4 text-xs">
+            <div className="p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+              <div>
+                <p className="font-bold text-amber-900 dark:text-amber-200">
+                  Deactivating {studentToDeactivate.name} (Adm No: {studentToDeactivate.admissionNo})
+                </p>
+                <p className="text-[11px] text-amber-700 dark:text-amber-400 mt-0.5">
+                  The student will be moved to the Inactive List and omitted from daily attendance & fee dues. Historical records remain preserved.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                Deactivation Reason <span className="text-rose-500">*</span>
+              </label>
+              <select
+                value={deactivateReason}
+                onChange={(e) => setDeactivateReason(e.target.value)}
+                className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
+              >
+                {deactivateReasonsList.map(r => (
+                  <option key={r} value={r}>{r}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                Date of Leaving / Inactivation
+              </label>
+              <input
+                type="date"
+                value={deactivateDate}
+                onChange={(e) => setDeactivateDate(e.target.value)}
+                className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
+              />
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                Remarks / TC Number (Optional)
+              </label>
+              <textarea
+                value={deactivateNote}
+                onChange={(e) => setDeactivateNote(e.target.value)}
+                placeholder="Enter TC number or reason note..."
+                rows={2}
+                className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs"
+              />
+            </div>
+
+            <div className="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <button
+                type="button"
+                onClick={() => setIsDeactivateModalOpen(false)}
+                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmDeactivate}
+                className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold shadow-md"
+              >
+                Confirm Inactivation
+              </button>
+            </div>
+          </div>
         )}
       </Modal>
 
-      {/* ID Card Modal */}
+      {/* ========================================================== */}
+      {/* 👁️ MODAL: 360° STUDENT PROFILE                            */}
+      {/* ========================================================== */}
+      <Modal
+        isOpen={isProfileModalOpen}
+        onClose={() => setIsProfileModalOpen(false)}
+        title="Student 360° Profile Details"
+        maxWidth="max-w-2xl"
+      >
+        {selectedStudent && (
+          <div className="space-y-4 text-xs">
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <img
+                src={selectedStudent.photo}
+                alt={selectedStudent.name}
+                className="w-16 h-16 rounded-xl object-cover border border-slate-200"
+              />
+              <div>
+                <h3 className="text-base font-black text-slate-900 dark:text-white uppercase">
+                  {selectedStudent.name}
+                </h3>
+                <p className="text-xs text-indigo-600 font-bold">
+                  Class: {selectedStudent.class} - Section {selectedStudent.section} | Reg No: {selectedStudent.admissionNo}
+                </p>
+                <p className="text-[11px] text-slate-500 mt-0.5">
+                  Branch: {selectedStudent.branchName}
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <span className="text-slate-400 block text-[10px] uppercase font-bold">Father Name</span>
+                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.parents?.fatherName || '-'}</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <span className="text-slate-400 block text-[10px] uppercase font-bold">Mother Name</span>
+                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.parents?.motherName || '-'}</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <span className="text-slate-400 block text-[10px] uppercase font-bold">Mobile Number</span>
+                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.parents?.fatherMobile || '-'}</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <span className="text-slate-400 block text-[10px] uppercase font-bold">Date of Birth</span>
+                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.dob || '-'}</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <span className="text-slate-400 block text-[10px] uppercase font-bold">Student Aadhaar</span>
+                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.customFields?.studentAadhaar || '-'}</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <span className="text-slate-400 block text-[10px] uppercase font-bold">PEN Number</span>
+                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.customFields?.penNo || '-'}</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 col-span-2">
+                <span className="text-slate-400 block text-[10px] uppercase font-bold">Address</span>
+                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.parents?.address || '-'}</span>
+              </div>
+            </div>
+          </div>
+        )}
+      </Modal>
+
+      {/* ========================================================== */}
+      {/* 🖨️ MODAL: PRINT ID CARD                                   */}
+      {/* ========================================================== */}
       <Modal
         isOpen={isIdCardModalOpen}
         onClose={() => setIsIdCardModalOpen(false)}
-        title="Official Student Identity Card"
-        maxWidth="max-w-3xl"
+        title="Student Identity Card"
+        maxWidth="max-w-md"
       >
         {selectedStudent && (
-          <PrintableIDCard person={selectedStudent} type="student" schoolInfo={schoolInfo} />
+          <div className="space-y-4">
+            <PrintableIDCard student={selectedStudent} />
+            <button
+              onClick={() => window.print()}
+              className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-md"
+            >
+              <Printer className="w-4 h-4" /> Print Student ID Card
+            </button>
+          </div>
         )}
       </Modal>
 
-      {/* Report Card Modal */}
-      <Modal
-        isOpen={isReportCardModalOpen}
-        onClose={() => setIsReportCardModalOpen(false)}
-        title="CBSE Official Student Report Card"
-        maxWidth="max-w-4xl"
-      >
-        {selectedStudent && (
-          <PrintableReportCard student={selectedStudent} examTerm="Half Yearly Examination 2026" schoolInfo={schoolInfo} />
-        )}
-      </Modal>
-
-      {/* New Admission Modal */}
-      <Modal
-        isOpen={isAdmissionModalOpen}
-        onClose={() => setIsAdmissionModalOpen(false)}
-        title="New Student Registration & Admission Form"
-        maxWidth="max-w-2xl"
-      >
-        <form onSubmit={handleAdmissionSubmit} className="space-y-4 text-xs">
-          {/* Photo Picker in Admission Form */}
-          <div className="flex items-center gap-4 p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700">
-            <div className="w-16 h-16 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 overflow-hidden flex items-center justify-center shrink-0">
-              {formData.photo ? (
-                <img src={formData.photo} alt="Preview" className="w-full h-full object-cover" />
-              ) : (
-                <Camera className="w-6 h-6 text-slate-400" />
-              )}
-            </div>
-            <div className="flex-1">
-              <label className="font-bold text-slate-800 dark:text-slate-200 block">Student Passport Photo (Optional)</label>
-              <p className="text-[10px] text-slate-500">Auto-compressed for ID Card, Attendance & Student Ledger (~25KB)</p>
-              <div className="flex items-center gap-2 mt-1.5">
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={(e) => handlePhotoSelect(e, false)}
-                  accept="image/*"
-                  className="hidden"
-                />
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  className="px-3.5 py-1.5 rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-300 hover:bg-indigo-100 text-xs font-bold flex items-center gap-1.5 transition-colors"
-                >
-                  <Upload className="w-3.5 h-3.5" /> Upload Photo
-                </button>
-                {formData.photo && (
-                  <button
-                    type="button"
-                    onClick={() => setFormData(prev => ({ ...prev, photo: '' }))}
-                    className="text-xs text-rose-500 hover:text-rose-700 font-semibold"
-                  >
-                    Remove
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Campus / Branch Assignment *</label>
-              {isSuperAdmin ? (
-                <select
-                  value={formData.branchId}
-                  onChange={(e) => setFormData({ ...formData, branchId: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
-                >
-                  <option value="BR-01">DMPS Senior Campus (Jargwan)</option>
-                  <option value="BR-02">DMPS Junior High (Barheti)</option>
-                  <option value="BR-03">Dadheech Kids School (PAC)</option>
-                </select>
-              ) : (
-                <div className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold">
-                  {activeBranch?.name}
-                </div>
-              )}
-            </div>
-
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student Full Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="e.g. Aman Rajput"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Date of Birth *</label>
-              <input
-                type="date"
-                required
-                value={formData.dob}
-                onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Gender *</label>
-              <select
-                value={formData.gender}
-                onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-              >
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Blood Group</label>
-              <select
-                value={formData.bloodGroup}
-                onChange={(e) => setFormData({ ...formData, bloodGroup: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-              >
-                <option value="O+">O+</option>
-                <option value="A+">A+</option>
-                <option value="B+">B+</option>
-                <option value="AB+">AB+</option>
-                <option value="O-">O-</option>
-              </select>
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Class of Admission *</label>
-              <select
-                value={formData.class}
-                onChange={(e) => setFormData({ ...formData, class: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-              >
-                <option value="Playgroup">Playgroup</option>
-                <option value="Nursery">Nursery</option>
-                <option value="LKG">LKG</option>
-                <option value="UKG">UKG</option>
-                <option value="Class 1">Class 1</option>
-                <option value="Class 2">Class 2</option>
-                <option value="Class 3">Class 3</option>
-                <option value="Class 4">Class 4</option>
-                <option value="Class 5">Class 5</option>
-                <option value="Class 6">Class 6</option>
-                <option value="Class 7">Class 7</option>
-                <option value="Class 8">Class 8</option>
-                <option value="Class 9">Class 9</option>
-                <option value="Class 10">Class 10</option>
-                <option value="Class 11">Class 11</option>
-                <option value="Class 12">Class 12</option>
-              </select>
-            </div>
-            {formData.class === 'Class 3' && (
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Section (Class 3 Only)</label>
-                <select
-                  value={formData.section}
-                  onChange={(e) => setFormData({ ...formData, section: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-                >
-                  <option value="A">Section A</option>
-                  <option value="B">Section B</option>
-                </select>
-              </div>
-            )}
-          </div>
-
-          <div className="pt-2 border-t border-slate-200 dark:border-slate-700 font-bold text-slate-900 dark:text-white">
-            Parent & Guardian Contact
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.fatherName}
-                onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })}
-                placeholder="Father's full name"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Mobile *</label>
-              <input
-                type="text"
-                required
-                value={formData.fatherMobile}
-                onChange={(e) => setFormData({ ...formData, fatherMobile: e.target.value })}
-                placeholder="+91 98110 00000"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Residential Address</label>
-            <input
-              type="text"
-              value={formData.address}
-              onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-              placeholder="House/Street, Area, City"
-              className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-            />
-          </div>
-
-          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
-            <button type="button" onClick={() => setIsAdmissionModalOpen(false)} className="px-4 py-2 text-slate-500 font-bold">Cancel</button>
-            <button type="submit" className="px-5 py-2 bg-indigo-600 text-white font-bold rounded-xl shadow-lg">Submit Admission</button>
-          </div>
-        </form>
-      </Modal>
-
-      {/* 📤 Bulk Excel / CSV Students Import Modal */}
-      <Modal
-        isOpen={isImportModalOpen}
-        onClose={() => setIsImportModalOpen(false)}
-        title="Import Students from Excel / CSV Sheet"
-        maxWidth="max-w-3xl"
-      >
-        <div className="space-y-5 text-xs">
-          {/* Instructions & Template Download Bar */}
-          <div className="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div>
-              <h4 className="font-bold text-indigo-900 dark:text-indigo-200 text-xs">Need standard Excel/CSV format?</h4>
-              <p className="text-[11px] text-indigo-700/80 dark:text-indigo-300/80 mt-0.5">
-                Download our pre-formatted template with all columns (Roll No, Name, Class, Father Name, Phone, etc.).
-              </p>
-            </div>
-            <button
-              onClick={handleDownloadSampleCSV}
-              className="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 font-bold text-xs flex items-center gap-1.5 shadow-sm hover:bg-indigo-100 dark:hover:bg-slate-800 transition-colors shrink-0"
-            >
-              <span>📥 Download Sample CSV</span>
-            </button>
-          </div>
-
-          {/* Campus Target Selector */}
-          <div>
-            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Target Campus Branch for Imported Students *</label>
-            <select
-              value={targetBranchForImport}
-              onChange={(e) => setTargetBranchForImport(e.target.value)}
-              className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
-            >
-              <option value="BR-01">🏢 Dadheech Memorial Public School, Jargwan - Main Campus</option>
-              <option value="BR-02">🏫 Dadheech Memorial Public School, Barheti</option>
-              <option value="BR-03">🧸 Dadheech Kids School, Vinay Nagar (Aligarh)</option>
-            </select>
-          </div>
-
-          {/* File Upload Drop Zone */}
-          <div
-            onClick={() => csvFileInputRef.current && csvFileInputRef.current.click()}
-            className="p-8 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-3xl text-center cursor-pointer hover:border-emerald-500 dark:hover:border-emerald-400 hover:bg-emerald-50/40 dark:hover:bg-emerald-950/20 transition-all space-y-2"
-          >
-            <input
-              type="file"
-              ref={csvFileInputRef}
-              onChange={handleCSVFileChange}
-              accept=".csv, .txt"
-              className="hidden"
-            />
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-sm">
-              <Upload className="w-6 h-6" />
-            </div>
-            <h4 className="font-bold text-slate-900 dark:text-white text-sm">
-              Click to browse or drag & drop CSV file
-            </h4>
-            <p className="text-slate-500 text-[11px]">
-              Supports standard comma-separated (.csv) files exported from Excel, Smart School, or any ERP
-            </p>
-          </div>
-
-          {importError && (
-            <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950 border border-rose-200 dark:border-rose-800 text-rose-600 dark:text-rose-400 font-bold">
-              {importError}
-            </div>
-          )}
-
-          {/* Live Preview Table */}
-          {importedStudentsList.length > 0 && (
-            <div className="space-y-2 animate-in fade-in">
-              <div className="flex items-center justify-between">
-                <span className="font-bold text-slate-900 dark:text-white">
-                  Preview ({importedStudentsList.length} Students Ready to Import)
-                </span>
-                <span className="text-emerald-600 font-bold text-[11px]">✓ Validated</span>
-              </div>
-
-              <div className="max-h-48 overflow-y-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-                <table className="w-full text-left text-[11px]">
-                  <thead>
-                    <tr className="bg-slate-50 dark:bg-slate-800 text-slate-500 font-bold border-b border-slate-200 dark:border-slate-800">
-                      <th className="p-2.5">Roll No</th>
-                      <th className="p-2.5">Student Name</th>
-                      <th className="p-2.5">Class</th>
-                      <th className="p-2.5">Father's Name</th>
-                      <th className="p-2.5">Mobile</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                    {importedStudentsList.slice(0, 10).map((st, idx) => (
-                      <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                        <td className="p-2.5 font-mono font-bold text-indigo-600">{st.rollNo || idx + 1}</td>
-                        <td className="p-2.5 font-bold text-slate-900 dark:text-white">{st.name}</td>
-                        <td className="p-2.5 text-slate-600 dark:text-slate-300">
-                          {st.class}{st.class === 'Class 3' && st.section ? ` (${st.section})` : ''}
-                        </td>
-                        <td className="p-2.5 text-slate-600 dark:text-slate-300">{st.fatherName || '-'}</td>
-                        <td className="p-2.5 font-mono text-slate-500">{st.fatherMobile || '-'}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              {importedStudentsList.length > 10 && (
-                <p className="text-[10px] text-slate-400 text-center">
-                  + {importedStudentsList.length - 10} more students...
-                </p>
-              )}
-            </div>
-          )}
-
-          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
-            <button
-              type="button"
-              onClick={() => setIsImportModalOpen(false)}
-              className="px-4 py-2 text-slate-500 font-bold"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              disabled={importedStudentsList.length === 0}
-              onClick={handleConfirmBulkImport}
-              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-40 text-white font-black rounded-xl shadow-lg transition-all flex items-center gap-2"
-            >
-              <CheckCircle2 className="w-4 h-4" />
-              <span>Confirm & Import {importedStudentsList.length > 0 ? `(${importedStudentsList.length}) Students` : ''}</span>
-            </button>
-          </div>
-        </div>
-      </Modal>
     </div>
   );
 };
