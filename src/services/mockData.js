@@ -279,7 +279,7 @@ export const initialSchoolData = {
         "phone": "+91 97194 76606",
         "email": "pramodkumar@dmps-school.edu.in",
         "joiningDate": "2002-04-01",
-        "salary": 26500,
+        "salary": 15000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -294,7 +294,7 @@ export const initialSchoolData = {
         "phone": "9068883488",
         "email": "bhoomiyadav@dmps-school.edu.in",
         "joiningDate": "2025-07-24",
-        "salary": 28000,
+        "salary": 4500,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -309,7 +309,7 @@ export const initialSchoolData = {
         "phone": "8954721951",
         "email": "pooransingh@dmps-school.edu.in",
         "joiningDate": "2016-07-01",
-        "salary": 29500,
+        "salary": 6500,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -324,7 +324,7 @@ export const initialSchoolData = {
         "phone": "+91 97194 76606",
         "email": "shwetaraghav@dmps-school.edu.in",
         "joiningDate": "2023-10-09",
-        "salary": 31000,
+        "salary": 5500,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -339,7 +339,7 @@ export const initialSchoolData = {
         "phone": "7417956314",
         "email": "swatiraghav@dmps-school.edu.in",
         "joiningDate": "2024-08-03",
-        "salary": 32500,
+        "salary": 4000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -354,7 +354,7 @@ export const initialSchoolData = {
         "phone": "8377933435",
         "email": "agrawaldolly72@gmail.com",
         "joiningDate": "2022-04-20",
-        "salary": 34000,
+        "salary": 5000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -369,7 +369,7 @@ export const initialSchoolData = {
         "phone": "+91 97194 76606",
         "email": "premlatadevi@dmps-school.edu.in",
         "joiningDate": "2023-07-01",
-        "salary": 35500,
+        "salary": 4000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -384,7 +384,7 @@ export const initialSchoolData = {
         "phone": "7906380758",
         "email": "sanjanapathak@dmps-school.edu.in",
         "joiningDate": "2024-05-24",
-        "salary": 37000,
+        "salary": 4000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -399,7 +399,7 @@ export const initialSchoolData = {
         "phone": "9761998627",
         "email": "rachanadevi@dmps-school.edu.in",
         "joiningDate": "2023-04-01",
-        "salary": 38500,
+        "salary": 4000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -414,7 +414,7 @@ export const initialSchoolData = {
         "phone": "+91 97194 76606",
         "email": "pramodkumarsharma@dmps-school.edu.in",
         "joiningDate": "2013-07-05",
-        "salary": 40000,
+        "salary": 5000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -429,7 +429,7 @@ export const initialSchoolData = {
         "phone": "9528626183",
         "email": "mohinichauhan@dmps-school.edu.in",
         "joiningDate": "2024-05-24",
-        "salary": 41500,
+        "salary": 4000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -444,7 +444,7 @@ export const initialSchoolData = {
         "phone": "8650789503",
         "email": "rajendrasingh@dmps-school.edu.in",
         "joiningDate": "2013-04-01",
-        "salary": 43000,
+        "salary": 9400,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -459,7 +459,7 @@ export const initialSchoolData = {
         "phone": "6397715291",
         "email": "jaymala@dmps-school.edu.in",
         "joiningDate": "2025-11-26",
-        "salary": 44500,
+        "salary": 3250,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -474,7 +474,7 @@ export const initialSchoolData = {
         "phone": "7011633699",
         "email": "lali.sharma.p09@gmail.com",
         "joiningDate": "2025-11-01",
-        "salary": 46000,
+        "salary": 7000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -489,7 +489,7 @@ export const initialSchoolData = {
         "phone": "9719375242",
         "email": "chokhelal@dmps-school.edu.in",
         "joiningDate": "2025-07-02",
-        "salary": 47500,
+        "salary": 10500,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -504,7 +504,7 @@ export const initialSchoolData = {
         "phone": "9759553692",
         "email": "neetusharma19k@gmail.com",
         "joiningDate": "2019-05-02",
-        "salary": 49000,
+        "salary": 5000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -519,7 +519,7 @@ export const initialSchoolData = {
         "phone": "9627739384",
         "email": "ks4760481@gmail.com",
         "joiningDate": "2026-03-01",
-        "salary": 50500,
+        "salary": 10000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -534,7 +534,7 @@ export const initialSchoolData = {
         "phone": "9719476606",
         "email": "prashantkumarrajput@dmps-school.edu.in",
         "joiningDate": "2026-08-07",
-        "salary": 52000,
+        "salary": 25000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -549,7 +549,7 @@ export const initialSchoolData = {
         "phone": "+91 97194 76606",
         "email": "khushi@dmps-school.edu.in",
         "joiningDate": "2026-07-01",
-        "salary": 53500,
+        "salary": 3000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -564,7 +564,7 @@ export const initialSchoolData = {
         "phone": "+91 97194 76606",
         "email": "sandhya@dmps-school.edu.in",
         "joiningDate": "2026-07-01",
-        "salary": 55000,
+        "salary": 3000,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -579,7 +579,7 @@ export const initialSchoolData = {
         "phone": "+91 97194 76606",
         "email": "aarti@dmps-school.edu.in",
         "joiningDate": "2026-07-01",
-        "salary": 56500,
+        "salary": 3500,
         "branchId": "BR-01",
         "status": "Active"
     },
@@ -594,7 +594,7 @@ export const initialSchoolData = {
         "phone": "8377933435",
         "email": "sejalagrawal@dmps-school.edu.in",
         "joiningDate": "2026-04-01",
-        "salary": 58000,
+        "salary": 3500,
         "branchId": "BR-01",
         "status": "Active"
     }
@@ -634,10 +634,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -674,10 +679,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 38500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 38500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-047",
+                    "name": "NITISH KUMAR",
+                    "class": "VIII",
+                    "admissionNo": "196",
+                    "individualDue": 14500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 14500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -714,10 +734,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 38500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 38500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-045",
+                    "name": "NIDHI",
+                    "class": "VIII",
+                    "admissionNo": "193",
+                    "individualDue": 14500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 14500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -754,10 +789,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -794,10 +834,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -834,10 +879,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -874,10 +924,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 37000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 37000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-118",
+                    "name": "SAHIL KUMAR",
+                    "class": "V",
+                    "admissionNo": "319",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -914,10 +979,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -954,10 +1024,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -994,10 +1069,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 28800.0,
+            "totalPaid": 0,
+            "balance": 28800.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 62600.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 62600.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-097",
+                    "name": "CHHAYA RAJPUT",
+                    "class": "V",
+                    "admissionNo": "291",
+                    "individualDue": 20800.0,
+                    "individualPaid": 0,
+                    "individualBalance": 20800.0
+                },
+                {
+                    "id": "STU-2026-125",
+                    "name": "TARUN KUMAR",
+                    "class": "V",
+                    "admissionNo": "327",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -1034,10 +1133,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 10000.0,
+            "balance": 11000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1074,10 +1178,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 35500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 35500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-075",
+                    "name": "UMA",
+                    "class": "VII",
+                    "admissionNo": "252",
+                    "individualDue": 14500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 14500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -1114,10 +1233,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 5500.0,
+            "balance": 15500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1154,10 +1278,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 3000.0,
+            "balance": 18000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1194,10 +1323,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1234,10 +1368,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1274,10 +1413,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1314,10 +1458,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1354,10 +1503,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 29400.0,
+            "totalPaid": 10000.0,
+            "balance": 19400.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 43900.0,
+            "consolidatedFamilyPaid": 20000.0,
+            "consolidatedFamilyBalance": 23900.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-057",
+                    "name": "ANURAG",
+                    "class": "VII",
+                    "admissionNo": "217",
+                    "individualDue": 14500.0,
+                    "individualPaid": 10000.0,
+                    "individualBalance": 4500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -1394,10 +1558,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1434,10 +1603,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1474,10 +1648,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 19000.0,
+            "balance": 2000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1514,10 +1693,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1554,10 +1738,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 43500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 43500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-246",
+                    "name": "DAMINI LODHI",
+                    "class": "I",
+                    "admissionNo": "495",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                },
+                {
+                    "id": "STU-2026-341",
+                    "name": "YUVRAJ KUMAR LODHI",
+                    "class": "LKG",
+                    "admissionNo": "664",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -1594,10 +1802,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1634,10 +1847,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1674,10 +1892,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 28800.0,
+            "totalPaid": 15000.0,
+            "balance": 13800.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1714,10 +1937,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1754,10 +1982,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1794,10 +2027,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1834,10 +2072,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1874,10 +2117,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1914,10 +2162,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 25100.0,
+            "totalPaid": 0,
+            "balance": 25100.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -1954,10 +2207,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 2500.0,
+            "balance": 19000.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 36000.0,
+            "consolidatedFamilyPaid": 5000.0,
+            "consolidatedFamilyBalance": 31000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-063",
+                    "name": "MAYANK RAJ VERMA",
+                    "class": "VII",
+                    "admissionNo": "231",
+                    "individualDue": 14500.0,
+                    "individualPaid": 2500.0,
+                    "individualBalance": 12000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -1994,10 +2262,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 2500.0,
+            "balance": 19000.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 36000.0,
+            "consolidatedFamilyPaid": 5000.0,
+            "consolidatedFamilyBalance": 31000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-069",
+                    "name": "RISHITA",
+                    "class": "VII",
+                    "admissionNo": "241",
+                    "individualDue": 14500.0,
+                    "individualPaid": 2500.0,
+                    "individualBalance": 12000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -2034,10 +2317,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 7500.0,
+            "balance": 14000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2074,10 +2362,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2114,10 +2407,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 0,
+            "balance": 20500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2154,10 +2452,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 10000.0,
+            "balance": 4500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2194,10 +2497,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2234,10 +2542,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 7500.0,
+            "balance": 13000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2274,10 +2587,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 2500.0,
+            "balance": 12000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2314,10 +2632,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 10000.0,
+            "balance": 4500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2354,10 +2677,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 40500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 40500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-061",
+                    "name": "MANSI YADAV",
+                    "class": "VII",
+                    "admissionNo": "228",
+                    "individualDue": 14500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 14500.0
+                },
+                {
+                    "id": "STU-2026-213",
+                    "name": "ANMOL YADAV",
+                    "class": "II",
+                    "admissionNo": "443",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -2394,10 +2741,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-003",
+                "name": "PRIYANSHU KUMAR",
+                "class": "XI",
+                "admissionNo": "121",
+                "fatherPhone": "9761089039"
+            }
         },
         "siblings": []
     },
@@ -2434,10 +2793,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2474,10 +2838,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-002",
+                "name": "KM. NIDHI",
+                "class": "XI",
+                "admissionNo": "120",
+                "fatherPhone": "9719628771"
+            }
         },
         "siblings": []
     },
@@ -2514,10 +2890,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 27500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-300",
+                    "name": "DEEPESH KUMAR",
+                    "class": "III",
+                    "admissionNo": "587",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -2554,10 +2945,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 5000.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 38000.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 28000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-396",
+                    "name": "RIYANSHI GAUTAM",
+                    "class": "IV",
+                    "admissionNo": "743",
+                    "individualDue": 13000.0,
+                    "individualPaid": 2500.0,
+                    "individualBalance": 10500.0
+                },
+                {
+                    "id": "STU-2026-397",
+                    "name": "THOMAS",
+                    "class": "UKG",
+                    "admissionNo": "744",
+                    "individualDue": 10500.0,
+                    "individualPaid": 2500.0,
+                    "individualBalance": 8000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -2594,10 +3009,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2634,10 +3054,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2674,10 +3099,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 47400.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 47400.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-326",
+                    "name": "NEERAJ",
+                    "class": "III",
+                    "admissionNo": "641",
+                    "individualDue": 21400.0,
+                    "individualPaid": 0,
+                    "individualBalance": 21400.0
+                },
+                {
+                    "id": "STU-2026-325",
+                    "name": "KRISHNA KUMAR",
+                    "class": "I",
+                    "admissionNo": "640",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -2714,10 +3163,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2754,10 +3208,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2794,10 +3253,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2834,10 +3298,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2874,10 +3343,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 10000.0,
+            "balance": 4500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-019",
+                "name": "SHIVANI YADAV",
+                "class": "X",
+                "admissionNo": "143",
+                "fatherPhone": "8650200571"
+            }
         },
         "siblings": []
     },
@@ -2914,10 +3395,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24100.0,
+            "totalPaid": 0,
+            "balance": 24100.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2954,10 +3440,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -2994,10 +3485,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 27500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-137",
+                    "name": "DEVESH KUMAR",
+                    "class": "IV",
+                    "admissionNo": "341",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -3034,10 +3540,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-044",
+                "name": "NEHA YADAV",
+                "class": "VIII",
+                "admissionNo": "192",
+                "fatherPhone": "9759755011"
+            }
         },
         "siblings": []
     },
@@ -3074,10 +3592,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 0,
+            "balance": 20500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3114,10 +3637,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 2500.0,
+            "balance": 12000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-034",
+                "name": "SAIJAL VERMA",
+                "class": "IX",
+                "admissionNo": "170",
+                "fatherPhone": "9719225317"
+            }
         },
         "siblings": []
     },
@@ -3154,10 +3689,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3194,10 +3734,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18100.0,
+            "totalPaid": 0,
+            "balance": 18100.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 31100.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 31100.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-149",
+                    "name": "KHUSHI",
+                    "class": "IV",
+                    "admissionNo": "354",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -3234,10 +3789,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 5000.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 55800.0,
+            "consolidatedFamilyPaid": 5000.0,
+            "consolidatedFamilyBalance": 50800.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-197",
+                    "name": "PRACHI",
+                    "class": "III",
+                    "admissionNo": "420",
+                    "individualDue": 21400.0,
+                    "individualPaid": 0,
+                    "individualBalance": 21400.0
+                },
+                {
+                    "id": "STU-2026-307",
+                    "name": "MOHIT KUMAR",
+                    "class": "II",
+                    "admissionNo": "596",
+                    "individualDue": 19900.0,
+                    "individualPaid": 0,
+                    "individualBalance": 19900.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -3274,10 +3853,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 5000.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3314,10 +3898,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 4000.0,
+            "balance": 10500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 42000.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 32000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-076",
+                    "name": "AMIT KUMAR",
+                    "class": "VI",
+                    "admissionNo": "254",
+                    "individualDue": 14500.0,
+                    "individualPaid": 3000.0,
+                    "individualBalance": 11500.0
+                },
+                {
+                    "id": "STU-2026-206",
+                    "name": "SUMIT",
+                    "class": "III",
+                    "admissionNo": "434",
+                    "individualDue": 13000.0,
+                    "individualPaid": 3000.0,
+                    "individualBalance": 10000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -3354,10 +3962,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 2500.0,
+            "balance": 12000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-035",
+                "name": "SANI KUMAR",
+                "class": "IX",
+                "admissionNo": "171",
+                "fatherPhone": "8954486104"
+            }
         },
         "siblings": []
     },
@@ -3394,10 +4014,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3434,10 +4059,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22900.0,
+            "totalPaid": 0,
+            "balance": 22900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3474,10 +4104,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 5000.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3514,10 +4149,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 4000.0,
+            "balance": 10500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyPaid": 8000.0,
+            "consolidatedFamilyBalance": 19500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-139",
+                    "name": "DIVYA",
+                    "class": "IV",
+                    "admissionNo": "343",
+                    "individualDue": 13000.0,
+                    "individualPaid": 4000.0,
+                    "individualBalance": 9000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -3554,10 +4204,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3594,10 +4249,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-012",
+                "name": "MANISH KUMAR",
+                "class": "X",
+                "admissionNo": "132",
+                "fatherPhone": "9012982367"
+            }
         },
         "siblings": []
     },
@@ -3634,10 +4301,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 3000.0,
+            "balance": 11500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-068",
+                "name": "RADHA",
+                "class": "VII",
+                "admissionNo": "240",
+                "fatherPhone": "9675863965"
+            }
         },
         "siblings": []
     },
@@ -3674,10 +4353,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3714,10 +4398,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 0,
+            "balance": 20500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3754,10 +4443,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22900.0,
+            "totalPaid": 15500.0,
+            "balance": 7400.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 32400.0,
+            "consolidatedFamilyPaid": 25000.0,
+            "consolidatedFamilyBalance": 7400.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-538",
+                    "name": "CHIRAG",
+                    "class": "NURSERY",
+                    "admissionNo": "941",
+                    "individualDue": 9500.0,
+                    "individualPaid": 9500.0,
+                    "individualBalance": 0
+                }
+            ]
         },
         "siblings": []
     },
@@ -3794,10 +4498,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22900.0,
+            "totalPaid": 5000.0,
+            "balance": 17900.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 44300.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 34300.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-133",
+                    "name": "ANSHUL KUMAR",
+                    "class": "IV",
+                    "admissionNo": "336",
+                    "individualDue": 21400.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 16400.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -3834,10 +4553,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22900.0,
+            "totalPaid": 0,
+            "balance": 22900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3874,10 +4598,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24100.0,
+            "totalPaid": 3500.0,
+            "balance": 20600.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 45200.0,
+            "consolidatedFamilyPaid": 3500.0,
+            "consolidatedFamilyBalance": 41700.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-254",
+                    "name": "ISHANT KUMAR",
+                    "class": "I",
+                    "admissionNo": "505",
+                    "individualDue": 21100.0,
+                    "individualPaid": 0,
+                    "individualBalance": 21100.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -3914,10 +4653,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 7000.0,
+            "balance": 7500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3954,10 +4698,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -3994,10 +4743,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22300.0,
+            "totalPaid": 5000.0,
+            "balance": 17300.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 41600.0,
+            "consolidatedFamilyPaid": 5000.0,
+            "consolidatedFamilyBalance": 36600.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-228",
+                    "name": "KRISHNA KUMAR",
+                    "class": "II",
+                    "admissionNo": "468",
+                    "individualDue": 19300.0,
+                    "individualPaid": 0,
+                    "individualBalance": 19300.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4034,10 +4798,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4074,10 +4843,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22900.0,
+            "totalPaid": 5000.0,
+            "balance": 17900.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 44300.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 34300.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-105",
+                    "name": "KAUSHAL KUMAR",
+                    "class": "V",
+                    "admissionNo": "300",
+                    "individualDue": 21400.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 16400.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4114,10 +4898,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 26000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-308",
+                    "name": "YASH KUMAR",
+                    "class": "II",
+                    "admissionNo": "598",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4154,10 +4953,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22900.0,
+            "totalPaid": 10000.0,
+            "balance": 12900.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4194,10 +4998,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18700.0,
+            "totalPaid": 9000.0,
+            "balance": 9700.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4234,10 +5043,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22900.0,
+            "totalPaid": 5000.0,
+            "balance": 17900.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 44300.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 34300.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-092",
+                    "name": "AAYUSH SINGH",
+                    "class": "V",
+                    "admissionNo": "282",
+                    "individualDue": 21400.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 16400.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4274,10 +5098,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 5000.0,
+            "balance": 16400.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-091",
+                "name": "VIKRANT SINGH",
+                "class": "VI",
+                "admissionNo": "281",
+                "fatherPhone": "9761205728"
+            }
         },
         "siblings": []
     },
@@ -4314,10 +5150,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4354,10 +5195,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4394,10 +5240,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22300.0,
+            "totalPaid": 0,
+            "balance": 22300.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 43100.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 43100.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-130",
+                    "name": "ANKUSH KUMAR",
+                    "class": "IV",
+                    "admissionNo": "333",
+                    "individualDue": 20800.0,
+                    "individualPaid": 0,
+                    "individualBalance": 20800.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4434,10 +5295,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22300.0,
+            "totalPaid": 0,
+            "balance": 22300.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 43100.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 43100.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-162",
+                    "name": "RAMAN KUMAR",
+                    "class": "IV",
+                    "admissionNo": "374",
+                    "individualDue": 20800.0,
+                    "individualPaid": 0,
+                    "individualBalance": 20800.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4474,10 +5350,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-010",
+                "name": "ANJALI VERMA",
+                "class": "X",
+                "admissionNo": "128",
+                "fatherPhone": "9719225225"
+            }
         },
         "siblings": []
     },
@@ -4514,10 +5402,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4554,10 +5447,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 5000.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 17500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-174",
+                    "name": "AYANSH",
+                    "class": "III",
+                    "admissionNo": "389",
+                    "individualDue": 13000.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 8000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4594,10 +5502,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 0,
+            "balance": 21400.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 40300.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 40300.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-288",
+                    "name": "ADABIKA",
+                    "class": "UKG",
+                    "admissionNo": "567",
+                    "individualDue": 18900.0,
+                    "individualPaid": 0,
+                    "individualBalance": 18900.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4634,10 +5557,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 26000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-170",
+                    "name": "VIRAT KUMAR",
+                    "class": "IV",
+                    "admissionNo": "384",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4674,10 +5612,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 10000.0,
+            "balance": 3000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4714,10 +5657,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4754,10 +5702,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 12000.0,
+            "balance": 1000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4794,10 +5747,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 5000.0,
+            "balance": 16400.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-087",
+                "name": "PRABHA BAGHEL",
+                "class": "VI",
+                "admissionNo": "273",
+                "fatherPhone": "8650724663"
+            }
         },
         "siblings": []
     },
@@ -4834,10 +5799,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 0,
+            "balance": 21400.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 40300.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 40300.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-323",
+                    "name": "DIVYANSHI",
+                    "class": "UKG",
+                    "admissionNo": "637",
+                    "individualDue": 18900.0,
+                    "individualPaid": 0,
+                    "individualBalance": 18900.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -4874,10 +5854,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22300.0,
+            "totalPaid": 2000.0,
+            "balance": 20300.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4914,10 +5899,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 2500.0,
+            "balance": 10500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4954,10 +5944,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -4994,10 +5989,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 10000.0,
+            "balance": 11400.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 34400.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 24400.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-154",
+                    "name": "NISHANT KUMAR",
+                    "class": "IV",
+                    "admissionNo": "364",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -5034,10 +6044,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 3000.0,
+            "balance": 10000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5074,10 +6089,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 10000.0,
+            "balance": 10800.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5114,10 +6134,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 12900.0,
+            "balance": 1600.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 35300.0,
+            "consolidatedFamilyPaid": 12900.0,
+            "consolidatedFamilyBalance": 22400.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-184",
+                    "name": "HARSH KUMAR",
+                    "class": "III",
+                    "admissionNo": "402",
+                    "individualDue": 20800.0,
+                    "individualPaid": 0,
+                    "individualBalance": 20800.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -5154,10 +6189,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19000.0,
+            "totalPaid": 5000.0,
+            "balance": 14000.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 36500.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 26500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-255",
+                    "name": "JATIN KUMAR",
+                    "class": "I",
+                    "admissionNo": "506",
+                    "individualDue": 17500.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 12500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -5194,10 +6244,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 9000.0,
+            "balance": 4000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5234,10 +6289,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 26000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-147",
+                    "name": "HIMANSHU",
+                    "class": "IV",
+                    "admissionNo": "352",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -5274,10 +6344,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5314,10 +6389,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-007",
+                "name": "SUGANDHI",
+                "class": "XI",
+                "admissionNo": "125",
+                "fatherPhone": "6395011712"
+            }
         },
         "siblings": []
     },
@@ -5354,10 +6441,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5394,10 +6486,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 26000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-212",
+                    "name": "VISHAL KUMAR",
+                    "class": "III",
+                    "admissionNo": "440",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -5434,10 +6541,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 24500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 24500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-305",
+                    "name": "AARUSH MITTAL",
+                    "class": "I",
+                    "admissionNo": "594",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -5474,10 +6596,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5514,10 +6641,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 4000.0,
+            "balance": 10500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5554,10 +6686,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19000.0,
+            "totalPaid": 10000.0,
+            "balance": 9000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5594,10 +6731,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-010",
+                "name": "ANJALI VERMA",
+                "class": "X",
+                "admissionNo": "128",
+                "fatherPhone": "9719225225"
+            }
         },
         "siblings": []
     },
@@ -5634,10 +6783,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 2500.0,
+            "balance": 18900.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5674,10 +6828,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 10000.0,
+            "balance": 3000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5714,10 +6873,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5754,10 +6918,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22000.0,
+            "totalPaid": 0,
+            "balance": 22000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 37700.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 37700.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-245",
+                    "name": "CHESTA",
+                    "class": "I",
+                    "admissionNo": "494",
+                    "individualDue": 15700.0,
+                    "individualPaid": 0,
+                    "individualBalance": 15700.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -5794,10 +6973,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-095",
+                "name": "ANUJ",
+                "class": "VI",
+                "admissionNo": "289",
+                "fatherPhone": "9368681376"
+            }
         },
         "siblings": []
     },
@@ -5834,10 +7025,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5874,10 +7070,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 10000.0,
+            "balance": 11400.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -5914,10 +7115,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 5000.0,
+            "balance": 16400.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-080",
+                "name": "GAURAV KUMAR",
+                "class": "VI",
+                "admissionNo": "260",
+                "fatherPhone": "8941891392"
+            }
         },
         "siblings": []
     },
@@ -5954,10 +7167,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 23500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-278",
+                    "name": "HIMANSHI RAJPUT",
+                    "class": "UKG",
+                    "admissionNo": "550",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -5994,10 +7222,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6034,10 +7267,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 5000.0,
+            "balance": 16400.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 41300.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 31300.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-298",
+                    "name": "ADITYA KUMAR",
+                    "class": "II",
+                    "admissionNo": "583",
+                    "individualDue": 19900.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 14900.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6074,10 +7322,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-060",
+                "name": "HOMESH KUMAR",
+                "class": "VII",
+                "admissionNo": "225",
+                "fatherPhone": "9990488266"
+            }
         },
         "siblings": []
     },
@@ -6114,10 +7374,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 6000.0,
+            "balance": 7000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6154,10 +7419,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 4000.0,
+            "balance": 9000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-073",
+                "name": "SONAKSHI",
+                "class": "VII",
+                "admissionNo": "248",
+                "fatherPhone": "9268386124"
+            }
         },
         "siblings": []
     },
@@ -6194,10 +7471,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 23500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-402",
+                    "name": "PRIYAL",
+                    "class": "LKG",
+                    "admissionNo": "752",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6234,10 +7526,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 20150.0,
+            "balance": 650.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 40100.0,
+            "consolidatedFamilyPaid": 38800.0,
+            "consolidatedFamilyBalance": 1300.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-236",
+                    "name": "RUDRANSH",
+                    "class": "II",
+                    "admissionNo": "481",
+                    "individualDue": 19300.0,
+                    "individualPaid": 18650.0,
+                    "individualBalance": 650.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6274,10 +7581,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6314,10 +7626,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 23500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-285",
+                    "name": "SANJEEV KUMAR",
+                    "class": "UKG",
+                    "admissionNo": "560",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6354,10 +7681,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19000.0,
+            "totalPaid": 10000.0,
+            "balance": 9000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6394,10 +7726,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6434,10 +7771,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6474,10 +7816,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-116",
+                "name": "RAJKUMAR",
+                "class": "V",
+                "admissionNo": "317",
+                "fatherPhone": "7452883387"
+            }
         },
         "siblings": []
     },
@@ -6514,10 +7868,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18400.0,
+            "totalPaid": 5000.0,
+            "balance": 13400.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 28900.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 18900.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-542",
+                    "name": "BHASKAR",
+                    "class": "LKG",
+                    "admissionNo": "937",
+                    "individualDue": 10500.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 5500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6554,10 +7923,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-065",
+                "name": "NITIN KUMAR",
+                "class": "VII",
+                "admissionNo": "233",
+                "fatherPhone": "9759840340"
+            }
         },
         "siblings": []
     },
@@ -6594,10 +7975,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6634,10 +8020,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6674,10 +8065,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6714,10 +8110,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 10000.0,
+            "balance": 11400.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 42800.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 32800.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-200",
+                    "name": "ROHIT KUMAR",
+                    "class": "IV",
+                    "admissionNo": "425",
+                    "individualDue": 21400.0,
+                    "individualPaid": 0,
+                    "individualBalance": 21400.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6754,10 +8165,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-110",
+                "name": "PRASHANT KUMAR",
+                "class": "V",
+                "admissionNo": "308",
+                "fatherPhone": "8859303073"
+            }
         },
         "siblings": []
     },
@@ -6794,10 +8217,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22000.0,
+            "totalPaid": 10000.0,
+            "balance": 12000.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 42500.0,
+            "consolidatedFamilyPaid": 13000.0,
+            "consolidatedFamilyBalance": 29500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-262",
+                    "name": "MANVI",
+                    "class": "I",
+                    "admissionNo": "518",
+                    "individualDue": 20500.0,
+                    "individualPaid": 3000.0,
+                    "individualBalance": 17500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6834,10 +8272,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 14000.0,
+            "balance": 6800.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 41600.0,
+            "consolidatedFamilyPaid": 14000.0,
+            "consolidatedFamilyBalance": 27600.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-176",
+                    "name": "AYUSHI CHAUHAN",
+                    "class": "III",
+                    "admissionNo": "392",
+                    "individualDue": 20800.0,
+                    "individualPaid": 0,
+                    "individualBalance": 20800.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6874,10 +8327,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 26000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-221",
+                    "name": "GUNJAN KUMAR",
+                    "class": "II",
+                    "admissionNo": "456",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6914,10 +8382,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 4000.0,
+            "balance": 9000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -6954,10 +8427,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 8000.0,
+            "balance": 12800.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 53100.0,
+            "consolidatedFamilyPaid": 20000.0,
+            "consolidatedFamilyBalance": 33100.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-209",
+                    "name": "VANDANA",
+                    "class": "III",
+                    "admissionNo": "437",
+                    "individualDue": 20800.0,
+                    "individualPaid": 6000.0,
+                    "individualBalance": 14800.0
+                },
+                {
+                    "id": "STU-2026-247",
+                    "name": "DEEKSHA SHARMA",
+                    "class": "I",
+                    "admissionNo": "496",
+                    "individualDue": 11500.0,
+                    "individualPaid": 6000.0,
+                    "individualBalance": 5500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -6994,10 +8491,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 3000.0,
+            "balance": 10000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7034,10 +8536,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 6000.0,
+            "balance": 7000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7074,10 +8581,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-096",
+                "name": "CHHAVI",
+                "class": "VI",
+                "admissionNo": "290",
+                "fatherPhone": "9720966040"
+            }
         },
         "siblings": []
     },
@@ -7114,10 +8633,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 3500.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7154,10 +8678,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7194,10 +8723,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 6500.0,
+            "balance": 6500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7234,10 +8768,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 0,
+            "balance": 21400.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 42800.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 42800.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-196",
+                    "name": "PEEYUSH KUMAR",
+                    "class": "III",
+                    "admissionNo": "419",
+                    "individualDue": 21400.0,
+                    "individualPaid": 0,
+                    "individualBalance": 21400.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -7274,10 +8823,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17200.0,
+            "totalPaid": 0,
+            "balance": 17200.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7314,10 +8868,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20200.0,
+            "totalPaid": 5000.0,
+            "balance": 15200.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7354,10 +8913,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20200.0,
+            "totalPaid": 7000.0,
+            "balance": 13200.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7394,10 +8958,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-101",
+                "name": "DIVYANSHU KUMAR",
+                "class": "V",
+                "admissionNo": "295",
+                "fatherPhone": "9927501907"
+            }
         },
         "siblings": []
     },
@@ -7434,10 +9010,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 0,
+            "balance": 21400.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7474,10 +9055,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 5000.0,
+            "balance": 15800.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7514,10 +9100,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20200.0,
+            "totalPaid": 0,
+            "balance": 20200.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7554,10 +9145,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 5000.0,
+            "balance": 8000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-099",
+                "name": "DIVYANSHI RAGHAV",
+                "class": "VI",
+                "admissionNo": "293",
+                "fatherPhone": "9536149148"
+            }
         },
         "siblings": []
     },
@@ -7594,10 +9197,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 10300.0,
+            "balance": 11100.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7634,10 +9242,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-156",
+                "name": "PRAJWAL CHAUHAN",
+                "class": "V",
+                "admissionNo": "366",
+                "fatherPhone": "9528626183"
+            }
         },
         "siblings": []
     },
@@ -7674,10 +9294,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19000.0,
+            "totalPaid": 0,
+            "balance": 19000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 36500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 36500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-244",
+                    "name": "BANSHU KUMAR",
+                    "class": "I",
+                    "admissionNo": "493",
+                    "individualDue": 17500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 17500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -7714,10 +9349,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7754,10 +9394,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 0,
+            "balance": 21400.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7794,10 +9439,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19000.0,
+            "totalPaid": 10000.0,
+            "balance": 9000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7834,10 +9484,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7874,10 +9529,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 2500.0,
+            "balance": 10500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -7914,10 +9574,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 23500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-351",
+                    "name": "LAKSHYA RAJPUT",
+                    "class": "UKG",
+                    "admissionNo": "678",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -7954,10 +9629,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-113",
+                "name": "PRATIGYA YADAV",
+                "class": "VI",
+                "admissionNo": "312",
+                "fatherPhone": "9719017603"
+            }
         },
         "siblings": []
     },
@@ -7994,10 +9681,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8034,10 +9726,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 10000.0,
+            "balance": 3000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8074,10 +9771,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 26000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-188",
+                    "name": "KIRTI",
+                    "class": "III",
+                    "admissionNo": "408",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -8114,10 +9826,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-187",
+                "name": "KESHAV KUMAR",
+                "class": "III",
+                "admissionNo": "407",
+                "fatherPhone": "9758977960"
+            }
         },
         "siblings": []
     },
@@ -8154,10 +9878,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 6000.0,
+            "balance": 15400.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8194,10 +9923,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8234,10 +9968,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8274,10 +10013,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8314,10 +10058,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18400.0,
+            "totalPaid": 5000.0,
+            "balance": 13400.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8354,10 +10103,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 35000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 35000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-249",
+                    "name": "DIMPAL",
+                    "class": "I",
+                    "admissionNo": "498",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                },
+                {
+                    "id": "STU-2026-272",
+                    "name": "YATIN KUMAR",
+                    "class": "UKG",
+                    "admissionNo": "541",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -8394,10 +10167,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8434,10 +10212,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 0,
+            "balance": 21400.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-166",
+                "name": "SANDHYA KUMARI",
+                "class": "IV",
+                "admissionNo": "379",
+                "fatherPhone": "9643311163"
+            }
         },
         "siblings": []
     },
@@ -8474,10 +10264,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 0,
+            "balance": 21400.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-066",
+                "name": "PRINCE YADAV",
+                "class": "VII",
+                "admissionNo": "235",
+                "fatherPhone": "8700327645"
+            }
         },
         "siblings": []
     },
@@ -8514,10 +10316,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20200.0,
+            "totalPaid": 0,
+            "balance": 20200.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8554,10 +10361,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8594,10 +10406,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 0,
+            "balance": 21400.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-153",
+                "name": "MOHIT KUMAR",
+                "class": "V",
+                "admissionNo": "361",
+                "fatherPhone": "9568476692"
+            }
         },
         "siblings": []
     },
@@ -8634,10 +10458,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17200.0,
+            "totalPaid": 9000.0,
+            "balance": 8200.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8674,10 +10503,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20200.0,
+            "totalPaid": 0,
+            "balance": 20200.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 38900.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 38900.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-229",
+                    "name": "KULDEEP KISHOR",
+                    "class": "II",
+                    "admissionNo": "470",
+                    "individualDue": 18700.0,
+                    "individualPaid": 0,
+                    "individualBalance": 18700.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -8714,10 +10558,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8754,10 +10603,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20200.0,
+            "totalPaid": 0,
+            "balance": 20200.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 31700.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 31700.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-355",
+                    "name": "YASHIKA",
+                    "class": "II",
+                    "admissionNo": "682",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -8794,10 +10658,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 10000.0,
+            "balance": 11400.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8834,10 +10703,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 3000.0,
+            "balance": 10000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-068",
+                "name": "RADHA",
+                "class": "VII",
+                "admissionNo": "240",
+                "fatherPhone": "9675863965"
+            }
         },
         "siblings": []
     },
@@ -8874,10 +10755,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 7500.0,
+            "balance": 13300.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8914,10 +10800,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -8954,10 +10845,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 6000.0,
+            "balance": 14800.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-159",
+                "name": "PRIYANSHI",
+                "class": "IV",
+                "admissionNo": "369",
+                "fatherPhone": "9627265417"
+            }
         },
         "siblings": []
     },
@@ -8994,10 +10897,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18400.0,
+            "totalPaid": 5000.0,
+            "balance": 13400.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 35300.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 25300.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-233",
+                    "name": "PUNEET KUMAR",
+                    "class": "II",
+                    "admissionNo": "477",
+                    "individualDue": 16900.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 11900.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -9034,10 +10952,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 6000.0,
+            "balance": 7000.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyPaid": 12000.0,
+            "consolidatedFamilyBalance": 11500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-342",
+                    "name": "KUMARI PRAGATI",
+                    "class": "LKG",
+                    "admissionNo": "665",
+                    "individualDue": 10500.0,
+                    "individualPaid": 6000.0,
+                    "individualBalance": 4500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -9074,10 +11007,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-120",
+                "name": "SAURABH KUMAR",
+                "class": "V",
+                "admissionNo": "321",
+                "fatherPhone": "9149237488"
+            }
         },
         "siblings": []
     },
@@ -9114,10 +11059,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-044",
+                "name": "NEHA YADAV",
+                "class": "VIII",
+                "admissionNo": "192",
+                "fatherPhone": "9759755011"
+            }
         },
         "siblings": []
     },
@@ -9154,10 +11111,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18700.0,
+            "totalPaid": 0,
+            "balance": 18700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9194,10 +11156,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9234,10 +11201,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 5000.0,
+            "balance": 8000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9274,10 +11246,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 39800.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 39800.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-333",
+                    "name": "KUNAL YADAV",
+                    "class": "I",
+                    "admissionNo": "651",
+                    "individualDue": 19900.0,
+                    "individualPaid": 0,
+                    "individualBalance": 19900.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -9314,10 +11301,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17500.0,
+            "totalPaid": 0,
+            "balance": 17500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9354,10 +11346,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9394,10 +11391,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 0,
+            "balance": 19300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9434,10 +11436,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-157",
+                "name": "PRAVEEN KUMAR",
+                "class": "VI",
+                "admissionNo": "367",
+                "fatherPhone": "9675320274"
+            }
         },
         "siblings": []
     },
@@ -9474,10 +11488,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9514,10 +11533,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22600.0,
+            "totalPaid": 0,
+            "balance": 22600.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9554,10 +11578,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 7500.0,
+            "balance": 4000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9594,10 +11623,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9634,10 +11668,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9674,10 +11713,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 0,
+            "balance": 19300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9714,10 +11758,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 0,
+            "balance": 19300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-085",
+                "name": "MISHTI",
+                "class": "VI",
+                "admissionNo": "270",
+                "fatherPhone": "8630711835"
+            }
         },
         "siblings": []
     },
@@ -9754,10 +11810,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18700.0,
+            "totalPaid": 0,
+            "balance": 18700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-202",
+                "name": "SHIVANI KUSHWAHA",
+                "class": "IV",
+                "admissionNo": "430",
+                "fatherPhone": "9027352955"
+            }
         },
         "siblings": []
     },
@@ -9794,10 +11862,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9834,10 +11907,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 0,
+            "balance": 19300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9874,10 +11952,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 39800.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 39800.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-250",
+                    "name": "GAURAV KUMAR",
+                    "class": "I",
+                    "admissionNo": "500",
+                    "individualDue": 19900.0,
+                    "individualPaid": 0,
+                    "individualBalance": 19900.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -9914,10 +12007,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 16900.0,
+            "totalPaid": 5000.0,
+            "balance": 11900.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-210",
+                "name": "VANDANI",
+                "class": "III",
+                "admissionNo": "438",
+                "fatherPhone": "9958880327"
+            }
         },
         "siblings": []
     },
@@ -9954,10 +12059,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -9994,10 +12104,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10034,10 +12149,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 18650.0,
+            "balance": 650.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-141",
+                "name": "DRASHTI",
+                "class": "IV",
+                "admissionNo": "345",
+                "fatherPhone": "9759711175"
+            }
         },
         "siblings": []
     },
@@ -10074,10 +12201,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10114,10 +12246,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10154,10 +12291,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 16900.0,
+            "totalPaid": 5000.0,
+            "balance": 11900.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10194,10 +12336,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10234,10 +12381,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18700.0,
+            "totalPaid": 5000.0,
+            "balance": 13700.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10274,10 +12426,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17500.0,
+            "totalPaid": 10000.0,
+            "balance": 7500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10314,10 +12471,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10354,10 +12516,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17500.0,
+            "totalPaid": 0,
+            "balance": 17500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-177",
+                "name": "BHESAJ KUMAR",
+                "class": "III",
+                "admissionNo": "393",
+                "fatherPhone": "9761083561"
+            }
         },
         "siblings": []
     },
@@ -10394,10 +12568,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 15700.0,
+            "totalPaid": 0,
+            "balance": 15700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-129",
+                "name": "ADITYA YADAV",
+                "class": "IV",
+                "admissionNo": "331",
+                "fatherPhone": "7500077994"
+            }
         },
         "siblings": []
     },
@@ -10434,10 +12620,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-024",
+                "name": "DEEKSHA LODHI",
+                "class": "IX",
+                "admissionNo": "150",
+                "fatherPhone": "9627722404"
+            }
         },
         "siblings": []
     },
@@ -10474,10 +12672,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 6000.0,
+            "balance": 5500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-159",
+                "name": "PRIYANSHI",
+                "class": "IV",
+                "admissionNo": "369",
+                "fatherPhone": "9627265417"
+            }
         },
         "siblings": []
     },
@@ -10514,10 +12724,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 10000.0,
+            "balance": 9900.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10554,10 +12769,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-194",
+                "name": "MOHINI",
+                "class": "III",
+                "admissionNo": "415",
+                "fatherPhone": "9719204696"
+            }
         },
         "siblings": []
     },
@@ -10594,10 +12821,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-232",
+                "name": "PAWAN",
+                "class": "II",
+                "admissionNo": "476",
+                "fatherPhone": "8476978719"
+            }
         },
         "siblings": []
     },
@@ -10634,10 +12873,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 5000.0,
+            "balance": 6500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 30600.0,
+            "consolidatedFamilyPaid": 5000.0,
+            "consolidatedFamilyBalance": 25600.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-473",
+                    "name": "NAYRA CHAUDHARY",
+                    "class": "NURSERY",
+                    "admissionNo": "859",
+                    "individualDue": 19100.0,
+                    "individualPaid": 0,
+                    "individualBalance": 19100.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -10674,10 +12928,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17500.0,
+            "totalPaid": 0,
+            "balance": 17500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 28000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 28000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-418",
+                    "name": "DEEPAK LODHI",
+                    "class": "LKG",
+                    "admissionNo": "772",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -10714,10 +12983,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17500.0,
+            "totalPaid": 0,
+            "balance": 17500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10754,10 +13028,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21100.0,
+            "totalPaid": 0,
+            "balance": 21100.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-082",
+                "name": "KHUSHI",
+                "class": "VI",
+                "admissionNo": "264",
+                "fatherPhone": "9719312990"
+            }
         },
         "siblings": []
     },
@@ -10794,10 +13080,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17500.0,
+            "totalPaid": 5000.0,
+            "balance": 12500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-114",
+                "name": "PRATIKSHA KUMARI",
+                "class": "V",
+                "admissionNo": "313",
+                "fatherPhone": "6396451120"
+            }
         },
         "siblings": []
     },
@@ -10834,10 +13132,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10874,10 +13177,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 10000.0,
+            "balance": 9300.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10914,10 +13222,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 10000.0,
+            "balance": 1500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -10954,10 +13267,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19500.0,
+            "totalPaid": 0,
+            "balance": 19500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-297",
+                "name": "DEEPAK YADAV",
+                "class": "I",
+                "admissionNo": "582",
+                "fatherPhone": "9512129478"
+            }
         },
         "siblings": []
     },
@@ -10994,10 +13319,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20200.0,
+            "totalPaid": 5000.0,
+            "balance": 15200.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11034,10 +13364,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18700.0,
+            "totalPaid": 0,
+            "balance": 18700.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 53100.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 53100.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-281",
+                    "name": "ANURAG LODHI",
+                    "class": "UKG",
+                    "admissionNo": "554",
+                    "individualDue": 17700.0,
+                    "individualPaid": 0,
+                    "individualBalance": 17700.0
+                },
+                {
+                    "id": "STU-2026-450",
+                    "name": "DEVANSH",
+                    "class": "NURSERY",
+                    "admissionNo": "800",
+                    "individualDue": 16700.0,
+                    "individualPaid": 0,
+                    "individualBalance": 16700.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -11074,10 +13428,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 3000.0,
+            "balance": 17500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-155",
+                "name": "NISHANT KUMAR",
+                "class": "IV",
+                "admissionNo": "365",
+                "fatherPhone": "9536711508"
+            }
         },
         "siblings": []
     },
@@ -11114,10 +13480,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11154,10 +13525,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11194,10 +13570,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17500.0,
+            "totalPaid": 10000.0,
+            "balance": 7500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11234,10 +13615,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11274,10 +13660,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11314,10 +13705,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 0,
+            "balance": 19300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11354,10 +13750,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11394,10 +13795,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21100.0,
+            "totalPaid": 10000.0,
+            "balance": 11100.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 31600.0,
+            "consolidatedFamilyPaid": 20000.0,
+            "consolidatedFamilyBalance": 11600.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-280",
+                    "name": "SHLOK",
+                    "class": "UKG",
+                    "admissionNo": "552",
+                    "individualDue": 10500.0,
+                    "individualPaid": 10000.0,
+                    "individualBalance": 500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -11434,10 +13850,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18700.0,
+            "totalPaid": 0,
+            "balance": 18700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11474,10 +13895,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-194",
+                "name": "MOHINI",
+                "class": "III",
+                "admissionNo": "415",
+                "fatherPhone": "9719204696"
+            }
         },
         "siblings": []
     },
@@ -11514,10 +13947,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 21000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-274",
+                    "name": "PUNEET CHAUDHARY",
+                    "class": "UKG",
+                    "admissionNo": "544",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -11554,10 +14002,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-273",
+                "name": "CHETAN CHAUDHARY",
+                "class": "UKG",
+                "admissionNo": "543",
+                "fatherPhone": "8057171245"
+            }
         },
         "siblings": []
     },
@@ -11594,10 +14054,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 3000.0,
+            "balance": 7500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11634,10 +14099,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11674,10 +14144,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 5000.0,
+            "balance": 5500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11714,10 +14189,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-134",
+                "name": "DAMINI",
+                "class": "IV",
+                "admissionNo": "338",
+                "fatherPhone": "9468205683"
+            }
         },
         "siblings": []
     },
@@ -11754,10 +14241,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 16500.0,
+            "totalPaid": 10000.0,
+            "balance": 6500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11794,10 +14286,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 10000.0,
+            "balance": 500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-270",
+                "name": "SHUBH",
+                "class": "II",
+                "admissionNo": "533",
+                "fatherPhone": "8153970787"
+            }
         },
         "siblings": []
     },
@@ -11834,10 +14338,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17700.0,
+            "totalPaid": 0,
+            "balance": 17700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-261",
+                "name": "MANVI LODHI",
+                "class": "I",
+                "admissionNo": "517",
+                "fatherPhone": "9675939394"
+            }
         },
         "siblings": []
     },
@@ -11874,10 +14390,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11914,10 +14435,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11954,10 +14480,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -11994,10 +14525,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-143",
+                "name": "GUNJAN",
+                "class": "IV",
+                "admissionNo": "347",
+                "fatherPhone": "9719419975"
+            }
         },
         "siblings": []
     },
@@ -12034,10 +14577,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12074,10 +14622,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 15300.0,
+            "totalPaid": 0,
+            "balance": 15300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12114,10 +14667,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18900.0,
+            "totalPaid": 0,
+            "balance": 18900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-100",
+                "name": "DIVYANSHU YADAV",
+                "class": "V",
+                "admissionNo": "294",
+                "fatherPhone": "9761965033"
+            }
         },
         "siblings": []
     },
@@ -12154,10 +14719,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12194,10 +14764,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12234,10 +14809,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12274,10 +14854,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24000,
+            "totalPaid": 0,
+            "balance": 24000,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 45500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 45500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-516",
+                    "name": "HARSHIT KUMAR",
+                    "class": "IX",
+                    "admissionNo": "907",
+                    "individualDue": 21500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 21500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -12314,10 +14909,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12354,10 +14954,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 37000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 37000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-550",
+                    "name": "KULDEEP KUMAR",
+                    "class": "V",
+                    "admissionNo": "948",
+                    "individualDue": 15500,
+                    "individualPaid": 0,
+                    "individualBalance": 15500
+                }
+            ]
         },
         "siblings": []
     },
@@ -12394,10 +15009,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 2000.0,
+            "balance": 12500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12434,10 +15054,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12474,10 +15099,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 0,
+            "balance": 20500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 40000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 40000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-259",
+                    "name": "LOVEKUSH YADAV",
+                    "class": "UKG",
+                    "admissionNo": "515",
+                    "individualDue": 19500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 19500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -12514,10 +15154,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 5000.0,
+            "balance": 14900.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-136",
+                "name": "DEEPANJALI",
+                "class": "IV",
+                "admissionNo": "340",
+                "fatherPhone": "7088019598"
+            }
         },
         "siblings": []
     },
@@ -12554,10 +15206,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 2000.0,
+            "balance": 18500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12594,10 +15251,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-048",
+                "name": "PRANJUL KUMAR",
+                "class": "VIII",
+                "admissionNo": "201",
+                "fatherPhone": "9780410371"
+            }
         },
         "siblings": []
     },
@@ -12634,10 +15303,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12674,10 +15348,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 5000.0,
+            "balance": 6500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 30600.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 20600.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-437",
+                    "name": "PIYUSH",
+                    "class": "NURSERY",
+                    "admissionNo": "789",
+                    "individualDue": 19100.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 14100.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -12714,10 +15403,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17200.0,
+            "totalPaid": 2000.0,
+            "balance": 15200.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12754,10 +15448,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 8000.0,
+            "balance": 11300.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 37600.0,
+            "consolidatedFamilyPaid": 13000.0,
+            "consolidatedFamilyBalance": 24600.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-370",
+                    "name": "GABI KUMAR",
+                    "class": "UKG",
+                    "admissionNo": "704",
+                    "individualDue": 18300.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 13300.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -12794,10 +15503,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-121",
+                "name": "SEJAL MITTAL",
+                "class": "V",
+                "admissionNo": "322",
+                "fatherPhone": "9917938383"
+            }
         },
         "siblings": []
     },
@@ -12834,10 +15555,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 5000.0,
+            "balance": 6500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12874,10 +15600,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-066",
+                "name": "PRINCE YADAV",
+                "class": "VII",
+                "admissionNo": "235",
+                "fatherPhone": "8700327645"
+            }
         },
         "siblings": []
     },
@@ -12914,10 +15652,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-088",
+                "name": "TANUJ KUMAR",
+                "class": "VI",
+                "admissionNo": "278",
+                "fatherPhone": "8218893277"
+            }
         },
         "siblings": []
     },
@@ -12954,10 +15704,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -12994,10 +15749,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20200.0,
+            "totalPaid": 0,
+            "balance": 20200.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13034,10 +15794,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18900.0,
+            "totalPaid": 0,
+            "balance": 18900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13074,10 +15839,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21100.0,
+            "totalPaid": 0,
+            "balance": 21100.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-336",
+                "name": "SANDHYA",
+                "class": "II",
+                "admissionNo": "654",
+                "fatherPhone": "9927070578"
+            }
         },
         "siblings": []
     },
@@ -13114,10 +15891,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 24940.0,
+            "totalPaid": 5000.0,
+            "balance": 19940.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 37940.0,
+            "consolidatedFamilyPaid": 10000.0,
+            "consolidatedFamilyBalance": 27940.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-314",
+                    "name": "LUCKY KUMAR",
+                    "class": "III",
+                    "admissionNo": "620",
+                    "individualDue": 13000.0,
+                    "individualPaid": 5000.0,
+                    "individualBalance": 8000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -13154,10 +15946,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 5000.0,
+            "balance": 8000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-313",
+                "name": "MAYANK KUMAR",
+                "class": "VIII",
+                "admissionNo": "619",
+                "fatherPhone": "9719300308"
+            }
         },
         "siblings": []
     },
@@ -13194,10 +15998,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 3000.0,
+            "balance": 7500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13234,10 +16043,34 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17200.0,
+            "totalPaid": 600.0,
+            "balance": 16600.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 44400.0,
+            "consolidatedFamilyPaid": 600.0,
+            "consolidatedFamilyBalance": 43800.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-319",
+                    "name": "MADHAV KUMAR",
+                    "class": "UKG",
+                    "admissionNo": "629",
+                    "individualDue": 14700.0,
+                    "individualPaid": 0,
+                    "individualBalance": 14700.0
+                },
+                {
+                    "id": "STU-2026-500",
+                    "name": "MADHAV",
+                    "class": "UKG",
+                    "admissionNo": "826",
+                    "individualDue": 12500,
+                    "individualPaid": 0,
+                    "individualBalance": 12500
+                }
+            ]
         },
         "siblings": []
     },
@@ -13274,10 +16107,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 2000.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 29200.0,
+            "consolidatedFamilyPaid": 2000.0,
+            "consolidatedFamilyBalance": 27200.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-318",
+                    "name": "MAHAK",
+                    "class": "LKG",
+                    "admissionNo": "626",
+                    "individualDue": 17700.0,
+                    "individualPaid": 0,
+                    "individualBalance": 17700.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -13314,10 +16162,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17700.0,
+            "totalPaid": 0,
+            "balance": 17700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-317",
+                "name": "CHETAN",
+                "class": "I",
+                "admissionNo": "625",
+                "fatherPhone": "9720812674"
+            }
         },
         "siblings": []
     },
@@ -13354,10 +16214,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14700.0,
+            "totalPaid": 0,
+            "balance": 14700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-316",
+                "name": "KANAK",
+                "class": "III",
+                "admissionNo": "622",
+                "fatherPhone": "8865088876"
+            }
         },
         "siblings": []
     },
@@ -13394,10 +16266,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 10000.0,
+            "balance": 1500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13434,10 +16311,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13474,10 +16356,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 5000.0,
+            "balance": 6500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13514,10 +16401,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18900.0,
+            "totalPaid": 0,
+            "balance": 18900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-106",
+                "name": "KRASHANK YADAV",
+                "class": "V",
+                "admissionNo": "301",
+                "fatherPhone": "9759262366"
+            }
         },
         "siblings": []
     },
@@ -13554,10 +16453,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13594,10 +16498,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-052",
+                "name": "SANTOSH KUMAR",
+                "class": "VIII",
+                "admissionNo": "207",
+                "fatherPhone": "9996631761"
+            }
         },
         "siblings": []
     },
@@ -13634,10 +16550,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21400.0,
+            "totalPaid": 0,
+            "balance": 21400.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-052",
+                "name": "SANTOSH KUMAR",
+                "class": "VIII",
+                "admissionNo": "207",
+                "fatherPhone": "9996631761"
+            }
         },
         "siblings": []
     },
@@ -13674,10 +16602,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22600.0,
+            "totalPaid": 0,
+            "balance": 22600.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13714,10 +16647,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 0,
+            "balance": 20500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13754,10 +16692,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19000.0,
+            "totalPaid": 0,
+            "balance": 19000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 35500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 35500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-330",
+                    "name": "BHOOMI",
+                    "class": "UKG",
+                    "admissionNo": "648",
+                    "individualDue": 16500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 16500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -13794,10 +16747,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 16500.0,
+            "totalPaid": 0,
+            "balance": 16500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-329",
+                "name": "RASHMI",
+                "class": "III",
+                "admissionNo": "647",
+                "fatherPhone": "8851938563"
+            }
         },
         "siblings": []
     },
@@ -13834,10 +16799,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14700.0,
+            "totalPaid": 12000.0,
+            "balance": 2700.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13874,10 +16844,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13914,10 +16889,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19900.0,
+            "totalPaid": 0,
+            "balance": 19900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-217",
+                "name": "CHANDRAVEER",
+                "class": "II",
+                "admissionNo": "450",
+                "fatherPhone": "7464958983"
+            }
         },
         "siblings": []
     },
@@ -13954,10 +16941,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 9000.0,
+            "balance": 4000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -13994,10 +16986,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 5000.0,
+            "balance": 16500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14034,10 +17031,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21100.0,
+            "totalPaid": 0,
+            "balance": 21100.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 42200.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 42200.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-312",
+                    "name": "KRATIK KUMAR",
+                    "class": "I",
+                    "admissionNo": "616",
+                    "individualDue": 21100.0,
+                    "individualPaid": 0,
+                    "individualBalance": 21100.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -14074,10 +17086,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14114,10 +17131,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14154,10 +17176,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18700.0,
+            "totalPaid": 0,
+            "balance": 18700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14194,10 +17221,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14234,10 +17266,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-024",
+                "name": "DEEKSHA LODHI",
+                "class": "IX",
+                "admissionNo": "150",
+                "fatherPhone": "9627722404"
+            }
         },
         "siblings": []
     },
@@ -14274,10 +17318,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 6000.0,
+            "balance": 4500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-211",
+                "name": "VANSH SHARMA",
+                "class": "III",
+                "admissionNo": "439",
+                "fatherPhone": "8375939398"
+            }
         },
         "siblings": []
     },
@@ -14314,10 +17370,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18300.0,
+            "totalPaid": 0,
+            "balance": 18300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14354,10 +17415,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14394,10 +17460,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 10000.0,
+            "balance": 500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14434,10 +17505,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 2000.0,
+            "balance": 8500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14474,10 +17550,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14514,10 +17595,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14554,10 +17640,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14594,10 +17685,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14634,10 +17730,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-183",
+                "name": "GUNJAN RAJPUT",
+                "class": "III",
+                "admissionNo": "400",
+                "fatherPhone": "8433255571"
+            }
         },
         "siblings": []
     },
@@ -14674,10 +17782,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 2500.0,
+            "balance": 8000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14714,10 +17827,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 21000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-354",
+                    "name": "YASHU KUMAR",
+                    "class": "LKG",
+                    "admissionNo": "681",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -14754,10 +17882,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-353",
+                "name": "HIMANSHU",
+                "class": "LKG",
+                "admissionNo": "680",
+                "fatherPhone": "8533908723"
+            }
         },
         "siblings": []
     },
@@ -14794,10 +17934,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-204",
+                "name": "SOURAV KUMAR",
+                "class": "III",
+                "admissionNo": "432",
+                "fatherPhone": "9758509524"
+            }
         },
         "siblings": []
     },
@@ -14834,10 +17986,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14874,10 +18031,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 22000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 22000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-358",
+                    "name": "SANI KUMAR",
+                    "class": "LKG",
+                    "admissionNo": "686",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -14914,10 +18086,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-357",
+                "name": "MAHI",
+                "class": "II",
+                "admissionNo": "685",
+                "fatherPhone": "8285027701"
+            }
         },
         "siblings": []
     },
@@ -14954,10 +18138,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 5000.0,
+            "balance": 4500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -14994,10 +18183,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15034,10 +18228,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 2000.0,
+            "balance": 7500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15074,10 +18273,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 8500.0,
+            "balance": 4500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 24500.0,
+            "consolidatedFamilyPaid": 20000.0,
+            "consolidatedFamilyBalance": 4500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-363",
+                    "name": "GOVIND",
+                    "class": "I",
+                    "admissionNo": "693",
+                    "individualDue": 11500.0,
+                    "individualPaid": 11500.0,
+                    "individualBalance": 0
+                }
+            ]
         },
         "siblings": []
     },
@@ -15114,10 +18328,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 11500.0,
+            "balance": 0,
+            "status": "Paid",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-362",
+                "name": "NIDHI",
+                "class": "IV",
+                "admissionNo": "692",
+                "fatherPhone": "9761845736"
+            }
         },
         "siblings": []
     },
@@ -15154,10 +18380,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15194,10 +18425,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15234,10 +18470,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17800.0,
+            "totalPaid": 7500.0,
+            "balance": 10300.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15274,10 +18515,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15314,10 +18560,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21700.0,
+            "totalPaid": 5000.0,
+            "balance": 16700.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15354,10 +18605,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15394,10 +18650,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18300.0,
+            "totalPaid": 5000.0,
+            "balance": 13300.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-304",
+                "name": "HARSHIT KUMAR",
+                "class": "II",
+                "admissionNo": "593",
+                "fatherPhone": "9761722945"
+            }
         },
         "siblings": []
     },
@@ -15434,10 +18702,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15474,10 +18747,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20000.0,
+            "totalPaid": 0,
+            "balance": 20000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15514,10 +18792,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15554,10 +18837,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18300.0,
+            "totalPaid": 10000.0,
+            "balance": 8300.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15594,10 +18882,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19500.0,
+            "totalPaid": 0,
+            "balance": 19500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15634,10 +18927,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 22000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 22000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-377",
+                    "name": "AYANSH",
+                    "class": "UKG",
+                    "admissionNo": "712",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -15674,10 +18982,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-376",
+                "name": "AILISH",
+                "class": "II",
+                "admissionNo": "711",
+                "fatherPhone": "8810317983"
+            }
         },
         "siblings": []
     },
@@ -15714,10 +19034,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 6500.0,
+            "balance": 3000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15754,10 +19079,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 5000.0,
+            "balance": 5500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15794,10 +19124,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 15000.0,
+            "totalPaid": 5000.0,
+            "balance": 10000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15834,10 +19169,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 11000.0,
+            "balance": 10000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15874,10 +19214,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 10500.0,
+            "balance": 10000.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 40000.0,
+            "consolidatedFamilyPaid": 17500.0,
+            "consolidatedFamilyBalance": 22500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-383",
+                    "name": "MOHIT KUMAR",
+                    "class": "UKG",
+                    "admissionNo": "719",
+                    "individualDue": 19500.0,
+                    "individualPaid": 7000.0,
+                    "individualBalance": 12500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -15914,10 +19269,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19500.0,
+            "totalPaid": 7000.0,
+            "balance": 12500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-382",
+                "name": "ANUSHKA",
+                "class": "II",
+                "admissionNo": "718",
+                "fatherPhone": "8650468442"
+            }
         },
         "siblings": []
     },
@@ -15954,10 +19321,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19500.0,
+            "totalPaid": 7000.0,
+            "balance": 12500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -15994,10 +19366,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16034,10 +19411,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 7500.0,
+            "balance": 7000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16074,10 +19456,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16114,10 +19501,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16154,10 +19546,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17900.0,
+            "totalPaid": 0,
+            "balance": 17900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16194,10 +19591,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16234,10 +19636,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 2000.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16274,10 +19681,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16314,10 +19726,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 5000.0,
+            "balance": 8000.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyPaid": 9000.0,
+            "consolidatedFamilyBalance": 17000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-394",
+                    "name": "MAHI SHARMA",
+                    "class": "III",
+                    "admissionNo": "737",
+                    "individualDue": 13000.0,
+                    "individualPaid": 4000.0,
+                    "individualBalance": 9000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -16354,10 +19781,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 4000.0,
+            "balance": 9000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-393",
+                "name": "ROSHNI SHARMA",
+                "class": "V",
+                "admissionNo": "736",
+                "fatherPhone": "7011735110"
+            }
         },
         "siblings": []
     },
@@ -16394,10 +19833,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 5000.0,
+            "balance": 5500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16434,10 +19878,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 2500.0,
+            "balance": 10500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-049",
+                "name": "RIMSHA GAUTAM",
+                "class": "VIII",
+                "admissionNo": "204",
+                "fatherPhone": "9457076490"
+            }
         },
         "siblings": []
     },
@@ -16474,10 +19930,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 2500.0,
+            "balance": 8000.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-049",
+                "name": "RIMSHA GAUTAM",
+                "class": "VIII",
+                "admissionNo": "204",
+                "fatherPhone": "9457076490"
+            }
         },
         "siblings": []
     },
@@ -16514,10 +19982,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 5000.0,
+            "balance": 5500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16554,10 +20027,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 19000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 19000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-530",
+                    "name": "YASH KUMAR",
+                    "class": "NURSERY",
+                    "admissionNo": "924",
+                    "individualDue": 9500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 9500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -16594,10 +20082,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 2000.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16634,10 +20127,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16674,10 +20172,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-140",
+                "name": "DIVYANSHU KUMAR",
+                "class": "IV",
+                "admissionNo": "344",
+                "fatherPhone": "7830214462"
+            }
         },
         "siblings": []
     },
@@ -16714,10 +20224,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16754,10 +20269,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16794,10 +20314,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16834,10 +20359,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 4000.0,
+            "balance": 5500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16874,10 +20404,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 4000.0,
+            "balance": 5500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16914,10 +20449,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16954,10 +20494,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 22600.0,
+            "totalPaid": 10000.0,
+            "balance": 12600.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -16994,10 +20539,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17034,10 +20584,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17074,10 +20629,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17114,10 +20674,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17154,10 +20719,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21000.0,
+            "totalPaid": 0,
+            "balance": 21000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17194,10 +20764,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 3000.0,
+            "balance": 6500.0,
+            "status": "Partial",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyPaid": 3000.0,
+            "consolidatedFamilyBalance": 18000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-513",
+                    "name": "RIYANSHI AGRAWAL",
+                    "class": "PG",
+                    "admissionNo": "904",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -17234,10 +20819,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 24500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 24500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-417",
+                    "name": "VIVEK KUMAR",
+                    "class": "I",
+                    "admissionNo": "771",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -17274,10 +20874,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-416",
+                "name": "PRASHANT",
+                "class": "III",
+                "admissionNo": "770",
+                "fatherPhone": "9917732560"
+            }
         },
         "siblings": []
     },
@@ -17314,10 +20926,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-252",
+                "name": "HANSHIKA RAJPUT",
+                "class": "I",
+                "admissionNo": "502",
+                "fatherPhone": "9719945764"
+            }
         },
         "siblings": []
     },
@@ -17354,10 +20978,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 0,
+            "balance": 19300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17394,10 +21023,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17434,10 +21068,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17474,10 +21113,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17514,10 +21158,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17554,10 +21203,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18300.0,
+            "totalPaid": 0,
+            "balance": 18300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17594,10 +21248,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17634,10 +21293,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17674,10 +21338,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 15700.0,
+            "totalPaid": 0,
+            "balance": 15700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17714,10 +21383,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17900.0,
+            "totalPaid": 0,
+            "balance": 17900.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 35800.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 35800.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-429",
+                    "name": "PRIYANSHI",
+                    "class": "NURSERY",
+                    "admissionNo": "784",
+                    "individualDue": 17900.0,
+                    "individualPaid": 0,
+                    "individualBalance": 17900.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -17754,10 +21438,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17900.0,
+            "totalPaid": 0,
+            "balance": 17900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-428",
+                "name": "PRASHANT YADAV",
+                "class": "NURSERY",
+                "admissionNo": "783",
+                "fatherPhone": "9582247889"
+            }
         },
         "siblings": []
     },
@@ -17794,10 +21490,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17834,10 +21535,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17874,10 +21580,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17914,10 +21625,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17954,10 +21670,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -17994,10 +21715,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17900.0,
+            "totalPaid": 0,
+            "balance": 17900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18034,10 +21760,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18074,10 +21805,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19100.0,
+            "totalPaid": 5000.0,
+            "balance": 14100.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-302",
+                "name": "HIMANSHU",
+                "class": "I",
+                "admissionNo": "589",
+                "fatherPhone": "9720577595"
+            }
         },
         "siblings": []
     },
@@ -18114,10 +21857,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18154,10 +21902,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18194,10 +21947,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 27500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-518",
+                    "name": "HARSH SHARMA",
+                    "class": "IV",
+                    "admissionNo": "871",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -18234,10 +22002,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 22000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 22000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-442",
+                    "name": "MAYANK",
+                    "class": "UKG",
+                    "admissionNo": "792",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -18274,10 +22057,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-441",
+                "name": "KALPANA",
+                "class": "I",
+                "admissionNo": "791",
+                "fatherPhone": "7893204122"
+            }
         },
         "siblings": []
     },
@@ -18314,10 +22109,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18354,10 +22154,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-445",
+                "name": "SAHIL",
+                "class": "UKG",
+                "admissionNo": "795",
+                "fatherPhone": "8130905457"
+            }
         },
         "siblings": []
     },
@@ -18394,10 +22206,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 21000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-444",
+                    "name": "KANAK",
+                    "class": "LKG",
+                    "admissionNo": "794",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -18434,10 +22261,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18474,10 +22306,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17300.0,
+            "totalPaid": 0,
+            "balance": 17300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18514,10 +22351,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18400.0,
+            "totalPaid": 0,
+            "balance": 18400.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18554,10 +22396,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20500.0,
+            "totalPaid": 0,
+            "balance": 20500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18594,10 +22441,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 16700.0,
+            "totalPaid": 0,
+            "balance": 16700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-261",
+                "name": "MANVI LODHI",
+                "class": "I",
+                "admissionNo": "517",
+                "fatherPhone": "9675939394"
+            }
         },
         "siblings": []
     },
@@ -18634,10 +22493,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 27500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-453",
+                    "name": "HARSHIT YADAV",
+                    "class": "V",
+                    "admissionNo": "802",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -18674,10 +22548,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 23000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 23000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-454",
+                    "name": "SIDDHARTH BHARDWAJ",
+                    "class": "I",
+                    "admissionNo": "846",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -18714,10 +22603,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-451",
+                "name": "TAKSHIT",
+                "class": "VI",
+                "admissionNo": "33",
+                "fatherPhone": "9536981196"
+            }
         },
         "siblings": []
     },
@@ -18754,10 +22655,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-452",
+                "name": "KANISHKA BHARDWAJ",
+                "class": "II",
+                "admissionNo": "845",
+                "fatherPhone": "8395050888"
+            }
         },
         "siblings": []
     },
@@ -18794,10 +22707,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 16700.0,
+            "totalPaid": 0,
+            "balance": 16700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18834,10 +22752,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18874,10 +22797,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 16500.0,
+            "totalPaid": 0,
+            "balance": 16500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-458",
+                "name": "MANVI KUMARI",
+                "class": "I",
+                "admissionNo": "805",
+                "fatherPhone": "7836811431"
+            }
         },
         "siblings": []
     },
@@ -18914,10 +22849,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17500.0,
+            "totalPaid": 0,
+            "balance": 17500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 34000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 34000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-457",
+                    "name": "DIVYANSHI KUMARI",
+                    "class": "LKG",
+                    "admissionNo": "804",
+                    "individualDue": 16500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 16500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -18954,10 +22904,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -18994,10 +22949,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21700.0,
+            "totalPaid": 0,
+            "balance": 21700.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 39400.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 39400.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-462",
+                    "name": "YUVANG BHARDWAJ",
+                    "class": "UKG",
+                    "admissionNo": "807",
+                    "individualDue": 17700.0,
+                    "individualPaid": 0,
+                    "individualBalance": 17700.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -19034,10 +23004,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 3000.0,
+            "balance": 8500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19074,10 +23049,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17700.0,
+            "totalPaid": 0,
+            "balance": 17700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-460",
+                "name": "LAKSHY BHARDWAJ",
+                "class": "VII",
+                "admissionNo": "806",
+                "fatherPhone": "8755083275"
+            }
         },
         "siblings": []
     },
@@ -19114,10 +23101,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19154,10 +23146,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18300.0,
+            "totalPaid": 0,
+            "balance": 18300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19194,10 +23191,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19234,10 +23236,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19300.0,
+            "totalPaid": 0,
+            "balance": 19300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19274,10 +23281,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17900.0,
+            "totalPaid": 0,
+            "balance": 17900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19314,10 +23326,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19354,10 +23371,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-470",
+                "name": "DEVANSH",
+                "class": "UKG",
+                "admissionNo": "856",
+                "fatherPhone": "9997620644"
+            }
         },
         "siblings": []
     },
@@ -19394,10 +23423,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 21000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-469",
+                    "name": "MANYA SHARMA",
+                    "class": "LKG",
+                    "admissionNo": "855",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -19434,10 +23478,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19474,10 +23523,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21100.0,
+            "totalPaid": 0,
+            "balance": 21100.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19514,10 +23568,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 19100.0,
+            "totalPaid": 0,
+            "balance": 19100.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-251",
+                "name": "GURMEET SHARMA",
+                "class": "I",
+                "admissionNo": "501",
+                "fatherPhone": "6396944247"
+            }
         },
         "siblings": []
     },
@@ -19554,10 +23620,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19594,10 +23665,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19634,10 +23710,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18900.0,
+            "totalPaid": 0,
+            "balance": 18900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19674,10 +23755,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19714,10 +23800,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19754,10 +23845,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19794,10 +23890,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19834,10 +23935,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19874,10 +23980,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19914,10 +24025,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19954,10 +24070,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -19994,10 +24115,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 21000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-486",
+                    "name": "RIYANSH KUMAR",
+                    "class": "LKG",
+                    "admissionNo": "812",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -20034,10 +24170,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-485",
+                "name": "MOHIT KUMAR",
+                "class": "UKG",
+                "admissionNo": "811",
+                "fatherPhone": "8800498878"
+            }
         },
         "siblings": []
     },
@@ -20074,10 +24222,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-488",
+                "name": "DAKSH KUMAR GUPTA",
+                "class": "I",
+                "admissionNo": "814",
+                "fatherPhone": "7505645260"
+            }
         },
         "siblings": []
     },
@@ -20114,10 +24274,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 22000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 22000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-487",
+                    "name": "DEEP",
+                    "class": "LKG",
+                    "admissionNo": "813",
+                    "individualDue": 10500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -20154,10 +24329,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20194,10 +24374,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20234,10 +24419,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 20800.0,
+            "totalPaid": 0,
+            "balance": 20800.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20274,10 +24464,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 29900.0,
+            "totalPaid": 0,
+            "balance": 29900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20314,10 +24509,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20354,10 +24554,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20394,10 +24599,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 18300.0,
+            "totalPaid": 0,
+            "balance": 18300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20434,10 +24644,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20474,10 +24689,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20514,10 +24734,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 36000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 36000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-499",
+                    "name": "AARUSH CHAUDHARY",
+                    "class": "V",
+                    "admissionNo": "825",
+                    "individualDue": 14500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 14500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -20554,10 +24789,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-498",
+                "name": "CHANDANI CHAUDHARY",
+                "class": "IX",
+                "admissionNo": "824",
+                "fatherPhone": "7830636123"
+            }
         },
         "siblings": []
     },
@@ -20594,10 +24841,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 12500,
+            "totalPaid": 0,
+            "balance": 12500,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-316",
+                "name": "KANAK",
+                "class": "III",
+                "admissionNo": "622",
+                "fatherPhone": "8865088876"
+            }
         },
         "siblings": []
     },
@@ -20634,10 +24893,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20674,10 +24938,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 34500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 34500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-503",
+                    "name": "SONU",
+                    "class": "V",
+                    "admissionNo": "891",
+                    "individualDue": 13000.0,
+                    "individualPaid": 0,
+                    "individualBalance": 13000.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -20714,10 +24993,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-502",
+                "name": "BABLU",
+                "class": "IX",
+                "admissionNo": "830",
+                "fatherPhone": "7505641639"
+            }
         },
         "siblings": []
     },
@@ -20754,10 +25045,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20794,10 +25090,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20834,10 +25135,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17300.0,
+            "totalPaid": 0,
+            "balance": 17300.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20874,10 +25180,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20914,10 +25225,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-534",
+                "name": "ARYAN",
+                "class": "II",
+                "admissionNo": "930",
+                "fatherPhone": "9870897428"
+            }
         },
         "siblings": []
     },
@@ -20954,10 +25277,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -20994,10 +25322,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 28700.0,
+            "totalPaid": 0,
+            "balance": 28700.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21034,10 +25367,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21074,10 +25412,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21114,10 +25457,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-415",
+                "name": "MANYA",
+                "class": "NURSERY",
+                "admissionNo": "767",
+                "fatherPhone": "8384837949"
+            }
         },
         "siblings": []
     },
@@ -21154,10 +25509,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 16900.0,
+            "totalPaid": 0,
+            "balance": 16900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21194,10 +25554,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 1000.0,
+            "balance": 10500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21234,10 +25599,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 21500.0,
+            "totalPaid": 0,
+            "balance": 21500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-292",
+                "name": "VISHAKA SHARMA",
+                "class": "XI",
+                "admissionNo": "576",
+                "fatherPhone": "8510822051"
+            }
         },
         "siblings": []
     },
@@ -21274,10 +25651,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21314,10 +25696,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-440",
+                "name": "KAUSHIK SHARMA",
+                "class": "VI",
+                "admissionNo": "844",
+                "fatherPhone": "7906340619"
+            }
         },
         "siblings": []
     },
@@ -21354,10 +25748,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21394,10 +25793,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21434,10 +25838,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21474,10 +25883,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13000.0,
+            "totalPaid": 0,
+            "balance": 13000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21514,10 +25928,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21554,10 +25973,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21594,10 +26018,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21634,10 +26063,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21674,10 +26108,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21714,10 +26153,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21754,10 +26198,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21794,10 +26243,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-399",
+                "name": "MAYANK KUMAR",
+                "class": "NURSERY",
+                "admissionNo": "749",
+                "fatherPhone": "8991490059"
+            }
         },
         "siblings": []
     },
@@ -21834,10 +26295,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 21000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-535",
+                    "name": "GAURAV",
+                    "class": "NURSERY",
+                    "admissionNo": "869",
+                    "individualDue": 9500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 9500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -21874,10 +26350,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21914,10 +26395,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -21954,10 +26440,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14000,
+            "totalPaid": 0,
+            "balance": 14000,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 25500.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 25500.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-508",
+                    "name": "ARAV",
+                    "class": "I",
+                    "admissionNo": "899",
+                    "individualDue": 11500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 11500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -21994,10 +26495,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-531",
+                "name": "GAURI",
+                "class": "I",
+                "admissionNo": "927",
+                "fatherPhone": "8650678109"
+            }
         },
         "siblings": []
     },
@@ -22034,10 +26547,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 16500,
+            "totalPaid": 0,
+            "balance": 16500,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22074,10 +26592,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22114,10 +26637,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 9500.0,
+            "balance": 0,
+            "status": "Paid",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-079",
+                "name": "DIVYA",
+                "class": "VI",
+                "admissionNo": "259",
+                "fatherPhone": "9675078707"
+            }
         },
         "siblings": []
     },
@@ -22154,10 +26689,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22194,10 +26734,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 0,
+            "balance": 11500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22234,10 +26779,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22274,10 +26824,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 5000.0,
+            "balance": 5500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-148",
+                "name": "JATIN KUMAR",
+                "class": "IV",
+                "admissionNo": "353",
+                "fatherPhone": "8384814903"
+            }
         },
         "siblings": []
     },
@@ -22314,10 +26876,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22354,10 +26921,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 4000.0,
+            "balance": 7500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22394,10 +26966,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14000,
+            "totalPaid": 0,
+            "balance": 14000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22434,10 +27011,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 20000.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 20000.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-547",
+                    "name": "MANVI",
+                    "class": "NURSERY",
+                    "admissionNo": "945",
+                    "individualDue": 9500.0,
+                    "individualPaid": 0,
+                    "individualBalance": 9500.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -22474,10 +27066,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9500.0,
+            "totalPaid": 0,
+            "balance": 9500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-546",
+                "name": "MAYANK",
+                "class": "LKG",
+                "admissionNo": "944",
+                "fatherPhone": "9627165176"
+            }
         },
         "siblings": []
     },
@@ -22514,10 +27118,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500,
+            "totalPaid": 0,
+            "balance": 14500,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 29000,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 29000,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-560",
+                    "name": "NITIN",
+                    "class": "III",
+                    "admissionNo": "957",
+                    "individualDue": 14500,
+                    "individualPaid": 0,
+                    "individualBalance": 14500
+                }
+            ]
         },
         "siblings": []
     },
@@ -22554,10 +27173,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22594,10 +27218,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 15500,
+            "totalPaid": 0,
+            "balance": 15500,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-294",
+                "name": "LUCKY KUMAR",
+                "class": "IX",
+                "admissionNo": "578",
+                "fatherPhone": "9958115857"
+            }
         },
         "siblings": []
     },
@@ -22634,10 +27270,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500,
+            "totalPaid": 0,
+            "balance": 14500,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 28000,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 28000,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-552",
+                    "name": "TANISHKA",
+                    "class": "I",
+                    "admissionNo": "9",
+                    "individualDue": 13500,
+                    "individualPaid": 0,
+                    "individualBalance": 13500
+                }
+            ]
         },
         "siblings": []
     },
@@ -22674,10 +27325,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13500,
+            "totalPaid": 0,
+            "balance": 13500,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-551",
+                "name": "VIVEK KUMAR",
+                "class": "III",
+                "admissionNo": "946",
+                "fatherPhone": "7678265395"
+            }
         },
         "siblings": []
     },
@@ -22714,10 +27377,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13500,
+            "totalPaid": 0,
+            "balance": 13500,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22754,10 +27422,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22794,10 +27467,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10500.0,
+            "totalPaid": 0,
+            "balance": 10500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22834,10 +27512,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 12500,
+            "totalPaid": 0,
+            "balance": 12500,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22874,10 +27557,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 12500,
+            "totalPaid": 0,
+            "balance": 12500,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22914,10 +27602,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14000,
+            "totalPaid": 0,
+            "balance": 14000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22954,10 +27647,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 15000,
+            "totalPaid": 0,
+            "balance": 15000,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -22994,10 +27692,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500,
+            "totalPaid": 0,
+            "balance": 14500,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-548",
+                "name": "RAJAT",
+                "class": "III",
+                "admissionNo": "887",
+                "fatherPhone": "9719433808"
+            }
         },
         "siblings": []
     },
@@ -23034,10 +27744,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 11500.0,
+            "totalPaid": 2000.0,
+            "balance": 9500.0,
+            "status": "Partial",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -23074,10 +27789,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 17900.0,
+            "totalPaid": 0,
+            "balance": 17900.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -23114,10 +27834,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 13500,
+            "totalPaid": 0,
+            "balance": 13500,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -23154,10 +27879,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 9000.0,
+            "totalPaid": 0,
+            "balance": 9000.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -23194,10 +27924,15 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 14500.0,
+            "totalPaid": 0,
+            "balance": 14500.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": []
         },
         "siblings": []
     },
@@ -23234,10 +27969,25 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10440.0,
+            "totalPaid": 0,
+            "balance": 10440.0,
+            "status": "Pending",
+            "isElderSibling": true,
+            "consolidatedFamilyDue": 20880.0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 20880.0,
+            "familySiblings": [
+                {
+                    "id": "STU-2026-567",
+                    "name": "VEER",
+                    "class": "II",
+                    "admissionNo": "876",
+                    "individualDue": 10440.0,
+                    "individualPaid": 0,
+                    "individualBalance": 10440.0
+                }
+            ]
         },
         "siblings": []
     },
@@ -23274,10 +28024,22 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18000,
-            "totalPaid": 12000,
-            "balance": 6000,
-            "status": "Partial"
+            "totalDue": 10440.0,
+            "totalPaid": 0,
+            "balance": 10440.0,
+            "status": "Pending",
+            "isElderSibling": false,
+            "consolidatedFamilyDue": 0,
+            "consolidatedFamilyPaid": 0,
+            "consolidatedFamilyBalance": 0,
+            "familySiblings": [],
+            "linkedElderSibling": {
+                "id": "STU-2026-566",
+                "name": "SEJAL",
+                "class": "II",
+                "admissionNo": "875",
+                "fatherPhone": "9758689700"
+            }
         },
         "siblings": []
     }

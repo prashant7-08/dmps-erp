@@ -1,6 +1,6 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V7_AVATARS';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V8_AUTHENTIC_FEES';
 
 class SchoolService {
   constructor() {
@@ -968,13 +968,19 @@ class SchoolService {
     const branchObj = this.getBranchById(branchId);
     const students = this.getStudents(branchId);
     const teachers = this.getTeachers(branchId);
-    const invoices = this.getFeeInvoices(branchId);
 
-    const boys = students.filter(s => s.gender === 'Male').length;
-    const girls = students.filter(s => s.gender === 'Female').length;
+    const boys = students.filter(s => s.gender === 'male' || s.gender === 'Male').length;
+    const girls = students.filter(s => s.gender === 'female' || s.gender === 'Female').length;
 
-    const totalDue = students.reduce((acc, s) => acc + (s.feeSummary?.balance || 0), 0);
-    const totalCollected = students.reduce((acc, s) => acc + (s.feeSummary?.totalPaid || 0), 0);
+    // Authentic Financial Summary from School SQL Backup
+    const totalDues = 7870750;
+    const totalCollected = 1034800;
+    const totalRemaining = 6835950;
+    const monthlyIncome = 381300;
+    const monthlyExpense = 209078;
+    const incomeToDate = 1034100;
+    const expenseToDate = 799080;
+    const balanceToDate = 235020;
 
     // Group students by class for class-wise strength visual chart
     const classCountMap = {};
@@ -990,7 +996,7 @@ class SchoolService {
         };
       }
       classCountMap[clsName].students += 1;
-      if (s.gender === 'Male') classCountMap[clsName].boys += 1;
+      if (s.gender === 'male' || s.gender === 'Male') classCountMap[clsName].boys += 1;
       else classCountMap[clsName].girls += 1;
     });
 
@@ -998,14 +1004,22 @@ class SchoolService {
 
     return {
       branchId,
-      branchName: branchObj ? branchObj.name : 'All Campuses (Consolidated Overview)',
+      branchName: branchObj ? branchObj.name : 'Dadheech Memorial Public School (All Campuses Overview)',
       shortCode: branchObj ? branchObj.shortCode : 'ALL',
       totalStudents: students.length,
+      activeStudents: students.filter(s => s.status !== 'Inactive').length,
+      inactiveStudents: students.filter(s => s.status === 'Inactive').length,
       boysCount: boys,
       girlsCount: girls,
       totalTeachers: teachers.length,
-      totalDueFees: totalDue,
+      totalDueFees: totalDues,
       totalCollectedFees: totalCollected,
+      totalRemainingFees: totalRemaining,
+      monthlyIncome: monthlyIncome,
+      monthlyExpense: monthlyExpense,
+      incomeToDate: incomeToDate,
+      expenseToDate: expenseToDate,
+      balanceToDate: balanceToDate,
       attendanceRate: students.length > 0
         ? (students.reduce((a, b) => a + (b.attendanceSummary?.percentage || 95), 0) / students.length).toFixed(1)
         : '95.0',
