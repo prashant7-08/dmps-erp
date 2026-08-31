@@ -172,55 +172,55 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     return () => clearInterval(interval);
   }, [currentPage]);
 
-  // 1. Dynamic Hero Slides (6 High-Impact Panoramic Slides)
+  // 1. Dynamic Hero Slides (3 Campuses + Gallery Photos 1, 6, 22)
   const heroSlides = [
     {
-      title: "Darkness to Brightness • Empowering 21st-Century Leaders",
-      subtitle: "Personalized education, sacred Indian values, and unmatched competitive success across 3 modern campuses.",
-      tag: "Affiliated to Bhartiya Shiksha Board (BSB) • School Code: 00065",
-      image: "/assets/banners/slide1.jpg",
-      cta: "Apply for Admission 2026-27",
-      target: "admissions"
+      title: "DMPS Senior Secondary Campus (Ramghat Road Border, Jargwan)",
+      subtitle: "Flagship campus offering Playgroup to 12th Senior Secondary education with modern science labs & sports facilities.",
+      tag: "Main Campus • Jargwan Bulandshahr",
+      image: "/assets/campuses/main_campus.jpg",
+      cta: "Explore Main Campus",
+      target: "campuses"
     },
     {
       title: "DMPS Junior High Campus (Barheti ADF, Aligarh)",
       subtitle: "Dedicated faculty, modern laboratories, and holistic schooling from Nursery to Class 8th.",
-      tag: "Barheti Campus • Estd. 2017",
-      image: "/assets/banners/slide2.jpg",
-      cta: "Explore Our Campuses",
+      tag: "Barheti Campus • Jawan Chherat",
+      image: "/assets/campuses/barheti_campus.jpeg",
+      cta: "Explore Barheti Campus",
       target: "campuses"
     },
     {
-      title: "Dadheech Kids School (Quarsi, PAC Aligarh)",
+      title: "Dadheech Kids School (Vinay Nagar, Quarsi PAC Aligarh)",
       subtitle: "Early childhood learning sanctuary with theme-based activity rooms, phonics, and play-way curriculum.",
-      tag: "Dadheech Kids School • Early Learning",
-      image: "/assets/banners/slide3.jpg",
+      tag: "Kids School • Quarsi Aligarh",
+      image: "/assets/campuses/kids_school_banner.png",
       cta: "Explore Kids Wing",
       target: "campuses"
     },
     {
-      title: "3 State-of-the-Art Campuses in Bulandshahr & Aligarh",
-      subtitle: "Holistic schooling from Playgroup to Senior Secondary (12th) with smart labs, sports complex & GPS transport.",
-      tag: "Tri-Campus Network • 1,500+ Students",
-      image: "/assets/banners/slide4.jpg",
-      cta: "Discover Our Schools",
-      target: "campuses"
+      title: "Co-Curricular & Student Leadership Excellence",
+      subtitle: "Holistic personality grooming, cultural performances, and academic brilliance across all wings.",
+      tag: "Campus Life • Activity Highlights",
+      image: "/assets/gallery/1.jpg",
+      cta: "View Event Gallery",
+      target: "gallery"
     },
     {
-      title: "44+ Premier National Selections in AMU, JNV & Vidyagyan",
-      subtitle: "24 years of proven academic supremacy with top ranks in national competitive entrance examinations.",
-      tag: "Hall of Fame • Estd. July 2002 by Late Mr. Dauli Singh",
-      image: "/assets/banners/slide5.png",
-      cta: "Explore Hall of Fame",
-      target: "selections"
+      title: "Annual Functions, Sports & Student Achievers",
+      subtitle: "Fostering athletic prowess, debate skills, science exhibitions, and competitive spirit.",
+      tag: "Sports & Celebrations",
+      image: "/assets/gallery/6.jpg",
+      cta: "Explore Activities",
+      target: "gallery"
     },
     {
-      title: "Excellence in Sports, STEM Labs & Cultural Development",
-      subtitle: "Nurturing champions in cricket, volleyball, science exhibitions, debate, and holistic personality growth.",
-      tag: "Holistic Growth • Sports & Arts",
-      image: "/assets/banners/slide6.png",
-      cta: "Explore Facilities",
-      target: "facilities"
+      title: "Vibrant Campus Memories & Community Spirit",
+      subtitle: "24 years of empowering young minds into responsible leaders and nation builders.",
+      tag: "Dadheech Group of Education",
+      image: "/assets/gallery/22.jpg",
+      cta: "Discover Our Journey",
+      target: "about"
     }
   ];
 
