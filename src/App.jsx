@@ -117,7 +117,9 @@ function AppContent() {
       case 'timetable':
         return <TimetablePage />;
       case 'attendance':
-        return <AttendancePage />;
+        return <AttendancePage initialType="student" />;
+      case 'staff-attendance':
+        return <AttendancePage initialType="staff" />;
       case 'fees':
         return <FeesPage />;
       case 'examination':

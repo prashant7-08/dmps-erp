@@ -89,8 +89,7 @@ export const navigationGroups = [
     label: 'STUDENT ACCOUNTING',
     icon: CreditCard,
     items: [
-      { id: 'fees', label: 'Fees Collection (POS)', badge: 'POS' },
-      { id: 'fees', label: 'Fee Invoices & Dues', badge: null }
+      { id: 'fees', label: 'Fees Collection & Invoices (POS)', badge: 'POS' }
     ]
   },
   {
@@ -98,8 +97,7 @@ export const navigationGroups = [
     label: 'OFFICE ACCOUNTING',
     icon: DollarSign,
     items: [
-      { id: 'inventory', label: 'Accounts & Ledger', badge: null },
-      { id: 'inventory', label: 'Income & Expenses', badge: null }
+      { id: 'inventory', label: 'Accounts & Expense Ledger', badge: null }
     ]
   },
   {
@@ -118,7 +116,7 @@ export const navigationGroups = [
     icon: CheckSquare,
     items: [
       { id: 'attendance', label: 'Daily Student Attendance', badge: 'Daily' },
-      { id: 'attendance', label: 'Staff Attendance', badge: null }
+      { id: 'staff-attendance', label: 'Staff / Teacher Attendance', badge: 'Staff' }
     ]
   },
   {
@@ -136,9 +134,8 @@ export const navigationGroups = [
     items: [
       { id: 'card-management', label: "Student ID Card", badge: 'ID' },
       { id: 'admit-cards', label: 'Admit Card (Exam Pass)', badge: 'Exam' },
-      { id: 'card-management', label: 'Transport Card / Bus Pass', badge: 'Bus' },
-      { id: 'card-management', label: 'Employee / Staff ID Card', badge: null },
-      { id: 'card-management', label: 'Card Templates Designer', badge: null }
+      { id: 'transport-cards', label: 'Transport Card / Bus Pass', badge: 'Bus' },
+      { id: 'staff-cards', label: 'Employee / Staff ID Card', badge: null }
     ]
   },
   {
@@ -147,8 +144,8 @@ export const navigationGroups = [
     icon: Award,
     items: [
       { id: 'certificates', label: 'Transfer Certificate (TC)', badge: 'TC' },
-      { id: 'certificates', label: 'Character Certificate', badge: null },
-      { id: 'certificates', label: 'Bonafide Certificate', badge: null }
+      { id: 'character-cert', label: 'Character Certificate', badge: null },
+      { id: 'bonafide-cert', label: 'Bonafide Certificate', badge: null }
     ]
   },
   {
@@ -156,9 +153,8 @@ export const navigationGroups = [
     label: 'ACADEMIC',
     icon: BookOpen,
     items: [
-      { id: 'academics', label: 'Classes & Sections', badge: null },
-      { id: 'timetable', label: 'Timetable & Classrooms', badge: null },
-      { id: 'academics', label: 'Subjects & Syllabus', badge: null }
+      { id: 'academics', label: 'Classes & Syllabus', badge: null },
+      { id: 'timetable', label: 'Timetable & Classrooms', badge: null }
     ]
   },
   {
@@ -174,8 +170,7 @@ export const navigationGroups = [
     label: 'EXAM MASTER',
     icon: Award,
     items: [
-      { id: 'examination', label: 'Exams & Marks Entry', badge: 'CBSE' },
-      { id: 'examination', label: 'CBSE Report Cards', badge: 'PDF' }
+      { id: 'examination', label: 'CBSE Exams & Marks Entry', badge: 'CBSE' }
     ]
   },
   {
@@ -183,8 +178,7 @@ export const navigationGroups = [
     label: 'LIBRARY',
     icon: BookMarked,
     items: [
-      { id: 'library', label: 'Book List & Catalogs', badge: null },
-      { id: 'library', label: 'Issue & Return Ledger', badge: null }
+      { id: 'library', label: 'Book List & Catalogs', badge: null }
     ]
   },
   {
@@ -209,10 +203,7 @@ export const navigationGroups = [
     label: 'REPORTS',
     icon: BarChart3,
     items: [
-      { id: 'reports', label: '1. Student Demographics', badge: 'All' },
-      { id: 'reports', label: '2. Attendance Defaulters', badge: '<75%' },
-      { id: 'reports', label: '3. Fee Collection vs Dues', badge: 'Ledger' },
-      { id: 'reports', label: '4. Examination Rank List', badge: 'Rank' }
+      { id: 'reports', label: 'Consolidated School Reports', badge: 'All' }
     ]
   },
   {

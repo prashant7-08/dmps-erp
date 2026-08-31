@@ -308,6 +308,17 @@ class SchoolService {
     this.saveData();
   }
 
+  markStaffAttendance(date, records) {
+    if (!this.data.staffAttendance) this.data.staffAttendance = {};
+    this.data.staffAttendance[date] = records;
+    this.saveData();
+    return true;
+  }
+
+  getStaffAttendance(date) {
+    return this.data.staffAttendance?.[date] || null;
+  }
+
   // Academics & Classes
   getClasses() {
     return this.data.classes || [];
