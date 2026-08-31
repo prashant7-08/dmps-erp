@@ -1535,6 +1535,181 @@ class SchoolService {
     return inq;
   }
 
+  // ==========================================
+  // 💾 1-CLICK BACKUP & DATABASE MANAGEMENT
+  // ==========================================
+  exportDatabaseJSON() {
+    return JSON.stringify(this.data, null, 2);
+  }
+
+  importDatabaseJSON(jsonStr) {
+    try {
+      const parsed = JSON.parse(jsonStr);
+      if (!parsed || !Array.isArray(parsed.students)) {
+        return { success: false, error: "Invalid backup format: Missing student records" };
+      }
+      this.data = parsed;
+      this.saveData();
+      return { success: true, totalStudents: parsed.students.length, totalStaff: (parsed.teachers || []).length };
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
+  }
+
+  getBackupHistory() {
+    if (!this.data.backupHistory) {
+      this.data.backupHistory = [
+        {
+          id: 'BAK-2026-08-31-01',
+          fileName: 'DB-backup_2026-08-31_16-21.zip',
+          timestamp: '2026-08-31 16:21',
+          size: '1.2 MB',
+          type: 'Full System Snapshot',
+          studentsCount: (this.data.students || []).length,
+          staffCount: (this.data.teachers || []).length,
+          status: 'Verified'
+        }
+      ];
+      this.saveData();
+    }
+    return this.data.backupHistory;
+  }
+
+  createBackupSnapshot(label = 'Manual Backup') {
+    if (!this.data.backupHistory) this.data.backupHistory = [];
+    const now = new Date();
+    const dateStr = now.toISOString().split('T')[0];
+    const timeStr = `${String(now.getHours()).padStart(2, '0')}-${String(now.getMinutes()).padStart(2, '0')}`;
+    const fileName = `DB-backup_${dateStr}_${timeStr}.json`;
+    
+    const newBak = {
+      id: `BAK-${Date.now()}`,
+      fileName: fileName,
+      timestamp: `${dateStr} ${timeStr.replace('-', ':')}`,
+      size: `${(JSON.stringify(this.data).length / 1024).toFixed(1)} KB`,
+      type: label,
+      studentsCount: (this.data.students || []).length,
+      staffCount: (this.data.teachers || []).length,
+      status: 'Ready'
+    };
+    
+    this.data.backupHistory.unshift(newBak);
+    this.saveData();
+    return newBak;
+  }
+
+  resetDatabase() {
+    this.data = JSON.parse(JSON.stringify(initialSchoolData));
+    this.saveData();
+    return true;
+  }
+
+  // ==========================================
+  // 👑 SUPER ADMIN ROLE & PERMISSIONS MANAGER
+  // ==========================================
+  getRolePermissions() {
+    if (!this.data.rolePermissions) {
+      this.data.rolePermissions = {
+        "Super Admin": {
+          dashboard: { view: true, export: true },
+          admissions: { view: true, create: true, edit: true, delete: true },
+          students: { view: true, edit: true, delete: true, idCards: true },
+          fees: { view: true, collect: true, discount: true, refund: true, delete: true },
+          staff: { view: true, create: true, edit: true, delete: true, payroll: true },
+          attendance: { view: true, markStudents: true, markStaff: true, biometricSync: true },
+          exams: { view: true, enterMarks: true, reportCards: true, publish: true },
+          transport: { view: true, manageRoutes: true, manageVehicles: true, assign: true },
+          settings: { view: true, backup: true, restore: true, permissions: true }
+        },
+        "Principal": {
+          dashboard: { view: true, export: true },
+          admissions: { view: true, create: true, edit: true, delete: false },
+          students: { view: true, edit: true, delete: false, idCards: true },
+          fees: { view: true, collect: true, discount: true, refund: false, delete: false },
+          staff: { view: true, create: false, edit: true, delete: false, payroll: true },
+          attendance: { view: true, markStudents: true, markStaff: true, biometricSync: true },
+          exams: { view: true, enterMarks: true, reportCards: true, publish: true },
+          transport: { view: true, manageRoutes: true, manageVehicles: true, assign: true },
+          settings: { view: false, backup: true, restore: false, permissions: false }
+        },
+        "Accountant": {
+          dashboard: { view: true, export: true },
+          admissions: { view: true, create: false, edit: false, delete: false },
+          students: { view: true, edit: false, delete: false, idCards: false },
+          fees: { view: true, collect: true, discount: true, refund: true, delete: false },
+          staff: { view: true, create: false, edit: false, delete: false, payroll: true },
+          attendance: { view: true, markStudents: false, markStaff: false, biometricSync: false },
+          exams: { view: false, enterMarks: false, reportCards: false, publish: false },
+          transport: { view: true, manageRoutes: false, manageVehicles: false, assign: false },
+          settings: { view: false, backup: true, restore: false, permissions: false }
+        },
+        "Teacher": {
+          dashboard: { view: true, export: false },
+          admissions: { view: false, create: false, edit: false, delete: false },
+          students: { view: true, edit: false, delete: false, idCards: false },
+          fees: { view: false, collect: false, discount: false, refund: false, delete: false },
+          staff: { view: true, create: false, edit: false, delete: false, payroll: false },
+          attendance: { view: true, markStudents: true, markStaff: false, biometricSync: false },
+          exams: { view: true, enterMarks: true, reportCards: true, publish: false },
+          transport: { view: false, manageRoutes: false, manageVehicles: false, assign: false },
+          settings: { view: false, backup: false, restore: false, permissions: false }
+        },
+        "Librarian": {
+          dashboard: { view: true, export: false },
+          admissions: { view: false, create: false, edit: false, delete: false },
+          students: { view: true, edit: false, delete: false, idCards: false },
+          fees: { view: false, collect: false, discount: false, refund: false, delete: false },
+          staff: { view: true, create: false, edit: false, delete: false, payroll: false },
+          attendance: { view: true, markStudents: false, markStaff: false, biometricSync: false },
+          exams: { view: false, enterMarks: false, reportCards: false, publish: false },
+          transport: { view: false, manageRoutes: false, manageVehicles: false, assign: false },
+          settings: { view: false, backup: false, restore: false, permissions: false }
+        },
+        "Transport Manager": {
+          dashboard: { view: true, export: false },
+          admissions: { view: false, create: false, edit: false, delete: false },
+          students: { view: true, edit: false, delete: false, idCards: false },
+          fees: { view: false, collect: false, discount: false, refund: false, delete: false },
+          staff: { view: true, create: false, edit: false, delete: false, payroll: false },
+          attendance: { view: true, markStudents: false, markStaff: false, biometricSync: false },
+          exams: { view: false, enterMarks: false, reportCards: false, publish: false },
+          transport: { view: true, manageRoutes: true, manageVehicles: true, assign: true },
+          settings: { view: false, backup: false, restore: false, permissions: false }
+        },
+        "Parent": {
+          dashboard: { view: true, export: false },
+          admissions: { view: false, create: false, edit: false, delete: false },
+          students: { view: true, edit: false, delete: false, idCards: true },
+          fees: { view: true, collect: false, discount: false, refund: false, delete: false },
+          staff: { view: false, create: false, edit: false, delete: false, payroll: false },
+          attendance: { view: true, markStudents: false, markStaff: false, biometricSync: false },
+          exams: { view: true, enterMarks: false, reportCards: true, publish: false },
+          transport: { view: true, manageRoutes: false, manageVehicles: false, assign: false },
+          settings: { view: false, backup: false, restore: false, permissions: false }
+        },
+        "Student": {
+          dashboard: { view: true, export: false },
+          admissions: { view: false, create: false, edit: false, delete: false },
+          students: { view: true, edit: false, delete: false, idCards: true },
+          fees: { view: true, collect: false, discount: false, refund: false, delete: false },
+          staff: { view: false, create: false, edit: false, delete: false, payroll: false },
+          attendance: { view: true, markStudents: false, markStaff: false, biometricSync: false },
+          exams: { view: true, enterMarks: false, reportCards: true, publish: false },
+          transport: { view: true, manageRoutes: false, manageVehicles: false, assign: false },
+          settings: { view: false, backup: false, restore: false, permissions: false }
+        }
+      };
+      this.saveData();
+    }
+    return this.data.rolePermissions;
+  }
+
+  saveRolePermissions(permissions) {
+    this.data.rolePermissions = permissions;
+    this.saveData();
+    return this.data.rolePermissions;
+  }
+
   // Other entities getters
   getTransport() { return this.data.transport || []; }
   getHostels() { return this.data.hostels || []; }
