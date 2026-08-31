@@ -1,0 +1,64 @@
+{
+  "lastSync": "2026-08-31 15:36:57",
+  "machineIp": "192.168.1.201",
+  "machineModel": "Secureye S-FB3K",
+  "deviceStatus": "Standby",
+  "punches": [
+    {
+      "id": "PUNCH-1788170817-1",
+      "employeeId": "EMP-2026-050",
+      "staffId": "TCH-1001",
+      "name": "Dr. Rajesh Sharma",
+      "designation": "Principal & Senior Physics Faculty",
+      "department": "Science",
+      "punchDate": "2026-08-31",
+      "inTime": "08:14:22 AM",
+      "outTime": "03:15:10 PM",
+      "verifyType": "Face Recognition",
+      "deviceSn": "102025020000143",
+      "status": "On Time"
+    },
+    {
+      "id": "PUNCH-1788170817-2",
+      "employeeId": "EMP-2026-051",
+      "staffId": "TCH-1002",
+      "name": "Sunita Verma",
+      "designation": "Vice Principal & Mathematics",
+      "department": "Mathematics",
+      "punchDate": "2026-08-31",
+      "inTime": "08:28:45 AM",
+      "outTime": "03:20:00 PM",
+      "verifyType": "Fingerprint",
+      "deviceSn": "102025020000143",
+      "status": "On Time"
+    },
+    {
+      "id": "PUNCH-1788170817-3",
+      "employeeId": "EMP-2026-052",
+      "staffId": "TCH-1003",
+      "name": "Vikramaditya Chauhan",
+      "designation": "HOD Hindi & Sanskrit Literature",
+      "department": "Languages",
+      "punchDate": "2026-08-31",
+      "inTime": "08:52:10 AM",
+      "outTime": "03:10:45 PM",
+      "verifyType": "Fingerprint",
+      "deviceSn": "102025020000143",
+      "status": "Late Arrival"
+    },
+    {
+      "id": "PUNCH-1788170817-4",
+      "employeeId": "EMP-2026-053",
+      "staffId": "TCH-1004",
+      "name": "Meenakshi Sundaram",
+      "designation": "Senior Chemistry Lecturer",
+      "department": "Science",
+      "punchDate": "2026-08-31",
+      "inTime": "08:35:18 AM",
+      "outTime": "03:30:15 PM",
+      "verifyType": "Face Recognition",
+      "deviceSn": "102025020000143",
+      "status": "On Time"
+    }
+  ]
+}
