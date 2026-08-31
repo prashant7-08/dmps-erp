@@ -220,7 +220,7 @@ export const AttendancePage = ({ initialType = 'student' }) => {
   const defaulters = students.filter(s => (s.attendanceSummary?.percentage || 95) < 75);
 
   const departments = ['All', 'Academics', 'Science', 'Mathematics', 'Languages', 'Humanities', 'Sports & Physical', 'Administration'];
-  const classesList = ['All', 'Play Group', 'Nursery', 'LKG', 'UKG', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11 (Sci)', 'Class 11 (Comm)', 'Class 11 (Arts)', 'Class 12 (Sci)', 'Class 12 (Comm)', 'Class 12 (Arts)'];
+  const classesList = ['All', 'Play Group', 'Nursery', 'LKG', 'UKG', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10'];
 
   const statusColors = {
     Present: 'bg-emerald-600 text-white font-bold',

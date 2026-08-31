@@ -2269,8 +2269,6 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                       <option>Class 8</option>
                       <option>Class 9</option>
                       <option>Class 10</option>
-                      <option>Class 11 (Science / Commerce / Arts)</option>
-                      <option>Class 12 (Science / Commerce / Arts)</option>
                     </select>
                   </div>
                 </div>

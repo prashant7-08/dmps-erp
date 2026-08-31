@@ -194,9 +194,7 @@ export const initialSchoolData = {
         "name": "Class 9",
         "numericLevel": 9,
         "streams": [
-            "General",
-            "Science",
-            "Commerce"
+            "General"
         ],
         "capacity": 50,
         "roomNo": "TF-01"
@@ -206,36 +204,10 @@ export const initialSchoolData = {
         "name": "Class 10",
         "numericLevel": 10,
         "streams": [
-            "General",
-            "Science",
-            "Commerce"
+            "General"
         ],
         "capacity": 50,
         "roomNo": "TF-02"
-    },
-    {
-        "id": "CLS-11",
-        "name": "Class 11",
-        "numericLevel": 11,
-        "streams": [
-            "Science",
-            "Commerce",
-            "Arts/Humanities"
-        ],
-        "capacity": 55,
-        "roomNo": "TF-03"
-    },
-    {
-        "id": "CLS-12",
-        "name": "Class 12",
-        "numericLevel": 12,
-        "streams": [
-            "Science",
-            "Commerce",
-            "Arts/Humanities"
-        ],
-        "capacity": 55,
-        "roomNo": "TF-04"
     }
 ],
 
@@ -614,7 +586,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "Sh. Gaurav Sharma",
@@ -637,12 +609,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 8800,
-            "totalDue": 32800,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 32800,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -651,18 +625,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 800,
-            "annualTransportDue11Months": 8800
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9758900000",
         "fatherPhone": "+91 9758900000",
         "fatherMobile": "+91 9758900000",
         "mobile": "+91 9758900000",
         "fatherName": "Sh. Gaurav Sharma",
-        "motherName": "Smt. Sunita Sharma"
+        "motherName": "Smt. Sunita Sharma",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-002",
@@ -677,7 +653,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "Sh. Gaurav Sharma",
@@ -700,12 +676,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 5500,
-            "totalDue": 29500,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 29500,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -714,18 +692,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "NAGLA VIDHI",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9758900001",
         "fatherPhone": "+91 9758900001",
         "fatherMobile": "+91 9758900001",
         "mobile": "+91 9758900001",
         "fatherName": "Sh. Gaurav Sharma",
-        "motherName": "Smt. Sunita Sharma"
+        "motherName": "Smt. Sunita Sharma",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-003",
@@ -740,7 +720,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "MANOJ KUMAR",
@@ -763,12 +743,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 5500,
-            "totalDue": 29500,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 29500,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -777,18 +759,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "KANAKPUR",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9761089039",
         "fatherPhone": "+91 9761089039",
         "fatherMobile": "+91 9761089039",
         "mobile": "+91 9761089039",
         "fatherName": "MANOJ KUMAR",
-        "motherName": "LAXMI"
+        "motherName": "LAXMI",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-004",
@@ -803,7 +787,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "SURENDRA SINGH",
@@ -826,12 +810,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 3850,
-            "totalDue": 27850,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 27850,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -840,18 +826,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 350,
-            "annualTransportDue11Months": 3850
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9758882443",
         "fatherPhone": "+91 9758882443",
         "fatherMobile": "+91 9758882443",
         "mobile": "+91 9758882443",
         "fatherName": "SURENDRA SINGH",
-        "motherName": "KAMLESH"
+        "motherName": "KAMLESH",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-005",
@@ -866,7 +854,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "BHURE KHAN",
@@ -889,12 +877,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 8800,
-            "totalDue": 32800,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 32800,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -903,18 +893,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
             "stop": "KALIYANPUR",
-            "monthlyFare": 800,
-            "annualTransportDue11Months": 8800
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9548255028",
         "fatherPhone": "+91 9548255028",
         "fatherMobile": "+91 9548255028",
         "mobile": "+91 9548255028",
         "fatherName": "BHURE KHAN",
-        "motherName": "NAZMA BEGAM"
+        "motherName": "NAZMA BEGAM",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-006",
@@ -929,7 +921,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "DINESH KUMAR",
@@ -952,12 +944,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 6050,
-            "totalDue": 30050,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 30050,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -966,18 +960,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "BAIJALA",
-            "monthlyFare": 550,
-            "annualTransportDue11Months": 6050
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9720002824",
         "fatherPhone": "+91 9720002824",
         "fatherMobile": "+91 9720002824",
         "mobile": "+91 9720002824",
         "fatherName": "DINESH KUMAR",
-        "motherName": "JHHANKA DEVI"
+        "motherName": "JHHANKA DEVI",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-007",
@@ -992,7 +988,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "SANJAY KUMAR",
@@ -1015,12 +1011,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 7700,
-            "totalDue": 31700,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 31700,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -1029,18 +1027,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MOUNIPURA",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 6395011712",
         "fatherPhone": "+91 6395011712",
         "fatherMobile": "+91 6395011712",
         "mobile": "+91 6395011712",
         "fatherName": "SANJAY KUMAR",
-        "motherName": "VEENA"
+        "motherName": "VEENA",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-008",
@@ -1055,7 +1055,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "RAJESH KUMAR",
@@ -1078,12 +1078,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 3850,
-            "totalDue": 27850,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 27850,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -1092,18 +1094,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 350,
-            "annualTransportDue11Months": 3850
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9758143201",
         "fatherPhone": "+91 9758143201",
         "fatherMobile": "+91 9758143201",
         "mobile": "+91 9758143201",
         "fatherName": "RAJESH KUMAR",
-        "motherName": "MITHLESH DEVI"
+        "motherName": "MITHLESH DEVI",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-009",
@@ -1143,6 +1147,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 26500,
             "totalPaid": 0,
             "balance": 26500,
@@ -1206,6 +1212,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 29250,
             "totalPaid": 0,
             "balance": 29250,
@@ -1269,6 +1277,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 26500,
             "totalPaid": 10000.0,
             "balance": 16500.0,
@@ -1332,6 +1342,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24850,
             "totalPaid": 0,
             "balance": 24850,
@@ -1395,6 +1407,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 26500,
             "totalPaid": 5500.0,
             "balance": 21000.0,
@@ -1458,6 +1472,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24850,
             "totalPaid": 3000.0,
             "balance": 21850.0,
@@ -1521,6 +1537,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 28150,
             "totalPaid": 0,
             "balance": 28150,
@@ -1584,6 +1602,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 29800,
             "totalPaid": 0,
             "balance": 29800,
@@ -1647,6 +1667,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 29800,
             "totalPaid": 0,
             "balance": 29800,
@@ -1710,6 +1732,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 29800,
             "totalPaid": 0,
             "balance": 29800,
@@ -1773,6 +1797,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 29250,
             "totalPaid": 10000.0,
             "balance": 19250.0,
@@ -1836,6 +1862,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 26500,
             "totalPaid": 0,
             "balance": 26500,
@@ -1899,6 +1927,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 29800,
             "totalPaid": 0,
             "balance": 29800,
@@ -1962,6 +1992,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 4510,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25510,
             "totalPaid": 19000.0,
             "balance": 6510.0,
@@ -2025,6 +2057,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 28300,
             "totalPaid": 0,
             "balance": 28300,
@@ -2088,6 +2122,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25000,
             "totalPaid": 0,
             "balance": 25000,
@@ -2163,6 +2199,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -2226,6 +2264,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25000,
             "totalPaid": 0,
             "balance": 25000,
@@ -2289,6 +2329,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 29250,
             "totalPaid": 15000.0,
             "balance": 14250.0,
@@ -2352,6 +2394,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -2415,6 +2459,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -2478,6 +2524,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -2541,6 +2589,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -2604,6 +2654,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -2667,6 +2719,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -2730,6 +2784,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25000,
             "totalPaid": 2500.0,
             "balance": 22500.0,
@@ -2793,6 +2849,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 2500.0,
             "balance": 20850.0,
@@ -2856,6 +2914,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 7500.0,
             "balance": 15850.0,
@@ -2919,6 +2979,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -2982,6 +3044,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25250,
             "totalPaid": 0,
             "balance": 25250,
@@ -3045,6 +3109,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25250,
             "totalPaid": 10000.0,
             "balance": 15250.0,
@@ -3108,6 +3174,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24150,
             "totalPaid": 0,
             "balance": 24150,
@@ -3171,6 +3239,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 7500.0,
             "balance": 18300.0,
@@ -3234,6 +3304,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 2500.0,
             "balance": 23300.0,
@@ -3297,6 +3369,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 10000.0,
             "balance": 15800.0,
@@ -3360,6 +3434,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23050,
             "totalPaid": 0,
             "balance": 23050,
@@ -3423,6 +3499,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25250,
             "totalPaid": 0,
             "balance": 25250,
@@ -3486,6 +3564,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 0,
             "balance": 25800,
@@ -3549,6 +3629,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22500,
             "totalPaid": 0,
             "balance": 22500,
@@ -3612,6 +3694,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 0,
             "balance": 25800,
@@ -3687,6 +3771,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 5000.0,
             "balance": 20800.0,
@@ -3750,6 +3836,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23050,
             "totalPaid": 0,
             "balance": 23050,
@@ -3813,6 +3901,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 0,
             "balance": 25800,
@@ -3876,6 +3966,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 0,
             "balance": 25800,
@@ -3939,6 +4031,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 0,
             "balance": 25800,
@@ -4002,6 +4096,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20850,
             "totalPaid": 0,
             "balance": 20850,
@@ -4065,6 +4161,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25800,
             "totalPaid": 0,
             "balance": 25800,
@@ -4128,6 +4226,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 0,
             "balance": 20350,
@@ -4191,6 +4291,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24750,
             "totalPaid": 10000.0,
             "balance": 14750.0,
@@ -4254,6 +4356,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25300,
             "totalPaid": 0,
             "balance": 25300,
@@ -4317,6 +4421,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 0,
             "balance": 20350,
@@ -4380,6 +4486,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22000,
             "totalPaid": 0,
             "balance": 22000,
@@ -4443,6 +4551,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22550,
             "totalPaid": 0,
             "balance": 22550,
@@ -4506,6 +4616,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 0,
             "balance": 20350,
@@ -4569,6 +4681,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22000,
             "totalPaid": 2500.0,
             "balance": 19500.0,
@@ -4632,6 +4746,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 0,
             "balance": 20350,
@@ -4695,6 +4811,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 0,
             "balance": 20350,
@@ -4758,6 +4876,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 5000.0,
             "balance": 15350.0,
@@ -4833,6 +4953,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 5000.0,
             "balance": 15350.0,
@@ -4896,6 +5018,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25300,
             "totalPaid": 4000.0,
             "balance": 21300.0,
@@ -4971,6 +5095,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 2500.0,
             "balance": 17850.0,
@@ -5034,6 +5160,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22000,
             "totalPaid": 0,
             "balance": 22000,
@@ -5097,6 +5225,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25300,
             "totalPaid": 0,
             "balance": 25300,
@@ -5160,6 +5290,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25300,
             "totalPaid": 5000.0,
             "balance": 20300.0,
@@ -5223,6 +5355,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 4000.0,
             "balance": 16350.0,
@@ -5286,6 +5420,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22000,
             "totalPaid": 0,
             "balance": 22000,
@@ -5349,6 +5485,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25300,
             "totalPaid": 0,
             "balance": 25300,
@@ -5412,6 +5550,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 3000.0,
             "balance": 21800.0,
@@ -5475,6 +5615,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 0,
             "balance": 19850,
@@ -5538,6 +5680,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24250,
             "totalPaid": 0,
             "balance": 24250,
@@ -5601,6 +5745,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 15500.0,
             "balance": 9300.0,
@@ -5664,6 +5810,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 5000.0,
             "balance": 19800.0,
@@ -5727,6 +5875,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24250,
             "totalPaid": 0,
             "balance": 24250,
@@ -5790,6 +5940,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 4510,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20510,
             "totalPaid": 3500.0,
             "balance": 17010.0,
@@ -5865,6 +6017,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 7000.0,
             "balance": 12850.0,
@@ -5928,6 +6082,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 0,
             "balance": 19850,
@@ -5991,6 +6147,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24250,
             "totalPaid": 5000.0,
             "balance": 19250.0,
@@ -6054,6 +6212,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24250,
             "totalPaid": 0,
             "balance": 24250,
@@ -6117,6 +6277,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 5000.0,
             "balance": 19800.0,
@@ -6192,6 +6354,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24250,
             "totalPaid": 0,
             "balance": 24250,
@@ -6255,6 +6419,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 10000.0,
             "balance": 14800.0,
@@ -6318,6 +6484,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 9000.0,
             "balance": 10850.0,
@@ -6381,6 +6549,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 5000.0,
             "balance": 19800.0,
@@ -6444,6 +6614,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 5000.0,
             "balance": 19300.0,
@@ -6507,6 +6679,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 4400,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19900,
             "totalPaid": 0,
             "balance": 19900,
@@ -6570,6 +6744,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21000,
             "totalPaid": 0,
             "balance": 21000,
@@ -6633,6 +6809,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 0,
             "balance": 24800,
@@ -6696,6 +6874,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24250,
             "totalPaid": 0,
             "balance": 24250,
@@ -6759,6 +6939,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 0,
             "balance": 23750,
@@ -6822,6 +7004,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 0,
             "balance": 23750,
@@ -6885,6 +7069,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 5000.0,
             "balance": 14850.0,
@@ -6948,6 +7134,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -7011,6 +7199,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21000,
             "totalPaid": 0,
             "balance": 21000,
@@ -7074,6 +7264,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 10000.0,
             "balance": 14300.0,
@@ -7137,6 +7329,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -7200,6 +7394,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25015,
             "totalPaid": 12000.0,
             "balance": 13015.0,
@@ -7263,6 +7459,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 5000.0,
             "balance": 19300.0,
@@ -7333,6 +7531,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -7396,6 +7596,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 2000.0,
             "balance": 22800.0,
@@ -7459,6 +7661,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 2500.0,
             "balance": 16850.0,
@@ -7522,6 +7726,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -7585,6 +7791,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 10000.0,
             "balance": 14300.0,
@@ -7648,6 +7856,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 3000.0,
             "balance": 20750.0,
@@ -7711,6 +7921,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 10000.0,
             "balance": 13750.0,
@@ -7774,6 +7986,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24250,
             "totalPaid": 12900.0,
             "balance": 11350.0,
@@ -7849,6 +8063,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21550,
             "totalPaid": 5000.0,
             "balance": 16550.0,
@@ -7912,6 +8128,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 9000.0,
             "balance": 10350.0,
@@ -7975,6 +8193,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 0,
             "balance": 19350,
@@ -8050,6 +8270,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 0,
             "balance": 23750,
@@ -8113,6 +8335,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -8176,6 +8400,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -8239,6 +8465,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 0,
             "balance": 19350,
@@ -8302,6 +8530,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -8377,6 +8607,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21000,
             "totalPaid": 0,
             "balance": 21000,
@@ -8440,6 +8672,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 4000.0,
             "balance": 15850.0,
@@ -8503,6 +8737,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 10000.0,
             "balance": 13750.0,
@@ -8566,6 +8802,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 0,
             "balance": 23750,
@@ -8629,6 +8867,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 2500.0,
             "balance": 21800.0,
@@ -8692,6 +8932,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 10000.0,
             "balance": 13750.0,
@@ -8755,6 +8997,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 0,
             "balance": 23750,
@@ -8818,6 +9062,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 0,
             "balance": 23800,
@@ -8881,6 +9127,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 0,
             "balance": 23250,
@@ -8944,6 +9192,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -9007,6 +9257,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 10000.0,
             "balance": 13800.0,
@@ -9070,6 +9322,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 5000.0,
             "balance": 18800.0,
@@ -9133,6 +9387,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21600,
             "totalPaid": 0,
             "balance": 21600,
@@ -9196,6 +9452,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -9259,6 +9517,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 5000.0,
             "balance": 18800.0,
@@ -9322,6 +9582,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20500,
             "totalPaid": 0,
             "balance": 20500,
@@ -9385,6 +9647,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 6000.0,
             "balance": 17800.0,
@@ -9448,6 +9712,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 4000.0,
             "balance": 14850.0,
@@ -9511,6 +9777,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -9574,6 +9842,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 20150.0,
             "balance": 3100.0,
@@ -9637,6 +9907,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -9700,6 +9972,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20500,
             "totalPaid": 0,
             "balance": 20500,
@@ -9763,6 +10037,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21050,
             "totalPaid": 10000.0,
             "balance": 11050.0,
@@ -9826,6 +10102,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 0,
             "balance": 23250,
@@ -9889,6 +10167,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -9952,6 +10232,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -10022,6 +10304,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20500,
             "totalPaid": 5000.0,
             "balance": 15500.0,
@@ -10085,6 +10369,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -10148,6 +10434,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -10211,6 +10499,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -10274,6 +10564,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -10337,6 +10629,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 10000.0,
             "balance": 9350.0,
@@ -10400,6 +10694,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 0,
             "balance": 23800,
@@ -10463,6 +10759,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24515,
             "totalPaid": 10000.0,
             "balance": 14515.0,
@@ -10538,6 +10836,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 14000.0,
             "balance": 9750.0,
@@ -10601,6 +10901,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 0,
             "balance": 19850,
@@ -10664,6 +10966,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 4000.0,
             "balance": 14850.0,
@@ -10727,6 +11031,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 8000.0,
             "balance": 15250.0,
@@ -10802,6 +11108,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 3000.0,
             "balance": 20250.0,
@@ -10865,6 +11173,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 6000.0,
             "balance": 17800.0,
@@ -10928,6 +11238,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 0,
             "balance": 23250,
@@ -10991,6 +11303,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 3500.0,
             "balance": 20300.0,
@@ -11054,6 +11368,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 0,
             "balance": 23250,
@@ -11117,6 +11433,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 6500.0,
             "balance": 17300.0,
@@ -11180,6 +11498,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 0,
             "balance": 23800,
@@ -11243,6 +11563,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 0,
             "balance": 19350,
@@ -11306,6 +11628,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 5000.0,
             "balance": 18800.0,
@@ -11369,6 +11693,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 7000.0,
             "balance": 16800.0,
@@ -11432,6 +11758,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20500,
             "totalPaid": 0,
             "balance": 20500,
@@ -11495,6 +11823,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 0,
             "balance": 23800,
@@ -11558,6 +11888,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 5000.0,
             "balance": 17750.0,
@@ -11621,6 +11953,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 7700,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22200,
             "totalPaid": 0,
             "balance": 22200,
@@ -11684,6 +12018,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 5000.0,
             "balance": 17750.0,
@@ -11747,6 +12083,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 10300.0,
             "balance": 12450.0,
@@ -11810,6 +12148,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 0,
             "balance": 22750,
@@ -11873,6 +12213,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20550,
             "totalPaid": 0,
             "balance": 20550,
@@ -11936,6 +12278,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 0,
             "balance": 22750,
@@ -11999,6 +12343,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 0,
             "balance": 23300,
@@ -12062,6 +12408,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21100,
             "totalPaid": 10000.0,
             "balance": 11100.0,
@@ -12125,6 +12473,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 0,
             "balance": 22750,
@@ -12188,6 +12538,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 2500.0,
             "balance": 15850.0,
@@ -12251,6 +12603,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -12314,6 +12668,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 0,
             "balance": 22750,
@@ -12384,6 +12740,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 0,
             "balance": 22750,
@@ -12447,6 +12805,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20000,
             "totalPaid": 10000.0,
             "balance": 10000.0,
@@ -12510,6 +12870,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 0,
             "balance": 22750,
@@ -12573,6 +12935,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 0,
             "balance": 22750,
@@ -12636,6 +13000,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 6000.0,
             "balance": 12350.0,
@@ -12699,6 +13065,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -12762,6 +13130,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 0,
             "balance": 19350,
@@ -12825,6 +13195,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20000,
             "totalPaid": 0,
             "balance": 20000,
@@ -12888,6 +13260,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20000,
             "totalPaid": 5000.0,
             "balance": 15000.0,
@@ -12951,6 +13325,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -13014,6 +13390,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -13077,6 +13455,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 0,
             "balance": 23300,
@@ -13140,6 +13520,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -13203,6 +13585,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 0,
             "balance": 23300,
@@ -13266,6 +13650,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 7700,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22200,
             "totalPaid": 0,
             "balance": 22200,
@@ -13329,6 +13715,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -13392,6 +13780,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 9000.0,
             "balance": 9350.0,
@@ -13455,6 +13845,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 9570,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24570,
             "totalPaid": 0,
             "balance": 24570,
@@ -13518,6 +13910,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 7700,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23200,
             "totalPaid": 0,
             "balance": 23200,
@@ -13581,6 +13975,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 0,
             "balance": 23300,
@@ -13644,6 +14040,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 10000.0,
             "balance": 8350.0,
@@ -13707,6 +14105,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 3000.0,
             "balance": 20300.0,
@@ -13777,6 +14177,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 7500.0,
             "balance": 15800.0,
@@ -13840,6 +14242,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 0,
             "balance": 22750,
@@ -13903,6 +14307,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 6000.0,
             "balance": 16750.0,
@@ -13973,6 +14379,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20000,
             "totalPaid": 5000.0,
             "balance": 15000.0,
@@ -14036,6 +14444,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20000,
             "totalPaid": 6000.0,
             "balance": 14000.0,
@@ -14099,6 +14509,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -14162,6 +14574,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20050,
             "totalPaid": 0,
             "balance": 20050,
@@ -14225,6 +14639,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21150,
             "totalPaid": 0,
             "balance": 21150,
@@ -14288,6 +14704,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,
@@ -14351,6 +14769,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21650,
             "totalPaid": 5000.0,
             "balance": 16650.0,
@@ -14414,6 +14834,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -14477,6 +14899,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20050,
             "totalPaid": 0,
             "balance": 20050,
@@ -14540,6 +14964,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 0,
             "balance": 23300,
@@ -14603,6 +15029,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,
@@ -14666,6 +15094,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -14729,6 +15159,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -14792,6 +15224,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -14855,6 +15289,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 7500.0,
             "balance": 10350.0,
@@ -14918,6 +15354,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 7700,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21700,
             "totalPaid": 0,
             "balance": 21700,
@@ -14981,6 +15419,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -15044,6 +15484,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,
@@ -15107,6 +15549,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,
@@ -15170,6 +15614,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 9570,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23570,
             "totalPaid": 0,
             "balance": 23570,
@@ -15233,6 +15679,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,
@@ -15296,6 +15744,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -15359,6 +15809,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -15422,6 +15874,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19500,
             "totalPaid": 5000.0,
             "balance": 14500.0,
@@ -15485,6 +15939,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19500,
             "totalPaid": 0,
             "balance": 19500,
@@ -15548,6 +16004,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -15611,6 +16069,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 18650.0,
             "balance": 0,
@@ -15674,6 +16134,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -15737,6 +16199,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -15800,6 +16264,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19500,
             "totalPaid": 5000.0,
             "balance": 14500.0,
@@ -15863,6 +16329,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -15926,6 +16394,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21150,
             "totalPaid": 5000.0,
             "balance": 16150.0,
@@ -15989,6 +16459,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20050,
             "totalPaid": 10000.0,
             "balance": 10050.0,
@@ -16052,6 +16524,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -16115,6 +16589,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19550,
             "totalPaid": 0,
             "balance": 19550,
@@ -16178,6 +16654,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -16241,6 +16719,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19000,
             "totalPaid": 0,
             "balance": 19000,
@@ -16304,6 +16784,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21750,
             "totalPaid": 6000.0,
             "balance": 15750.0,
@@ -16367,6 +16849,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 10000.0,
             "balance": 12300.0,
@@ -16430,6 +16914,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -16493,6 +16979,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -16556,6 +17044,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 5000.0,
             "balance": 12350.0,
@@ -16619,6 +17109,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20100,
             "totalPaid": 0,
             "balance": 20100,
@@ -16682,6 +17174,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19550,
             "totalPaid": 0,
             "balance": 19550,
@@ -16745,6 +17239,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 4510,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18010,
             "totalPaid": 0,
             "balance": 18010,
@@ -16815,6 +17311,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19550,
             "totalPaid": 5000.0,
             "balance": 14550.0,
@@ -16878,6 +17376,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19550,
             "totalPaid": 0,
             "balance": 19550,
@@ -16941,6 +17441,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21750,
             "totalPaid": 10000.0,
             "balance": 11750.0,
@@ -17016,6 +17518,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 10000.0,
             "balance": 7350.0,
@@ -17079,6 +17583,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 7700,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20200,
             "totalPaid": 0,
             "balance": 20200,
@@ -17142,6 +17648,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 5000.0,
             "balance": 18300.0,
@@ -17205,6 +17713,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -17268,6 +17778,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23015,
             "totalPaid": 3000.0,
             "balance": 20015.0,
@@ -17338,6 +17850,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -17401,6 +17915,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -17464,6 +17980,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21750,
             "totalPaid": 10000.0,
             "balance": 11750.0,
@@ -17527,6 +18045,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -17590,6 +18110,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20100,
             "totalPaid": 0,
             "balance": 20100,
@@ -17653,6 +18175,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21750,
             "totalPaid": 0,
             "balance": 21750,
@@ -17716,6 +18240,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -17779,6 +18305,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 9350,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 10000.0,
             "balance": 13350.0,
@@ -17854,6 +18382,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -17917,6 +18447,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -17980,6 +18512,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20750,
             "totalPaid": 0,
             "balance": 20750,
@@ -18043,6 +18577,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20750,
             "totalPaid": 0,
             "balance": 20750,
@@ -18106,6 +18642,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20750,
             "totalPaid": 3000.0,
             "balance": 17750.0,
@@ -18169,6 +18707,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19750,
             "totalPaid": 0,
             "balance": 19750,
@@ -18232,6 +18772,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 5000.0,
             "balance": 10350.0,
@@ -18295,6 +18837,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19100,
             "totalPaid": 0,
             "balance": 19100,
@@ -18358,6 +18902,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18550,
             "totalPaid": 10000.0,
             "balance": 8550.0,
@@ -18421,6 +18967,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 9350,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21850,
             "totalPaid": 10000.0,
             "balance": 11850.0,
@@ -18491,6 +19039,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -18554,6 +19104,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18000,
             "totalPaid": 0,
             "balance": 18000,
@@ -18617,6 +19169,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -18680,6 +19234,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -18743,6 +19299,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18000,
             "totalPaid": 0,
             "balance": 18000,
@@ -18806,6 +19364,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -18869,6 +19429,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17000,
             "totalPaid": 0,
             "balance": 17000,
@@ -18932,6 +19494,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21300,
             "totalPaid": 0,
             "balance": 21300,
@@ -18970,7 +19534,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "Sh. Gaurav Sharma",
@@ -18993,12 +19557,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 7700,
-            "totalDue": 31700,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 31700,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -19007,18 +19573,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
             "stop": "GAHTOLI",
-            "monthlyFare": 700,
-            "annualTransportDue11Months": 7700
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9758900288",
         "fatherPhone": "+91 9758900288",
         "fatherMobile": "+91 9758900288",
         "mobile": "+91 9758900288",
         "fatherName": "Sh. Gaurav Sharma",
-        "motherName": "Smt. Sunita Sharma"
+        "motherName": "Smt. Sunita Sharma",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-290",
@@ -19033,7 +19601,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "Sh. Gaurav Sharma",
@@ -19056,12 +19624,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 8800,
-            "totalDue": 32800,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 32800,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -19070,18 +19640,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
             "stop": "RAMGHAT",
-            "monthlyFare": 800,
-            "annualTransportDue11Months": 8800
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9758900289",
         "fatherPhone": "+91 9758900289",
         "fatherMobile": "+91 9758900289",
         "mobile": "+91 9758900289",
         "fatherName": "Sh. Gaurav Sharma",
-        "motherName": "Smt. Sunita Sharma"
+        "motherName": "Smt. Sunita Sharma",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-291",
@@ -19096,7 +19668,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "SATISH KUMAR",
@@ -19119,12 +19691,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 5500,
-            "totalDue": 29500,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 29500,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -19133,18 +19707,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
             "stop": "MUHAMMADPUR",
-            "monthlyFare": 500,
-            "annualTransportDue11Months": 5500
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 8476978719",
         "fatherPhone": "+91 8476978719",
         "fatherMobile": "+91 8476978719",
         "mobile": "+91 8476978719",
         "fatherName": "SATISH KUMAR",
-        "motherName": "VIMLESH DEVI"
+        "motherName": "VIMLESH DEVI",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-292",
@@ -19159,7 +19735,7 @@ export const initialSchoolData = {
         "section": "A",
         "branchId": "BR-01",
         "branchName": "Dadheech Memorial Public School (Main Campus)",
-        "status": "Active",
+        "status": "Inactive",
         "deactivateInfo": null,
         "parents": {
             "fatherName": "YOGENDRA KUMAR",
@@ -19182,12 +19758,14 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "tuitionDue": 24000,
-            "transportDue11Months": 3850,
-            "totalDue": 27850,
+            "tuitionDue": 0,
+            "transportDue11Months": 0,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
+            "totalDue": 0,
             "totalPaid": 0,
-            "balance": 27850,
-            "status": "Pending",
+            "balance": 0,
+            "status": "Inactive",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -19196,18 +19774,20 @@ export const initialSchoolData = {
         },
         "siblings": [],
         "transport": {
-            "isEnrolled": true,
+            "isEnrolled": false,
             "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
             "stop": "JARGWAN",
-            "monthlyFare": 350,
-            "annualTransportDue11Months": 3850
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
         },
         "phone": "+91 9958880327",
         "fatherPhone": "+91 9958880327",
         "fatherMobile": "+91 9958880327",
         "mobile": "+91 9958880327",
         "fatherName": "YOGENDRA KUMAR",
-        "motherName": "LALVATI"
+        "motherName": "LALVATI",
+        "active": false,
+        "enrollmentStatus": "Passed Out / Inactive"
     },
     {
         "id": "STU-2026-293",
@@ -19247,6 +19827,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -19310,6 +19892,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -19373,6 +19957,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25250,
             "totalPaid": 2000.0,
             "balance": 23250.0,
@@ -19436,6 +20022,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20850,
             "totalPaid": 0,
             "balance": 20850,
@@ -19499,6 +20087,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -19562,6 +20152,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 5000.0,
             "balance": 17800.0,
@@ -19625,6 +20217,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23650,
             "totalPaid": 2000.0,
             "balance": 21650.0,
@@ -19688,6 +20282,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 0,
             "balance": 23300,
@@ -19758,6 +20354,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19000,
             "totalPaid": 0,
             "balance": 19000,
@@ -19821,6 +20419,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 9350,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22850,
             "totalPaid": 5000.0,
             "balance": 17850.0,
@@ -19884,6 +20484,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 2000.0,
             "balance": 17350.0,
@@ -19947,6 +20549,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 8000.0,
             "balance": 14250.0,
@@ -20010,6 +20614,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -20080,6 +20686,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19500,
             "totalPaid": 5000.0,
             "balance": 14500.0,
@@ -20143,6 +20751,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -20213,6 +20823,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -20276,6 +20888,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 0,
             "balance": 23800,
@@ -20339,6 +20953,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -20402,6 +21018,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -20465,6 +21083,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -20528,6 +21148,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20850,
             "totalPaid": 5000.0,
             "balance": 15850.0,
@@ -20591,6 +21213,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 5000.0,
             "balance": 13350.0,
@@ -20654,6 +21278,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 3000.0,
             "balance": 13350.0,
@@ -20717,6 +21343,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 600.0,
             "balance": 17750.0,
@@ -20792,6 +21420,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 2000.0,
             "balance": 20300.0,
@@ -20867,6 +21497,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 0,
             "balance": 20300,
@@ -20937,6 +21569,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -21007,6 +21641,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 10000.0,
             "balance": 12300.0,
@@ -21070,6 +21706,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -21133,6 +21771,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 5000.0,
             "balance": 17300.0,
@@ -21196,6 +21836,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21300,
             "totalPaid": 0,
             "balance": 21300,
@@ -21259,6 +21901,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -21322,6 +21966,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -21385,6 +22031,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 0,
             "balance": 23300,
@@ -21448,6 +22096,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -21511,6 +22161,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23515,
             "totalPaid": 0,
             "balance": 23515,
@@ -21574,6 +22226,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21100,
             "totalPaid": 0,
             "balance": 21100,
@@ -21637,6 +22291,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19100,
             "totalPaid": 0,
             "balance": 19100,
@@ -21700,6 +22356,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 12000.0,
             "balance": 4350.0,
@@ -21763,6 +22421,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 29800,
             "totalPaid": 0,
             "balance": 29800,
@@ -21826,6 +22486,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -21889,6 +22551,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 9000.0,
             "balance": 9850.0,
@@ -21952,6 +22616,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25000,
             "totalPaid": 5000.0,
             "balance": 20000.0,
@@ -22015,6 +22681,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -22078,6 +22746,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20750,
             "totalPaid": 0,
             "balance": 20750,
@@ -22141,6 +22811,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -22204,6 +22876,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -22267,6 +22941,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -22330,6 +23006,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17000,
             "totalPaid": 0,
             "balance": 17000,
@@ -22400,6 +23078,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17000,
             "totalPaid": 6000.0,
             "balance": 11000.0,
@@ -22463,6 +23143,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19750,
             "totalPaid": 0,
             "balance": 19750,
@@ -22526,6 +23208,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19750,
             "totalPaid": 0,
             "balance": 19750,
@@ -22589,6 +23273,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 10000.0,
             "balance": 10300.0,
@@ -22652,6 +23338,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18650,
             "totalPaid": 2000.0,
             "balance": 16650.0,
@@ -22715,6 +23403,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18650,
             "totalPaid": 0,
             "balance": 18650,
@@ -22778,6 +23468,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21150,
             "totalPaid": 0,
             "balance": 21150,
@@ -22841,6 +23533,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 7700,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21700,
             "totalPaid": 0,
             "balance": 21700,
@@ -22904,6 +23598,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 7700,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19200,
             "totalPaid": 0,
             "balance": 19200,
@@ -22967,6 +23663,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -23030,6 +23728,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18650,
             "totalPaid": 2500.0,
             "balance": 16150.0,
@@ -23093,6 +23793,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -23156,6 +23858,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -23219,6 +23923,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21150,
             "totalPaid": 0,
             "balance": 21150,
@@ -23282,6 +23988,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16000,
             "totalPaid": 0,
             "balance": 16000,
@@ -23345,6 +24053,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21150,
             "totalPaid": 0,
             "balance": 21150,
@@ -23408,6 +24118,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 7150,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18650,
             "totalPaid": 0,
             "balance": 18650,
@@ -23471,6 +24183,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 5000.0,
             "balance": 9350.0,
@@ -23534,6 +24248,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16550,
             "totalPaid": 0,
             "balance": 16550,
@@ -23597,6 +24313,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 2000.0,
             "balance": 12350.0,
@@ -23660,6 +24378,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 8500.0,
             "balance": 10350.0,
@@ -23723,6 +24443,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 11500.0,
             "balance": 5850.0,
@@ -23786,6 +24508,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18750,
             "totalPaid": 0,
             "balance": 18750,
@@ -23856,6 +24580,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 0,
             "balance": 20300,
@@ -23919,6 +24645,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 7500.0,
             "balance": 10850.0,
@@ -23982,6 +24710,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19750,
             "totalPaid": 0,
             "balance": 19750,
@@ -24045,6 +24775,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 5000.0,
             "balance": 19800.0,
@@ -24108,6 +24840,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16000,
             "totalPaid": 0,
             "balance": 16000,
@@ -24171,6 +24905,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20750,
             "totalPaid": 5000.0,
             "balance": 15750.0,
@@ -24234,6 +24970,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20850,
             "totalPaid": 0,
             "balance": 20850,
@@ -24297,6 +25035,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -24360,6 +25100,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19750,
             "totalPaid": 0,
             "balance": 19750,
@@ -24423,6 +25165,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19750,
             "totalPaid": 10000.0,
             "balance": 9750.0,
@@ -24486,6 +25230,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22015,
             "totalPaid": 0,
             "balance": 22015,
@@ -24549,6 +25295,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,
@@ -24612,6 +25360,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20750,
             "totalPaid": 0,
             "balance": 20750,
@@ -24675,6 +25425,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 9350,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 6500.0,
             "balance": 13350.0,
@@ -24738,6 +25490,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 5000.0,
             "balance": 10350.0,
@@ -24801,6 +25555,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 5000.0,
             "balance": 17750.0,
@@ -24864,6 +25620,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 7700,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 28700,
             "totalPaid": 11000.0,
             "balance": 17700.0,
@@ -24927,6 +25685,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23515,
             "totalPaid": 10500.0,
             "balance": 13015.0,
@@ -24990,6 +25750,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22015,
             "totalPaid": 7000.0,
             "balance": 15015.0,
@@ -25053,6 +25815,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21015,
             "totalPaid": 7000.0,
             "balance": 14015.0,
@@ -25116,6 +25880,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -25179,6 +25945,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 7500.0,
             "balance": 17300.0,
@@ -25242,6 +26010,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 4400,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17900,
             "totalPaid": 0,
             "balance": 17900,
@@ -25305,6 +26075,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21300,
             "totalPaid": 0,
             "balance": 21300,
@@ -25368,6 +26140,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -25431,6 +26205,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 0,
             "balance": 24800,
@@ -25494,6 +26270,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 2000.0,
             "balance": 20300.0,
@@ -25557,6 +26335,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -25620,6 +26400,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 5000.0,
             "balance": 19300.0,
@@ -25683,6 +26465,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 4000.0,
             "balance": 19300.0,
@@ -25746,6 +26530,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21300,
             "totalPaid": 5000.0,
             "balance": 16300.0,
@@ -25809,6 +26595,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 2500.0,
             "balance": 21300.0,
@@ -25884,6 +26672,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21300,
             "totalPaid": 2500.0,
             "balance": 18800.0,
@@ -25954,6 +26744,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17550,
             "totalPaid": 5000.0,
             "balance": 12550.0,
@@ -26017,6 +26809,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16550,
             "totalPaid": 0,
             "balance": 16550,
@@ -26080,6 +26874,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19000,
             "totalPaid": 2000.0,
             "balance": 17000.0,
@@ -26143,6 +26939,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16550,
             "totalPaid": 0,
             "balance": 16550,
@@ -26206,6 +27004,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -26269,6 +27069,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -26332,6 +27134,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -26395,6 +27199,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -26458,6 +27264,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 4000.0,
             "balance": 10350.0,
@@ -26521,6 +27329,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 4000.0,
             "balance": 15300.0,
@@ -26584,6 +27394,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 9350,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 30350,
             "totalPaid": 0,
             "balance": 30350,
@@ -26647,6 +27459,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 10000.0,
             "balance": 8350.0,
@@ -26710,6 +27524,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23300,
             "totalPaid": 0,
             "balance": 23300,
@@ -26773,6 +27589,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -26836,6 +27654,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 0,
             "balance": 20300,
@@ -26911,6 +27731,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -26981,6 +27803,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 21000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 26500,
             "totalPaid": 0,
             "balance": 26500,
@@ -27044,6 +27868,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 3000.0,
             "balance": 11350.0,
@@ -27107,6 +27933,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22750,
             "totalPaid": 0,
             "balance": 22750,
@@ -27170,6 +27998,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21750,
             "totalPaid": 0,
             "balance": 21750,
@@ -27233,6 +28063,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18100,
             "totalPaid": 0,
             "balance": 18100,
@@ -27296,6 +28128,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17750,
             "totalPaid": 0,
             "balance": 17750,
@@ -27359,6 +28193,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25300,
             "totalPaid": 0,
             "balance": 25300,
@@ -27422,6 +28258,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -27485,6 +28323,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -27548,6 +28388,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17000,
             "totalPaid": 0,
             "balance": 17000,
@@ -27611,6 +28453,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19750,
             "totalPaid": 0,
             "balance": 19750,
@@ -27674,6 +28518,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -27737,6 +28583,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16000,
             "totalPaid": 0,
             "balance": 16000,
@@ -27800,6 +28648,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 13350,
             "totalPaid": 0,
             "balance": 13350,
@@ -27863,6 +28713,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -27926,6 +28778,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -27989,6 +28843,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -28052,6 +28908,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -28115,6 +28973,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20750,
             "totalPaid": 0,
             "balance": 20750,
@@ -28178,6 +29038,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -28241,6 +29103,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15000,
             "totalPaid": 0,
             "balance": 15000,
@@ -28304,6 +29168,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -28367,6 +29233,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 0,
             "balance": 20300,
@@ -28430,6 +29298,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 9350,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 5000.0,
             "balance": 14850.0,
@@ -28493,6 +29363,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16000,
             "totalPaid": 0,
             "balance": 16000,
@@ -28556,6 +29428,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16000,
             "totalPaid": 0,
             "balance": 16000,
@@ -28619,6 +29493,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 0,
             "balance": 19850,
@@ -28682,6 +29558,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -28745,6 +29623,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21300,
             "totalPaid": 0,
             "balance": 21300,
@@ -28808,6 +29688,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17000,
             "totalPaid": 0,
             "balance": 17000,
@@ -28871,6 +29753,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -28934,6 +29818,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -28997,6 +29883,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -29060,6 +29948,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -29123,6 +30013,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21000,
             "totalPaid": 0,
             "balance": 21000,
@@ -29186,6 +30078,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19015,
             "totalPaid": 0,
             "balance": 19015,
@@ -29249,6 +30143,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -29312,6 +30208,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 0,
             "balance": 24800,
@@ -29375,6 +30273,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -29438,6 +30338,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -29501,6 +30403,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -29564,6 +30468,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -29627,6 +30533,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -29690,6 +30598,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17550,
             "totalPaid": 0,
             "balance": 17550,
@@ -29753,6 +30663,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19550,
             "totalPaid": 0,
             "balance": 19550,
@@ -29816,6 +30728,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -29879,6 +30793,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25300,
             "totalPaid": 0,
             "balance": 25300,
@@ -29942,6 +30858,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 3000.0,
             "balance": 11350.0,
@@ -30005,6 +30923,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21300,
             "totalPaid": 0,
             "balance": 21300,
@@ -30068,6 +30988,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18750,
             "totalPaid": 0,
             "balance": 18750,
@@ -30131,6 +31053,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20750,
             "totalPaid": 0,
             "balance": 20750,
@@ -30194,6 +31118,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 28300,
             "totalPaid": 0,
             "balance": 28300,
@@ -30257,6 +31183,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 13350,
             "totalPaid": 0,
             "balance": 13350,
@@ -30320,6 +31248,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -30383,6 +31313,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 0,
             "balance": 23250,
@@ -30446,6 +31378,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 0,
             "balance": 20300,
@@ -30509,6 +31443,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21300,
             "totalPaid": 0,
             "balance": 21300,
@@ -30572,6 +31508,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18300,
             "totalPaid": 0,
             "balance": 18300,
@@ -30635,6 +31573,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 9570,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23570,
             "totalPaid": 0,
             "balance": 23570,
@@ -30698,6 +31638,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 9570,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20070,
             "totalPaid": 0,
             "balance": 20070,
@@ -30761,6 +31703,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,
@@ -30824,6 +31768,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 0,
             "balance": 23250,
@@ -30887,6 +31833,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 0,
             "balance": 20300,
@@ -30950,6 +31898,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -31013,6 +31963,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16000,
             "totalPaid": 0,
             "balance": 16000,
@@ -31076,6 +32028,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -31139,6 +32093,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -31202,6 +32158,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -31265,6 +32223,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -31328,6 +32288,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -31391,6 +32353,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18100,
             "totalPaid": 0,
             "balance": 18100,
@@ -31454,6 +32418,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18000,
             "totalPaid": 0,
             "balance": 18000,
@@ -31517,6 +32483,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17000,
             "totalPaid": 0,
             "balance": 17000,
@@ -31580,6 +32548,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 0,
             "balance": 20300,
@@ -31643,6 +32613,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -31706,6 +32678,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 0,
             "balance": 23250,
@@ -31769,6 +32743,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 4510,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16010,
             "totalPaid": 0,
             "balance": 16010,
@@ -31832,6 +32808,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -31895,6 +32873,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 28300,
             "totalPaid": 0,
             "balance": 28300,
@@ -31958,6 +32938,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 9350,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -32021,6 +33003,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21500,
             "totalPaid": 0,
             "balance": 21500,
@@ -32084,6 +33068,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -32147,6 +33133,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19100,
             "totalPaid": 0,
             "balance": 19100,
@@ -32210,6 +33198,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 6600,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17100,
             "totalPaid": 0,
             "balance": 17100,
@@ -32273,6 +33263,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 27750,
             "totalPaid": 0,
             "balance": 27750,
@@ -32336,6 +33328,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23750,
             "totalPaid": 0,
             "balance": 23750,
@@ -32399,6 +33393,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -32462,6 +33458,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 0,
             "balance": 20300,
@@ -32525,6 +33523,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -32588,6 +33588,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 0,
             "balance": 19350,
@@ -32651,6 +33653,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -32714,6 +33718,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24300,
             "totalPaid": 0,
             "balance": 24300,
@@ -32777,6 +33783,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18750,
             "totalPaid": 0,
             "balance": 18750,
@@ -32840,6 +33848,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 13350,
             "totalPaid": 0,
             "balance": 13350,
@@ -32903,6 +33913,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -32973,6 +33985,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17000,
             "totalPaid": 0,
             "balance": 17000,
@@ -33036,6 +34050,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 0,
             "balance": 19350,
@@ -33099,6 +34115,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 7700,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23700,
             "totalPaid": 0,
             "balance": 23700,
@@ -33162,6 +34180,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -33225,6 +34245,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 13350,
             "totalPaid": 0,
             "balance": 13350,
@@ -33288,6 +34310,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19500,
             "totalPaid": 0,
             "balance": 19500,
@@ -33351,6 +34375,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16000,
             "totalPaid": 1000.0,
             "balance": 15000.0,
@@ -33414,6 +34440,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 19500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23350,
             "totalPaid": 0,
             "balance": 23350,
@@ -33477,6 +34505,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17750,
             "totalPaid": 0,
             "balance": 17750,
@@ -33540,6 +34570,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23250,
             "totalPaid": 0,
             "balance": 23250,
@@ -33603,6 +34635,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -33666,6 +34700,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -33729,6 +34765,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18850,
             "totalPaid": 0,
             "balance": 18850,
@@ -33792,6 +34830,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -33855,6 +34895,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 17000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20850,
             "totalPaid": 0,
             "balance": 20850,
@@ -33918,6 +34960,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 0,
             "balance": 24800,
@@ -33981,6 +35025,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 0,
             "balance": 19850,
@@ -34044,6 +35090,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24250,
             "totalPaid": 0,
             "balance": 24250,
@@ -34107,6 +35155,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24800,
             "totalPaid": 0,
             "balance": 24800,
@@ -34170,6 +35220,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -34233,6 +35285,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16550,
             "totalPaid": 0,
             "balance": 16550,
@@ -34296,6 +35350,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16550,
             "totalPaid": 0,
             "balance": 16550,
@@ -34359,6 +35415,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -34422,6 +35480,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 9350,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 0,
             "balance": 19850,
@@ -34485,6 +35545,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18300,
             "totalPaid": 0,
             "balance": 18300,
@@ -34548,6 +35610,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,
@@ -34623,6 +35687,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -34686,6 +35752,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20350,
             "totalPaid": 0,
             "balance": 20350,
@@ -34749,6 +35817,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 0,
             "balance": 19300,
@@ -34812,6 +35882,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19300,
             "totalPaid": 9500.0,
             "balance": 9800.0,
@@ -34875,6 +35947,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16000,
             "totalPaid": 0,
             "balance": 16000,
@@ -34938,6 +36012,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17750,
             "totalPaid": 0,
             "balance": 17750,
@@ -35001,6 +36077,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -35064,6 +36142,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 5500,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17000,
             "totalPaid": 5000.0,
             "balance": 12000.0,
@@ -35127,6 +36207,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 20300,
             "totalPaid": 0,
             "balance": 20300,
@@ -35190,6 +36272,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 9500,
             "transportDue11Months": 6050,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15550,
             "totalPaid": 4000.0,
             "balance": 11550.0,
@@ -35253,6 +36337,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22800,
             "totalPaid": 0,
             "balance": 22800,
@@ -35316,6 +36402,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -35379,6 +36467,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -35442,6 +36532,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -35505,6 +36597,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 9350,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 25350,
             "totalPaid": 0,
             "balance": 25350,
@@ -35568,6 +36662,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19350,
             "totalPaid": 0,
             "balance": 19350,
@@ -35631,6 +36727,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 24015,
             "totalPaid": 0,
             "balance": 24015,
@@ -35694,6 +36792,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 9515,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23015,
             "totalPaid": 0,
             "balance": 23015,
@@ -35757,6 +36857,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 21750,
             "totalPaid": 0,
             "balance": 21750,
@@ -35820,6 +36922,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -35883,6 +36987,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 11500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 15350,
             "totalPaid": 0,
             "balance": 15350,
@@ -35946,6 +37052,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -36009,6 +37117,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 12500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 16350,
             "totalPaid": 0,
             "balance": 16350,
@@ -36072,6 +37182,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17850,
             "totalPaid": 0,
             "balance": 17850,
@@ -36135,6 +37247,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 15000,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 23800,
             "totalPaid": 0,
             "balance": 23800,
@@ -36198,6 +37312,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 18350,
             "totalPaid": 0,
             "balance": 18350,
@@ -36261,6 +37377,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 2000.0,
             "balance": 12350.0,
@@ -36324,6 +37442,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 10500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 14350,
             "totalPaid": 0,
             "balance": 14350,
@@ -36387,6 +37507,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 8800,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22300,
             "totalPaid": 0,
             "balance": 22300,
@@ -36450,6 +37572,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 13500,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 17350,
             "totalPaid": 0,
             "balance": 17350,
@@ -36513,6 +37637,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 16000,
             "transportDue11Months": 3850,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 19850,
             "totalPaid": 0,
             "balance": 19850,
@@ -36576,6 +37702,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,
@@ -36651,6 +37779,8 @@ export const initialSchoolData = {
         "feeSummary": {
             "tuitionDue": 14000,
             "transportDue11Months": 8250,
+            "previousSessionDues": 0,
+            "miscellaneousDue": 0,
             "totalDue": 22250,
             "totalPaid": 0,
             "balance": 22250,

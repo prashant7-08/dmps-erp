@@ -805,12 +805,12 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                     onChange={(e) => setSelectedClass(e.target.value)}
                     className="p-2 text-xs font-bold rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white"
                   >
-                    <option value="All">All Classes (1 to 12)</option>
+                    <option value="All">All Classes (PG to 10th)</option>
                     <option value="Class 10">Class 10</option>
-                    <option value="Class 11">Class 11</option>
-                    <option value="Class 12">Class 12</option>
                     <option value="Class 9">Class 9</option>
                     <option value="Class 8">Class 8</option>
+                    <option value="Class 7">Class 7</option>
+                    <option value="Class 6">Class 6</option>
                   </select>
                 ) : (
                   <select

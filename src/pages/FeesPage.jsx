@@ -998,7 +998,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                   className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
                 >
                   <option value="All">All Classes (School-Wide)</option>
-                  {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'].map(c => (
+                  {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'].map(c => (
                     <option key={c} value={c}>Class {c}</option>
                   ))}
                 </select>
@@ -1332,7 +1332,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                 className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold"
               >
                 <option value="All">All Classes</option>
-                {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'].map(c => (
+                {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'].map(c => (
                   <option key={c} value={c}>Class {c}</option>
                 ))}
               </select>

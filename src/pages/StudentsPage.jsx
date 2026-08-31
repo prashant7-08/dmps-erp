@@ -157,9 +157,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
     { id: 'VII', label: 'Class 7th (VII)' },
     { id: 'VIII', label: 'Class 8th (VIII)' },
     { id: 'IX', label: 'Class 9th (IX)' },
-    { id: 'X', label: 'Class 10th (X)' },
-    { id: 'XI', label: 'Class 11th (XI)' },
-    { id: 'XII', label: 'Class 12th (XII)' }
+    { id: 'X', label: 'Class 10th (X)' }
   ];
 
   const sectionList = ['All Sections', 'A', 'B', 'C'];

@@ -145,7 +145,7 @@ export const HomeworkPage = ({ initialTab = 'homework' }) => {
                 className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
               >
                 <option value="All">All Classes</option>
-                {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'].map(c => (
+                {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'].map(c => (
                   <option key={c} value={c}>Class {c}</option>
                 ))}
               </select>
@@ -315,7 +315,7 @@ export const HomeworkPage = ({ initialTab = 'homework' }) => {
                   onChange={(e) => setHwForm({ ...hwForm, class: e.target.value })}
                   className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold"
                 >
-                  {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'].map(c => (
+                  {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'].map(c => (
                     <option key={c} value={c}>Class {c}</option>
                   ))}
                 </select>

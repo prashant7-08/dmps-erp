@@ -1,6 +1,6 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V11_REAL_PARENT_PHONES';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V12_CLASS_10_ACTIVE';
 
 class SchoolService {
   constructor() {
@@ -1434,14 +1434,6 @@ class SchoolService {
           feeTypeIds: ['FT-01', 'FT-03', 'FT-04', 'FT-05'],
           totalAmount: 24500,
           description: 'Tuition (₹18000) + Annual (₹3000) + Lab (₹2000) + Exam (₹1500)'
-        },
-        {
-          id: 'FG-05',
-          name: 'Senior Secondary Wing (Class 11th & 12th)',
-          applicableClasses: ['Class 11', 'Class 12', '11th', '12th'],
-          feeTypeIds: ['FT-01', 'FT-03', 'FT-04', 'FT-05'],
-          totalAmount: 27000,
-          description: 'Tuition (₹22000) + Science Lab (₹3000) + Board Exam (₹2000)'
         }
       ];
       this.saveData();
@@ -1804,7 +1796,7 @@ class SchoolService {
           studentId: 'STU-015',
           studentName: 'Bhavya Rajput',
           fatherName: 'Sh. Virender Rajput',
-          class: 'Class 11-Science',
+          class: 'Class 10',
           rollNo: '115',
           ledgerNo: 'LED-115',
           category: 'Old Session Dues',

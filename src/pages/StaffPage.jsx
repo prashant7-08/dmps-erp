@@ -376,8 +376,8 @@ export const StaffPage = () => {
                 <option value="None">None (Subject Teacher Only)</option>
                 <option value="Class 10 - A">Class 10 - A</option>
                 <option value="Class 10 - B">Class 10 - B</option>
-                <option value="Class 11 - Science">Class 11 - Science</option>
-                <option value="Class 12 - Science">Class 12 - Science</option>
+                <option value="Class 9 - A">Class 9 - A</option>
+                <option value="Class 8 - A">Class 8 - A</option>
               </select>
             </div>
             <div>
