@@ -31,6 +31,7 @@ import { AccountsInventoryPage } from './pages/AccountsInventoryPage';
 import { HelpdeskVisitorsPage } from './pages/HelpdeskVisitorsPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { StudentAdmissionPage } from './pages/StudentAdmissionPage';
 
 function AppContent() {
   const { isAuthenticated, role: authRole } = useAuth();
@@ -97,8 +98,18 @@ function AppContent() {
         return <DashboardPage currentRole={currentRole} setActiveTab={setActiveTab} onOpenAI={() => setIsAiModalOpen(true)} />;
       case 'administration':
         return <AdministrationPage />;
+      case 'admission':
+        return (
+          <StudentAdmissionPage
+            onAdmissionComplete={(newSt) => {
+              setSelectedStudentForProfile(newSt);
+              setActiveTab('students');
+            }}
+            onCancel={() => setActiveTab('students')}
+          />
+        );
       case 'students':
-        return <StudentsPage initialSelectedStudent={selectedStudentForProfile} />;
+        return <StudentsPage initialSelectedStudent={selectedStudentForProfile} onOpenNewAdmission={() => setActiveTab('admission')} />;
       case 'staff':
         return <StaffPage />;
       case 'academics':

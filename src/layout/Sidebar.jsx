@@ -61,7 +61,7 @@ export const navigationGroups = [
     label: 'ADMISSION',
     icon: UserPlus,
     items: [
-      { id: 'students', label: 'New Student Admission', badge: '2026-27' },
+      { id: 'admission', label: 'New Student Admission', badge: '2026-27' },
       { id: 'helpdesk-visitors', label: 'Online Web Inquiries', badge: 'Web' }
     ]
   },

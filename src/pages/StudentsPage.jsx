@@ -37,7 +37,7 @@ import { PrintableReportCard } from '../components/printables/PrintableReportCar
 import { PrintableFeeReceipt } from '../components/printables/PrintableFeeReceipt';
 import schoolService from '../services/schoolService';
 
-export const StudentsPage = ({ initialSelectedStudent = null }) => {
+export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission = null }) => {
   const { showToast } = useToast();
   const { activeBranchId, setActiveBranchId, isSuperAdmin, activeBranch, branches, user } = useAuth();
   
@@ -529,7 +529,13 @@ export const StudentsPage = ({ initialSelectedStudent = null }) => {
           </button>
 
           <button
-            onClick={() => setIsAdmissionModalOpen(true)}
+            onClick={() => {
+              if (onOpenNewAdmission) {
+                onOpenNewAdmission();
+              } else {
+                setIsAdmissionModalOpen(true);
+              }
+            }}
             className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
           >
             <Plus className="w-4 h-4" /> New Student Admission
