@@ -566,6 +566,7 @@ class SchoolService {
 
     let totalSyncedPunches = 0;
     const dates = [];
+    const allPunchLogs = [];
 
     months.forEach(m => {
       for (let day = 1; day <= m.days; day++) {
@@ -581,7 +582,10 @@ class SchoolService {
           const isLate = (idx + day) % 7 === 0;
           const inMin = (15 + ((idx * 3 + day) % 25)).toString().padStart(2, '0');
           const inSec = (10 + (idx * 7) % 50).toString().padStart(2, '0');
-          const inHour = isLate ? '08:52' : `08:${inMin}`;
+          const inHour = isLate ? '07:54' : `07:${inMin}`;
+          const inTimeStr = `${inHour}:${inSec} AM`;
+          const outTimeStr = `02:${(15 + (idx * 2) % 30).toString().padStart(2, '0')}:15 PM`;
+          const verifyType = idx % 2 === 0 ? 'Face Recognition' : 'Fingerprint';
 
           if (isAbsent) {
             return {
@@ -594,22 +598,40 @@ class SchoolService {
               outTime: '--:-- --',
               workDuration: '0h 00m',
               status: 'Absent',
-              remarks: 'No Biometric Punch'
+              penalty: '2 Days Deduction',
+              remarks: 'Unannounced Absent (Both Punches Missed)'
             };
           }
 
           totalSyncedPunches++;
+          // Save to persistent Biometric Logs
+          allPunchLogs.push({
+            id: `PUNCH-${dateStr}-${t.id}`,
+            employeeId: t.employeeId || t.id,
+            staffId: t.id,
+            name: t.name,
+            designation: t.designation || 'Teacher',
+            department: t.department || 'Academics',
+            punchDate: dateStr,
+            inTime: inTimeStr,
+            outTime: outTimeStr,
+            verifyType: verifyType,
+            deviceSn: '102025020000143',
+            status: isLate ? 'Late Arrival' : 'On Time'
+          });
+
           return {
             staffId: t.id,
             name: t.name,
             employeeId: t.employeeId || t.id,
             department: t.department || 'Academics',
             designation: t.designation || 'Teacher',
-            inTime: `${inHour}:${inSec} AM`,
-            outTime: `03:${(10 + (idx * 2) % 30).toString().padStart(2, '0')}:15 PM`,
-            verifyType: idx % 2 === 0 ? 'Face Recognition' : 'Fingerprint',
+            inTime: inTimeStr,
+            outTime: outTimeStr,
+            verifyType: verifyType,
             workDuration: '6h 45m',
             status: isLate ? 'Late' : 'Present',
+            penalty: '0 Days',
             remarks: `Wi-Fi Synced (Secureye S-FB3K IP 192.168.31.43)`
           };
         });
@@ -618,6 +640,7 @@ class SchoolService {
       }
     });
 
+    this.data.biometricLogs = allPunchLogs;
     this.saveData();
     return {
       success: true,

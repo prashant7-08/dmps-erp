@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Fingerprint,
   ScanFace,
@@ -23,7 +23,9 @@ import {
   Bus,
   UserCheck,
   Timer,
-  GraduationCap
+  GraduationCap,
+  Search,
+  Filter
 } from 'lucide-react';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
@@ -37,7 +39,8 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
   const [logs, setLogs] = useState(() => schoolService.getBiometricLogs());
   const [isSyncing, setIsSyncing] = useState(false);
   const [isPinging, setIsPinging] = useState(false);
-  const [pingSuccess, setPingSuccess] = useState(true);
+  const [selectedMonthFilter, setSelectedMonthFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedStaffForTest, setSelectedStaffForTest] = useState('');
   const [testVerifyType, setTestVerifyType] = useState('Fingerprint');
 
@@ -64,16 +67,6 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
     showToast('Secureye S-FB3K Shift Timings & Policy Rules Saved! 💾', 'success');
   };
 
-  // Ping Test Wi-Fi Connection
-  const handlePingTest = () => {
-    setIsPinging(true);
-    setTimeout(() => {
-      setIsPinging(false);
-      setPingSuccess(true);
-      showToast(`🟢 Wi-Fi Active: Ping to Secureye (${settings.ipAddress}:${settings.port}) Successful! (Latency: 5ms)`, 'success');
-    }, 800);
-  };
-
   // Fetch / Sync Live Logs from Machine
   const handleFetchLiveLogs = () => {
     setIsSyncing(true);
@@ -92,8 +85,9 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
       setIsSyncing(false);
       const res = schoolService.syncAllPastBiometricOverWifi();
       setLogs(schoolService.getBiometricLogs());
+      setSelectedMonthFilter('all');
       showToast(`🎉 Full Wi-Fi Sync Complete! Imported ${res.totalPunches} punches from April to August across ${res.totalDays} school days! 📅`, 'success');
-    }, 1500);
+    }, 1200);
   };
 
   // Simulate Instant Punch (for Testing or Device Ping)
@@ -127,24 +121,36 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
     showToast(`👆 Biometric Punch Recorded: ${staffObj.name} at ${timeStr} (${testVerifyType})`, 'success');
   };
 
-  // USB File Upload (.dat / .csv)
-  const handleFileUpload = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const content = event.target?.result;
-      const res = schoolService.importBiometricFile(content);
-      if (res.success) {
-        setLogs(schoolService.getBiometricLogs());
-        showToast(`📁 Import Successful! Synced ${res.totalPunches} punches across ${res.totalDays} dates. Auto-created ${res.newTeachersCreated} new staff profiles! 🎉`, 'success');
-      } else {
-        showToast(`📁 File processed: ${file.name}`, 'info');
+  // Filtered Logs
+  const filteredLogs = useMemo(() => {
+    const todayStr = new Date().toISOString().split('T')[0];
+    return logs.filter(l => {
+      // Month Filter
+      if (selectedMonthFilter === 'today') {
+        if (l.punchDate !== todayStr) return false;
+      } else if (selectedMonthFilter === '04') {
+        if (!l.punchDate?.startsWith('2026-04')) return false;
+      } else if (selectedMonthFilter === '05') {
+        if (!l.punchDate?.startsWith('2026-05')) return false;
+      } else if (selectedMonthFilter === '07') {
+        if (!l.punchDate?.startsWith('2026-07')) return false;
+      } else if (selectedMonthFilter === '08') {
+        if (!l.punchDate?.startsWith('2026-08')) return false;
       }
-    };
-    reader.readAsText(file);
-  };
+
+      // Search Query
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        const matchName = l.name?.toLowerCase().includes(q);
+        const matchEmpId = l.employeeId?.toLowerCase().includes(q);
+        const matchDate = l.punchDate?.toLowerCase().includes(q);
+        const matchDesig = l.designation?.toLowerCase().includes(q);
+        return matchName || matchEmpId || matchDate || matchDesig;
+      }
+
+      return true;
+    });
+  }, [logs, selectedMonthFilter, searchQuery]);
 
   const onTimeCount = logs.filter(l => l.status === 'On Time').length;
   const lateCount = logs.filter(l => l.status === 'Late Arrival').length;
@@ -330,219 +336,134 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
         </div>
       </div>
 
-      {/* ⚙️ Hardware Device Configuration & Simulator */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        {/* Left 2 Cols: Secureye S-FB3K Device Setup */}
-        <div className="lg:col-span-2 bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
-          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
-                <Settings className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wide">
-                  Secureye S-FB3K Hardware & Network Settings
-                </h3>
-                <p className="text-[11px] text-slate-500">
-                  IP: <strong>{settings.ipAddress}</strong> • S/N: <strong>{settings.serialNumber}</strong> • MAC: <strong>{settings.macAddress}</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <form onSubmit={handleSaveSettings} className="space-y-4 text-xs">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Machine IP Address
-                </label>
-                <input
-                  type="text"
-                  name="ipAddress"
-                  value={settings.ipAddress}
-                  onChange={handleSettingChange}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-blue-600"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  TCP/IP Port
-                </label>
-                <input
-                  type="number"
-                  name="port"
-                  value={settings.port}
-                  onChange={handleSettingChange}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Comm Key / Password
-                </label>
-                <input
-                  type="text"
-                  name="commKey"
-                  value={settings.commKey}
-                  onChange={handleSettingChange}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold"
-                />
-              </div>
-            </div>
-
-            <div className="flex justify-end pt-2">
-              <button
-                type="submit"
-                className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold rounded-xl shadow-md flex items-center gap-1.5 transition-all"
-              >
-                <Save className="w-4 h-4" /> Save Device Settings
-              </button>
-            </div>
-          </form>
-        </div>
-
-        {/* Right 1 Col: Quick Punch Tester */}
-        <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-3 text-xs">
-          <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400">
-              <Zap className="w-5 h-5" />
-            </div>
-            <div>
-              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wide">
-                Live Punch Simulator
-              </h3>
-              <p className="text-[11px] text-slate-500">
-                Test 07:45 In / 14:15 Out / Half-Day rules
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-2.5 pt-1">
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Choose Teacher / Staff</label>
-              <select
-                value={selectedStaffForTest}
-                onChange={(e) => setSelectedStaffForTest(e.target.value)}
-                className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
-              >
-                <option value="">-- Select Staff --</option>
-                {teachers.map(t => (
-                  <option key={t.id} value={t.id}>
-                    {t.name} ({t.designation})
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Verify Mode</label>
-              <select
-                value={testVerifyType}
-                onChange={(e) => setTestVerifyType(e.target.value)}
-                className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-medium"
-              >
-                <option value="Fingerprint">👆 Fingerprint Scanner</option>
-                <option value="Face Recognition">👤 Face Camera</option>
-              </select>
-            </div>
-
-            <button
-              type="button"
-              onClick={handleSimulatePunch}
-              className="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm transition-all mt-2"
-            >
-              ⚡ Record Punch & Apply Rules
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 📋 Live Biometric Feed Table */}
+      {/* 📋 Synced Punches History & Search Register */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden space-y-4 p-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+        
+        {/* Header with Search and Month Tabs */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
           <div>
             <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
               <Radio className="w-4 h-4 text-emerald-500 animate-pulse" />
-              Live Secureye Punches & Policy Deductions
+              Biometric Punch Logs ({filteredLogs.length} Records)
             </h3>
             <p className="text-xs text-slate-500">
-              Arrival Cutoff: 07:45 AM • Chhuti: 14:15 PM • Automated Half-Day & 2X Penalties
+              Showing verified Face & Fingerprint logs from Secureye S-FB3K
             </p>
+          </div>
+
+          {/* Month Filter Buttons */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            {[
+              { id: 'all', label: 'All Dates (April - Aug)' },
+              { id: 'today', label: 'Today' },
+              { id: '08', label: 'August' },
+              { id: '07', label: 'July' },
+              { id: '05', label: 'May' },
+              { id: '04', label: 'April' }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setSelectedMonthFilter(tab.id)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                  selectedMonthFilter === tab.id
+                    ? 'bg-indigo-600 text-white shadow-sm'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Search Bar */}
+        <div className="flex items-center gap-3">
+          <div className="relative flex-1">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by teacher name, employee ID, date (e.g. 2026-04-15)..."
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-900 dark:text-white font-medium"
+            />
           </div>
 
           <button
             onClick={onNavigateToStaffAttendance}
-            className="px-3.5 py-1.5 bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 rounded-xl text-xs font-bold border border-indigo-200 dark:border-indigo-800 flex items-center gap-1.5"
+            className="px-4 py-2.5 bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 rounded-xl text-xs font-bold border border-indigo-200 dark:border-indigo-800 flex items-center gap-1.5 shrink-0"
           >
             <span>View Full Attendance Register</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Logs Table */}
+        <div className="overflow-x-auto max-h-[480px] overflow-y-auto">
           <table className="w-full text-left text-xs border-collapse">
-            <thead>
-              <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
+            <thead className="sticky top-0 bg-slate-100 dark:bg-slate-800 z-10">
+              <tr className="text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
+                <th className="p-3.5">Date</th>
                 <th className="p-3.5">Employee ID</th>
-                <th className="p-3.5">Staff Name & Designation</th>
+                <th className="p-3.5">Staff Name & Role</th>
                 <th className="p-3.5">Punch In (07:45)</th>
                 <th className="p-3.5">Punch Out (14:15)</th>
                 <th className="p-3.5">Status</th>
-                <th className="p-3.5">Policy Penalty</th>
                 <th className="p-3.5">Verification</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
-              {logs.map((log) => {
-                const isOnTime = log.status === 'On Time';
-                return (
-                  <tr key={log.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                    <td className="p-3.5 font-mono font-bold text-indigo-600 dark:text-indigo-400">
-                      {log.employeeId}
-                    </td>
-                    <td className="p-3.5 font-bold text-slate-900 dark:text-white">
-                      {log.name}
-                      <span className="text-[10px] text-slate-400 block font-normal">{log.designation}</span>
-                    </td>
-                    <td className="p-3.5 font-mono font-bold text-slate-900 dark:text-white">
-                      <span className={`px-2 py-0.5 rounded-md border ${
-                        log.inTime <= '07:45' ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-amber-50 text-amber-800 border-amber-300'
-                      }`}>
-                        {log.inTime}
-                      </span>
-                    </td>
-                    <td className="p-3.5 font-mono text-slate-600 dark:text-slate-400">
-                      <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                        {log.outTime}
-                      </span>
-                    </td>
-                    <td className="p-3.5">
-                      <span className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${
-                        isOnTime 
-                          ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300' 
-                          : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300'
-                      }`}>
-                        {log.status}
-                      </span>
-                    </td>
-                    <td className="p-3.5 font-bold">
-                      {isOnTime ? (
-                        <span className="text-emerald-600 text-[11px]">0 Days Cut (Full Day)</span>
-                      ) : (
-                        <span className="text-amber-600 text-[11px]">Late Punch Warning</span>
-                      )}
-                    </td>
-                    <td className="p-3.5">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700 text-[11px] font-bold">
-                        {log.verifyType === 'Face Recognition' ? <><ScanFace className="w-3 h-3" /> Face</> : <><Fingerprint className="w-3 h-3" /> Finger</>}
-                      </span>
-                    </td>
-                  </tr>
-                );
-              })}
+              {filteredLogs.length === 0 ? (
+                <tr>
+                  <td colSpan={7} className="p-8 text-center text-slate-400">
+                    No punch records found for this filter. Click <strong>"🌐 Wi-Fi Sync (April - Today)"</strong> above to sync all historical records!
+                  </td>
+                </tr>
+              ) : (
+                filteredLogs.slice(0, 100).map((log) => {
+                  const isOnTime = log.status === 'On Time';
+                  return (
+                    <tr key={log.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                      <td className="p-3.5 font-mono font-bold text-slate-700 dark:text-slate-300">
+                        {log.punchDate || 'Today'}
+                      </td>
+                      <td className="p-3.5 font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                        {log.employeeId}
+                      </td>
+                      <td className="p-3.5 font-bold text-slate-900 dark:text-white">
+                        {log.name}
+                        <span className="text-[10px] text-slate-400 block font-normal">{log.designation}</span>
+                      </td>
+                      <td className="p-3.5 font-mono font-bold text-slate-900 dark:text-white">
+                        <span className={`px-2 py-0.5 rounded-md border ${
+                          log.inTime <= '07:45' ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-amber-50 text-amber-800 border-amber-300'
+                        }`}>
+                          {log.inTime}
+                        </span>
+                      </td>
+                      <td className="p-3.5 font-mono text-slate-600 dark:text-slate-400">
+                        <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                          {log.outTime}
+                        </span>
+                      </td>
+                      <td className="p-3.5">
+                        <span className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                          isOnTime 
+                            ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300' 
+                            : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300'
+                        }`}>
+                          {log.status}
+                        </span>
+                      </td>
+                      <td className="p-3.5">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700 text-[11px] font-bold">
+                          {log.verifyType === 'Face Recognition' ? <><ScanFace className="w-3 h-3" /> Face</> : <><Fingerprint className="w-3 h-3" /> Finger</>}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
             </tbody>
           </table>
         </div>

@@ -36,10 +36,42 @@ import { BiometricPage } from './pages/BiometricPage';
 
 function AppContent() {
   const { isAuthenticated, role: authRole } = useAuth();
-  const [activeTab, setActiveTab] = useState('dashboard');
+  
+  // Read initial tab from URL hash if present
+  const getInitialTab = () => {
+    const hash = window.location.hash.replace('#', '').trim();
+    if (hash && hash !== 'website' && hash !== 'admissions' && hash !== 'login') {
+      return hash;
+    }
+    return 'dashboard';
+  };
+
+  const [activeTab, setActiveTabState] = React.useState(getInitialTab);
   const [currentRole, setCurrentRole] = useState(authRole || 'Super Admin');
   const [selectedStudentForProfile, setSelectedStudentForProfile] = useState(null);
   const [isViewingWebsite, setIsViewingWebsite] = useState(!isAuthenticated);
+
+  // Sync activeTab changes with browser history
+  const setActiveTab = (tab, pushHistory = true) => {
+    setActiveTabState(tab);
+    if (pushHistory) {
+      window.history.pushState({ tab }, '', `#${tab}`);
+    }
+  };
+
+  // Browser Back/Forward navigation listener
+  React.useEffect(() => {
+    const handlePopState = (e) => {
+      const hash = window.location.hash.replace('#', '').trim();
+      if (hash && hash !== 'website' && hash !== 'admissions') {
+        setActiveTabState(hash);
+      } else {
+        setActiveTabState('dashboard');
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Auto-switch view when role is switched
   const handleRoleChange = (newRole) => {
