@@ -16,7 +16,7 @@ import sys
 from datetime import datetime
 
 # DEFAULT MACHINE CONFIGURATION (From your Secureye Device Label)
-MACHINE_IP = "192.168.1.201"   # IP Address of Secureye S-FB3K in School Wi-Fi Router
+MACHINE_IP = "192.168.31.43"    # IP Address of Secureye S-FB3K in School Wi-Fi Router
 MACHINE_PORT = 4370            # Standard TCP/IP Port for Secureye S-FB3K
 COMM_KEY = 0                   # Secret Communication Password (Default: 0)
 POLL_INTERVAL = 30             # Poll every 30 seconds
