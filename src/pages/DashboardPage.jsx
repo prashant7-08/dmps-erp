@@ -47,6 +47,7 @@ import {
   Briefcase,
   User
 } from 'lucide-react';
+import { StatCard } from '../components/common/StatCard';
 import { Badge } from '../components/common/Badge';
 import { useAuth } from '../context/AuthContext';
 import schoolService from '../services/schoolService';
@@ -60,14 +61,20 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
   const exams = schoolService.getExams() || [];
   const events = schoolService.getEvents() || [];
 
+  // Task & Action Planner State
+  const [tasks, setTasks] = useState(() => schoolService.getTasks() || []);
+  const [taskFilter, setTaskFilter] = useState('All');
+  const [isAddingTask, setIsAddingTask] = useState(false);
+  const [newTaskTitle, setNewTaskTitle] = useState('');
+  const [newTaskPriority, setNewTaskPriority] = useState('today');
+  const [newTaskCategory, setNewTaskCategory] = useState('Academics');
+  const [newTaskDue, setNewTaskDue] = useState('Today');
+
   // Live Clock
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
 
   // Calendar State (August 2026)
   const [calendarView, setCalendarView] = useState('Month');
-  const [selectedCalDate, setSelectedCalDate] = useState('2026-08-31');
-
-  // Active Tooltip for Charts
   const [hoveredBar, setHoveredBar] = useState(null);
 
   useEffect(() => {
@@ -80,6 +87,42 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
   useEffect(() => {
     setStats(schoolService.getDashboardStats(activeBranchId) || {});
   }, [activeBranchId]);
+
+  const handleToggleTask = (id) => {
+    schoolService.toggleTaskStatus(id);
+    setTasks([...(schoolService.getTasks() || [])]);
+  };
+
+  const handleDeleteTask = (id) => {
+    schoolService.deleteTask(id);
+    setTasks([...(schoolService.getTasks() || [])]);
+  };
+
+  const handleCreateTask = (e) => {
+    e.preventDefault();
+    if (!newTaskTitle.trim()) return;
+    schoolService.addTask({
+      title: newTaskTitle.trim(),
+      priority: newTaskPriority,
+      category: newTaskCategory,
+      dueDate: newTaskDue
+    });
+    setTasks([...(schoolService.getTasks() || [])]);
+    setNewTaskTitle('');
+    setIsAddingTask(false);
+  };
+
+  const completedCount = tasks.filter(t => t.completed).length;
+  const progressPercent = tasks.length > 0 ? Math.round((completedCount / tasks.length) * 100) : 0;
+
+  const filteredTasks = tasks.filter(t => {
+    if (taskFilter === 'Urgent') return t.priority === 'urgent';
+    if (taskFilter === 'Today') return t.priority === 'today';
+    if (taskFilter === 'Soon') return t.priority === 'soon' || t.priority === 'later';
+    if (taskFilter === 'Pending') return !t.completed;
+    if (taskFilter === 'Completed') return t.completed;
+    return true;
+  });
 
   // Authentic Class-wise distribution from Database (Total 567 Students)
   const classStrengthData = [
@@ -125,22 +168,6 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
     { date: '29-Aug', employeePresent: 21, employeeTotal: 23, studentRate: 93.8 },
     { date: '30-Aug', employeePresent: 0, employeeTotal: 23, studentRate: 0, isSunday: true },
     { date: '31-Aug', employeePresent: 22, employeeTotal: 23, studentRate: 95.4 }
-  ];
-
-  // Annual Fee Spline Wave (April to March)
-  const annualFeeMonths = [
-    { month: 'Apr', total: 13800000, collected: 819900, remaining: 12980100 },
-    { month: 'May', total: 11923985, collected: 1034800, remaining: 10889185 },
-    { month: 'Jun', total: 0, collected: 0, remaining: 0 },
-    { month: 'Jul', total: 0, collected: 0, remaining: 0 },
-    { month: 'Aug', total: 0, collected: 0, remaining: 0 },
-    { month: 'Sep', total: 0, collected: 0, remaining: 0 },
-    { month: 'Oct', total: 0, collected: 0, remaining: 0 },
-    { month: 'Nov', total: 0, collected: 0, remaining: 0 },
-    { month: 'Dec', total: 0, collected: 0, remaining: 0 },
-    { month: 'Jan', total: 0, collected: 0, remaining: 0 },
-    { month: 'Feb', total: 0, collected: 0, remaining: 0 },
-    { month: 'Mar', total: 0, collected: 0, remaining: 0 }
   ];
 
   // Calendar Days Grid Generation for August 2026 (Aug 1 = Saturday)
@@ -211,12 +238,67 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
         )}
       </div>
 
+      {/* 🏫 DMPS Master School Header Banner */}
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-950 p-6 sm:p-8 text-white shadow-xl border border-indigo-500/30">
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-3xl">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/25 border border-indigo-400/40 text-indigo-200 text-xs font-bold shadow-inner">
+                <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+                Session {schoolInfo.academicSession || '2026-2027'}
+              </span>
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                CBSE Affiliated • {schoolInfo.affiliationNo || 'UP-CBSE-83921'}
+              </span>
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-slate-300 text-xs font-mono font-semibold">
+                <Clock className="w-3 h-3 text-indigo-300" /> {currentTime}
+              </span>
+            </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2 font-serif">
+                {schoolInfo.name || 'Dadheech Memorial Public School'}
+              </h2>
+              <p className="text-xs sm:text-sm text-indigo-200/90 mt-1 font-medium leading-relaxed">
+                Viewing: <strong className="text-amber-300 font-bold">{stats?.branchName || 'All Campuses'}</strong> | {stats?.totalStudents || 567} Active Students Registered
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Header CTA Buttons */}
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              onClick={() => setActiveTab('students')}
+              className="px-4 py-2.5 bg-white text-indigo-950 hover:bg-indigo-50 rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+            >
+              <GraduationCap className="w-4 h-4 text-indigo-600" /> New Admission
+            </button>
+            <button
+              onClick={() => setActiveTab('fees')}
+              className="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+            >
+              <CreditCard className="w-4 h-4" /> Collect Fee (POS)
+            </button>
+            <button
+              onClick={onOpenAI}
+              className="px-4 py-2.5 bg-indigo-600/90 hover:bg-indigo-600 border border-indigo-400/40 text-white rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+            >
+              <Sparkles className="w-4 h-4 text-amber-300" /> Ask EduBot
+            </button>
+          </div>
+        </div>
+
+        {/* Subtle decorative background blur */}
+        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-80 h-80 rounded-full bg-blue-500/10 blur-3xl pointer-events-none"></div>
+      </div>
+
       {/* ========================================================================= */}
-      {/* 📊 SECTION 1: TOP 2 MAIN ANALYSIS CHARTS (Class Strength & 10-Day Cashflow) */}
+      {/* 📊 SECTION 1: TOP 2 MAIN ANALYSIS CHARTS WITH CRISP AXES & NUMBERS */}
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-        {/* 1. Class Wise Student Strength Bar Chart */}
+        {/* 1. Class Wise Student Strength Bar Chart (With exact Y-Axis 0 to 60) */}
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
@@ -230,60 +312,77 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             </span>
           </div>
 
-          {/* SVG Vertical Bar Chart with Axis and Labels */}
-          <div className="h-64 w-full flex items-end justify-between gap-1.5 pt-6 pb-2 px-2 relative border-b border-slate-200 dark:border-slate-700">
-            {/* Horizontal Grid lines */}
-            <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
-              <div className="border-b border-slate-400 w-full"></div>
-              <div className="border-b border-slate-400 w-full"></div>
-              <div className="border-b border-slate-400 w-full"></div>
-              <div className="border-b border-slate-400 w-full"></div>
+          {/* Chart Box with Left Y-Axis Numbers */}
+          <div className="relative flex">
+            {/* Y-Axis scale numbers */}
+            <div className="flex flex-col justify-between text-[10px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-7 select-none">
+              <span>60</span>
+              <span>50</span>
+              <span>40</span>
+              <span>30</span>
+              <span>20</span>
+              <span>10</span>
+              <span>0</span>
             </div>
 
-            {classStrengthData.map((cls, idx) => {
-              const maxVal = 60;
-              const heightPct = Math.min(100, Math.round((cls.count / maxVal) * 100));
-              const isHovered = hoveredBar === `cls-${idx}`;
+            {/* SVG Bars Container */}
+            <div className="flex-1 h-64 flex items-end justify-between gap-1.5 pt-2 pb-2 px-1 relative border-l border-b border-slate-300 dark:border-slate-700">
+              {/* Horizontal Grid lines */}
+              <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20 pb-6">
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+              </div>
 
-              return (
-                <div
-                  key={idx}
-                  className="flex-1 flex flex-col items-center h-full justify-end group relative cursor-pointer"
-                  onMouseEnter={() => setHoveredBar(`cls-${idx}`)}
-                  onMouseLeave={() => setHoveredBar(null)}
-                >
-                  {/* Tooltip on hover */}
-                  {isHovered && (
-                    <div className="absolute -top-10 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-xl whitespace-nowrap z-20 pointer-events-none">
-                      Class {cls.name}: {cls.count} Students
-                    </div>
-                  )}
+              {classStrengthData.map((cls, idx) => {
+                const maxVal = 60;
+                const heightPct = Math.min(100, Math.round((cls.count / maxVal) * 100));
+                const isHovered = hoveredBar === `cls-${idx}`;
 
-                  {/* Top Value Label */}
-                  <span className="text-[9px] font-bold text-slate-500 mb-1 opacity-80 group-hover:opacity-100 group-hover:text-indigo-600 transition-opacity">
-                    {cls.count}
-                  </span>
-
-                  {/* Vertical Bar */}
+                return (
                   <div
-                    className="w-full max-w-[22px] rounded-t-md transition-all duration-500 group-hover:brightness-110 shadow-xs"
-                    style={{
-                      height: `${Math.max(8, heightPct)}%`,
-                      backgroundColor: cls.color
-                    }}
-                  ></div>
+                    key={idx}
+                    className="flex-1 flex flex-col items-center h-full justify-end group relative cursor-pointer"
+                    onMouseEnter={() => setHoveredBar(`cls-${idx}`)}
+                    onMouseLeave={() => setHoveredBar(null)}
+                  >
+                    {/* Tooltip on hover */}
+                    {isHovered && (
+                      <div className="absolute -top-10 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-xl whitespace-nowrap z-20 pointer-events-none">
+                        Class {cls.name}: {cls.count} Students
+                      </div>
+                    )}
 
-                  {/* Bottom Class Name */}
-                  <span className="text-[9px] font-extrabold text-slate-600 dark:text-slate-400 mt-2 truncate max-w-[24px]">
-                    {cls.name}
-                  </span>
-                </div>
-              );
-            })}
+                    {/* Top Value Label */}
+                    <span className="text-[9px] font-black text-slate-700 dark:text-slate-200 mb-1 opacity-90 group-hover:opacity-100 group-hover:text-indigo-600 transition-opacity">
+                      {cls.count}
+                    </span>
+
+                    {/* Vertical Bar */}
+                    <div
+                      className="w-full max-w-[20px] rounded-t-sm transition-all duration-500 group-hover:brightness-110 shadow-xs"
+                      style={{
+                        height: `${Math.max(6, heightPct)}%`,
+                        backgroundColor: cls.color
+                      }}
+                    ></div>
+
+                    {/* Bottom Class Name */}
+                    <span className="text-[9px] font-black text-slate-700 dark:text-slate-300 mt-2 truncate max-w-[24px]">
+                      {cls.name}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* 2. Weekend Income Vs Expence (10 Days) Bar Chart */}
+        {/* 2. Weekend Income Vs Expence (10 Days) Bar Chart (With exact Y-Axis 0 to 160000) */}
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
@@ -304,64 +403,85 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             </div>
           </div>
 
-          {/* SVG 10-Day Bar Chart */}
-          <div className="h-64 w-full flex items-end justify-between gap-2 pt-6 pb-2 px-2 relative border-b border-slate-200 dark:border-slate-700">
-            {/* Horizontal Grid lines */}
-            <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
-              <div className="border-b border-slate-400 w-full"><span className="text-[9px] text-slate-400 pl-1">160k</span></div>
-              <div className="border-b border-slate-400 w-full"><span className="text-[9px] text-slate-400 pl-1">100k</span></div>
-              <div className="border-b border-slate-400 w-full"><span className="text-[9px] text-slate-400 pl-1">50k</span></div>
-              <div className="border-b border-slate-400 w-full"><span className="text-[9px] text-slate-400 pl-1">0</span></div>
+          {/* Chart Box with Left Y-Axis Numbers */}
+          <div className="relative flex">
+            {/* Y-Axis scale numbers */}
+            <div className="flex flex-col justify-between text-[10px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-12 select-none">
+              <span>160000</span>
+              <span>140000</span>
+              <span>120000</span>
+              <span>100000</span>
+              <span>80000</span>
+              <span>60000</span>
+              <span>40000</span>
+              <span>20000</span>
+              <span>0</span>
             </div>
 
-            {tenDaysCashFlow.map((day, idx) => {
-              const maxScale = 160000;
-              const incPct = Math.min(100, Math.round((day.income / maxScale) * 100));
-              const expPct = Math.min(100, Math.round((day.expense / maxScale) * 100));
-              const isHovered = hoveredBar === `cf-${idx}`;
+            {/* SVG 10-Day Bar Chart */}
+            <div className="flex-1 h-64 flex items-end justify-between gap-1.5 pt-2 pb-2 px-1 relative border-l border-b border-slate-300 dark:border-slate-700">
+              {/* Horizontal Grid lines */}
+              <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20 pb-6">
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+              </div>
 
-              return (
-                <div
-                  key={idx}
-                  className="flex-1 flex flex-col items-center h-full justify-end group relative cursor-pointer"
-                  onMouseEnter={() => setHoveredBar(`cf-${idx}`)}
-                  onMouseLeave={() => setHoveredBar(null)}
-                >
-                  {isHovered && (
-                    <div className="absolute -top-12 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-xl whitespace-nowrap z-20 pointer-events-none">
-                      {day.date}: Income ₹{day.income.toLocaleString()} | Exp ₹{day.expense.toLocaleString()}
+              {tenDaysCashFlow.map((day, idx) => {
+                const maxScale = 160000;
+                const incPct = Math.min(100, Math.round((day.income / maxScale) * 100));
+                const expPct = Math.min(100, Math.round((day.expense / maxScale) * 100));
+                const isHovered = hoveredBar === `cf-${idx}`;
+
+                return (
+                  <div
+                    key={idx}
+                    className="flex-1 flex flex-col items-center h-full justify-end group relative cursor-pointer"
+                    onMouseEnter={() => setHoveredBar(`cf-${idx}`)}
+                    onMouseLeave={() => setHoveredBar(null)}
+                  >
+                    {isHovered && (
+                      <div className="absolute -top-12 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-xl whitespace-nowrap z-20 pointer-events-none">
+                        {day.date}: Income ₹{day.income.toLocaleString()} | Exp ₹{day.expense.toLocaleString()}
+                      </div>
+                    )}
+
+                    {/* Dual Bars Container */}
+                    <div className="flex items-end gap-1 w-full justify-center h-full">
+                      {/* Income Bar (Green) */}
+                      <div
+                        className="w-2 sm:w-2.5 bg-emerald-600 rounded-t-sm transition-all duration-500"
+                        style={{ height: `${day.income > 0 ? Math.max(5, incPct) : 1}%` }}
+                      ></div>
+
+                      {/* Expense Bar (Red) */}
+                      <div
+                        className="w-2 sm:w-2.5 bg-rose-600 rounded-t-sm transition-all duration-500"
+                        style={{ height: `${day.expense > 0 ? Math.max(5, expPct) : 1}%` }}
+                      ></div>
                     </div>
-                  )}
 
-                  {/* Dual Bars Container */}
-                  <div className="flex items-end gap-1 w-full justify-center h-full">
-                    {/* Income Bar (Green) */}
-                    <div
-                      className="w-2.5 sm:w-3 bg-emerald-600 rounded-t-sm transition-all duration-500"
-                      style={{ height: `${day.income > 0 ? Math.max(6, incPct) : 2}%` }}
-                    ></div>
-
-                    {/* Expense Bar (Red) */}
-                    <div
-                      className="w-2.5 sm:w-3 bg-rose-600 rounded-t-sm transition-all duration-500"
-                      style={{ height: `${day.expense > 0 ? Math.max(6, expPct) : 2}%` }}
-                    ></div>
+                    {/* Date Label */}
+                    <span className="text-[8px] sm:text-[9px] font-bold text-slate-600 dark:text-slate-400 mt-2 truncate">
+                      {day.date}
+                    </span>
                   </div>
-
-                  {/* Date Label */}
-                  <span className="text-[8px] sm:text-[9px] font-bold text-slate-500 mt-2 truncate">
-                    {day.date}
-                  </span>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
 
       </div>
 
       {/* ========================================================================= */}
-      {/* 💳 SECTION 2: 3 BOTTOM CARDS (Total Active, New Admissions, Promoted) */}
+      {/* 💳 SECTION 2: 3 STUDENT CARDS (Total Active, New Admissions, Promoted) */}
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
@@ -447,33 +567,48 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           </div>
         </div>
 
-        {/* Multi-Day Attendance Graph Line */}
-        <div className="h-44 w-full flex items-end justify-between gap-4 pt-4 pb-2 px-4 relative border-b border-slate-200 dark:border-slate-700">
-          <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
-            <div className="border-b border-slate-400 w-full"><span className="text-[9px] text-slate-400">100%</span></div>
-            <div className="border-b border-slate-400 w-full"><span className="text-[9px] text-slate-400">50%</span></div>
-            <div className="border-b border-slate-400 w-full"><span className="text-[9px] text-slate-400">0%</span></div>
+        {/* Multi-Day Attendance Graph Box with Y-Axis scale */}
+        <div className="relative flex">
+          {/* Y-Axis numbers */}
+          <div className="flex flex-col justify-between text-[10px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-8 select-none">
+            <span>1.0</span>
+            <span>0.8</span>
+            <span>0.6</span>
+            <span>0.4</span>
+            <span>0.2</span>
+            <span>0.0</span>
           </div>
 
-          {attendanceInspection.map((att, idx) => (
-            <div key={idx} className="flex-1 flex flex-col items-center h-full justify-end group relative">
-              <div className="flex items-end gap-2 w-full justify-center h-full">
-                {/* Employee Bar */}
-                <div
-                  className="w-3.5 bg-rose-600 rounded-t-md transition-all"
-                  style={{ height: `${att.isSunday ? 0 : (att.employeePresent / att.employeeTotal) * 100}%` }}
-                ></div>
-                {/* Student Bar */}
-                <div
-                  className="w-3.5 bg-blue-600 rounded-t-md transition-all"
-                  style={{ height: `${att.isSunday ? 0 : att.studentRate}%` }}
-                ></div>
-              </div>
-              <span className="text-[9px] font-bold text-slate-500 mt-2">
-                {att.date}
-              </span>
+          <div className="flex-1 h-44 flex items-end justify-between gap-4 pt-2 pb-2 px-2 relative border-l border-b border-slate-300 dark:border-slate-700">
+            <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20 pb-6">
+              <div className="border-b border-slate-400 w-full"></div>
+              <div className="border-b border-slate-400 w-full"></div>
+              <div className="border-b border-slate-400 w-full"></div>
+              <div className="border-b border-slate-400 w-full"></div>
+              <div className="border-b border-slate-400 w-full"></div>
+              <div className="border-b border-slate-400 w-full"></div>
             </div>
-          ))}
+
+            {attendanceInspection.map((att, idx) => (
+              <div key={idx} className="flex-1 flex flex-col items-center h-full justify-end group relative">
+                <div className="flex items-end gap-2 w-full justify-center h-full">
+                  {/* Employee Bar */}
+                  <div
+                    className="w-3.5 bg-rose-600 rounded-t-md transition-all"
+                    style={{ height: `${att.isSunday ? 0 : (att.employeePresent / att.employeeTotal) * 100}%` }}
+                  ></div>
+                  {/* Student Bar */}
+                  <div
+                    className="w-3.5 bg-blue-600 rounded-t-md transition-all"
+                    style={{ height: `${att.isSunday ? 0 : att.studentRate}%` }}
+                  ></div>
+                </div>
+                <span className="text-[9px] font-bold text-slate-600 dark:text-slate-400 mt-2">
+                  {att.date}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* 4 Attendance Strength Cards */}
@@ -844,7 +979,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           </div>
         </div>
 
-        {/* 2. Annual Fee Summary (Spline Area Wave Chart) */}
+        {/* 2. Annual Fee Summary (Spline Area Wave Chart with Exact Y-Axis) */}
         <div className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
@@ -871,57 +1006,73 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             </div>
           </div>
 
-          {/* Spline Bell Curves SVG Graphic */}
-          <div className="h-56 w-full relative pt-2">
-            <svg className="w-full h-full" viewBox="0 0 700 200" preserveAspectRatio="none">
-              {/* Horizontal Grid lines */}
-              <line x1="0" y1="20" x2="700" y2="20" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
-              <line x1="0" y1="70" x2="700" y2="70" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
-              <line x1="0" y1="120" x2="700" y2="120" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
-              <line x1="0" y1="170" x2="700" y2="170" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
+          {/* Spline Bell Curves SVG Graphic with Left Y-Axis Scale */}
+          <div className="relative flex">
+            {/* Y-Axis numbers */}
+            <div className="flex flex-col justify-between text-[9px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-14 select-none">
+              <span>14000000</span>
+              <span>12000000</span>
+              <span>10000000</span>
+              <span>8000000</span>
+              <span>6000000</span>
+              <span>4000000</span>
+              <span>2000000</span>
+              <span>0</span>
+            </div>
 
-              {/* Area 1: Remaining Fee (Red Wave) */}
-              <path
-                d="M 50 170 Q 150 10, 250 170 L 250 170 L 50 170 Z"
-                fill="rgba(225, 29, 72, 0.45)"
-              />
-              <path
-                d="M 50 170 Q 150 10, 250 170"
-                fill="none"
-                stroke="#e11d48"
-                strokeWidth="3"
-              />
+            <div className="flex-1 h-56 relative pt-2 border-l border-b border-slate-300 dark:border-slate-700">
+              <svg className="w-full h-full" viewBox="0 0 700 200" preserveAspectRatio="none">
+                {/* Horizontal Grid lines */}
+                <line x1="0" y1="20" x2="700" y2="20" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
+                <line x1="0" y1="50" x2="700" y2="50" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
+                <line x1="0" y1="80" x2="700" y2="80" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
+                <line x1="0" y1="110" x2="700" y2="110" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
+                <line x1="0" y1="140" x2="700" y2="140" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
+                <line x1="0" y1="170" x2="700" y2="170" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
 
-              {/* Area 2: Collected Fee (Green Wave) */}
-              <path
-                d="M 50 170 Q 150 80, 250 170 L 250 170 L 50 170 Z"
-                fill="rgba(16, 185, 129, 0.55)"
-              />
-              <path
-                d="M 50 170 Q 150 80, 250 170"
-                fill="none"
-                stroke="#10b981"
-                strokeWidth="3"
-              />
+                {/* Area 1: Remaining Fee (Red Wave) */}
+                <path
+                  d="M 50 170 Q 150 10, 250 170 L 250 170 L 50 170 Z"
+                  fill="rgba(225, 29, 72, 0.45)"
+                />
+                <path
+                  d="M 50 170 Q 150 10, 250 170"
+                  fill="none"
+                  stroke="#e11d48"
+                  strokeWidth="3"
+                />
 
-              {/* Area 3: Total Dues (Amber Wave) */}
-              <path
-                d="M 50 170 Q 150 100, 250 170 L 250 170 L 50 170 Z"
-                fill="rgba(245, 158, 11, 0.65)"
-              />
-              <path
-                d="M 50 170 Q 150 100, 250 170"
-                fill="none"
-                stroke="#f59e0b"
-                strokeWidth="3"
-              />
-            </svg>
+                {/* Area 2: Collected Fee (Green Wave) */}
+                <path
+                  d="M 50 170 Q 150 80, 250 170 L 250 170 L 50 170 Z"
+                  fill="rgba(16, 185, 129, 0.55)"
+                />
+                <path
+                  d="M 50 170 Q 150 80, 250 170"
+                  fill="none"
+                  stroke="#10b981"
+                  strokeWidth="3"
+                />
 
-            {/* Months Axis Labels */}
-            <div className="flex justify-between text-[10px] font-bold text-slate-400 px-4 -mt-2">
-              {['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'].map(m => (
-                <span key={m}>{m}</span>
-              ))}
+                {/* Area 3: Total Dues (Amber Wave) */}
+                <path
+                  d="M 50 170 Q 150 100, 250 170 L 250 170 L 50 170 Z"
+                  fill="rgba(245, 158, 11, 0.65)"
+                />
+                <path
+                  d="M 50 170 Q 150 100, 250 170"
+                  fill="none"
+                  stroke="#f59e0b"
+                  strokeWidth="3"
+                />
+              </svg>
+
+              {/* Months Axis Labels */}
+              <div className="flex justify-between text-[10px] font-bold text-slate-600 dark:text-slate-400 px-4 -mt-1">
+                {['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'].map(m => (
+                  <span key={m}>{m}</span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -994,6 +1145,368 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             <span>NET BALANCE:</span>
             <span className="font-mono text-base font-black text-emerald-400">₹2,35,020.00</span>
           </div>
+        </div>
+
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 🚀 SECTION 8: CORE ADMINISTRATIVE OPERATIONS MATRIX (8 SHORTCUTS) */}
+      {/* ========================================================================= */}
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-indigo-600" /> Core Administrative Operations
+            </h3>
+            <p className="text-xs text-slate-500 mt-0.5">Direct 1-click access to essential school ERP modules</p>
+          </div>
+          <Badge variant="primary">Campus Scope: {stats.shortCode}</Badge>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 pt-2">
+          {[
+            { label: 'New Admission', icon: GraduationCap, tab: 'students', color: 'text-indigo-600 bg-indigo-50 dark:bg-indigo-950/60 hover:border-indigo-400' },
+            { label: 'Collect Fee', icon: CreditCard, tab: 'fees', color: 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 hover:border-emerald-400' },
+            { label: 'Attendance', icon: UserCheck, tab: 'attendance', color: 'text-amber-600 bg-amber-50 dark:bg-amber-950/60 hover:border-amber-400' },
+            { label: 'Report Cards', icon: Award, tab: 'examination', color: 'text-rose-600 bg-rose-50 dark:bg-rose-950/60 hover:border-rose-400' },
+            { label: 'Timetable', icon: Clock, tab: 'timetable', color: 'text-cyan-600 bg-cyan-50 dark:bg-cyan-950/60 hover:border-cyan-400' },
+            { label: 'ID Cards', icon: FileText, tab: 'certificates', color: 'text-purple-600 bg-purple-50 dark:bg-purple-950/60 hover:border-purple-400' },
+            { label: 'Bus Fleet', icon: Bus, tab: 'transport', color: 'text-blue-600 bg-blue-50 dark:bg-blue-950/60 hover:border-blue-400' },
+            { label: 'Library Desk', icon: BookMarked, tab: 'library', color: 'text-teal-600 bg-teal-50 dark:bg-teal-950/60 hover:border-teal-400' }
+          ].map((op, idx) => {
+            const Icon = op.icon;
+            return (
+              <button
+                key={idx}
+                onClick={() => setActiveTab(op.tab)}
+                className={`p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col items-center justify-center text-center transition-all hover:scale-105 active:scale-95 hover:shadow-md ${op.color}`}
+              >
+                <div className="p-2 rounded-xl mb-2">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <span className="text-[11px] font-bold text-slate-800 dark:text-slate-200 truncate w-full">
+                  {op.label}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 📋 SECTION 9: DAILY TASK & ACTION PLANNER */}
+      {/* ========================================================================= */}
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="p-2 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300">
+                <ListTodo className="w-5 h-5" />
+              </span>
+              <h3 className="text-base font-black text-slate-900 dark:text-white">
+                Admin & Staff Daily Task & Action Planner
+              </h3>
+              <span className="px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold text-xs border border-indigo-200 dark:border-indigo-800">
+                {completedCount}/{tasks.length} Done ({progressPercent}%)
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 mt-1">
+              Prioritized daily action items, fee recovery calls, CBSE compliances, exam blueprints, and operational checklists.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsAddingTask(!isAddingTask)}
+              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold shadow-md shadow-purple-500/20 flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
+            >
+              <Plus className="w-4 h-4" /> {isAddingTask ? 'Close Form' : 'Add New Task'}
+            </button>
+          </div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-purple-600 via-indigo-600 to-emerald-500 transition-all duration-500"
+            style={{ width: `${progressPercent}%` }}
+          ></div>
+        </div>
+
+        {/* Quick Add Task Form */}
+        {isAddingTask && (
+          <form
+            onSubmit={handleCreateTask}
+            className="p-4 rounded-2xl bg-purple-50/60 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800/60 space-y-3 animate-in fade-in duration-200"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
+              <div className="sm:col-span-2">
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Task Title / Action Item *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Call Fee Defaulter Parents for Class 10 POS Collection..."
+                  value={newTaskTitle}
+                  onChange={(e) => setNewTaskTitle(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-medium"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Priority</label>
+                <select
+                  value={newTaskPriority}
+                  onChange={(e) => setNewTaskPriority(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold"
+                >
+                  <option value="urgent">⚡ Urgent (Immediate)</option>
+                  <option value="today">🎯 Today (High)</option>
+                  <option value="soon">⏳ Soon (Medium)</option>
+                  <option value="later">📋 Later (Low)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Category</label>
+                <select
+                  value={newTaskCategory}
+                  onChange={(e) => setNewTaskCategory(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold"
+                >
+                  <option value="Academics">Academics</option>
+                  <option value="Fees & Accounts">Fees & Accounts</option>
+                  <option value="Administration">Administration</option>
+                  <option value="Examinations">Examinations</option>
+                  <option value="Transport">Transport</option>
+                  <option value="Library">Library</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-2 pt-1">
+              <button
+                type="button"
+                onClick={() => setIsAddingTask(false)}
+                className="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-4 py-1.5 rounded-xl text-xs font-bold bg-purple-600 hover:bg-purple-700 text-white shadow-sm"
+              >
+                Save Task
+              </button>
+            </div>
+          </form>
+        )}
+
+        {/* Filter Pills */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+          {[
+            { key: 'All', label: `All (${tasks.length})` },
+            { key: 'Urgent', label: `⚡ Urgent (${tasks.filter(t => t.priority === 'urgent').length})` },
+            { key: 'Today', label: `🎯 Today (${tasks.filter(t => t.priority === 'today').length})` },
+            { key: 'Soon', label: `⏳ Soon (${tasks.filter(t => t.priority === 'soon' || t.priority === 'later').length})` },
+            { key: 'Pending', label: `Pending (${tasks.filter(t => !t.completed).length})` },
+            { key: 'Completed', label: `✓ Completed (${completedCount})` }
+          ].map(f => (
+            <button
+              key={f.key}
+              onClick={() => setTaskFilter(f.key)}
+              className={`px-3 py-1.5 rounded-xl font-bold transition-all whitespace-nowrap ${
+                taskFilter === f.key
+                  ? 'bg-purple-600 text-white shadow-sm'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Task Rows List */}
+        <div className="space-y-2">
+          {filteredTasks.map(task => {
+            const isDone = task.completed;
+            const priorityBadges = {
+              urgent: 'bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-800',
+              today: 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800',
+              soon: 'bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 border-blue-300 dark:border-blue-800',
+              later: 'bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border-purple-300 dark:border-purple-800'
+            };
+
+            const priorityLabels = {
+              urgent: '⚡ Urgent',
+              today: '🎯 Today',
+              soon: '⏳ Soon',
+              later: '📋 Later'
+            };
+
+            return (
+              <div
+                key={task.id}
+                className={`p-3.5 rounded-2xl border transition-all flex items-center justify-between gap-3 ${
+                  isDone
+                    ? 'bg-slate-50/50 dark:bg-slate-800/30 border-slate-200 dark:border-slate-800 opacity-60'
+                    : 'bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-purple-300'
+                }`}
+              >
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  <input
+                    type="checkbox"
+                    checked={isDone}
+                    onChange={() => handleToggleTask(task.id)}
+                    className="w-4 h-4 rounded text-purple-600 focus:ring-purple-500 cursor-pointer shrink-0"
+                  />
+                  <div className="min-w-0">
+                    <p className={`text-xs font-bold text-slate-900 dark:text-white truncate ${isDone ? 'line-through text-slate-400 dark:text-slate-500' : ''}`}>
+                      {task.title}
+                    </p>
+                    {task.description && (
+                      <p className="text-[10px] text-slate-500 truncate mt-0.5">
+                        {task.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0 text-[10px]">
+                  <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold hidden sm:inline-block">
+                    {task.category}
+                  </span>
+                  <span className={`px-2 py-0.5 rounded-lg font-bold border ${priorityBadges[task.priority] || priorityBadges.today}`}>
+                    {priorityLabels[task.priority] || '🎯 Today'}
+                  </span>
+                  <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 font-mono hidden md:inline-block">
+                    Due: {task.dueDate}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteTask(task.id)}
+                    className="p-1 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950 transition-colors"
+                    title="Delete task"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+
+          {filteredTasks.length === 0 && (
+            <p className="text-center text-xs text-slate-400 py-6 italic">
+              No tasks found under "{taskFilter}" filter. Click "+ Add New Task" to create one!
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 📢 SECTION 10: 2-COLUMN GRID (Exams Schedule | Circulars & Events) */}
+      {/* ========================================================================= */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+
+        {/* LEFT 2 COLUMNS: Academic Examinations */}
+        <div className="lg:col-span-2 space-y-6">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                  <Award className="w-5 h-5 text-amber-500" /> Academic Exam Term Schedules
+                </h3>
+                <p className="text-xs text-slate-500">Term 1, Half Yearly & Annual examination schedules</p>
+              </div>
+              <button
+                onClick={() => setActiveTab('examination')}
+                className="text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1"
+              >
+                Gradebook <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {exams.map(exam => (
+                <div key={exam.id} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300">
+                      <BookOpen className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">{exam.name}</h4>
+                      <p className="text-[11px] text-slate-500">{exam.startDate} to {exam.endDate}</p>
+                    </div>
+                  </div>
+                  <Badge variant={exam.status === 'Completed' ? 'success' : exam.status === 'Upcoming' ? 'warning' : 'default'}>
+                    {exam.status}
+                  </Badge>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT 1 COLUMN: Live Notices & Campus Events */}
+        <div className="space-y-6">
+
+          {/* Live Campus Circulars */}
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <Bell className="w-5 h-5 text-indigo-600" /> Campus Circulars
+              </h3>
+              <button
+                onClick={() => setActiveTab('notices')}
+                className="text-xs font-bold text-indigo-600 hover:text-indigo-700"
+              >
+                View All
+              </button>
+            </div>
+
+            <div className="space-y-3">
+              {notices.map(n => (
+                <div key={n.id} className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-xs space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-slate-900 dark:text-white truncate max-w-[180px]">{n.title}</span>
+                    {n.isEmergency && <Badge variant="danger" size="sm">Urgent</Badge>}
+                  </div>
+                  <p className="text-[11px] text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">{n.content}</p>
+                  <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 flex justify-between text-[10px] text-slate-400 font-semibold">
+                    <span>{n.target}</span>
+                    <span>{n.publishDate}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Upcoming School Events */}
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-purple-600" /> Upcoming Events
+              </h3>
+              <button
+                onClick={() => setActiveTab('calendar')}
+                className="text-xs font-bold text-indigo-600 hover:text-indigo-700"
+              >
+                Calendar
+              </button>
+            </div>
+
+            <div className="space-y-3">
+              {events.map(ev => (
+                <div key={ev.id} className="p-3.5 rounded-2xl bg-purple-50/50 dark:bg-purple-950/20 border border-purple-100 dark:border-purple-900/40 text-xs">
+                  <div className="flex justify-between items-start">
+                    <h4 className="font-bold text-purple-950 dark:text-purple-200">{ev.name}</h4>
+                    <span className="text-[10px] font-bold text-purple-600 dark:text-purple-400">{ev.date}</span>
+                  </div>
+                  <p className="text-[11px] text-purple-700 dark:text-purple-300/80 mt-1">{ev.venue} • {ev.time}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
 
       </div>
