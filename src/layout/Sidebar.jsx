@@ -280,21 +280,8 @@ const rolePermissions = {
 export const Sidebar = ({ activeTab, setActiveTab, currentRole, isOpen, setIsOpen, onOpenAI }) => {
   const allowed = rolePermissions[currentRole] || ['*'];
 
-  // State to track which accordion categories are expanded
-  const [openGroups, setOpenGroups] = useState({
-    'students-group': true,
-    'card-management-group': true,
-    'reports-group': true
-  });
-
-  // Automatically expand group containing activeTab
-  useEffect(() => {
-    navigationGroups.forEach(grp => {
-      if (grp.items && grp.items.some(i => i.id === activeTab)) {
-        setOpenGroups(prev => ({ ...prev, [grp.id]: true }));
-      }
-    });
-  }, [activeTab]);
+  // State to track which accordion categories are expanded (starts with all collapsed '+' on reload)
+  const [openGroups, setOpenGroups] = useState({});
 
   const toggleGroup = (groupId) => {
     setOpenGroups(prev => ({
