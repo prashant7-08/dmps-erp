@@ -41,7 +41,7 @@ export const MainLayout = ({
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200 w-full max-w-full overflow-x-hidden">
       {/* Sidebar */}
       <Sidebar
         activeTab={activeTab}
@@ -53,7 +53,7 @@ export const MainLayout = ({
       />
 
       {/* Main Content Area */}
-      <div className="lg:pl-72 flex flex-col min-h-screen">
+      <div className="lg:pl-72 flex flex-col min-h-screen w-full max-w-full min-w-0 overflow-x-hidden">
         <TopNav
           currentRole={currentRole}
           setCurrentRole={setCurrentRole}
@@ -66,7 +66,7 @@ export const MainLayout = ({
           onViewWebsite={onViewWebsite}
         />
 
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto animate-in fade-in duration-300">
+        <main className="flex-1 p-3 sm:p-5 lg:p-7 max-w-7xl w-full mx-auto animate-in fade-in duration-300 min-w-0 overflow-x-hidden">
           {children}
         </main>
       </div>
