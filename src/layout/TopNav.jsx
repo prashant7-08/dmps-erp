@@ -44,11 +44,11 @@ export const TopNav = ({
   const notices = schoolService.getNotices();
 
   const filteredStudents = searchQuery.trim()
-    ? students.filter(s => s.name.toLowerCase().includes(searchQuery.toLowerCase()) || s.rollNo.includes(searchQuery) || s.admissionNo.toLowerCase().includes(searchQuery.toLowerCase()))
+    ? students.filter(s => (s.name || '').toLowerCase().includes(searchQuery.toLowerCase()) || String(s.rollNo || '').includes(searchQuery) || String(s.admissionNo || '').toLowerCase().includes(searchQuery.toLowerCase()))
     : [];
 
   const filteredTeachers = searchQuery.trim()
-    ? teachers.filter(t => t.name.toLowerCase().includes(searchQuery.toLowerCase()) || t.department.toLowerCase().includes(searchQuery.toLowerCase()))
+    ? teachers.filter(t => (t.name || '').toLowerCase().includes(searchQuery.toLowerCase()) || (t.department || '').toLowerCase().includes(searchQuery.toLowerCase()))
     : [];
 
   const roles = [

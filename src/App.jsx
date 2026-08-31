@@ -220,45 +220,65 @@ function AppContent() {
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { hasError: false, error: null, errorInfo: null };
   }
   static getDerivedStateFromError(error) {
     return { hasError: true, error };
   }
   componentDidCatch(error, errorInfo) {
     console.error("App Render Error caught by Boundary:", error, errorInfo);
+    this.setState({ errorInfo });
   }
+
+  handleForceReset = () => {
+    try {
+      localStorage.clear();
+      sessionStorage.clear();
+    } catch (e) {}
+    window.location.hash = '';
+    window.location.reload();
+  };
+
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white p-6">
-          <div className="max-w-md w-full bg-slate-800 p-6 rounded-3xl border border-slate-700 text-center space-y-4 shadow-xl">
-            <div className="w-14 h-14 mx-auto rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-2xl">
+        <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white p-6 font-sans">
+          <div className="max-w-lg w-full bg-slate-900 p-8 rounded-3xl border border-slate-800 text-center space-y-5 shadow-2xl">
+            <div className="w-16 h-16 mx-auto rounded-3xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-3xl shadow-inner">
               ⚡
             </div>
-            <h2 className="text-xl font-black text-white font-serif">Dadheech Memorial ERP</h2>
-            <p className="text-xs text-slate-400">
-              A portal update occurred. Click below to load the verified school database and open the portal.
-            </p>
-            <button
-              onClick={() => {
-                try {
-                  // Clear legacy outdated keys
-                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB');
-                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V2');
-                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V3');
-                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V4');
-                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V5');
-                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V6_AUTHENTIC');
-                  localStorage.removeItem('DMPS_SCHOOL_MANAGEMENT_DB_V7_AVATARS');
-                } catch (e) {}
-                window.location.hash = '';
-                window.location.reload();
-              }}
-              className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs shadow-lg transition-all"
-            >
-              🔄 Refresh & Open Portal
-            </button>
+            
+            <div>
+              <h2 className="text-2xl font-black text-white font-serif tracking-tight">Dadheech Memorial ERP</h2>
+              <p className="text-xs text-slate-400 mt-1">
+                Portal cache update. Click below to load the fresh database and open the portal.
+              </p>
+            </div>
+
+            {this.state.error && (
+              <div className="p-3 rounded-2xl bg-rose-950/40 border border-rose-800/60 text-[11px] text-rose-300 font-mono text-left max-h-28 overflow-y-auto">
+                <strong>Error:</strong> {this.state.error.message || String(this.state.error)}
+              </div>
+            )}
+
+            <div className="space-y-2 pt-2">
+              <button
+                onClick={this.handleForceReset}
+                className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-2xl text-xs shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2"
+              >
+                🔄 Reset Cache & Open Portal
+              </button>
+
+              <button
+                onClick={() => {
+                  window.location.hash = '';
+                  window.location.reload();
+                }}
+                className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-2xl text-xs transition-all"
+              >
+                Quick Refresh
+              </button>
+            </div>
           </div>
         </div>
       );
