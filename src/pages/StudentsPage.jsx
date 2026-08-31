@@ -23,7 +23,19 @@ import {
   CheckSquare,
   Square,
   Download,
-  Share2
+  Share2,
+  Save,
+  CreditCard,
+  Bus,
+  ShieldCheck,
+  User,
+  Users,
+  MapPin,
+  Sparkles,
+  BookOpen,
+  Award,
+  IdCard,
+  DollarSign
 } from 'lucide-react';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
@@ -33,11 +45,11 @@ import schoolService from '../services/schoolService';
 
 export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission = null }) => {
   const { showToast } = useToast();
-  const { activeBranchId, setActiveBranchId, branches } = useAuth();
+  const { activeBranchId, branches } = useAuth();
   
   // Data State
   const [allStudents, setAllStudents] = useState(() => schoolService.getStudents('all'));
-  const [activeTab, setActiveTab] = useState('active'); // 'active' | 'inactive' | 'reasons'
+  const [activeTab, setActiveTab] = useState('active'); // 'active' | 'inactive'
 
   // Filter States ("Select Ground" matching user's software)
   const [selectedBranch, setSelectedBranch] = useState('all');
@@ -53,9 +65,76 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
   // Modals
   const [selectedStudent, setSelectedStudent] = useState(initialSelectedStudent);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [profileActiveTab, setProfileActiveTab] = useState('personal'); // 'personal' | 'parents' | 'fees' | 'transport' | 'attendance'
+  
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [editActiveTab, setEditActiveTab] = useState('academic'); // 'academic' | 'personal' | 'parents' | 'transport' | 'previous'
+  
   const [isIdCardModalOpen, setIsIdCardModalOpen] = useState(false);
   const [isDeactivateModalOpen, setIsDeactivateModalOpen] = useState(false);
   const [studentToDeactivate, setStudentToDeactivate] = useState(null);
+
+  // Comprehensive Edit Form State (Matching Create Admission Form)
+  const [editFormData, setEditFormData] = useState({
+    id: '',
+    admissionNo: '',
+    rollNo: '', // Ledger No. (खाता संख्या)
+    admissionDate: '',
+    class: '',
+    section: 'A',
+    branchId: 'BR-01',
+    status: 'Active',
+    
+    // Student Personal
+    name: '',
+    firstName: '',
+    lastName: '',
+    gender: 'female',
+    dob: '',
+    bloodGroup: '',
+    motherTongue: 'Hindi',
+    religion: 'Hindu',
+    caste: '',
+    category: 'General',
+    heightCms: '',
+    weightKg: '',
+    photo: '',
+
+    // Government & Identity
+    aadhaarNo: '',
+    nameAsPerAadhaar: '',
+    penNo: '',
+    mobileNo: '',
+
+    // Parents & Guardian Details
+    fatherName: '',
+    fatherMobile: '',
+    fatherOccupation: '',
+    fatherEducation: '',
+    motherName: '',
+    motherMobile: '',
+    motherOccupation: '',
+    motherEducation: '',
+    guardianName: '',
+    guardianRelation: '',
+    guardianMobile: '',
+    guardianAddress: '',
+    presentAddress: '',
+    permanentAddress: '',
+
+    // Transport Details
+    facilityType: 'None',
+    transportRoute: '',
+    transportStop: '',
+    transportVehicle: '',
+    transportFare: 0,
+
+    // Previous School Details
+    previousSchoolName: '',
+    previousClass: '',
+    previousTcNo: '',
+    previousRemarks: ''
+  });
 
   // Deactivation Form State
   const [deactivateReason, setDeactivateReason] = useState('Transfer with T C');
@@ -116,7 +195,6 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
         const stuCls = (stu.class || '').toUpperCase().trim();
         const selCls = selectedClass.toUpperCase().trim();
         
-        // Exact match or contains
         const isMatch = stuCls === selCls || 
           stuCls.replace('CLASS', '').trim() === selCls ||
           (selCls === 'I' && (stuCls === 'I' || stuCls === '1' || stuCls === 'CLASS 1')) ||
@@ -140,7 +218,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
         if ((stu.section || '').toUpperCase() !== selectedSection.toUpperCase()) return false;
       }
 
-      // Search Query
+      // Search Query (Supports name, father, phone, admission no, ledger no / roll no, aadhaar, pen no)
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
         const matchName = (stu.name || '').toLowerCase().includes(q);
@@ -148,12 +226,12 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
         const matchMother = (stu.parents?.motherName || '').toLowerCase().includes(q);
         const matchPhone = (stu.parents?.fatherMobile || '').toLowerCase().includes(q);
         const matchAdm = (stu.admissionNo || '').toLowerCase().includes(q);
-        const matchRoll = (stu.rollNo || '').toLowerCase().includes(q);
+        const matchLedger = (stu.rollNo || '').toLowerCase().includes(q);
         const matchAadhaar = (stu.customFields?.studentAadhaar || '').toLowerCase().includes(q);
         const matchPen = (stu.customFields?.penNo || '').toLowerCase().includes(q);
         const matchAddress = (stu.parents?.address || '').toLowerCase().includes(q);
 
-        return matchName || matchFather || matchMother || matchPhone || matchAdm || matchRoll || matchAadhaar || matchPen || matchAddress;
+        return matchName || matchFather || matchMother || matchPhone || matchAdm || matchLedger || matchAadhaar || matchPen || matchAddress;
       }
 
       return true;
@@ -172,6 +250,144 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
   // Counts
   const activeCount = useMemo(() => allStudents.filter(s => s.status !== 'Inactive').length, [allStudents]);
   const inactiveCount = useMemo(() => allStudents.filter(s => s.status === 'Inactive').length, [allStudents]);
+
+  // Open Full Edit Modal with all details pre-filled from student
+  const handleOpenEditModal = (student) => {
+    const parts = (student.name || '').split(' ');
+    const fName = parts[0] || '';
+    const lName = parts.slice(1).join(' ') || '';
+
+    setEditFormData({
+      id: student.id,
+      admissionNo: student.admissionNo || '',
+      rollNo: student.rollNo || '0', // Ledger No. (खाता संख्या)
+      admissionDate: student.admissionDate || '2026-04-01',
+      class: student.class || 'NURSERY',
+      section: student.section || 'A',
+      branchId: student.branchId || 'BR-01',
+      status: student.status || 'Active',
+      
+      // Student Personal
+      name: student.name || '',
+      firstName: fName,
+      lastName: lName,
+      gender: student.gender || 'female',
+      dob: student.dob || '',
+      bloodGroup: student.bloodGroup || '',
+      motherTongue: student.motherTongue || 'Hindi',
+      religion: student.customFields?.religion || 'Hindu',
+      caste: student.customFields?.caste || '',
+      category: student.category || 'General',
+      heightCms: student.heightCms || '',
+      weightKg: student.weightKg || '',
+      photo: student.photo || '',
+
+      // Government & Identity
+      aadhaarNo: student.customFields?.studentAadhaar || '',
+      nameAsPerAadhaar: student.customFields?.nameAsPerAadhaar || student.name || '',
+      penNo: student.customFields?.penNo || '',
+      mobileNo: student.parents?.fatherMobile || '',
+
+      // Parents & Guardian Details
+      fatherName: student.parents?.fatherName || '',
+      fatherMobile: student.parents?.fatherMobile || '',
+      fatherOccupation: student.parents?.fatherOccupation || '',
+      fatherEducation: student.parents?.fatherEducation || '',
+      motherName: student.parents?.motherName || '',
+      motherMobile: student.parents?.motherMobile || '',
+      motherOccupation: student.parents?.motherOccupation || '',
+      motherEducation: student.parents?.motherEducation || '',
+      guardianName: student.parents?.guardianName || '',
+      guardianRelation: student.parents?.guardianRelation || '',
+      guardianMobile: student.parents?.guardianMobile || '',
+      guardianAddress: student.parents?.guardianAddress || '',
+      presentAddress: student.parents?.address || '',
+      permanentAddress: student.parents?.permanentAddress || student.parents?.address || '',
+
+      // Transport Details
+      facilityType: student.transport?.isEnrolled ? 'Transport' : 'None',
+      transportRoute: student.transport?.route || '',
+      transportStop: student.transport?.stop || '',
+      transportVehicle: student.transport?.vehicle || '',
+      transportFare: student.transport?.monthlyFare || 0,
+
+      // Previous School Details
+      previousSchoolName: student.previousSchoolName || '',
+      previousClass: student.previousClass || '',
+      previousTcNo: student.previousTcNo || '',
+      previousRemarks: student.previousRemarks || ''
+    });
+
+    setEditActiveTab('academic');
+    setIsEditModalOpen(true);
+  };
+
+  // Save Full Edited Student
+  const handleSaveEditForm = (e) => {
+    e.preventDefault();
+    const fullName = `${editFormData.firstName} ${editFormData.lastName}`.trim() || editFormData.name;
+
+    const updates = {
+      admissionNo: editFormData.admissionNo,
+      rollNo: editFormData.rollNo, // Ledger No. (खाता संख्या)
+      admissionDate: editFormData.admissionDate,
+      class: editFormData.class,
+      section: editFormData.section,
+      branchId: editFormData.branchId,
+      name: fullName,
+      gender: editFormData.gender,
+      dob: editFormData.dob,
+      bloodGroup: editFormData.bloodGroup,
+      motherTongue: editFormData.motherTongue,
+      category: editFormData.category,
+      heightCms: editFormData.heightCms,
+      weightKg: editFormData.weightKg,
+      photo: editFormData.photo || `https://ui-avatars.com/api/?name=${fullName.replace(' ', '+')}&background=4F46E5&color=fff&size=128&bold=true`,
+      
+      customFields: {
+        penNo: editFormData.penNo,
+        studentAadhaar: editFormData.aadhaarNo,
+        nameAsPerAadhaar: editFormData.nameAsPerAadhaar,
+        caste: editFormData.caste,
+        religion: editFormData.religion
+      },
+
+      parents: {
+        fatherName: editFormData.fatherName,
+        fatherMobile: editFormData.fatherMobile,
+        fatherOccupation: editFormData.fatherOccupation,
+        fatherEducation: editFormData.fatherEducation,
+        motherName: editFormData.motherName,
+        motherMobile: editFormData.motherMobile,
+        motherOccupation: editFormData.motherOccupation,
+        motherEducation: editFormData.motherEducation,
+        guardianName: editFormData.guardianName,
+        guardianRelation: editFormData.guardianRelation,
+        guardianMobile: editFormData.guardianMobile,
+        guardianAddress: editFormData.guardianAddress,
+        address: editFormData.presentAddress,
+        permanentAddress: editFormData.permanentAddress
+      },
+
+      transport: {
+        isEnrolled: editFormData.facilityType === 'Transport',
+        route: editFormData.transportRoute,
+        stop: editFormData.transportStop,
+        vehicle: editFormData.transportVehicle,
+        monthlyFare: Number(editFormData.transportFare) || 0
+      },
+
+      previousSchoolName: editFormData.previousSchoolName,
+      previousClass: editFormData.previousClass,
+      previousTcNo: editFormData.previousTcNo,
+      previousRemarks: editFormData.previousRemarks
+    };
+
+    schoolService.updateStudent(editFormData.id, updates);
+    refreshStudents();
+    setIsEditModalOpen(false);
+    showToast(`Student ${fullName} (Adm: ${editFormData.admissionNo}, Ledger: ${editFormData.rollNo}) details updated successfully! 💾`, 'success');
+  };
 
   // Handle Mark Inactive (Deactivate Student)
   const handleOpenDeactivateModal = (student) => {
@@ -214,7 +430,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
 
   // Export functions
   const handleExportCSV = () => {
-    const headers = ['Register No', 'Student Name', 'Father Name', 'Mother Name', 'DOB', 'Mobile', 'Address', 'Class', 'Section', 'Gender', 'Roll', 'Aadhaar', 'Status'];
+    const headers = ['Register No', 'Student Name', 'Father Name', 'Mother Name', 'DOB', 'Mobile', 'Address', 'Class', 'Section', 'Gender', 'Ledger No (खाता संख्या)', 'Aadhaar', 'Status'];
     const rows = filteredStudents.map(s => [
       s.admissionNo,
       `"${s.name}"`,
@@ -226,7 +442,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
       s.class,
       s.section,
       s.gender,
-      s.rollNo,
+      s.rollNo, // Ledger No.
       s.customFields?.studentAadhaar || '',
       s.status
     ]);
@@ -242,7 +458,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
   };
 
   const handleCopyTable = () => {
-    const text = filteredStudents.map(s => `${s.admissionNo}\t${s.name}\t${s.parents?.fatherName || ''}\t${s.class}-${s.section}\t${s.parents?.fatherMobile || ''}`).join('\n');
+    const text = filteredStudents.map(s => `${s.admissionNo}\t${s.name}\t${s.parents?.fatherName || ''}\t${s.class}-${s.section}\t${s.rollNo}\t${s.parents?.fatherMobile || ''}`).join('\n');
     navigator.clipboard.writeText(text);
     showToast('Student summary copied to clipboard! 📋', 'success');
   };
@@ -341,7 +557,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
         </div>
       </div>
 
-      {/* 📑 Tab Navigation: Active List vs Inactive List vs Reasons */}
+      {/* 📑 Tab Navigation: Active List vs Inactive List */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-2">
         <div className="flex items-center gap-2">
           <button
@@ -398,7 +614,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
         {/* Table Toolbar Header */}
         <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-3 bg-slate-50/50 dark:bg-slate-800/40">
           
-          {/* Export Icons Toolbar (Matching Screenshot 2) */}
+          {/* Export Icons Toolbar */}
           <div className="flex items-center gap-1.5 flex-wrap">
             <button
               onClick={handleCopyTable}
@@ -452,13 +668,13 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              placeholder="Search by name, father, phone, admission no..."
+              placeholder="Search name, father, ledger no, mobile, adm no..."
               className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white placeholder-slate-400 font-medium focus:ring-2 focus:ring-sky-500 shadow-2xs"
             />
           </div>
         </div>
 
-        {/* 📜 Responsive Table View (Exact Columns from Old Software Screenshot) */}
+        {/* 📜 Responsive Table View */}
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
@@ -482,7 +698,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                 <th className="p-3">Section</th>
                 <th className="p-3">Register No</th>
                 <th className="p-3">Gender</th>
-                <th className="p-3">Roll</th>
+                <th className="p-3 text-indigo-600 font-black">Ledger No. (खाता नं.)</th>
                 <th className="p-3">PEN No.</th>
                 <th className="p-3">Student Aadhaar</th>
                 <th className="p-3 text-center">Status</th>
@@ -528,11 +744,11 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                       {/* Photo Thumbnail */}
                       <td className="p-3">
                         <img
-                          src={student.photo || `https://api.dicebear.com/7.x/bottts/svg?seed=${student.name}`}
+                          src={student.photo || `https://ui-avatars.com/api/?name=${student.name.replace(' ', '+')}&background=4F46E5&color=fff&size=128&bold=true`}
                           alt={student.name}
                           className="w-9 h-9 rounded-lg object-cover border border-slate-200 dark:border-slate-700 bg-slate-100 shrink-0"
                           onError={(e) => {
-                            e.target.src = `https://api.dicebear.com/7.x/bottts/svg?seed=${student.name}`;
+                            e.target.src = `https://ui-avatars.com/api/?name=${student.name.replace(' ', '+')}&background=4F46E5&color=fff&size=128&bold=true`;
                           }}
                         />
                       </td>
@@ -591,8 +807,8 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                         {student.gender || '-'}
                       </td>
 
-                      {/* Roll No */}
-                      <td className="p-3 font-mono text-center text-slate-600 dark:text-slate-400">
+                      {/* Ledger No (खाता संख्या) */}
+                      <td className="p-3 font-mono font-black text-indigo-600 dark:text-indigo-400 text-center bg-indigo-50/50 dark:bg-indigo-950/30 rounded-lg">
                         {student.rollNo || '0'}
                       </td>
 
@@ -630,12 +846,22 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                           <button
                             onClick={() => {
                               setSelectedStudent(student);
+                              setProfileActiveTab('personal');
                               setIsProfileModalOpen(true);
                             }}
                             title="View 360° Profile"
                             className="p-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg transition-all"
                           >
                             <Eye className="w-3.5 h-3.5 text-sky-600" />
+                          </button>
+
+                          {/* Full Edit Modal */}
+                          <button
+                            onClick={() => handleOpenEditModal(student)}
+                            title="Edit All Student Details"
+                            className="p-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg transition-all"
+                          >
+                            <Edit className="w-3.5 h-3.5 text-amber-600" />
                           </button>
 
                           {/* ID Card */}
@@ -715,6 +941,665 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
       </div>
 
       {/* ========================================================== */}
+      {/* ✏️ MODAL: FULL COMPREHENSIVE EDIT STUDENT (MATCHES ADMISSION) */}
+      {/* ========================================================== */}
+      <Modal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        title={`Edit Student Details: ${editFormData.name} (Adm: ${editFormData.admissionNo})`}
+        maxWidth="max-w-4xl"
+      >
+        <form onSubmit={handleSaveEditForm} className="space-y-5 text-xs">
+          
+          {/* Edit Modal Sub-Tabs */}
+          <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-x-auto">
+            {[
+              { id: 'academic', label: '1. Academic & Branch', icon: GraduationCap },
+              { id: 'personal', label: '2. Student Personal & IDs', icon: User },
+              { id: 'parents', label: '3. Parents & Guardian', icon: Users },
+              { id: 'transport', label: '4. Transport & Conveyance', icon: Bus },
+              { id: 'previous', label: '5. Previous School History', icon: BookOpen }
+            ].map(tab => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setEditActiveTab(tab.id)}
+                  className={`px-3.5 py-2 rounded-xl font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                    editActiveTab === tab.id
+                      ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* TAB 1: Academic & Branch Details */}
+          {editActiveTab === 'academic' && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Campus / Branch</label>
+                <select
+                  value={editFormData.branchId}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, branchId: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                >
+                  <option value="BR-01">Dadheech Memorial Public School (Main Campus)</option>
+                  <option value="BR-02">Dadheech Memorial Public School (Barheti Campus)</option>
+                  <option value="BR-03">Dadheech Kids School (PAC Campus)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Class *</label>
+                <select
+                  value={editFormData.class}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, class: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                >
+                  {classList.filter(c => c.id !== 'all').map(c => (
+                    <option key={c.id} value={c.id}>{c.label.toUpperCase()}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Section</label>
+                <select
+                  value={editFormData.section}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, section: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                >
+                  <option value="A">Section A</option>
+                  <option value="B">Section B</option>
+                  <option value="C">Section C</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Register / Admission No *</label>
+                <input
+                  type="text"
+                  required
+                  value={editFormData.admissionNo}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, admissionNo: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-indigo-600 dark:text-indigo-400 block mb-1">
+                  Ledger No. (खाता संख्या) / Roll No *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={editFormData.rollNo}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, rollNo: e.target.value }))}
+                  placeholder="e.g. 0, 101, 102 (खाता संख्या)"
+                  className="w-full p-2 rounded-xl border-2 border-indigo-300 dark:border-indigo-700 bg-white dark:bg-slate-800 font-mono font-black text-indigo-700 dark:text-indigo-300"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Admission Date</label>
+                <input
+                  type="date"
+                  value={editFormData.admissionDate}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, admissionDate: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* TAB 2: Student Personal & Government IDs */}
+          {editActiveTab === 'personal' && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">First Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={editFormData.firstName}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, firstName: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Last Name</label>
+                <input
+                  type="text"
+                  value={editFormData.lastName}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, lastName: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Gender *</label>
+                <select
+                  value={editFormData.gender}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, gender: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                >
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Date of Birth</label>
+                <input
+                  type="date"
+                  value={editFormData.dob}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, dob: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student Aadhaar Number</label>
+                <input
+                  type="text"
+                  value={editFormData.aadhaarNo}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, aadhaarNo: e.target.value }))}
+                  placeholder="12 digit Aadhaar"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">PEN Number (Govt.)</label>
+                <input
+                  type="text"
+                  value={editFormData.penNo}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, penNo: e.target.value }))}
+                  placeholder="Permanent Education No."
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Religion</label>
+                <input
+                  type="text"
+                  value={editFormData.religion}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, religion: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Caste / Category</label>
+                <input
+                  type="text"
+                  value={editFormData.caste}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, caste: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Blood Group</label>
+                <select
+                  value={editFormData.bloodGroup}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, bloodGroup: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                >
+                  <option value="">Select Blood Group</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                </select>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: Parents & Guardian Details */}
+          {editActiveTab === 'parents' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={editFormData.fatherName}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, fatherName: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Mobile Number *</label>
+                <input
+                  type="tel"
+                  required
+                  value={editFormData.fatherMobile}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, fatherMobile: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mother's Name</label>
+                <input
+                  type="text"
+                  value={editFormData.motherName}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, motherName: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Occupation</label>
+                <input
+                  type="text"
+                  value={editFormData.fatherOccupation}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, fatherOccupation: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Residential Address *</label>
+                <input
+                  type="text"
+                  required
+                  value={editFormData.presentAddress}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, presentAddress: e.target.value, permanentAddress: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4: Transport & Conveyance */}
+          {editActiveTab === 'transport' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Facility Required</label>
+                <select
+                  value={editFormData.facilityType}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, facilityType: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                >
+                  <option value="None">None (Self Conveyance)</option>
+                  <option value="Transport">School Bus / Transport</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Route Name</label>
+                <input
+                  type="text"
+                  value={editFormData.transportRoute}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, transportRoute: e.target.value }))}
+                  placeholder="e.g. Route 1 - Nagla Dharakpur Side"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Stoppage / Village Name</label>
+                <input
+                  type="text"
+                  value={editFormData.transportStop}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, transportStop: e.target.value }))}
+                  placeholder="e.g. Baijala, Dharakpur, Kaliyanpur..."
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Transport Fare (₹)</label>
+                <input
+                  type="number"
+                  value={editFormData.transportFare}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, transportFare: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* TAB 5: Previous School Details */}
+          {editActiveTab === 'previous' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Previous School Name</label>
+                <input
+                  type="text"
+                  value={editFormData.previousSchoolName}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, previousSchoolName: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Previous Class</label>
+                <input
+                  type="text"
+                  value={editFormData.previousClass}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, previousClass: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Transfer Certificate (TC) No.</label>
+                <input
+                  type="text"
+                  value={editFormData.previousTcNo}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, previousTcNo: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Remarks</label>
+                <input
+                  type="text"
+                  value={editFormData.previousRemarks}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, previousRemarks: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Form Actions */}
+          <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-200 dark:border-slate-700">
+            <button
+              type="button"
+              onClick={() => setIsEditModalOpen(false)}
+              className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-300"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-md shadow-indigo-500/20 flex items-center gap-1.5"
+            >
+              <Save className="w-4 h-4" /> Save Student Details
+            </button>
+          </div>
+        </form>
+      </Modal>
+
+      {/* ========================================================== */}
+      {/* 👁️ MODAL: 360° STUDENT PROFILE (RICH TABBED PROFILE)        */}
+      {/* ========================================================== */}
+      <Modal
+        isOpen={isProfileModalOpen}
+        onClose={() => setIsProfileModalOpen(false)}
+        title={`Student 360° Complete Profile: ${selectedStudent?.name || ''}`}
+        maxWidth="max-w-4xl"
+      >
+        {selectedStudent && (
+          <div className="space-y-5 text-xs">
+            
+            {/* Profile Header Card */}
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-5 rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white shadow-lg">
+              <img
+                src={selectedStudent.photo || `https://ui-avatars.com/api/?name=${selectedStudent.name.replace(' ', '+')}&background=4F46E5&color=fff&size=128&bold=true`}
+                alt={selectedStudent.name}
+                className="w-20 h-20 rounded-2xl object-cover border-2 border-white/30 shadow-md shrink-0"
+              />
+              <div className="space-y-1.5 text-center sm:text-left flex-1">
+                <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+                  <h3 className="text-xl font-black uppercase tracking-tight">
+                    {selectedStudent.name}
+                  </h3>
+                  <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase ${
+                    selectedStudent.status === 'Inactive' ? 'bg-rose-500/30 text-rose-300 border border-rose-400' : 'bg-emerald-500/30 text-emerald-300 border border-emerald-400'
+                  }`}>
+                    {selectedStudent.status}
+                  </span>
+                </div>
+
+                <p className="text-xs text-indigo-200 font-bold">
+                  Class: <span className="text-amber-300 uppercase">{selectedStudent.class} - {selectedStudent.section}</span> | 
+                  Adm No: <span className="text-amber-300 font-mono">{selectedStudent.admissionNo}</span> | 
+                  Ledger No. (खाता नं.): <span className="text-emerald-300 font-mono font-black">#{selectedStudent.rollNo}</span>
+                </p>
+
+                <p className="text-[11px] text-slate-300">
+                  Campus: {selectedStudent.branchName}
+                </p>
+              </div>
+
+              {/* Quick Actions inside Profile */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    setIsProfileModalOpen(false);
+                    handleOpenEditModal(selectedStudent);
+                  }}
+                  className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold text-xs flex items-center gap-1 border border-white/20"
+                >
+                  <Edit className="w-3.5 h-3.5" /> Edit
+                </button>
+                <button
+                  onClick={() => {
+                    setIsProfileModalOpen(false);
+                    setIsIdCardModalOpen(true);
+                  }}
+                  className="px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-bold text-xs flex items-center gap-1 shadow-sm"
+                >
+                  <Printer className="w-3.5 h-3.5" /> ID Card
+                </button>
+              </div>
+            </div>
+
+            {/* Profile Tab Navigation */}
+            <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-x-auto">
+              {[
+                { id: 'personal', label: '👤 Personal & Govt IDs', icon: User },
+                { id: 'parents', label: '👨‍👩‍👧 Parents & Siblings', icon: Users },
+                { id: 'fees', label: '💳 Fee Ledger & Family Dues', icon: DollarSign },
+                { id: 'transport', label: '🚌 Transport & Route', icon: Bus },
+                { id: 'attendance', label: '📅 Attendance History', icon: Calendar }
+              ].map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => setProfileActiveTab(tab.id)}
+                  className={`px-3.5 py-1.5 rounded-xl font-bold whitespace-nowrap transition-all ${
+                    profileActiveTab === tab.id
+                      ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            {/* TAB 1: Personal Details & Govt IDs */}
+            {profileActiveTab === 'personal' && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Date of Birth</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.dob || '-'}</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Gender</span>
+                  <p className="font-bold text-slate-900 dark:text-white capitalize mt-0.5">{selectedStudent.gender || '-'}</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Ledger No. (खाता संख्या)</span>
+                  <p className="font-black text-indigo-600 dark:text-indigo-400 mt-0.5 font-mono">{selectedStudent.rollNo || '0'}</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Student Aadhaar No.</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5 font-mono">{selectedStudent.customFields?.studentAadhaar || '-'}</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">PEN Number</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5 font-mono">{selectedStudent.customFields?.penNo || '-'}</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Blood Group</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.bloodGroup || '-'}</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Religion & Caste</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.customFields?.religion || 'Hindu'} ({selectedStudent.customFields?.caste || 'General'})</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 col-span-2">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Residential Address</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.parents?.address || '-'}</p>
+                </div>
+              </div>
+            )}
+
+            {/* TAB 2: Parents & Sibling Details */}
+            {profileActiveTab === 'parents' && (
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase">Father's Name</span>
+                    <p className="font-black text-slate-900 dark:text-white mt-0.5 uppercase">{selectedStudent.parents?.fatherName || '-'}</p>
+                    <p className="text-[11px] text-indigo-600 font-mono mt-0.5 font-bold">📱 {selectedStudent.parents?.fatherMobile || '-'}</p>
+                  </div>
+
+                  <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase">Mother's Name</span>
+                    <p className="font-black text-slate-900 dark:text-white mt-0.5 uppercase">{selectedStudent.parents?.motherName || '-'}</p>
+                  </div>
+                </div>
+
+                {/* Sibling Info Box */}
+                {selectedStudent.feeSummary?.isElderSibling && selectedStudent.feeSummary?.familySiblings?.length > 0 && (
+                  <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 space-y-2">
+                    <h4 className="font-bold text-purple-950 dark:text-purple-200 flex items-center gap-1.5">
+                      <Users className="w-4 h-4 text-purple-600" />
+                      👑 Family Master Billing (Elder Sibling)
+                    </h4>
+                    <p className="text-slate-600 dark:text-slate-300 text-[11px]">
+                      This student carries the consolidated family dues for all {selectedStudent.feeSummary.familySiblings.length + 1} brothers and sisters:
+                    </p>
+                    <div className="divide-y divide-purple-200/60 dark:divide-purple-800/60 pt-1">
+                      {selectedStudent.feeSummary.familySiblings.map(sib => (
+                        <div key={sib.id} className="py-1.5 flex items-center justify-between text-[11px]">
+                          <span className="font-bold text-purple-900 dark:text-purple-200">{sib.name} ({sib.class})</span>
+                          <span className="font-mono text-slate-700 dark:text-slate-300">Due: ₹{sib.individualDue.toLocaleString()} | Paid: ₹{sib.individualPaid.toLocaleString()}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {selectedStudent.feeSummary?.linkedElderSibling && (
+                  <div className="p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800">
+                    <h4 className="font-bold text-blue-950 dark:text-blue-200">
+                      👨‍👩‍👧 Linked with Elder Sibling
+                    </h4>
+                    <p className="text-slate-600 dark:text-slate-300 text-[11px] mt-1">
+                      Consolidated Family billing is managed under elder sibling: <strong className="text-blue-700 dark:text-blue-300">{selectedStudent.feeSummary.linkedElderSibling.name} ({selectedStudent.feeSummary.linkedElderSibling.class})</strong>.
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB 3: Fee Ledger */}
+            {profileActiveTab === 'fees' && (
+              <div className="space-y-4">
+                <div className="grid grid-cols-3 gap-3 text-center">
+                  <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800">
+                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase">Annual Fee Due</span>
+                    <p className="text-base font-black text-amber-900 dark:text-amber-100 font-mono mt-0.5">
+                      ₹{(selectedStudent.feeSummary?.totalDue || 0).toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">
+                    <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase">Amount Paid</span>
+                    <p className="text-base font-black text-emerald-900 dark:text-emerald-100 font-mono mt-0.5">
+                      ₹{(selectedStudent.feeSummary?.totalPaid || 0).toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800">
+                    <span className="text-[10px] font-bold text-rose-700 dark:text-rose-300 uppercase">Remaining Balance</span>
+                    <p className="text-base font-black text-rose-900 dark:text-rose-100 font-mono mt-0.5">
+                      ₹{(selectedStudent.feeSummary?.balance || 0).toLocaleString()}
+                    </p>
+                  </div>
+                </div>
+
+                {selectedStudent.feeSummary?.isElderSibling && (
+                  <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800">
+                    <div className="flex justify-between items-center text-xs font-bold text-purple-900 dark:text-purple-200">
+                      <span>👑 Total Combined Family Dues:</span>
+                      <span className="font-mono text-base font-black">₹{selectedStudent.feeSummary.consolidatedFamilyDue.toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-xs text-purple-700 dark:text-purple-300 mt-1">
+                      <span>Total Family Paid:</span>
+                      <span className="font-mono font-bold">₹{selectedStudent.feeSummary.consolidatedFamilyPaid.toLocaleString()}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB 4: Transport */}
+            {profileActiveTab === 'transport' && (
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Transport Status</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">
+                    {selectedStudent.transport?.isEnrolled ? 'Enrolled in School Bus' : 'Self Conveyance / Walk-in'}
+                  </p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Village / Stop</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.stop || 'N/A'}</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Route Name</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.route || 'N/A'}</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Monthly Bus Fare</span>
+                  <p className="font-bold text-slate-900 dark:text-white font-mono mt-0.5">₹{selectedStudent.transport?.monthlyFare || 0}</p>
+                </div>
+              </div>
+            )}
+
+            {/* TAB 5: Attendance */}
+            {profileActiveTab === 'attendance' && (
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Working Days</span>
+                  <p className="text-base font-black text-slate-900 dark:text-white mt-0.5">88 Days</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">
+                  <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase">Present Days</span>
+                  <p className="text-base font-black text-emerald-900 dark:text-emerald-100 mt-0.5">{selectedStudent.attendanceSummary?.presentDays || 84} Days</p>
+                </div>
+                <div className="p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800">
+                  <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-300 uppercase">Attendance %</span>
+                  <p className="text-base font-black text-indigo-900 dark:text-indigo-100 mt-0.5">{selectedStudent.attendanceSummary?.percentage || 95.5}%</p>
+                </div>
+              </div>
+            )}
+
+          </div>
+        )}
+      </Modal>
+
+      {/* ========================================================== */}
       {/* 🚫 MODAL: DEACTIVATE / MARK INACTIVE (TC / LEFT)           */}
       {/* ========================================================== */}
       <Modal
@@ -729,7 +1614,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
               <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-amber-900 dark:text-amber-200">
-                  Deactivating {studentToDeactivate.name} (Adm No: {studentToDeactivate.admissionNo})
+                  Deactivating {studentToDeactivate.name} (Adm: {studentToDeactivate.admissionNo}, Ledger: {studentToDeactivate.rollNo})
                 </p>
                 <p className="text-[11px] text-amber-700 dark:text-amber-400 mt-0.5">
                   The student will be moved to the Inactive List and omitted from daily attendance & fee dues. Historical records remain preserved.
@@ -792,70 +1677,6 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
               >
                 Confirm Inactivation
               </button>
-            </div>
-          </div>
-        )}
-      </Modal>
-
-      {/* ========================================================== */}
-      {/* 👁️ MODAL: 360° STUDENT PROFILE                            */}
-      {/* ========================================================== */}
-      <Modal
-        isOpen={isProfileModalOpen}
-        onClose={() => setIsProfileModalOpen(false)}
-        title="Student 360° Profile Details"
-        maxWidth="max-w-2xl"
-      >
-        {selectedStudent && (
-          <div className="space-y-4 text-xs">
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-              <img
-                src={selectedStudent.photo}
-                alt={selectedStudent.name}
-                className="w-16 h-16 rounded-xl object-cover border border-slate-200"
-              />
-              <div>
-                <h3 className="text-base font-black text-slate-900 dark:text-white uppercase">
-                  {selectedStudent.name}
-                </h3>
-                <p className="text-xs text-indigo-600 font-bold">
-                  Class: {selectedStudent.class} - Section {selectedStudent.section} | Reg No: {selectedStudent.admissionNo}
-                </p>
-                <p className="text-[11px] text-slate-500 mt-0.5">
-                  Branch: {selectedStudent.branchName}
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Father Name</span>
-                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.parents?.fatherName || '-'}</span>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Mother Name</span>
-                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.parents?.motherName || '-'}</span>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Mobile Number</span>
-                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.parents?.fatherMobile || '-'}</span>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Date of Birth</span>
-                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.dob || '-'}</span>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Student Aadhaar</span>
-                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.customFields?.studentAadhaar || '-'}</span>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">PEN Number</span>
-                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.customFields?.penNo || '-'}</span>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 col-span-2">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Address</span>
-                <span className="font-bold text-slate-800 dark:text-white">{selectedStudent.parents?.address || '-'}</span>
-              </div>
             </div>
           </div>
         )}
