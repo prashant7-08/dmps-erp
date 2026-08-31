@@ -22,7 +22,8 @@ import {
   AlertTriangle,
   Bus,
   UserCheck,
-  Timer
+  Timer,
+  GraduationCap
 } from 'lucide-react';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
