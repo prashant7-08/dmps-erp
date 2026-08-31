@@ -229,9 +229,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     { label: "Years of Educational Legacy", value: "24+", icon: Award, sub: "Estd. July 2002" },
     { label: "Premier National Selections", value: "44+", icon: Trophy, sub: "AMU, JNV & Vidyagyan" },
     { label: "Modern School Campuses", value: "3", icon: Building2, sub: "Bulandshahr & Aligarh" },
-    { label: "Active Nurtured Students", value: "1,500+", icon: Users, sub: "Playgroup to 12th" },
+    { label: "Active Nurtured Students", value: "1,000+", icon: Users, sub: "Playgroup to 12th" },
     { label: "Board Pass Percentage", value: "100%", icon: GraduationCap, sub: "BSB Board Standard" },
-    { label: "Personalized Mentoring Ratio", value: "15:1", icon: HeartHandshake, sub: "Goal-Driven Coaching" }
+    { label: "Personalized Mentoring Ratio", value: "20:1", icon: HeartHandshake, sub: "Goal-Driven Coaching" }
   ];
 
   // 3. Complete Authentic 44+ Hall of Fame Data
