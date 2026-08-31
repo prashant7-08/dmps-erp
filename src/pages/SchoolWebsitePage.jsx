@@ -172,7 +172,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
     return () => clearInterval(interval);
   }, [currentPage]);
 
-  // 1. Dynamic Hero Slides (3 Campuses + Gallery Photos 1, 6, 22)
+  // 1. Dynamic Hero Slides (3 Campuses + Gallery Photos 1, 6, 9, 21, 22 - Total 8 Slides)
   const heroSlides = [
     {
       title: "Dadheech Memorial Public School, Jargwan - Main Campus",
@@ -212,6 +212,22 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       tag: "Sports & Celebrations",
       image: "/assets/gallery/6.jpg",
       cta: "Explore Activities",
+      target: "gallery"
+    },
+    {
+      title: "Smart Classrooms & Academic Innovations",
+      subtitle: "Empowering young scholars with high-tech science labs, digital learning, and personal mentoring.",
+      tag: "Academic Excellence",
+      image: "/assets/gallery/9.jpg",
+      cta: "Explore Academics",
+      target: "academic"
+    },
+    {
+      title: "Cultural Talents, Arts & Youth Empowerment",
+      subtitle: "Nurturing stage confidence, creative expressions, moral values, and all-round leadership.",
+      tag: "Cultural & Arts",
+      image: "/assets/gallery/21.jpg",
+      cta: "View Gallery",
       target: "gallery"
     },
     {
