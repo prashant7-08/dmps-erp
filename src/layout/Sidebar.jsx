@@ -281,17 +281,14 @@ export const Sidebar = ({
 }) => {
   const allowed = rolePermissions[currentRole] || ['*'];
 
-  // State to track which accordion categories are expanded (starts with all collapsed '+' on reload)
-  const [openGroups, setOpenGroups] = useState({});
+  // Single-accordion mode: only one category expanded at a time (expanding one closes the others)
+  const [expandedGroupId, setExpandedGroupId] = useState(null);
 
   const toggleGroup = (groupId) => {
     if (isCollapsed && setIsCollapsed) {
       setIsCollapsed(false);
     }
-    setOpenGroups(prev => ({
-      ...prev,
-      [groupId]: !prev[groupId]
-    }));
+    setExpandedGroupId(prev => (prev === groupId ? null : groupId));
   };
 
   // Filter groups and items based on logged-in role
@@ -414,8 +411,8 @@ export const Sidebar = ({
               );
             }
 
-            // Accordion Category Group with (+) / (-) Toggle
-            const isExpanded = !!openGroups[grp.id];
+            // Accordion Category Group with (+) / (-) Toggle (Only 1 open at a time)
+            const isExpanded = expandedGroupId === grp.id;
             const hasActiveChild = grp.items.some(i => i.id === activeTab);
 
             return (
