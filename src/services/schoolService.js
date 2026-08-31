@@ -1341,6 +1341,294 @@ class SchoolService {
     return newInvoice;
   }
 
+  // ==========================================
+  // 🏷️ FEE TYPES MASTER METHODS
+  // ==========================================
+  getFeeTypes() {
+    if (!this.data.feeTypes || this.data.feeTypes.length === 0) {
+      this.data.feeTypes = [
+        { id: 'FT-01', code: 'TUIT', name: 'Tuition Fee', frequency: 'Annual / Quarterly', defaultAmount: 13500, description: 'Core academic instruction and classroom delivery charges' },
+        { id: 'FT-02', code: 'ADMF', name: 'Admission & Registration Fee', frequency: 'One Time', defaultAmount: 2500, description: 'New student enrollment, document verification, and prospectus' },
+        { id: 'FT-03', code: 'ANND', name: 'Annual Development Charges', frequency: 'Annual', defaultAmount: 2000, description: 'Campus infrastructure, generator fuel, and campus development' },
+        { id: 'FT-04', code: 'SMRT', name: 'Smart Class & Computer Lab', frequency: 'Annual', defaultAmount: 1500, description: 'Digital board content, computer practicals, and IT facilities' },
+        { id: 'FT-05', code: 'EXAM', name: 'Examination & Assessment Fee', frequency: 'Annual / Bi-annual', defaultAmount: 1000, description: 'Periodic tests, question papers, marksheets, and report cards' },
+        { id: 'FT-06', code: 'TRAN', name: '11-Month Transport Bus Fare', frequency: 'Annual (11 Months)', defaultAmount: 6600, description: 'Village stoppage bus pickup and drop fare (June excluded)' },
+        { id: 'FT-07', code: 'SPRT', name: 'Sports & Cultural Activity Fee', frequency: 'Annual', defaultAmount: 500, description: 'Sports kits, annual sports meet, and cultural events' },
+        { id: 'FT-08', code: 'FINE', name: 'Late Payment Fine', frequency: 'Penalty', defaultAmount: 100, description: 'Penalty applied after due date grace period' }
+      ];
+      this.saveData();
+    }
+    return this.data.feeTypes;
+  }
+
+  addFeeType(feeType) {
+    const types = this.getFeeTypes();
+    const newId = `FT-${String(types.length + 1).padStart(2, '0')}`;
+    const newType = {
+      id: newId,
+      code: feeType.code?.toUpperCase() || `FEE${types.length + 1}`,
+      name: feeType.name,
+      frequency: feeType.frequency || 'Annual',
+      defaultAmount: Number(feeType.defaultAmount) || 0,
+      description: feeType.description || ''
+    };
+    types.push(newType);
+    this.data.feeTypes = types;
+    this.saveData();
+    return newType;
+  }
+
+  updateFeeType(id, updatedData) {
+    const types = this.getFeeTypes();
+    const idx = types.findIndex(t => t.id === id);
+    if (idx !== -1) {
+      types[idx] = { ...types[idx], ...updatedData, defaultAmount: Number(updatedData.defaultAmount) || types[idx].defaultAmount };
+      this.data.feeTypes = types;
+      this.saveData();
+      return types[idx];
+    }
+    return null;
+  }
+
+  deleteFeeType(id) {
+    const types = this.getFeeTypes();
+    this.data.feeTypes = types.filter(t => t.id !== id);
+    this.saveData();
+    return true;
+  }
+
+  // ==========================================
+  // 📂 FEE GROUPS MASTER METHODS
+  // ==========================================
+  getFeeGroups() {
+    if (!this.data.feeGroups || this.data.feeGroups.length === 0) {
+      this.data.feeGroups = [
+        {
+          id: 'FG-01',
+          name: 'Nursery - UKG Composite Group',
+          applicableClasses: ['NUR', 'LKG', 'UKG', 'PG'],
+          feeTypeIds: ['FT-01', 'FT-03', 'FT-05'],
+          totalAmount: 13100,
+          description: 'Standard tuition, annual development and exam fee for Pre-Primary Wing'
+        },
+        {
+          id: 'FG-02',
+          name: 'Primary Wing (Class 1st to 5th)',
+          applicableClasses: ['Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', '1st', '2nd', '3rd', '4th', '5th'],
+          feeTypeIds: ['FT-01', 'FT-03', 'FT-04', 'FT-05'],
+          totalAmount: 18000,
+          description: 'Tuition (₹13500) + Annual (₹2000) + Smart Class (₹1500) + Exam (₹1000)'
+        },
+        {
+          id: 'FG-03',
+          name: 'Middle Wing (Class 6th to 8th)',
+          applicableClasses: ['Class 6', 'Class 7', 'Class 8', '6th', '7th', '8th'],
+          feeTypeIds: ['FT-01', 'FT-03', 'FT-04', 'FT-05'],
+          totalAmount: 20800,
+          description: 'Tuition (₹15600) + Annual (₹2500) + Smart (₹1500) + Exam (₹1200)'
+        },
+        {
+          id: 'FG-04',
+          name: 'High School Wing (Class 9th & 10th)',
+          applicableClasses: ['Class 9', 'Class 10', '9th', '10th'],
+          feeTypeIds: ['FT-01', 'FT-03', 'FT-04', 'FT-05'],
+          totalAmount: 24500,
+          description: 'Tuition (₹18000) + Annual (₹3000) + Lab (₹2000) + Exam (₹1500)'
+        },
+        {
+          id: 'FG-05',
+          name: 'Senior Secondary Wing (Class 11th & 12th)',
+          applicableClasses: ['Class 11', 'Class 12', '11th', '12th'],
+          feeTypeIds: ['FT-01', 'FT-03', 'FT-04', 'FT-05'],
+          totalAmount: 27000,
+          description: 'Tuition (₹22000) + Science Lab (₹3000) + Board Exam (₹2000)'
+        }
+      ];
+      this.saveData();
+    }
+    return this.data.feeGroups;
+  }
+
+  addFeeGroup(group) {
+    const groups = this.getFeeGroups();
+    const newId = `FG-${String(groups.length + 1).padStart(2, '0')}`;
+    const newGroup = {
+      id: newId,
+      name: group.name,
+      applicableClasses: group.applicableClasses || [],
+      feeTypeIds: group.feeTypeIds || [],
+      totalAmount: Number(group.totalAmount) || 0,
+      description: group.description || ''
+    };
+    groups.push(newGroup);
+    this.data.feeGroups = groups;
+    this.saveData();
+    return newGroup;
+  }
+
+  updateFeeGroup(id, updatedData) {
+    const groups = this.getFeeGroups();
+    const idx = groups.findIndex(g => g.id === id);
+    if (idx !== -1) {
+      groups[idx] = { ...groups[idx], ...updatedData, totalAmount: Number(updatedData.totalAmount) || groups[idx].totalAmount };
+      this.data.feeGroups = groups;
+      this.saveData();
+      return groups[idx];
+    }
+    return null;
+  }
+
+  deleteFeeGroup(id) {
+    const groups = this.getFeeGroups();
+    this.data.feeGroups = groups.filter(g => g.id !== id);
+    this.saveData();
+    return true;
+  }
+
+  // ==========================================
+  // ⚖️ FINE SETUP CONFIGURATION
+  // ==========================================
+  getFineSetup() {
+    if (!this.data.fineSetup) {
+      this.data.fineSetup = {
+        dueDayCutoff: 10,
+        graceDays: 5,
+        fineType: 'Fixed Rate',
+        fixedAmount: 100,
+        dailyRate: 5,
+        applyTo: 'All Dues',
+        status: 'Active'
+      };
+      this.saveData();
+    }
+    return this.data.fineSetup;
+  }
+
+  updateFineSetup(fineConfig) {
+    this.data.fineSetup = {
+      ...this.getFineSetup(),
+      ...fineConfig,
+      dueDayCutoff: Number(fineConfig.dueDayCutoff) || 10,
+      graceDays: Number(fineConfig.graceDays) || 5,
+      fixedAmount: Number(fineConfig.fixedAmount) || 100,
+      dailyRate: Number(fineConfig.dailyRate) || 5
+    };
+    this.saveData();
+    return this.data.fineSetup;
+  }
+
+  // ==========================================
+  // 📌 BULK FEE ALLOCATION METHOD
+  // ==========================================
+  allocateFeeGroupToClass(targetClass, feeGroupId) {
+    const groups = this.getFeeGroups();
+    const selectedGroup = groups.find(g => g.id === feeGroupId);
+    if (!selectedGroup) return { success: false, message: 'Fee group not found' };
+
+    const students = this.getStudents();
+    let allocatedCount = 0;
+
+    students.forEach(s => {
+      const matchClass = targetClass === 'All' || s.class === targetClass || s.class?.includes(targetClass);
+      if (matchClass) {
+        const tuition = selectedGroup.totalAmount;
+        const transport = s.feeSummary?.transportDue11Months || 0;
+        const totalDue = tuition + transport;
+        const paid = s.feeSummary?.totalPaid || 0;
+        const balance = Math.max(0, totalDue - paid);
+        const status = balance === 0 ? 'Paid' : paid > 0 ? 'Partial' : 'Overdue';
+
+        s.feeSummary = {
+          ...s.feeSummary,
+          tuitionDue: tuition,
+          transportDue11Months: transport,
+          totalDue,
+          totalPaid: paid,
+          balance,
+          status,
+          allocatedFeeGroupId: feeGroupId,
+          allocatedFeeGroupName: selectedGroup.name
+        };
+        allocatedCount++;
+      }
+    });
+
+    this.saveData();
+    return { success: true, count: allocatedCount, groupName: selectedGroup.name };
+  }
+
+  // ==========================================
+  // 🏛️ OFFLINE PAYMENTS QUEUE
+  // ==========================================
+  getOfflinePayments() {
+    if (!this.data.offlinePayments) {
+      this.data.offlinePayments = [
+        {
+          id: 'OFF-01',
+          studentId: 'STU-001',
+          studentName: 'Aarav Sharma',
+          class: 'Class 10-A',
+          rollNo: '101',
+          amount: 15000,
+          paymentMode: 'Bank Demand Draft (DD)',
+          referenceNo: 'DD-PUNB-883921',
+          bankName: 'Punjab National Bank',
+          date: '2026-08-28',
+          status: 'Pending Verification',
+          slipUrl: null
+        },
+        {
+          id: 'OFF-02',
+          studentId: 'STU-005',
+          studentName: 'Aditya Singh',
+          class: 'Class 8-B',
+          rollNo: '105',
+          amount: 10800,
+          paymentMode: 'NEFT / RTGS Challan',
+          referenceNo: 'UTR-SBIN-9920194',
+          bankName: 'State Bank of India',
+          date: '2026-08-29',
+          status: 'Pending Verification',
+          slipUrl: null
+        }
+      ];
+      this.saveData();
+    }
+    return this.data.offlinePayments;
+  }
+
+  approveOfflinePayment(paymentId) {
+    const list = this.getOfflinePayments();
+    const item = list.find(p => p.id === paymentId);
+    if (!item) return null;
+
+    item.status = 'Approved & Invoiced';
+    
+    // Collect fee via standard POS
+    this.collectFee({
+      studentId: item.studentId,
+      amountPaid: item.amount,
+      paymentMode: item.paymentMode,
+      remarks: `Offline Payment Approved (${item.referenceNo})`
+    });
+
+    this.data.offlinePayments = list;
+    this.saveData();
+    return item;
+  }
+
+  rejectOfflinePayment(paymentId, reason = 'Bank payment mismatch') {
+    const list = this.getOfflinePayments();
+    const item = list.find(p => p.id === paymentId);
+    if (item) {
+      item.status = 'Rejected';
+      item.rejectionReason = reason;
+      this.data.offlinePayments = list;
+      this.saveData();
+    }
+    return item;
+  }
+
   // Attendance Module
   markStudentAttendance(date, attendanceRecords) {
     if (!this.data.studentAttendance) this.data.studentAttendance = {};

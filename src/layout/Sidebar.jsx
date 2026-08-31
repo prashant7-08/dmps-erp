@@ -89,7 +89,15 @@ export const navigationGroups = [
     label: 'STUDENT ACCOUNTING',
     icon: CreditCard,
     items: [
-      { id: 'fees', label: 'Fees Collection & Invoices (POS)', badge: 'POS' }
+      { id: 'fees-offline', targetTab: 'fees', subTab: 'offline', label: 'Offline Payments', badge: null },
+      { id: 'fees-siblings', targetTab: 'fees', subTab: 'siblings', label: 'Setup Siblings', badge: null },
+      { id: 'fees-sibling-list', targetTab: 'fees', subTab: 'sibling-list', label: 'Sibling List', badge: null },
+      { id: 'fees-types', targetTab: 'fees', subTab: 'types', label: 'Fees Type', badge: null },
+      { id: 'fees-groups', targetTab: 'fees', subTab: 'groups', label: 'Fees Group', badge: null },
+      { id: 'fees-fine', targetTab: 'fees', subTab: 'fine', label: 'Fine Setup', badge: null },
+      { id: 'fees-allocation', targetTab: 'fees', subTab: 'allocation', label: 'Fees Allocation', badge: null },
+      { id: 'fees-pos', targetTab: 'fees', subTab: 'pos', label: 'Fee Collect / Payment', badge: 'POS' },
+      { id: 'fees-dues', targetTab: 'fees', subTab: 'dues', label: 'Due List / Reminder', badge: 'Due' }
     ]
   },
   {
@@ -97,7 +105,11 @@ export const navigationGroups = [
     label: 'OFFICE ACCOUNTING',
     icon: DollarSign,
     items: [
-      { id: 'inventory', label: 'Accounts & Expense Ledger', badge: null }
+      { id: 'office-account', targetTab: 'inventory', subTab: 'account', label: 'Account', badge: null },
+      { id: 'office-deposit', targetTab: 'inventory', subTab: 'deposit', label: 'New Deposit', badge: null },
+      { id: 'office-expense', targetTab: 'inventory', subTab: 'expense', label: 'New Expense', badge: null },
+      { id: 'office-transactions', targetTab: 'inventory', subTab: 'transactions', label: 'All Transactions', badge: null },
+      { id: 'office-voucher', targetTab: 'inventory', subTab: 'voucher', label: 'Voucher Head', badge: null }
     ]
   },
   {
@@ -105,9 +117,13 @@ export const navigationGroups = [
     label: 'SUPERVISION',
     icon: Home,
     items: [
-      { id: 'transport', label: 'Transport & GPS Fleet', badge: 'GPS' },
-      { id: 'hostel', label: 'Hostel & Rooms', badge: null },
-      { id: 'medical', label: 'Medical & Health', badge: null }
+      { id: 'transport-routes', targetTab: 'transport', subTab: 'routes', label: 'Route Master', badge: null },
+      { id: 'transport-vehicles', targetTab: 'transport', subTab: 'vehicles', label: 'Vehicle Master', badge: null },
+      { id: 'transport-stoppage', targetTab: 'transport', subTab: 'stoppage', label: 'Stoppage', badge: '41' },
+      { id: 'transport-assign', targetTab: 'transport', subTab: 'assign', label: 'Assign Stopage', badge: null },
+      { id: 'transport-allocation', targetTab: 'transport', subTab: 'allocation', label: 'Allocation Report', badge: null },
+      { id: 'hostel', targetTab: 'hostel', label: 'Hostel & Rooms', badge: null },
+      { id: 'medical', targetTab: 'medical', label: 'Medical & Health', badge: null }
     ]
   },
   {
@@ -115,9 +131,9 @@ export const navigationGroups = [
     label: 'ATTENDANCE',
     icon: CheckSquare,
     items: [
-      { id: 'attendance', label: 'Daily Student Attendance', badge: 'Daily' },
-      { id: 'staff-attendance', label: 'Staff / Teacher Attendance', badge: 'Staff' },
-      { id: 'biometric', label: 'Biometric Machine & Sync', badge: 'Secureye' }
+      { id: 'attendance', targetTab: 'attendance', label: 'Daily Student Attendance', badge: 'Daily' },
+      { id: 'staff-attendance', targetTab: 'staff-attendance', label: 'Staff / Teacher Attendance', badge: 'Staff' },
+      { id: 'biometric', targetTab: 'biometric', label: 'Biometric Machine & Sync', badge: 'Secureye' }
     ]
   },
   {
@@ -125,7 +141,7 @@ export const navigationGroups = [
     label: 'INVENTORY',
     icon: Package,
     items: [
-      { id: 'inventory', label: 'Item Stock & Store', badge: null }
+      { id: 'inventory', targetTab: 'inventory', label: 'Item Stock & Store', badge: null }
     ]
   },
   {
@@ -133,10 +149,11 @@ export const navigationGroups = [
     label: 'CARD MANAGEMENT',
     icon: Contact,
     items: [
-      { id: 'card-management', label: "Student ID Card", badge: 'ID' },
-      { id: 'admit-cards', label: 'Admit Card (Exam Pass)', badge: 'Exam' },
-      { id: 'transport-cards', label: 'Transport Card / Bus Pass', badge: 'Bus' },
-      { id: 'staff-cards', label: 'Employee / Staff ID Card', badge: null }
+      { id: 'card-id-template', targetTab: 'card-management', subTab: 'id-template', label: 'Id Card Templete', badge: null },
+      { id: 'card-student-id', targetTab: 'card-management', subTab: 'student-id', label: 'Student Id Card', badge: 'ID' },
+      { id: 'card-employee-id', targetTab: 'card-management', subTab: 'employee-id', label: 'Employee Id Card', badge: null },
+      { id: 'card-admit-template', targetTab: 'card-management', subTab: 'admit-template', label: 'Admit Card Templete', badge: null },
+      { id: 'card-generate-admit', targetTab: 'card-management', subTab: 'generate-admit', label: 'Generate Admit Card', badge: 'Exam' }
     ]
   },
   {
@@ -144,9 +161,9 @@ export const navigationGroups = [
     label: 'CERTIFICATE',
     icon: Award,
     items: [
-      { id: 'certificates', label: 'Transfer Certificate (TC)', badge: 'TC' },
-      { id: 'character-cert', label: 'Character Certificate', badge: null },
-      { id: 'bonafide-cert', label: 'Bonafide Certificate', badge: null }
+      { id: 'cert-template', targetTab: 'certificates', subTab: 'template', label: 'Certificate Templete', badge: null },
+      { id: 'cert-generate-student', targetTab: 'certificates', subTab: 'generate-student', label: 'Generate Student', badge: 'TC' },
+      { id: 'cert-generate-employee', targetTab: 'certificates', subTab: 'generate-employee', label: 'Generate Employee', badge: null }
     ]
   },
   {

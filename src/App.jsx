@@ -156,7 +156,16 @@ function AppContent() {
       case 'biometric':
         return <BiometricPage onNavigateToStaffAttendance={() => setActiveTab('staff-attendance')} />;
       case 'fees':
-        return <FeesPage />;
+      case 'fees-offline':
+      case 'fees-siblings':
+      case 'fees-sibling-list':
+      case 'fees-types':
+      case 'fees-groups':
+      case 'fees-fine':
+      case 'fees-allocation':
+      case 'fees-pos':
+      case 'fees-dues':
+        return <FeesPage initialTab={activeTab} />;
       case 'examination':
         return <ExaminationPage />;
       case 'notices':
@@ -170,6 +179,11 @@ function AppContent() {
       case 'library':
         return <LibraryPage />;
       case 'transport':
+      case 'transport-routes':
+      case 'transport-vehicles':
+      case 'transport-stoppage':
+      case 'transport-assign':
+      case 'transport-allocation':
         return <TransportPage />;
       case 'hostel':
         return <HostelPage />;
@@ -182,14 +196,26 @@ function AppContent() {
       case 'leave':
         return <LeaveManagementPage />;
       case 'card-management':
-        return <CertificatesIdPage initialSection="student_cards" />;
+      case 'card-id-template':
+      case 'card-student-id':
+      case 'card-employee-id':
+      case 'card-admit-template':
+      case 'card-generate-admit':
       case 'admit-cards':
-        return <CertificatesIdPage initialSection="admit_cards" />;
+        return <CertificatesIdPage initialSection="student_cards" />;
       case 'certificates':
+      case 'cert-template':
+      case 'cert-generate-student':
+      case 'cert-generate-employee':
         return <CertificatesIdPage initialSection="certificates" />;
       case 'payroll':
         return <HRPayrollPage />;
       case 'inventory':
+      case 'office-account':
+      case 'office-deposit':
+      case 'office-expense':
+      case 'office-transactions':
+      case 'office-voucher':
         return <AccountsInventoryPage />;
       case 'helpdesk-visitors':
         return <HelpdeskVisitorsPage />;
