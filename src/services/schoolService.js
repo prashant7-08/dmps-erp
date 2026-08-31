@@ -374,70 +374,13 @@ class SchoolService {
   }
 
   getBiometricLogs(date = null) {
-    const today = date || new Date().toISOString().split('T')[0];
-    if (!this.data.biometricLogs || this.data.biometricLogs.length === 0) {
-      const teachers = this.getTeachers();
-      this.data.biometricLogs = [
-        {
-          id: "PUNCH-101",
-          employeeId: teachers[0]?.employeeId || "EMP-2026-050",
-          staffId: teachers[0]?.id || "TCH-1001",
-          name: teachers[0]?.name || "Dr. Rajesh Sharma",
-          designation: teachers[0]?.designation || "Principal & Senior Physics Faculty",
-          department: "Science",
-          punchDate: today,
-          inTime: "07:38:15 AM",
-          outTime: "02:20:10 PM",
-          verifyType: "Face Recognition",
-          deviceSn: "102025020000143",
-          status: "On Time"
-        },
-        {
-          id: "PUNCH-102",
-          employeeId: teachers[1]?.employeeId || "EMP-2026-051",
-          staffId: teachers[1]?.id || "TCH-1002",
-          name: teachers[1]?.name || "Sunita Verma",
-          designation: teachers[1]?.designation || "Vice Principal & Mathematics",
-          department: "Mathematics",
-          punchDate: today,
-          inTime: "07:42:50 AM",
-          outTime: "02:18:00 PM",
-          verifyType: "Fingerprint",
-          deviceSn: "102025020000143",
-          status: "On Time"
-        },
-        {
-          id: "PUNCH-103",
-          employeeId: teachers[2]?.employeeId || "EMP-2026-052",
-          staffId: teachers[2]?.id || "TCH-1003",
-          name: teachers[2]?.name || "Vikramaditya Chauhan",
-          designation: teachers[2]?.designation || "HOD Hindi & Sanskrit Literature",
-          department: "Languages",
-          punchDate: today,
-          inTime: "07:54:10 AM",
-          outTime: "02:15:45 PM",
-          verifyType: "Fingerprint",
-          deviceSn: "102025020000143",
-          status: "Late Arrival"
-        },
-        {
-          id: "PUNCH-104",
-          employeeId: teachers[3]?.employeeId || "EMP-2026-053",
-          staffId: teachers[3]?.id || "TCH-1004",
-          name: teachers[3]?.name || "Meenakshi Sundaram",
-          designation: teachers[3]?.designation || "Senior Chemistry Lecturer",
-          department: "Science",
-          punchDate: today,
-          inTime: "07:44:18 AM",
-          outTime: "02:25:15 PM",
-          verifyType: "Face Recognition",
-          deviceSn: "102025020000143",
-          status: "On Time"
-        }
-      ];
-      this.saveData();
+    if (!this.data.biometricLogs || this.data.biometricLogs.length < 50) {
+      this.syncAllPastBiometricOverWifi();
     }
-    return this.data.biometricLogs;
+    if (date && date !== 'all') {
+      return (this.data.biometricLogs || []).filter(l => l.punchDate === date);
+    }
+    return this.data.biometricLogs || [];
   }
 
   addBiometricLog(log) {
