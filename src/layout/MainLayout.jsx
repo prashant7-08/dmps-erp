@@ -15,6 +15,7 @@ export const MainLayout = ({
   onViewWebsite
 }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [aiModalOpen, setAiModalOpen] = useState(false);
   const [qrModalOpen, setQrModalOpen] = useState(false);
 
@@ -49,15 +50,19 @@ export const MainLayout = ({
         currentRole={currentRole}
         isOpen={sidebarOpen}
         setIsOpen={setSidebarOpen}
+        isCollapsed={isSidebarCollapsed}
+        setIsCollapsed={setIsSidebarCollapsed}
         onOpenAI={() => setAiModalOpen(true)}
       />
 
       {/* Main Content Area */}
-      <div className="lg:pl-72 flex flex-col min-h-screen w-full max-w-full min-w-0 overflow-x-hidden">
+      <div className={`${isSidebarCollapsed ? 'lg:pl-20' : 'lg:pl-72'} transition-all duration-300 flex flex-col min-h-screen w-full max-w-full min-w-0 overflow-x-hidden`}>
         <TopNav
           currentRole={currentRole}
           setCurrentRole={setCurrentRole}
           onOpenSidebar={() => setSidebarOpen(true)}
+          isSidebarCollapsed={isSidebarCollapsed}
+          setIsSidebarCollapsed={setIsSidebarCollapsed}
           onOpenAI={() => setAiModalOpen(true)}
           darkMode={darkMode}
           toggleDarkMode={toggleDarkMode}
