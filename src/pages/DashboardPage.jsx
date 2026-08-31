@@ -367,40 +367,47 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
               <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-amber-600" /> Annual Fee Summary
+                <TrendingUp className="w-4 h-4 text-amber-600" /> Annual Fee Summary (Tuition + 11-Month Transport)
               </h3>
               <p className="text-xs text-slate-500 font-mono mt-0.5">
-                Total Dues: <strong className="text-slate-800 dark:text-white">₹78,70,750</strong> | Total Collected: <strong className="text-emerald-600">₹10,31,800</strong> | Total Remaining: <strong className="text-rose-600">₹68,35,950</strong>
+                Total Dues: <strong className="text-slate-800 dark:text-white">₹1,09,21,500</strong> | Collected: <strong className="text-emerald-600">₹10,34,800</strong> | Remaining: <strong className="text-rose-600">₹98,86,700</strong>
               </p>
             </div>
+            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200">
+              🚌 Transport 11-Months System
+            </span>
           </div>
 
           {/* Progress Bar and Summary Breakdown */}
           <div className="space-y-4 pt-2">
             <div>
               <div className="flex justify-between text-xs font-bold mb-1.5">
-                <span className="text-emerald-600 font-extrabold">Collected: ₹10,31,800 (13.1%)</span>
-                <span className="text-rose-600 font-extrabold">Remaining: ₹68,35,950 (86.9%)</span>
+                <span className="text-emerald-600 font-extrabold">Collected: ₹10,34,800 (9.5%)</span>
+                <span className="text-rose-600 font-extrabold">Remaining: ₹98,86,700 (90.5%)</span>
               </div>
               <div className="w-full bg-rose-100 dark:bg-rose-950/60 h-4 rounded-full overflow-hidden flex shadow-inner">
-                <div className="bg-emerald-500 h-full rounded-l-full transition-all duration-700" style={{ width: '13.1%' }}></div>
+                <div className="bg-emerald-500 h-full rounded-l-full transition-all duration-700" style={{ width: '9.5%' }}></div>
                 <div className="bg-amber-500 h-full" style={{ width: '0%' }}></div>
-                <div className="bg-rose-500 h-full rounded-r-full" style={{ width: '86.9%' }}></div>
+                <div className="bg-rose-500 h-full rounded-r-full" style={{ width: '90.5%' }}></div>
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 text-center pt-2">
-              <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800">
-                <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase">Total Dues</span>
-                <p className="text-base font-black text-amber-900 dark:text-amber-100 mt-0.5 font-mono">₹78,70,750</p>
+            <div className="grid grid-cols-4 gap-2.5 text-center pt-2">
+              <div className="p-2.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800">
+                <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-300 uppercase">Tuition Dues</span>
+                <p className="text-sm font-black text-indigo-900 dark:text-indigo-100 mt-0.5 font-mono">₹81,99,000</p>
               </div>
-              <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">
-                <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase">Total Collected</span>
-                <p className="text-base font-black text-emerald-900 dark:text-emerald-100 mt-0.5 font-mono">₹10,31,800</p>
+              <div className="p-2.5 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800">
+                <span className="text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase">Transport (11M)</span>
+                <p className="text-sm font-black text-purple-900 dark:text-purple-100 mt-0.5 font-mono">₹27,22,500</p>
               </div>
-              <div className="p-3 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800">
-                <span className="text-[10px] font-bold text-rose-700 dark:text-rose-300 uppercase">Total Remaining</span>
-                <p className="text-base font-black text-rose-900 dark:text-rose-100 mt-0.5 font-mono">₹68,35,950</p>
+              <div className="p-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">
+                <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase">Collected</span>
+                <p className="text-sm font-black text-emerald-900 dark:text-emerald-100 mt-0.5 font-mono">₹10,34,800</p>
+              </div>
+              <div className="p-2.5 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800">
+                <span className="text-[10px] font-bold text-rose-700 dark:text-rose-300 uppercase">Remaining</span>
+                <p className="text-sm font-black text-rose-900 dark:text-rose-100 mt-0.5 font-mono">₹98,86,700</p>
               </div>
             </div>
           </div>

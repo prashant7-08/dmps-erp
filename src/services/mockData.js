@@ -634,9 +634,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24000,
+            "tuitionDue": 24000,
+            "transportDue11Months": 7700,
+            "totalDue": 31700,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 31700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -644,7 +646,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-002",
@@ -679,27 +688,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 24000,
+            "transportDue11Months": 0,
             "totalDue": 24000,
             "totalPaid": 0,
             "balance": 24000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38500.0,
+            "consolidatedFamilyDue": 49250,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 38500.0,
+            "consolidatedFamilyBalance": 49250,
             "familySiblings": [
                 {
                     "id": "STU-2026-047",
                     "name": "NITISH KUMAR",
                     "class": "VIII",
                     "admissionNo": "196",
-                    "individualDue": 14500.0,
+                    "tuitionDue": 17000,
+                    "transportDue11Months": 8250,
+                    "individualDue": 25250,
                     "individualPaid": 0,
-                    "individualBalance": 14500.0
+                    "individualBalance": 25250
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-003",
@@ -734,27 +754,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24000,
+            "tuitionDue": 24000,
+            "transportDue11Months": 8250,
+            "totalDue": 32250,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 32250,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38500.0,
+            "consolidatedFamilyDue": 55850,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 38500.0,
+            "consolidatedFamilyBalance": 55850,
             "familySiblings": [
                 {
                     "id": "STU-2026-045",
                     "name": "NIDHI",
                     "class": "VIII",
                     "admissionNo": "193",
-                    "individualDue": 14500.0,
+                    "tuitionDue": 17000,
+                    "transportDue11Months": 6600,
+                    "individualDue": 23600,
                     "individualPaid": 0,
-                    "individualBalance": 14500.0
+                    "individualBalance": 23600
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KANAKPUR",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-004",
@@ -789,6 +820,8 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 24000,
+            "transportDue11Months": 0,
             "totalDue": 24000,
             "totalPaid": 0,
             "balance": 24000,
@@ -799,7 +832,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-005",
@@ -834,9 +874,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24000,
+            "tuitionDue": 24000,
+            "transportDue11Months": 6050,
+            "totalDue": 30050,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 30050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -844,7 +886,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-006",
@@ -879,9 +928,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24000,
+            "tuitionDue": 24000,
+            "transportDue11Months": 4950,
+            "totalDue": 28950,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 28950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -889,7 +940,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-007",
@@ -924,27 +982,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24000,
+            "tuitionDue": 24000,
+            "transportDue11Months": 6600,
+            "totalDue": 30600,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 30600,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 37000.0,
+            "consolidatedFamilyDue": 52700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 37000.0,
+            "consolidatedFamilyBalance": 52700,
             "familySiblings": [
                 {
                     "id": "STU-2026-118",
                     "name": "SAHIL KUMAR",
                     "class": "V",
                     "admissionNo": "319",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 22100,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 22100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-008",
@@ -979,6 +1048,8 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 24000,
+            "transportDue11Months": 0,
             "totalDue": 24000,
             "totalPaid": 0,
             "balance": 24000,
@@ -989,7 +1060,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-009",
@@ -1024,9 +1102,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6600,
+            "totalDue": 27600,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 27600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1034,7 +1114,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-010",
@@ -1069,36 +1156,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 28800.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 4950,
+            "totalDue": 25950,
             "totalPaid": 0,
-            "balance": 28800.0,
+            "balance": 25950,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 62600.0,
+            "consolidatedFamilyDue": 66850,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 62600.0,
+            "consolidatedFamilyBalance": 66850,
             "familySiblings": [
                 {
                     "id": "STU-2026-097",
                     "name": "CHHAYA RAJPUT",
                     "class": "V",
                     "admissionNo": "291",
-                    "individualDue": 20800.0,
+                    "tuitionDue": 15500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 20450,
                     "individualPaid": 0,
-                    "individualBalance": 20800.0
+                    "individualBalance": 20450
                 },
                 {
                     "id": "STU-2026-125",
                     "name": "TARUN KUMAR",
                     "class": "V",
                     "admissionNo": "327",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 20450,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 20450
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-011",
@@ -1133,9 +1233,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6600,
+            "totalDue": 27600,
             "totalPaid": 10000.0,
-            "balance": 11000.0,
+            "balance": 17600.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1143,7 +1245,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-012",
@@ -1178,27 +1287,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 0,
+            "totalDue": 21000,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 21000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35500.0,
+            "consolidatedFamilyDue": 45200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35500.0,
+            "consolidatedFamilyBalance": 45200,
             "familySiblings": [
                 {
                     "id": "STU-2026-075",
                     "name": "UMA",
                     "class": "VII",
                     "admissionNo": "252",
-                    "individualDue": 14500.0,
+                    "tuitionDue": 16500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 24200,
                     "individualPaid": 0,
-                    "individualBalance": 14500.0
+                    "individualBalance": 24200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-013",
@@ -1233,9 +1353,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6600,
+            "totalDue": 27600,
             "totalPaid": 5500.0,
-            "balance": 15500.0,
+            "balance": 22100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1243,7 +1365,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-014",
@@ -1278,7 +1407,9 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 0,
+            "totalDue": 21000,
             "totalPaid": 3000.0,
             "balance": 18000.0,
             "status": "Partial",
@@ -1288,7 +1419,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-015",
@@ -1323,9 +1461,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6600,
+            "totalDue": 27600,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 27600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1333,7 +1473,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "JIROULI",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-016",
@@ -1368,9 +1515,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6600,
+            "totalDue": 27600,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 27600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1378,7 +1527,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-017",
@@ -1413,9 +1569,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6050,
+            "totalDue": 27050,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 27050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1423,7 +1581,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-018",
@@ -1458,9 +1623,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6050,
+            "totalDue": 27050,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 27050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1468,7 +1635,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-019",
@@ -1503,27 +1677,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 29400.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 5500,
+            "totalDue": 26500,
             "totalPaid": 10000.0,
-            "balance": 19400.0,
+            "balance": 16500.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43900.0,
+            "consolidatedFamilyDue": 48500,
             "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 23900.0,
+            "consolidatedFamilyBalance": 28500.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-057",
                     "name": "ANURAG",
                     "class": "VII",
                     "admissionNo": "217",
-                    "individualDue": 14500.0,
+                    "tuitionDue": 16500,
+                    "transportDue11Months": 5500,
+                    "individualDue": 22000,
                     "individualPaid": 10000.0,
-                    "individualBalance": 4500.0
+                    "individualBalance": 12000.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "CHIROURI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-020",
@@ -1558,9 +1743,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6600,
+            "totalDue": 27600,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 27600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1568,7 +1755,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-021",
@@ -1603,9 +1797,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6050,
+            "totalDue": 27050,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 27050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1613,7 +1809,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-022",
@@ -1648,9 +1851,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 7150,
+            "totalDue": 28150,
             "totalPaid": 19000.0,
-            "balance": 2000.0,
+            "balance": 9150.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1658,7 +1863,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA SHUMALI",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-023",
@@ -1693,9 +1905,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 6050,
+            "totalDue": 25550,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 25550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1703,7 +1917,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-024",
@@ -1738,36 +1959,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 6600,
+            "totalDue": 26100,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 26100,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43500.0,
+            "consolidatedFamilyDue": 64300,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43500.0,
+            "consolidatedFamilyBalance": 64300,
             "familySiblings": [
                 {
                     "id": "STU-2026-246",
                     "name": "DAMINI LODHI",
                     "class": "I",
                     "admissionNo": "495",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 20100,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 20100
                 },
                 {
                     "id": "STU-2026-341",
                     "name": "YUVRAJ KUMAR LODHI",
                     "class": "LKG",
                     "admissionNo": "664",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 18100,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 18100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-025",
@@ -1802,9 +2036,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 0,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1812,7 +2048,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-026",
@@ -1847,9 +2090,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 6600,
+            "totalDue": 26100,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 26100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1857,7 +2102,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-027",
@@ -1892,9 +2144,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 28800.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 4950,
+            "totalDue": 25950,
             "totalPaid": 15000.0,
-            "balance": 13800.0,
+            "balance": 10950.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1902,7 +2156,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-028",
@@ -1937,9 +2198,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 0,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1947,7 +2210,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-029",
@@ -1982,9 +2252,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 0,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -1992,7 +2264,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-030",
@@ -2027,9 +2306,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 0,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2037,7 +2318,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-031",
@@ -2072,9 +2360,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 8250,
+            "totalDue": 27750,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 27750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2082,7 +2372,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-032",
@@ -2117,9 +2414,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 8250,
+            "totalDue": 27750,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 27750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2127,7 +2426,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-033",
@@ -2162,9 +2468,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 25100.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 4400,
+            "totalDue": 23900,
             "totalPaid": 0,
-            "balance": 25100.0,
+            "balance": 23900,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2172,7 +2480,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-034",
@@ -2207,27 +2522,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 6600,
+            "totalDue": 26100,
             "totalPaid": 2500.0,
-            "balance": 19000.0,
+            "balance": 23600.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 36000.0,
+            "consolidatedFamilyDue": 49200,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 31000.0,
+            "consolidatedFamilyBalance": 44200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-063",
                     "name": "MAYANK RAJ VERMA",
                     "class": "VII",
                     "admissionNo": "231",
-                    "individualDue": 14500.0,
+                    "tuitionDue": 16500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 23100,
                     "individualPaid": 2500.0,
-                    "individualBalance": 12000.0
+                    "individualBalance": 20600.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-035",
@@ -2262,27 +2588,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 8250,
+            "totalDue": 27750,
             "totalPaid": 2500.0,
-            "balance": 19000.0,
+            "balance": 25250.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 36000.0,
+            "consolidatedFamilyDue": 44250,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 31000.0,
+            "consolidatedFamilyBalance": 39250.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-069",
                     "name": "RISHITA",
                     "class": "VII",
                     "admissionNo": "241",
-                    "individualDue": 14500.0,
+                    "tuitionDue": 16500,
+                    "transportDue11Months": 0,
+                    "individualDue": 16500,
                     "individualPaid": 2500.0,
-                    "individualBalance": 12000.0
+                    "individualBalance": 14000.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-036",
@@ -2317,9 +2654,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 0,
+            "totalDue": 19500,
             "totalPaid": 7500.0,
-            "balance": 14000.0,
+            "balance": 12000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2327,7 +2666,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-037",
@@ -2362,9 +2708,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 8250,
+            "totalDue": 27750,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 27750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2372,7 +2720,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-038",
@@ -2407,9 +2762,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 4950,
+            "totalDue": 21950,
             "totalPaid": 0,
-            "balance": 20500.0,
+            "balance": 21950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2417,7 +2774,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-039",
@@ -2452,9 +2816,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 5500,
+            "totalDue": 22500,
             "totalPaid": 10000.0,
-            "balance": 4500.0,
+            "balance": 12500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2462,7 +2828,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "CHIROURI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-040",
@@ -2497,9 +2870,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 4950,
+            "totalDue": 21950,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 21950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2507,7 +2882,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-041",
@@ -2542,9 +2924,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 6600,
+            "totalDue": 23600,
             "totalPaid": 7500.0,
-            "balance": 13000.0,
+            "balance": 16100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2552,7 +2936,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-042",
@@ -2587,9 +2978,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 6050,
+            "totalDue": 23050,
             "totalPaid": 2500.0,
-            "balance": 12000.0,
+            "balance": 20550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2597,7 +2990,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-043",
@@ -2632,9 +3032,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 7150,
+            "totalDue": 24150,
             "totalPaid": 10000.0,
-            "balance": 4500.0,
+            "balance": 14150.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2642,7 +3044,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MALAHPUR",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-044",
@@ -2677,36 +3086,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 4950,
+            "totalDue": 21950,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 21950,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40500.0,
+            "consolidatedFamilyDue": 62350,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40500.0,
+            "consolidatedFamilyBalance": 62350,
             "familySiblings": [
                 {
                     "id": "STU-2026-061",
                     "name": "MANSI YADAV",
                     "class": "VII",
                     "admissionNo": "228",
-                    "individualDue": 14500.0,
+                    "tuitionDue": 16500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 21450,
                     "individualPaid": 0,
-                    "individualBalance": 14500.0
+                    "individualBalance": 21450
                 },
                 {
                     "id": "STU-2026-213",
                     "name": "ANMOL YADAV",
                     "class": "II",
                     "admissionNo": "443",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 4950,
+                    "individualDue": 18950,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 18950
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-045",
@@ -2741,9 +3163,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 6600,
+            "totalDue": 23600,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2758,7 +3182,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9761089039"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-046",
@@ -2793,9 +3224,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 7700,
+            "totalDue": 24700,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 24700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2803,7 +3236,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-047",
@@ -2838,9 +3278,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 8250,
+            "totalDue": 25250,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 25250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -2855,7 +3297,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719628771"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-048",
@@ -2890,27 +3339,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 6050,
+            "totalDue": 23050,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23050,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyDue": 43600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 27500.0,
+            "consolidatedFamilyBalance": 43600,
             "familySiblings": [
                 {
                     "id": "STU-2026-300",
                     "name": "DEEPESH KUMAR",
                     "class": "III",
                     "admissionNo": "587",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 20550,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 20550
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-049",
@@ -2945,36 +3405,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 7700,
+            "totalDue": 24700,
             "totalPaid": 5000.0,
-            "balance": 9500.0,
+            "balance": 19700.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38000.0,
+            "consolidatedFamilyDue": 67600,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 28000.0,
+            "consolidatedFamilyBalance": 57600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-396",
                     "name": "RIYANSHI GAUTAM",
                     "class": "IV",
                     "admissionNo": "743",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 7700,
+                    "individualDue": 22700,
                     "individualPaid": 2500.0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 20200.0
                 },
                 {
                     "id": "STU-2026-397",
                     "name": "THOMAS",
                     "class": "UKG",
                     "admissionNo": "744",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 20200,
                     "individualPaid": 2500.0,
-                    "individualBalance": 8000.0
+                    "individualBalance": 17700.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-050",
@@ -3009,9 +3482,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 4950,
+            "totalDue": 21950,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 21950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3019,7 +3494,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-051",
@@ -3054,9 +3536,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 7700,
+            "totalDue": 24700,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 24700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3064,7 +3548,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MAHARAJPUR",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-052",
@@ -3099,36 +3590,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 6050,
+            "totalDue": 23050,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23050,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 47400.0,
+            "consolidatedFamilyDue": 63150,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 47400.0,
+            "consolidatedFamilyBalance": 63150,
             "familySiblings": [
                 {
                     "id": "STU-2026-326",
                     "name": "NEERAJ",
                     "class": "III",
                     "admissionNo": "641",
-                    "individualDue": 21400.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 20550,
                     "individualPaid": 0,
-                    "individualBalance": 21400.0
+                    "individualBalance": 20550
                 },
                 {
                     "id": "STU-2026-325",
                     "name": "KRISHNA KUMAR",
                     "class": "I",
                     "admissionNo": "640",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 19550,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 19550
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-053",
@@ -3163,9 +3667,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 6600,
+            "totalDue": 23600,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3173,7 +3679,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-054",
@@ -3208,9 +3721,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 0,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3218,7 +3733,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-055",
@@ -3253,9 +3775,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 6050,
+            "totalDue": 23050,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3263,7 +3787,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-056",
@@ -3298,9 +3829,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
+            "totalDue": 16500,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3308,7 +3841,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-057",
@@ -3343,9 +3883,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 5500,
+            "totalDue": 22000,
             "totalPaid": 10000.0,
-            "balance": 4500.0,
+            "balance": 12000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3360,7 +3902,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8650200571"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "CHIROURI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-058",
@@ -3395,9 +3944,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24100.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 7700,
+            "totalDue": 24200,
             "totalPaid": 0,
-            "balance": 24100.0,
+            "balance": 24200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3405,7 +3956,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MAHARAJPUR",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-059",
@@ -3440,9 +3998,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
+            "totalDue": 16500,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3450,7 +4010,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-060",
@@ -3485,27 +4052,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
+            "totalDue": 16500,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyDue": 31500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 27500.0,
+            "consolidatedFamilyBalance": 31500,
             "familySiblings": [
                 {
                     "id": "STU-2026-137",
                     "name": "DEVESH KUMAR",
                     "class": "IV",
                     "admissionNo": "341",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 0,
+                    "individualDue": 15000,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 15000
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-061",
@@ -3540,9 +4118,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 4950,
+            "totalDue": 21450,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 21450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3557,7 +4137,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9759755011"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-062",
@@ -3592,9 +4179,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 4950,
+            "totalDue": 21450,
             "totalPaid": 0,
-            "balance": 20500.0,
+            "balance": 21450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3602,7 +4191,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-063",
@@ -3637,9 +4233,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 6600,
+            "totalDue": 23100,
             "totalPaid": 2500.0,
-            "balance": 12000.0,
+            "balance": 20600.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3654,7 +4252,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719225317"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-064",
@@ -3689,9 +4294,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
+            "totalDue": 16500,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3699,7 +4306,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-065",
@@ -3734,27 +4348,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18100.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 7150,
+            "totalDue": 23650,
             "totalPaid": 0,
-            "balance": 18100.0,
+            "balance": 23650,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 31100.0,
+            "consolidatedFamilyDue": 45800,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 31100.0,
+            "consolidatedFamilyBalance": 45800,
             "familySiblings": [
                 {
                     "id": "STU-2026-149",
                     "name": "KHUSHI",
                     "class": "IV",
                     "admissionNo": "354",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 7150,
+                    "individualDue": 22150,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 22150
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-066",
@@ -3789,36 +4414,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
+            "totalDue": 16500,
             "totalPaid": 5000.0,
-            "balance": 9500.0,
+            "balance": 11500.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 55800.0,
+            "consolidatedFamilyDue": 56000,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 50800.0,
+            "consolidatedFamilyBalance": 51000.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-197",
                     "name": "PRACHI",
                     "class": "III",
                     "admissionNo": "420",
-                    "individualDue": 21400.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 5500,
+                    "individualDue": 20000,
                     "individualPaid": 0,
-                    "individualBalance": 21400.0
+                    "individualBalance": 20000
                 },
                 {
                     "id": "STU-2026-307",
                     "name": "MOHIT KUMAR",
                     "class": "II",
                     "admissionNo": "596",
-                    "individualDue": 19900.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 5500,
+                    "individualDue": 19500,
                     "individualPaid": 0,
-                    "individualBalance": 19900.0
+                    "individualBalance": 19500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-067",
@@ -3853,9 +4491,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
+            "totalDue": 16500,
             "totalPaid": 5000.0,
-            "balance": 9500.0,
+            "balance": 11500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3863,7 +4503,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-068",
@@ -3898,36 +4545,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 6050,
+            "totalDue": 22550,
             "totalPaid": 4000.0,
-            "balance": 10500.0,
+            "balance": 18550.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 42000.0,
+            "consolidatedFamilyDue": 65150,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 32000.0,
+            "consolidatedFamilyBalance": 55150.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-076",
                     "name": "AMIT KUMAR",
                     "class": "VI",
                     "admissionNo": "254",
-                    "individualDue": 14500.0,
+                    "tuitionDue": 16000,
+                    "transportDue11Months": 6050,
+                    "individualDue": 22050,
                     "individualPaid": 3000.0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 19050.0
                 },
                 {
                     "id": "STU-2026-206",
                     "name": "SUMIT",
                     "class": "III",
                     "admissionNo": "434",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 20550,
                     "individualPaid": 3000.0,
-                    "individualBalance": 10000.0
+                    "individualBalance": 17550.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-069",
@@ -3962,9 +4622,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
+            "totalDue": 16500,
             "totalPaid": 2500.0,
-            "balance": 12000.0,
+            "balance": 14000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -3979,7 +4641,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8954486104"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-070",
@@ -4014,9 +4683,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 4950,
+            "totalDue": 21450,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 21450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4024,7 +4695,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-071",
@@ -4059,9 +4737,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22900.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 6050,
+            "totalDue": 22550,
             "totalPaid": 0,
-            "balance": 22900.0,
+            "balance": 22550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4069,7 +4749,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-072",
@@ -4104,9 +4791,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 6050,
+            "totalDue": 22550,
             "totalPaid": 5000.0,
-            "balance": 9500.0,
+            "balance": 17550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4114,7 +4803,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-073",
@@ -4149,27 +4845,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
+            "totalDue": 16500,
             "totalPaid": 4000.0,
-            "balance": 10500.0,
+            "balance": 12500.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyDue": 31500,
             "consolidatedFamilyPaid": 8000.0,
-            "consolidatedFamilyBalance": 19500.0,
+            "consolidatedFamilyBalance": 23500.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-139",
                     "name": "DIVYA",
                     "class": "IV",
                     "admissionNo": "343",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 0,
+                    "individualDue": 15000,
                     "individualPaid": 4000.0,
-                    "individualBalance": 9000.0
+                    "individualBalance": 11000.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-074",
@@ -4204,9 +4911,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
+            "totalDue": 16500,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4214,7 +4923,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-075",
@@ -4249,9 +4965,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 7700,
+            "totalDue": 24200,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 24200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4266,7 +4984,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9012982367"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-076",
@@ -4301,9 +5026,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 6050,
+            "totalDue": 22050,
             "totalPaid": 3000.0,
-            "balance": 11500.0,
+            "balance": 19050.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4318,7 +5045,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9675863965"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-077",
@@ -4353,9 +5087,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 0,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4363,7 +5099,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-078",
@@ -4398,9 +5141,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 4950,
+            "totalDue": 20950,
             "totalPaid": 0,
-            "balance": 20500.0,
+            "balance": 20950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4408,7 +5153,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-079",
@@ -4443,27 +5195,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22900.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 6050,
+            "totalDue": 22050,
             "totalPaid": 15500.0,
-            "balance": 7400.0,
+            "balance": 6550.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 32400.0,
+            "consolidatedFamilyDue": 38600,
             "consolidatedFamilyPaid": 25000.0,
-            "consolidatedFamilyBalance": 7400.0,
+            "consolidatedFamilyBalance": 13600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-538",
                     "name": "CHIRAG",
                     "class": "NURSERY",
                     "admissionNo": "941",
-                    "individualDue": 9500.0,
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 16550,
                     "individualPaid": 9500.0,
-                    "individualBalance": 0
+                    "individualBalance": 7050.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-080",
@@ -4498,27 +5261,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22900.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 6600,
+            "totalDue": 22600,
             "totalPaid": 5000.0,
-            "balance": 17900.0,
+            "balance": 17600.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 44300.0,
+            "consolidatedFamilyDue": 44200,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 34300.0,
+            "consolidatedFamilyBalance": 34200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-133",
                     "name": "ANSHUL KUMAR",
                     "class": "IV",
                     "admissionNo": "336",
-                    "individualDue": 21400.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 6600,
+                    "individualDue": 21600,
                     "individualPaid": 5000.0,
-                    "individualBalance": 16400.0
+                    "individualBalance": 16600.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-081",
@@ -4553,9 +5327,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22900.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 5500,
+            "totalDue": 21500,
             "totalPaid": 0,
-            "balance": 22900.0,
+            "balance": 21500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4563,7 +5339,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "CHIROURI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-082",
@@ -4598,27 +5381,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24100.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 3500.0,
-            "balance": 20600.0,
+            "balance": 20200.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 45200.0,
+            "consolidatedFamilyDue": 44900,
             "consolidatedFamilyPaid": 3500.0,
-            "consolidatedFamilyBalance": 41700.0,
+            "consolidatedFamilyBalance": 41400.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-254",
                     "name": "ISHANT KUMAR",
                     "class": "I",
                     "admissionNo": "505",
-                    "individualDue": 21100.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 21200,
                     "individualPaid": 0,
-                    "individualBalance": 21100.0
+                    "individualBalance": 21200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-083",
@@ -4653,9 +5447,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 0,
+            "totalDue": 16000,
             "totalPaid": 7000.0,
-            "balance": 7500.0,
+            "balance": 9000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4663,7 +5459,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-084",
@@ -4698,9 +5501,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 0,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4708,7 +5513,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-085",
@@ -4743,27 +5555,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22300.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 6600,
+            "totalDue": 22600,
             "totalPaid": 5000.0,
-            "balance": 17300.0,
+            "balance": 17600.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 41600.0,
+            "consolidatedFamilyDue": 43200,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 36600.0,
+            "consolidatedFamilyBalance": 38200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-228",
                     "name": "KRISHNA KUMAR",
                     "class": "II",
                     "admissionNo": "468",
-                    "individualDue": 19300.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 6600,
+                    "individualDue": 20600,
                     "individualPaid": 0,
-                    "individualBalance": 19300.0
+                    "individualBalance": 20600
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-086",
@@ -4798,9 +5621,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4808,7 +5633,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-087",
@@ -4843,27 +5675,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22900.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 6050,
+            "totalDue": 22050,
             "totalPaid": 5000.0,
-            "balance": 17900.0,
+            "balance": 17050.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 44300.0,
+            "consolidatedFamilyDue": 43600,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 34300.0,
+            "consolidatedFamilyBalance": 33600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-105",
                     "name": "KAUSHAL KUMAR",
                     "class": "V",
                     "admissionNo": "300",
-                    "individualDue": 21400.0,
+                    "tuitionDue": 15500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 21550,
                     "individualPaid": 5000.0,
-                    "individualBalance": 16400.0
+                    "individualBalance": 16550.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-088",
@@ -4898,27 +5741,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 5500,
+            "totalDue": 21500,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 21500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyDue": 35500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 26000.0,
+            "consolidatedFamilyBalance": 35500,
             "familySiblings": [
                 {
                     "id": "STU-2026-308",
                     "name": "YASH KUMAR",
                     "class": "II",
                     "admissionNo": "598",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 0,
+                    "individualDue": 14000,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 14000
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "CHIROURI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-089",
@@ -4953,9 +5807,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22900.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 5500,
+            "totalDue": 21500,
             "totalPaid": 10000.0,
-            "balance": 12900.0,
+            "balance": 11500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -4963,7 +5819,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "GAHTOLI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-090",
@@ -4998,9 +5861,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18700.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 4400,
+            "totalDue": 20400,
             "totalPaid": 9000.0,
-            "balance": 9700.0,
+            "balance": 11400.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5008,7 +5873,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-091",
@@ -5043,27 +5915,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22900.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 6050,
+            "totalDue": 22050,
             "totalPaid": 5000.0,
-            "balance": 17900.0,
+            "balance": 17050.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 44300.0,
+            "consolidatedFamilyDue": 43600,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 34300.0,
+            "consolidatedFamilyBalance": 33600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-092",
                     "name": "AAYUSH SINGH",
                     "class": "V",
                     "admissionNo": "282",
-                    "individualDue": 21400.0,
+                    "tuitionDue": 15500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 21550,
                     "individualPaid": 5000.0,
-                    "individualBalance": 16400.0
+                    "individualBalance": 16550.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-092",
@@ -5098,9 +5981,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6050,
+            "totalDue": 21550,
             "totalPaid": 5000.0,
-            "balance": 16400.0,
+            "balance": 16550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5115,7 +6000,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9761205728"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-093",
@@ -5150,9 +6042,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7150,
+            "totalDue": 22650,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 22650,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5160,7 +6054,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MALAHPUR",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-094",
@@ -5195,9 +6096,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6600,
+            "totalDue": 22100,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 22100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5205,7 +6108,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-095",
@@ -5240,27 +6150,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22300.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 0,
-            "balance": 22300.0,
+            "balance": 23700,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43100.0,
+            "consolidatedFamilyDue": 46400,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43100.0,
+            "consolidatedFamilyBalance": 46400,
             "familySiblings": [
                 {
                     "id": "STU-2026-130",
                     "name": "ANKUSH KUMAR",
                     "class": "IV",
                     "admissionNo": "333",
-                    "individualDue": 20800.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 7700,
+                    "individualDue": 22700,
                     "individualPaid": 0,
-                    "individualBalance": 20800.0
+                    "individualBalance": 22700
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-096",
@@ -5295,27 +6216,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22300.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 0,
-            "balance": 22300.0,
+            "balance": 23700,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 43100.0,
+            "consolidatedFamilyDue": 46400,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 43100.0,
+            "consolidatedFamilyBalance": 46400,
             "familySiblings": [
                 {
                     "id": "STU-2026-162",
                     "name": "RAMAN KUMAR",
                     "class": "IV",
                     "admissionNo": "374",
-                    "individualDue": 20800.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 7700,
+                    "individualDue": 22700,
                     "individualPaid": 0,
-                    "individualBalance": 20800.0
+                    "individualBalance": 22700
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-097",
@@ -5350,9 +6282,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 4950,
+            "totalDue": 20450,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 20450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5367,7 +6301,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719225225"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-098",
@@ -5402,9 +6343,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 5500,
+            "totalDue": 21000,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 21000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5412,7 +6355,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-099",
@@ -5447,27 +6397,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 0,
+            "totalDue": 16000,
             "totalPaid": 5000.0,
-            "balance": 9500.0,
+            "balance": 11000.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyDue": 37100,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 17500.0,
+            "consolidatedFamilyBalance": 27100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-174",
                     "name": "AYANSH",
                     "class": "III",
                     "admissionNo": "389",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 21100,
                     "individualPaid": 5000.0,
-                    "individualBalance": 8000.0
+                    "individualBalance": 16100.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-100",
@@ -5502,27 +6463,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6050,
+            "totalDue": 21550,
             "totalPaid": 0,
-            "balance": 21400.0,
+            "balance": 21550,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40300.0,
+            "consolidatedFamilyDue": 40100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40300.0,
+            "consolidatedFamilyBalance": 40100,
             "familySiblings": [
                 {
                     "id": "STU-2026-288",
                     "name": "ADABIKA",
                     "class": "UKG",
                     "admissionNo": "567",
-                    "individualDue": 18900.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 18550,
                     "individualPaid": 0,
-                    "individualBalance": 18900.0
+                    "individualBalance": 18550
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-101",
@@ -5557,27 +6529,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 0,
+            "totalDue": 15500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyDue": 30500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 26000.0,
+            "consolidatedFamilyBalance": 30500,
             "familySiblings": [
                 {
                     "id": "STU-2026-170",
                     "name": "VIRAT KUMAR",
                     "class": "IV",
                     "admissionNo": "384",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 0,
+                    "individualDue": 15000,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 15000
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-102",
@@ -5612,9 +6595,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 10000.0,
-            "balance": 3000.0,
+            "balance": 13200.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5622,7 +6607,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-103",
@@ -5657,9 +6649,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6050,
+            "totalDue": 21550,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 21550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5667,7 +6661,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-104",
@@ -5702,9 +6703,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6050,
+            "totalDue": 21550,
             "totalPaid": 12000.0,
-            "balance": 1000.0,
+            "balance": 9550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5712,7 +6715,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-105",
@@ -5747,9 +6757,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6050,
+            "totalDue": 21550,
             "totalPaid": 5000.0,
-            "balance": 16400.0,
+            "balance": 16550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5764,7 +6776,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8650724663"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-106",
@@ -5799,27 +6818,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6050,
+            "totalDue": 21550,
             "totalPaid": 0,
-            "balance": 21400.0,
+            "balance": 21550,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40300.0,
+            "consolidatedFamilyDue": 40100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40300.0,
+            "consolidatedFamilyBalance": 40100,
             "familySiblings": [
                 {
                     "id": "STU-2026-323",
                     "name": "DIVYANSHI",
                     "class": "UKG",
                     "admissionNo": "637",
-                    "individualDue": 18900.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 18550,
                     "individualPaid": 0,
-                    "individualBalance": 18900.0
+                    "individualBalance": 18550
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-107",
@@ -5854,9 +6884,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22300.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 2000.0,
-            "balance": 20300.0,
+            "balance": 21700.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5864,7 +6896,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-108",
@@ -5899,9 +6938,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 0,
+            "totalDue": 15500,
             "totalPaid": 2500.0,
-            "balance": 10500.0,
+            "balance": 13000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5909,7 +6950,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-109",
@@ -5944,9 +6992,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -5954,7 +7004,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-110",
@@ -5989,27 +7046,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6050,
+            "totalDue": 21550,
             "totalPaid": 10000.0,
-            "balance": 11400.0,
+            "balance": 11550.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 34400.0,
+            "consolidatedFamilyDue": 42600,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 24400.0,
+            "consolidatedFamilyBalance": 32600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-154",
                     "name": "NISHANT KUMAR",
                     "class": "IV",
                     "admissionNo": "364",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 6050,
+                    "individualDue": 21050,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 21050
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-111",
@@ -6044,9 +7112,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 5500,
+            "totalDue": 21000,
             "totalPaid": 3000.0,
-            "balance": 10000.0,
+            "balance": 18000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6054,7 +7124,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "CHIROURI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-112",
@@ -6089,9 +7166,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 5500,
+            "totalDue": 21000,
             "totalPaid": 10000.0,
-            "balance": 10800.0,
+            "balance": 11000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6099,7 +7178,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-113",
@@ -6134,27 +7220,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 12900.0,
-            "balance": 1600.0,
+            "balance": 10800.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35300.0,
+            "consolidatedFamilyDue": 45900,
             "consolidatedFamilyPaid": 12900.0,
-            "consolidatedFamilyBalance": 22400.0,
+            "consolidatedFamilyBalance": 33000.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-184",
                     "name": "HARSH KUMAR",
                     "class": "III",
                     "admissionNo": "402",
-                    "individualDue": 20800.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 22200,
                     "individualPaid": 0,
-                    "individualBalance": 20800.0
+                    "individualBalance": 22200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-114",
@@ -6189,27 +7286,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 4950,
+            "totalDue": 20450,
             "totalPaid": 5000.0,
-            "balance": 14000.0,
+            "balance": 15450.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 36500.0,
+            "consolidatedFamilyDue": 38900,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 26500.0,
+            "consolidatedFamilyBalance": 28900.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-255",
                     "name": "JATIN KUMAR",
                     "class": "I",
                     "admissionNo": "506",
-                    "individualDue": 17500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 18450,
                     "individualPaid": 5000.0,
-                    "individualBalance": 12500.0
+                    "individualBalance": 13450.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-115",
@@ -6244,9 +7352,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 9000.0,
-            "balance": 4000.0,
+            "balance": 14750.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6254,7 +7364,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-116",
@@ -6289,27 +7406,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 0,
+            "totalDue": 15500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyDue": 30500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 26000.0,
+            "consolidatedFamilyBalance": 30500,
             "familySiblings": [
                 {
                     "id": "STU-2026-147",
                     "name": "HIMANSHU",
                     "class": "IV",
                     "admissionNo": "352",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 0,
+                    "individualDue": 15000,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 15000
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-117",
@@ -6344,9 +7472,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 0,
+            "totalDue": 15500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6354,7 +7484,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-118",
@@ -6389,9 +7526,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6600,
+            "totalDue": 22100,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 22100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6406,7 +7545,14 @@ export const initialSchoolData = {
                 "fatherPhone": "6395011712"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-119",
@@ -6441,9 +7587,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6451,7 +7599,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-120",
@@ -6486,27 +7641,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 0,
+            "totalDue": 15500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyDue": 30000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 26000.0,
+            "consolidatedFamilyBalance": 30000,
             "familySiblings": [
                 {
                     "id": "STU-2026-212",
                     "name": "VISHAL KUMAR",
                     "class": "III",
                     "admissionNo": "440",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 0,
+                    "individualDue": 14500,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 14500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-121",
@@ -6541,27 +7707,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 24500.0,
+            "consolidatedFamilyDue": 44400,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 24500.0,
+            "consolidatedFamilyBalance": 44400,
             "familySiblings": [
                 {
                     "id": "STU-2026-305",
                     "name": "AARUSH MITTAL",
                     "class": "I",
                     "admissionNo": "594",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 21200,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 21200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-122",
@@ -6596,9 +7773,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 0,
+            "totalDue": 15500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6606,7 +7785,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-123",
@@ -6641,9 +7827,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 0,
+            "totalDue": 16000,
             "totalPaid": 4000.0,
-            "balance": 10500.0,
+            "balance": 12000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6651,7 +7839,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-124",
@@ -6686,9 +7881,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 4950,
+            "totalDue": 20450,
             "totalPaid": 10000.0,
-            "balance": 9000.0,
+            "balance": 10450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6696,7 +7893,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-125",
@@ -6731,9 +7935,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 4950,
+            "totalDue": 20450,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 20450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6748,7 +7954,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719225225"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-126",
@@ -6783,9 +7996,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6050,
+            "totalDue": 21550,
             "totalPaid": 2500.0,
-            "balance": 18900.0,
+            "balance": 19050.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6793,7 +8008,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-127",
@@ -6828,9 +8050,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 5500,
+            "totalDue": 21000,
             "totalPaid": 10000.0,
-            "balance": 3000.0,
+            "balance": 11000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6838,7 +8062,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "CHIROURI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-128",
@@ -6873,9 +8104,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6883,7 +8116,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-129",
@@ -6918,27 +8158,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 0,
-            "balance": 22000.0,
+            "balance": 20500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 37700.0,
+            "consolidatedFamilyDue": 41700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 37700.0,
+            "consolidatedFamilyBalance": 41700,
             "familySiblings": [
                 {
                     "id": "STU-2026-245",
                     "name": "CHESTA",
                     "class": "I",
                     "admissionNo": "494",
-                    "individualDue": 15700.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 21200,
                     "individualPaid": 0,
-                    "individualBalance": 15700.0
+                    "individualBalance": 21200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "CHIROURI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-130",
@@ -6973,9 +8224,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 22700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -6990,7 +8243,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9368681376"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-131",
@@ -7025,9 +8285,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7035,7 +8297,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-132",
@@ -7070,9 +8339,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6050,
+            "totalDue": 21050,
             "totalPaid": 10000.0,
-            "balance": 11400.0,
+            "balance": 11050.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7080,7 +8351,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-133",
@@ -7115,9 +8393,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6600,
+            "totalDue": 21600,
             "totalPaid": 5000.0,
-            "balance": 16400.0,
+            "balance": 16600.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7132,7 +8412,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8941891392"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-134",
@@ -7167,27 +8454,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6600,
+            "totalDue": 21600,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 21600,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyDue": 40700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 23500.0,
+            "consolidatedFamilyBalance": 40700,
             "familySiblings": [
                 {
                     "id": "STU-2026-278",
                     "name": "HIMANSHI RAJPUT",
                     "class": "UKG",
                     "admissionNo": "550",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 19100,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 19100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-135",
@@ -7222,9 +8520,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7150,
+            "totalDue": 22650,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 22650,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7232,7 +8532,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "BANJARA NAGLA",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-136",
@@ -7267,27 +8574,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6050,
+            "totalDue": 21050,
             "totalPaid": 5000.0,
-            "balance": 16400.0,
+            "balance": 16050.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 41300.0,
+            "consolidatedFamilyDue": 41100,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 31300.0,
+            "consolidatedFamilyBalance": 31100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-298",
                     "name": "ADITYA KUMAR",
                     "class": "II",
                     "admissionNo": "583",
-                    "individualDue": 19900.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 6050,
+                    "individualDue": 20050,
                     "individualPaid": 5000.0,
-                    "individualBalance": 14900.0
+                    "individualBalance": 15050.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-137",
@@ -7322,9 +8640,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7339,7 +8659,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9990488266"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-138",
@@ -7374,9 +8701,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 6000.0,
-            "balance": 7000.0,
+            "balance": 16700.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7384,7 +8713,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-139",
@@ -7419,9 +8755,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 4000.0,
-            "balance": 9000.0,
+            "balance": 11000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7436,7 +8774,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9268386124"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-140",
@@ -7471,27 +8816,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyDue": 26500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 23500.0,
+            "consolidatedFamilyBalance": 26500,
             "familySiblings": [
                 {
                     "id": "STU-2026-402",
                     "name": "PRIYAL",
                     "class": "LKG",
                     "admissionNo": "752",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 0,
+                    "individualDue": 11500,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 11500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-141",
@@ -7526,27 +8882,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 4950,
+            "totalDue": 19950,
             "totalPaid": 20150.0,
-            "balance": 650.0,
-            "status": "Partial",
+            "balance": 0,
+            "status": "Paid",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40100.0,
+            "consolidatedFamilyDue": 38900,
             "consolidatedFamilyPaid": 38800.0,
-            "consolidatedFamilyBalance": 1300.0,
+            "consolidatedFamilyBalance": 100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-236",
                     "name": "RUDRANSH",
                     "class": "II",
                     "admissionNo": "481",
-                    "individualDue": 19300.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 4950,
+                    "individualDue": 18950,
                     "individualPaid": 18650.0,
-                    "individualBalance": 650.0
+                    "individualBalance": 300.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-142",
@@ -7581,9 +8948,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7591,7 +8960,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-143",
@@ -7626,27 +9002,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyDue": 32450,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 23500.0,
+            "consolidatedFamilyBalance": 32450,
             "familySiblings": [
                 {
                     "id": "STU-2026-285",
                     "name": "SANJEEV KUMAR",
                     "class": "UKG",
                     "admissionNo": "560",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 17450,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 17450
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-144",
@@ -7681,9 +9068,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 4950,
+            "totalDue": 19950,
             "totalPaid": 10000.0,
-            "balance": 9000.0,
+            "balance": 9950.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7691,7 +9080,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-145",
@@ -7726,9 +9122,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 20500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7736,7 +9134,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-146",
@@ -7771,9 +9176,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7781,7 +9188,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-147",
@@ -7816,9 +9230,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7833,7 +9249,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7452883387"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-148",
@@ -7868,27 +9291,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18400.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 4400,
+            "totalDue": 19400,
             "totalPaid": 5000.0,
-            "balance": 13400.0,
+            "balance": 14400.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 28900.0,
+            "consolidatedFamilyDue": 35850,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 18900.0,
+            "consolidatedFamilyBalance": 25850.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-542",
                     "name": "BHASKAR",
                     "class": "LKG",
                     "admissionNo": "937",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 16450,
                     "individualPaid": 5000.0,
-                    "individualBalance": 5500.0
+                    "individualBalance": 11450.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-149",
@@ -7923,9 +9357,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7150,
+            "totalDue": 22150,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 22150,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7940,7 +9376,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9759840340"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-150",
@@ -7975,9 +9418,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 20500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -7985,7 +9430,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-151",
@@ -8020,9 +9472,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8030,7 +9484,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-152",
@@ -8065,9 +9526,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8075,7 +9538,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-153",
@@ -8110,27 +9580,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6600,
+            "totalDue": 22100,
             "totalPaid": 10000.0,
-            "balance": 11400.0,
+            "balance": 12100.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 42800.0,
+            "consolidatedFamilyDue": 43700,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 32800.0,
+            "consolidatedFamilyBalance": 33700.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-200",
                     "name": "ROHIT KUMAR",
                     "class": "IV",
                     "admissionNo": "425",
-                    "individualDue": 21400.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 6600,
+                    "individualDue": 21600,
                     "individualPaid": 0,
-                    "individualBalance": 21400.0
+                    "individualBalance": 21600
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-154",
@@ -8165,9 +9646,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6050,
+            "totalDue": 21050,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 21050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8182,7 +9665,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8859303073"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-155",
@@ -8217,27 +9707,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6050,
+            "totalDue": 21050,
             "totalPaid": 10000.0,
-            "balance": 12000.0,
+            "balance": 11050.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 42500.0,
+            "consolidatedFamilyDue": 40600,
             "consolidatedFamilyPaid": 13000.0,
-            "consolidatedFamilyBalance": 29500.0,
+            "consolidatedFamilyBalance": 27600.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-262",
                     "name": "MANVI",
                     "class": "I",
                     "admissionNo": "518",
-                    "individualDue": 20500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 19550,
                     "individualPaid": 3000.0,
-                    "individualBalance": 17500.0
+                    "individualBalance": 16550.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-156",
@@ -8272,27 +9773,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6600,
+            "totalDue": 22100,
             "totalPaid": 14000.0,
-            "balance": 6800.0,
+            "balance": 8100.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 41600.0,
+            "consolidatedFamilyDue": 43200,
             "consolidatedFamilyPaid": 14000.0,
-            "consolidatedFamilyBalance": 27600.0,
+            "consolidatedFamilyBalance": 29200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-176",
                     "name": "AYUSHI CHAUHAN",
                     "class": "III",
                     "admissionNo": "392",
-                    "individualDue": 20800.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 21100,
                     "individualPaid": 0,
-                    "individualBalance": 20800.0
+                    "individualBalance": 21100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-157",
@@ -8327,27 +9839,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 0,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyDue": 30000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 26000.0,
+            "consolidatedFamilyBalance": 30000,
             "familySiblings": [
                 {
                     "id": "STU-2026-221",
                     "name": "GUNJAN KUMAR",
                     "class": "II",
                     "admissionNo": "456",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 0,
+                    "individualDue": 14000,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 14000
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-158",
@@ -8382,9 +9905,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 4400,
+            "totalDue": 19400,
             "totalPaid": 4000.0,
-            "balance": 9000.0,
+            "balance": 15400.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8392,7 +9917,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-159",
@@ -8427,36 +9959,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 8000.0,
-            "balance": 12800.0,
+            "balance": 12500.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 53100.0,
+            "consolidatedFamilyDue": 59500,
             "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 33100.0,
+            "consolidatedFamilyBalance": 39500.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-209",
                     "name": "VANDANA",
                     "class": "III",
                     "admissionNo": "437",
-                    "individualDue": 20800.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 5500,
+                    "individualDue": 20000,
                     "individualPaid": 6000.0,
-                    "individualBalance": 14800.0
+                    "individualBalance": 14000.0
                 },
                 {
                     "id": "STU-2026-247",
                     "name": "DEEKSHA SHARMA",
                     "class": "I",
                     "admissionNo": "496",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 5500,
+                    "individualDue": 19000,
                     "individualPaid": 6000.0,
-                    "individualBalance": 5500.0
+                    "individualBalance": 13000.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-160",
@@ -8491,9 +10036,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 3000.0,
-            "balance": 10000.0,
+            "balance": 17500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8501,7 +10048,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "CHIROURI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-161",
@@ -8536,9 +10090,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 6000.0,
-            "balance": 7000.0,
+            "balance": 16700.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8546,7 +10102,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-162",
@@ -8581,9 +10144,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 22700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8598,7 +10163,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9720966040"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-163",
@@ -8633,9 +10205,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7150,
+            "totalDue": 22150,
             "totalPaid": 3500.0,
-            "balance": 9500.0,
+            "balance": 18650.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8643,7 +10217,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MALAHPUR",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-164",
@@ -8678,9 +10259,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 20500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8688,7 +10271,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-165",
@@ -8723,9 +10313,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 6500.0,
-            "balance": 6500.0,
+            "balance": 16200.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8733,7 +10325,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-166",
@@ -8768,27 +10367,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6050,
+            "totalDue": 21050,
             "totalPaid": 0,
-            "balance": 21400.0,
+            "balance": 21050,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 42800.0,
+            "consolidatedFamilyDue": 41600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42800.0,
+            "consolidatedFamilyBalance": 41600,
             "familySiblings": [
                 {
                     "id": "STU-2026-196",
                     "name": "PEEYUSH KUMAR",
                     "class": "III",
                     "admissionNo": "419",
-                    "individualDue": 21400.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 20550,
                     "individualPaid": 0,
-                    "individualBalance": 21400.0
+                    "individualBalance": 20550
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-167",
@@ -8823,9 +10433,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17200.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 4400,
+            "totalDue": 19900,
             "totalPaid": 0,
-            "balance": 17200.0,
+            "balance": 19900,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8833,7 +10445,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-168",
@@ -8868,9 +10487,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20200.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 5000.0,
-            "balance": 15200.0,
+            "balance": 17700.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8878,7 +10499,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-169",
@@ -8913,9 +10541,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20200.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6600,
+            "totalDue": 21600,
             "totalPaid": 7000.0,
-            "balance": 13200.0,
+            "balance": 14600.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8923,7 +10553,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-170",
@@ -8958,9 +10595,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -8975,7 +10614,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9927501907"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-171",
@@ -9010,9 +10656,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 0,
-            "balance": 21400.0,
+            "balance": 22700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9020,7 +10668,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MAHARAJPUR",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-172",
@@ -9055,9 +10710,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 5000.0,
-            "balance": 15800.0,
+            "balance": 15000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9065,7 +10722,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-173",
@@ -9100,9 +10764,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20200.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 0,
-            "balance": 20200.0,
+            "balance": 21100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9110,7 +10776,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-174",
@@ -9145,9 +10818,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 5000.0,
-            "balance": 8000.0,
+            "balance": 16100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9162,7 +10837,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9536149148"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-175",
@@ -9197,9 +10879,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 4950,
+            "totalDue": 19450,
             "totalPaid": 10300.0,
-            "balance": 11100.0,
+            "balance": 9150.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9207,7 +10891,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-176",
@@ -9242,9 +10933,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 21100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9259,7 +10952,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9528626183"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-177",
@@ -9294,27 +10994,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 4950,
+            "totalDue": 19450,
             "totalPaid": 0,
-            "balance": 19000.0,
+            "balance": 19450,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 36500.0,
+            "consolidatedFamilyDue": 37900,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 36500.0,
+            "consolidatedFamilyBalance": 37900,
             "familySiblings": [
                 {
                     "id": "STU-2026-244",
                     "name": "BANSHU KUMAR",
                     "class": "I",
                     "admissionNo": "493",
-                    "individualDue": 17500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 18450,
                     "individualPaid": 0,
-                    "individualBalance": 17500.0
+                    "individualBalance": 18450
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-178",
@@ -9349,9 +11060,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 7700,
+            "totalDue": 22200,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 22200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9359,7 +11072,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-179",
@@ -9394,9 +11114,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 0,
-            "balance": 21400.0,
+            "balance": 21100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9404,7 +11126,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-180",
@@ -9439,9 +11168,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 10000.0,
-            "balance": 9000.0,
+            "balance": 11100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9449,7 +11180,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-181",
@@ -9484,9 +11222,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 7700,
+            "totalDue": 22200,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 22200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9494,7 +11234,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-182",
@@ -9529,9 +11276,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 2500.0,
-            "balance": 10500.0,
+            "balance": 12000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9539,7 +11288,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-183",
@@ -9574,27 +11330,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 14500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyDue": 35250,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 23500.0,
+            "consolidatedFamilyBalance": 35250,
             "familySiblings": [
                 {
                     "id": "STU-2026-351",
                     "name": "LAKSHYA RAJPUT",
                     "class": "UKG",
                     "admissionNo": "678",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 8250,
+                    "individualDue": 20750,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 20750
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-184",
@@ -9629,9 +11396,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 7700,
+            "totalDue": 22200,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 22200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9646,7 +11415,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719017603"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-185",
@@ -9681,9 +11457,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 4950,
+            "totalDue": 19450,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 19450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9691,7 +11469,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-186",
@@ -9726,9 +11511,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 10000.0,
-            "balance": 3000.0,
+            "balance": 4500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9736,7 +11523,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-187",
@@ -9771,27 +11565,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 21100,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyDue": 42200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 26000.0,
+            "consolidatedFamilyBalance": 42200,
             "familySiblings": [
                 {
                     "id": "STU-2026-188",
                     "name": "KIRTI",
                     "class": "III",
                     "admissionNo": "408",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 21100,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 21100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-188",
@@ -9826,9 +11631,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 21100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9843,7 +11650,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9758977960"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-189",
@@ -9878,9 +11692,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 6000.0,
-            "balance": 15400.0,
+            "balance": 15100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9888,7 +11704,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-190",
@@ -9923,9 +11746,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 14500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9933,7 +11758,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-191",
@@ -9968,9 +11800,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 0,
+            "totalDue": 15500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -9978,7 +11812,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-192",
@@ -10013,9 +11854,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 21100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10023,7 +11866,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-193",
@@ -10058,9 +11908,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18400.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 4400,
+            "totalDue": 18900,
             "totalPaid": 5000.0,
-            "balance": 13400.0,
+            "balance": 13900.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10068,7 +11920,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-194",
@@ -10103,36 +11962,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 14500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35000.0,
+            "consolidatedFamilyDue": 40500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35000.0,
+            "consolidatedFamilyBalance": 40500,
             "familySiblings": [
                 {
                     "id": "STU-2026-249",
                     "name": "DIMPAL",
                     "class": "I",
                     "admissionNo": "498",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 0,
+                    "individualDue": 13500,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 13500
                 },
                 {
                     "id": "STU-2026-272",
                     "name": "YATIN KUMAR",
                     "class": "UKG",
                     "admissionNo": "541",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 0,
+                    "individualDue": 12500,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 12500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-195",
@@ -10167,9 +12039,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 14500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10177,7 +12051,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-196",
@@ -10212,9 +12093,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6050,
+            "totalDue": 20550,
             "totalPaid": 0,
-            "balance": 21400.0,
+            "balance": 20550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10229,7 +12112,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9643311163"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-197",
@@ -10264,9 +12154,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 0,
-            "balance": 21400.0,
+            "balance": 20000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10281,7 +12173,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8700327645"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-198",
@@ -10316,9 +12215,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20200.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 7150,
+            "totalDue": 21650,
             "totalPaid": 0,
-            "balance": 20200.0,
+            "balance": 21650,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10326,7 +12227,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-199",
@@ -10361,9 +12269,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 21100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10371,7 +12281,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-200",
@@ -10406,9 +12323,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6600,
+            "totalDue": 21600,
             "totalPaid": 0,
-            "balance": 21400.0,
+            "balance": 21600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10423,7 +12342,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9568476692"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-201",
@@ -10458,9 +12384,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17200.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 4400,
+            "totalDue": 18900,
             "totalPaid": 9000.0,
-            "balance": 8200.0,
+            "balance": 9900.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10468,7 +12396,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-202",
@@ -10503,27 +12438,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20200.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6600,
+            "totalDue": 21600,
             "totalPaid": 0,
-            "balance": 20200.0,
+            "balance": 21600,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 38900.0,
+            "consolidatedFamilyDue": 42200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 38900.0,
+            "consolidatedFamilyBalance": 42200,
             "familySiblings": [
                 {
                     "id": "STU-2026-229",
                     "name": "KULDEEP KISHOR",
                     "class": "II",
                     "admissionNo": "470",
-                    "individualDue": 18700.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 6600,
+                    "individualDue": 20600,
                     "individualPaid": 0,
-                    "individualBalance": 18700.0
+                    "individualBalance": 20600
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-203",
@@ -10558,9 +12504,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6600,
+            "totalDue": 22100,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 22100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10568,7 +12516,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-204",
@@ -10603,27 +12558,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20200.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 7700,
+            "totalDue": 22200,
             "totalPaid": 0,
-            "balance": 20200.0,
+            "balance": 22200,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 31700.0,
+            "consolidatedFamilyDue": 43350,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 31700.0,
+            "consolidatedFamilyBalance": 43350,
             "familySiblings": [
                 {
                     "id": "STU-2026-355",
                     "name": "YASHIKA",
                     "class": "II",
                     "admissionNo": "682",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 7150,
+                    "individualDue": 21150,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 21150
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-205",
@@ -10658,9 +12624,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6050,
+            "totalDue": 20550,
             "totalPaid": 10000.0,
-            "balance": 11400.0,
+            "balance": 10550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10668,7 +12636,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-206",
@@ -10703,9 +12678,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6050,
+            "totalDue": 20550,
             "totalPaid": 3000.0,
-            "balance": 10000.0,
+            "balance": 17550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10720,7 +12697,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9675863965"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-207",
@@ -10755,9 +12739,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 7500.0,
-            "balance": 13300.0,
+            "balance": 12500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10765,7 +12751,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-208",
@@ -10800,9 +12793,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 20000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10810,7 +12805,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-209",
@@ -10845,9 +12847,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 6000.0,
-            "balance": 14800.0,
+            "balance": 14000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -10862,7 +12866,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9627265417"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-210",
@@ -10897,27 +12908,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18400.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 4400,
+            "totalDue": 18900,
             "totalPaid": 5000.0,
-            "balance": 13400.0,
+            "balance": 13900.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35300.0,
+            "consolidatedFamilyDue": 37300,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 25300.0,
+            "consolidatedFamilyBalance": 27300.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-233",
                     "name": "PUNEET KUMAR",
                     "class": "II",
                     "admissionNo": "477",
-                    "individualDue": 16900.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 4400,
+                    "individualDue": 18400,
                     "individualPaid": 5000.0,
-                    "individualBalance": 11900.0
+                    "individualBalance": 13400.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-211",
@@ -10952,27 +12974,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 6000.0,
-            "balance": 7000.0,
+            "balance": 15100.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 23500.0,
+            "consolidatedFamilyDue": 39200,
             "consolidatedFamilyPaid": 12000.0,
-            "consolidatedFamilyBalance": 11500.0,
+            "consolidatedFamilyBalance": 27200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-342",
                     "name": "KUMARI PRAGATI",
                     "class": "LKG",
                     "admissionNo": "665",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 18100,
                     "individualPaid": 6000.0,
-                    "individualBalance": 4500.0
+                    "individualBalance": 12100.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-212",
@@ -11007,9 +13040,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 14500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11024,7 +13059,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9149237488"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-213",
@@ -11059,9 +13101,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4950,
+            "totalDue": 18950,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 18950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11076,7 +13120,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9759755011"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-214",
@@ -11111,9 +13162,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18700.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7150,
+            "totalDue": 21150,
             "totalPaid": 0,
-            "balance": 18700.0,
+            "balance": 21150,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11121,7 +13174,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-215",
@@ -11156,9 +13216,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11166,7 +13228,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-216",
@@ -11201,9 +13270,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 7150,
+            "totalDue": 21650,
             "totalPaid": 5000.0,
-            "balance": 8000.0,
+            "balance": 16650.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11211,7 +13282,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-217",
@@ -11246,27 +13324,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 20600,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 39800.0,
+            "consolidatedFamilyDue": 40700,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 39800.0,
+            "consolidatedFamilyBalance": 40700,
             "familySiblings": [
                 {
                     "id": "STU-2026-333",
                     "name": "KUNAL YADAV",
                     "class": "I",
                     "admissionNo": "651",
-                    "individualDue": 19900.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 20100,
                     "individualPaid": 0,
-                    "individualBalance": 19900.0
+                    "individualBalance": 20100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-218",
@@ -11301,9 +13390,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4950,
+            "totalDue": 18950,
             "totalPaid": 0,
-            "balance": 17500.0,
+            "balance": 18950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11311,7 +13402,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-219",
@@ -11346,9 +13444,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6050,
+            "totalDue": 20550,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 20550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11356,7 +13456,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-220",
@@ -11391,9 +13498,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4950,
+            "totalDue": 18950,
             "totalPaid": 0,
-            "balance": 19300.0,
+            "balance": 18950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11401,7 +13510,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-221",
@@ -11436,9 +13552,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 0,
+            "totalDue": 14000,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 14000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11453,7 +13571,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9675320274"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-222",
@@ -11488,9 +13613,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 20600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11498,7 +13625,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-223",
@@ -11533,9 +13667,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22600.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 0,
-            "balance": 22600.0,
+            "balance": 22700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11543,7 +13679,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MAHARAJPUR",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-224",
@@ -11578,9 +13721,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 0,
+            "totalDue": 14000,
             "totalPaid": 7500.0,
-            "balance": 4000.0,
+            "balance": 6500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11588,7 +13733,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-225",
@@ -11623,9 +13775,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11633,7 +13787,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-226",
@@ -11668,9 +13829,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 20050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11678,7 +13841,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-227",
@@ -11713,9 +13883,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4950,
+            "totalDue": 18950,
             "totalPaid": 0,
-            "balance": 19300.0,
+            "balance": 18950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11723,7 +13895,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-228",
@@ -11758,9 +13937,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 0,
-            "balance": 19300.0,
+            "balance": 20600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11775,7 +13956,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8630711835"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-229",
@@ -11810,9 +13998,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18700.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 0,
-            "balance": 18700.0,
+            "balance": 20600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11827,7 +14017,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9027352955"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-230",
@@ -11862,9 +14059,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4950,
+            "totalDue": 18950,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 18950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11872,7 +14071,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-231",
@@ -11907,9 +14113,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7700,
+            "totalDue": 21700,
             "totalPaid": 0,
-            "balance": 19300.0,
+            "balance": 21700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -11917,7 +14125,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-232",
@@ -11952,27 +14167,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 20050,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 39800.0,
+            "consolidatedFamilyDue": 39600,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 39800.0,
+            "consolidatedFamilyBalance": 39600,
             "familySiblings": [
                 {
                     "id": "STU-2026-250",
                     "name": "GAURAV KUMAR",
                     "class": "I",
                     "admissionNo": "500",
-                    "individualDue": 19900.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 19550,
                     "individualPaid": 0,
-                    "individualBalance": 19900.0
+                    "individualBalance": 19550
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-233",
@@ -12007,9 +14233,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 16900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4400,
+            "totalDue": 18400,
             "totalPaid": 5000.0,
-            "balance": 11900.0,
+            "balance": 13400.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12024,7 +14252,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9958880327"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-234",
@@ -12059,9 +14294,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12069,7 +14306,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-235",
@@ -12104,9 +14348,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 0,
+            "totalDue": 14000,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 14000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12114,7 +14360,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-236",
@@ -12149,9 +14402,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4950,
+            "totalDue": 18950,
             "totalPaid": 18650.0,
-            "balance": 650.0,
+            "balance": 300.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12166,7 +14421,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9759711175"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-237",
@@ -12201,9 +14463,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 5500,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12211,7 +14475,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-238",
@@ -12246,9 +14517,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7700,
+            "totalDue": 21700,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12256,7 +14529,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-239",
@@ -12291,9 +14571,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 16900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4400,
+            "totalDue": 18400,
             "totalPaid": 5000.0,
-            "balance": 11900.0,
+            "balance": 13400.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12301,7 +14583,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-240",
@@ -12336,9 +14625,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 20050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12346,7 +14637,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-241",
@@ -12381,9 +14679,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18700.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7150,
+            "totalDue": 21150,
             "totalPaid": 5000.0,
-            "balance": 13700.0,
+            "balance": 16150.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12391,7 +14691,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-242",
@@ -12426,9 +14733,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4950,
+            "totalDue": 18950,
             "totalPaid": 10000.0,
-            "balance": 7500.0,
+            "balance": 8950.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12436,7 +14745,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-243",
@@ -12471,9 +14787,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12481,7 +14799,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-244",
@@ -12516,9 +14841,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4950,
+            "totalDue": 18450,
             "totalPaid": 0,
-            "balance": 17500.0,
+            "balance": 18450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12533,7 +14860,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9761083561"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-245",
@@ -12568,9 +14902,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 15700.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 15700.0,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12585,7 +14921,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7500077994"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-246",
@@ -12620,9 +14963,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12637,7 +14982,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9627722404"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-247",
@@ -12672,9 +15024,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 5500,
+            "totalDue": 19000,
             "totalPaid": 6000.0,
-            "balance": 5500.0,
+            "balance": 13000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12689,7 +15043,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9627265417"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-248",
@@ -12724,9 +15085,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 10000.0,
-            "balance": 9900.0,
+            "balance": 9550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12734,7 +15097,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-249",
@@ -12769,9 +15139,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 13500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12786,7 +15158,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719204696"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-250",
@@ -12821,9 +15200,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 19550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12838,7 +15219,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8476978719"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-251",
@@ -12873,27 +15261,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 5000.0,
-            "balance": 6500.0,
+            "balance": 8500.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 30600.0,
+            "consolidatedFamilyDue": 31700,
             "consolidatedFamilyPaid": 5000.0,
-            "consolidatedFamilyBalance": 25600.0,
+            "consolidatedFamilyBalance": 26700.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-473",
                     "name": "NAYRA CHAUDHARY",
                     "class": "NURSERY",
                     "admissionNo": "859",
-                    "individualDue": 19100.0,
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 18200,
                     "individualPaid": 0,
-                    "individualBalance": 19100.0
+                    "individualBalance": 18200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-252",
@@ -12928,27 +15327,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 0,
-            "balance": 17500.0,
+            "balance": 20100,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 28000.0,
+            "consolidatedFamilyDue": 38200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 28000.0,
+            "consolidatedFamilyBalance": 38200,
             "familySiblings": [
                 {
                     "id": "STU-2026-418",
                     "name": "DEEPAK LODHI",
                     "class": "LKG",
                     "admissionNo": "772",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 18100,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 18100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-253",
@@ -12983,9 +15393,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4950,
+            "totalDue": 18450,
             "totalPaid": 0,
-            "balance": 17500.0,
+            "balance": 18450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -12993,7 +15405,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-254",
@@ -13028,9 +15447,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21100.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 21100.0,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13045,7 +15466,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719312990"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-255",
@@ -13080,9 +15508,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4950,
+            "totalDue": 18450,
             "totalPaid": 5000.0,
-            "balance": 12500.0,
+            "balance": 13450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13097,7 +15527,14 @@ export const initialSchoolData = {
                 "fatherPhone": "6396451120"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-256",
@@ -13132,9 +15569,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4950,
+            "totalDue": 18450,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 18450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13142,7 +15581,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-257",
@@ -13177,9 +15623,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4950,
+            "totalDue": 18450,
             "totalPaid": 10000.0,
-            "balance": 9300.0,
+            "balance": 8450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13187,7 +15635,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-258",
@@ -13222,9 +15677,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 10000.0,
-            "balance": 1500.0,
+            "balance": 3500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13232,7 +15689,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-259",
@@ -13267,9 +15731,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 5500,
+            "totalDue": 18000,
             "totalPaid": 0,
-            "balance": 19500.0,
+            "balance": 18000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13284,7 +15750,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9512129478"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-260",
@@ -13319,9 +15792,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20200.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 5000.0,
-            "balance": 15200.0,
+            "balance": 16100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13329,7 +15804,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-261",
@@ -13364,36 +15846,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18700.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 0,
-            "balance": 18700.0,
+            "balance": 19550,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 53100.0,
+            "consolidatedFamilyDue": 54650,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 53100.0,
+            "consolidatedFamilyBalance": 54650,
             "familySiblings": [
                 {
                     "id": "STU-2026-281",
                     "name": "ANURAG LODHI",
                     "class": "UKG",
                     "admissionNo": "554",
-                    "individualDue": 17700.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 18550,
                     "individualPaid": 0,
-                    "individualBalance": 17700.0
+                    "individualBalance": 18550
                 },
                 {
                     "id": "STU-2026-450",
                     "name": "DEVANSH",
                     "class": "NURSERY",
                     "admissionNo": "800",
-                    "individualDue": 16700.0,
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 16550,
                     "individualPaid": 0,
-                    "individualBalance": 16700.0
+                    "individualBalance": 16550
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-262",
@@ -13428,9 +15923,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 3000.0,
-            "balance": 17500.0,
+            "balance": 16550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13445,7 +15942,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9536711508"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-263",
@@ -13480,9 +15984,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4400,
+            "totalDue": 17900,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 17900,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13490,7 +15996,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-264",
@@ -13525,9 +16038,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4400,
+            "totalDue": 17900,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 17900,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13535,7 +16050,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-265",
@@ -13570,9 +16092,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4950,
+            "totalDue": 18450,
             "totalPaid": 10000.0,
-            "balance": 7500.0,
+            "balance": 8450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13580,7 +16104,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-266",
@@ -13615,9 +16146,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13625,7 +16158,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-267",
@@ -13660,9 +16200,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13670,7 +16212,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-268",
@@ -13705,9 +16254,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 19300.0,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13715,7 +16266,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "SILHARI",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-269",
@@ -13750,9 +16308,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7700,
+            "totalDue": 21700,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13760,7 +16320,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-270",
@@ -13795,27 +16362,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21100.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7150,
+            "totalDue": 21150,
             "totalPaid": 10000.0,
-            "balance": 11100.0,
+            "balance": 11150.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 31600.0,
+            "consolidatedFamilyDue": 40800,
             "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 11600.0,
+            "consolidatedFamilyBalance": 20800.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-280",
                     "name": "SHLOK",
                     "class": "UKG",
                     "admissionNo": "552",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 7150,
+                    "individualDue": 19650,
                     "individualPaid": 10000.0,
-                    "individualBalance": 500.0
+                    "individualBalance": 9650.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANGAGARH ROAD",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-271",
@@ -13850,9 +16428,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18700.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 0,
-            "balance": 18700.0,
+            "balance": 20100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13860,7 +16440,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-272",
@@ -13895,9 +16482,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
+            "totalDue": 12500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 12500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -13912,7 +16501,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719204696"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-273",
@@ -13947,27 +16543,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 4950,
+            "totalDue": 17450,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 17450,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyDue": 34900,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 21000.0,
+            "consolidatedFamilyBalance": 34900,
             "familySiblings": [
                 {
                     "id": "STU-2026-274",
                     "name": "PUNEET CHAUDHARY",
                     "class": "UKG",
                     "admissionNo": "544",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 17450,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 17450
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-274",
@@ -14002,9 +16609,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 4950,
+            "totalDue": 17450,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 17450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14019,7 +16628,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8057171245"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-275",
@@ -14054,9 +16670,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 4950,
+            "totalDue": 17450,
             "totalPaid": 3000.0,
-            "balance": 7500.0,
+            "balance": 14450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14064,7 +16682,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-276",
@@ -14099,9 +16724,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14109,7 +16736,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-277",
@@ -14144,9 +16778,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 5000.0,
-            "balance": 5500.0,
+            "balance": 6500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14154,7 +16790,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-278",
@@ -14189,9 +16832,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14206,7 +16851,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9468205683"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-279",
@@ -14241,9 +16893,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 16500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 4950,
+            "totalDue": 17450,
             "totalPaid": 10000.0,
-            "balance": 6500.0,
+            "balance": 7450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14251,7 +16905,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-280",
@@ -14286,9 +16947,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 7150,
+            "totalDue": 19650,
             "totalPaid": 10000.0,
-            "balance": 500.0,
+            "balance": 9650.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14303,7 +16966,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8153970787"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANGAGARH ROAD",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-281",
@@ -14338,9 +17008,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17700.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6050,
+            "totalDue": 18550,
             "totalPaid": 0,
-            "balance": 17700.0,
+            "balance": 18550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14355,7 +17027,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9675939394"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-282",
@@ -14390,9 +17069,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14400,7 +17081,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-283",
@@ -14435,9 +17123,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
+            "totalDue": 12500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 12500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14445,7 +17135,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-284",
@@ -14480,9 +17177,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14490,7 +17189,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-285",
@@ -14525,9 +17231,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 4950,
+            "totalDue": 17450,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 17450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14542,7 +17250,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719419975"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-286",
@@ -14577,9 +17292,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 7150,
+            "totalDue": 19650,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19650,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14587,7 +17304,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-287",
@@ -14622,9 +17346,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 15300.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 15300.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14632,7 +17358,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-288",
@@ -14667,9 +17400,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18900.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6050,
+            "totalDue": 18550,
             "totalPaid": 0,
-            "balance": 18900.0,
+            "balance": 18550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14684,7 +17419,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9761965033"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-289",
@@ -14719,9 +17461,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24000,
+            "tuitionDue": 24000,
+            "transportDue11Months": 5500,
+            "totalDue": 29500,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 29500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14729,7 +17473,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "GAHTOLI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-290",
@@ -14764,9 +17515,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24000,
+            "tuitionDue": 24000,
+            "transportDue11Months": 7700,
+            "totalDue": 31700,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 31700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14774,7 +17527,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-291",
@@ -14809,9 +17569,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24000,
+            "tuitionDue": 24000,
+            "transportDue11Months": 6600,
+            "totalDue": 30600,
             "totalPaid": 0,
-            "balance": 24000,
+            "balance": 30600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14819,7 +17581,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-292",
@@ -14854,27 +17623,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 24000,
+            "transportDue11Months": 0,
             "totalDue": 24000,
             "totalPaid": 0,
             "balance": 24000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 45500.0,
+            "consolidatedFamilyDue": 43500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 45500.0,
+            "consolidatedFamilyBalance": 43500,
             "familySiblings": [
                 {
                     "id": "STU-2026-516",
                     "name": "HARSHIT KUMAR",
                     "class": "IX",
                     "admissionNo": "907",
-                    "individualDue": 21500.0,
+                    "tuitionDue": 19500,
+                    "transportDue11Months": 0,
+                    "individualDue": 19500,
                     "individualPaid": 0,
-                    "individualBalance": 21500.0
+                    "individualBalance": 19500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-293",
@@ -14909,9 +17689,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 0,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -14919,7 +17701,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-294",
@@ -14954,27 +17743,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 8250,
+            "totalDue": 27750,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 27750,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 37000.0,
+            "consolidatedFamilyDue": 51500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 37000.0,
+            "consolidatedFamilyBalance": 51500,
             "familySiblings": [
                 {
                     "id": "STU-2026-550",
                     "name": "KULDEEP KUMAR",
                     "class": "V",
                     "admissionNo": "948",
-                    "individualDue": 15500,
+                    "tuitionDue": 15500,
+                    "transportDue11Months": 8250,
+                    "individualDue": 23750,
                     "individualPaid": 0,
-                    "individualBalance": 15500
+                    "individualBalance": 23750
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-295",
@@ -15009,9 +17809,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 6600,
+            "totalDue": 23600,
             "totalPaid": 2000.0,
-            "balance": 12500.0,
+            "balance": 21600.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15019,7 +17821,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-296",
@@ -15054,9 +17863,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 0,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15064,7 +17875,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-297",
@@ -15099,27 +17917,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 5500,
+            "totalDue": 19000,
             "totalPaid": 0,
-            "balance": 20500.0,
+            "balance": 19000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40000.0,
+            "consolidatedFamilyDue": 37000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 40000.0,
+            "consolidatedFamilyBalance": 37000,
             "familySiblings": [
                 {
                     "id": "STU-2026-259",
                     "name": "LOVEKUSH YADAV",
                     "class": "UKG",
                     "admissionNo": "515",
-                    "individualDue": 19500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 5500,
+                    "individualDue": 18000,
                     "individualPaid": 0,
-                    "individualBalance": 19500.0
+                    "individualBalance": 18000
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-298",
@@ -15154,9 +17983,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 5000.0,
-            "balance": 14900.0,
+            "balance": 15050.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15171,7 +18002,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7088019598"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-299",
@@ -15206,9 +18044,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 6600,
+            "totalDue": 23100,
             "totalPaid": 2000.0,
-            "balance": 18500.0,
+            "balance": 21100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15216,7 +18056,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "JIROULI",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-300",
@@ -15251,9 +18098,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6050,
+            "totalDue": 20550,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 20550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15268,7 +18117,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9780410371"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-301",
@@ -15303,9 +18159,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 13500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15313,7 +18171,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-302",
@@ -15348,27 +18213,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7150,
+            "totalDue": 20650,
             "totalPaid": 5000.0,
-            "balance": 6500.0,
+            "balance": 15650.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 30600.0,
+            "consolidatedFamilyDue": 38300,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 20600.0,
+            "consolidatedFamilyBalance": 28300.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-437",
                     "name": "PIYUSH",
                     "class": "NURSERY",
                     "admissionNo": "789",
-                    "individualDue": 19100.0,
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 7150,
+                    "individualDue": 17650,
                     "individualPaid": 5000.0,
-                    "individualBalance": 14100.0
+                    "individualBalance": 12650.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANGAGARH ROAD",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-303",
@@ -15403,9 +18279,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17200.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 4400,
+            "totalDue": 19900,
             "totalPaid": 2000.0,
-            "balance": 15200.0,
+            "balance": 17900.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15413,7 +18291,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-304",
@@ -15448,27 +18333,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 8000.0,
-            "balance": 11300.0,
+            "balance": 12600.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 37600.0,
+            "consolidatedFamilyDue": 39700,
             "consolidatedFamilyPaid": 13000.0,
-            "consolidatedFamilyBalance": 24600.0,
+            "consolidatedFamilyBalance": 26700.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-370",
                     "name": "GABI KUMAR",
                     "class": "UKG",
                     "admissionNo": "704",
-                    "individualDue": 18300.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 19100,
                     "individualPaid": 5000.0,
-                    "individualBalance": 13300.0
+                    "individualBalance": 14100.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-305",
@@ -15503,9 +18399,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15520,7 +18418,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9917938383"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-306",
@@ -15555,9 +18460,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 5000.0,
-            "balance": 6500.0,
+            "balance": 15600.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15565,7 +18472,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-307",
@@ -15600,9 +18514,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 5500,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15617,7 +18533,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8700327645"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-308",
@@ -15652,9 +18575,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 0,
+            "totalDue": 14000,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 14000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15669,7 +18594,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8218893277"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-309",
@@ -15704,9 +18636,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 22700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15714,7 +18648,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-310",
@@ -15749,9 +18690,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20200.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 6600,
+            "totalDue": 22100,
             "totalPaid": 0,
-            "balance": 20200.0,
+            "balance": 22100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15759,7 +18702,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-311",
@@ -15794,9 +18744,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18900.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 18900.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15804,7 +18756,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-312",
@@ -15839,9 +18798,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21100.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 5500,
+            "totalDue": 19000,
             "totalPaid": 0,
-            "balance": 21100.0,
+            "balance": 19000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15856,7 +18817,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9927070578"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-313",
@@ -15891,27 +18859,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 24940.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 7700,
+            "totalDue": 24700,
             "totalPaid": 5000.0,
-            "balance": 19940.0,
+            "balance": 19700.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 37940.0,
+            "consolidatedFamilyDue": 39200,
             "consolidatedFamilyPaid": 10000.0,
-            "consolidatedFamilyBalance": 27940.0,
+            "consolidatedFamilyBalance": 29200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-314",
                     "name": "LUCKY KUMAR",
                     "class": "III",
                     "admissionNo": "620",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 0,
+                    "individualDue": 14500,
                     "individualPaid": 5000.0,
-                    "individualBalance": 8000.0
+                    "individualBalance": 9500.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "UNCHAGAON",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-314",
@@ -15946,9 +18925,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 5000.0,
-            "balance": 8000.0,
+            "balance": 9500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -15963,7 +18944,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719300308"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-315",
@@ -15998,9 +18986,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
+            "totalDue": 12500,
             "totalPaid": 3000.0,
-            "balance": 7500.0,
+            "balance": 9500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16008,7 +18998,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-316",
@@ -16043,36 +19040,49 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17200.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 4400,
+            "totalDue": 18900,
             "totalPaid": 600.0,
-            "balance": 16600.0,
+            "balance": 18300.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 44400.0,
+            "consolidatedFamilyDue": 48300,
             "consolidatedFamilyPaid": 600.0,
-            "consolidatedFamilyBalance": 43800.0,
+            "consolidatedFamilyBalance": 47700.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-319",
                     "name": "MADHAV KUMAR",
                     "class": "UKG",
                     "admissionNo": "629",
-                    "individualDue": 14700.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 4400,
+                    "individualDue": 16900,
                     "individualPaid": 0,
-                    "individualBalance": 14700.0
+                    "individualBalance": 16900
                 },
                 {
                     "id": "STU-2026-500",
                     "name": "MADHAV",
                     "class": "UKG",
                     "admissionNo": "826",
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 0,
                     "individualDue": 12500,
                     "individualPaid": 0,
                     "individualBalance": 12500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-317",
@@ -16107,27 +19117,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 2000.0,
-            "balance": 9500.0,
+            "balance": 18100.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 29200.0,
+            "consolidatedFamilyDue": 38200,
             "consolidatedFamilyPaid": 2000.0,
-            "consolidatedFamilyBalance": 27200.0,
+            "consolidatedFamilyBalance": 36200.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-318",
                     "name": "MAHAK",
                     "class": "LKG",
                     "admissionNo": "626",
-                    "individualDue": 17700.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 18100,
                     "individualPaid": 0,
-                    "individualBalance": 17700.0
+                    "individualBalance": 18100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-318",
@@ -16162,9 +19183,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17700.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 17700.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16179,7 +19202,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9720812674"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-319",
@@ -16214,9 +19244,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14700.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 4400,
+            "totalDue": 16900,
             "totalPaid": 0,
-            "balance": 14700.0,
+            "balance": 16900,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16231,7 +19263,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8865088876"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-320",
@@ -16266,9 +19305,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 10000.0,
-            "balance": 1500.0,
+            "balance": 11200.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16276,7 +19317,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-321",
@@ -16311,9 +19359,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 20100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16321,7 +19371,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-322",
@@ -16356,9 +19413,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 5000.0,
-            "balance": 6500.0,
+            "balance": 16200.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16366,7 +19425,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-323",
@@ -16401,9 +19467,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18900.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6050,
+            "totalDue": 18550,
             "totalPaid": 0,
-            "balance": 18900.0,
+            "balance": 18550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16418,7 +19486,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9759262366"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-324",
@@ -16453,9 +19528,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 20100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16463,7 +19540,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-325",
@@ -16498,9 +19582,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 19550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16515,7 +19601,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9996631761"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-326",
@@ -16550,9 +19643,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21400.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6050,
+            "totalDue": 20550,
             "totalPaid": 0,
-            "balance": 21400.0,
+            "balance": 20550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16567,7 +19662,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9996631761"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-327",
@@ -16602,9 +19704,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22600.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 5500,
+            "totalDue": 20000,
             "totalPaid": 0,
-            "balance": 22600.0,
+            "balance": 20000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16612,7 +19716,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-328",
@@ -16647,9 +19758,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 0,
-            "balance": 20500.0,
+            "balance": 20050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16657,7 +19770,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-329",
@@ -16692,27 +19812,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 0,
-            "balance": 19000.0,
+            "balance": 21100,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35500.0,
+            "consolidatedFamilyDue": 40200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35500.0,
+            "consolidatedFamilyBalance": 40200,
             "familySiblings": [
                 {
                     "id": "STU-2026-330",
                     "name": "BHOOMI",
                     "class": "UKG",
                     "admissionNo": "648",
-                    "individualDue": 16500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 19100,
                     "individualPaid": 0,
-                    "individualBalance": 16500.0
+                    "individualBalance": 19100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-330",
@@ -16747,9 +19878,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 16500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 16500.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16764,7 +19897,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8851938563"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-331",
@@ -16799,9 +19939,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14700.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 4400,
+            "totalDue": 16900,
             "totalPaid": 12000.0,
-            "balance": 2700.0,
+            "balance": 4900.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16809,7 +19951,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-332",
@@ -16844,9 +19993,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6050,
+            "totalDue": 27050,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 27050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16854,7 +20005,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-333",
@@ -16889,9 +20047,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19900.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 0,
-            "balance": 19900.0,
+            "balance": 20100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16906,7 +20066,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7464958983"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-334",
@@ -16941,9 +20108,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 9000.0,
-            "balance": 4000.0,
+            "balance": 6000.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16951,7 +20120,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-335",
@@ -16986,9 +20162,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 0,
+            "totalDue": 19500,
             "totalPaid": 5000.0,
-            "balance": 16500.0,
+            "balance": 14500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -16996,7 +20174,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-336",
@@ -17031,27 +20216,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21100.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 5500,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 21100.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 42200.0,
+            "consolidatedFamilyDue": 38500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 42200.0,
+            "consolidatedFamilyBalance": 38500,
             "familySiblings": [
                 {
                     "id": "STU-2026-312",
                     "name": "KRATIK KUMAR",
                     "class": "I",
                     "admissionNo": "616",
-                    "individualDue": 21100.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 5500,
+                    "individualDue": 19000,
                     "individualPaid": 0,
-                    "individualBalance": 21100.0
+                    "individualBalance": 19000
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-337",
@@ -17086,9 +20282,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17096,7 +20294,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-338",
@@ -17131,9 +20336,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 13500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17141,7 +20348,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-339",
@@ -17176,9 +20390,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18700.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 0,
-            "balance": 18700.0,
+            "balance": 20600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17186,7 +20402,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-340",
@@ -17221,9 +20444,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17231,7 +20456,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-341",
@@ -17266,9 +20498,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17283,7 +20517,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9627722404"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-342",
@@ -17318,9 +20559,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 6000.0,
-            "balance": 4500.0,
+            "balance": 12100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17335,7 +20578,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8375939398"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-343",
@@ -17370,9 +20620,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18300.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 4950,
+            "totalDue": 16450,
             "totalPaid": 0,
-            "balance": 18300.0,
+            "balance": 16450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17380,7 +20632,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-344",
@@ -17415,9 +20674,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17425,7 +20686,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-345",
@@ -17460,9 +20728,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6050,
+            "totalDue": 17550,
             "totalPaid": 10000.0,
-            "balance": 500.0,
+            "balance": 7550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17470,7 +20740,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-346",
@@ -17505,9 +20782,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 7150,
+            "totalDue": 18650,
             "totalPaid": 2000.0,
-            "balance": 8500.0,
+            "balance": 16650.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17515,7 +20794,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-347",
@@ -17550,9 +20836,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 7150,
+            "totalDue": 18650,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18650,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17560,7 +20848,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-348",
@@ -17595,9 +20890,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7150,
+            "totalDue": 21150,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21150,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17605,7 +20902,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-349",
@@ -17640,9 +20944,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6600,
+            "totalDue": 20600,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17650,7 +20956,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-350",
@@ -17685,9 +20998,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17695,7 +21010,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-351",
@@ -17730,9 +21052,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 8250,
+            "totalDue": 20750,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 20750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17747,7 +21071,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8433255571"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-352",
@@ -17782,9 +21113,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 7150,
+            "totalDue": 18650,
             "totalPaid": 2500.0,
-            "balance": 8000.0,
+            "balance": 16150.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17792,7 +21125,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-353",
@@ -17827,27 +21167,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyDue": 23000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 21000.0,
+            "consolidatedFamilyBalance": 23000,
             "familySiblings": [
                 {
                     "id": "STU-2026-354",
                     "name": "YASHU KUMAR",
                     "class": "LKG",
                     "admissionNo": "681",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 0,
+                    "individualDue": 11500,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 11500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-354",
@@ -17882,9 +21233,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17899,7 +21252,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8533908723"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-355",
@@ -17934,9 +21294,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7150,
+            "totalDue": 21150,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21150,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17951,7 +21313,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9758509524"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-356",
@@ -17986,9 +21355,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 8250,
+            "totalDue": 18750,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 18750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -17996,7 +21367,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-357",
@@ -18031,27 +21409,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7150,
+            "totalDue": 21150,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21150,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 22000.0,
+            "consolidatedFamilyDue": 39800,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 22000.0,
+            "consolidatedFamilyBalance": 39800,
             "familySiblings": [
                 {
                     "id": "STU-2026-358",
                     "name": "SANI KUMAR",
                     "class": "LKG",
                     "admissionNo": "686",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 7150,
+                    "individualDue": 18650,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 18650
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-358",
@@ -18086,9 +21475,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 7150,
+            "totalDue": 18650,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18650,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18103,7 +21494,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8285027701"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-359",
@@ -18138,9 +21536,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 5000.0,
-            "balance": 4500.0,
+            "balance": 5500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18148,7 +21548,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-360",
@@ -18183,9 +21590,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 4950,
+            "totalDue": 15450,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 15450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18193,7 +21602,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-361",
@@ -18228,9 +21644,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 2000.0,
-            "balance": 7500.0,
+            "balance": 8500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18238,7 +21656,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-362",
@@ -18273,27 +21698,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 8500.0,
-            "balance": 4500.0,
+            "balance": 6500.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 24500.0,
+            "consolidatedFamilyDue": 28500,
             "consolidatedFamilyPaid": 20000.0,
-            "consolidatedFamilyBalance": 4500.0,
+            "consolidatedFamilyBalance": 8500.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-363",
                     "name": "GOVIND",
                     "class": "I",
                     "admissionNo": "693",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 0,
+                    "individualDue": 13500,
                     "individualPaid": 11500.0,
-                    "individualBalance": 0
+                    "individualBalance": 2000.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-363",
@@ -18328,10 +21764,12 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 11500.0,
-            "balance": 0,
-            "status": "Paid",
+            "balance": 2000.0,
+            "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -18345,7 +21783,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9761845736"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-364",
@@ -18380,9 +21825,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 4950,
+            "totalDue": 15450,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 15450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18390,7 +21837,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-365",
@@ -18425,9 +21879,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18435,7 +21891,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-366",
@@ -18470,9 +21933,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17800.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 4950,
+            "totalDue": 19450,
             "totalPaid": 7500.0,
-            "balance": 10300.0,
+            "balance": 11950.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18480,7 +21945,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-367",
@@ -18515,9 +21987,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 4950,
+            "totalDue": 16450,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 16450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18525,7 +21999,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-368",
@@ -18560,9 +22041,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21700.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 6600,
+            "totalDue": 22600,
             "totalPaid": 5000.0,
-            "balance": 16700.0,
+            "balance": 17600.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18570,7 +22053,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-369",
@@ -18605,9 +22095,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6600,
+            "totalDue": 17100,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 17100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18615,7 +22107,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-370",
@@ -18650,9 +22149,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18300.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 5000.0,
-            "balance": 13300.0,
+            "balance": 14100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18667,7 +22168,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9761722945"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-371",
@@ -18702,9 +22210,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 0,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18712,7 +22222,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-372",
@@ -18747,9 +22264,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20000.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 7700,
+            "totalDue": 18200,
             "totalPaid": 0,
-            "balance": 20000.0,
+            "balance": 18200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18757,7 +22276,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-373",
@@ -18792,9 +22318,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18802,7 +22330,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-374",
@@ -18837,9 +22372,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18300.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 10000.0,
-            "balance": 8300.0,
+            "balance": 8100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18847,7 +22384,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-375",
@@ -18882,9 +22426,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6050,
+            "totalDue": 18550,
             "totalPaid": 0,
-            "balance": 19500.0,
+            "balance": 18550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18892,7 +22438,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-376",
@@ -18927,27 +22480,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7700,
+            "totalDue": 21700,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21700,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 22000.0,
+            "consolidatedFamilyDue": 41900,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 22000.0,
+            "consolidatedFamilyBalance": 41900,
             "familySiblings": [
                 {
                     "id": "STU-2026-377",
                     "name": "AYANSH",
                     "class": "UKG",
                     "admissionNo": "712",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 20200,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 20200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "CHAKATHAL",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-377",
@@ -18982,9 +22546,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 7700,
+            "totalDue": 20200,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 20200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -18999,7 +22565,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8810317983"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "CHAKATHAL",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-378",
@@ -19034,9 +22607,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 7150,
+            "totalDue": 17650,
             "totalPaid": 6500.0,
-            "balance": 3000.0,
+            "balance": 11150.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19044,7 +22619,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANGAGARH ROAD",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-379",
@@ -19079,9 +22661,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 5000.0,
-            "balance": 5500.0,
+            "balance": 6500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19089,7 +22673,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-380",
@@ -19124,9 +22715,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 15000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 4950,
+            "totalDue": 19450,
             "totalPaid": 5000.0,
-            "balance": 10000.0,
+            "balance": 14450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19134,7 +22727,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-381",
@@ -19169,9 +22769,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 4950,
+            "totalDue": 25950,
             "totalPaid": 11000.0,
-            "balance": 10000.0,
+            "balance": 14950.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19179,7 +22781,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAJHERA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-382",
@@ -19214,27 +22823,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 10500.0,
-            "balance": 10000.0,
+            "balance": 9550.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 40000.0,
+            "consolidatedFamilyDue": 38600,
             "consolidatedFamilyPaid": 17500.0,
-            "consolidatedFamilyBalance": 22500.0,
+            "consolidatedFamilyBalance": 21100.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-383",
                     "name": "MOHIT KUMAR",
                     "class": "UKG",
                     "admissionNo": "719",
-                    "individualDue": 19500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 18550,
                     "individualPaid": 7000.0,
-                    "individualBalance": 12500.0
+                    "individualBalance": 11550.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-383",
@@ -19269,9 +22889,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6050,
+            "totalDue": 18550,
             "totalPaid": 7000.0,
-            "balance": 12500.0,
+            "balance": 11550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19286,7 +22908,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8650468442"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-384",
@@ -19321,9 +22950,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6050,
+            "totalDue": 17550,
             "totalPaid": 7000.0,
-            "balance": 12500.0,
+            "balance": 10550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19331,7 +22962,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-385",
@@ -19366,9 +23004,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19376,7 +23016,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-386",
@@ -19411,9 +23058,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 7500.0,
-            "balance": 7000.0,
+            "balance": 16200.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19421,7 +23070,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-387",
@@ -19456,9 +23112,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7150,
+            "totalDue": 20650,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20650,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19466,7 +23124,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MALAHPUR",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-388",
@@ -19501,9 +23166,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19511,7 +23178,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-389",
@@ -19546,9 +23220,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17900.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6600,
+            "totalDue": 17100,
             "totalPaid": 0,
-            "balance": 17900.0,
+            "balance": 17100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19556,7 +23232,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-390",
@@ -19591,9 +23274,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 6050,
+            "totalDue": 22050,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 22050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19601,7 +23286,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-391",
@@ -19636,9 +23328,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 2000.0,
-            "balance": 9500.0,
+            "balance": 17550.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19646,7 +23340,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-392",
@@ -19681,9 +23382,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19691,7 +23394,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-393",
@@ -19726,27 +23436,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 5000.0,
-            "balance": 8000.0,
+            "balance": 18200.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 26000.0,
+            "consolidatedFamilyDue": 45400,
             "consolidatedFamilyPaid": 9000.0,
-            "consolidatedFamilyBalance": 17000.0,
+            "consolidatedFamilyBalance": 36400.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-394",
                     "name": "MAHI SHARMA",
                     "class": "III",
                     "admissionNo": "737",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 22200,
                     "individualPaid": 4000.0,
-                    "individualBalance": 9000.0
+                    "individualBalance": 18200.0
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-394",
@@ -19781,9 +23502,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 7700,
+            "totalDue": 22200,
             "totalPaid": 4000.0,
-            "balance": 9000.0,
+            "balance": 18200.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19798,7 +23521,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7011735110"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-395",
@@ -19833,9 +23563,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 7700,
+            "totalDue": 20200,
             "totalPaid": 5000.0,
-            "balance": 5500.0,
+            "balance": 15200.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19843,7 +23575,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-396",
@@ -19878,9 +23617,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 7700,
+            "totalDue": 22700,
             "totalPaid": 2500.0,
-            "balance": 10500.0,
+            "balance": 20200.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19895,7 +23636,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9457076490"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-397",
@@ -19930,9 +23678,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 7700,
+            "totalDue": 20200,
             "totalPaid": 2500.0,
-            "balance": 8000.0,
+            "balance": 17700.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19947,7 +23697,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9457076490"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-398",
@@ -19982,9 +23739,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 4950,
+            "totalDue": 16450,
             "totalPaid": 5000.0,
-            "balance": 5500.0,
+            "balance": 11450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -19992,7 +23751,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-399",
@@ -20027,27 +23793,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 4950,
+            "totalDue": 15450,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 15450,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 19000.0,
+            "consolidatedFamilyDue": 30900,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 19000.0,
+            "consolidatedFamilyBalance": 30900,
             "familySiblings": [
                 {
                     "id": "STU-2026-530",
                     "name": "YASH KUMAR",
                     "class": "NURSERY",
                     "admissionNo": "924",
-                    "individualDue": 9500.0,
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 15450,
                     "individualPaid": 0,
-                    "individualBalance": 9500.0
+                    "individualBalance": 15450
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-400",
@@ -20082,9 +23859,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 2000.0,
-            "balance": 9500.0,
+            "balance": 18100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20092,7 +23871,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-401",
@@ -20127,9 +23913,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 4950,
+            "totalDue": 15450,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 15450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20137,7 +23925,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-402",
@@ -20172,9 +23967,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20189,7 +23986,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7830214462"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-403",
@@ -20224,9 +24028,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20234,7 +24040,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-404",
@@ -20269,9 +24082,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20279,7 +24094,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-405",
@@ -20314,9 +24136,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
+            "totalDue": 12500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 12500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20324,7 +24148,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-406",
@@ -20359,9 +24190,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 4000.0,
-            "balance": 5500.0,
+            "balance": 6500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20369,7 +24202,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-407",
@@ -20404,9 +24244,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 7700,
+            "totalDue": 18200,
             "totalPaid": 4000.0,
-            "balance": 5500.0,
+            "balance": 14200.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20414,7 +24256,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-408",
@@ -20449,9 +24298,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 5500,
+            "totalDue": 26500,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 26500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20459,7 +24310,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "PESARI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-409",
@@ -20494,9 +24352,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 22600.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 10000.0,
-            "balance": 12600.0,
+            "balance": 11100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20504,7 +24364,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-410",
@@ -20539,9 +24406,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6050,
+            "totalDue": 20550,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 20550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20549,7 +24418,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-411",
@@ -20584,9 +24460,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20594,7 +24472,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-412",
@@ -20629,9 +24514,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6050,
+            "totalDue": 17550,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 17550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20639,7 +24526,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-413",
@@ -20674,9 +24568,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20684,7 +24580,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-414",
@@ -20719,9 +24622,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21000.0,
+            "tuitionDue": 21000,
+            "transportDue11Months": 6600,
+            "totalDue": 27600,
             "totalPaid": 0,
-            "balance": 21000.0,
+            "balance": 27600,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20729,7 +24634,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-415",
@@ -20764,27 +24676,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 3000.0,
-            "balance": 6500.0,
+            "balance": 7500.0,
             "status": "Partial",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyDue": 20000,
             "consolidatedFamilyPaid": 3000.0,
-            "consolidatedFamilyBalance": 18000.0,
+            "consolidatedFamilyBalance": 17000.0,
             "familySiblings": [
                 {
                     "id": "STU-2026-513",
                     "name": "RIYANSHI AGRAWAL",
                     "class": "PG",
                     "admissionNo": "904",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 9500,
+                    "transportDue11Months": 0,
+                    "individualDue": 9500,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 9500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-416",
@@ -20819,27 +24742,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6600,
+            "totalDue": 21100,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 21100,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 24500.0,
+            "consolidatedFamilyDue": 41200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 24500.0,
+            "consolidatedFamilyBalance": 41200,
             "familySiblings": [
                 {
                     "id": "STU-2026-417",
                     "name": "VIVEK KUMAR",
                     "class": "I",
                     "admissionNo": "771",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 20100,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 20100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-417",
@@ -20874,9 +24808,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6600,
+            "totalDue": 20100,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 20100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20891,7 +24827,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9917732560"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-418",
@@ -20926,9 +24869,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20943,7 +24888,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719945764"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-419",
@@ -20978,9 +24930,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 4950,
+            "totalDue": 14450,
             "totalPaid": 0,
-            "balance": 19300.0,
+            "balance": 14450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -20988,7 +24942,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-420",
@@ -21023,9 +24984,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 6050,
+            "totalDue": 22550,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 22550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21033,7 +24996,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-421",
@@ -21068,9 +25038,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21078,7 +25050,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-422",
@@ -21113,9 +25092,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21123,7 +25104,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-423",
@@ -21158,9 +25146,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 4400,
+            "totalDue": 15900,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 15900,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21168,7 +25158,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-424",
@@ -21203,9 +25200,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18300.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 4950,
+            "totalDue": 16450,
             "totalPaid": 0,
-            "balance": 18300.0,
+            "balance": 16450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21213,7 +25212,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-425",
@@ -21248,9 +25254,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21258,7 +25266,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-426",
@@ -21293,9 +25308,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 8250,
+            "totalDue": 18750,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 18750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21303,7 +25320,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-427",
@@ -21338,9 +25362,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 15700.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 0,
+            "totalDue": 9500,
             "totalPaid": 0,
-            "balance": 15700.0,
+            "balance": 9500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21348,7 +25374,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-428",
@@ -21383,27 +25416,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17900.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 17900.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 35800.0,
+            "consolidatedFamilyDue": 21000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 35800.0,
+            "consolidatedFamilyBalance": 21000,
             "familySiblings": [
                 {
                     "id": "STU-2026-429",
                     "name": "PRIYANSHI",
                     "class": "NURSERY",
                     "admissionNo": "784",
-                    "individualDue": 17900.0,
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 0,
+                    "individualDue": 10500,
                     "individualPaid": 0,
-                    "individualBalance": 17900.0
+                    "individualBalance": 10500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-429",
@@ -21438,9 +25482,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17900.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 17900.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21455,7 +25501,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9582247889"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-430",
@@ -21490,9 +25543,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
+            "totalDue": 12500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 12500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21500,7 +25555,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-431",
@@ -21535,9 +25597,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21545,7 +25609,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-432",
@@ -21580,9 +25651,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21590,7 +25663,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-433",
@@ -21625,9 +25705,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 13500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21635,7 +25717,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-434",
@@ -21670,9 +25759,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 6600,
+            "totalDue": 16100,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 16100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21680,7 +25771,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-435",
@@ -21715,9 +25813,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17900.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 17900.0,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21725,7 +25825,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-436",
@@ -21760,9 +25867,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6050,
+            "totalDue": 17550,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 17550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21770,7 +25879,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-437",
@@ -21805,9 +25921,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19100.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 7150,
+            "totalDue": 17650,
             "totalPaid": 5000.0,
-            "balance": 14100.0,
+            "balance": 12650.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21822,7 +25940,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9720577595"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANGAGARH ROAD",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-438",
@@ -21857,9 +25982,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6600,
+            "totalDue": 17100,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 17100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21867,7 +25994,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-439",
@@ -21902,9 +26036,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 8250,
+            "totalDue": 18750,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 18750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -21912,7 +26048,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-440",
@@ -21947,27 +26090,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 0,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyDue": 36500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 27500.0,
+            "consolidatedFamilyBalance": 36500,
             "familySiblings": [
                 {
                     "id": "STU-2026-518",
                     "name": "HARSH SHARMA",
                     "class": "IV",
                     "admissionNo": "871",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15000,
+                    "transportDue11Months": 5500,
+                    "individualDue": 20500,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 20500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-441",
@@ -22002,27 +26156,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 22000.0,
+            "consolidatedFamilyDue": 41400,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 22000.0,
+            "consolidatedFamilyBalance": 41400,
             "familySiblings": [
                 {
                     "id": "STU-2026-442",
                     "name": "MAYANK",
                     "class": "UKG",
                     "admissionNo": "792",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 20200,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 20200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MAHARAJPUR",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-442",
@@ -22057,9 +26222,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 7700,
+            "totalDue": 20200,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 20200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22074,7 +26241,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7893204122"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MAHARAJPUR",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-443",
@@ -22109,9 +26283,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 8250,
+            "totalDue": 19750,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22119,7 +26295,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-444",
@@ -22154,9 +26337,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22171,7 +26356,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8130905457"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-445",
@@ -22206,27 +26398,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
+            "totalDue": 12500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 12500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyDue": 24000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 21000.0,
+            "consolidatedFamilyBalance": 24000,
             "familySiblings": [
                 {
                     "id": "STU-2026-444",
                     "name": "KANAK",
                     "class": "LKG",
                     "admissionNo": "794",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 0,
+                    "individualDue": 11500,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 11500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-446",
@@ -22261,9 +26464,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22271,7 +26476,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-447",
@@ -22306,9 +26518,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17300.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 4950,
+            "totalDue": 15450,
             "totalPaid": 0,
-            "balance": 17300.0,
+            "balance": 15450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22316,7 +26530,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-448",
@@ -22351,9 +26572,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18400.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 4950,
+            "totalDue": 20450,
             "totalPaid": 0,
-            "balance": 18400.0,
+            "balance": 20450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22361,7 +26584,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-449",
@@ -22396,9 +26626,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 6050,
+            "totalDue": 15550,
             "totalPaid": 0,
-            "balance": 20500.0,
+            "balance": 15550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22406,7 +26638,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-450",
@@ -22441,9 +26680,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 16700.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 16700.0,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22458,7 +26699,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9675939394"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-451",
@@ -22493,27 +26741,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23700,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 27500.0,
+            "consolidatedFamilyDue": 46900,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 27500.0,
+            "consolidatedFamilyBalance": 46900,
             "familySiblings": [
                 {
                     "id": "STU-2026-453",
                     "name": "HARSHIT YADAV",
                     "class": "V",
                     "admissionNo": "802",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 23200,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 23200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-452",
@@ -22548,27 +26807,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 0,
+            "totalDue": 14000,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 14000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 23000.0,
+            "consolidatedFamilyDue": 27500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 23000.0,
+            "consolidatedFamilyBalance": 27500,
             "familySiblings": [
                 {
                     "id": "STU-2026-454",
                     "name": "SIDDHARTH BHARDWAJ",
                     "class": "I",
                     "admissionNo": "846",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 0,
+                    "individualDue": 13500,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 13500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-453",
@@ -22603,9 +26873,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22620,7 +26892,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9536981196"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-454",
@@ -22655,9 +26934,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 13500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22672,7 +26953,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8395050888"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-455",
@@ -22707,9 +26995,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 16700.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 7700,
+            "totalDue": 18200,
             "totalPaid": 0,
-            "balance": 16700.0,
+            "balance": 18200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22717,7 +27007,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-456",
@@ -22752,9 +27049,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 7700,
+            "totalDue": 18200,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 18200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22762,7 +27061,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-457",
@@ -22797,9 +27103,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 16500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 4950,
+            "totalDue": 16450,
             "totalPaid": 0,
-            "balance": 16500.0,
+            "balance": 16450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22814,7 +27122,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7836811431"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-458",
@@ -22849,27 +27164,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4950,
+            "totalDue": 18450,
             "totalPaid": 0,
-            "balance": 17500.0,
+            "balance": 18450,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 34000.0,
+            "consolidatedFamilyDue": 34900,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 34000.0,
+            "consolidatedFamilyBalance": 34900,
             "familySiblings": [
                 {
                     "id": "STU-2026-457",
                     "name": "DIVYANSHI KUMARI",
                     "class": "LKG",
                     "admissionNo": "804",
-                    "individualDue": 16500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 4950,
+                    "individualDue": 16450,
                     "individualPaid": 0,
-                    "individualBalance": 16500.0
+                    "individualBalance": 16450
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-459",
@@ -22904,9 +27230,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 7700,
+            "totalDue": 18200,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 18200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -22914,7 +27242,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-460",
@@ -22949,27 +27284,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21700.0,
+            "tuitionDue": 16500,
+            "transportDue11Months": 6600,
+            "totalDue": 23100,
             "totalPaid": 0,
-            "balance": 21700.0,
+            "balance": 23100,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 39400.0,
+            "consolidatedFamilyDue": 42200,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 39400.0,
+            "consolidatedFamilyBalance": 42200,
             "familySiblings": [
                 {
                     "id": "STU-2026-462",
                     "name": "YUVANG BHARDWAJ",
                     "class": "UKG",
                     "admissionNo": "807",
-                    "individualDue": 17700.0,
+                    "tuitionDue": 12500,
+                    "transportDue11Months": 6600,
+                    "individualDue": 19100,
                     "individualPaid": 0,
-                    "individualBalance": 17700.0
+                    "individualBalance": 19100
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-461",
@@ -23004,9 +27350,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 3000.0,
-            "balance": 8500.0,
+            "balance": 7500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23014,7 +27362,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-462",
@@ -23049,9 +27404,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17700.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 17700.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23066,7 +27423,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8755083275"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-463",
@@ -23101,9 +27465,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 4950,
+            "totalDue": 15450,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 15450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23111,7 +27477,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-464",
@@ -23146,9 +27519,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18300.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 18300.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23156,7 +27531,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-465",
@@ -23191,9 +27573,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 7700,
+            "totalDue": 27200,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 27200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23201,7 +27585,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MAHARAJPUR",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-466",
@@ -23236,9 +27627,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19300.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 5500,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 19300.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23246,7 +27639,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-467",
@@ -23281,9 +27681,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17900.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 17900.0,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23291,7 +27693,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-468",
@@ -23326,9 +27735,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 4950,
+            "totalDue": 19950,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 19950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23336,7 +27747,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-469",
@@ -23371,9 +27789,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 7700,
+            "totalDue": 19200,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23388,7 +27808,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9997620644"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-470",
@@ -23423,27 +27850,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 7700,
+            "totalDue": 20200,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 20200,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyDue": 39400,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 21000.0,
+            "consolidatedFamilyBalance": 39400,
             "familySiblings": [
                 {
                     "id": "STU-2026-469",
                     "name": "MANYA SHARMA",
                     "class": "LKG",
                     "admissionNo": "855",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 19200,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 19200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-471",
@@ -23478,9 +27916,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 7700,
+            "totalDue": 17200,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 17200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23488,7 +27928,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-472",
@@ -23523,9 +27970,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21100.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7700,
+            "totalDue": 21700,
             "totalPaid": 0,
-            "balance": 21100.0,
+            "balance": 21700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23533,7 +27982,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "MAHAKA",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-473",
@@ -23568,9 +28024,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 19100.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 7700,
+            "totalDue": 18200,
             "totalPaid": 0,
-            "balance": 19100.0,
+            "balance": 18200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23585,7 +28043,14 @@ export const initialSchoolData = {
                 "fatherPhone": "6396944247"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "MAHAKA",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-474",
@@ -23620,9 +28085,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4950,
+            "totalDue": 18950,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 18950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23630,7 +28097,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-475",
@@ -23665,9 +28139,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 4950,
+            "totalDue": 19950,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 19950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23675,7 +28151,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-476",
@@ -23710,9 +28193,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18900.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6050,
+            "totalDue": 17550,
             "totalPaid": 0,
-            "balance": 18900.0,
+            "balance": 17550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23720,7 +28205,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-477",
@@ -23755,9 +28247,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23765,7 +28259,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-478",
@@ -23800,9 +28301,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6600,
+            "totalDue": 17100,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 17100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23810,7 +28313,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-479",
@@ -23845,9 +28355,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23855,7 +28367,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-480",
@@ -23890,9 +28409,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23900,7 +28421,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-481",
@@ -23935,9 +28463,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 14500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23945,7 +28475,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-482",
@@ -23980,9 +28517,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 0,
+            "totalDue": 14000,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 14000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -23990,7 +28529,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-483",
@@ -24025,9 +28571,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24035,7 +28583,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-484",
@@ -24070,9 +28625,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24080,7 +28637,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-485",
@@ -24115,27 +28679,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
+            "totalDue": 12500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 12500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyDue": 24000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 21000.0,
+            "consolidatedFamilyBalance": 24000,
             "familySiblings": [
                 {
                     "id": "STU-2026-486",
                     "name": "RIYANSH KUMAR",
                     "class": "LKG",
                     "admissionNo": "812",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 0,
+                    "individualDue": 11500,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 11500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-486",
@@ -24170,9 +28745,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24187,7 +28764,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8800498878"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-487",
@@ -24222,9 +28806,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 7700,
+            "totalDue": 19200,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24239,7 +28825,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7505645260"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-488",
@@ -24274,27 +28867,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 22000.0,
+            "consolidatedFamilyDue": 40400,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 22000.0,
+            "consolidatedFamilyBalance": 40400,
             "familySiblings": [
                 {
                     "id": "STU-2026-487",
                     "name": "DEEP",
                     "class": "LKG",
                     "admissionNo": "813",
-                    "individualDue": 10500.0,
+                    "tuitionDue": 11500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 19200,
                     "individualPaid": 0,
-                    "individualBalance": 10500.0
+                    "individualBalance": 19200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-489",
@@ -24329,9 +28933,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 4950,
+            "totalDue": 19950,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 19950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24339,7 +28945,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-490",
@@ -24374,9 +28987,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24384,7 +28999,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-491",
@@ -24419,9 +29041,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 20800.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 20800.0,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24429,7 +29053,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-492",
@@ -24464,9 +29095,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 29900.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 5500,
+            "totalDue": 25000,
             "totalPaid": 0,
-            "balance": 29900.0,
+            "balance": 25000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24474,7 +29107,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 2: KALIYANPUR SIDE (RAJENDRA-1)",
+            "stop": "GAHTOLI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-493",
@@ -24509,9 +29149,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 7150,
+            "totalDue": 16650,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 16650,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24519,7 +29161,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "GANGAGARH ROAD",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-494",
@@ -24554,9 +29203,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 8250,
+            "totalDue": 24250,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 24250,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24564,7 +29215,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA VIDHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-495",
@@ -24599,9 +29257,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 18300.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 5500,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 18300.0,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24609,7 +29269,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-496",
@@ -24644,9 +29311,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 12500,
+            "transportDue11Months": 6600,
+            "totalDue": 19100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24654,7 +29323,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-497",
@@ -24689,9 +29365,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6600,
+            "totalDue": 17100,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 17100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24699,7 +29377,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 6: GANESHPUR SIDE (RAJENDRA-2)",
+            "stop": "GANESHPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-498",
@@ -24734,27 +29419,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 7700,
+            "totalDue": 27200,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 27200,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 36000.0,
+            "consolidatedFamilyDue": 50400,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 36000.0,
+            "consolidatedFamilyBalance": 50400,
             "familySiblings": [
                 {
                     "id": "STU-2026-499",
                     "name": "AARUSH CHAUDHARY",
                     "class": "V",
                     "admissionNo": "825",
-                    "individualDue": 14500.0,
+                    "tuitionDue": 15500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 23200,
                     "individualPaid": 0,
-                    "individualBalance": 14500.0
+                    "individualBalance": 23200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "CHAKATHAL",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-499",
@@ -24789,9 +29485,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24806,7 +29504,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7830636123"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "CHAKATHAL",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-500",
@@ -24841,6 +29546,8 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
             "totalDue": 12500,
             "totalPaid": 0,
             "balance": 12500,
@@ -24858,7 +29565,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8865088876"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-501",
@@ -24893,9 +29607,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 7700,
+            "totalDue": 19200,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 19200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -24903,7 +29619,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-502",
@@ -24938,27 +29661,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 0,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 34500.0,
+            "consolidatedFamilyDue": 35000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 34500.0,
+            "consolidatedFamilyBalance": 35000,
             "familySiblings": [
                 {
                     "id": "STU-2026-503",
                     "name": "SONU",
                     "class": "V",
                     "admissionNo": "891",
-                    "individualDue": 13000.0,
+                    "tuitionDue": 15500,
+                    "transportDue11Months": 0,
+                    "individualDue": 15500,
                     "individualPaid": 0,
-                    "individualBalance": 13000.0
+                    "individualBalance": 15500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-503",
@@ -24993,9 +29727,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 0,
+            "totalDue": 15500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25010,7 +29746,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7505641639"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-504",
@@ -25045,9 +29788,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 13500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25055,7 +29800,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-505",
@@ -25090,9 +29842,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 7700,
+            "totalDue": 23200,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 23200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25100,7 +29854,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-506",
@@ -25135,9 +29896,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17300.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 4950,
+            "totalDue": 15450,
             "totalPaid": 0,
-            "balance": 17300.0,
+            "balance": 15450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25145,7 +29908,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "NAGLA DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-507",
@@ -25180,9 +29950,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 0,
+            "totalDue": 9500,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 9500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25190,7 +29962,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-508",
@@ -25225,9 +30004,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25242,7 +30023,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9870897428"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-509",
@@ -25277,9 +30065,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25287,7 +30077,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-510",
@@ -25322,9 +30119,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 28700.0,
+            "tuitionDue": 15500,
+            "transportDue11Months": 4400,
+            "totalDue": 19900,
             "totalPaid": 0,
-            "balance": 28700.0,
+            "balance": 19900,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25332,7 +30131,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-511",
@@ -25367,9 +30173,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 4950,
+            "totalDue": 20950,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 20950,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25377,7 +30185,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAJHERA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-512",
@@ -25412,9 +30227,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25422,7 +30239,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-513",
@@ -25457,9 +30281,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 0,
+            "totalDue": 9500,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 9500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25474,7 +30300,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8384837949"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-514",
@@ -25509,9 +30342,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 16900.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 4400,
+            "totalDue": 18400,
             "totalPaid": 0,
-            "balance": 16900.0,
+            "balance": 18400,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25519,7 +30354,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "JARGWAN",
+            "monthlyFare": 400,
+            "annualTransportDue11Months": 4400
+        }
     },
     {
         "id": "STU-2026-515",
@@ -25554,9 +30396,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6600,
+            "totalDue": 17100,
             "totalPaid": 1000.0,
-            "balance": 10500.0,
+            "balance": 16100.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25564,7 +30408,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-516",
@@ -25599,9 +30450,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 21500.0,
+            "tuitionDue": 19500,
+            "transportDue11Months": 0,
+            "totalDue": 19500,
             "totalPaid": 0,
-            "balance": 21500.0,
+            "balance": 19500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25616,7 +30469,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8510822051"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-517",
@@ -25651,9 +30511,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 6600,
+            "totalDue": 16100,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 16100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25661,7 +30523,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "LOHGARH",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-518",
@@ -25696,9 +30565,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 5500,
+            "totalDue": 20500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 20500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25713,7 +30584,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7906340619"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-519",
@@ -25748,9 +30626,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25758,7 +30638,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-520",
@@ -25793,9 +30680,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25803,7 +30692,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-521",
@@ -25838,9 +30734,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 15000,
+            "transportDue11Months": 0,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25848,7 +30746,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-522",
@@ -25883,9 +30788,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13000.0,
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
+            "totalDue": 14500,
             "totalPaid": 0,
-            "balance": 13000.0,
+            "balance": 14500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25893,7 +30800,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-523",
@@ -25928,9 +30842,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 17000,
+            "transportDue11Months": 0,
+            "totalDue": 17000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 17000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25938,7 +30854,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-524",
@@ -25973,9 +30896,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -25983,7 +30908,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-525",
@@ -26018,9 +30950,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 0,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26028,7 +30962,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-526",
@@ -26063,9 +31004,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 5500,
+            "totalDue": 21500,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 21500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26073,7 +31016,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-527",
@@ -26108,9 +31058,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 7700,
+            "totalDue": 23700,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 23700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26118,7 +31070,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-528",
@@ -26153,9 +31112,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 0,
+            "totalDue": 13500,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 13500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26163,7 +31124,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-529",
@@ -26198,9 +31166,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 4950,
+            "totalDue": 15450,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 15450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26208,7 +31178,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-530",
@@ -26243,9 +31220,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 4950,
+            "totalDue": 15450,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 15450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26260,7 +31239,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8991490059"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-531",
@@ -26295,27 +31281,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 5500,
+            "totalDue": 19000,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 19000,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 21000.0,
+            "consolidatedFamilyDue": 29500,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 21000.0,
+            "consolidatedFamilyBalance": 29500,
             "familySiblings": [
                 {
                     "id": "STU-2026-535",
                     "name": "GAURAV",
                     "class": "NURSERY",
                     "admissionNo": "869",
-                    "individualDue": 9500.0,
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 0,
+                    "individualDue": 10500,
                     "individualPaid": 0,
-                    "individualBalance": 9500.0
+                    "individualBalance": 10500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 4: KUDHAINI SIDE (HEMRAJ-2)",
+            "stop": "KUDHAINI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-532",
@@ -26350,9 +31347,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 5500,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26360,7 +31359,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "PESARI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-533",
@@ -26395,9 +31401,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 7150,
+            "totalDue": 16650,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 16650,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26405,7 +31413,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "GANGAGARH",
+            "monthlyFare": 650,
+            "annualTransportDue11Months": 7150
+        }
     },
     {
         "id": "STU-2026-534",
@@ -26440,27 +31455,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14000,
+            "tuitionDue": 14000,
+            "transportDue11Months": 8250,
+            "totalDue": 22250,
             "totalPaid": 0,
-            "balance": 14000,
+            "balance": 22250,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 25500.0,
+            "consolidatedFamilyDue": 43450,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 25500.0,
+            "consolidatedFamilyBalance": 43450,
             "familySiblings": [
                 {
                     "id": "STU-2026-508",
                     "name": "ARAV",
                     "class": "I",
                     "admissionNo": "899",
-                    "individualDue": 11500.0,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 7700,
+                    "individualDue": 21200,
                     "individualPaid": 0,
-                    "individualBalance": 11500.0
+                    "individualBalance": 21200
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA JATANI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-535",
@@ -26495,9 +31521,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26512,7 +31540,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8650678109"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-536",
@@ -26547,6 +31582,8 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 16500,
+            "transportDue11Months": 0,
             "totalDue": 16500,
             "totalPaid": 0,
             "balance": 16500,
@@ -26557,7 +31594,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-537",
@@ -26592,9 +31636,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 16550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26602,7 +31648,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-538",
@@ -26637,10 +31690,12 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6050,
+            "totalDue": 16550,
             "totalPaid": 9500.0,
-            "balance": 0,
-            "status": "Paid",
+            "balance": 7050.0,
+            "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
             "consolidatedFamilyPaid": 0,
@@ -26654,7 +31709,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9675078707"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-539",
@@ -26689,9 +31751,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6600,
+            "totalDue": 17100,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 17100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26699,7 +31763,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "MUHAMMADPUR",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-540",
@@ -26734,9 +31805,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 5500,
+            "totalDue": 15000,
             "totalPaid": 0,
-            "balance": 11500.0,
+            "balance": 15000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26744,7 +31817,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-541",
@@ -26779,9 +31859,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26789,7 +31871,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-542",
@@ -26824,9 +31913,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 4950,
+            "totalDue": 16450,
             "totalPaid": 5000.0,
-            "balance": 5500.0,
+            "balance": 11450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26841,7 +31932,14 @@ export const initialSchoolData = {
                 "fatherPhone": "8384814903"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA GARVI",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-543",
@@ -26876,9 +31974,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 6600,
+            "totalDue": 18100,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 18100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26886,7 +31986,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-544",
@@ -26921,9 +32028,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 9500,
+            "transportDue11Months": 4950,
+            "totalDue": 14450,
             "totalPaid": 4000.0,
-            "balance": 7500.0,
+            "balance": 10450.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26931,7 +32040,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "BAIJALA",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-545",
@@ -26966,9 +32082,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14000,
+            "tuitionDue": 14000,
+            "transportDue11Months": 6050,
+            "totalDue": 20050,
             "totalPaid": 0,
-            "balance": 14000,
+            "balance": 20050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -26976,7 +32094,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-546",
@@ -27011,27 +32136,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 20000.0,
+            "consolidatedFamilyDue": 22000,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 20000.0,
+            "consolidatedFamilyBalance": 22000,
             "familySiblings": [
                 {
                     "id": "STU-2026-547",
                     "name": "MANVI",
                     "class": "NURSERY",
                     "admissionNo": "945",
-                    "individualDue": 9500.0,
+                    "tuitionDue": 10500,
+                    "transportDue11Months": 0,
+                    "individualDue": 10500,
                     "individualPaid": 0,
-                    "individualBalance": 9500.0
+                    "individualBalance": 10500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-547",
@@ -27066,9 +32202,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 0,
-            "balance": 9500.0,
+            "balance": 10500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27083,7 +32221,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9627165176"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-548",
@@ -27118,6 +32263,8 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
             "totalDue": 14500,
             "totalPaid": 0,
             "balance": 14500,
@@ -27132,13 +32279,22 @@ export const initialSchoolData = {
                     "name": "NITIN",
                     "class": "III",
                     "admissionNo": "957",
+                    "tuitionDue": 14500,
+                    "transportDue11Months": 0,
                     "individualDue": 14500,
                     "individualPaid": 0,
                     "individualBalance": 14500
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-549",
@@ -27173,9 +32329,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 5500,
+            "totalDue": 21500,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 21500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27183,7 +32341,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "PESARI",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-550",
@@ -27218,9 +32383,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 15500,
+            "tuitionDue": 15500,
+            "transportDue11Months": 8250,
+            "totalDue": 23750,
             "totalPaid": 0,
-            "balance": 15500,
+            "balance": 23750,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27235,7 +32402,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9958115857"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "NAGLA KOTHI",
+            "monthlyFare": 750,
+            "annualTransportDue11Months": 8250
+        }
     },
     {
         "id": "STU-2026-551",
@@ -27270,27 +32444,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500,
+            "tuitionDue": 14500,
+            "transportDue11Months": 6050,
+            "totalDue": 20550,
             "totalPaid": 0,
-            "balance": 14500,
+            "balance": 20550,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 28000,
+            "consolidatedFamilyDue": 40100,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 28000,
+            "consolidatedFamilyBalance": 40100,
             "familySiblings": [
                 {
                     "id": "STU-2026-552",
                     "name": "TANISHKA",
                     "class": "I",
                     "admissionNo": "9",
-                    "individualDue": 13500,
+                    "tuitionDue": 13500,
+                    "transportDue11Months": 6050,
+                    "individualDue": 19550,
                     "individualPaid": 0,
-                    "individualBalance": 13500
+                    "individualBalance": 19550
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-552",
@@ -27325,9 +32510,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13500,
+            "tuitionDue": 13500,
+            "transportDue11Months": 6050,
+            "totalDue": 19550,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 19550,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27342,7 +32529,14 @@ export const initialSchoolData = {
                 "fatherPhone": "7678265395"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DADHAR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-553",
@@ -27377,9 +32571,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13500,
+            "tuitionDue": 13500,
+            "transportDue11Months": 4950,
+            "totalDue": 18450,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 18450,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27387,7 +32583,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "DHARAKPUR",
+            "monthlyFare": 450,
+            "annualTransportDue11Months": 4950
+        }
     },
     {
         "id": "STU-2026-554",
@@ -27422,9 +32625,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27432,7 +32637,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-555",
@@ -27467,9 +32679,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10500.0,
+            "tuitionDue": 11500,
+            "transportDue11Months": 0,
+            "totalDue": 11500,
             "totalPaid": 0,
-            "balance": 10500.0,
+            "balance": 11500,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27477,7 +32691,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-556",
@@ -27512,6 +32733,8 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
             "totalDue": 12500,
             "totalPaid": 0,
             "balance": 12500,
@@ -27522,7 +32745,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-557",
@@ -27557,6 +32787,8 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 12500,
+            "transportDue11Months": 0,
             "totalDue": 12500,
             "totalPaid": 0,
             "balance": 12500,
@@ -27567,7 +32799,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-558",
@@ -27602,6 +32841,8 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 14000,
+            "transportDue11Months": 0,
             "totalDue": 14000,
             "totalPaid": 0,
             "balance": 14000,
@@ -27612,7 +32853,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-559",
@@ -27647,9 +32895,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 15000,
+            "tuitionDue": 15000,
+            "transportDue11Months": 6050,
+            "totalDue": 21050,
             "totalPaid": 0,
-            "balance": 15000,
+            "balance": 21050,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27657,7 +32907,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE",
+            "stop": "KALIYANPUR",
+            "monthlyFare": 550,
+            "annualTransportDue11Months": 6050
+        }
     },
     {
         "id": "STU-2026-560",
@@ -27692,6 +32949,8 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
+            "tuitionDue": 14500,
+            "transportDue11Months": 0,
             "totalDue": 14500,
             "totalPaid": 0,
             "balance": 14500,
@@ -27709,7 +32968,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9719433808"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-561",
@@ -27744,9 +33010,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 11500.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 0,
+            "totalDue": 10500,
             "totalPaid": 2000.0,
-            "balance": 9500.0,
+            "balance": 8500.0,
             "status": "Partial",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27754,7 +33022,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-562",
@@ -27789,9 +33064,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 17900.0,
+            "tuitionDue": 10500,
+            "transportDue11Months": 6600,
+            "totalDue": 17100,
             "totalPaid": 0,
-            "balance": 17900.0,
+            "balance": 17100,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27799,7 +33076,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 5: UNCHAGAON SIDE (CHOKELAL-1)",
+            "stop": "MOUNIPURA",
+            "monthlyFare": 600,
+            "annualTransportDue11Months": 6600
+        }
     },
     {
         "id": "STU-2026-563",
@@ -27834,9 +33118,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 13500,
+            "tuitionDue": 13500,
+            "transportDue11Months": 7700,
+            "totalDue": 21200,
             "totalPaid": 0,
-            "balance": 13500,
+            "balance": 21200,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27844,7 +33130,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "RAMGHAT",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-564",
@@ -27879,9 +33172,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 9000.0,
+            "tuitionDue": 13500,
+            "transportDue11Months": 5500,
+            "totalDue": 19000,
             "totalPaid": 0,
-            "balance": 9000.0,
+            "balance": 19000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27889,7 +33184,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 3: GANGAGARH SIDE (CHOKHELAL-2)",
+            "stop": "BAGI NAGLA",
+            "monthlyFare": 500,
+            "annualTransportDue11Months": 5500
+        }
     },
     {
         "id": "STU-2026-565",
@@ -27924,9 +33226,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 14500.0,
+            "tuitionDue": 16000,
+            "transportDue11Months": 0,
+            "totalDue": 16000,
             "totalPaid": 0,
-            "balance": 14500.0,
+            "balance": 16000,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -27934,7 +33238,14 @@ export const initialSchoolData = {
             "consolidatedFamilyBalance": 0,
             "familySiblings": []
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": false,
+            "route": "",
+            "stop": "",
+            "monthlyFare": 0,
+            "annualTransportDue11Months": 0
+        }
     },
     {
         "id": "STU-2026-566",
@@ -27969,27 +33280,38 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10440.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7700,
+            "totalDue": 21700,
             "totalPaid": 0,
-            "balance": 10440.0,
+            "balance": 21700,
             "status": "Pending",
             "isElderSibling": true,
-            "consolidatedFamilyDue": 20880.0,
+            "consolidatedFamilyDue": 43400,
             "consolidatedFamilyPaid": 0,
-            "consolidatedFamilyBalance": 20880.0,
+            "consolidatedFamilyBalance": 43400,
             "familySiblings": [
                 {
                     "id": "STU-2026-567",
                     "name": "VEER",
                     "class": "II",
                     "admissionNo": "876",
-                    "individualDue": 10440.0,
+                    "tuitionDue": 14000,
+                    "transportDue11Months": 7700,
+                    "individualDue": 21700,
                     "individualPaid": 0,
-                    "individualBalance": 10440.0
+                    "individualBalance": 21700
                 }
             ]
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "UNCHAGAON",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     },
     {
         "id": "STU-2026-567",
@@ -28024,9 +33346,11 @@ export const initialSchoolData = {
             "percentage": 95.5
         },
         "feeSummary": {
-            "totalDue": 10440.0,
+            "tuitionDue": 14000,
+            "transportDue11Months": 7700,
+            "totalDue": 21700,
             "totalPaid": 0,
-            "balance": 10440.0,
+            "balance": 21700,
             "status": "Pending",
             "isElderSibling": false,
             "consolidatedFamilyDue": 0,
@@ -28041,7 +33365,14 @@ export const initialSchoolData = {
                 "fatherPhone": "9758689700"
             }
         },
-        "siblings": []
+        "siblings": [],
+        "transport": {
+            "isEnrolled": true,
+            "route": "Route 1: NAGLA DHARAKPUR SIDE (HEMRAJ-1)",
+            "stop": "UNCHAGAON",
+            "monthlyFare": 700,
+            "annualTransportDue11Months": 7700
+        }
     }
 ],
 

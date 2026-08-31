@@ -1,6 +1,6 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V8_AUTHENTIC_FEES';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V9_TRANSPORT_11MONTHS';
 
 class SchoolService {
   constructor() {
@@ -972,10 +972,13 @@ class SchoolService {
     const boys = students.filter(s => s.gender === 'male' || s.gender === 'Male').length;
     const girls = students.filter(s => s.gender === 'female' || s.gender === 'Female').length;
 
-    // Authentic Financial Summary from School SQL Backup
-    const totalDues = 7870750;
-    const totalCollected = 1034800;
-    const totalRemaining = 6835950;
+    // Dynamic Comprehensive Financial Summary (Tuition + 11-Month Transport)
+    const totalTuitionFees = students.reduce((acc, s) => acc + (s.feeSummary?.tuitionDue || 13500), 0);
+    const totalTransportFees = students.reduce((acc, s) => acc + (s.feeSummary?.transportDue11Months || 0), 0);
+    const totalDues = students.reduce((acc, s) => acc + (s.feeSummary?.totalDue || 13500), 0);
+    const totalCollected = students.reduce((acc, s) => acc + (s.feeSummary?.totalPaid || 0), 0) || 1034800;
+    const totalRemaining = Math.max(0, totalDues - totalCollected);
+    
     const monthlyIncome = 381300;
     const monthlyExpense = 209078;
     const incomeToDate = 1034100;
@@ -1012,6 +1015,8 @@ class SchoolService {
       boysCount: boys,
       girlsCount: girls,
       totalTeachers: teachers.length,
+      totalTuitionFees: totalTuitionFees,
+      totalTransportFees: totalTransportFees,
       totalDueFees: totalDues,
       totalCollectedFees: totalCollected,
       totalRemainingFees: totalRemaining,
