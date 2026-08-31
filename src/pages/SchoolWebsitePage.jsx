@@ -1113,14 +1113,14 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <div className="flex items-center gap-3 pt-4 border-t border-slate-100 flex-wrap">
                   <a
                     href={`tel:${campusesData[selectedCampusTab].phone.split('/')[0].trim()}`}
-                    className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5 shadow"
+                    className="px-4 py-2.5 rounded-xl bg-[#0b1e38] hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-2 shadow transition-colors"
                   >
-                    <Phone className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Call Campus Desk</span>
+                    <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                    <span>Call: <strong className="text-amber-300 font-mono">{campusesData[selectedCampusTab].phone}</strong></span>
                   </a>
                   <button
                     onClick={() => navigateTo('admissions')}
-                    className="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-black text-xs uppercase tracking-wider shadow"
+                    className="px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-black text-xs uppercase tracking-wider shadow"
                   >
                     Apply for this Campus
                   </button>
@@ -1684,10 +1684,13 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                    <a href={`tel:${campus.phone.split('/')[0].trim()}`} className="px-4 py-2 rounded-xl bg-[#0b1e38] text-white font-bold text-xs flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-amber-400" />
-                      <span>{campus.phone}</span>
+                  <div className="flex items-center gap-3 pt-4 border-t border-slate-100 flex-wrap">
+                    <a 
+                      href={`tel:${campus.phone.split('/')[0].trim()}`} 
+                      className="px-4 py-2.5 rounded-xl bg-[#0b1e38] hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-2 transition-colors shadow"
+                    >
+                      <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                      <span>Call Campus Desk: <strong className="text-amber-300 font-mono">{campus.phone}</strong></span>
                     </a>
                   </div>
                 </div>
