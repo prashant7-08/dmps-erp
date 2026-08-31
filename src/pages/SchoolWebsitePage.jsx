@@ -194,7 +194,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       title: "Dadheech Kids School (Vinay Nagar, Quarsi PAC Aligarh)",
       subtitle: "Early childhood learning sanctuary with theme-based activity rooms, phonics, and play-way curriculum.",
       tag: "Kids School • Quarsi Aligarh",
-      image: "/assets/campuses/kids_school_banner.png",
+      image: "/assets/banners/slide3.jpg",
       cta: "Explore Kids Wing",
       target: "campuses"
     },
