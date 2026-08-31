@@ -24,7 +24,7 @@ export const HomeworkPage = () => {
     subject: 'Mathematics',
     class: 'Class 10',
     section: 'A',
-    teacher: 'Mrs. Sunita Verma',
+    teacher: 'Mrs. BHOOMI YADAV',
     dueDate: '2026-09-02',
     description: '',
     attachments: ['Exercise_Worksheet.pdf']

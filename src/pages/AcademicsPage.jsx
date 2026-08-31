@@ -63,7 +63,7 @@ export const AcademicsPage = () => {
     type: 'Theory + Practical',
     maxMarks: 100,
     passMarks: 33,
-    teacher: 'Dr. Rajesh Sharma',
+    teacher: 'Prashant Kumar Rajput',
     credits: 4
   });
 
@@ -164,7 +164,7 @@ export const AcademicsPage = () => {
       type: 'Theory + Practical',
       maxMarks: 100,
       passMarks: 33,
-      teacher: teachers[0]?.name || 'Dr. Rajesh Sharma',
+      teacher: teachers[0]?.name || 'Prashant Kumar Rajput',
       credits: 4
     });
     setIsAddSubjectModalOpen(true);

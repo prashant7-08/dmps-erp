@@ -438,7 +438,7 @@ export const StaffPage = () => {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="e.g. Dr. Rajesh Sharma"
+                placeholder="e.g. Prashant Kumar Rajput"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
               />
             </div>

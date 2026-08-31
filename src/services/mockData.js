@@ -51,7 +51,7 @@ export const initialSchoolData = {
       shortCode: "BRHT",
       address: "Barheti, Ramghat Road, Aligarh (U.P.)",
       phone: "+91 96270 32626",
-      headName: "Dr. Rajesh Sharma (Director & Branch Head)",
+      headName: "Prashant Kumar Rajput (Director & Branch Head)",
       classesOffered: "Nursery to Class 10th",
       stats: { students: 340, teachers: 18, classrooms: 20 }
     },

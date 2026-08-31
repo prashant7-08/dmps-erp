@@ -21,7 +21,7 @@ import schoolService from '../services/schoolService';
 export const StudentPortalPage = ({ onOpenAI }) => {
   const { showToast } = useToast();
   const students = schoolService.getStudents();
-  const student = students[0]; // Aarav Sharma
+  const student = students[0]; // DEEPAK KUMAR
   const homework = schoolService.getHomework();
   const bookIssues = schoolService.getBookIssues();
   const marks = schoolService.getStudentMarks(student?.id);
@@ -43,7 +43,7 @@ export const StudentPortalPage = ({ onOpenAI }) => {
             <GraduationCap className="w-7 h-7 text-indigo-600" /> Student Learning Portal
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Welcome back, Aarav Sharma! Here is your daily timetable, active homework tasks, issued library books, and exam grades.
+            Welcome back, DEEPAK KUMAR! Here is your daily timetable, active homework tasks, issued library books, and exam grades.
           </p>
         </div>
         <div className="flex gap-2">

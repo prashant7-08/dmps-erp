@@ -20,19 +20,19 @@ export const TimetablePage = () => {
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   const mondaySchedule = [
-    { period: 'Period 1', time: '08:00 - 08:45', subject: 'Mathematics Standard', teacher: 'Mrs. Sunita Verma', room: 'Room 101', type: 'Core' },
-    { period: 'Period 2', time: '08:45 - 09:30', subject: 'Physics (Optics Lab)', teacher: 'Dr. Rajesh Sharma', room: 'Physics Lab', type: 'Lab' },
+    { period: 'Period 1', time: '08:00 - 08:45', subject: 'Mathematics Standard', teacher: 'Mrs. BHOOMI YADAV', room: 'Room 101', type: 'Core' },
+    { period: 'Period 2', time: '08:45 - 09:30', subject: 'Physics (Optics Lab)', teacher: 'Prashant Kumar Rajput', room: 'Physics Lab', type: 'Lab' },
     { period: 'Period 3', time: '09:30 - 10:15', subject: 'English Language', teacher: 'Mrs. Kavita Iyer', room: 'Room 101', type: 'Core' },
     { period: 'Period 4', time: '10:15 - 11:00', subject: 'Social Science', teacher: 'Mr. Alok Mukherjee', room: 'Room 101', type: 'Core' },
     { period: 'Recess', time: '11:00 - 11:30', subject: 'Nutrition & Lunch Break', teacher: 'Duty Staff', room: 'Campus Cafeteria', type: 'Break' },
     { period: 'Period 5', time: '11:30 - 12:15', subject: 'Hindi Course-A', teacher: 'Dr. Ramesh Chandra', room: 'Room 101', type: 'Language' },
-    { period: 'Period 6', time: '12:15 - 01:00', subject: 'Computer Applications', teacher: 'Mr. Vikrant Rao', room: 'CS Lab 1', type: 'Lab' },
+    { period: 'Period 6', time: '12:15 - 01:00', subject: 'Computer Applications', teacher: 'Mr. POORAN SINGH', room: 'CS Lab 1', type: 'Lab' },
     { period: 'Period 7', time: '01:00 - 01:45', subject: 'Physical Education / Sports', teacher: 'Coach Jaswinder', room: 'Athletic Ground', type: 'Activity' }
   ];
 
   const tuesdaySchedule = [
     { period: 'Period 1', time: '08:00 - 08:45', subject: 'Chemistry (Titration Lab)', teacher: 'Mrs. Priyanka Joshi', room: 'Chemistry Lab', type: 'Lab' },
-    { period: 'Period 2', time: '08:45 - 09:30', subject: 'Mathematics Standard', teacher: 'Mrs. Sunita Verma', room: 'Room 101', type: 'Core' },
+    { period: 'Period 2', time: '08:45 - 09:30', subject: 'Mathematics Standard', teacher: 'Mrs. BHOOMI YADAV', room: 'Room 101', type: 'Core' },
     { period: 'Period 3', time: '09:30 - 10:15', subject: 'Social Science', teacher: 'Mr. Alok Mukherjee', room: 'Room 101', type: 'Core' },
     { period: 'Period 4', time: '10:15 - 11:00', subject: 'English Grammar', teacher: 'Mrs. Kavita Iyer', room: 'Room 101', type: 'Core' },
     { period: 'Recess', time: '11:00 - 11:30', subject: 'Nutrition & Lunch Break', teacher: 'Duty Staff', room: 'Campus Cafeteria', type: 'Break' },

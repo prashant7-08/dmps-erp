@@ -56,7 +56,7 @@ export function AuthProvider({ children }) {
     },
     {
       role: "Principal",
-      name: "Mr. Anil Kumar (Head In-Charge - Barheti)",
+      name: "Mr. LALIT KUMAR (Head In-Charge - Barheti)",
       assignedBranchId: "BR-02",
       usernames: ["barheti", "principal_barheti", "anil", "barheti@dmps.edu.in"],
       passwords: ["barheti@123", "barheti123", "barheti"]
@@ -70,7 +70,7 @@ export function AuthProvider({ children }) {
     },
     {
       role: "Teacher",
-      name: "Dr. Rajesh Sharma (Faculty - Senior Campus)",
+      name: "Prashant Kumar Rajput (Faculty - Senior Campus)",
       assignedBranchId: "BR-01",
       usernames: ["teacher", "teacher@dmps.edu.in", "rajesh.teacher", "faculty"],
       passwords: ["teacher@123", "teacher123", "teacher"]
@@ -91,7 +91,7 @@ export function AuthProvider({ children }) {
     },
     {
       role: "Student",
-      name: "Aarav Sharma (Student - Class 10-A)",
+      name: "DEEPAK KUMAR (Student - Class 10-A)",
       assignedBranchId: "BR-01",
       usernames: ["student", "student@dmps.edu.in", "aarav.student", "101"],
       passwords: ["student@123", "student123", "student"]

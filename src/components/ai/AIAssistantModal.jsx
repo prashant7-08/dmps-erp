@@ -65,7 +65,7 @@ export const AIAssistantModal = ({ isOpen, onClose, currentRole = 'admin' }) => 
           botReply = `All recorded students have cleared their due fees for the current billing cycle! 🎉`;
         }
       } else if (query.includes('timetable') || query.includes('schedule') || query.includes('period')) {
-        botReply = `🗓️ **Class 10-A Timetable Highlights (Monday):**\n- 08:00 AM: Mathematics (Mrs. Sunita Verma - Room 101)\n- 08:45 AM: Science/Physics (Dr. Rajesh Sharma - Physics Lab)\n- 09:30 AM: English (Mrs. Kavita Iyer)\n- 11:30 AM: Hindi (Dr. Ramesh Chandra)\n- 12:15 PM: Computer Applications (Mr. Vikrant Rao - Lab 1)`;
+        botReply = `🗓️ **Class 10-A Timetable Highlights (Monday):**\n- 08:00 AM: Mathematics (Mrs. BHOOMI YADAV - Room 101)\n- 08:45 AM: Science/Physics (Prashant Kumar Rajput - Physics Lab)\n- 09:30 AM: English (Mrs. Kavita Iyer)\n- 11:30 AM: Hindi (Dr. Ramesh Chandra)\n- 12:15 PM: Computer Applications (Mr. POORAN SINGH - Lab 1)`;
       } else if (query.includes('attendance') || query.includes('absent') || query.includes('present')) {
         const absentCount = students.filter(s => s.id === 'STU-2026-003').length;
         const total = students.length;

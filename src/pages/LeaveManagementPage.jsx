@@ -20,7 +20,7 @@ export const LeaveManagementPage = () => {
 
   const [leaveForm, setLeaveForm] = useState({
     applicantType: 'Student',
-    applicantName: 'Aarav Sharma',
+    applicantName: 'DEEPAK KUMAR',
     class: 'Class 10-A',
     leaveType: 'Medical Leave',
     startDate: '2026-09-02',

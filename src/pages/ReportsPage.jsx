@@ -208,7 +208,7 @@ export const ReportsPage = () => {
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 <tr className="bg-amber-50/50 dark:bg-amber-950/20">
                   <td className="p-3 font-black text-amber-600 text-sm">🏆 Rank #1</td>
-                  <td className="p-3 font-bold text-slate-900 dark:text-white">Aarav Sharma</td>
+                  <td className="p-3 font-bold text-slate-900 dark:text-white">DEEPAK KUMAR</td>
                   <td className="p-3 font-mono font-bold">#101</td>
                   <td className="p-3 font-bold">219 / 240</td>
                   <td className="p-3 font-black text-indigo-600 text-sm">91.25%</td>
@@ -217,7 +217,7 @@ export const ReportsPage = () => {
                 </tr>
                 <tr className="bg-slate-50/80">
                   <td className="p-3 font-bold text-slate-600 text-sm">🥈 Rank #2</td>
-                  <td className="p-3 font-bold text-slate-900 dark:text-white">Ananya Deshmukh</td>
+                  <td className="p-3 font-bold text-slate-900 dark:text-white">KM. NIDHI</td>
                   <td className="p-3 font-mono font-bold">#102</td>
                   <td className="p-3 font-bold">218 / 240</td>
                   <td className="p-3 font-black text-indigo-600 text-sm">90.83%</td>

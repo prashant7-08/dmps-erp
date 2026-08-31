@@ -293,7 +293,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
   const vidyagyanStudents = [
     { id: 34, name: "Divya Rajput", father: "Pramod Kumar", org: "Vidyagyan Academy" },
-    { id: 35, name: "Dev Garg", father: "Anil Kumar", org: "Vidyagyan Academy" },
+    { id: 35, name: "Dev Garg", father: "LALIT KUMAR", org: "Vidyagyan Academy" },
     { id: 36, name: "Neeresh Kumar", father: "Radhelal", org: "Vidyagyan Academy" },
     { id: 37, name: "Mani Rajput", father: "Pramod Kumar", org: "Vidyagyan Academy" },
     { id: 38, name: "Prashant Kumar Rajput", father: "Pramod Kumar", org: "Vidyagyan Academy" }
