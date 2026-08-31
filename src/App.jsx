@@ -146,9 +146,16 @@ function AppContent() {
       case 'staff':
         return <StaffPage />;
       case 'academics':
-        return <AcademicsPage />;
+      case 'acad-classes':
+      case 'acad-assign-teacher':
+      case 'acad-subjects':
+      case 'acad-class-assign':
+      case 'acad-promotion':
+        return <AcademicsPage initialTab={activeTab} />;
       case 'timetable':
-        return <TimetablePage />;
+      case 'acad-class-schedule':
+      case 'acad-teacher-schedule':
+        return <TimetablePage initialTab={activeTab} />;
       case 'attendance':
         return <AttendancePage initialType="student" />;
       case 'staff-attendance':
@@ -167,7 +174,14 @@ function AppContent() {
       case 'fees-dues':
         return <FeesPage initialTab={activeTab} />;
       case 'examination':
-        return <ExaminationPage />;
+      case 'exam-term':
+      case 'exam-hall':
+      case 'exam-trait':
+      case 'exam-distribution':
+      case 'exam-setup':
+      case 'exam-schedule':
+      case 'exam-marks':
+        return <ExaminationPage initialTab={activeTab} />;
       case 'notices':
         return <NoticeCommunicationPage />;
       case 'parent-portal':
@@ -175,7 +189,9 @@ function AppContent() {
       case 'student-portal':
         return <StudentPortalPage onOpenAI={() => setIsAiModalOpen(true)} />;
       case 'homework':
-        return <HomeworkPage />;
+      case 'hw-homework':
+      case 'hw-evaluation':
+        return <HomeworkPage initialTab={activeTab} />;
       case 'library':
         return <LibraryPage />;
       case 'transport':
@@ -194,6 +210,7 @@ function AppContent() {
       case 'calendar':
         return <CalendarPage />;
       case 'leave':
+      case 'hr-leave':
         return <LeaveManagementPage />;
       case 'card-management':
       case 'card-id-template':
@@ -209,7 +226,12 @@ function AppContent() {
       case 'cert-generate-employee':
         return <CertificatesIdPage initialSection="certificates" />;
       case 'payroll':
-        return <HRPayrollPage />;
+      case 'hr-template':
+      case 'hr-assign':
+      case 'hr-payment':
+      case 'hr-advance':
+      case 'hr-award':
+        return <HRPayrollPage initialTab={activeTab} />;
       case 'inventory':
       case 'office-account':
       case 'office-deposit':

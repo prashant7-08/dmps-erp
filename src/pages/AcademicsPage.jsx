@@ -23,13 +23,29 @@ import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import schoolService from '../services/schoolService';
 
-export const AcademicsPage = () => {
+export const AcademicsPage = ({ initialTab = 'classes' }) => {
   const { showToast } = useToast();
   const [classes, setClasses] = useState(schoolService.getClasses());
   const [subjects, setSubjects] = useState(schoolService.getSubjects());
   const teachers = schoolService.getTeachers();
   const students = schoolService.getStudents();
-  const [activeTab, setActiveTab] = useState('classes');
+
+  const resolveTab = (tab) => {
+    if (!tab) return 'classes';
+    if (tab === 'acad-classes' || tab === 'classes') return 'classes';
+    if (tab === 'acad-assign-teacher' || tab === 'assign-teacher') return 'assign-teacher';
+    if (tab === 'acad-subjects' || tab === 'subjects') return 'subjects';
+    if (tab === 'acad-class-assign' || tab === 'class-assign') return 'class-assign';
+    if (tab === 'acad-promotion' || tab === 'promotion') return 'promotion';
+    return tab;
+  };
+
+  const [activeTab, setActiveTab] = useState(() => resolveTab(initialTab));
+
+  React.useEffect(() => {
+    if (initialTab) setActiveTab(resolveTab(initialTab));
+  }, [initialTab]);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedWingFilter, setSelectedWingFilter] = useState('All');
 
@@ -263,26 +279,32 @@ export const AcademicsPage = () => {
 
       {/* Navigation Tabs & Controls Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-2">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 overflow-x-auto">
           <button
             onClick={() => setActiveTab('classes')}
-            className={`px-4 py-2.5 text-xs font-bold rounded-xl transition-all ${
+            className={`px-4 py-2 text-xs font-bold rounded-xl transition-all whitespace-nowrap ${
               activeTab === 'classes'
-                ? 'bg-indigo-600 text-white shadow-md'
+                ? 'bg-blue-600 text-white shadow-md font-black'
                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
-            Classes & Sections ({classes.length})
+            🏫 Control Classes ({classes.length})
           </button>
           <button
             onClick={() => setActiveTab('subjects')}
-            className={`px-4 py-2.5 text-xs font-bold rounded-xl transition-all ${
-              activeTab === 'subjects'
-                ? 'bg-indigo-600 text-white shadow-md'
+            className={`px-4 py-2 text-xs font-bold rounded-xl transition-all whitespace-nowrap ${
+              activeTab === 'subjects' || activeTab === 'class-assign'
+                ? 'bg-blue-600 text-white shadow-md font-black'
                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
-            Curriculum & Subjects ({subjects.length})
+            📚 Subjects & Class Assign ({subjects.length})
+          </button>
+          <button
+            onClick={() => setIsPromotionModalOpen(true)}
+            className="px-4 py-2 text-xs font-bold rounded-xl text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/40 transition-all whitespace-nowrap"
+          >
+            🚀 Student Promotion Rollover
           </button>
         </div>
 

@@ -76,12 +76,15 @@ export const navigationGroups = [
   },
   {
     id: 'staff-group',
-    label: 'EMPLOYEE / HR',
+    label: 'HUMAN RESOURCE',
     icon: Users,
     items: [
-      { id: 'staff', label: 'Teacher & Staff Directory', badge: null },
-      { id: 'leave', label: 'Leave Approvals', badge: 'Pending' },
-      { id: 'payroll', label: 'HR & Staff Payroll', badge: null }
+      { id: 'hr-template', targetTab: 'payroll', subTab: 'template', label: 'Salary Template', badge: null },
+      { id: 'hr-assign', targetTab: 'payroll', subTab: 'assign', label: 'Salary Assign', badge: null },
+      { id: 'hr-payment', targetTab: 'payroll', subTab: 'payment', label: 'Salary Payment', badge: 'Pay' },
+      { id: 'hr-advance', targetTab: 'payroll', subTab: 'advance', label: 'Advance Salary', badge: null },
+      { id: 'hr-leave', targetTab: 'leave', subTab: 'leave', label: 'Leave', badge: 'Leave' },
+      { id: 'hr-award', targetTab: 'payroll', subTab: 'award', label: 'Award', badge: '🏆' }
     ]
   },
   {
@@ -171,8 +174,13 @@ export const navigationGroups = [
     label: 'ACADEMIC',
     icon: BookOpen,
     items: [
-      { id: 'academics', label: 'Classes & Syllabus', badge: null },
-      { id: 'timetable', label: 'Timetable & Classrooms', badge: null }
+      { id: 'acad-classes', targetTab: 'academics', subTab: 'classes', label: 'Control Classes', badge: null },
+      { id: 'acad-assign-teacher', targetTab: 'academics', subTab: 'assign-teacher', label: 'Assign Class Teacher', badge: null },
+      { id: 'acad-subjects', targetTab: 'academics', subTab: 'subjects', label: 'Subject', badge: null },
+      { id: 'acad-class-assign', targetTab: 'academics', subTab: 'class-assign', label: 'Class Assign', badge: null },
+      { id: 'acad-class-schedule', targetTab: 'timetable', subTab: 'class-schedule', label: 'Class Schedule', badge: null },
+      { id: 'acad-teacher-schedule', targetTab: 'timetable', subTab: 'teacher-schedule', label: 'Teacher Schedule', badge: null },
+      { id: 'acad-promotion', targetTab: 'academics', subTab: 'promotion', label: 'Promotion', badge: 'Roll' }
     ]
   },
   {
@@ -180,7 +188,8 @@ export const navigationGroups = [
     label: 'HOMEWORK',
     icon: FileSpreadsheet,
     items: [
-      { id: 'homework', label: 'Daily Homework & Tasks', badge: null }
+      { id: 'hw-homework', targetTab: 'homework', subTab: 'homework', label: 'Homework', badge: 'Daily' },
+      { id: 'hw-evaluation', targetTab: 'homework', subTab: 'evaluation', label: 'Evaluation Report', badge: null }
     ]
   },
   {
@@ -188,7 +197,13 @@ export const navigationGroups = [
     label: 'EXAM MASTER',
     icon: Award,
     items: [
-      { id: 'examination', label: 'CBSE Exams & Marks Entry', badge: 'CBSE' }
+      { id: 'exam-term', targetTab: 'examination', subTab: 'exam-term', label: 'Exam Term', badge: 'Term' },
+      { id: 'exam-hall', targetTab: 'examination', subTab: 'exam-hall', label: 'Exam Hall', badge: null },
+      { id: 'exam-trait', targetTab: 'examination', subTab: 'trait', label: 'Trait Type', badge: null },
+      { id: 'exam-distribution', targetTab: 'examination', subTab: 'distribution', label: 'Distribution', badge: null },
+      { id: 'exam-setup', targetTab: 'examination', subTab: 'setup', label: 'Exam Setup', badge: null },
+      { id: 'exam-schedule', targetTab: 'examination', subTab: 'schedule', label: 'Exam Schedule', badge: 'Date' },
+      { id: 'exam-marks', targetTab: 'examination', subTab: 'marks', label: 'Marks', badge: 'Marks' }
     ]
   },
   {
