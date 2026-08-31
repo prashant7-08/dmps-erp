@@ -174,18 +174,39 @@ class SchoolService {
 
   addStudent(studentData) {
     const newId = `STU-2026-${String((this.data.students || []).length + 1).padStart(3, '0')}`;
-    const newAdm = `ADM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    const newAdm = studentData.admissionNo || `ADM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    const isRte = Boolean(studentData.isRteStudent);
+    
+    // Fee calculation
+    const monthlyFare = Number(studentData.transport?.monthlyFare || 0);
+    const transport11m = monthlyFare * 11;
+    const tuitionDue = isRte ? 0 : 13500;
+    const totalDue = tuitionDue + transport11m;
+
     const newStudent = {
       id: newId,
       branchId: studentData.branchId || "BR-01",
       branchName: studentData.branchName || (studentData.branchId === "BR-02" ? "Dadheech Memorial Public School (Barheti Campus)" : studentData.branchId === "BR-03" ? "Dadheech Kids School (Vinay Nagar PAC Campus)" : "Dadheech Memorial Public School (Main Campus)"),
-      admissionNo: studentData.admissionNo || newAdm,
+      admissionNo: newAdm,
       rollNo: studentData.rollNo || String((this.data.students || []).length + 101),
       status: "Active",
-      academicSession: this.data.schoolInfo.academicSession,
-      admissionDate: new Date().toISOString().split('T')[0],
+      isRteStudent: isRte,
+      academicSession: this.data.schoolInfo?.academicSession || "2026-2027",
+      admissionDate: studentData.admissionDate || new Date().toISOString().split('T')[0],
       attendanceSummary: { totalDays: 88, presentDays: 84, percentage: 95.4 },
-      feeSummary: { totalDue: 45000, totalPaid: 0, balance: 45000, status: "Pending" },
+      feeSummary: {
+        tuitionDue: tuitionDue,
+        transportDue11Months: transport11m,
+        totalDue: totalDue,
+        totalPaid: 0,
+        balance: totalDue,
+        status: totalDue === 0 ? "Paid" : "Pending",
+        isElderSibling: false,
+        consolidatedFamilyDue: 0,
+        consolidatedFamilyPaid: 0,
+        consolidatedFamilyBalance: 0,
+        familySiblings: []
+      },
       ...studentData
     };
     if (!this.data.students) this.data.students = [];
@@ -197,7 +218,30 @@ class SchoolService {
   updateStudent(id, updates) {
     const idx = (this.data.students || []).findIndex(s => s.id === id);
     if (idx !== -1) {
-      this.data.students[idx] = { ...this.data.students[idx], ...updates };
+      const existing = this.data.students[idx];
+      const isRte = updates.isRteStudent !== undefined ? Boolean(updates.isRteStudent) : Boolean(existing.isRteStudent);
+      
+      const updatedStudent = { ...existing, ...updates, isRteStudent: isRte };
+      
+      // If RTE status changed or transport updated, recompute feeSummary
+      const monthlyFare = Number(updatedStudent.transport?.monthlyFare || 0);
+      const transport11m = monthlyFare * 11;
+      const tuitionDue = isRte ? 0 : (existing.feeSummary?.tuitionDue || 13500);
+      const totalDue = tuitionDue + transport11m;
+      const paid = existing.feeSummary?.totalPaid || 0;
+      const balance = Math.max(0, totalDue - paid);
+
+      updatedStudent.feeSummary = {
+        ...(existing.feeSummary || {}),
+        tuitionDue: tuitionDue,
+        transportDue11Months: transport11m,
+        totalDue: totalDue,
+        totalPaid: paid,
+        balance: balance,
+        status: balance === 0 ? "Paid" : (paid > 0 ? "Partial" : "Pending")
+      };
+
+      this.data.students[idx] = updatedStudent;
       this.saveData();
       return this.data.students[idx];
     }

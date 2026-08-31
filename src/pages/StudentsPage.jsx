@@ -266,6 +266,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
       section: student.section || 'A',
       branchId: student.branchId || 'BR-01',
       status: student.status || 'Active',
+      isRteStudent: Boolean(student.isRteStudent),
       
       // Student Personal
       name: student.name || '',
@@ -334,6 +335,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
       class: editFormData.class,
       section: editFormData.section,
       branchId: editFormData.branchId,
+      isRteStudent: Boolean(editFormData.isRteStudent),
       name: fullName,
       gender: editFormData.gender,
       dob: editFormData.dob,
@@ -386,7 +388,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
     schoolService.updateStudent(editFormData.id, updates);
     refreshStudents();
     setIsEditModalOpen(false);
-    showToast(`Student ${fullName} (Adm: ${editFormData.admissionNo}, Ledger: ${editFormData.rollNo}) details updated successfully! 💾`, 'success');
+    showToast(`Student ${fullName} (Adm: ${editFormData.admissionNo}, Ledger: ${editFormData.rollNo}) details updated successfully! ${editFormData.isRteStudent ? '(🏛️ RTE Quota)' : ''} 💾`, 'success');
   };
 
   // Handle Mark Inactive (Deactivate Student)
@@ -755,7 +757,14 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
 
                       {/* Name */}
                       <td className="p-3 font-bold text-slate-900 dark:text-white uppercase tracking-tight whitespace-nowrap">
-                        {student.name}
+                        <div className="flex items-center gap-1.5">
+                          <span>{student.name}</span>
+                          {student.isRteStudent && (
+                            <span className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-amber-100 text-amber-900 border border-amber-300 dark:bg-amber-950 dark:text-amber-200 shrink-0">
+                              🏛️ RTE
+                            </span>
+                          )}
+                        </div>
                       </td>
 
                       {/* Father Name */}
@@ -1054,6 +1063,39 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                   onChange={(e) => setEditFormData(prev => ({ ...prev, admissionDate: e.target.value }))}
                   className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
                 />
+              </div>
+
+              {/* 🏛️ RTE 25% Quota Toggle in Edit Modal */}
+              <div className="md:col-span-3 p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-2 border-amber-400/60 dark:border-amber-600/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-start sm:items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                    🏛️
+                  </div>
+                  <div>
+                    <p className="font-black text-amber-950 dark:text-amber-100 text-xs sm:text-sm flex items-center gap-2">
+                      RTE (Right to Education / आरटीई 25% कोटा) Student?
+                      {editFormData.isRteStudent && (
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase bg-amber-500 text-white animate-pulse">
+                          100% Free Tuition Activated
+                        </span>
+                      )}
+                    </p>
+                    <p className="text-[11px] text-amber-900/80 dark:text-amber-300/80 mt-0.5">
+                      यदि यह विकल्प <strong>ON</strong> है, तो इस छात्र की <strong>ट्यूशन फीस ₹0 (Govt. Free)</strong> होगी और पेरेंट/स्टूडेंट पोर्टल में ट्यूशन फीस नहीं दिखेगी — केवल <strong>ट्रांसपोर्ट बस किराया</strong> दिखेगा।
+                    </p>
+                  </div>
+                </div>
+
+                <label className="relative inline-flex items-center cursor-pointer shrink-0">
+                  <input
+                    type="checkbox"
+                    name="isRteStudent"
+                    checked={editFormData.isRteStudent}
+                    onChange={(e) => setEditFormData(prev => ({ ...prev, isRteStudent: e.target.checked }))}
+                    className="sr-only peer"
+                  />
+                  <div className="w-12 h-7 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[3px] after:left-[3px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5.5 after:w-5.5 after:transition-all peer-checked:bg-amber-600 shadow-inner"></div>
+                </label>
               </div>
             </div>
           )}
@@ -1362,6 +1404,11 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                   <h3 className="text-xl font-black uppercase tracking-tight">
                     {selectedStudent.name}
                   </h3>
+                  {selectedStudent.isRteStudent && (
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-amber-400 text-amber-950 border border-amber-300 shadow-xs">
+                      🏛️ RTE (Tuition Free)
+                    </span>
+                  )}
                   <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase ${
                     selectedStudent.status === 'Inactive' ? 'bg-rose-500/30 text-rose-300 border border-rose-400' : 'bg-emerald-500/30 text-emerald-300 border border-emerald-400'
                   }`}>
@@ -1517,12 +1564,28 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
             {/* TAB 3: Fee Ledger */}
             {profileActiveTab === 'fees' && (
               <div className="space-y-4">
+                {selectedStudent.isRteStudent && (
+                  <div className="p-3.5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-amber-950 dark:text-amber-200">
+                    <p className="font-bold flex items-center gap-1.5 text-xs">
+                      <span>🏛️</span> RTE (Right to Education) 100% Free Quota Active:
+                    </p>
+                    <p className="text-[11px] text-amber-900/80 dark:text-amber-300 mt-0.5">
+                      School Tuition Fee is <strong>₹0.00 (100% Free by Govt.)</strong>. Parents & Student portal only see the <strong>11-Month Transport Bus Fare</strong>.
+                    </p>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-3 gap-3 text-center">
                   <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800">
-                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase">Annual Fee Due</span>
+                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase">
+                      {selectedStudent.isRteStudent ? 'Transport Dues (11M)' : 'Annual Fee Due'}
+                    </span>
                     <p className="text-base font-black text-amber-900 dark:text-amber-100 font-mono mt-0.5">
                       ₹{(selectedStudent.feeSummary?.totalDue || 0).toLocaleString()}
                     </p>
+                    {selectedStudent.isRteStudent && (
+                      <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 block mt-0.5">Tuition: ₹0 (Free)</span>
+                    )}
                   </div>
                   <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">
                     <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase">Amount Paid</span>

@@ -34,11 +34,12 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
     academicSession: '2026-2027',
     branchId: activeBranchId === 'all' ? 'BR-01' : activeBranchId,
     registerNo: '',
-    rollNo: '',
+    rollNo: '', // Ledger No. (खाता संख्या)
     admissionDate: new Date().toISOString().split('T')[0],
     class: '',
     section: 'A',
     admissionNo: '',
+    isRteStudent: false, // 🏛️ RTE Quota Student Toggle
 
     // 2. Student Details
     firstName: '',
@@ -261,13 +262,14 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
         remarks: formData.previousRemarks || ''
       },
 
+      isRteStudent: Boolean(formData.isRteStudent),
       status: 'Active'
     };
 
     const created = schoolService.addStudent(newStudentData);
     setCreatedStudent(created);
     setIsSuccessModalOpen(true);
-    showToast(`🎉 New Student ${fullName} registered successfully! (Adm No: ${created.admissionNo})`, 'success');
+    showToast(`🎉 New Student ${fullName} registered successfully! ${formData.isRteStudent ? '(🏛️ RTE Quota - Tuition Free)' : ''} (Adm No: ${created.admissionNo})`, 'success');
   };
 
   const handleResetForm = () => {
@@ -280,6 +282,7 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
       class: '',
       section: 'A',
       admissionNo: '',
+      isRteStudent: false,
       firstName: '',
       lastName: '',
       gender: '',
@@ -503,19 +506,21 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Roll Number</label>
+              <label className="font-bold text-indigo-600 dark:text-indigo-400 block mb-1">
+                Ledger No. (खाता संख्या) / Roll No
+              </label>
               <input
                 type="text"
                 name="rollNo"
                 value={formData.rollNo}
                 onChange={handleChange}
-                placeholder="e.g. 101 (or auto)"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
+                placeholder="e.g. 0, 101, 102 (खाता संख्या)"
+                className="w-full p-2.5 rounded-xl border-2 border-indigo-200 dark:border-indigo-800 bg-white dark:bg-slate-800 text-indigo-900 dark:text-indigo-100 font-mono font-black"
               />
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Admission No.</label>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Admission / Register No.</label>
               <input
                 type="text"
                 name="admissionNo"
@@ -524,6 +529,39 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
                 placeholder="Leave blank to auto-generate"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono font-medium"
               />
+            </div>
+
+            {/* 🏛️ RTE 25% Govt. Quota Toggle Card */}
+            <div className="sm:col-span-2 lg:col-span-4 p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-2 border-amber-400/60 dark:border-amber-600/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="flex items-start sm:items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                  🏛️
+                </div>
+                <div>
+                  <p className="font-black text-amber-950 dark:text-amber-100 text-xs sm:text-sm flex items-center gap-2">
+                    RTE (Right to Education / आरटीई 25% कोटा) Student?
+                    {formData.isRteStudent && (
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase bg-amber-500 text-white animate-pulse">
+                        100% Free Tuition Activated
+                      </span>
+                    )}
+                  </p>
+                  <p className="text-[11px] text-amber-900/80 dark:text-amber-300/80 mt-0.5">
+                    यदि यह विकल्प <strong>ON</strong> होगा, तो छात्र से <strong>कोई ट्यूशन फीस नहीं ली जाएगी (0 Due)</strong> और पेरेंट/स्टूडेंट पोर्टल में ट्यूशन फीस पूरी तरह छिपी रहेगी — केवल और केवल <strong>ट्रांसपोर्ट बस किराया</strong> दिखेगा।
+                  </p>
+                </div>
+              </div>
+
+              <label className="relative inline-flex items-center cursor-pointer shrink-0">
+                <input
+                  type="checkbox"
+                  name="isRteStudent"
+                  checked={formData.isRteStudent}
+                  onChange={(e) => setFormData(prev => ({ ...prev, isRteStudent: e.target.checked }))}
+                  className="sr-only peer"
+                />
+                <div className="w-12 h-7 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[3px] after:left-[3px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5.5 after:w-5.5 after:transition-all peer-checked:bg-amber-600 shadow-inner"></div>
+              </label>
             </div>
           </div>
         </div>

@@ -165,19 +165,72 @@ export const ParentPortalPage = ({ onOpenAI }) => {
           </div>
         </div>
 
-        {/* Transport & Emergency Contacts */}
+        {/* Transport & Fee Dues Breakdown */}
         <div className="space-y-6">
+          {/* Fee Dues Card */}
+          <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <CreditCard className="w-5 h-5 text-indigo-600" /> Fee Dues & Billing
+              </h3>
+              {selectedChild.isRteStudent && (
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-amber-100 text-amber-900 border border-amber-300 dark:bg-amber-950 dark:text-amber-200">
+                  🏛️ RTE Quota
+                </span>
+              )}
+            </div>
+
+            {selectedChild.isRteStudent ? (
+              <div className="p-4 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-xs space-y-2">
+                <div className="flex items-center gap-2 text-amber-950 dark:text-amber-200 font-black">
+                  <span>🏛️</span> RTE (Right to Education) 100% Free Quota
+                </div>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300">
+                  School Tuition Fee is <strong>₹0.00 (100% Free by Govt.)</strong>. Only applicable 11-Month Transport Bus Fare is payable.
+                </p>
+                <div className="pt-2 border-t border-amber-500/20 flex justify-between font-bold text-slate-900 dark:text-white">
+                  <span>Transport Bus Fare (11M):</span>
+                  <span className="text-indigo-600 font-mono font-black">₹{(selectedChild.feeSummary?.totalDue || 0).toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between text-xs text-rose-600 font-bold">
+                  <span>Remaining Due:</span>
+                  <span className="font-mono">₹{(selectedChild.feeSummary?.balance || 0).toLocaleString()}</span>
+                </div>
+              </div>
+            ) : (
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs space-y-2">
+                <div className="flex justify-between">
+                  <span>Tuition Dues:</span>
+                  <strong className="font-mono">₹{(selectedChild.feeSummary?.tuitionDue || 13500).toLocaleString()}</strong>
+                </div>
+                <div className="flex justify-between">
+                  <span>Transport Bus Fare (11M):</span>
+                  <strong className="font-mono">₹{(selectedChild.feeSummary?.transportDue11Months || 0).toLocaleString()}</strong>
+                </div>
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-700 flex justify-between font-bold text-slate-900 dark:text-white">
+                  <span>Total Annual Due:</span>
+                  <span className="text-indigo-600 font-mono font-black">₹{(selectedChild.feeSummary?.totalDue || 0).toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between text-xs text-rose-600 font-bold">
+                  <span>Remaining Due:</span>
+                  <span className="font-mono">₹{(selectedChild.feeSummary?.balance || 0).toLocaleString()}</span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Transport Details */}
           <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
             <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <Bus className="w-5 h-5 text-emerald-600" /> Bus & Transport Details
             </h3>
 
             <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-2 text-xs">
-              <div className="flex justify-between"><span>Assigned Bus:</span><strong className="text-slate-900 dark:text-white">DL-1PB-4502 (Route 02)</strong></div>
-              <div className="flex justify-between"><span>Designated Stop:</span><strong className="text-slate-900 dark:text-white">Sector 62 Crossing</strong></div>
-              <div className="flex justify-between"><span>Morning Pickup:</span><strong className="text-emerald-700 font-bold">06:30 AM</strong></div>
-              <div className="flex justify-between"><span>Afternoon Drop:</span><strong className="text-emerald-700 font-bold">02:30 PM</strong></div>
-              <div className="flex justify-between"><span>Driver:</span><strong className="text-slate-900 dark:text-white">Satish Pal (+91 98722 33445)</strong></div>
+              <div className="flex justify-between"><span>Assigned Route:</span><strong className="text-slate-900 dark:text-white">{selectedChild.transport?.route || 'Route 1: NAGLA DHARAKPUR SIDE'}</strong></div>
+              <div className="flex justify-between"><span>Designated Stop:</span><strong className="text-slate-900 dark:text-white">{selectedChild.transport?.stop || 'JARGWAN'}</strong></div>
+              <div className="flex justify-between"><span>Monthly Bus Rate:</span><strong className="text-emerald-700 font-bold">₹{selectedChild.transport?.monthlyFare || 350}/mo</strong></div>
+              <div className="flex justify-between"><span>11-Month Annual Transport:</span><strong className="text-indigo-700 font-bold">₹{(selectedChild.transport?.monthlyFare * 11 || 3850).toLocaleString()}</strong></div>
+              <div className="flex justify-between"><span>Conveyance Driver:</span><strong className="text-slate-900 dark:text-white">Hemraj Singh (+91 97194 76606)</strong></div>
             </div>
           </div>
         </div>
