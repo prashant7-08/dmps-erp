@@ -236,19 +236,35 @@ export const AttendancePage = ({ initialType = 'student' }) => {
 
   // Monthly Biometric Matrix Data Calculation
   const monthlyMatrix = useMemo(() => {
-    return schoolService.getMonthlyStaffBiometricMatrix(selectedYearMonth, activeBranchId, monthlyDeptFilter);
+    try {
+      const res = schoolService.getMonthlyStaffBiometricMatrix(selectedYearMonth, activeBranchId, monthlyDeptFilter);
+      if (res && Array.isArray(res.dates) && Array.isArray(res.staffMatrix)) {
+        return res;
+      }
+    } catch (e) {
+      console.error('Error calculating monthlyMatrix', e);
+    }
+    return {
+      monthName: 'August',
+      year: 2026,
+      totalDays: 31,
+      dates: [],
+      staffMatrix: []
+    };
   }, [selectedYearMonth, activeBranchId, monthlyDeptFilter, staffRecords]);
 
   // Filtered staff in monthly matrix
   const filteredMonthlyStaff = useMemo(() => {
-    if (!monthlyMatrix || !monthlyMatrix.staffMatrix) return [];
+    if (!monthlyMatrix || !Array.isArray(monthlyMatrix.staffMatrix)) return [];
     if (!monthlySearchQuery.trim()) return monthlyMatrix.staffMatrix;
     const q = monthlySearchQuery.toLowerCase().trim();
     return monthlyMatrix.staffMatrix.filter(s => 
-      s.name.toLowerCase().includes(q) ||
-      s.employeeId.toLowerCase().includes(q) ||
-      s.designation.toLowerCase().includes(q) ||
-      s.department.toLowerCase().includes(q)
+      s && (
+        (s.name || '').toLowerCase().includes(q) ||
+        (s.employeeId || '').toLowerCase().includes(q) ||
+        (s.designation || '').toLowerCase().includes(q) ||
+        (s.department || '').toLowerCase().includes(q)
+      )
     );
   }, [monthlyMatrix, monthlySearchQuery]);
 

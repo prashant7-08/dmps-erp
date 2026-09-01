@@ -458,11 +458,11 @@ class SchoolService {
   // Automatic Staff Attendance Evaluator with Single-Punch Half-Day, 2x Penalty, and Sandwich Rule
   syncBiometricToAttendance(date = null) {
     const targetDate = date || new Date().toISOString().split('T')[0];
-    const logs = this.getBiometricLogs(targetDate);
-    const teachers = this.getTeachers();
+    const logs = Array.isArray(this.getBiometricLogs(targetDate)) ? this.getBiometricLogs(targetDate) : [];
+    const teachers = Array.isArray(this.getTeachers()) ? this.getTeachers() : [];
 
     const attendanceRecords = teachers.map(t => {
-      const punch = logs.find(l => l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name);
+      const punch = logs.find(l => l && (l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name));
       const isManagement = t.designation?.toLowerCase().includes('principal') || t.designation?.toLowerCase().includes('manager');
       const isSupportStaff = t.designation?.toLowerCase().includes('driver') || t.designation?.toLowerCase().includes('clean');
 
@@ -660,16 +660,17 @@ class SchoolService {
       });
     }
 
-    let teachers = this.getTeachers(branchId);
+    let teachers = Array.isArray(this.getTeachers(branchId)) ? this.getTeachers(branchId) : [];
     if (department && department !== 'All') {
-      teachers = teachers.filter(t => t.department === department);
+      teachers = teachers.filter(t => t && t.department === department);
     }
 
     // Historical attendance records map
-    const staffAtt = this.data.staffAttendance || [];
-    const bioLogs = this.data.biometricLogs || [];
+    const staffAtt = Array.isArray(this.data?.staffAttendance) ? this.data.staffAttendance : [];
+    const bioLogs = Array.isArray(this.data?.biometricLogs) ? this.data.biometricLogs : [];
 
     const staffMatrix = teachers.map(t => {
+      if (!t) return null;
       const dailyMap = {};
       let pCount = 0;
       let lCount = 0;
@@ -718,8 +719,8 @@ class SchoolService {
         }
 
         // Check if attendance row exists
-        const existingAtt = staffAtt.find(r => (r.staffId === t.id || r.name === t.name || r.employeeId === t.employeeId) && r.date === dateStr);
-        const existingPunch = bioLogs.find(l => (l.staffId === t.id || l.name === t.name || l.employeeId === t.employeeId) && l.punchDate === dateStr);
+        const existingAtt = Array.isArray(staffAtt) ? staffAtt.find(r => r && (r.staffId === t.id || r.name === t.name || r.employeeId === t.employeeId) && r.date === dateStr) : null;
+        const existingPunch = Array.isArray(bioLogs) ? bioLogs.find(l => l && (l.staffId === t.id || l.name === t.name || l.employeeId === t.employeeId) && l.punchDate === dateStr) : null;
 
         let status = 'Present';
         let inTime = '07:45 AM';
@@ -1190,9 +1191,10 @@ class SchoolService {
   }
 
   addSectionToClass(classId, sectionName) {
-    const cls = this.data.classes.find(c => c.id === classId);
+    const cls = (Array.isArray(this.data?.classes) ? this.data.classes : []).find(c => c && c.id === classId);
     if (cls) {
       const trimmed = sectionName.trim().toUpperCase();
+      if (!Array.isArray(cls.sections)) cls.sections = [];
       if (trimmed && !cls.sections.includes(trimmed)) {
         cls.sections.push(trimmed);
         this.saveData();
@@ -1203,8 +1205,9 @@ class SchoolService {
   }
 
   removeSectionFromClass(classId, sectionName) {
-    const cls = this.data.classes.find(c => c.id === classId);
+    const cls = (Array.isArray(this.data?.classes) ? this.data.classes : []).find(c => c && c.id === classId);
     if (cls) {
+      if (!Array.isArray(cls.sections)) cls.sections = [];
       cls.sections = cls.sections.filter(s => s !== sectionName);
       if (cls.sections.length === 0) {
         cls.sections = ['A'];
@@ -2436,7 +2439,8 @@ class SchoolService {
   }
 
   issueBook(bookId, studentId, dueDate) {
-    const book = this.data.libraryBooks.find(b => b.id === bookId);
+    const books = Array.isArray(this.data?.libraryBooks) ? this.data.libraryBooks : [];
+    const book = books.find(b => b && b.id === bookId);
     const student = this.getStudentById(studentId);
     if (!book || book.available <= 0 || !student) return null;
 
@@ -2454,17 +2458,20 @@ class SchoolService {
       fine: 0,
       status: "Issued"
     };
+    if (!Array.isArray(this.data?.bookIssues)) this.data.bookIssues = [];
     this.data.bookIssues.unshift(newIssue);
     this.saveData();
     return newIssue;
   }
 
   returnBook(issueId) {
-    const issue = this.data.bookIssues.find(i => i.id === issueId);
+    const issues = Array.isArray(this.data?.bookIssues) ? this.data.bookIssues : [];
+    const issue = issues.find(i => i && i.id === issueId);
     if (!issue) return null;
     issue.returnDate = new Date().toISOString().split('T')[0];
     issue.status = "Returned";
-    const book = this.data.libraryBooks.find(b => b.id === issue.bookId);
+    const books = Array.isArray(this.data?.libraryBooks) ? this.data.libraryBooks : [];
+    const book = books.find(b => b && b.id === issue.bookId);
     if (book) book.available += 1;
     this.saveData();
     return issue;
@@ -2510,7 +2517,8 @@ class SchoolService {
   }
 
   updateLeaveStatus(id, status, approverName) {
-    const leave = this.data.leaveRequests.find(l => l.id === id);
+    const leaves = Array.isArray(this.data?.leaveRequests) ? this.data.leaveRequests : [];
+    const leave = leaves.find(l => l && l.id === id);
     if (leave) {
       leave.status = status;
       leave.approvedBy = approverName || "Principal";
@@ -2521,10 +2529,11 @@ class SchoolService {
 
   // Certificates
   getCertificates() {
-    return this.data.certificates || [];
+    return Array.isArray(this.data?.certificates) ? this.data.certificates : [];
   }
 
   generateCertificate(certData) {
+    if (!Array.isArray(this.data?.certificates)) this.data.certificates = [];
     const newCert = {
       id: `CERT-2026-${Math.floor(100 + Math.random() * 900)}`,
       certNumber: `DPGA/${certData.type.slice(0, 3).toUpperCase()}/2026/${Math.floor(1000 + Math.random() * 9000)}`,
@@ -2539,10 +2548,11 @@ class SchoolService {
 
   // Complaints
   getComplaints() {
-    return this.data.complaints || [];
+    return Array.isArray(this.data?.complaints) ? this.data.complaints : [];
   }
 
   addComplaint(compData) {
+    if (!Array.isArray(this.data?.complaints)) this.data.complaints = [];
     const newComp = {
       id: `CMP-${String(this.data.complaints.length + 1).padStart(2, '0')}`,
       submissionDate: new Date().toISOString().split('T')[0],
@@ -2556,7 +2566,8 @@ class SchoolService {
   }
 
   resolveComplaint(id, resolution) {
-    const comp = this.data.complaints.find(c => c.id === id);
+    const complaints = Array.isArray(this.data?.complaints) ? this.data.complaints : [];
+    const comp = complaints.find(c => c && c.id === id);
     if (comp) {
       comp.status = "Resolved";
       comp.resolution = resolution;
@@ -2567,10 +2578,11 @@ class SchoolService {
 
   // Visitors
   getVisitors() {
-    return this.data.visitors || [];
+    return Array.isArray(this.data?.visitors) ? this.data.visitors : [];
   }
 
   addVisitor(visitorData) {
+    if (!Array.isArray(this.data?.visitors)) this.data.visitors = [];
     const newVis = {
       id: `VIS-${Math.floor(1000 + Math.random() * 9000)}`,
       passNo: `PASS-2026-${Math.floor(1000 + Math.random() * 9000)}`,
@@ -2586,7 +2598,8 @@ class SchoolService {
   }
 
   checkoutVisitor(id) {
-    const vis = this.data.visitors.find(v => v.id === id);
+    const visitors = Array.isArray(this.data?.visitors) ? this.data.visitors : [];
+    const vis = visitors.find(v => v && v.id === id);
     if (vis) {
       vis.exitTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       vis.status = "Checked Out";
@@ -2597,7 +2610,7 @@ class SchoolService {
 
   // Admission Inquiries (From Public Website & Front Desk)
   getAdmissionInquiries() {
-    if (!this.data.admissionInquiries) {
+    if (!Array.isArray(this.data?.admissionInquiries)) {
       this.data.admissionInquiries = [
         {
           id: 'INQ-2026-1042',
@@ -2617,7 +2630,7 @@ class SchoolService {
   }
 
   addAdmissionInquiry(inquiryData) {
-    if (!this.data.admissionInquiries) {
+    if (!Array.isArray(this.data?.admissionInquiries)) {
       this.data.admissionInquiries = [];
     }
     const newInq = {
@@ -2633,7 +2646,8 @@ class SchoolService {
   }
 
   updateInquiryStatus(id, status) {
-    const inq = this.data.admissionInquiries?.find(i => i.id === id);
+    const inquiries = Array.isArray(this.data?.admissionInquiries) ? this.data.admissionInquiries : [];
+    const inq = inquiries.find(i => i && i.id === id);
     if (inq) {
       inq.status = status;
       this.saveData();
