@@ -50,8 +50,9 @@ function AppContent() {
   const isDirectAppMode = () => {
     const hash = (window.location.hash || '').toLowerCase();
     const search = (window.location.search || '').toLowerCase();
+    const path = (window.location.pathname || '').toLowerCase();
     const isStandalone = window.matchMedia && window.matchMedia('(display-mode: standalone)').matches;
-    return isStandalone || hash === '#login' || hash === '#app' || search.includes('mode=app') || search.includes('app=true');
+    return isStandalone || hash === '#login' || hash === '#app' || path.endsWith('/app') || path.endsWith('/login') || search.includes('mode=app') || search.includes('app=true');
   };
 
   const [activeTab, setActiveTabState] = React.useState(getInitialTab);
