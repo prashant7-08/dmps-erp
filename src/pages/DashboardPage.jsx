@@ -1277,7 +1277,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
 
-        {/* LEFT 2 COLUMNS: Academic Examinations */}
+        {/* LEFT COLUMN: Academic Examinations */}
         <div className="lg:col-span-2 space-y-6">
           <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
             <div className="flex items-center justify-between">
@@ -1316,51 +1316,18 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           </div>
         </div>
 
-        {/* RIGHT 1 COLUMN: Live Notices & Campus Events */}
+        {/* RIGHT COLUMN: Upcoming School Events & Calendar */}
         <div className="space-y-6">
-
-          {/* Live Campus Circulars */}
           <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-                <Bell className="w-5 h-5 text-indigo-600" /> Campus Circulars
-              </h3>
-              <button
-                onClick={() => setActiveTab('notices')}
-                className="text-xs font-bold text-indigo-600 hover:text-indigo-700"
-              >
-                View All
-              </button>
-            </div>
-
-            <div className="space-y-3">
-              {notices.map(n => (
-                <div key={n.id} className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-xs space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-slate-900 dark:text-white truncate max-w-[180px]">{n.title}</span>
-                    {n.isEmergency && <Badge variant="danger" size="sm">Urgent</Badge>}
-                  </div>
-                  <p className="text-[11px] text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">{n.content}</p>
-                  <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 flex justify-between text-[10px] text-slate-400 font-semibold">
-                    <span>{n.target}</span>
-                    <span>{n.publishDate}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Upcoming School Events */}
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-purple-600" /> Upcoming Events
+                <Calendar className="w-5 h-5 text-purple-600" /> Upcoming Campus Events
               </h3>
               <button
                 onClick={() => setActiveTab('calendar')}
                 className="text-xs font-bold text-indigo-600 hover:text-indigo-700"
               >
-                Calendar
+                Full Calendar
               </button>
             </div>
 
@@ -1376,7 +1343,6 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               ))}
             </div>
           </div>
-
         </div>
 
       </div>
