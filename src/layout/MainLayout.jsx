@@ -60,6 +60,7 @@ export const MainLayout = ({
         <TopNav
           currentRole={currentRole}
           setCurrentRole={setCurrentRole}
+          setActiveTab={setActiveTab}
           onOpenSidebar={() => setSidebarOpen(true)}
           isSidebarCollapsed={isSidebarCollapsed}
           setIsSidebarCollapsed={setIsSidebarCollapsed}

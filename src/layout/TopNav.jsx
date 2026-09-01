@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Search,
   Bell,
@@ -15,7 +15,12 @@ import {
   FilePlus2,
   LogOut,
   GitBranch,
-  Globe
+  Globe,
+  User,
+  KeyRound,
+  Mail,
+  Briefcase,
+  Calendar
 } from 'lucide-react';
 import schoolService from '../services/schoolService';
 import { useAuth } from '../context/AuthContext';
@@ -23,6 +28,7 @@ import { useAuth } from '../context/AuthContext';
 export const TopNav = ({
   currentRole,
   setCurrentRole,
+  setActiveTab,
   onOpenSidebar,
   isSidebarCollapsed,
   setIsSidebarCollapsed,
@@ -38,6 +44,20 @@ export const TopNav = ({
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showQuickActions, setShowQuickActions] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+
+  const profileRef = useRef(null);
+
+  // Close menus when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (profileRef.current && !profileRef.current.contains(e.target)) {
+        setShowProfileMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const students = schoolService.getStudents(activeBranchId);
   const teachers = schoolService.getTeachers(activeBranchId);
@@ -51,20 +71,17 @@ export const TopNav = ({
     ? teachers.filter(t => (t.name || '').toLowerCase().includes(searchQuery.toLowerCase()) || (t.department || '').toLowerCase().includes(searchQuery.toLowerCase()))
     : [];
 
-  const roles = [
-    { id: 'Super Admin', label: 'Super Admin', color: 'bg-rose-500' },
-    { id: 'Principal', label: 'Principal', color: 'bg-purple-500' },
-    { id: 'Teacher', label: 'Teacher', color: 'bg-indigo-500' },
-    { id: 'Accountant', label: 'Accountant', color: 'bg-emerald-500' },
-    { id: 'Librarian', label: 'Librarian', color: 'bg-amber-500' },
-    { id: 'Parent', label: 'Parent Portal', color: 'bg-cyan-500' },
-    { id: 'Student', label: 'Student Portal', color: 'bg-blue-500' }
-  ];
-
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     window.location.reload();
+  };
+
+  const currentUser = {
+    name: user?.name || (currentRole === 'Super Admin' ? 'Super Admin (Prashant)' : currentRole === 'Principal' ? 'Mrs. Kavita Rani' : 'Prashant Kumar Rajput'),
+    role: user?.role || currentRole || 'Super Admin',
+    email: user?.email || 'admin@dmps.edu.in',
+    photo: user?.photo || null
   };
 
   return (
@@ -173,10 +190,10 @@ export const TopNav = ({
       </div>
 
       {/* Right Controls */}
-      <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+      <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
         {/* Branch Selector Dropdown (Super Admin Switcher / Assigned Branch Badge) */}
         {isSuperAdmin ? (
-          <div className="hidden md:flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 text-amber-950 dark:text-amber-200 shadow-sm shrink-0">
+          <div className="hidden lg:flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 text-amber-950 dark:text-amber-200 shadow-sm shrink-0">
             <GitBranch className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
             <select
               value={activeBranchId}
@@ -253,15 +270,14 @@ export const TopNav = ({
           )}
         </div>
 
-        {/* View Public Website Button */}
+        {/* View Public Website Button (Compact Icon with Tooltip) */}
         {onViewWebsite && (
           <button
             onClick={onViewWebsite}
             title="View Official School Website"
-            className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold hover:bg-amber-400 hover:text-slate-950 dark:hover:bg-amber-400 dark:hover:text-slate-950 transition-all border border-slate-200 dark:border-slate-700 shadow-sm shrink-0"
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-amber-400 hover:text-slate-950 dark:hover:bg-amber-400 dark:hover:text-slate-950 transition-all border border-slate-200 dark:border-slate-700 shadow-xs shrink-0"
           >
-            <Globe className="w-3.5 h-3.5 text-amber-500" />
-            <span>Website</span>
+            <Globe className="w-4 h-4 text-amber-500" />
           </button>
         )}
 
@@ -269,7 +285,7 @@ export const TopNav = ({
         <button
           onClick={onOpenAI}
           title="Open AI School Assistant"
-          className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 hover:scale-105 transition-all shadow-sm"
+          className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 hover:scale-105 transition-all shadow-xs"
         >
           <Sparkles className="w-4 h-4 text-amber-500 animate-pulse" />
         </button>
@@ -277,10 +293,15 @@ export const TopNav = ({
         {/* Notification Bell with Drawer */}
         <div className="relative">
           <button
-            onClick={() => setShowNotifications(!showNotifications)}
-            className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative"
+            onClick={() => {
+              setShowNotifications(!showNotifications);
+              setShowProfileMenu(false);
+              setShowQuickActions(false);
+            }}
+            className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors relative shadow-xs"
+            title="Notifications & Circulars"
           >
-            <Bell className="w-4 h-4" />
+            <Bell className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
             <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white dark:ring-slate-900 animate-ping"></span>
             <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white dark:ring-slate-900"></span>
           </button>
@@ -310,7 +331,7 @@ export const TopNav = ({
         {/* Working Dark / Light Mode Toggle Button */}
         <button
           onClick={toggleDarkMode}
-          className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-all hover:scale-105"
+          className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-all hover:scale-105 shadow-xs"
           title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
         >
           {darkMode ? (
@@ -320,15 +341,128 @@ export const TopNav = ({
           )}
         </button>
 
-        {/* Logout Button */}
-        <button
-          onClick={handleLogout}
-          className="p-2 sm:px-3 py-1.5 bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-100 text-rose-600 dark:text-rose-400 rounded-xl text-xs font-bold border border-rose-200 dark:border-rose-800 transition-all flex items-center gap-1 hover:scale-105"
-          title="Sign Out"
-        >
-          <LogOut className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Logout</span>
-        </button>
+        {/* Academic Session Badge */}
+        <span className="text-xs font-black text-rose-600 dark:text-rose-400 font-mono tracking-wide hidden sm:inline ml-1">
+          2026-2027
+        </span>
+        <span className="text-slate-300 dark:text-slate-700 hidden sm:inline font-bold">|</span>
+
+        {/* 👤 User Profile Dropdown Component */}
+        <div className="relative" ref={profileRef}>
+          <button
+            onClick={() => {
+              setShowProfileMenu(!showProfileMenu);
+              setShowNotifications(false);
+              setShowQuickActions(false);
+            }}
+            className="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-indigo-500/40 border border-slate-200 dark:border-slate-700 transition-all shadow-xs shrink-0"
+            title="User Account & Profile Details"
+          >
+            <div className="w-8 h-8 rounded-xl bg-slate-200 dark:bg-slate-700 overflow-hidden flex flex-col items-center justify-center border border-slate-300 dark:border-slate-600 relative">
+              {currentUser.photo ? (
+                <img src={currentUser.photo} alt={currentUser.name} className="w-full h-full object-cover" />
+              ) : (
+                <div className="flex flex-col items-center justify-center text-slate-600 dark:text-slate-300">
+                  <User className="w-4 h-4" />
+                  <span className="text-[7px] font-bold leading-none uppercase">Photo</span>
+                </div>
+              )}
+            </div>
+          </button>
+
+          {/* User Profile Floating Card Dropdown */}
+          {showProfileMenu && (
+            <div className="absolute right-0 top-full mt-2 w-72 sm:w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-4 z-50 animate-in fade-in space-y-3">
+              {/* Profile Card Header */}
+              <div className="flex items-center gap-3.5 pb-3 border-b border-slate-100 dark:border-slate-800">
+                <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 border-2 border-indigo-200 dark:border-indigo-800/60 overflow-hidden flex flex-col items-center justify-center shadow-inner shrink-0 relative">
+                  {currentUser.photo ? (
+                    <img src={currentUser.photo} alt={currentUser.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center text-slate-500">
+                      <User className="w-7 h-7" />
+                      <span className="text-[8px] font-black uppercase text-slate-400">Photo</span>
+                    </div>
+                  )}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-xs font-black text-slate-900 dark:text-white truncate leading-tight">
+                    {currentUser.name}
+                  </h4>
+                  <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-0.5 truncate">
+                    {currentUser.role}
+                  </p>
+                  <button
+                    onClick={handleLogout}
+                    className="mt-1.5 px-3 py-1 bg-rose-600 hover:bg-rose-700 text-white rounded-lg text-[10px] font-black uppercase tracking-wider flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                  >
+                    <LogOut className="w-3 h-3" /> Logout
+                  </button>
+                </div>
+              </div>
+
+              {/* Menu List */}
+              <div className="space-y-1 text-xs">
+                <button
+                  onClick={() => {
+                    if (setActiveTab) setActiveTab('settings');
+                    else if (onQuickAction) onQuickAction('profile');
+                    setShowProfileMenu(false);
+                  }}
+                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left"
+                >
+                  <User className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                  <span>Profile</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    if (setActiveTab) setActiveTab('settings');
+                    else if (onQuickAction) onQuickAction('password');
+                    setShowProfileMenu(false);
+                  }}
+                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left"
+                >
+                  <KeyRound className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                  <span>Reset Password</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setShowNotifications(true);
+                    setShowProfileMenu(false);
+                  }}
+                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left"
+                >
+                  <Mail className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <span>Mailbox</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    if (setActiveTab) setActiveTab('settings');
+                    else if (onQuickAction) onQuickAction('settings');
+                    setShowProfileMenu(false);
+                  }}
+                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left"
+                >
+                  <Briefcase className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                  <span>Global Settings</span>
+                </button>
+
+                <div className="pt-1 border-t border-slate-100 dark:border-slate-800">
+                  <button
+                    onClick={handleLogout}
+                    className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-950/40 text-rose-600 dark:text-rose-400 font-bold transition-colors text-left"
+                  >
+                    <LogOut className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+                    <span>Logout</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
