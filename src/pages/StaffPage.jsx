@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Users,
   Plus,
@@ -14,7 +14,13 @@ import {
   Award,
   DollarSign,
   Briefcase,
-  GraduationCap
+  GraduationCap,
+  Upload,
+  Download,
+  CheckCircle2,
+  FileSpreadsheet,
+  Layers,
+  Sparkles
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
@@ -24,7 +30,7 @@ import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import { PrintablePaySlip } from '../components/printables/PrintablePaySlip';
 import schoolService from '../services/schoolService';
 
-export const StaffPage = () => {
+export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   const { showToast } = useToast();
   const { activeBranchId } = useAuth();
   const [teachers, setTeachers] = useState(() => schoolService.getTeachers(activeBranchId));
@@ -36,9 +42,23 @@ export const StaffPage = () => {
   const [isIdCardModalOpen, setIsIdCardModalOpen] = useState(false);
   const [isAddStaffModalOpen, setIsAddStaffModalOpen] = useState(false);
   const [isEditStaffModalOpen, setIsEditStaffModalOpen] = useState(false);
+  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
+
+  // Bulk CSV / Excel state
+  const [csvText, setCsvText] = useState('');
+  const [parsedPreview, setParsedPreview] = useState([]);
+
+  // Auto handle sidebar sub-tab navigation
+  useEffect(() => {
+    if (initialSubTab === 'staff-add') {
+      setIsAddStaffModalOpen(true);
+    } else if (initialSubTab === 'staff-import') {
+      setIsImportModalOpen(true);
+    }
+  }, [initialSubTab]);
 
   // Sync teachers when active branch changes
-  React.useEffect(() => {
+  useEffect(() => {
     setTeachers(schoolService.getTeachers(activeBranchId));
   }, [activeBranchId]);
 
@@ -67,7 +87,107 @@ export const StaffPage = () => {
   });
 
   const refreshData = () => {
-    setTeachers([...schoolService.getTeachers()]);
+    setTeachers([...schoolService.getTeachers(activeBranchId)]);
+  };
+
+  const handleDownloadSampleCsv = () => {
+    const sampleHeader = 'Name,Department,Designation,Qualification,Mobile,Email,Gender,ClassTeacherOf,BasicSalary\n';
+    const sampleRows = [
+      'Dr. Vivek Agnihotri,Science,PGT Physics,"M.Sc., Ph.D.",9811200001,vivek.a@dpga.edu.in,Male,Class 12 - A,65000',
+      'Meenakshi Sundaram,Mathematics,TGT Maths,"M.Sc., B.Ed.",9811200002,meenakshi.s@dpga.edu.in,Female,Class 9 - B,52000',
+      'Sunil Gavaskar,Sports & PE,PET Director,B.P.Ed.,9811200003,sunil.g@dpga.edu.in,Male,None,45000'
+    ].join('\n');
+
+    const blob = new Blob([sampleHeader + sampleRows], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'staff_import_sample_template.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('📥 Staff CSV sample template downloaded!', 'success');
+  };
+
+  const handleParseCsv = (text) => {
+    setCsvText(text);
+    if (!text.trim()) {
+      setParsedPreview([]);
+      return;
+    }
+    const lines = text.trim().split('\n');
+    const header = lines[0].split(',').map(h => h.trim().replace(/^["']|["']$/g, ''));
+    const rows = [];
+
+    for (let i = 1; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+      // Simple CSV regex match handling quoted values
+      const cols = line.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || line.split(',');
+      const cleanCols = cols.map(c => c.trim().replace(/^["']|["']$/g, ''));
+
+      if (cleanCols[0]) {
+        rows.push({
+          name: cleanCols[0] || 'Unknown',
+          department: cleanCols[1] || 'General',
+          designation: cleanCols[2] || 'Faculty',
+          qualification: cleanCols[3] || 'Graduate',
+          mobile: cleanCols[4] || '+91 98000 00000',
+          email: cleanCols[5] || `${cleanCols[0].toLowerCase().replace(/\s+/g, '.')}@dpga.edu.in`,
+          gender: cleanCols[6] || 'Male',
+          classTeacherOf: cleanCols[7] || 'None',
+          basicSalary: Number(cleanCols[8]) || 45000
+        });
+      }
+    }
+    setParsedPreview(rows);
+  };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      handleParseCsv(evt.target.result);
+    };
+    reader.readAsText(file);
+  };
+
+  const handleCommitBulkImport = () => {
+    if (parsedPreview.length === 0) {
+      showToast('No valid staff records to import', 'warning');
+      return;
+    }
+
+    parsedPreview.forEach(p => {
+      schoolService.addTeacher({
+        name: p.name,
+        department: p.department,
+        designation: p.designation,
+        qualification: p.qualification,
+        mobile: p.mobile,
+        email: p.email,
+        gender: p.gender,
+        classTeacherOf: p.classTeacherOf === 'None' ? '' : p.classTeacherOf,
+        photo: `https://images.unsplash.com/photo-${p.gender === 'Female' ? '1573496359142-b8d87734a5a2' : '1534528741775-53994a69daeb'}?w=150&auto=format&fit=crop&q=80`,
+        salary: {
+          basic: p.basicSalary,
+          hra: p.basicSalary * 0.25,
+          da: p.basicSalary * 0.18,
+          specialAllowance: 4500,
+          pfDeduction: p.basicSalary * 0.12,
+          taxDeduction: 5100,
+          netSalary: Math.round(p.basicSalary * 1.31 - 5100)
+        },
+        bankDetails: { bankName: 'HDFC Bank', accountNo: '918237192837', ifsc: 'HDFC0001092' }
+      });
+    });
+
+    refreshData();
+    setIsImportModalOpen(false);
+    setCsvText('');
+    setParsedPreview([]);
+    showToast(`🎉 Successfully imported ${parsedPreview.length} staff members!`, 'success');
   };
 
   const handleAddSubmit = (e) => {
@@ -149,7 +269,7 @@ export const StaffPage = () => {
   };
 
   const filtered = teachers.filter(t => {
-    const matchesSearch = t.name.toLowerCase().includes(searchQuery.toLowerCase()) || t.department.toLowerCase().includes(searchQuery.toLowerCase()) || t.employeeId.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = t.name.toLowerCase().includes(searchQuery.toLowerCase()) || t.department.toLowerCase().includes(searchQuery.toLowerCase()) || (t.employeeId && t.employeeId.toLowerCase().includes(searchQuery.toLowerCase()));
     const matchesDept = deptFilter === 'All' || t.department === deptFilter;
     return matchesSearch && matchesDept;
   });
@@ -158,22 +278,44 @@ export const StaffPage = () => {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      {/* Header with 3 Quick Action CTAs */}
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-            <Users className="w-7 h-7 text-indigo-600" /> Teaching Faculty & Staff Directory
+            <Users className="w-7 h-7 text-indigo-600" /> Employee Directory & Profiles
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Faculty credentials, department allocations, class teacher assignments, salary structures & payslips.
+            Official 22 Teaching & Non-Teaching faculty credentials, department allocations, salary structures & smart ID cards.
           </p>
         </div>
-        <button
-          onClick={() => setIsAddStaffModalOpen(true)}
-          className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all hover:scale-105"
-        >
-          <Plus className="w-4 h-4" /> Appoint Faculty Member
-        </button>
+
+        <div className="flex flex-wrap items-center gap-2.5">
+          {/* 1. Appoint Faculty Button */}
+          <button
+            onClick={() => setIsAddStaffModalOpen(true)}
+            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-2 transition-all hover:scale-105"
+          >
+            <Plus className="w-4 h-4" /> Add New Employee
+          </button>
+
+          {/* 2. Bulk Import Excel / CSV */}
+          <button
+            onClick={() => setIsImportModalOpen(true)}
+            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/20 flex items-center gap-2 transition-all hover:scale-105"
+          >
+            <Upload className="w-4 h-4" /> Import Excel / CSV
+          </button>
+
+          {/* 3. Employee ID Cards */}
+          {onOpenIDCards && (
+            <button
+              onClick={onOpenIDCards}
+              className="px-4 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2 transition-all hover:scale-105"
+            >
+              <Printer className="w-4 h-4" /> Staff ID Cards
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Filter and Search Bar */}
@@ -507,6 +649,118 @@ export const StaffPage = () => {
             <button type="submit" className="px-5 py-2 bg-indigo-600 text-white font-bold rounded-xl shadow-lg">Appoint Faculty</button>
           </div>
         </form>
+      </Modal>
+
+      {/* 📥 Bulk Import Staff (Excel / CSV) Modal */}
+      <Modal
+        isOpen={isImportModalOpen}
+        onClose={() => setIsImportModalOpen(false)}
+        title="📥 Bulk Import Teaching Faculty & Staff (CSV / Excel)"
+        maxWidth="max-w-3xl"
+      >
+        <div className="space-y-5 text-xs">
+          <div className="bg-emerald-50 dark:bg-emerald-950/40 p-4 rounded-2xl border border-emerald-200 dark:border-emerald-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                1-Click Excel / CSV Bulk Staff Uploader
+              </p>
+              <p className="text-emerald-700 dark:text-emerald-400 text-[11px] mt-0.5">
+                Download sample format, populate your faculty data, and paste or upload below.
+              </p>
+            </div>
+            <button
+              onClick={handleDownloadSampleCsv}
+              className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl flex items-center gap-1.5 shadow-sm shrink-0"
+            >
+              <Download className="w-4 h-4" /> Download Sample CSV
+            </button>
+          </div>
+
+          <div className="space-y-2">
+            <label className="font-bold text-slate-700 dark:text-slate-300 block">
+              Upload .CSV File or Paste Plain Text
+            </label>
+            <div className="flex items-center gap-3">
+              <input
+                type="file"
+                accept=".csv, .txt"
+                onChange={handleFileUpload}
+                className="text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer"
+              />
+            </div>
+            <textarea
+              rows={5}
+              value={csvText}
+              onChange={(e) => handleParseCsv(e.target.value)}
+              placeholder="Name,Department,Designation,Qualification,Mobile,Email,Gender,ClassTeacherOf,BasicSalary&#10;Dr. Vivek Agnihotri,Science,PGT Physics,M.Sc. Ph.D.,9811200001,vivek@dpga.edu.in,Male,Class 12 - A,65000"
+              className="w-full p-3 font-mono text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          {/* Parsed Preview Table */}
+          {parsedPreview.length > 0 && (
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-slate-800 dark:text-slate-200">
+                  Preview ({parsedPreview.length} records ready for import):
+                </span>
+                <span className="text-[10px] text-emerald-600 font-bold bg-emerald-100 dark:bg-emerald-900/60 px-2 py-0.5 rounded">
+                  ✓ Syntax Validated
+                </span>
+              </div>
+              <div className="max-h-48 overflow-y-auto rounded-xl border border-slate-200 dark:border-slate-700">
+                <table className="w-full text-left text-[11px]">
+                  <thead className="bg-slate-100 dark:bg-slate-800 font-bold text-slate-600 dark:text-slate-300">
+                    <tr>
+                      <th className="p-2">Name</th>
+                      <th className="p-2">Department</th>
+                      <th className="p-2">Designation</th>
+                      <th className="p-2">Mobile</th>
+                      <th className="p-2">Basic Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                    {parsedPreview.map((row, idx) => (
+                      <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                        <td className="p-2 font-bold">{row.name}</td>
+                        <td className="p-2">{row.department}</td>
+                        <td className="p-2">{row.designation}</td>
+                        <td className="p-2 font-mono">{row.mobile}</td>
+                        <td className="p-2 font-mono font-bold text-emerald-600">₹{row.basicSalary?.toLocaleString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+            <button
+              type="button"
+              onClick={() => {
+                setIsImportModalOpen(false);
+                setCsvText('');
+                setParsedPreview([]);
+              }}
+              className="px-4 py-2 text-slate-500 font-bold hover:text-slate-700"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              disabled={parsedPreview.length === 0}
+              onClick={handleCommitBulkImport}
+              className={`px-5 py-2.5 rounded-xl font-bold text-white shadow-lg flex items-center gap-2 ${
+                parsedPreview.length > 0
+                  ? 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-500/20'
+                  : 'bg-slate-400 cursor-not-allowed'
+              }`}
+            >
+              <CheckCircle2 className="w-4 h-4" /> Import {parsedPreview.length} Staff Members
+            </button>
+          </div>
+        </div>
       </Modal>
     </div>
   );

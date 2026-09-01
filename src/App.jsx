@@ -157,7 +157,10 @@ function AppContent() {
       case 'students':
         return <StudentsPage initialSelectedStudent={selectedStudentForProfile} onOpenNewAdmission={() => setActiveTab('admission')} />;
       case 'staff':
-        return <StaffPage />;
+      case 'staff-add':
+      case 'staff-import':
+      case 'employees':
+        return <StaffPage initialSubTab={activeTab} onOpenIDCards={() => setActiveTab('card-employee-id')} />;
       case 'academics':
       case 'acad-classes':
       case 'acad-assign-teacher':

@@ -35,7 +35,8 @@ import {
   FileText,
   CreditCard as CardIcon,
   Globe,
-  GitBranch
+  GitBranch,
+  Briefcase
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../components/common/Toast';
@@ -77,14 +78,27 @@ export const navigationGroups = [
     icon: GraduationCap,
     items: [
       { id: 'students', label: 'Student List & Profiles', badge: 'Active' },
+      { id: 'admission', label: 'New Student Admission', badge: 'New' },
       { id: 'students-import', label: 'Import Excel / CSV', badge: 'Bulk' }
+    ]
+  },
+  {
+    id: 'employee-group',
+    permissionKey: 'staff',
+    label: 'EMPLOYEE DETAILS',
+    icon: Users,
+    items: [
+      { id: 'staff', label: 'Employee Directory & Profiles', badge: 'Active' },
+      { id: 'staff-add', label: 'Add New Employee / Faculty', badge: 'New' },
+      { id: 'card-employee-id', label: 'Employee ID Cards & Print', badge: 'Print' },
+      { id: 'staff-import', label: 'Import Staff Excel / CSV', badge: 'Bulk' }
     ]
   },
   {
     id: 'staff-group',
     permissionKey: 'staff',
     label: 'HUMAN RESOURCE',
-    icon: Users,
+    icon: Briefcase,
     items: [
       { id: 'hr-template', targetTab: 'payroll', subTab: 'template', label: 'Salary Template', badge: null },
       { id: 'hr-assign', targetTab: 'payroll', subTab: 'assign', label: 'Salary Assign', badge: null },
