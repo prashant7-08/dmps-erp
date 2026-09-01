@@ -503,251 +503,410 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       </div>
 
       {/* ========================================================================= */}
-      {/* 📅 SECTION 3: 3 STUDENT ATTENDANCE CARDS (Under Graphs) */}
+      {/* 📅 SECTION 3: UNIFIED 2-COLUMN DASHBOARD (ATTENDANCE & BIRTHDAYS & STAFF + TASK PLANNER) */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        
+        {/* 👈 LEFT COLUMN: Compact Attendance Stats + Birthdays + Staff Strength (7 Cols) */}
+        <div className="lg:col-span-7 space-y-3.5">
           
-        {/* Card 1: Total Present (Ocean Blue Gradient) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-800 text-white flex items-center justify-between shadow">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-              <UserCheck className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase text-teal-100">Total Present Today</h4>
-              <p className="text-xl font-black font-mono">{stats?.presentStudentsToday || 541}</p>
-            </div>
-          </div>
-          <div className="text-right text-[11px] text-teal-100 font-semibold space-y-0.5">
-            <div>Boys: <strong className="text-white">{Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
-            <div>Girls: <strong className="text-white">{(stats?.presentStudentsToday || 541) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
-          </div>
-        </div>
-
-        {/* Card 2: Total Absent (Orange/Pink Gradient) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-600 to-rose-600 text-white flex items-center justify-between shadow">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-              <UserX className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase text-amber-100">Total Absent Today</h4>
-              <p className="text-xl font-black font-mono">{stats?.absentStudentsToday || 26}</p>
-            </div>
-          </div>
-          <div className="text-right text-[11px] text-amber-100 font-semibold space-y-0.5">
-            <div>Boys: <strong className="text-white">{(stats?.boysCount || 318) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
-            <div>Girls: <strong className="text-white">{(stats?.girlsCount || 249) - ((stats?.presentStudentsToday || 541) - Math.round((stats?.boysCount || 318) * 0.954))}</strong></div>
-          </div>
-        </div>
-
-        {/* Card 3: Attendance Not Marked (Dark Charcoal Alert) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-stone-900 text-white flex items-center justify-between shadow border border-slate-700">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
-              <AlertTriangle className="w-5 h-5 text-amber-400" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase text-slate-300">Not Marked</h4>
-              <p className="text-xl font-black font-mono text-emerald-400">0</p>
-            </div>
-          </div>
-          <div className="text-right text-[11px] text-slate-400 font-semibold space-y-0.5">
-            <div>Boys: <strong className="text-white">0</strong></div>
-            <div>Girls: <strong className="text-white">0</strong></div>
-          </div>
-        </div>
-
-      </div>
-
-      {/* ========================================================================= */}
-      {/* 🎂 SECTION 4: LIVE BIRTHDAYS & STAFF STRENGTH / ATTENDANCE MATRIX */}
-      {/* ========================================================================= */}
-      <div className="space-y-6">
-
-        {/* 2 Rich Birthday Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          {/* Student Birthdays Card */}
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between gap-4">
-            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white flex items-center justify-center shadow-md shadow-pink-500/20">
-                  <Cake className="w-5 h-5" />
+          {/* 1. Compact 3 Attendance Cards */}
+          <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
+            {/* Present */}
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-800 text-white flex flex-col sm:flex-row sm:items-center justify-between shadow-xs gap-1.5">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                  <UserCheck className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                    Student Birthdays & Celebrations
-                  </h4>
-                  <p className="text-xs text-slate-400 mt-0.5">
-                    {birthdays?.todayStudents?.length > 0
-                      ? `${birthdays.todayStudents.length} Students celebrating today!`
-                      : 'Upcoming student birthdays in this month'}
-                  </p>
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-teal-100 leading-tight">Total Present</h4>
+                  <p className="text-base sm:text-lg font-black font-mono leading-none mt-0.5">{stats?.presentStudentsToday || 541}</p>
                 </div>
               </div>
-              <span className="text-[11px] font-bold text-pink-700 dark:text-pink-300 bg-pink-50 dark:bg-pink-950/60 border border-pink-200 dark:border-pink-800/60 px-3 py-1 rounded-xl">
-                🎂 {birthdays?.todayDateFormatted || 'September'}
-              </span>
+              <div className="text-right text-[9px] text-teal-100 font-semibold space-y-0.5 hidden sm:block">
+                <div>Boys: <strong className="text-white">{Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
+                <div>Girls: <strong className="text-white">{(stats?.presentStudentsToday || 541) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
+              </div>
             </div>
 
-            {/* Birthday List Items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {(birthdays?.todayStudents?.length > 0 ? birthdays.todayStudents : birthdays?.upcomingStudents || []).slice(0, 4).map((st, idx) => (
-                <div key={idx} className="flex items-center justify-between p-2.5 rounded-2xl bg-pink-50/50 dark:bg-slate-800/60 border border-pink-100 dark:border-slate-700/60 hover:scale-[1.02] transition-transform">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-pink-400 to-amber-300 text-slate-900 font-black text-xs flex items-center justify-center shrink-0 shadow-xs">
-                      {st.name?.charAt(0)}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">{st.name}</p>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">{st.class || 'Student'}</p>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-black px-2 py-0.5 rounded-lg bg-white dark:bg-slate-900 text-pink-600 dark:text-pink-400 shadow-xs border border-pink-100 dark:border-slate-700 shrink-0">
-                    {st.birthdayFormatted || 'Today 🎉'}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Staff Birthdays Card */}
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between gap-4">
-            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-700 text-white flex items-center justify-center shadow-md shadow-purple-500/20">
-                  <Heart className="w-5 h-5 text-amber-300" />
+            {/* Absent */}
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-br from-amber-600 to-rose-600 text-white flex flex-col sm:flex-row sm:items-center justify-between shadow-xs gap-1.5">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                  <UserX className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                    Staff & Faculty Birthdays
-                  </h4>
-                  <p className="text-xs text-slate-400 mt-0.5">
-                    {birthdays?.todayStaff?.length > 0
-                      ? `${birthdays.todayStaff.length} Staff members celebrating today!`
-                      : 'Upcoming staff birthdays in this month'}
-                  </p>
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-amber-100 leading-tight">Total Absent</h4>
+                  <p className="text-base sm:text-lg font-black font-mono leading-none mt-0.5">{stats?.absentStudentsToday || 26}</p>
                 </div>
               </div>
-              <span className="text-[11px] font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 px-3 py-1 rounded-xl">
-                ✨ Faculty
-              </span>
+              <div className="text-right text-[9px] text-amber-100 font-semibold space-y-0.5 hidden sm:block">
+                <div>Boys: <strong className="text-white">{(stats?.boysCount || 318) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
+                <div>Girls: <strong className="text-white">{(stats?.girlsCount || 249) - ((stats?.presentStudentsToday || 541) - Math.round((stats?.boysCount || 318) * 0.954))}</strong></div>
+              </div>
             </div>
 
-            {/* Staff Birthday List Items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {(birthdays?.todayStaff?.length > 0 ? birthdays.todayStaff : birthdays?.upcomingStaff || []).slice(0, 4).map((tc, idx) => (
-                <div key={idx} className="flex items-center justify-between p-2.5 rounded-2xl bg-purple-50/50 dark:bg-slate-800/60 border border-purple-100 dark:border-slate-700/60 hover:scale-[1.02] transition-transform">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-400 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-xs">
-                      {tc.name?.charAt(0)}
+            {/* Not Marked */}
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-br from-slate-900 to-stone-900 text-white flex flex-col sm:flex-row sm:items-center justify-between shadow-xs border border-slate-700/60 gap-1.5">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <AlertTriangle className="w-4 h-4 text-amber-400" />
+                </div>
+                <div>
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-300 leading-tight">Not Marked</h4>
+                  <p className="text-base sm:text-lg font-black font-mono text-emerald-400 leading-none mt-0.5">0</p>
+                </div>
+              </div>
+              <div className="text-right text-[9px] text-slate-400 font-semibold space-y-0.5 hidden sm:block">
+                <div>Boys: <strong className="text-white">0</strong></div>
+                <div>Girls: <strong className="text-white">0</strong></div>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Compact 2 Birthday Cards (Side by Side) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Student Birthdays */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-2">
+              <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-pink-500/15 text-pink-600 flex items-center justify-center">
+                    <Cake className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-[11px] font-black text-slate-900 dark:text-white uppercase tracking-wider leading-tight">
+                      Student Birthdays
+                    </h4>
+                    <p className="text-[9px] text-slate-400">
+                      {birthdays?.todayStudents?.length || 3} Celebrating today
+                    </p>
+                  </div>
+                </div>
+                <span className="text-[9px] font-bold text-pink-600 bg-pink-50 dark:bg-pink-950/60 px-2 py-0.5 rounded-lg border border-pink-200/60">
+                  🎂 Sep 2
+                </span>
+              </div>
+
+              <div className="space-y-1.5 max-h-36 overflow-y-auto custom-scrollbar">
+                {(birthdays?.todayStudents?.length > 0 ? birthdays.todayStudents : birthdays?.upcomingStudents || []).slice(0, 3).map((st, idx) => (
+                  <div key={idx} className="flex items-center justify-between p-1.5 px-2 rounded-xl bg-pink-50/40 dark:bg-slate-800/60 border border-pink-100/60 dark:border-slate-700/60 text-[11px]">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-pink-400 to-amber-300 text-slate-900 font-black text-[9px] flex items-center justify-center shrink-0">
+                        {st.name?.charAt(0)}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-bold text-slate-800 dark:text-slate-100 truncate">{st.name}</p>
+                        <p className="text-[9px] text-slate-400">{st.class || 'Student'}</p>
+                      </div>
                     </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">{tc.name}</p>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">{tc.designation || 'Teacher'}</p>
+                    <span className="text-[9px] font-black px-1.5 py-0.5 rounded bg-white dark:bg-slate-900 text-pink-600 shadow-2xs shrink-0">
+                      {st.birthdayFormatted || 'Today 🎉'}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Staff Birthdays */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-2">
+              <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-purple-500/15 text-purple-600 flex items-center justify-center">
+                    <Heart className="w-4 h-4 text-purple-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-[11px] font-black text-slate-900 dark:text-white uppercase tracking-wider leading-tight">
+                      Staff Birthdays
+                    </h4>
+                    <p className="text-[9px] text-slate-400">
+                      Upcoming this month
+                    </p>
+                  </div>
+                </div>
+                <span className="text-[9px] font-bold text-purple-600 bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded-lg border border-purple-200/60">
+                  ✨ Faculty
+                </span>
+              </div>
+
+              <div className="space-y-1.5 max-h-36 overflow-y-auto custom-scrollbar">
+                {(birthdays?.todayStaff?.length > 0 ? birthdays.todayStaff : birthdays?.upcomingStaff || []).slice(0, 3).map((tc, idx) => (
+                  <div key={idx} className="flex items-center justify-between p-1.5 px-2 rounded-xl bg-purple-50/40 dark:bg-slate-800/60 border border-purple-100/60 dark:border-slate-700/60 text-[11px]">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-400 text-white font-black text-[9px] flex items-center justify-center shrink-0">
+                        {tc.name?.charAt(0)}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-bold text-slate-800 dark:text-slate-100 truncate">{tc.name}</p>
+                        <p className="text-[9px] text-slate-400">{tc.designation || 'Teacher'}</p>
+                      </div>
+                    </div>
+                    <span className="text-[9px] font-black px-1.5 py-0.5 rounded bg-white dark:bg-slate-900 text-purple-600 shadow-2xs shrink-0">
+                      {tc.birthdayFormatted || 'Sep 4'}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Compact 3 Staff Strength Cards */}
+          <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
+            {/* Employee */}
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-xs space-y-0.5">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-100">Employee</span>
+                <span className="text-lg sm:text-xl font-black font-mono">{stats?.totalTeachers || 22}</span>
+              </div>
+              <p className="text-[9px] text-amber-200 font-semibold">TOTAL STRENGTH</p>
+            </div>
+
+            {/* Teachers */}
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-br from-purple-700 to-indigo-900 text-white shadow-xs space-y-0.5">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-purple-100">Teachers</span>
+                <span className="text-lg sm:text-xl font-black font-mono">{stats?.teachingStaff || 14}</span>
+              </div>
+              <p className="text-[9px] text-purple-200 font-semibold">TOTAL STRENGTH</p>
+            </div>
+
+            {/* Other Staff */}
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-br from-teal-600 to-emerald-800 text-white shadow-xs space-y-0.5">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-teal-100">Other Staff</span>
+                <span className="text-lg sm:text-xl font-black font-mono">{stats?.supportStaff || 9}</span>
+              </div>
+              <p className="text-[9px] text-teal-200 font-semibold">TOTAL STRENGTH</p>
+            </div>
+          </div>
+
+          {/* 4. Compact 4 Staff Today's Attendance Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <div className="p-2 sm:p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/25 text-blue-900 dark:text-blue-200 flex items-center justify-between">
+              <div>
+                <span className="text-[9px] font-bold uppercase block leading-tight">Teaching Present</span>
+                <span className="text-[8px] text-blue-500 font-bold">TODAY</span>
+              </div>
+              <span className="text-base font-black font-mono text-blue-600 dark:text-blue-300">{stats?.teachingStaff || 14}</span>
+            </div>
+
+            <div className="p-2 sm:p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/25 text-orange-900 dark:text-orange-200 flex items-center justify-between">
+              <div>
+                <span className="text-[9px] font-bold uppercase block leading-tight">Teaching Absent</span>
+                <span className="text-[8px] text-orange-500 font-bold">TODAY</span>
+              </div>
+              <span className="text-base font-black font-mono text-orange-600 dark:text-orange-300">0</span>
+            </div>
+
+            <div className="p-2 sm:p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/25 text-cyan-900 dark:text-cyan-200 flex items-center justify-between">
+              <div>
+                <span className="text-[9px] font-bold uppercase block leading-tight">Non-Teach Present</span>
+                <span className="text-[8px] text-cyan-500 font-bold">TODAY</span>
+              </div>
+              <span className="text-base font-black font-mono text-cyan-600 dark:text-cyan-300">{stats?.supportStaff || 9}</span>
+            </div>
+
+            <div className="p-2 sm:p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/25 text-rose-900 dark:text-rose-200 flex items-center justify-between">
+              <div>
+                <span className="text-[9px] font-bold uppercase block leading-tight">Non-Teach Absent</span>
+                <span className="text-[8px] text-rose-500 font-bold">TODAY</span>
+              </div>
+              <span className="text-base font-black font-mono text-rose-600 dark:text-rose-300">0</span>
+            </div>
+          </div>
+
+        </div>
+
+        {/* 👉 RIGHT COLUMN: Compact Daily Task & Action Planner (5 Cols) */}
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-3.5">
+          {/* Planner Header */}
+          <div className="flex items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-2.5">
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 shrink-0">
+                  <ListTodo className="w-4 h-4" />
+                </span>
+                <h3 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white truncate">
+                  Daily Task & Action Planner
+                </h3>
+                <span className="px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold text-[10px] border border-indigo-200 dark:border-indigo-800 shrink-0">
+                  {completedCount}/{tasks.length} ({progressPercent}%)
+                </span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setIsAddingTask(!isAddingTask)}
+              className="px-2.5 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-[11px] font-bold shadow-xs flex items-center gap-1 shrink-0 transition-all hover:scale-105 active:scale-95"
+            >
+              <Plus className="w-3.5 h-3.5" /> {isAddingTask ? 'Close' : 'Add Task'}
+            </button>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-purple-600 via-indigo-600 to-emerald-500 transition-all duration-500"
+              style={{ width: `${progressPercent}%` }}
+            ></div>
+          </div>
+
+          {/* Quick Add Task Form */}
+          {isAddingTask && (
+            <form
+              onSubmit={handleCreateTask}
+              className="p-3 rounded-2xl bg-purple-50/60 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800/60 space-y-2 text-xs animate-in fade-in"
+            >
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-0.5 text-[10px]">Task Title *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Call Fee Defaulter Parents..."
+                  value={newTaskTitle}
+                  onChange={(e) => setNewTaskTitle(e.target.value)}
+                  className="w-full p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-xs font-medium"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-0.5 text-[10px]">Priority</label>
+                  <select
+                    value={newTaskPriority}
+                    onChange={(e) => setNewTaskPriority(e.target.value)}
+                    className="w-full p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-xs font-semibold"
+                  >
+                    <option value="urgent">⚡ Urgent</option>
+                    <option value="today">🎯 Today</option>
+                    <option value="soon">⏳ Soon</option>
+                    <option value="later">📋 Later</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-0.5 text-[10px]">Category</label>
+                  <select
+                    value={newTaskCategory}
+                    onChange={(e) => setNewTaskCategory(e.target.value)}
+                    className="w-full p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-xs font-semibold"
+                  >
+                    <option value="Academics">Academics</option>
+                    <option value="Fees & Accounts">Fees & Accounts</option>
+                    <option value="Administration">Administration</option>
+                    <option value="Examinations">Examinations</option>
+                    <option value="Transport">Transport</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-1.5 pt-1">
+                <button
+                  type="button"
+                  onClick={() => setIsAddingTask(false)}
+                  className="px-2.5 py-1 rounded-lg text-[10px] font-bold text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-3 py-1 rounded-lg text-[10px] font-bold bg-purple-600 hover:bg-purple-700 text-white shadow-xs"
+                >
+                  Save Task
+                </button>
+              </div>
+            </form>
+          )}
+
+          {/* Compact Filter Pills */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-[11px] custom-scrollbar">
+            {[
+              { key: 'All', label: `All (${tasks.length})` },
+              { key: 'Urgent', label: `⚡ Urgent (${tasks.filter(t => t.priority === 'urgent').length})` },
+              { key: 'Today', label: `🎯 Today (${tasks.filter(t => t.priority === 'today').length})` },
+              { key: 'Soon', label: `⏳ Soon (${tasks.filter(t => t.priority === 'soon' || t.priority === 'later').length})` },
+              { key: 'Pending', label: `Pending (${tasks.filter(t => !t.completed).length})` },
+              { key: 'Completed', label: `✓ (${completedCount})` }
+            ].map(f => (
+              <button
+                key={f.key}
+                onClick={() => setTaskFilter(f.key)}
+                className={`px-2 py-1 rounded-lg font-bold transition-all whitespace-nowrap text-[10px] ${
+                  taskFilter === f.key
+                    ? 'bg-purple-600 text-white shadow-xs'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Compact Task Rows List */}
+          <div className="space-y-2 max-h-[380px] overflow-y-auto custom-scrollbar pr-0.5">
+            {filteredTasks.map(task => {
+              const isDone = task.completed;
+              const priorityBadges = {
+                urgent: 'bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border-rose-300',
+                today: 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border-amber-300',
+                soon: 'bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 border-blue-300',
+                later: 'bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border-purple-300'
+              };
+
+              const priorityLabels = {
+                urgent: '⚡ Urgent',
+                today: '🎯 Today',
+                soon: '⏳ Soon',
+                later: '📋 Later'
+              };
+
+              return (
+                <div
+                  key={task.id}
+                  className={`p-2.5 rounded-2xl border transition-all flex items-start gap-2.5 ${
+                    isDone
+                      ? 'bg-slate-50/70 dark:bg-slate-900/40 border-slate-200/60 dark:border-slate-800 opacity-60'
+                      : 'bg-white dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 hover:shadow-xs'
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={isDone}
+                    onChange={() => handleToggleTask(task.id)}
+                    className="w-4 h-4 rounded text-purple-600 focus:ring-purple-500 cursor-pointer mt-0.5 shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center justify-between gap-1">
+                      <span className={`text-xs font-bold leading-snug ${isDone ? 'line-through text-slate-400' : 'text-slate-900 dark:text-slate-100'}`}>
+                        {task.title}
+                      </span>
+                      <span className={`text-[9px] font-black uppercase px-1.5 py-0.5 rounded-md border ${priorityBadges[task.priority] || priorityBadges.today} shrink-0`}>
+                        {priorityLabels[task.priority] || 'Today'}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 mt-1 text-[10px] text-slate-400 font-medium">
+                      <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 text-slate-600 dark:text-slate-300 font-semibold">
+                        {task.category}
+                      </span>
+                      <span>• Due: {task.dueDate || 'Today'}</span>
                     </div>
                   </div>
-                  <span className="text-[10px] font-black px-2 py-0.5 rounded-lg bg-white dark:bg-slate-900 text-purple-600 dark:text-purple-300 shadow-xs border border-purple-100 dark:border-slate-700 shrink-0">
-                    {tc.birthdayFormatted || 'Today 🎈'}
-                  </span>
+                  <button
+                    onClick={() => handleDeleteTask(task.id)}
+                    className="p-1 rounded-lg text-slate-400 hover:text-rose-600 transition-colors shrink-0"
+                    title="Delete Task"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
                 </div>
-              ))}
-            </div>
+              );
+            })}
+
+            {filteredTasks.length === 0 && (
+              <p className="text-center text-xs text-slate-400 py-6 italic">
+                No tasks found under "{taskFilter}". Click "+ Add Task" to create one!
+              </p>
+            )}
           </div>
-
-        </div>
-
-        {/* 3 Staff Strength Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          
-          {/* Card 1: Employee (Peach/Orange Gradient) */}
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white space-y-3 shadow">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                <Users className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-2xl font-black font-mono">{stats?.totalTeachers || 23}</span>
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-amber-100">Employee</h4>
-              <p className="text-[10px] text-amber-200 font-semibold mt-0.5">TOTAL STRENGTH</p>
-            </div>
-          </div>
-
-          {/* Card 2: Teachers (Deep Purple Gradient) */}
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-purple-700 to-indigo-900 text-white space-y-3 shadow">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-2xl font-black font-mono">{stats?.teachingStaff || 14}</span>
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-purple-100">Teachers</h4>
-              <p className="text-[10px] text-purple-200 font-semibold mt-0.5">TOTAL STRENGTH</p>
-            </div>
-          </div>
-
-          {/* Card 3: Other Staff (Teal/Emerald Gradient) */}
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-teal-600 to-emerald-800 text-white space-y-3 shadow">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                <Briefcase className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-2xl font-black font-mono">{stats?.supportStaff || 9}</span>
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-teal-100">Other Staff</h4>
-              <p className="text-[10px] text-teal-200 font-semibold mt-0.5">TOTAL STRENGTH</p>
-            </div>
-          </div>
-
-        </div>
-
-        {/* 4 Staff Today's Attendance Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          
-          <div className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-900 dark:text-blue-200 flex items-center justify-between">
-            <div className="space-y-0.5">
-              <span className="text-xs font-bold uppercase">Teaching Staff Present</span>
-              <p className="text-[10px] text-blue-600 dark:text-blue-400 font-bold">TODAY</p>
-            </div>
-            <span className="text-2xl font-black font-mono text-blue-600 dark:text-blue-300">
-              {stats?.teachingStaff || 14}
-            </span>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-900 dark:text-orange-200 flex items-center justify-between">
-            <div className="space-y-0.5">
-              <span className="text-xs font-bold uppercase">Teaching Staff Absent</span>
-              <p className="text-[10px] text-orange-600 dark:text-orange-400 font-bold">TODAY</p>
-            </div>
-            <span className="text-2xl font-black font-mono text-orange-600 dark:text-orange-300">
-              0
-            </span>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-900 dark:text-cyan-200 flex items-center justify-between">
-            <div className="space-y-0.5">
-              <span className="text-xs font-bold uppercase">Non-teaching Present</span>
-              <p className="text-[10px] text-cyan-600 dark:text-cyan-400 font-bold">TODAY</p>
-            </div>
-            <span className="text-2xl font-black font-mono text-cyan-600 dark:text-cyan-300">
-              {stats?.supportStaff || 9}
-            </span>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-900 dark:text-rose-200 flex items-center justify-between">
-            <div className="space-y-0.5">
-              <span className="text-xs font-bold uppercase">Non-teaching Absent</span>
-              <p className="text-[10px] text-rose-600 dark:text-rose-400 font-bold">TODAY</p>
-            </div>
-            <span className="text-2xl font-black font-mono text-rose-600 dark:text-rose-300">
-              0
-            </span>
-          </div>
-
         </div>
 
       </div>
@@ -1029,214 +1188,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
         </div>
       </div>
 
-      {/* ========================================================================= */}
-      {/* 📋 SECTION 9: DAILY TASK & ACTION PLANNER */}
-      {/* ========================================================================= */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="p-2 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300">
-                <ListTodo className="w-5 h-5" />
-              </span>
-              <h3 className="text-base font-black text-slate-900 dark:text-white">
-                Admin & Staff Daily Task & Action Planner
-              </h3>
-              <span className="px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold text-xs border border-indigo-200 dark:border-indigo-800">
-                {completedCount}/{tasks.length} Done ({progressPercent}%)
-              </span>
-            </div>
-            <p className="text-xs text-slate-500 mt-1">
-              Prioritized daily action items, fee recovery calls, CBSE compliances, exam blueprints, and operational checklists.
-            </p>
-          </div>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsAddingTask(!isAddingTask)}
-              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold shadow-md shadow-purple-500/20 flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
-            >
-              <Plus className="w-4 h-4" /> {isAddingTask ? 'Close Form' : 'Add New Task'}
-            </button>
-          </div>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-purple-600 via-indigo-600 to-emerald-500 transition-all duration-500"
-            style={{ width: `${progressPercent}%` }}
-          ></div>
-        </div>
-
-        {/* Quick Add Task Form */}
-        {isAddingTask && (
-          <form
-            onSubmit={handleCreateTask}
-            className="p-4 rounded-2xl bg-purple-50/60 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800/60 space-y-3 animate-in fade-in duration-200"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
-              <div className="sm:col-span-2">
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Task Title / Action Item *</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Call Fee Defaulter Parents for Class 10 POS Collection..."
-                  value={newTaskTitle}
-                  onChange={(e) => setNewTaskTitle(e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-medium"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Priority</label>
-                <select
-                  value={newTaskPriority}
-                  onChange={(e) => setNewTaskPriority(e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold"
-                >
-                  <option value="urgent">⚡ Urgent (Immediate)</option>
-                  <option value="today">🎯 Today (High)</option>
-                  <option value="soon">⏳ Soon (Medium)</option>
-                  <option value="later">📋 Later (Low)</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Category</label>
-                <select
-                  value={newTaskCategory}
-                  onChange={(e) => setNewTaskCategory(e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold"
-                >
-                  <option value="Academics">Academics</option>
-                  <option value="Fees & Accounts">Fees & Accounts</option>
-                  <option value="Administration">Administration</option>
-                  <option value="Examinations">Examinations</option>
-                  <option value="Transport">Transport</option>
-                  <option value="Library">Library</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="flex justify-end gap-2 pt-1">
-              <button
-                type="button"
-                onClick={() => setIsAddingTask(false)}
-                className="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="px-4 py-1.5 rounded-xl text-xs font-bold bg-purple-600 hover:bg-purple-700 text-white shadow-sm"
-              >
-                Save Task
-              </button>
-            </div>
-          </form>
-        )}
-
-        {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
-          {[
-            { key: 'All', label: `All (${tasks.length})` },
-            { key: 'Urgent', label: `⚡ Urgent (${tasks.filter(t => t.priority === 'urgent').length})` },
-            { key: 'Today', label: `🎯 Today (${tasks.filter(t => t.priority === 'today').length})` },
-            { key: 'Soon', label: `⏳ Soon (${tasks.filter(t => t.priority === 'soon' || t.priority === 'later').length})` },
-            { key: 'Pending', label: `Pending (${tasks.filter(t => !t.completed).length})` },
-            { key: 'Completed', label: `✓ Completed (${completedCount})` }
-          ].map(f => (
-            <button
-              key={f.key}
-              onClick={() => setTaskFilter(f.key)}
-              className={`px-3 py-1.5 rounded-xl font-bold transition-all whitespace-nowrap ${
-                taskFilter === f.key
-                  ? 'bg-purple-600 text-white shadow-sm'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Task Rows List */}
-        <div className="space-y-2">
-          {filteredTasks.map(task => {
-            const isDone = task.completed;
-            const priorityBadges = {
-              urgent: 'bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-800',
-              today: 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800',
-              soon: 'bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 border-blue-300 dark:border-blue-800',
-              later: 'bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border-purple-300 dark:border-purple-800'
-            };
-
-            const priorityLabels = {
-              urgent: '⚡ Urgent',
-              today: '🎯 Today',
-              soon: '⏳ Soon',
-              later: '📋 Later'
-            };
-
-            return (
-              <div
-                key={task.id}
-                className={`p-3.5 rounded-2xl border transition-all flex items-center justify-between gap-3 ${
-                  isDone
-                    ? 'bg-slate-50/50 dark:bg-slate-800/30 border-slate-200 dark:border-slate-800 opacity-60'
-                    : 'bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-purple-300'
-                }`}
-              >
-                <div className="flex items-center gap-3 flex-1 min-w-0">
-                  <input
-                    type="checkbox"
-                    checked={isDone}
-                    onChange={() => handleToggleTask(task.id)}
-                    className="w-4 h-4 rounded text-purple-600 focus:ring-purple-500 cursor-pointer shrink-0"
-                  />
-                  <div className="min-w-0">
-                    <p className={`text-xs font-bold text-slate-900 dark:text-white truncate ${isDone ? 'line-through text-slate-400 dark:text-slate-500' : ''}`}>
-                      {task.title}
-                    </p>
-                    {task.description && (
-                      <p className="text-[10px] text-slate-500 truncate mt-0.5">
-                        {task.description}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2 shrink-0 text-[10px]">
-                  <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold hidden sm:inline-block">
-                    {task.category}
-                  </span>
-                  <span className={`px-2 py-0.5 rounded-lg font-bold border ${priorityBadges[task.priority] || priorityBadges.today}`}>
-                    {priorityLabels[task.priority] || '🎯 Today'}
-                  </span>
-                  <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 font-mono hidden md:inline-block">
-                    Due: {task.dueDate}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => handleDeleteTask(task.id)}
-                    className="p-1 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950 transition-colors"
-                    title="Delete task"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-
-          {filteredTasks.length === 0 && (
-            <p className="text-center text-xs text-slate-400 py-6 italic">
-              No tasks found under "{taskFilter}" filter. Click "+ Add New Task" to create one!
-            </p>
-          )}
-        </div>
-      </div>
 
       {/* ========================================================================= */}
       {/* 📢 SECTION 10: 2-COLUMN GRID (Exams Schedule | Circulars & Events) */}
