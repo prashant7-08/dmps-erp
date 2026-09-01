@@ -273,6 +273,32 @@ export const AttendancePage = ({ initialType = 'student' }) => {
     window.print();
   };
 
+  // Bulk Mark Month Present Handler
+  const handleBulkMarkMonthPresent = () => {
+    if (!monthlyMatrix || !monthlyMatrix.dates) return;
+    const workingDates = monthlyMatrix.dates.filter(d => !d.isSunday && !d.isHoliday);
+    const teachers = schoolService.getTeachers(activeBranchId);
+    
+    workingDates.forEach(d => {
+      teachers.forEach(t => {
+        if (t.joiningDate && d.dateStr < t.joiningDate) return;
+        if (t.leavingDate && d.dateStr > t.leavingDate) return;
+        schoolService.quickSetStaffAttendance(t.id, d.dateStr, 'Present', '07:45 AM', '02:30 PM');
+      });
+    });
+    setStaffRecords(schoolService.getStaffAttendance(selectedDate));
+    showToast(`Marked all teachers Present for ${monthlyMatrix.monthName} ${monthlyMatrix.year}! You can now click any day to adjust. ✅`, 'success');
+  };
+
+  // Clear All Data Handler
+  const handleClearAllAttendance = () => {
+    if (window.confirm("Are you sure you want to delete all attendance and biometric records to start 100% fresh?")) {
+      schoolService.clearAllAttendanceLogs();
+      setStaffRecords(schoolService.getStaffAttendance(selectedDate));
+      showToast("All simulated attendance and biometric data deleted completely! Clean slate active. 🗑️", 'info');
+    }
+  };
+
   const statusColors = {
     Present: 'bg-emerald-600 text-white font-bold',
     Late: 'bg-amber-600 text-white font-bold',
@@ -437,12 +463,28 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  onClick={handleBulkMarkMonthPresent}
+                  className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/25 flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
+                  title="Mark all staff members Present for this month (you can click individual cells to change)"
+                >
+                  <CheckCircle2 className="w-4 h-4" /> ⚡ Mark Month Present
+                </button>
+
+                <button
+                  onClick={handleClearAllAttendance}
+                  className="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-900/60 rounded-xl text-xs font-bold flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
+                  title="Wipe all simulated attendance records to start clean"
+                >
+                  <Trash2 className="w-4 h-4" /> 🗑️ Reset Month
+                </button>
+
                 <button
                   onClick={handlePrintMonthlyRegister}
-                  className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
+                  className="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
                 >
-                  <Printer className="w-4 h-4" /> 🖨️ Print Monthly Calendar Register
+                  <Printer className="w-4 h-4" /> 🖨️ Print Register
                 </button>
               </div>
             </div>
@@ -600,44 +642,70 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                             );
                           }
 
+                          const isUnmarked = !record || record?.status === 'Unmarked';
                           const isPresent = record?.status === 'Present';
                           const isLate = record?.status === 'Late';
                           const isHalfDay = record?.status === 'Half-Day';
                           const isAbsent = record?.status === 'Absent';
+                          const isLeave = record?.status === 'Leave';
 
                           return (
                             <td
                               key={d.dateStr}
-                              className={`p-1 border-r border-slate-200 dark:border-slate-700 ${
-                                isAbsent
+                              onClick={() => {
+                                const nextStatus = 
+                                  isUnmarked ? 'Present' :
+                                  isPresent ? 'Late' :
+                                  isLate ? 'Half-Day' :
+                                  isHalfDay ? 'Absent' :
+                                  isAbsent ? 'Leave' :
+                                  isLeave ? 'OD' : 'Unmarked';
+                                schoolService.quickSetStaffAttendance(staff.staffId, d.dateStr, nextStatus);
+                                setStaffRecords(schoolService.getStaffAttendance(selectedDate));
+                                showToast(`${staff.name} on ${d.dateStr}: ${nextStatus} ✅`, 'success');
+                              }}
+                              className={`p-1 border-r border-slate-200 dark:border-slate-700 cursor-pointer select-none hover:ring-2 hover:ring-indigo-500 hover:z-10 transition-all ${
+                                isUnmarked
+                                  ? 'bg-slate-50/50 dark:bg-slate-800/20'
+                                  : isAbsent
                                   ? 'bg-rose-50 dark:bg-rose-950/30'
                                   : isLate
                                   ? 'bg-amber-50/60 dark:bg-amber-950/20'
                                   : isHalfDay
                                   ? 'bg-cyan-50/60 dark:bg-cyan-950/20'
-                                  : ''
+                                  : isLeave
+                                  ? 'bg-purple-50/60 dark:bg-purple-950/20'
+                                  : 'bg-emerald-50/40 dark:bg-emerald-950/20'
                               }`}
-                              title={`${staff.name} on ${d.dateStr}: ${record?.status} (In: ${record?.inTime}, Out: ${record?.outTime})`}
+                              title={`${staff.name} on ${d.dateStr}: ${record?.status || 'Unmarked'} (Click to change status)`}
                             >
-                              {isAbsent ? (
+                              {isUnmarked ? (
+                                <div className="space-y-0.5 text-center py-1">
+                                  <span className="text-[10px] font-bold text-slate-300 dark:text-slate-600 block">--</span>
+                                </div>
+                              ) : isAbsent ? (
                                 <div className="space-y-0.5">
                                   <span className="text-[9px] font-black text-rose-600 block">A</span>
-                                  <span className="text-[7px] text-slate-400 block font-mono">--:--</span>
+                                  <span className="text-[7px] text-slate-400 block font-mono">Absent</span>
+                                </div>
+                              ) : isLeave ? (
+                                <div className="space-y-0.5">
+                                  <span className="text-[9px] font-black text-purple-600 block">L</span>
+                                  <span className="text-[7px] text-purple-400 block font-mono">Leave</span>
                                 </div>
                               ) : (
                                 <div className="space-y-0.5 leading-none">
-                                  <span className={`text-[8px] font-mono font-bold block ${
-                                    isHalfDay
-                                      ? 'text-rose-500 font-semibold'
-                                      : isLate
-                                      ? 'text-amber-700 dark:text-amber-400'
-                                      : 'text-emerald-700 dark:text-emerald-400'
-                                  }`}>
-                                    {record?.conciseIn || '07:45'}
-                                  </span>
-                                  <span className="text-[8px] font-mono text-slate-500 block">
-                                    {record?.conciseOut || '14:30'}
-                                  </span>
+                                  {record?.inTime && record?.inTime !== '--:--' && (
+                                    <span className={`text-[8px] font-mono font-bold block ${
+                                      isHalfDay
+                                        ? 'text-rose-500 font-semibold'
+                                        : isLate
+                                        ? 'text-amber-700 dark:text-amber-400'
+                                        : 'text-emerald-700 dark:text-emerald-400'
+                                    }`}>
+                                      {record?.conciseIn}
+                                    </span>
+                                  )}
                                   <span className={`inline-block px-1 rounded text-[7px] font-black ${
                                     isLate
                                       ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300'

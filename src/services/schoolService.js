@@ -433,14 +433,48 @@ class SchoolService {
   }
 
   getBiometricLogs(date = null) {
-    if (!Array.isArray(this.data.biometricLogs) || this.data.biometricLogs.length < 50) {
-      this.syncAllPastBiometricOverWifi();
-    }
     const logs = Array.isArray(this.data.biometricLogs) ? this.data.biometricLogs : [];
     if (date && date !== 'all') {
       return logs.filter(l => l && l.punchDate === date);
     }
     return logs;
+  }
+
+  // 🗑️ Delete and Reset all simulated biometric and attendance data
+  clearAllAttendanceLogs() {
+    this.data.biometricLogs = [];
+    this.data.staffAttendance = [];
+    this.saveData();
+    return { success: true, message: "All fake/simulated attendance data wiped clean!" };
+  }
+
+  // ⚡ Fast manual single-cell update on monthly grid
+  quickSetStaffAttendance(staffId, dateStr, status = 'Present', inTime = '07:45 AM', outTime = '02:30 PM') {
+    if (!Array.isArray(this.data.staffAttendance)) this.data.staffAttendance = [];
+    const teacher = this.getTeachers().find(t => t.id === staffId);
+    if (!teacher) return false;
+
+    // Remove old record for this staff and date
+    this.data.staffAttendance = this.data.staffAttendance.filter(r => !(r.staffId === staffId && r.date === dateStr));
+
+    if (status !== 'Unmarked') {
+      this.data.staffAttendance.push({
+        staffId,
+        name: teacher.name,
+        employeeId: teacher.employeeId,
+        department: teacher.department,
+        designation: teacher.designation,
+        date: dateStr,
+        status,
+        inTime: inTime || (status === 'Present' ? '07:45 AM' : '--:--'),
+        outTime: outTime || (status === 'Present' ? '02:30 PM' : '--:--'),
+        workDuration: status === 'Present' ? '6h 45m' : status === 'Half-Day' ? '3h 30m' : '0h 00m',
+        remarks: 'Manual Entry / Paper Register'
+      });
+    }
+
+    this.saveData();
+    return true;
   }
 
   addBiometricLog(log) {
@@ -772,24 +806,23 @@ class SchoolService {
         const existingAtt = Array.isArray(staffAtt) ? staffAtt.find(r => r && (r.staffId === t.id || r.name === t.name || r.employeeId === t.employeeId) && r.date === dateStr) : null;
         const existingPunch = Array.isArray(bioLogs) ? bioLogs.find(l => l && (l.staffId === t.id || l.name === t.name || l.employeeId === t.employeeId) && l.punchDate === dateStr) : null;
 
-        let status = 'Present';
-        let inTime = '07:45 AM';
-        let outTime = '02:30 PM';
-        let workDuration = '6h 45m';
+        let status = 'Unmarked';
+        let inTime = '--:--';
+        let outTime = '--:--';
+        let workDuration = '0h 00m';
 
         if (existingAtt) {
           status = existingAtt.status || 'Present';
-          inTime = existingAtt.inTime || '07:45 AM';
-          outTime = existingAtt.outTime || '02:30 PM';
-          workDuration = existingAtt.workDuration || '6h 45m';
+          inTime = existingAtt.inTime || '--:--';
+          outTime = existingAtt.outTime || '--:--';
+          workDuration = existingAtt.workDuration || (status === 'Present' ? '6h 45m' : '0h 00m');
         } else if (existingPunch) {
-          status = existingPunch.status === 'Late Arrival' ? 'Late' : 'Present';
-          inTime = existingPunch.inTime || '07:45 AM';
-          outTime = existingPunch.outTime || '02:30 PM';
-          workDuration = '6h 45m';
+          status = existingPunch.status === 'Late Arrival' ? 'Late' : (existingPunch.status || 'Present');
+          inTime = existingPunch.inTime || '--:--';
+          outTime = existingPunch.outTime || '--:--';
+          workDuration = existingPunch.workDuration || '6h 45m';
         } else if (isPrashant) {
-          // 👑 Prashant Kumar Rajput (Super Admin): Visits school ~4-5 specific days per month
-          // Selected days: 1st, 8th, 15th, 22nd, 28th (if working day)
+          // 👑 Prashant Kumar Rajput (Super Admin & Principal): Visits school ~4-5 specific days per month
           const campusDays = [1, 8, 15, 22, 28];
           if (campusDays.includes(d.dayNum)) {
             status = 'Present';
@@ -816,63 +849,12 @@ class SchoolService {
             outTime = '--:--';
             workDuration = '0h 00m';
           }
-        } else if (isShwetaSwati) {
-          // ⏰ Shweta Raghav & Swati Raghav: Habitually late, morning punch frequently missed!
-          const seed = (t.name.length * 17 + d.dayNum * 13 + month * 23) % 100;
-          if (seed < 12) {
-            // ~3-4 days on time
-            status = 'Present';
-            inTime = `07:${String(45 + (seed % 10)).padStart(2, '0')} AM`;
-            outTime = `02:25 PM`;
-            workDuration = '6h 40m';
-          } else if (seed < 40) {
-            // ~6-7 days Morning punch missed -> Machine rule auto Half-Day (HD)
-            status = 'Half-Day';
-            inTime = `Missed`;
-            outTime = `02:${String(20 + (seed % 15)).padStart(2, '0')} PM`;
-            workDuration = '3h 30m';
-          } else if (seed < 92) {
-            // ~13-15 days Late Arrival
-            status = 'Late';
-            inTime = `08:${String(15 + (seed % 25)).padStart(2, '0')} AM`;
-            outTime = `02:${String(20 + (seed % 15)).padStart(2, '0')} PM`;
-            workDuration = '6h 05m';
-          } else {
-            // ~1-2 days Absent
-            status = 'Absent';
-            inTime = '--:--';
-            outTime = '--:--';
-            workDuration = '0h 00m';
-          }
         } else {
-          // 🏫 Regular Teachers & Drivers: Realistic school machine setting
-          // Teachers frequently miss morning punch -> Auto Half-Day!
-          const seed = (t.name.length * 13 + d.dayNum * 7 + month * 19) % 100;
-          if (seed < 5) {
-            // ~1-2 days Absent
-            status = 'Absent';
-            inTime = '--:--';
-            outTime = '--:--';
-            workDuration = '0h 00m';
-          } else if (seed < 28) {
-            // ~5-6 days Morning Punch Missed -> Auto Half-Day (HD)
-            status = 'Half-Day';
-            inTime = `Missed`;
-            outTime = `02:${String(15 + (seed % 20)).padStart(2, '0')} PM`;
-            workDuration = '3h 30m';
-          } else if (seed < 48) {
-            // ~4-5 days Late Arrival
-            status = 'Late';
-            inTime = `08:${String(5 + (seed % 18)).padStart(2, '0')} AM`;
-            outTime = `02:${String(15 + (seed % 20)).padStart(2, '0')} PM`;
-            workDuration = '6h 15m';
-          } else {
-            // Regular On-Time Present
-            status = 'Present';
-            inTime = `07:${String(35 + (seed % 20)).padStart(2, '0')} AM`;
-            outTime = `02:${String(15 + (seed % 25)).padStart(2, '0')} PM`;
-            workDuration = '6h 45m';
-          }
+          // 🏫 Clean Default: Unmarked (No fake simulated times or random seeds)
+          status = 'Unmarked';
+          inTime = '--:--';
+          outTime = '--:--';
+          workDuration = '0h 00m';
         }
 
         // Format inTime and outTime concisely (e.g. 07:45 / 14:30)
