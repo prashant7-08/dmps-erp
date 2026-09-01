@@ -61,16 +61,16 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
 
   // Advance Salary Requests
   const [advanceRequests, setAdvanceRequests] = useState([
-    { id: 'ADV-01', staffName: 'Sunita Chauhan', role: 'TGT Hindi', requestedAmount: 15000, date: '2026-08-15', monthlyDeduction: 3000, reason: 'Family Medical Emergency', status: 'Approved' },
-    { id: 'ADV-02', staffName: 'Sonu Kumar', role: 'Senior Bus Driver', requestedAmount: 10000, date: '2026-08-20', monthlyDeduction: 2500, reason: 'House Repair / Festival', status: 'Approved' },
-    { id: 'ADV-03', staffName: 'Meena Saxena', role: 'PRT Science', requestedAmount: 12000, date: '2026-08-25', monthlyDeduction: 3000, reason: 'Higher Education Fee', status: 'Pending' }
+    { id: 'ADV-01', staffName: 'SHWETA RAGHAV', role: 'Secondary Teacher', requestedAmount: 15000, date: '2026-08-15', monthlyDeduction: 3000, reason: 'Family Medical Emergency', status: 'Approved' },
+    { id: 'ADV-02', staffName: 'SONU KUMAR', role: 'Senior Bus Driver', requestedAmount: 10000, date: '2026-08-20', monthlyDeduction: 2500, reason: 'House Repair / Festival', status: 'Approved' },
+    { id: 'ADV-03', staffName: 'BHOOMI YADAV', role: 'Junior Teacher', requestedAmount: 12000, date: '2026-08-25', monthlyDeduction: 3000, reason: 'Higher Education Fee', status: 'Pending' }
   ]);
 
   // Staff Awards
   const [awards, setAwards] = useState([
-    { id: 'AWD-01', title: 'Teacher of the Year 2026', recipient: 'Dr. Ramesh Chandra (PGT Physics)', date: '15-Aug-2026', prize: '₹10,000 Cash + Trophy & Certificate', category: 'Academic Excellence' },
-    { id: 'AWD-02', title: '100% Attendance Award', recipient: 'Kavita Sharma (PRT Maths)', date: '15-Aug-2026', prize: 'Gold Medal + Certificate', category: 'Punctuality' },
-    { id: 'AWD-03', title: 'Best Bus Route Safety Award', recipient: 'Sonu Kumar (Driver - Bus UP-81-T-4491)', date: '15-Aug-2026', prize: '₹5,000 + Safety Badge', category: 'Transport Operations' }
+    { id: 'AWD-01', title: 'Teacher of the Year 2026', recipient: 'POORAN SINGH (Secondary Teacher)', date: '15-Aug-2026', prize: '₹10,000 Cash + Trophy & Certificate', category: 'Academic Excellence' },
+    { id: 'AWD-02', title: '100% Attendance Award', recipient: 'SWATI RAGHAV (Primary Teacher)', date: '15-Aug-2026', prize: 'Gold Medal + Certificate', category: 'Punctuality' },
+    { id: 'AWD-03', title: 'Best Bus Route Safety Award', recipient: 'CHOKHELAL (Driver - Bus UP-81-BT-1841)', date: '15-Aug-2026', prize: '₹5,000 + Safety Badge', category: 'Transport Operations' }
   ]);
 
   // Total Payroll

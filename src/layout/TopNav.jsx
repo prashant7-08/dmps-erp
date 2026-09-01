@@ -68,9 +68,9 @@ export const TopNav = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/80 px-3 sm:px-4 lg:px-6 flex items-center justify-between gap-3 sm:gap-4 transition-colors w-full">
+    <header className="sticky top-0 z-30 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/80 px-3 sm:px-4 lg:px-6 flex items-center justify-between gap-2 sm:gap-4 transition-colors w-full">
       {/* Left: Sidebar Toggle Button (Mobile & Desktop) & Spacious Global Search */}
-      <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+      <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-[180px] sm:min-w-[260px] md:min-w-[320px] max-w-lg">
         <button
           onClick={() => {
             if (window.innerWidth >= 1024) {
@@ -97,8 +97,8 @@ export const TopNav = ({
                 setShowSearchResults(true);
               }}
               onFocus={() => setShowSearchResults(true)}
-              placeholder="Search students (Name / Roll No / Adm No), staff records..."
-              className="w-full pl-10 pr-9 py-2 text-xs sm:text-sm rounded-2xl bg-slate-100/90 dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 shadow-inner transition-all truncate font-medium"
+              placeholder="Search students (Name / Roll / Adm No), staff..."
+              className="w-full pl-10 pr-9 py-2 text-xs sm:text-sm rounded-2xl bg-slate-100/90 dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 shadow-inner transition-all font-medium"
             />
             {searchQuery && (
               <button
@@ -110,9 +110,9 @@ export const TopNav = ({
             )}
           </div>
 
-          {/* Search Dropdown Results */}
+          {/* Search Dropdown Results with guaranteed spacious width */}
           {showSearchResults && searchQuery.trim() && (
-            <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-3 z-50 max-h-96 overflow-y-auto custom-scrollbar animate-in fade-in">
+            <div className="absolute left-0 top-full mt-2 w-[320px] sm:w-[400px] md:w-[460px] max-w-[90vw] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-3 z-50 max-h-96 overflow-y-auto custom-scrollbar animate-in fade-in">
               <div className="flex justify-between items-center px-2 py-1 mb-2 border-b border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Search Results</span>
                 <button onClick={() => setShowSearchResults(false)} className="text-xs text-slate-400 hover:text-slate-600">Close</button>
@@ -173,10 +173,10 @@ export const TopNav = ({
       </div>
 
       {/* Right Controls */}
-      <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+      <div className="flex items-center gap-1 sm:gap-2 shrink-0">
         {/* Branch Selector Dropdown (Super Admin Switcher / Assigned Branch Badge) */}
         {isSuperAdmin ? (
-          <div className="hidden lg:flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 text-amber-950 dark:text-amber-200 shadow-sm shrink-0">
+          <div className="hidden md:flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 text-amber-950 dark:text-amber-200 shadow-sm shrink-0">
             <GitBranch className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
             <select
               value={activeBranchId}
@@ -200,22 +200,22 @@ export const TopNav = ({
         ) : (
           <div className="hidden md:flex items-center gap-1.5 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1.5 rounded-xl border border-emerald-300 dark:border-emerald-700/60 text-emerald-950 dark:text-emerald-200 shadow-sm shrink-0">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-            <span className="text-xs font-bold truncate max-w-[150px]" title={activeBranch?.name}>
+            <span className="text-xs font-bold truncate max-w-[120px]" title={activeBranch?.name}>
               {activeBranch?.shortCode || 'CAMPUS'}
             </span>
           </div>
         )}
 
         {/* Locked Verified Role Badge */}
-        <div className="hidden sm:flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/60 text-indigo-900 dark:text-indigo-200 shadow-sm shrink-0">
+        <div className="hidden xl:flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/60 text-indigo-900 dark:text-indigo-200 shadow-sm shrink-0">
           <ShieldCheck className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
-          <span className="text-xs font-black tracking-wide truncate max-w-[120px]">
+          <span className="text-xs font-black tracking-wide truncate max-w-[110px]">
             {currentRole}
           </span>
         </div>
 
         {/* Quick Action Button */}
-        <div className="relative hidden xl:block">
+        <div className="relative hidden 2xl:block">
           <button
             onClick={() => setShowQuickActions(!showQuickActions)}
             className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md shadow-indigo-500/20 transition-all hover:scale-105 active:scale-95 shrink-0"
