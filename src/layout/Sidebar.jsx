@@ -196,6 +196,7 @@ export const navigationGroups = [
       { id: 'acad-class-assign', targetTab: 'academics', subTab: 'class-assign', label: 'Class Assign', badge: null },
       { id: 'acad-class-schedule', targetTab: 'timetable', subTab: 'class-schedule', label: 'Class Schedule', badge: null },
       { id: 'acad-teacher-schedule', targetTab: 'timetable', subTab: 'teacher-schedule', label: 'Teacher Schedule', badge: null },
+      { id: 'automatic-bell', targetTab: 'automatic-bell', label: 'Automatic School Bell', badge: '🔔 Auto' },
       { id: 'acad-promotion', targetTab: 'academics', subTab: 'promotion', label: 'Promotion', badge: 'Roll' }
     ]
   },

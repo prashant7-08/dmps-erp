@@ -33,6 +33,7 @@ import { ReportsPage } from './pages/ReportsPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { StudentAdmissionPage } from './pages/StudentAdmissionPage';
 import { BiometricPage } from './pages/BiometricPage';
+import { AutomaticBellPage } from './pages/AutomaticBellPage';
 
 function AppContent() {
   const { isAuthenticated, role: authRole } = useAuth();
@@ -176,6 +177,9 @@ function AppContent() {
         return <AttendancePage initialType="staff-monthly-matrix" />;
       case 'biometric':
         return <BiometricPage onNavigateToStaffAttendance={() => setActiveTab('staff-attendance')} />;
+      case 'automatic-bell':
+      case 'bell':
+        return <AutomaticBellPage />;
       case 'fees':
       case 'fees-offline':
       case 'fees-siblings':
