@@ -223,28 +223,25 @@
   animation: modalZoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* 🎂 Birthday Auto-Slide & Marquee Animation */
-@keyframes birthdaySlideSmooth {
+/* 🎂 Single-Direction Continuous Birthday Marquee Loop */
+@keyframes continuousBirthdayLoop {
   0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-25%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 }
 
-.animate-birthday-slider {
+.animate-birthday-marquee-loop {
   display: flex;
-  gap: 1.5rem;
   width: max-content;
-  animation: birthdaySlideSmooth 10s ease-in-out infinite;
+  animation: continuousBirthdayLoop 14s linear infinite;
 }
 
-.animate-birthday-slider:hover {
+.animate-birthday-marquee-loop:hover {
   animation-play-state: paused;
 }
+
 
 

@@ -564,7 +564,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             </div>
           </div>
 
-          {/* 2. Today's Students & Staff Birthday Cards with Sliding Photos */}
+          {/* 2. Today's Students & Staff Birthday Cards with Single-Direction Looping Marquee */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             
             {/* Left: Today's Students Birthdays */}
@@ -579,29 +579,57 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               </div>
 
               {birthdays?.todayStudents?.length > 0 ? (
-                <div className="overflow-hidden py-1 relative">
-                  <div className="animate-birthday-slider flex items-center">
-                    {[...birthdays.todayStudents, ...birthdays.todayStudents].map((st, idx) => (
-                      <div key={idx} className="flex flex-col items-center text-center shrink-0 w-28 sm:w-32 group cursor-pointer">
-                        {/* Yellow / Golden Rounded Frame */}
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 border-2 border-amber-400 bg-amber-50/20 shadow-xs flex items-center justify-center overflow-hidden group-hover:scale-105 group-hover:border-amber-500 transition-all duration-300">
-                          <img
-                            src={st.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=0284c7&color=fff&size=128&bold=true`}
-                            alt={st.name}
-                            className="w-full h-full object-cover rounded-xl"
-                            onError={(e) => {
-                              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=0284c7&color=fff&size=128&bold=true`;
-                            }}
-                          />
+                <div className="overflow-hidden py-1 relative w-full select-none">
+                  <div className="animate-birthday-marquee-loop flex items-center">
+                    {/* Set 1 */}
+                    <div className="flex items-center gap-6 sm:gap-8 pr-20 sm:pr-28 shrink-0">
+                      {birthdays.todayStudents.map((st, idx) => (
+                        <div key={`st-1-${idx}`} className="flex flex-col items-center text-center shrink-0 w-24 sm:w-28 group cursor-pointer">
+                          {/* Yellow / Golden Rounded Frame */}
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 border-2 border-amber-400 bg-amber-50/20 shadow-xs flex items-center justify-center overflow-hidden group-hover:scale-105 group-hover:border-amber-500 transition-all duration-300">
+                            <img
+                              src={st.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=0284c7&color=fff&size=128&bold=true`}
+                              alt={st.name}
+                              className="w-full h-full object-cover rounded-xl pointer-events-none"
+                              onError={(e) => {
+                                e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=0284c7&color=fff&size=128&bold=true`;
+                              }}
+                            />
+                          </div>
+                          <h5 className="text-xs font-black text-slate-800 dark:text-slate-100 uppercase tracking-wide mt-2 truncate w-full px-1">
+                            {st.name}
+                          </h5>
+                          <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                            {st.classFormatted || `${st.class || 'VII'} (${st.section || 'A'})`}
+                          </p>
                         </div>
-                        <h5 className="text-xs font-black text-slate-800 dark:text-slate-100 uppercase tracking-wide mt-2 truncate w-full px-1">
-                          {st.name}
-                        </h5>
-                        <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-                          {st.classFormatted || `${st.class || 'VII'} (${st.section || 'A'})`}
-                        </p>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+
+                    {/* Set 2 (Seamless single-direction loop with 2-3 card space) */}
+                    <div className="flex items-center gap-6 sm:gap-8 pr-20 sm:pr-28 shrink-0">
+                      {birthdays.todayStudents.map((st, idx) => (
+                        <div key={`st-2-${idx}`} className="flex flex-col items-center text-center shrink-0 w-24 sm:w-28 group cursor-pointer">
+                          {/* Yellow / Golden Rounded Frame */}
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 border-2 border-amber-400 bg-amber-50/20 shadow-xs flex items-center justify-center overflow-hidden group-hover:scale-105 group-hover:border-amber-500 transition-all duration-300">
+                            <img
+                              src={st.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=0284c7&color=fff&size=128&bold=true`}
+                              alt={st.name}
+                              className="w-full h-full object-cover rounded-xl pointer-events-none"
+                              onError={(e) => {
+                                e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=0284c7&color=fff&size=128&bold=true`;
+                              }}
+                            />
+                          </div>
+                          <h5 className="text-xs font-black text-slate-800 dark:text-slate-100 uppercase tracking-wide mt-2 truncate w-full px-1">
+                            {st.name}
+                          </h5>
+                          <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                            {st.classFormatted || `${st.class || 'VII'} (${st.section || 'A'})`}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ) : (
@@ -625,29 +653,57 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               </div>
 
               {birthdays?.todayStaff?.length > 0 ? (
-                <div className="overflow-hidden py-1 relative">
-                  <div className="animate-birthday-slider flex items-center">
-                    {[...birthdays.todayStaff, ...birthdays.todayStaff].map((tc, idx) => (
-                      <div key={idx} className="flex flex-col items-center text-center shrink-0 w-28 sm:w-32 group cursor-pointer">
-                        {/* Yellow / Golden Rounded Frame */}
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 border-2 border-amber-400 bg-amber-50/20 shadow-xs flex items-center justify-center overflow-hidden group-hover:scale-105 group-hover:border-amber-500 transition-all duration-300">
-                          <img
-                            src={tc.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(tc.name)}&background=7c3aed&color=fff&size=128&bold=true`}
-                            alt={tc.name}
-                            className="w-full h-full object-cover rounded-xl"
-                            onError={(e) => {
-                              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(tc.name)}&background=7c3aed&color=fff&size=128&bold=true`;
-                            }}
-                          />
+                <div className="overflow-hidden py-1 relative w-full select-none">
+                  <div className="animate-birthday-marquee-loop flex items-center">
+                    {/* Set 1 */}
+                    <div className="flex items-center gap-6 sm:gap-8 pr-20 sm:pr-28 shrink-0">
+                      {birthdays.todayStaff.map((tc, idx) => (
+                        <div key={`tc-1-${idx}`} className="flex flex-col items-center text-center shrink-0 w-24 sm:w-28 group cursor-pointer">
+                          {/* Yellow / Golden Rounded Frame */}
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 border-2 border-amber-400 bg-amber-50/20 shadow-xs flex items-center justify-center overflow-hidden group-hover:scale-105 group-hover:border-amber-500 transition-all duration-300">
+                            <img
+                              src={tc.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(tc.name)}&background=7c3aed&color=fff&size=128&bold=true`}
+                              alt={tc.name}
+                              className="w-full h-full object-cover rounded-xl pointer-events-none"
+                              onError={(e) => {
+                                e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(tc.name)}&background=7c3aed&color=fff&size=128&bold=true`;
+                              }}
+                            />
+                          </div>
+                          <h5 className="text-xs font-black text-slate-800 dark:text-slate-100 uppercase tracking-wide mt-2 truncate w-full px-1">
+                            {tc.name}
+                          </h5>
+                          <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                            {tc.designationFormatted || tc.designation || 'Faculty'}
+                          </p>
                         </div>
-                        <h5 className="text-xs font-black text-slate-800 dark:text-slate-100 uppercase tracking-wide mt-2 truncate w-full px-1">
-                          {tc.name}
-                        </h5>
-                        <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-                          {tc.designationFormatted || tc.designation || 'Faculty'}
-                        </p>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+
+                    {/* Set 2 */}
+                    <div className="flex items-center gap-6 sm:gap-8 pr-20 sm:pr-28 shrink-0">
+                      {birthdays.todayStaff.map((tc, idx) => (
+                        <div key={`tc-2-${idx}`} className="flex flex-col items-center text-center shrink-0 w-24 sm:w-28 group cursor-pointer">
+                          {/* Yellow / Golden Rounded Frame */}
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 border-2 border-amber-400 bg-amber-50/20 shadow-xs flex items-center justify-center overflow-hidden group-hover:scale-105 group-hover:border-amber-500 transition-all duration-300">
+                            <img
+                              src={tc.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(tc.name)}&background=7c3aed&color=fff&size=128&bold=true`}
+                              alt={tc.name}
+                              className="w-full h-full object-cover rounded-xl pointer-events-none"
+                              onError={(e) => {
+                                e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(tc.name)}&background=7c3aed&color=fff&size=128&bold=true`;
+                              }}
+                            />
+                          </div>
+                          <h5 className="text-xs font-black text-slate-800 dark:text-slate-100 uppercase tracking-wide mt-2 truncate w-full px-1">
+                            {tc.name}
+                          </h5>
+                          <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                            {tc.designationFormatted || tc.designation || 'Faculty'}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ) : (
