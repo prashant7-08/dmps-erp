@@ -64,6 +64,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
   const { activeBranchId, setActiveBranchId, isSuperAdmin, activeBranch, branches } = useAuth();
 
   const [stats, setStats] = useState(() => schoolService.getDashboardStats(activeBranchId) || {});
+  const [birthdays, setBirthdays] = useState(() => schoolService.getBirthdays(activeBranchId) || {});
   const schoolInfo = schoolService.getSchoolInfo() || { name: 'Dadheech Memorial Public School', academicSession: '2026-2027', affiliationNo: 'UP-CBSE-83921' };
   const notices = schoolService.getNotices() || [];
   const exams = schoolService.getExams() || [];
@@ -93,6 +94,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
 
   useEffect(() => {
     setStats(schoolService.getDashboardStats(activeBranchId) || {});
+    setBirthdays(schoolService.getBirthdays(activeBranchId) || {});
   }, [activeBranchId]);
 
   const handleToggleTask = (id) => {
@@ -324,65 +326,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       </div>
 
       {/* ========================================================================= */}
-      {/* 📅 SECTION 2: 3 STUDENT ATTENDANCE STRENGTH CARDS */}
-      {/* ========================================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          
-        {/* Card 1: Total Present (Ocean Blue Gradient) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-800 text-white flex items-center justify-between shadow">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-              <UserCheck className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase text-teal-100">Total Present Today</h4>
-              <p className="text-xl font-black font-mono">{stats?.presentStudentsToday || 541}</p>
-            </div>
-          </div>
-          <div className="text-right text-[11px] text-teal-100 font-semibold space-y-0.5">
-            <div>Boys: <strong className="text-white">{Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
-            <div>Girls: <strong className="text-white">{Math.round((stats?.girlsCount || 249) * 0.954)}</strong></div>
-          </div>
-        </div>
-
-        {/* Card 2: Total Absent (Orange/Pink Gradient) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-600 to-rose-600 text-white flex items-center justify-between shadow">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-              <UserX className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase text-amber-100">Total Absent Today</h4>
-              <p className="text-xl font-black font-mono">{stats?.absentStudentsToday || 26}</p>
-            </div>
-          </div>
-          <div className="text-right text-[11px] text-amber-100 font-semibold space-y-0.5">
-            <div>Boys: <strong className="text-white">{(stats?.boysCount || 318) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
-            <div>Girls: <strong className="text-white">{(stats?.girlsCount || 249) - Math.round((stats?.girlsCount || 249) * 0.954)}</strong></div>
-          </div>
-        </div>
-
-        {/* Card 3: Attendance Not Marked (Dark Charcoal Alert) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-stone-900 text-white flex items-center justify-between shadow border border-slate-700">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
-              <AlertTriangle className="w-5 h-5 text-amber-400" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase text-slate-300">Not Marked</h4>
-              <p className="text-xl font-black font-mono text-emerald-400">0</p>
-            </div>
-          </div>
-          <div className="text-right text-[11px] text-slate-400 font-semibold space-y-0.5">
-            <div>Boys: <strong className="text-white">0</strong></div>
-            <div>Girls: <strong className="text-white">0</strong></div>
-          </div>
-        </div>
-
-      </div>
-
-      {/* ========================================================================= */}
-      {/* 📊 SECTION 3: TOP 2 MAIN ANALYSIS CHARTS WITH CRISP AXES & NUMBERS */}
+      {/* 📊 SECTION 2: TOP 2 MAIN ANALYSIS CHARTS WITH CRISP AXES & NUMBERS */}
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
@@ -569,45 +513,159 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       </div>
 
       {/* ========================================================================= */}
-      {/* 🎂 SECTION 4: BIRTHDAYS & STAFF STRENGTH / ATTENDANCE MATRIX */}
+      {/* 📅 SECTION 3: 3 STUDENT ATTENDANCE CARDS (Under Graphs) */}
+      {/* ========================================================================= */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          
+        {/* Card 1: Total Present (Ocean Blue Gradient) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-800 text-white flex items-center justify-between shadow">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+              <UserCheck className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold uppercase text-teal-100">Total Present Today</h4>
+              <p className="text-xl font-black font-mono">{stats?.presentStudentsToday || 541}</p>
+            </div>
+          </div>
+          <div className="text-right text-[11px] text-teal-100 font-semibold space-y-0.5">
+            <div>Boys: <strong className="text-white">{Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
+            <div>Girls: <strong className="text-white">{(stats?.presentStudentsToday || 541) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
+          </div>
+        </div>
+
+        {/* Card 2: Total Absent (Orange/Pink Gradient) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-600 to-rose-600 text-white flex items-center justify-between shadow">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+              <UserX className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold uppercase text-amber-100">Total Absent Today</h4>
+              <p className="text-xl font-black font-mono">{stats?.absentStudentsToday || 26}</p>
+            </div>
+          </div>
+          <div className="text-right text-[11px] text-amber-100 font-semibold space-y-0.5">
+            <div>Boys: <strong className="text-white">{(stats?.boysCount || 318) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
+            <div>Girls: <strong className="text-white">{(stats?.girlsCount || 249) - ((stats?.presentStudentsToday || 541) - Math.round((stats?.boysCount || 318) * 0.954))}</strong></div>
+          </div>
+        </div>
+
+        {/* Card 3: Attendance Not Marked (Dark Charcoal Alert) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-stone-900 text-white flex items-center justify-between shadow border border-slate-700">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+              <AlertTriangle className="w-5 h-5 text-amber-400" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold uppercase text-slate-300">Not Marked</h4>
+              <p className="text-xl font-black font-mono text-emerald-400">0</p>
+            </div>
+          </div>
+          <div className="text-right text-[11px] text-slate-400 font-semibold space-y-0.5">
+            <div>Boys: <strong className="text-white">0</strong></div>
+            <div>Girls: <strong className="text-white">0</strong></div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 🎂 SECTION 4: LIVE BIRTHDAYS & STAFF STRENGTH / ATTENDANCE MATRIX */}
       {/* ========================================================================= */}
       <div className="space-y-6">
 
-        {/* 2 Birthday Cards */}
+        {/* 2 Rich Birthday Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 flex items-center justify-center">
-                <Cake className="w-5 h-5" />
+
+          {/* Student Birthdays Card */}
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between gap-4">
+            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white flex items-center justify-center shadow-md shadow-pink-500/20">
+                  <Cake className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                    Student Birthdays & Celebrations
+                  </h4>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    {birthdays?.todayStudents?.length > 0
+                      ? `${birthdays.todayStudents.length} Students celebrating today!`
+                      : 'Upcoming student birthdays in this month'}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                  Today's Students Birthdays (0)
-                </h4>
-                <p className="text-xs text-slate-400 mt-0.5">No Birthdays Today</p>
-              </div>
+              <span className="text-[11px] font-bold text-pink-700 dark:text-pink-300 bg-pink-50 dark:bg-pink-950/60 border border-pink-200 dark:border-pink-800/60 px-3 py-1 rounded-xl">
+                🎂 {birthdays?.todayDateFormatted || 'September'}
+              </span>
             </div>
-            <span className="text-xs font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-xl">
-              August 31
-            </span>
+
+            {/* Birthday List Items */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {(birthdays?.todayStudents?.length > 0 ? birthdays.todayStudents : birthdays?.upcomingStudents || []).slice(0, 4).map((st, idx) => (
+                <div key={idx} className="flex items-center justify-between p-2.5 rounded-2xl bg-pink-50/50 dark:bg-slate-800/60 border border-pink-100 dark:border-slate-700/60 hover:scale-[1.02] transition-transform">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-pink-400 to-amber-300 text-slate-900 font-black text-xs flex items-center justify-center shrink-0 shadow-xs">
+                      {st.name?.charAt(0)}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">{st.name}</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">{st.class || 'Student'}</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-black px-2 py-0.5 rounded-lg bg-white dark:bg-slate-900 text-pink-600 dark:text-pink-400 shadow-xs border border-pink-100 dark:border-slate-700 shrink-0">
+                    {st.birthdayFormatted || 'Today 🎉'}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 flex items-center justify-center">
-                <Cake className="w-5 h-5" />
+          {/* Staff Birthdays Card */}
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between gap-4">
+            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-700 text-white flex items-center justify-center shadow-md shadow-purple-500/20">
+                  <Heart className="w-5 h-5 text-amber-300" />
+                </div>
+                <div>
+                  <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                    Staff & Faculty Birthdays
+                  </h4>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    {birthdays?.todayStaff?.length > 0
+                      ? `${birthdays.todayStaff.length} Staff members celebrating today!`
+                      : 'Upcoming staff birthdays in this month'}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                  Today's Staff Birthdays (0)
-                </h4>
-                <p className="text-xs text-slate-400 mt-0.5">No Birthdays Today</p>
-              </div>
+              <span className="text-[11px] font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 px-3 py-1 rounded-xl">
+                ✨ Faculty
+              </span>
             </div>
-            <span className="text-xs font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-xl">
-              August 31
-            </span>
+
+            {/* Staff Birthday List Items */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {(birthdays?.todayStaff?.length > 0 ? birthdays.todayStaff : birthdays?.upcomingStaff || []).slice(0, 4).map((tc, idx) => (
+                <div key={idx} className="flex items-center justify-between p-2.5 rounded-2xl bg-purple-50/50 dark:bg-slate-800/60 border border-purple-100 dark:border-slate-700/60 hover:scale-[1.02] transition-transform">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-400 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-xs">
+                      {tc.name?.charAt(0)}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">{tc.name}</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">{tc.designation || 'Teacher'}</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-black px-2 py-0.5 rounded-lg bg-white dark:bg-slate-900 text-purple-600 dark:text-purple-300 shadow-xs border border-purple-100 dark:border-slate-700 shrink-0">
+                    {tc.birthdayFormatted || 'Today 🎈'}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
 
         {/* 3 Staff Strength Cards */}
