@@ -62,63 +62,109 @@
   -webkit-backdrop-filter: blur(16px);
 }
 
-/* 🖨️ Clean High-Precision Print Media Styles (A4 Multi-Card PDF Sheet) */
+/* 🖨️ Clean High-Precision Print Media Styles (A4 Landscape & Portrait, Multi-Page, Receipts, Registers) */
 @media print {
-  html, body {
-    background: #ffffff !important;
-    color: #000000 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  *, *::before, *::after {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  body * {
-    visibility: hidden !important;
-  }
-
-  .print-area, .print-area * {
-    visibility: visible !important;
-  }
-
-  .print-area {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 100% !important;
+  html, body {
+    background: #ffffff !important;
+    color: #0f172a !important;
     margin: 0 !important;
     padding: 0 !important;
-    background: transparent !important;
+    font-size: 11px !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 
-  aside, header, nav, button, .no-print, .print-hidden, [role="navigation"] {
+  /* Hide Navigation, Sidebar, Headers, Buttons, Floating widgets */
+  aside,
+  nav,
+  header,
+  button,
+  .no-print,
+  .print-hidden,
+  .print\:hidden,
+  [role="navigation"],
+  .fixed.bottom-6,
+  .fixed.inset-0.bg-slate-950\/60 {
     display: none !important;
     visibility: hidden !important;
   }
 
-  @page {
-    size: A4 landscape;
-    margin: 6mm;
-  }
-
-  .printable-biometric-register {
+  /* Reset layout constraints so main content prints edge to edge without sidebar offset */
+  #root,
+  .app-layout,
+  div[class*="lg:pl-"],
+  div[class*="pl-"],
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-left: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
+    display: block !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  /* Printable Containers */
+  .printable-biometric-register,
+  .printable-area,
+  .print-area,
+  .print-container {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
     padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
     border: none !important;
     box-shadow: none !important;
-    color: #000 !important;
-    background: #fff !important;
+    overflow: visible !important;
   }
+
+  /* Tables in Print */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tfoot {
+    display: table-footer-group !important;
+  }
+
   .printable-biometric-register table {
     width: 100% !important;
-    font-size: 8px !important;
-    border: 1px solid #333 !important;
+    font-size: 7.5px !important;
+    border: 1px solid #475569 !important;
   }
+
   .printable-biometric-register th,
   .printable-biometric-register td {
-    border: 1px solid #666 !important;
+    border: 1px solid #cbd5e1 !important;
     padding: 2px 1px !important;
+    color: #0f172a !important;
+  }
+
+  @page {
+    size: auto;
+    margin: 8mm;
   }
 }
 

@@ -1,14 +1,4 @@
-/* Custom styles and print stylesheet */
-@media print {
-  body {
-    background-color: white !important;
-    color: black !important;
-  }
-  
-  header, aside, button, .print\:hidden {
-    display: none !important;
-  }
-}
+/* App Component Styles */
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
