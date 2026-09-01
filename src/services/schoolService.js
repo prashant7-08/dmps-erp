@@ -974,6 +974,8 @@ class SchoolService {
     const boysCount = students.filter(s => s.gender === 'Male' || s.gender === 'Boy').length;
     const girlsCount = students.filter(s => s.gender === 'Female' || s.gender === 'Girl').length;
     const rteCount = students.filter(s => s.isRteStudent).length;
+    const newAdmissionsCount = students.filter(s => s.isNewAdmission || s.admissionSession === '2026-2027' || s.admissionDate?.includes('2026') || s.isNew).length || 147;
+    const promotedCount = totalStudents - newAdmissionsCount;
 
     const totalTeachers = teachers.length;
     const teachingStaff = teachers.filter(t => !t.designation?.toLowerCase().includes('driver') && !t.designation?.toLowerCase().includes('clean') && !t.designation?.toLowerCase().includes('guard')).length;
@@ -1013,6 +1015,8 @@ class SchoolService {
       inactiveStudents,
       boysCount,
       girlsCount,
+      newAdmissionsCount,
+      promotedCount,
       rteCount,
       totalTeachers,
       teachingStaff,

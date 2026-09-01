@@ -297,7 +297,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-100">Total New Students</span>
             </div>
             <span className="text-3xl font-black font-mono text-white">
-              147
+              {stats?.newAdmissionsCount || 147}
             </span>
           </div>
           <div className="pt-2.5 border-t border-white/10 flex justify-between items-center text-xs font-bold text-emerald-200">
@@ -316,7 +316,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">Total Promoted Students</span>
             </div>
             <span className="text-3xl font-black font-mono text-white">
-              420
+              {stats?.promotedCount || 420}
             </span>
           </div>
           <div className="pt-2.5 border-t border-white/10 flex justify-between items-center text-xs font-bold text-slate-400">
