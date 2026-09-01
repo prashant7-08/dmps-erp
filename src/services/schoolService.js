@@ -1150,32 +1150,55 @@ class SchoolService {
     };
   }
 
-  // Parse and import historical biometric logs (attlog.dat, CSV, TXT)
+  // Parse and import historical biometric logs (attlog.dat, CSV, TXT, Ontime exports)
   importBiometricFile(rawText) {
     if (!rawText || !rawText.trim()) return { success: false, message: "File is empty" };
 
     const lines = rawText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-    let importedPunches = 0;
-    let newTeachersCreated = 0;
-    const parsedLogs = [];
+    const parsedPunches = [];
     const datesCovered = new Set();
 
     lines.forEach(line => {
-      // Standard Secureye format: "101\t2026-04-10 08:32:15\t1\t0..." or space/comma separated
-      const tokens = line.split(/[\t, ]+/).filter(Boolean);
+      // Ignore header lines like "EmpID, Date, Time" or "No, Name..."
+      if (line.toLowerCase().includes('empid') || line.toLowerCase().includes('user id') || line.toLowerCase().includes('timestamp')) {
+        return;
+      }
+
+      // Format 1: Tab/Space separated standard Secureye "101\t2026-08-01 07:42:15\t1\t0"
+      // Format 2: CSV "101, 2026-08-01, 07:42:15" or "101, 2026-08-01 07:42:15"
+      const tokens = line.split(/[\t,;]+/).map(t => t.trim()).filter(Boolean);
       if (tokens.length >= 2) {
         let empId = tokens[0].trim();
-        let dateStr = tokens[1].trim();
-        let timeStr = tokens[2] ? tokens[2].trim() : '08:30:00';
+        let dateStr = '';
+        let timeStr = '';
 
-        // Check if token1 is date and token2 is time
-        if (tokens[1].includes('-') || tokens[1].includes('/')) {
+        if (tokens[1].includes(' ')) {
+          // e.g. "2026-08-01 07:42:15"
+          const [dPart, tPart] = tokens[1].split(' ');
+          dateStr = dPart.replace(/\//g, '-');
+          timeStr = tPart;
+        } else if (tokens.length >= 3 && (tokens[1].includes('-') || tokens[1].includes('/'))) {
           dateStr = tokens[1].replace(/\//g, '-');
+          timeStr = tokens[2];
+        } else if (tokens.length >= 2 && (tokens[1].includes(':'))) {
+          timeStr = tokens[1];
+          dateStr = new Date().toISOString().split('T')[0];
         }
 
-        if (dateStr.length >= 8) {
+        // Normalize date to YYYY-MM-DD
+        if (dateStr.includes('-')) {
+          const parts = dateStr.split('-');
+          if (parts[0].length === 2 && parts[2].length === 4) {
+            // DD-MM-YYYY -> YYYY-MM-DD
+            dateStr = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+          } else if (parts[0].length === 4) {
+            dateStr = `${parts[0]}-${parts[1].padStart(2, '0')}-${parts[2].padStart(2, '0')}`;
+          }
+        }
+
+        if (dateStr.length >= 8 && timeStr) {
           datesCovered.add(dateStr);
-          parsedLogs.push({
+          parsedPunches.push({
             employeeId: empId,
             date: dateStr,
             time: timeStr
@@ -1184,63 +1207,116 @@ class SchoolService {
       }
     });
 
-    if (parsedLogs.length === 0) {
-      // If mock structure or json
-      try {
-        const json = JSON.parse(rawText);
-        if (Array.isArray(json.punches)) {
-          json.punches.forEach(p => {
-            parsedLogs.push({
-              employeeId: p.employeeId,
-              date: p.punchDate,
-              time: p.inTime
-            });
-            datesCovered.add(p.punchDate);
-          });
-        }
-      } catch (e) {}
+    if (parsedPunches.length === 0) {
+      return { success: false, message: "Could not parse any valid date/time punch records from the file." };
     }
 
-    // Auto-create missing teachers
     const existingTeachers = this.getTeachers();
-    const uniqueEmpIds = [...new Set(parsedLogs.map(p => p.employeeId))];
 
-    uniqueEmpIds.forEach(empId => {
-      const exists = existingTeachers.find(t => t.employeeId === empId || t.id === empId || t.id === `TCH-${empId}`);
-      if (!exists) {
-        const newTeacher = {
-          id: `TCH-${empId}`,
-          employeeId: empId.startsWith('EMP') ? empId : `EMP-${empId}`,
-          name: `Staff Member #${empId}`,
-          designation: 'Faculty / Staff',
-          department: 'Academics',
-          phone: '9876543210',
-          email: `staff${empId}@dmps.edu.in`,
-          gender: 'Not Specified',
-          qualification: 'B.Ed / Graduate',
-          experience: '3+ Years',
-          status: 'Active',
-          branchId: 'BR-01'
+    // Group punches by Date + EmployeeId
+    const dayStaffMap = {};
+    parsedPunches.forEach(p => {
+      const key = `${p.date}___${p.employeeId}`;
+      if (!dayStaffMap[key]) {
+        dayStaffMap[key] = {
+          date: p.date,
+          employeeId: p.employeeId,
+          punches: []
         };
-        this.data.teachers.push(newTeacher);
-        newTeachersCreated++;
       }
+      dayStaffMap[key].punches.push(p.time);
     });
 
-    // Populate historical attendance
+    // Sort punches and build daily in/out logs
+    const newLogs = [];
+    Object.values(dayStaffMap).forEach(entry => {
+      const { date, employeeId, punches } = entry;
+      punches.sort();
+
+      const inTimeRaw = punches[0];
+      const outTimeRaw = punches.length > 1 ? punches[punches.length - 1] : null;
+
+      // Find teacher
+      const teacher = existingTeachers.find(t => 
+        t.employeeId === employeeId || 
+        t.id === employeeId || 
+        t.id === `TCH-${employeeId}` ||
+        t.employeeId === `EMP-2026-${String(employeeId).padStart(3, '0')}`
+      );
+
+      const staffName = teacher ? teacher.name : `Staff #${employeeId}`;
+      const staffId = teacher ? teacher.id : `TCH-${employeeId}`;
+      const staffDesignation = teacher ? teacher.designation : 'Faculty';
+      const staffDept = teacher ? teacher.department : 'Academics';
+
+      // Check Late / Half-Day
+      let isLate = false;
+      if (inTimeRaw) {
+        const [h, m] = inTimeRaw.split(':').map(Number);
+        if (h > 7 || (h === 7 && m > 45)) isLate = true;
+      }
+
+      let status = 'Present';
+      if (!outTimeRaw) {
+        status = 'Half-Day'; // Single punch miss rule
+      } else if (isLate) {
+        status = 'Late';
+      }
+
+      // Calculate work duration
+      let workDuration = '6h 45m';
+      if (inTimeRaw && outTimeRaw) {
+        const [h1, m1] = inTimeRaw.split(':').map(Number);
+        const [h2, m2] = outTimeRaw.split(':').map(Number);
+        const diffMins = (h2 * 60 + m2) - (h1 * 60 + m1);
+        if (diffMins > 0) {
+          const dh = Math.floor(diffMins / 60);
+          const dm = diffMins % 60;
+          workDuration = `${dh}h ${String(dm).padStart(2, '0')}m`;
+        }
+      } else {
+        workDuration = '3h 30m';
+      }
+
+      const logEntry = {
+        id: `LOG-RAW-${date}-${employeeId}-${Date.now()}`,
+        staffId,
+        employeeId,
+        name: staffName,
+        designation: staffDesignation,
+        department: staffDept,
+        punchDate: date,
+        inTime: inTimeRaw,
+        outTime: outTimeRaw || '--:--:--',
+        workDuration,
+        status: status === 'Late' ? 'Late Arrival' : status,
+        verifyType: 'Fingerprint/Face',
+        remarks: `Exact Hardware Log Synced (${punches.length} Punches)`
+      };
+
+      newLogs.push(logEntry);
+    });
+
+    if (!Array.isArray(this.data.biometricLogs)) this.data.biometricLogs = [];
+    this.data.biometricLogs = [...newLogs, ...this.data.biometricLogs.filter(l => !datesCovered.has(l.punchDate))];
+
+    // Also populate staffAttendance
     datesCovered.forEach(d => {
-      const dayLogs = parsedLogs.filter(p => p.date === d);
-      const records = this.getTeachers().map(t => {
-        const userPunch = dayLogs.find(p => p.employeeId === t.employeeId || p.employeeId === t.id.replace('TCH-', ''));
-        if (userPunch) {
+      const dayLogs = newLogs.filter(l => l.punchDate === d);
+      const records = existingTeachers.map(t => {
+        const matchingLog = dayLogs.find(l => l.staffId === t.id || l.employeeId === t.employeeId);
+        if (matchingLog) {
           return {
             staffId: t.id,
             name: t.name,
             employeeId: t.employeeId,
             department: t.department,
             designation: t.designation,
-            status: 'Present',
-            remarks: `Biometric In: ${userPunch.time}`
+            status: matchingLog.status === 'Late Arrival' ? 'Late' : matchingLog.status,
+            inTime: matchingLog.inTime,
+            outTime: matchingLog.outTime,
+            workDuration: matchingLog.workDuration,
+            remarks: `Machine Log: ${matchingLog.inTime} - ${matchingLog.outTime}`
           };
         }
         return {
@@ -1250,7 +1326,10 @@ class SchoolService {
           department: t.department,
           designation: t.designation,
           status: 'Absent',
-          remarks: 'No biometric punch'
+          inTime: '--:--',
+          outTime: '--:--',
+          workDuration: '0h 00m',
+          remarks: 'No biometric punch found'
         };
       });
       this.markStaffAttendance(d, records);
@@ -1260,10 +1339,10 @@ class SchoolService {
 
     return {
       success: true,
-      totalPunches: parsedLogs.length,
-      newTeachersCreated,
-      totalDays: datesCovered.size,
-      dates: Array.from(datesCovered)
+      totalPunches: parsedPunches.length,
+      daysCovered: datesCovered.size,
+      processedStaffCount: newLogs.length,
+      sampleLogs: newLogs.slice(0, 10)
     };
   }
 
