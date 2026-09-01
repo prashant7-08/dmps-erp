@@ -512,74 +512,9 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       </div>
 
       {/* ========================================================================= */}
-      {/* 📅 SECTION 3: WEEKEND ATTENDANCE INSPECTION & 4 ATTENDANCE SUMMARY CARDS */}
+      {/* 📅 SECTION 3: 4 ATTENDANCE STRENGTH CARDS */}
       {/* ========================================================================= */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
-        <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-          <div>
-            <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
-              Weekend Attendance Inspection
-            </h3>
-            <p className="text-xs text-slate-400 font-semibold mt-0.5">Biometric Employee vs Student Campus Turnout</p>
-          </div>
-          <div className="flex items-center gap-3 text-xs font-bold">
-            <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-rose-600"></span>
-              <span className="text-slate-700 dark:text-slate-300">Employee</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-blue-600"></span>
-              <span className="text-slate-700 dark:text-slate-300">Student</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Multi-Day Attendance Graph Box with Y-Axis scale */}
-        <div className="relative flex">
-          {/* Y-Axis numbers */}
-          <div className="flex flex-col justify-between text-[10px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-8 select-none">
-            <span>1.0</span>
-            <span>0.8</span>
-            <span>0.6</span>
-            <span>0.4</span>
-            <span>0.2</span>
-            <span>0.0</span>
-          </div>
-
-          <div className="flex-1 h-44 flex items-end justify-between gap-4 pt-2 pb-2 px-2 relative border-l border-b border-slate-300 dark:border-slate-700">
-            <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20 pb-6">
-              <div className="border-b border-slate-400 w-full"></div>
-              <div className="border-b border-slate-400 w-full"></div>
-              <div className="border-b border-slate-400 w-full"></div>
-              <div className="border-b border-slate-400 w-full"></div>
-              <div className="border-b border-slate-400 w-full"></div>
-              <div className="border-b border-slate-400 w-full"></div>
-            </div>
-
-            {attendanceInspection.map((att, idx) => (
-              <div key={idx} className="flex-1 flex flex-col items-center h-full justify-end group relative">
-                <div className="flex items-end gap-2 w-full justify-center h-full">
-                  {/* Employee Bar */}
-                  <div
-                    className="w-3.5 bg-rose-600 rounded-t-md transition-all"
-                    style={{ height: `${att.isSunday ? 0 : (att.employeePresent / att.employeeTotal) * 100}%` }}
-                  ></div>
-                  {/* Student Bar */}
-                  <div
-                    className="w-3.5 bg-blue-600 rounded-t-md transition-all"
-                    style={{ height: `${att.isSunday ? 0 : att.studentRate}%` }}
-                  ></div>
-                </div>
-                <span className="text-[9px] font-bold text-slate-600 dark:text-slate-400 mt-2">
-                  {att.date}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 4 Attendance Strength Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           
           {/* Card 1: Total Strength (Dark Blue) */}
           <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-800 to-indigo-950 text-white flex items-center justify-between shadow">
@@ -650,7 +585,6 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           </div>
 
         </div>
-      </div>
 
       {/* ========================================================================= */}
       {/* 🎂 SECTION 4: BIRTHDAYS & STAFF STRENGTH / ATTENDANCE MATRIX */}
