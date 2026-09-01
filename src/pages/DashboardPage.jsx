@@ -264,7 +264,129 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       </div>
 
       {/* ========================================================================= */}
-      {/* 📊 SECTION 1: TOP 2 MAIN ANALYSIS CHARTS WITH CRISP AXES & NUMBERS */}
+      {/* 💳 SECTION 1: 3 STUDENT CARDS (Total Active with Boys/Girls, New, Promoted) */}
+      {/* ========================================================================= */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        {/* Card 1: Total Active Students (Olive/Dark Brown Gradient with Boys & Girls count) */}
+        <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-stone-800 to-amber-950 text-white shadow-lg space-y-3.5 border border-stone-700/60">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-white">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-200">Total Active Students</span>
+            </div>
+            <span className="text-3xl font-black font-mono text-white">
+              {stats?.totalStudents || 567}
+            </span>
+          </div>
+          <div className="pt-2.5 border-t border-white/10 flex justify-between items-center text-xs font-bold text-stone-300">
+            <span>BOYS: <strong className="text-amber-300">{stats?.boysCount || 318}</strong></span>
+            <span>GIRLS: <strong className="text-emerald-300">{stats?.girlsCount || 249}</strong></span>
+          </div>
+        </div>
+
+        {/* Card 2: Total New Students (Vibrant Emerald Gradient) */}
+        <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-emerald-600 to-green-800 text-white shadow-lg space-y-3.5 border border-emerald-500/40">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-white">
+                <UserPlus className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-100">Total New Students</span>
+            </div>
+            <span className="text-3xl font-black font-mono text-white">
+              147
+            </span>
+          </div>
+          <div className="pt-2.5 border-t border-white/10 flex justify-between items-center text-xs font-bold text-emerald-200">
+            <span>NEW ADMISSIONS</span>
+            <span className="text-emerald-100 font-bold">Session 2026-27</span>
+          </div>
+        </div>
+
+        {/* Card 3: Total Promoted Students (Charcoal Black Gradient) */}
+        <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 text-white shadow-lg space-y-3.5 border border-slate-800">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-white">
+                <UserCheck className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">Total Promoted Students</span>
+            </div>
+            <span className="text-3xl font-black font-mono text-white">
+              420
+            </span>
+          </div>
+          <div className="pt-2.5 border-t border-white/10 flex justify-between items-center text-xs font-bold text-slate-400">
+            <span>PREVIOUS ADMISSIONS</span>
+            <span className="text-indigo-300 font-bold">Rolled Forward</span>
+          </div>
+        </div>
+
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 📅 SECTION 2: 3 STUDENT ATTENDANCE STRENGTH CARDS */}
+      {/* ========================================================================= */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          
+        {/* Card 1: Total Present (Ocean Blue Gradient) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-800 text-white flex items-center justify-between shadow">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+              <UserCheck className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold uppercase text-teal-100">Total Present Today</h4>
+              <p className="text-xl font-black font-mono">{stats?.presentStudentsToday || 541}</p>
+            </div>
+          </div>
+          <div className="text-right text-[11px] text-teal-100 font-semibold space-y-0.5">
+            <div>Boys: <strong className="text-white">{Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
+            <div>Girls: <strong className="text-white">{Math.round((stats?.girlsCount || 249) * 0.954)}</strong></div>
+          </div>
+        </div>
+
+        {/* Card 2: Total Absent (Orange/Pink Gradient) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-600 to-rose-600 text-white flex items-center justify-between shadow">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+              <UserX className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold uppercase text-amber-100">Total Absent Today</h4>
+              <p className="text-xl font-black font-mono">{stats?.absentStudentsToday || 26}</p>
+            </div>
+          </div>
+          <div className="text-right text-[11px] text-amber-100 font-semibold space-y-0.5">
+            <div>Boys: <strong className="text-white">{(stats?.boysCount || 318) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
+            <div>Girls: <strong className="text-white">{(stats?.girlsCount || 249) - Math.round((stats?.girlsCount || 249) * 0.954)}</strong></div>
+          </div>
+        </div>
+
+        {/* Card 3: Attendance Not Marked (Dark Charcoal Alert) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-stone-900 text-white flex items-center justify-between shadow border border-slate-700">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+              <AlertTriangle className="w-5 h-5 text-amber-400" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold uppercase text-slate-300">Not Marked</h4>
+              <p className="text-xl font-black font-mono text-emerald-400">0</p>
+            </div>
+          </div>
+          <div className="text-right text-[11px] text-slate-400 font-semibold space-y-0.5">
+            <div>Boys: <strong className="text-white">0</strong></div>
+            <div>Girls: <strong className="text-white">0</strong></div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 📊 SECTION 3: TOP 2 MAIN ANALYSIS CHARTS WITH CRISP AXES & NUMBERS */}
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
@@ -451,145 +573,6 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       </div>
 
       {/* ========================================================================= */}
-      {/* 💳 SECTION 2: 3 STUDENT CARDS (Total Active, New Admissions, Promoted) */}
-      {/* ========================================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        {/* Card 1: Total Active Students (Olive/Dark Brown Gradient) */}
-        <div className="p-6 rounded-3xl bg-gradient-to-br from-stone-800 to-amber-950 text-white shadow-lg space-y-4 border border-stone-700/60">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white">
-                <GraduationCap className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-sm font-bold uppercase tracking-wider text-stone-200">Total Active Students</span>
-            </div>
-            <span className="text-3xl font-black font-mono text-white">
-              {stats?.totalStudents || 567}
-            </span>
-          </div>
-          <div className="pt-2 border-t border-white/10 flex justify-between items-center text-xs font-bold text-stone-300">
-            <span>TOTAL ACTIVE</span>
-            <span className="text-emerald-400 font-bold">100% Enrolled</span>
-          </div>
-        </div>
-
-        {/* Card 2: Total New Students (Vibrant Emerald Gradient) */}
-        <div className="p-6 rounded-3xl bg-gradient-to-br from-emerald-600 to-green-800 text-white shadow-lg space-y-4 border border-emerald-500/40">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white">
-                <UserPlus className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-sm font-bold uppercase tracking-wider text-emerald-100">Total New Students</span>
-            </div>
-            <span className="text-3xl font-black font-mono text-white">
-              147
-            </span>
-          </div>
-          <div className="pt-2 border-t border-white/10 flex justify-between items-center text-xs font-bold text-emerald-200">
-            <span>NEW ADMISSIONS</span>
-            <span className="text-emerald-100 font-bold">Session 2026-27</span>
-          </div>
-        </div>
-
-        {/* Card 3: Total Promoted Students (Charcoal Black Gradient) */}
-        <div className="p-6 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 text-white shadow-lg space-y-4 border border-slate-800">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white">
-                <UserCheck className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-sm font-bold uppercase tracking-wider text-slate-300">Total Promoted Students</span>
-            </div>
-            <span className="text-3xl font-black font-mono text-white">
-              420
-            </span>
-          </div>
-          <div className="pt-2 border-t border-white/10 flex justify-between items-center text-xs font-bold text-slate-400">
-            <span>PREVIOUS ADMISSIONS</span>
-            <span className="text-indigo-300 font-bold">Rolled Forward</span>
-          </div>
-        </div>
-
-      </div>
-
-      {/* ========================================================================= */}
-      {/* 📅 SECTION 3: 4 ATTENDANCE STRENGTH CARDS */}
-      {/* ========================================================================= */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          
-          {/* Card 1: Total Strength (Dark Blue) */}
-          <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-800 to-indigo-950 text-white flex items-center justify-between shadow">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                <Users className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase text-slate-200">Total Strength</h4>
-                <p className="text-lg font-black font-mono">{stats?.totalStudents || 567}</p>
-              </div>
-            </div>
-            <div className="text-right text-[11px] text-slate-300 font-semibold space-y-0.5">
-              <div>Boys: <strong className="text-white">{stats?.boysCount || 318}</strong></div>
-              <div>Girls: <strong className="text-white">{stats?.girlsCount || 249}</strong></div>
-            </div>
-          </div>
-
-          {/* Card 2: Total Present (Ocean Blue Gradient) */}
-          <div className="p-4 rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-800 text-white flex items-center justify-between shadow">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                <UserCheck className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase text-teal-100">Total Present</h4>
-                <p className="text-lg font-black font-mono">{stats?.presentStudentsToday || 541}</p>
-              </div>
-            </div>
-            <div className="text-right text-[11px] text-teal-100 font-semibold space-y-0.5">
-              <div>Boys: <strong className="text-white">{Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
-              <div>Girls: <strong className="text-white">{Math.round((stats?.girlsCount || 249) * 0.954)}</strong></div>
-            </div>
-          </div>
-
-          {/* Card 3: Total Absent (Orange/Pink Gradient) */}
-          <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-600 to-rose-600 text-white flex items-center justify-between shadow">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                <UserX className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase text-amber-100">Total Absent</h4>
-                <p className="text-lg font-black font-mono">{stats?.absentStudentsToday || 26}</p>
-              </div>
-            </div>
-            <div className="text-right text-[11px] text-amber-100 font-semibold space-y-0.5">
-              <div>Boys: <strong className="text-white">{(stats?.boysCount || 318) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
-              <div>Girls: <strong className="text-white">{(stats?.girlsCount || 249) - Math.round((stats?.girlsCount || 249) * 0.954)}</strong></div>
-            </div>
-          </div>
-
-          {/* Card 4: Attendance Not Marked (Dark Charcoal Alert) */}
-          <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-900 to-stone-900 text-white flex items-center justify-between shadow border border-slate-700">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
-                <AlertTriangle className="w-5 h-5 text-amber-400" />
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase text-slate-300">Not Marked</h4>
-                <p className="text-lg font-black font-mono text-emerald-400">0</p>
-              </div>
-            </div>
-            <div className="text-right text-[11px] text-slate-400 font-semibold space-y-0.5">
-              <div>Boys: <strong className="text-white">0</strong></div>
-              <div>Girls: <strong className="text-white">0</strong></div>
-            </div>
-          </div>
-
-        </div>
-
-      {/* ========================================================================= */}
       {/* 🎂 SECTION 4: BIRTHDAYS & STAFF STRENGTH / ATTENDANCE MATRIX */}
       {/* ========================================================================= */}
       <div className="space-y-6">
@@ -631,8 +614,8 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           </div>
         </div>
 
-        {/* 4 Staff Strength Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* 3 Staff Strength Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           
           {/* Card 1: Employee (Peach/Orange Gradient) */}
           <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white space-y-3 shadow">
@@ -673,20 +656,6 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-teal-100">Other Staff</h4>
               <p className="text-[10px] text-teal-200 font-semibold mt-0.5">TOTAL STRENGTH</p>
-            </div>
-          </div>
-
-          {/* Card 4: Parents (Magenta/Pink Gradient) */}
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-pink-600 to-rose-700 text-white space-y-3 shadow">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                <User className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-2xl font-black font-mono">571</span>
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-pink-100">Parents</h4>
-              <p className="text-[10px] text-pink-200 font-semibold mt-0.5">TOTAL STRENGTH</p>
             </div>
           </div>
 
