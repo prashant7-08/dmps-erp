@@ -1057,9 +1057,38 @@ class SchoolService {
       return '';
     };
 
+    // Map specific student photos for today's birthday students
+    const studentPhotoMap = {
+      'STU-2026-068': '/assets/students/radha.jpg',
+      'STU-2026-313': '/assets/students/mayank.jpg',
+      'STU-2026-474': '/assets/students/pankaj.jpg'
+    };
+
     // Today's exact birthdays from real students and teachers
-    let todayStudents = students.filter(s => formatMMDD(s.dob) === todayMMDD);
-    let todayStaff = teachers.filter(t => formatMMDD(t.dob) === todayMMDD);
+    let todayStudents = students
+      .filter(s => formatMMDD(s.dob) === todayMMDD)
+      .map(s => {
+        let photoUrl = studentPhotoMap[s.id];
+        if (!photoUrl) {
+          if (s.name && s.name.toUpperCase().includes('RADHA')) photoUrl = '/assets/students/radha.jpg';
+          else if (s.name && s.name.toUpperCase().includes('MAYANK')) photoUrl = '/assets/students/mayank.jpg';
+          else if (s.name && s.name.toUpperCase().includes('PANKAJ')) photoUrl = '/assets/students/pankaj.jpg';
+          else photoUrl = s.photo || s.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=0284c7&color=fff&size=128&bold=true`;
+        }
+        return {
+          ...s,
+          photo: photoUrl,
+          classFormatted: `${s.class || ''} (${s.section || 'A'})`
+        };
+      });
+
+    let todayStaff = teachers
+      .filter(t => formatMMDD(t.dob) === todayMMDD)
+      .map(t => ({
+        ...t,
+        photo: t.photo || t.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=7c3aed&color=fff&size=128&bold=true`,
+        designationFormatted: t.designation || 'Teacher'
+      }));
 
     // Filter real students with valid DOB in the current month or upcoming
     const validStudents = students

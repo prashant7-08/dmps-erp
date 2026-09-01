@@ -564,93 +564,101 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             </div>
           </div>
 
-          {/* 2. Full 2 Birthday Cards (Side by Side) */}
+          {/* 2. Today's Students & Staff Birthday Cards with Sliding Photos */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-            {/* Student Birthdays */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between gap-3.5">
+            
+            {/* Left: Today's Students Birthdays */}
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between gap-3 overflow-hidden">
               <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2.5">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white flex items-center justify-center shadow-md shadow-pink-500/20 shrink-0">
-                    <Cake className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
-                      Student Birthdays & Celebrations
-                    </h4>
-                    <p className="text-[11px] text-slate-400">
-                      {birthdays?.todayStudents?.length > 0
-                        ? `${birthdays.todayStudents.length} Students celebrating today!`
-                        : 'Upcoming student birthdays in this month'}
-                    </p>
+                <div className="flex items-center gap-2">
+                  <Cake className="w-5 h-5 text-sky-500" />
+                  <h4 className="text-sm sm:text-base font-bold text-sky-600 dark:text-sky-400 flex items-center gap-1.5">
+                    Today's Students Birthdays <span className="text-amber-500 font-bold">({(birthdays?.todayStudents || []).length})</span>
+                  </h4>
+                </div>
+              </div>
+
+              {birthdays?.todayStudents?.length > 0 ? (
+                <div className="overflow-hidden py-1 relative">
+                  <div className="animate-birthday-slider flex items-center">
+                    {[...birthdays.todayStudents, ...birthdays.todayStudents].map((st, idx) => (
+                      <div key={idx} className="flex flex-col items-center text-center shrink-0 w-28 sm:w-32 group cursor-pointer">
+                        {/* Yellow / Golden Rounded Frame */}
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 border-2 border-amber-400 bg-amber-50/20 shadow-xs flex items-center justify-center overflow-hidden group-hover:scale-105 group-hover:border-amber-500 transition-all duration-300">
+                          <img
+                            src={st.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=0284c7&color=fff&size=128&bold=true`}
+                            alt={st.name}
+                            className="w-full h-full object-cover rounded-xl"
+                            onError={(e) => {
+                              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=0284c7&color=fff&size=128&bold=true`;
+                            }}
+                          />
+                        </div>
+                        <h5 className="text-xs font-black text-slate-800 dark:text-slate-100 uppercase tracking-wide mt-2 truncate w-full px-1">
+                          {st.name}
+                        </h5>
+                        <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                          {st.classFormatted || `${st.class || 'VII'} (${st.section || 'A'})`}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <span className="text-[10px] font-bold text-pink-600 bg-pink-50 dark:bg-pink-950/60 px-2.5 py-1 rounded-xl border border-pink-200/60 shrink-0">
-                  🎂 {birthdays?.todayDateFormatted || 'September 2'}
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {(birthdays?.todayStudents?.length > 0 ? birthdays.todayStudents : birthdays?.upcomingStudents || []).slice(0, 4).map((st, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-2 rounded-2xl bg-pink-50/50 dark:bg-slate-800/60 border border-pink-100 dark:border-slate-700/60 hover:scale-[1.01] transition-transform">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-pink-400 to-amber-300 text-slate-900 font-black text-xs flex items-center justify-center shrink-0 shadow-2xs">
-                        {st.name?.charAt(0)}
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">{st.name}</p>
-                        <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">{st.class || 'Student'}</p>
-                      </div>
-                    </div>
-                    <span className="text-[10px] font-black px-2 py-0.5 rounded-lg bg-white dark:bg-slate-900 text-pink-600 dark:text-pink-400 shadow-2xs border border-pink-100 dark:border-slate-700 shrink-0">
-                      {st.birthdayFormatted || 'Today 🎉'}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              ) : (
+                <div className="flex-1 flex items-center justify-center py-8 min-h-[140px]">
+                  <p className="text-sm font-semibold text-slate-400 dark:text-slate-500">
+                    No Birthdays Today
+                  </p>
+                </div>
+              )}
             </div>
 
-            {/* Staff Birthdays */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between gap-3.5">
+            {/* Right: Today's Staff Birthdays */}
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between gap-3 overflow-hidden">
               <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2.5">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-700 text-white flex items-center justify-center shadow-md shadow-purple-500/20 shrink-0">
-                    <Heart className="w-4 h-4 text-amber-300" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
-                      Staff & Faculty Birthdays
-                    </h4>
-                    <p className="text-[11px] text-slate-400">
-                      {birthdays?.todayStaff?.length > 0
-                        ? `${birthdays.todayStaff.length} Staff members celebrating today!`
-                        : 'Upcoming staff birthdays in this month'}
-                    </p>
+                <div className="flex items-center gap-2">
+                  <Cake className="w-5 h-5 text-sky-500" />
+                  <h4 className="text-sm sm:text-base font-bold text-sky-600 dark:text-sky-400 flex items-center gap-1.5">
+                    Today's Staff Birthdays <span className="text-amber-500 font-bold">({(birthdays?.todayStaff || []).length})</span>
+                  </h4>
+                </div>
+              </div>
+
+              {birthdays?.todayStaff?.length > 0 ? (
+                <div className="overflow-hidden py-1 relative">
+                  <div className="animate-birthday-slider flex items-center">
+                    {[...birthdays.todayStaff, ...birthdays.todayStaff].map((tc, idx) => (
+                      <div key={idx} className="flex flex-col items-center text-center shrink-0 w-28 sm:w-32 group cursor-pointer">
+                        {/* Yellow / Golden Rounded Frame */}
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 border-2 border-amber-400 bg-amber-50/20 shadow-xs flex items-center justify-center overflow-hidden group-hover:scale-105 group-hover:border-amber-500 transition-all duration-300">
+                          <img
+                            src={tc.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(tc.name)}&background=7c3aed&color=fff&size=128&bold=true`}
+                            alt={tc.name}
+                            className="w-full h-full object-cover rounded-xl"
+                            onError={(e) => {
+                              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(tc.name)}&background=7c3aed&color=fff&size=128&bold=true`;
+                            }}
+                          />
+                        </div>
+                        <h5 className="text-xs font-black text-slate-800 dark:text-slate-100 uppercase tracking-wide mt-2 truncate w-full px-1">
+                          {tc.name}
+                        </h5>
+                        <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                          {tc.designationFormatted || tc.designation || 'Faculty'}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <span className="text-[10px] font-bold text-purple-600 bg-purple-50 dark:bg-purple-950/60 px-2.5 py-1 rounded-xl border border-purple-200/60 shrink-0">
-                  ✨ Faculty
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {(birthdays?.todayStaff?.length > 0 ? birthdays.todayStaff : birthdays?.upcomingStaff || []).slice(0, 4).map((tc, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-2 rounded-2xl bg-purple-50/50 dark:bg-slate-800/60 border border-purple-100 dark:border-slate-700/60 hover:scale-[1.01] transition-transform">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-400 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-2xs">
-                        {tc.name?.charAt(0)}
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">{tc.name}</p>
-                        <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">{tc.designation || 'Teacher'}</p>
-                      </div>
-                    </div>
-                    <span className="text-[10px] font-black px-2 py-0.5 rounded-lg bg-white dark:bg-slate-900 text-purple-600 dark:text-purple-300 shadow-2xs border border-purple-100 dark:border-slate-700 shrink-0">
-                      {tc.birthdayFormatted || 'Today 🎈'}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              ) : (
+                <div className="flex-1 flex items-center justify-center py-8 min-h-[140px]">
+                  <p className="text-sm font-semibold text-slate-400 dark:text-slate-500">
+                    No Birthdays Today
+                  </p>
+                </div>
+              )}
             </div>
+
           </div>
 
           {/* 3. Rich 3 Staff Strength Cards */}

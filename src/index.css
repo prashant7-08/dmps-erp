@@ -223,3 +223,28 @@
   animation: modalZoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* 🎂 Birthday Auto-Slide & Marquee Animation */
+@keyframes birthdaySlideSmooth {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-birthday-slider {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: birthdaySlideSmooth 10s ease-in-out infinite;
+}
+
+.animate-birthday-slider:hover {
+  animation-play-state: paused;
+}
+
+
