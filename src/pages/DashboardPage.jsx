@@ -205,68 +205,6 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
   return (
     <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-300">
 
-      {/* 🏛️ Active Campus Indicator Banner */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700 flex items-center justify-center text-amber-700 dark:text-amber-300 shadow-sm shrink-0">
-            <Building2 className="w-6 h-6" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-xs font-black uppercase px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border border-amber-300">
-                {stats?.shortCode || 'ALL'}
-              </span>
-              <h2 className="text-base sm:text-lg font-black text-[#0b1e38] dark:text-white font-serif">
-                {stats?.branchName || 'Dadheech Memorial Public School'}
-              </h2>
-            </div>
-            <p className="text-xs text-slate-500 mt-0.5">
-              {isSuperAdmin
-                ? `Super Admin Overview • Showing verified database for ${stats?.branchName || 'All Campuses'}`
-                : `Logged in as ${currentRole} • Restricted to ${stats?.branchName || 'Main Campus'}`}
-            </p>
-          </div>
-        </div>
-
-        {/* Super Admin Quick Campus Switcher Chips */}
-        {isSuperAdmin && (
-          <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 flex-wrap sm:flex-nowrap">
-            <button
-              onClick={() => setActiveBranchId('BR-01')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                activeBranchId === 'BR-01' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              🏢 Senior (Jargwan)
-            </button>
-            <button
-              onClick={() => setActiveBranchId('BR-02')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                activeBranchId === 'BR-02' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              🏫 Barheti (Aligarh)
-            </button>
-            <button
-              onClick={() => setActiveBranchId('BR-03')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                activeBranchId === 'BR-03' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              🧸 Kids School (PAC)
-            </button>
-            <button
-              onClick={() => setActiveBranchId('all')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                activeBranchId === 'all' ? 'bg-[#0b1e38] text-white shadow' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              🌐 All Campuses
-            </button>
-          </div>
-        )}
-      </div>
-
       {/* 🏫 DMPS Master School Header Banner */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-950 p-6 sm:p-8 text-white shadow-xl border border-indigo-500/30">
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
