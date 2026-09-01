@@ -160,6 +160,8 @@ function AppContent() {
         return <AttendancePage initialType="student" />;
       case 'staff-attendance':
         return <AttendancePage initialType="staff" />;
+      case 'staff-monthly-matrix':
+        return <AttendancePage initialType="staff-monthly-matrix" />;
       case 'biometric':
         return <BiometricPage onNavigateToStaffAttendance={() => setActiveTab('staff-attendance')} />;
       case 'fees':

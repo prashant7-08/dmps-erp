@@ -136,6 +136,7 @@ export const navigationGroups = [
     items: [
       { id: 'attendance', targetTab: 'attendance', label: 'Daily Student Attendance', badge: 'Daily' },
       { id: 'staff-attendance', targetTab: 'staff-attendance', label: 'Staff / Teacher Attendance', badge: 'Staff' },
+      { id: 'staff-monthly-matrix', targetTab: 'staff-monthly-matrix', label: 'Monthly Biometric Register', badge: 'Calendar' },
       { id: 'biometric', targetTab: 'biometric', label: 'Biometric Machine & Sync', badge: 'Secureye' }
     ]
   },
