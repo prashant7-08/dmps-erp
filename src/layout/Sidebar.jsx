@@ -355,22 +355,23 @@ export const Sidebar = ({
         }`}
       >
         {/* Brand Header with School Crest Mono */}
-        <div className={`p-4 border-b border-amber-200/70 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} bg-white/90 dark:bg-slate-950/80 backdrop-blur-md`}>
-          <div className="flex items-center gap-2.5">
-            <div className="w-11 h-11 rounded-full overflow-hidden bg-white p-0.5 shadow-md border-2 border-amber-400 flex items-center justify-center shrink-0">
+        <div className={`p-4 border-b border-slate-200/80 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} bg-white dark:bg-slate-950/90 backdrop-blur-md`}>
+          <div className="flex items-center gap-3">
+            <div className="relative w-11 h-11 rounded-full bg-white p-0.5 shadow-md border-2 border-[#0b1e38] dark:border-amber-400 flex items-center justify-center shrink-0">
               <img
                 src="/logo.png"
-                alt="Dadheech Crest"
+                alt="Dadheech Group Crest"
                 className="w-full h-full object-contain rounded-full"
               />
+              <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-white dark:border-slate-900 rounded-full shadow-xs"></span>
             </div>
             {!isCollapsed && (
               <div className="animate-in fade-in duration-200">
-                <h1 className="text-xs font-black text-[#4a0e3d] dark:text-amber-400 tracking-tight leading-tight flex items-center gap-1 font-serif">
-                  Dadheech Memorial <span className="text-[9px] uppercase font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">ERP</span>
+                <h1 className="text-base sm:text-lg font-black text-[#0b1e38] dark:text-white tracking-wider leading-none font-serif uppercase">
+                  DADHEECH
                 </h1>
-                <p className="text-[10px] text-slate-600 dark:text-slate-400 font-bold truncate max-w-[150px]">
-                  A Group of Education
+                <p className="text-[8.5px] font-black tracking-[0.18em] uppercase text-slate-500 dark:text-slate-400 mt-1">
+                  A GROUP OF EDUCATION
                 </p>
               </div>
             )}
