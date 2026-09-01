@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "node scratch/find_missing_imports.js && node scratch/test_integrity.js",
+    "prebuild": "node scratch/find_missing_imports.js && node scratch/check_undefined_variables.js && node scratch/test_integrity.js",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",

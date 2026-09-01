@@ -177,6 +177,19 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
 
   const currentRoster = getRoster();
 
+  // Active Template definition for printing ID Cards and Admit Cards
+  const activeTemplate = templates.find(t => t.id === activeTemplateId) || templates[0] || {
+    id: 'TMPL-001',
+    branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+    name: "STUDENT'S CARD",
+    applicableUser: 'Student',
+    pageLayout: { width: 55, height: 88, unit: 'mm' },
+    photoStyle: 'Square',
+    photoSize: 70,
+    qrCodeField: 'Date Of Birth',
+    themeColor: 'blue'
+  };
+
   // Auto-select all candidates when section or class changes
   useEffect(() => {
     setSelectedIds(new Set(currentRoster.map(r => r.id)));
