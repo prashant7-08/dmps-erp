@@ -74,54 +74,73 @@ export const TransportPage = ({ initialSection = 'routes' }) => {
   const totalCommuters = 429;
   const totalAnnualTransportDues = 3724985;
 
+  const getHeaderMeta = () => {
+    switch (activeTab) {
+      case 'routes':
+        return {
+          title: 'School Bus Route Master & Schedule',
+          subtitle: `Configured fleet routes connecting ${stoppages.length}+ villages and pickup stands.`,
+          badge: 'Route Master'
+        };
+      case 'vehicles':
+        return {
+          title: 'Vehicle Fleet Master & Driver Registry',
+          subtitle: 'Active school buses, vans, driver licenses, fitness certificates & capacities.',
+          badge: 'Fleet Master'
+        };
+      case 'stoppage':
+        return {
+          title: 'Village Stoppages & 11-Month Fee Calculation Master',
+          subtitle: 'Authentic 41 village stoppages, monthly rates & CBSE 11-month annual total rates.',
+          badge: '41 Stoppages'
+        };
+      case 'assign':
+        return {
+          title: 'Assign Student Stoppage & Bus Route',
+          subtitle: 'Map students to their nearest village stoppage with auto-calculated transport fees.',
+          badge: 'Stoppage Assignment'
+        };
+      case 'allocation':
+        return {
+          title: 'Transport Commuters Allocation Dossier',
+          subtitle: `Review ${totalCommuters} active bus commuting students across all routes and stops.`,
+          badge: 'Commuter Roster'
+        };
+      default:
+        return {
+          title: 'Transport & School Bus Supervision Suite',
+          subtitle: 'Village stoppages, 11-month transport calculations, fleet routes and commuters.',
+          badge: 'Transport'
+        };
+    }
+  };
+
+  const meta = getHeaderMeta();
+
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col md:flex-row sm:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col md:flex-row sm:items-center justify-between gap-4 print:hidden">
         <div>
           <div className="flex items-center gap-2">
             <span className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400">
               <Bus className="w-5 h-5" />
             </span>
             <h1 className="text-xl font-black text-slate-900 dark:text-white">
-              Transport & School Bus Supervision Suite
+              {meta.title}
             </h1>
+            <span className="px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 font-bold text-[10px] border border-blue-200">
+              {meta.badge}
+            </span>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            41 Village Stoppages, 11-Month Annual Transport Calculations (₹37.25L), Fleet Routes & Commuters Allocation.
+          <p className="text-xs text-slate-500 font-medium mt-1">
+            {meta.subtitle}
           </p>
         </div>
 
         <div className="flex items-center gap-2">
           <Badge variant="primary">41 Village Stoppages</Badge>
-          <Badge variant="success">429 Active Commuters</Badge>
-        </div>
-      </div>
-
-      {/* Navigation Sub-Tabs */}
-      <div className="bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-x-auto">
-        <div className="flex items-center gap-1.5 min-w-max text-xs font-bold">
-          {[
-            { id: 'routes', label: '🛣️ Route Master', count: routes.length },
-            { id: 'vehicles', label: '🚌 Vehicle Master', count: vehicles.length },
-            { id: 'stoppage', label: '📍 Stoppage (41 Villages)', count: 41 },
-            { id: 'assign', label: '👨‍🎓 Assign Stoppage', badge: 'Live' },
-            { id: 'allocation', label: '📊 Allocation Report', count: totalCommuters }
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 ${
-                activeTab === tab.id
-                  ? 'bg-blue-600 text-white shadow-md font-black'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
-              }`}
-            >
-              <span>{tab.label}</span>
-              {tab.badge && <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/20 text-white">{tab.badge}</span>}
-              {tab.count !== undefined && <span className={`text-[9px] px-1.5 py-0.5 rounded-full ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-600'}`}>{tab.count}</span>}
-            </button>
-          ))}
+          <Badge variant="success">{totalCommuters} Active Commuters</Badge>
         </div>
       </div>
 

@@ -78,59 +78,73 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
     showToast(`Inquiry status updated to ${newStatus}`, 'success');
   };
 
+  const getHeaderMeta = () => {
+    switch (activeTab) {
+      case 'inquiries':
+      case 'admission-online':
+        return {
+          icon: <Phone className="w-5 h-5" />,
+          title: 'Online Website Admission Inquiries',
+          subtitle: `Review prospective student admission inquiries submitted from the official school website (${inquiries.length} total).`,
+          badge: 'Online Applications'
+        };
+      case 'complaints':
+      case 'helpdesk-grievance':
+        return {
+          icon: <ShieldAlert className="w-5 h-5" />,
+          title: 'Parent & Staff Grievance Tickets',
+          subtitle: 'Track, assign and resolve facility, transport, academic and administration complaints.',
+          badge: 'Grievance Desk'
+        };
+      case 'visitors':
+      case 'helpdesk-passes':
+        return {
+          icon: <ShieldCheck className="w-5 h-5" />,
+          title: 'Security Gate Visitors & Entry Pass Register',
+          subtitle: 'Issue computerized gate passes and verify visitor check-in / check-out timestamps.',
+          badge: 'Campus Security'
+        };
+      default:
+        return {
+          icon: <ShieldAlert className="w-5 h-5" />,
+          title: 'Helpdesk & Reception Services',
+          subtitle: 'Admission inquiries, grievance tickets and visitor logbook.',
+          badge: 'Reception'
+        };
+    }
+  };
+
+  const meta = getHeaderMeta();
+
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      {/* Dynamic Header */}
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 print:hidden">
         <div>
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-            <ShieldAlert className="w-7 h-7 text-indigo-600" /> Front Desk & Admission Inquiries
-          </h2>
-          <p className="text-xs text-slate-500 mt-1">
-            Website admission applications, parent grievance ticketing and security gate visitor logs.
+          <div className="flex items-center gap-2">
+            <span className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400">
+              {meta.icon}
+            </span>
+            <h2 className="text-xl font-black text-slate-900 dark:text-white">
+              {meta.title}
+            </h2>
+            <span className="px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 font-bold text-[10px] border border-blue-200">
+              {meta.badge}
+            </span>
+          </div>
+          <p className="text-xs text-slate-500 font-medium mt-1">
+            {meta.subtitle}
           </p>
         </div>
-        <button
-          onClick={() => setIsNewVisitorModalOpen(true)}
-          className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-500/20 flex items-center gap-2 transition-all"
-        >
-          <ShieldCheck className="w-4 h-4" /> Issue Gate Visitor Pass
-        </button>
-      </div>
 
-      {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 overflow-x-auto pb-1">
-        <button
-          onClick={() => setActiveTab('inquiries')}
-          className={`px-4 py-2.5 text-xs font-bold rounded-xl transition-all whitespace-nowrap flex items-center gap-1.5 ${
-            activeTab === 'inquiries'
-              ? 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 shadow-sm'
-              : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <Phone className="w-3.5 h-3.5 text-emerald-600" />
-          <span>Website Admission Inquiries ({inquiries.length})</span>
-        </button>
-        <button
-          onClick={() => setActiveTab('complaints')}
-          className={`px-4 py-2.5 text-xs font-bold rounded-xl transition-all whitespace-nowrap ${
-            activeTab === 'complaints'
-              ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
-              : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          Grievance Tickets ({complaints.length})
-        </button>
-        <button
-          onClick={() => setActiveTab('visitors')}
-          className={`px-4 py-2.5 text-xs font-bold rounded-xl transition-all whitespace-nowrap ${
-            activeTab === 'visitors'
-              ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
-              : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          Gate Visitors Log ({visitors.length})
-        </button>
+        {activeTab === 'visitors' && (
+          <button
+            onClick={() => setIsNewVisitorModalOpen(true)}
+            className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2 transition-all hover:scale-105"
+          >
+            <ShieldCheck className="w-4 h-4" /> Issue Gate Visitor Pass
+          </button>
+        )}
       </div>
 
       {/* TAB 1: Online Admission Inquiries (From Public Website) */}

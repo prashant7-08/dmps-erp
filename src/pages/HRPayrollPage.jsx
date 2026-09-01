@@ -80,58 +80,79 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
     showToast(`Monthly payroll for ${selectedMonth} (₹${totalPayrollExpenditure.toLocaleString('en-IN')}) disbursed via Direct Bank Transfer! 💰`, 'success');
   };
 
+  const getHeaderMeta = () => {
+    switch (activeTab) {
+      case 'payment':
+        return {
+          title: 'Staff & Faculty Monthly Salary Payments',
+          subtitle: `Disburse monthly payroll and generate payslips for all ${teachers.length} faculty and staff members.`,
+          badge: 'Salary Disbursal'
+        };
+      case 'template':
+        return {
+          title: 'Salary Grade & Pay Scale Templates',
+          subtitle: 'Configure Basic Pay, DA, HRA, Medical Allowance and EPF deductions for staff grades.',
+          badge: 'Pay Grades'
+        };
+      case 'assign':
+        return {
+          title: 'Staff Salary Structure Assignment',
+          subtitle: 'Assign standard pay scale templates to teachers, drivers, administrative and support staff.',
+          badge: 'Structure Allocation'
+        };
+      case 'advance':
+        return {
+          title: 'Advance Salary Requests & EMI Repayment',
+          subtitle: 'Manage staff advance requests, approvals and monthly payroll deduction schedules.',
+          badge: 'Advance Salary'
+        };
+      case 'award':
+        return {
+          title: 'Staff Excellence & Annual Awards',
+          subtitle: 'Recognize outstanding teaching performance, punctuality and service milestones.',
+          badge: 'Excellence Awards'
+        };
+      default:
+        return {
+          title: 'Human Resource & Faculty Payroll Suite',
+          subtitle: 'Complete management of Salary Templates, Staff Assignments, Disbursals, Advance Loans & Awards.',
+          badge: 'HR & Payroll'
+        };
+    }
+  };
+
+  const meta = getHeaderMeta();
+
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
       
-      {/* Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      {/* Dynamic Header */}
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 print:hidden">
         <div>
           <div className="flex items-center gap-2">
             <span className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400">
               <Users className="w-5 h-5" />
             </span>
             <h1 className="text-xl font-black text-slate-900 dark:text-white">
-              Human Resource & Faculty Payroll Suite
+              {meta.title}
             </h1>
+            <span className="px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 font-bold text-[10px] border border-blue-200">
+              {meta.badge}
+            </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Complete management of Salary Templates, Staff Assignments, Disbursals, Advance Loans & Awards.
+            {meta.subtitle}
           </p>
         </div>
 
-        <button
-          onClick={handleDisbursePayroll}
-          className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2 hover:scale-105 active:scale-95 transition-all"
-        >
-          <CreditCard className="w-4 h-4" /> Disburse {selectedMonth} Payroll
-        </button>
-      </div>
-
-      {/* Navigation Sub-Tabs */}
-      <div className="bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-x-auto">
-        <div className="flex items-center gap-1 min-w-max text-xs font-bold">
-          {[
-            { id: 'payment', label: '💳 Salary Payment', count: teachers.length },
-            { id: 'template', label: '📋 Salary Template', count: templates.length },
-            { id: 'assign', label: '📌 Salary Assign', badge: 'Active' },
-            { id: 'advance', label: '💰 Advance Salary', count: advanceRequests.length },
-            { id: 'award', label: '🏆 Staff Awards', count: awards.length }
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 ${
-                activeTab === tab.id
-                  ? 'bg-blue-600 text-white shadow-md font-black'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
-              }`}
-            >
-              <span>{tab.label}</span>
-              {tab.badge && <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/20 text-white">{tab.badge}</span>}
-              {tab.count !== undefined && <span className={`text-[9px] px-1.5 py-0.5 rounded-full ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-600'}`}>{tab.count}</span>}
-            </button>
-          ))}
-        </div>
+        {activeTab === 'payment' && (
+          <button
+            onClick={handleDisbursePayroll}
+            className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2 hover:scale-105 active:scale-95 transition-all"
+          >
+            <CreditCard className="w-4 h-4" /> Disburse {selectedMonth} Payroll
+          </button>
+        )}
       </div>
 
       {/* ========================================================================= */}
