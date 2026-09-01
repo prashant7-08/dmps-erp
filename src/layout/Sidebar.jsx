@@ -43,6 +43,7 @@ import { useToast } from '../components/common/Toast';
 export const navigationGroups = [
   {
     id: 'dashboard-group',
+    permissionKey: 'dashboard',
     label: 'DASHBOARD',
     icon: LayoutDashboard,
     isSingle: true,
@@ -50,6 +51,7 @@ export const navigationGroups = [
   },
   {
     id: 'reception-group',
+    permissionKey: 'reception',
     label: 'RECEPTION / FRONT DESK',
     icon: Building2,
     items: [
@@ -60,6 +62,7 @@ export const navigationGroups = [
   },
   {
     id: 'admission-group',
+    permissionKey: 'admission',
     label: 'ADMISSION',
     icon: UserPlus,
     items: [
@@ -69,6 +72,7 @@ export const navigationGroups = [
   },
   {
     id: 'students-group',
+    permissionKey: 'students',
     label: 'STUDENT DETAILS',
     icon: GraduationCap,
     items: [
@@ -78,6 +82,7 @@ export const navigationGroups = [
   },
   {
     id: 'staff-group',
+    permissionKey: 'staff',
     label: 'HUMAN RESOURCE',
     icon: Users,
     items: [
@@ -91,6 +96,7 @@ export const navigationGroups = [
   },
   {
     id: 'student-accounting-group',
+    permissionKey: 'student_accounting',
     label: 'STUDENT ACCOUNTING',
     icon: CreditCard,
     items: [
@@ -107,6 +113,7 @@ export const navigationGroups = [
   },
   {
     id: 'office-accounting-group',
+    permissionKey: 'office_accounting',
     label: 'OFFICE ACCOUNTING',
     icon: DollarSign,
     items: [
@@ -119,6 +126,7 @@ export const navigationGroups = [
   },
   {
     id: 'supervision-group',
+    permissionKey: 'supervision',
     label: 'SUPERVISION',
     icon: Home,
     items: [
@@ -133,6 +141,7 @@ export const navigationGroups = [
   },
   {
     id: 'attendance-group',
+    permissionKey: 'attendance',
     label: 'ATTENDANCE',
     icon: CheckSquare,
     items: [
@@ -144,6 +153,7 @@ export const navigationGroups = [
   },
   {
     id: 'inventory-group',
+    permissionKey: 'inventory',
     label: 'INVENTORY',
     icon: Package,
     items: [
@@ -152,6 +162,7 @@ export const navigationGroups = [
   },
   {
     id: 'card-management-group',
+    permissionKey: 'card_management',
     label: 'CARD MANAGEMENT',
     icon: Contact,
     items: [
@@ -164,6 +175,7 @@ export const navigationGroups = [
   },
   {
     id: 'certificate-group',
+    permissionKey: 'certificate',
     label: 'CERTIFICATE',
     icon: Award,
     items: [
@@ -174,6 +186,7 @@ export const navigationGroups = [
   },
   {
     id: 'academic-group',
+    permissionKey: 'academic',
     label: 'ACADEMIC',
     icon: BookOpen,
     items: [
@@ -188,6 +201,7 @@ export const navigationGroups = [
   },
   {
     id: 'homework-group',
+    permissionKey: 'homework',
     label: 'HOMEWORK',
     icon: FileSpreadsheet,
     items: [
@@ -197,6 +211,7 @@ export const navigationGroups = [
   },
   {
     id: 'exam-master-group',
+    permissionKey: 'exam_master',
     label: 'EXAM MASTER',
     icon: Award,
     items: [
@@ -211,6 +226,7 @@ export const navigationGroups = [
   },
   {
     id: 'library-group',
+    permissionKey: 'library',
     label: 'LIBRARY',
     icon: BookMarked,
     items: [
@@ -219,6 +235,7 @@ export const navigationGroups = [
   },
   {
     id: 'events-group',
+    permissionKey: 'events_sports',
     label: 'EVENTS & SPORTS',
     icon: Trophy,
     items: [
@@ -228,6 +245,7 @@ export const navigationGroups = [
   },
   {
     id: 'sms-notices-group',
+    permissionKey: 'sms_notices',
     label: 'BULK SMS AND NOTICES',
     icon: Bell,
     items: [
@@ -236,6 +254,7 @@ export const navigationGroups = [
   },
   {
     id: 'reports-group',
+    permissionKey: 'reports',
     label: 'REPORTS',
     icon: BarChart3,
     items: [
@@ -244,6 +263,7 @@ export const navigationGroups = [
   },
   {
     id: 'branch-group',
+    permissionKey: 'dashboard',
     label: 'BRANCH',
     icon: GitBranch,
     items: [
@@ -254,6 +274,7 @@ export const navigationGroups = [
   },
   {
     id: 'frontend-group',
+    permissionKey: 'dashboard',
     label: 'FRONTEND / WEBSITE',
     icon: Globe,
     items: [
@@ -262,6 +283,7 @@ export const navigationGroups = [
   },
   {
     id: 'settings-group',
+    permissionKey: 'settings',
     label: 'SETTINGS',
     icon: Settings,
     items: [
@@ -272,34 +294,10 @@ export const navigationGroups = [
   }
 ];
 
-const rolePermissions = {
-  'Super Admin': ['*'],
-  'Principal': ['*'],
-  'In-Charge': ['*'],
-  'Head': ['*'],
-  'Teacher': [
-    'dashboard', 'academics', 'timetable', 'attendance', 'homework',
-    'examination', 'students', 'notices', 'sports', 'calendar', 'leave',
-    'card-management', 'admit-cards', 'reports'
-  ],
-  'Accountant': [
-    'dashboard', 'fees', 'payroll', 'inventory', 'reports', 'notices', 'calendar'
-  ],
-  'Librarian': [
-    'dashboard', 'library', 'students', 'notices', 'calendar'
-  ],
-  'Parent': [
-    'parent-portal', 'fees', 'notices', 'calendar', 'helpdesk-visitors'
-  ],
-  'Student': [
-    'student-portal', 'timetable', 'homework', 'examination', 'library', 'notices', 'sports', 'calendar', 'card-management', 'admit-cards'
-  ]
-};
-
 export const Sidebar = ({
   activeTab,
   setActiveTab,
-  currentRole,
+  currentRole = 'Super Admin',
   isOpen,
   setIsOpen,
   isCollapsed = false,
@@ -308,7 +306,6 @@ export const Sidebar = ({
 }) => {
   const { activeBranchId, setActiveBranchId } = useAuth();
   const { showToast } = useToast();
-  const allowed = rolePermissions[currentRole] || ['*'];
 
   // Single-accordion mode: only one category expanded at a time (expanding one closes the others)
   const [expandedGroupId, setExpandedGroupId] = useState(null);
@@ -330,17 +327,13 @@ export const Sidebar = ({
     setExpandedGroupId(prev => (prev === groupId ? null : groupId));
   };
 
-  // Filter groups and items based on logged-in role
-  const visibleGroups = navigationGroups
-    .map(grp => {
-      if (grp.isSingle) {
-        return (allowed.includes('*') || allowed.includes(grp.targetTab)) ? grp : null;
-      }
-      const validItems = grp.items.filter(item => item.isExternalWebsite || allowed.includes('*') || allowed.includes(item.id));
-      if (validItems.length === 0) return null;
-      return { ...grp, items: validItems };
-    })
-    .filter(Boolean);
+  // Dynamically Filter groups based on active role RBAC permissions
+  const isSuperAdmin = currentRole === 'Super Admin' || currentRole === 'Admin';
+  const visibleGroups = navigationGroups.filter(grp => {
+    if (isSuperAdmin) return true;
+    const permKey = grp.permissionKey || grp.id.replace('-group', '');
+    return schoolService.hasPermission(currentRole, permKey, 'view');
+  });
 
   return (
     <>

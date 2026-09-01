@@ -51,6 +51,14 @@ import { StatCard } from '../components/common/StatCard';
 import { Badge } from '../components/common/Badge';
 import { useAuth } from '../context/AuthContext';
 import schoolService from '../services/schoolService';
+import {
+  AccountantDashboardView,
+  TeacherDashboardView,
+  TransportDashboardView,
+  LibrarianDashboardView,
+  ParentDashboardView,
+  StudentDashboardView
+} from './RoleDashboards';
 
 export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpenAI }) => {
   const { activeBranchId, setActiveBranchId, isSuperAdmin, activeBranch, branches } = useAuth();
@@ -173,6 +181,27 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
   // Calendar Days Grid Generation for August 2026 (Aug 1 = Saturday)
   const august2026Days = Array.from({ length: 31 }, (_, i) => i + 1);
 
+  // 🎯 ROLE-SPECIFIC DEDICATED DASHBOARD VIEWS
+  if (currentRole === 'Accountant') {
+    return <AccountantDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
+  }
+  if (currentRole === 'Teacher') {
+    return <TeacherDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
+  }
+  if (currentRole === 'Transport Manager') {
+    return <TransportDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
+  }
+  if (currentRole === 'Librarian') {
+    return <LibrarianDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
+  }
+  if (currentRole === 'Parent') {
+    return <ParentDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
+  }
+  if (currentRole === 'Student') {
+    return <StudentDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
+  }
+
+  // 👑 DEFAULT: SUPER ADMIN & PRINCIPAL MASTER EXECUTIVE DASHBOARD
   return (
     <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-300">
 
