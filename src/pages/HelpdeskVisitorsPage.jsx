@@ -14,12 +14,24 @@ import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import schoolService from '../services/schoolService';
 
-export const HelpdeskVisitorsPage = () => {
+export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
   const { showToast } = useToast();
   const [complaints, setComplaints] = useState(schoolService.getComplaints());
   const [visitors, setVisitors] = useState(schoolService.getVisitors());
   const [inquiries, setInquiries] = useState(schoolService.getAdmissionInquiries());
-  const [activeTab, setActiveTab] = useState('inquiries');
+
+  const resolveTab = (tab) => {
+    if (!tab) return 'inquiries';
+    if (tab === 'helpdesk-passes' || tab === 'passes' || tab === 'visitors') return 'visitors';
+    if (tab === 'helpdesk-grievance' || tab === 'complaints') return 'complaints';
+    return 'inquiries';
+  };
+
+  const [activeTab, setActiveTab] = useState(() => resolveTab(initialTab));
+
+  useEffect(() => {
+    if (initialTab) setActiveTab(resolveTab(initialTab));
+  }, [initialTab]);
 
   const [isNewVisitorModalOpen, setIsNewVisitorModalOpen] = useState(false);
   const [visitorForm, setVisitorForm] = useState({

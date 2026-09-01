@@ -203,7 +203,7 @@ function AppContent() {
       case 'transport-stoppage':
       case 'transport-assign':
       case 'transport-allocation':
-        return <TransportPage />;
+        return <TransportPage initialSection={activeTab} />;
       case 'hostel':
         return <HostelPage />;
       case 'medical':
@@ -222,12 +222,11 @@ function AppContent() {
       case 'card-admit-template':
       case 'card-generate-admit':
       case 'admit-cards':
-        return <CertificatesIdPage initialSection="student_cards" />;
       case 'certificates':
       case 'cert-template':
       case 'cert-generate-student':
       case 'cert-generate-employee':
-        return <CertificatesIdPage initialSection="certificates" />;
+        return <CertificatesIdPage initialSection={activeTab} />;
       case 'payroll':
       case 'hr-template':
       case 'hr-assign':
@@ -241,9 +240,13 @@ function AppContent() {
       case 'office-expense':
       case 'office-transactions':
       case 'office-voucher':
-        return <AccountsInventoryPage />;
+        return <AccountsInventoryPage initialTab={activeTab} />;
       case 'helpdesk-visitors':
-        return <HelpdeskVisitorsPage />;
+      case 'helpdesk-inquiries':
+      case 'helpdesk-passes':
+      case 'helpdesk-grievance':
+      case 'admission-online':
+        return <HelpdeskVisitorsPage initialTab={activeTab} />;
       case 'reports':
         return <ReportsPage />;
       case 'settings':

@@ -46,12 +46,15 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
     if (sec === 'card-id-template' || sec === 'id-template' || sec === 'templates') return 'templates';
     if (sec === 'card-student-id' || sec === 'student-id' || sec === 'student_cards') return 'student_cards';
     if (sec === 'card-employee-id' || sec === 'employee-id' || sec === 'employee_cards') return 'employee_cards';
-    if (sec === 'card-admit-template' || sec === 'admit-template' || sec === 'card-generate-admit' || sec === 'generate-admit' || sec === 'admit_cards') return 'admit_cards';
-    if (sec.startsWith('cert-') || sec.includes('certificate')) return 'certificates';
+    if (sec === 'card-admit-template' || sec === 'admit-template' || sec === 'admit_template') return 'admit_template';
+    if (sec === 'card-generate-admit' || sec === 'generate-admit' || sec === 'admit_cards' || sec === 'admit-cards') return 'admit_cards';
+    if (sec === 'cert-template' || sec === 'cert_template') return 'cert_template';
+    if (sec === 'cert-generate-student' || sec === 'certificates' || sec === 'student-cert' || sec.includes('certificate')) return 'certificates';
+    if (sec === 'cert-generate-employee' || sec === 'employee-cert' || sec === 'employee_certificates') return 'employee_certificates';
     return sec;
   };
 
-  // Active Sub-Section: 'templates' | 'student_cards' | 'employee_cards' | 'admit_cards' | 'certificates'
+  // Active Sub-Section: 'templates' | 'student_cards' | 'employee_cards' | 'admit_template' | 'admit_cards' | 'cert_template' | 'certificates' | 'employee_certificates'
   const [activeSection, setActiveSection] = useState(() => resolveSection(initialSection));
   
   useEffect(() => {
@@ -309,7 +312,76 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
 
   // Candidates selected for print
   const selectedCardsToPrint = currentRoster.filter(r => selectedIds.has(r.id));
-  const activeTemplate = templates.find(t => t.id === activeTemplateId) || templates[0];
+  // Dynamic Header based on active section
+  const getSectionMetadata = () => {
+    switch (activeSection) {
+      case 'templates':
+        return {
+          icon: '🪪',
+          title: 'Id Card Template Master',
+          subtitle: 'Design ID card templates, layout dimensions (width x height mm), and tags.',
+          badge: 'Template Designer'
+        };
+      case 'student_cards':
+        return {
+          icon: '🎓',
+          title: 'Student ID Cards Batch Generator',
+          subtitle: 'Select students by class/section, configure template and print batch ID cards.',
+          badge: 'Student ID Batch'
+        };
+      case 'employee_cards':
+        return {
+          icon: '👥',
+          title: 'Employee & Faculty ID Card Generator',
+          subtitle: 'Generate official staff and faculty ID cards with employee code and QR.',
+          badge: 'Faculty & Staff'
+        };
+      case 'admit_template':
+        return {
+          icon: '🎫',
+          title: 'Admit Card Template & Hall Ticket Setup',
+          subtitle: 'Design examination admit card formats, student photo position, and instructions.',
+          badge: 'CBSE Exam'
+        };
+      case 'admit_cards':
+        return {
+          icon: '📋',
+          title: 'Generate Student Admit Cards (Roll Call Batch)',
+          subtitle: 'Issue and batch print examination admit cards with exam schedule and roll numbers.',
+          badge: 'Batch Print'
+        };
+      case 'cert_template':
+        return {
+          icon: '📜',
+          title: 'Institutional Certificate Templates',
+          subtitle: 'Design Transfer Certificate (TC), Bonafide, Character & Merit certificate layouts.',
+          badge: 'Template Master'
+        };
+      case 'certificates':
+        return {
+          icon: '🎖️',
+          title: 'Student Official Certificates (TC / Bonafide / Character)',
+          subtitle: 'Generate and issue official student certificates with serial tracking & print format.',
+          badge: 'Student Register'
+        };
+      case 'employee_certificates':
+        return {
+          icon: '👔',
+          title: 'Employee Certificates & Experience Letters',
+          subtitle: 'Issue faculty experience certificates, relieving letters and service credentials.',
+          badge: 'Staff Credentials'
+        };
+      default:
+        return {
+          icon: '🪪',
+          title: 'Card Management & Certificates Suite',
+          subtitle: 'Manage ID cards, admit cards and institutional certificates.',
+          badge: 'DMPS ERP'
+        };
+    }
+  };
+
+  const meta = getSectionMetadata();
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
@@ -318,85 +390,62 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 print:hidden">
         <div className="flex items-center gap-3">
           <div className="w-11 h-11 rounded-2xl bg-blue-600 flex items-center justify-center text-white font-black text-lg shadow-md shadow-blue-500/25">
-            🪪
+            {meta.icon}
           </div>
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-lg font-black text-slate-900 dark:text-white tracking-tight">
-                Card Management & ID Card Template
+                {meta.title}
               </h2>
               <span className="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 font-bold text-[10px] border border-blue-200">
-                DMPS Module
+                {meta.badge}
               </span>
             </div>
             <p className="text-xs text-slate-500 font-medium mt-0.5">
-              Design ID card templates, manage student & employee batches, and export clean print sheets.
+              {meta.subtitle}
             </p>
           </div>
         </div>
 
-        {/* Create Template Button */}
-        <button
-          onClick={() => {
-            setTemplateForm({
-              id: null,
-              branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
-              name: 'NEW STUDENT CARD',
-              applicableUser: 'Student',
-              pageLayoutWidth: 55,
-              pageLayoutHeight: 88,
-              qrCodeText: 'Date Of Birth',
-              userPhotoStyle: 'Square',
-              photoSize: 70,
-              layoutSpacingTop: 10,
-              layoutSpacingRight: 0,
-              layoutSpacingBottom: 0,
-              layoutSpacingLeft: 2,
-              themeColor: 'blue',
-              headerTitle: 'DADHEECH MEMORIAL PUBLIC SCHOOL',
-              headerSubtitle: 'NEW BUILDING (SMART CAMPUS)',
-              certificateContent: '[student_photo]\n[name]\nClass: [class] - [section] | Roll: [roll]\nFather: [father_name] | Mobile: [mobileno]\n[qr_code] [signature]'
-            });
-            setActiveSection('templates');
-            setTemplateTab('create_edit');
-          }}
-          className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-105"
-        >
-          <Plus className="w-4 h-4" /> Add Id Card Template
-        </button>
-      </div>
+        {/* Action Button for Templates or Issue */}
+        {activeSection === 'templates' && (
+          <button
+            onClick={() => {
+              setTemplateForm({
+                id: null,
+                branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+                name: 'NEW STUDENT CARD',
+                applicableUser: 'Student',
+                pageLayoutWidth: 55,
+                pageLayoutHeight: 88,
+                qrCodeText: 'Date Of Birth',
+                userPhotoStyle: 'Square',
+                photoSize: 70,
+                layoutSpacingTop: 10,
+                layoutSpacingRight: 0,
+                layoutSpacingBottom: 0,
+                layoutSpacingLeft: 2,
+                themeColor: 'blue',
+                headerTitle: 'DADHEECH MEMORIAL PUBLIC SCHOOL',
+                headerSubtitle: 'NEW BUILDING (SMART CAMPUS)',
+                certificateContent: '[student_photo]\n[name]\nClass: [class] - [section] | Roll: [roll]\nFather: [father_name] | Mobile: [mobileno]\n[qr_code] [signature]'
+              });
+              setTemplateTab('create_edit');
+            }}
+            className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-105"
+          >
+            <Plus className="w-4 h-4" /> Add Id Card Template
+          </button>
+        )}
 
-      {/* 🧭 DMPS Navigation Sub-tabs (Hidden on Print) */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3 print:hidden">
-        {[
-          { id: 'templates', label: 'Id Card Template', icon: LayoutTemplate, badge: `${templates.length}` },
-          { id: 'student_cards', label: 'Student Id Card', icon: Contact, badge: 'Batch Print' },
-          { id: 'employee_cards', label: 'Employee Id Card', icon: Users, badge: 'Staff' },
-          { id: 'admit_cards', label: 'Generate Admit Card', icon: Award, badge: 'CBSE' },
-          { id: 'certificates', label: 'Certificates (TC/Bonafide)', icon: FileText, badge: `${certificates.length}` }
-        ].map(tab => {
-          const Icon = tab.icon;
-          const isActive = activeSection === tab.id;
-          return (
-            <button
-              key={tab.id}
-              onClick={() => setActiveSection(tab.id)}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25'
-                  : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800'
-              }`}
-            >
-              <Icon className="w-4 h-4" />
-              <span>{tab.label}</span>
-              {tab.badge && (
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-md font-extrabold ${isActive ? 'bg-white/25 text-white' : 'bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-300'}`}>
-                  {tab.badge}
-                </span>
-              )}
-            </button>
-          );
-        })}
+        {activeSection === 'certificates' && (
+          <button
+            onClick={() => setIsGenerateCertModalOpen(true)}
+            className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-105"
+          >
+            <Plus className="w-4 h-4" /> Issue Student Certificate
+          </button>
+        )}
       </div>
 
       {/* ========================================================================= */}
@@ -1081,6 +1130,194 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                         className="px-3 py-1.5 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 rounded-lg font-bold hover:bg-blue-100 flex items-center gap-1.5 ml-auto"
                       >
                         <Printer className="w-3.5 h-3.5" /> Print
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 6: ADMIT CARD TEMPLATE DESIGNER */}
+      {/* ========================================================================= */}
+      {activeSection === 'admit_template' && (
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <LayoutTemplate className="w-5 h-5 text-blue-600" />
+                Admit Card Template & Hall Ticket Setup
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">Design exam hall ticket layouts, exam center details, and student instructions.</p>
+            </div>
+            <button
+              onClick={() => showToast('Admit Card Template settings saved!', 'success')}
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-2"
+            >
+              <Check className="w-4 h-4" /> Save Template
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+            <div className="space-y-4">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Template Name *</label>
+                <input
+                  type="text"
+                  defaultValue="CBSE Senior Annual Examination 2026-27 Hall Ticket"
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Exam Center Name</label>
+                  <input
+                    type="text"
+                    defaultValue="Dadheech Memorial Senior Campus (8102)"
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
+                  />
+                </div>
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Reporting Time</label>
+                  <input
+                    type="text"
+                    defaultValue="08:15 AM Sharp"
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">General Examination Instructions</label>
+                <textarea
+                  rows={4}
+                  defaultValue={"1. Candidates must bring this original Admit Card to every exam session.\n2. Electronic devices & mobile phones are strictly prohibited in the exam hall.\n3. Students must occupy seats 15 minutes before the bell.\n4. Uniform and ID card are mandatory."}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono text-[11px]"
+                />
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
+              <h4 className="font-bold text-slate-900 dark:text-white text-xs flex items-center gap-2">
+                <Printer className="w-4 h-4 text-blue-600" /> Admit Card Live Preview Layout
+              </h4>
+              <div className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-300 dark:border-slate-700 shadow-sm space-y-2 text-[11px]">
+                <div className="text-center border-b pb-2">
+                  <p className="font-black text-slate-900 dark:text-white text-xs">{schoolInfo.name}</p>
+                  <p className="text-[10px] text-slate-500 font-bold">ANNUAL CBSE EXAMINATION ADMIT CARD (2026-27)</p>
+                </div>
+                <div className="flex justify-between items-center py-1">
+                  <div>
+                    <p className="font-bold">Student: <span className="text-blue-600">Aarav Sharma</span></p>
+                    <p className="text-slate-500 text-[10px]">Class: 10th - A | Roll: #101</p>
+                  </div>
+                  <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 border flex items-center justify-center text-[9px] font-bold text-slate-400">
+                    PHOTO
+                  </div>
+                </div>
+                <div className="border-t pt-2 flex justify-between text-[9px] font-bold text-slate-500">
+                  <span>Center: 8102 - Jargwan</span>
+                  <span className="text-indigo-900 dark:text-indigo-300">Principal Signature & Seal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 7: CERTIFICATE TEMPLATES */}
+      {/* ========================================================================= */}
+      {activeSection === 'cert_template' && (
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <Award className="w-5 h-5 text-blue-600" />
+                Institutional Certificate Template Master
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">Customize layouts and text templates for TC, Bonafide, Character and Merit certificates.</p>
+            </div>
+            <button
+              onClick={() => showToast('Certificate Template updated successfully!', 'success')}
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-2"
+            >
+              <Check className="w-4 h-4" /> Save Template
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { id: 'TC', name: 'School Transfer Certificate (TC)', serialPrefix: 'TC-2026-', desc: 'Official school leaving & transfer certificate with conduct record.' },
+              { id: 'BONAFIDE', name: 'Student Bonafide Certificate', serialPrefix: 'BONA-2026-', desc: 'Proof of active student enrollment for passport, bus pass & bank.' },
+              { id: 'CHARACTER', name: 'Character & Conduct Certificate', serialPrefix: 'CHAR-2026-', desc: 'Official moral character and disciplinary verification.' },
+              { id: 'MERIT', name: 'Academic & Sports Merit Certificate', serialPrefix: 'MERIT-2026-', desc: 'Award certificate for academic rank holders & sports achievements.' }
+            ].map(item => (
+              <div key={item.id} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
+                <div className="flex items-center justify-between">
+                  <h4 className="font-bold text-slate-900 dark:text-white">{item.name}</h4>
+                  <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300">{item.serialPrefix}</span>
+                </div>
+                <p className="text-[11px] text-slate-500">{item.desc}</p>
+                <div className="pt-2 flex justify-end gap-2">
+                  <button
+                    onClick={() => { setActiveSection('certificates'); setIsGenerateCertModalOpen(true); }}
+                    className="px-3 py-1 bg-blue-600 text-white font-bold rounded-lg text-[10px]"
+                  >
+                    Issue This
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 8: EMPLOYEE CERTIFICATES */}
+      {/* ========================================================================= */}
+      {activeSection === 'employee_certificates' && (
+        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden p-5 space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <Award className="w-5 h-5 text-purple-600" />
+                Employee & Faculty Experience / Service Certificates
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">Issue and manage official service certificates and experience letters for teaching staff.</p>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
+                  <th className="p-3.5">Employee ID</th>
+                  <th className="p-3.5">Faculty Name</th>
+                  <th className="p-3.5">Designation</th>
+                  <th className="p-3.5">Department</th>
+                  <th className="p-3.5">Joining Date</th>
+                  <th className="p-3.5 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                {teachers.map(teacher => (
+                  <tr key={teacher.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                    <td className="p-3.5 font-mono font-bold text-slate-900 dark:text-white">{teacher.employeeId}</td>
+                    <td className="p-3.5 font-bold text-slate-900 dark:text-white">{teacher.name}</td>
+                    <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-300">{teacher.designation}</td>
+                    <td className="p-3.5 font-bold text-purple-600 dark:text-purple-400">{teacher.department}</td>
+                    <td className="p-3.5 text-slate-500">{teacher.joiningDate || '01-Apr-2022'}</td>
+                    <td className="p-3.5 text-right">
+                      <button
+                        onClick={() => {
+                          showToast(`Experience Certificate generated for ${teacher.name}!`, 'success');
+                        }}
+                        className="px-3 py-1.5 bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-300 rounded-lg font-bold hover:bg-purple-100 flex items-center gap-1.5 ml-auto"
+                      >
+                        <Printer className="w-3.5 h-3.5" /> Experience Letter
                       </button>
                     </td>
                   </tr>

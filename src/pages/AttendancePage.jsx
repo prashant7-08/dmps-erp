@@ -274,36 +274,6 @@ export const AttendancePage = ({ initialType = 'student' }) => {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
-      
-      {/* 🧭 Top Navigation Subtab Strip */}
-      <div className="bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-x-auto custom-scrollbar no-print">
-        <div className="flex items-center gap-1 min-w-max text-xs font-bold">
-          {[
-            { id: 'student', label: '🎓 Daily Student Roll Call', badge: `${students.length} Students` },
-            { id: 'staff', label: '👥 Daily Staff Attendance & Live Punch', badge: 'Secureye' },
-            { id: 'staff-monthly-matrix', label: '📅 Monthly Biometric Register (Calendar Matrix & Print)', badge: 'Calendar' }
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
-                activeTab === tab.id
-                  ? 'bg-blue-600 text-white shadow-md font-black'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
-              }`}
-            >
-              <span>{tab.label}</span>
-              {tab.badge && (
-                <span className={`text-[10px] px-2 py-0.5 rounded-full ${
-                  activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
-                }`}>
-                  {tab.badge}
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
 
       {/* 🏛️ Page Title Bar (Hidden during Print) */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm no-print">

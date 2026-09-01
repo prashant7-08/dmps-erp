@@ -37,6 +37,8 @@ import {
   Globe,
   GitBranch
 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { useToast } from '../components/common/Toast';
 
 export const navigationGroups = [
   {
@@ -51,9 +53,9 @@ export const navigationGroups = [
     label: 'RECEPTION / FRONT DESK',
     icon: Building2,
     items: [
-      { id: 'helpdesk-visitors', label: 'Admission Inquiries & Desk', badge: 'Live' },
-      { id: 'helpdesk-visitors', label: 'Visitor Gate Passes', badge: null },
-      { id: 'helpdesk-visitors', label: 'Grievance Tickets', badge: null }
+      { id: 'helpdesk-inquiries', label: 'Admission Inquiries & Desk', badge: 'Live' },
+      { id: 'helpdesk-passes', label: 'Visitor Gate Passes', badge: null },
+      { id: 'helpdesk-grievance', label: 'Grievance Tickets', badge: null }
     ]
   },
   {
@@ -62,7 +64,7 @@ export const navigationGroups = [
     icon: UserPlus,
     items: [
       { id: 'admission', label: 'New Student Admission', badge: '2026-27' },
-      { id: 'helpdesk-visitors', label: 'Online Web Inquiries', badge: 'Web' }
+      { id: 'admission-online', label: 'Online Web Inquiries', badge: 'Web' }
     ]
   },
   {
@@ -71,7 +73,7 @@ export const navigationGroups = [
     icon: GraduationCap,
     items: [
       { id: 'students', label: 'Student List & Profiles', badge: 'Active' },
-      { id: 'students', label: 'Import Excel / CSV', badge: 'Bulk' }
+      { id: 'students-import', label: 'Import Excel / CSV', badge: 'Bulk' }
     ]
   },
   {
@@ -245,9 +247,9 @@ export const navigationGroups = [
     label: 'BRANCH',
     icon: GitBranch,
     items: [
-      { id: 'administration', label: 'Senior Campus (Jargwan)', badge: 'BR-01' },
-      { id: 'administration', label: 'Junior High (Barheti)', badge: 'BR-02' },
-      { id: 'administration', label: 'Dadheech Kids School', badge: 'BR-03' }
+      { id: 'branch-br01', branchId: 'BR-01', label: 'Senior Campus (Jargwan)', badge: 'BR-01' },
+      { id: 'branch-br02', branchId: 'BR-02', label: 'Junior High (Barheti)', badge: 'BR-02' },
+      { id: 'branch-br03', branchId: 'BR-03', label: 'Dadheech Kids School', badge: 'BR-03' }
     ]
   },
   {
@@ -304,10 +306,22 @@ export const Sidebar = ({
   setIsCollapsed,
   onOpenAI
 }) => {
+  const { activeBranchId, setActiveBranchId } = useAuth();
+  const { showToast } = useToast();
   const allowed = rolePermissions[currentRole] || ['*'];
 
   // Single-accordion mode: only one category expanded at a time (expanding one closes the others)
   const [expandedGroupId, setExpandedGroupId] = useState(null);
+
+  // Auto-expand group containing current activeTab or branch
+  useEffect(() => {
+    const parentGroup = navigationGroups.find(grp => 
+      grp.items?.some(i => i.id === activeTab || i.targetTab === activeTab || (i.branchId && i.branchId === activeBranchId))
+    );
+    if (parentGroup) {
+      setExpandedGroupId(parentGroup.id);
+    }
+  }, [activeTab, activeBranchId]);
 
   const toggleGroup = (groupId) => {
     if (isCollapsed && setIsCollapsed) {
@@ -438,7 +452,7 @@ export const Sidebar = ({
 
             // Accordion Category Group with (+) / (-) Toggle (Only 1 open at a time)
             const isExpanded = expandedGroupId === grp.id;
-            const hasActiveChild = grp.items.some(i => i.id === activeTab);
+            const hasActiveChild = grp.items.some(i => i.id === activeTab || (i.branchId && i.branchId === activeBranchId));
 
             return (
               <div key={grp.id} className="rounded-xl overflow-hidden transition-all">
@@ -474,7 +488,7 @@ export const Sidebar = ({
                 {isExpanded && !isCollapsed && (
                   <div className="pl-5 pr-1 py-1 space-y-0.5 bg-white/40 dark:bg-slate-950/40 rounded-b-xl border-l-2 border-blue-400 dark:border-indigo-500 ml-3 mt-0.5 animate-in slide-in-from-top-1 duration-150">
                     {grp.items.map((sub, sIdx) => {
-                      const isSubActive = activeTab === sub.id;
+                      const isSubActive = sub.branchId ? (activeBranchId === sub.branchId && activeTab === 'administration') : (activeTab === sub.id);
                       return (
                         <button
                           key={sIdx}
@@ -482,6 +496,13 @@ export const Sidebar = ({
                             if (sub.isExternalWebsite) {
                               window.location.hash = '';
                               window.location.reload();
+                              return;
+                            }
+                            if (sub.branchId) {
+                              setActiveBranchId(sub.branchId);
+                              setActiveTab('administration');
+                              showToast(`🏫 Active Branch switched to ${sub.label}!`, 'success');
+                              if (window.innerWidth < 1024) setIsOpen(false);
                               return;
                             }
                             setActiveTab(sub.id);
