@@ -305,16 +305,6 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
           >
             <Upload className="w-4 h-4" /> Import Excel / CSV
           </button>
-
-          {/* 3. Employee ID Cards */}
-          {onOpenIDCards && (
-            <button
-              onClick={onOpenIDCards}
-              className="px-4 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2 transition-all hover:scale-105"
-            >
-              <Printer className="w-4 h-4" /> Staff ID Cards
-            </button>
-          )}
         </div>
       </div>
 

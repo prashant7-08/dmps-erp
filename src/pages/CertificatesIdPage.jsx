@@ -26,13 +26,14 @@ import {
   Sliders,
   Image as ImageIcon,
   Check,
-  Droplet
+  Droplet,
+  Calendar,
+  BookOpen
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import { PrintableCertificate } from '../components/printables/PrintableCertificate';
-import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import schoolService from '../services/schoolService';
 
 export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
@@ -83,6 +84,18 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
     {
       id: 'TMPL-002',
       branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+      name: "STUDENT'S CARD (LANDSCAPE)",
+      applicableUser: 'Student',
+      pageLayout: { width: 88, height: 55, unit: 'mm' },
+      photoStyle: 'Square',
+      photoSize: 70,
+      qrCodeField: 'Admission No',
+      themeColor: 'blue',
+      createdAt: '28-Apr-2026'
+    },
+    {
+      id: 'TMPL-003',
+      branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
       name: "EMPLOYEE ID CARD",
       applicableUser: 'Employee',
       pageLayout: { width: 55, height: 88, unit: 'mm' },
@@ -93,7 +106,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       createdAt: '21-Apr-2026'
     },
     {
-      id: 'TMPL-003',
+      id: 'TMPL-004',
       branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
       name: "TEACHER'S CARD",
       applicableUser: 'Employee',
@@ -105,7 +118,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       createdAt: '27-Apr-2026'
     },
     {
-      id: 'TMPL-004',
+      id: 'TMPL-005',
       branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
       name: "STUDENT'S TRANSPORT PASS",
       applicableUser: 'Student',
@@ -118,7 +131,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
     }
   ]);
 
-  // Template Form State (For Add / Edit Template Designer)
+  // Template Form State (For Add / Edit Template Designer matching Screenshot)
   const [templateForm, setTemplateForm] = useState({
     id: null,
     branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
@@ -139,12 +152,71 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
     certificateContent: '[student_photo]\n[name]\nClass: [class] - [section] | Roll: [roll]\nFather: [father_name] | Mobile: [mobileno]\n[qr_code] [signature]'
   });
 
-  // Bulk Generation State
+  // Bulk Generation State for ID Cards
   const [selectedClass, setSelectedClass] = useState('Class 10');
   const [selectedDept, setSelectedDept] = useState('All');
   const [activeTemplateId, setActiveTemplateId] = useState('TMPL-001');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIds, setSelectedIds] = useState(new Set());
+
+  // 🎯 Exam Connection State for Admit Cards
+  const [examList, setExamList] = useState([
+    {
+      id: 'EXM-01',
+      name: 'CBSE Half Yearly Examination 2026-27',
+      session: '2026-2027',
+      term: 'Term 1',
+      centerName: 'Dadheech Memorial Senior Campus (Center Code: 8102)',
+      reportingTime: '08:15 AM Sharp'
+    },
+    {
+      id: 'EXM-02',
+      name: 'CBSE / BSB Annual Board Examination 2026-27',
+      session: '2026-2027',
+      term: 'Term 2',
+      centerName: 'Dadheech Memorial Senior Campus (Center Code: 8102)',
+      reportingTime: '08:15 AM Sharp'
+    },
+    {
+      id: 'EXM-03',
+      name: 'Periodic Assessment 1 (PA-1)',
+      session: '2026-2027',
+      term: 'Unit Test',
+      centerName: 'Home Center (Main Wing)',
+      reportingTime: '07:45 AM Sharp'
+    }
+  ]);
+
+  const [selectedExamId, setSelectedExamId] = useState('EXM-01');
+
+  // Connected Exam Date Sheets from Examination Scheme
+  const examDateSheets = {
+    'EXM-01': [
+      { date: '15-Sep-2026', day: 'Monday', time: '08:30 AM - 11:30 AM', subjectCode: '041', subject: 'Mathematics Standard', maxMarks: 80, room: 'Exam Hall 1 (GF)' },
+      { date: '17-Sep-2026', day: 'Wednesday', time: '08:30 AM - 11:30 AM', subjectCode: '086', subject: 'Science (Theory & Practicals)', maxMarks: 80, room: 'Exam Hall 1 (GF)' },
+      { date: '19-Sep-2026', day: 'Friday', time: '08:30 AM - 11:30 AM', subjectCode: '184', subject: 'English Language & Literature', maxMarks: 80, room: 'Exam Hall 1 (GF)' },
+      { date: '22-Sep-2026', day: 'Monday', time: '08:30 AM - 11:30 AM', subjectCode: '087', subject: 'Social Science (History, Civics, Geo)', maxMarks: 80, room: 'Exam Hall 1 (GF)' },
+      { date: '24-Sep-2026', day: 'Wednesday', time: '08:30 AM - 11:30 AM', subjectCode: '002', subject: 'Hindi Course A', maxMarks: 80, room: 'Exam Hall 1 (GF)' },
+      { date: '26-Sep-2026', day: 'Friday', time: '08:30 AM - 10:30 AM', subjectCode: '165', subject: 'Computer Applications & IT', maxMarks: 50, room: 'Senior Lab' }
+    ],
+    'EXM-02': [
+      { date: '15-Feb-2027', day: 'Monday', time: '08:30 AM - 11:30 AM', subjectCode: '041', subject: 'Mathematics Standard (Final Board)', maxMarks: 80, room: 'Auditorium Hall' },
+      { date: '18-Feb-2027', day: 'Thursday', time: '08:30 AM - 11:30 AM', subjectCode: '086', subject: 'Science (Theory & Lab Exam)', maxMarks: 80, room: 'Auditorium Hall' },
+      { date: '22-Feb-2027', day: 'Monday', time: '08:30 AM - 11:30 AM', subjectCode: '184', subject: 'English Language & Literature', maxMarks: 80, room: 'Auditorium Hall' },
+      { date: '25-Feb-2027', day: 'Thursday', time: '08:30 AM - 11:30 AM', subjectCode: '087', subject: 'Social Science', maxMarks: 80, room: 'Auditorium Hall' },
+      { date: '01-Mar-2027', day: 'Monday', time: '08:30 AM - 11:30 AM', subjectCode: '002', subject: 'Hindi Course A', maxMarks: 80, room: 'Auditorium Hall' }
+    ],
+    'EXM-03': [
+      { date: '20-Jul-2026', day: 'Monday', time: '08:00 AM - 09:30 AM', subjectCode: '041', subject: 'Mathematics (PA-1)', maxMarks: 25, room: 'Classroom' },
+      { date: '21-Jul-2026', day: 'Tuesday', time: '08:00 AM - 09:30 AM', subjectCode: '086', subject: 'Science (PA-1)', maxMarks: 25, room: 'Classroom' },
+      { date: '22-Jul-2026', day: 'Wednesday', time: '08:00 AM - 09:30 AM', subjectCode: '184', subject: 'English (PA-1)', maxMarks: 25, room: 'Classroom' },
+      { date: '23-Jul-2026', day: 'Thursday', time: '08:00 AM - 09:30 AM', subjectCode: '087', subject: 'Social Science (PA-1)', maxMarks: 25, room: 'Classroom' },
+      { date: '24-Jul-2026', day: 'Friday', time: '08:00 AM - 09:30 AM', subjectCode: '002', subject: 'Hindi (PA-1)', maxMarks: 25, room: 'Classroom' }
+    ]
+  };
+
+  const currentExam = examList.find(e => e.id === selectedExamId) || examList[0];
+  const currentExamDateSheet = examDateSheets[selectedExamId] || examDateSheets['EXM-01'];
 
   // Certificate Issuance State
   const [certificates, setCertificates] = useState(schoolService.getCertificates());
@@ -157,12 +229,14 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
     purpose: 'Passport & Visa Verification'
   });
 
-  // Shortcode tags list from DMPS
+  // All 28 Shortcode tags list from DMPS
   const shortcodeTags = [
     '[name]', '[gender]', '[father_name]', '[mother_name]', '[student_photo]',
     '[register_no]', '[roll]', '[admission_date]', '[class]', '[section]',
-    '[category]', '[blood_group]', '[birthday]', '[email]', '[mobileno]',
-    '[present_address]', '[signature]', '[qr_code]', '[institute_name]', '[expiry_date]'
+    '[category]', '[caste]', '[religion]', '[blood_group]', '[birthday]', '[email]', '[mobileno]',
+    '[present_address]', '[permanent_address]', '[logo]', '[signature]', '[qr_code]',
+    '[institute_name]', '[institute_email]', '[institute_address]', '[institute_mobile_no]',
+    '[print_date]', '[expiry_date]'
   ];
 
   // Roster calculation
@@ -177,7 +251,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
 
   const currentRoster = getRoster();
 
-  // Active Template definition for printing ID Cards and Admit Cards
+  // Active Template definition for printing ID Cards
   const activeTemplate = templates.find(t => t.id === activeTemplateId) || templates[0] || {
     id: 'TMPL-001',
     branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
@@ -190,15 +264,15 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
     themeColor: 'blue'
   };
 
-  // Auto-select all candidates when section or class changes
+  // Auto-select all candidates when section, class, or exam changes
   useEffect(() => {
     setSelectedIds(new Set(currentRoster.map(r => r.id)));
-  }, [activeSection, selectedClass, selectedDept]);
+  }, [activeSection, selectedClass, selectedDept, selectedExamId]);
 
   const filteredRoster = currentRoster.filter(item => {
     const q = searchQuery.toLowerCase();
-    const nameMatch = item.name.toLowerCase().includes(q);
-    const rollMatch = item.rollNo ? item.rollNo.includes(q) : false;
+    const nameMatch = (item.name || '').toLowerCase().includes(q);
+    const rollMatch = item.rollNo ? String(item.rollNo).includes(q) : false;
     const admMatch = item.admissionNo ? item.admissionNo.toLowerCase().includes(q) : false;
     return nameMatch || rollMatch || admMatch;
   });
@@ -325,6 +399,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
 
   // Candidates selected for print
   const selectedCardsToPrint = currentRoster.filter(r => selectedIds.has(r.id));
+
   // Dynamic Header based on active section
   const getSectionMetadata = () => {
     switch (activeSection) {
@@ -332,7 +407,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
         return {
           icon: '🪪',
           title: 'Id Card Template Master',
-          subtitle: 'Design ID card templates, layout dimensions (width x height mm), and tags.',
+          subtitle: 'Design ID card templates, layout dimensions (width x height mm), and shortcode tags.',
           badge: 'Template Designer'
         };
       case 'student_cards':
@@ -359,9 +434,9 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       case 'admit_cards':
         return {
           icon: '📋',
-          title: 'Generate Student Admit Cards (Roll Call Batch)',
-          subtitle: 'Issue and batch print examination admit cards with exam schedule and roll numbers.',
-          badge: 'Batch Print'
+          title: 'Generate Student Admit Cards (Exam Scheme Connected)',
+          subtitle: 'Issue and batch print examination hall tickets connected directly to Exam Master schedule & date sheet.',
+          badge: 'Exam Scheme Live'
         };
       case 'cert_template':
         return {
@@ -402,7 +477,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       {/* 🏷️ Master Breadcrumb Header (Hidden on Print) */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 print:hidden">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-blue-600 flex items-center justify-center text-white font-black text-lg shadow-md shadow-blue-500/25">
+          <div className="w-11 h-11 rounded-2xl bg-indigo-600 flex items-center justify-center text-white font-black text-lg shadow-md shadow-indigo-500/25">
             {meta.icon}
           </div>
           <div>
@@ -410,7 +485,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
               <h2 className="text-lg font-black text-slate-900 dark:text-white tracking-tight">
                 {meta.title}
               </h2>
-              <span className="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 font-bold text-[10px] border border-blue-200">
+              <span className="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 font-bold text-[10px] border border-indigo-200">
                 {meta.badge}
               </span>
             </div>
@@ -445,7 +520,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
               });
               setTemplateTab('create_edit');
             }}
-            className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-105"
+            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-2 transition-all hover:scale-105"
           >
             <Plus className="w-4 h-4" /> Add Id Card Template
           </button>
@@ -454,7 +529,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
         {activeSection === 'certificates' && (
           <button
             onClick={() => setIsGenerateCertModalOpen(true)}
-            className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-105"
+            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-2 transition-all hover:scale-105"
           >
             <Plus className="w-4 h-4" /> Issue Student Certificate
           </button>
@@ -462,7 +537,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       </div>
 
       {/* ========================================================================= */}
-      {/* SECTION 1: ID CARD TEMPLATE (Exact DMPS Screenshot 1 & 2) */}
+      {/* SECTION 1: ID CARD TEMPLATE (Exact DMPS Screenshot Form & List) */}
       {/* ========================================================================= */}
       {activeSection === 'templates' && (
         <div className="space-y-6">
@@ -472,7 +547,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
             <button
               onClick={() => setTemplateTab('list')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                templateTab === 'list' ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-400'
+                templateTab === 'list' ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-slate-600 dark:text-slate-400'
               }`}
             >
               <Layers className="w-4 h-4" /> Id Card List
@@ -480,14 +555,14 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
             <button
               onClick={() => setTemplateTab('create_edit')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                templateTab === 'create_edit' ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-400'
+                templateTab === 'create_edit' ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-slate-600 dark:text-slate-400'
               }`}
             >
               <Edit className="w-4 h-4" /> {templateForm.id ? 'Edit Id Card Template' : 'Add Id Card Template'}
             </button>
           </div>
 
-          {/* 📋 VIEW A: EXACT DMPS TEMPLATE LIST TABLE (Screenshot 1) */}
+          {/* 📋 VIEW A: EXACT DMPS TEMPLATE LIST TABLE */}
           {templateTab === 'list' && (
             <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden space-y-4 p-5">
               
@@ -529,10 +604,10 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                   </thead>
                   <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                     {templates.map((tmpl, idx) => (
-                      <tr key={tmpl.id} className="hover:bg-blue-50/40 dark:hover:bg-slate-800/40 transition-colors">
+                      <tr key={tmpl.id} className="hover:bg-indigo-50/40 dark:hover:bg-slate-800/40 transition-colors">
                         <td className="p-3.5 font-bold text-slate-500">{idx + 1}</td>
                         <td className="p-3.5 font-bold text-slate-800 dark:text-slate-200 max-w-[240px] truncate">{tmpl.branch}</td>
-                        <td className="p-3.5 font-black text-blue-700 dark:text-blue-400">{tmpl.name}</td>
+                        <td className="p-3.5 font-black text-indigo-700 dark:text-indigo-400">{tmpl.name}</td>
                         <td className="p-3.5">
                           <span className={`px-2.5 py-0.5 rounded-full font-bold text-[10px] ${tmpl.applicableUser === 'Student' ? 'bg-blue-50 text-blue-700 border border-blue-200' : 'bg-purple-50 text-purple-700 border border-purple-200'}`}>
                             {tmpl.applicableUser}
@@ -555,7 +630,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                                 setActiveSection(tmpl.applicableUser === 'Student' ? 'student_cards' : 'employee_cards');
                               }}
                               title="Print Batch with this Template"
-                              className="p-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow-xs"
+                              className="p-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 shadow-xs"
                             >
                               <Printer className="w-3.5 h-3.5" />
                             </button>
@@ -583,13 +658,13 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
             </div>
           )}
 
-          {/* ✏️ VIEW B: EXACT DMPS TEMPLATE DESIGNER FORM (Screenshot 2) */}
+          {/* ✏️ VIEW B: EXACT DMPS TEMPLATE DESIGNER FORM (Matching User Screenshot) */}
           {templateTab === 'create_edit' && (
             <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
               
               <div className="border-b border-slate-100 dark:border-slate-800 pb-3">
                 <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
-                  <Sliders className="w-5 h-5 text-blue-600" />
+                  <Sliders className="w-5 h-5 text-indigo-600" />
                   {templateForm.id ? 'Edit Id Card Template' : 'Add Id Card Template'}
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5">Customize template properties, layout dimensions, and content shortcode tags.</p>
@@ -607,7 +682,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                       className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
                     >
                       <option value="DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)">DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)</option>
-                      <option value="DELHI MODEL PUBLIC SCHOOL MAIN CAMPUS">DELHI MODEL PUBLIC SCHOOL MAIN CAMPUS</option>
+                      <option value="DELHI MODEL PUBLIC SCHOOL MAIN SENIOR CAMPUS">DELHI MODEL PUBLIC SCHOOL MAIN SENIOR CAMPUS</option>
                     </select>
                   </div>
                 </div>
@@ -681,8 +756,11 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                       <option value="Date Of Birth">Date Of Birth</option>
                       <option value="Admission Number">Admission Number</option>
                       <option value="Roll Number">Roll Number</option>
+                      <option value="Employee ID">Employee ID</option>
+                      <option value="Student PEN No">Student PEN No</option>
+                      <option value="Mobile No">Mobile No</option>
                       <option value="Blood Group">Blood Group</option>
-                      <option value="Aadhaar UID">Aadhaar UID</option>
+                      <option value="Route No">Route No</option>
                     </select>
                   </div>
                 </div>
@@ -751,7 +829,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
                   <label className="font-bold text-slate-700 dark:text-slate-300 md:text-right">Signature Image</label>
                   <div className="md:col-span-3">
-                    <button type="button" className="px-4 py-2 bg-blue-600 text-white rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
+                    <button type="button" onClick={() => showToast('Signature file selected', 'info')} className="px-4 py-2 bg-indigo-600 text-white rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
                       <Upload className="w-3.5 h-3.5" /> Select File
                     </button>
                   </div>
@@ -760,7 +838,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
                   <label className="font-bold text-slate-700 dark:text-slate-300 md:text-right">Logo Image</label>
                   <div className="md:col-span-3">
-                    <button type="button" className="px-4 py-2 bg-blue-600 text-white rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
+                    <button type="button" onClick={() => showToast('School logo file selected', 'info')} className="px-4 py-2 bg-indigo-600 text-white rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
                       <Upload className="w-3.5 h-3.5" /> Select File
                     </button>
                   </div>
@@ -769,7 +847,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
                   <label className="font-bold text-slate-700 dark:text-slate-300 md:text-right">Background Image</label>
                   <div className="md:col-span-3">
-                    <button type="button" className="px-4 py-2 bg-blue-600 text-white rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
+                    <button type="button" onClick={() => showToast('Background image template selected', 'info')} className="px-4 py-2 bg-indigo-600 text-white rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
                       <Upload className="w-3.5 h-3.5" /> Select File
                     </button>
                   </div>
@@ -788,7 +866,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                         key={tag}
                         type="button"
                         onClick={() => insertTagToContent(tag)}
-                        className="px-2 py-1 rounded-lg bg-blue-100 hover:bg-blue-200 text-blue-900 font-mono text-[10px] font-bold border border-blue-300 transition-all active:scale-95"
+                        className="px-2 py-1 rounded-lg bg-indigo-100 hover:bg-indigo-200 text-indigo-900 font-mono text-[10px] font-bold border border-indigo-300 transition-all active:scale-95"
                       >
                         {tag}
                       </button>
@@ -814,7 +892,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                   </button>
                   <button
                     type="submit"
-                    className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-500/25 flex items-center gap-2"
+                    className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/25 flex items-center gap-2"
                   >
                     <Check className="w-4 h-4" /> {templateForm.id ? 'Update Template' : 'Save & Create Template'}
                   </button>
@@ -827,9 +905,9 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* SECTION 2 & 3 & 4: CANDIDATE SELECTION ROSTER & BATCH PRINT SHEET */}
+      {/* SECTION 2 & 3: ID CARD CANDIDATE ROSTER & PRINT SHEET (Students & Staff) */}
       {/* ========================================================================= */}
-      {(activeSection === 'student_cards' || activeSection === 'employee_cards' || activeSection === 'admit_cards') && (
+      {(activeSection === 'student_cards' || activeSection === 'employee_cards') && (
         <div className="space-y-6">
           
           {/* Candidate Checkbox Roster Table (Hidden on Print) */}
@@ -838,11 +916,11 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
               <div>
                 <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
-                  <CheckSquare className="w-5 h-5 text-blue-600" />
-                  Candidate Selection for {activeSection === 'student_cards' ? 'Student Cards' : activeSection === 'employee_cards' ? 'Staff Cards' : 'Exam Admit Cards'}
+                  <CheckSquare className="w-5 h-5 text-indigo-600" />
+                  Candidate Selection for {activeSection === 'student_cards' ? 'Student ID Cards' : 'Staff Smart ID Cards'}
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  Unchecking a student keeps them in the roster, but excludes their card from printing.
+                  Unchecking a member keeps them in the directory, but excludes their card from printing.
                 </p>
               </div>
 
@@ -853,7 +931,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                   <select
                     value={activeTemplateId}
                     onChange={(e) => setActiveTemplateId(e.target.value)}
-                    className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-900 dark:text-blue-300 font-bold border border-blue-200 dark:border-blue-800"
+                    className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 font-bold border border-indigo-200 dark:border-indigo-800"
                   >
                     {templates.map(t => (
                       <option key={t.id} value={t.id}>{t.name} ({t.pageLayout?.width}x{t.pageLayout?.height}mm)</option>
@@ -861,7 +939,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                   </select>
                 </div>
 
-                {activeSection !== 'employee_cards' ? (
+                {activeSection === 'student_cards' ? (
                   <select
                     value={selectedClass}
                     onChange={(e) => setSelectedClass(e.target.value)}
@@ -881,10 +959,11 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                     className="p-2 text-xs font-bold rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white"
                   >
                     <option value="All">All Departments</option>
-                    <option value="Science">Science</option>
-                    <option value="Mathematics">Mathematics</option>
-                    <option value="Languages">Languages</option>
-                    <option value="Computer Science">Computer Science</option>
+                    <option value="Administration">Administration</option>
+                    <option value="Secondary">Secondary</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Pre-Primary">Pre-Primary</option>
+                    <option value="Transport">Transport</option>
                   </select>
                 )}
 
@@ -902,12 +981,12 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
             </div>
 
             {/* Quick Action Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 bg-blue-50/60 dark:bg-blue-950/30 p-3 rounded-2xl border border-blue-100 dark:border-blue-900">
+            <div className="flex flex-wrap items-center justify-between gap-3 bg-indigo-50/60 dark:bg-indigo-950/30 p-3 rounded-2xl border border-indigo-100 dark:border-indigo-900">
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={handleSelectAll}
-                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 text-xs font-bold text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700 hover:bg-blue-50 flex items-center gap-1.5 shadow-xs"
+                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 text-xs font-bold text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-700 hover:bg-indigo-50 flex items-center gap-1.5 shadow-xs"
                 >
                   <CheckSquare className="w-3.5 h-3.5" /> Select All ({currentRoster.length})
                 </button>
@@ -920,9 +999,9 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                 </button>
               </div>
 
-              <div className="text-xs font-bold text-blue-900 dark:text-blue-300">
-                <span className="bg-blue-600 text-white px-2.5 py-0.5 rounded-lg mr-1.5 font-black">{selectedIds.size}</span>
-                out of <span className="text-slate-700 dark:text-slate-300">{currentRoster.length}</span> candidates ready to print
+              <div className="text-xs font-bold text-indigo-900 dark:text-indigo-300">
+                <span className="bg-indigo-600 text-white px-2.5 py-0.5 rounded-lg mr-1.5 font-black">{selectedIds.size}</span>
+                out of <span className="text-slate-700 dark:text-slate-300">{currentRoster.length}</span> cards ready to print
               </div>
             </div>
 
@@ -949,7 +1028,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                         onClick={() => handleToggleSelect(item.id)}
                         className={`cursor-pointer transition-colors ${
                           isChecked
-                            ? 'bg-blue-50/50 dark:bg-blue-950/25 hover:bg-blue-50 dark:hover:bg-blue-950/40'
+                            ? 'bg-indigo-50/50 dark:bg-indigo-950/25 hover:bg-indigo-50 dark:hover:bg-indigo-950/40'
                             : 'hover:bg-slate-50 dark:hover:bg-slate-800/40 opacity-75'
                         }`}
                       >
@@ -958,7 +1037,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                             type="checkbox"
                             checked={isChecked}
                             onChange={() => handleToggleSelect(item.id)}
-                            className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 cursor-pointer"
+                            className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer"
                           />
                         </td>
                         <td className="p-3">
@@ -970,7 +1049,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                             </div>
                           </div>
                         </td>
-                        <td className="p-3 font-mono font-bold text-blue-700 dark:text-blue-400">
+                        <td className="p-3 font-mono font-bold text-indigo-700 dark:text-indigo-400">
                           {item.rollNo ? `#${item.rollNo}` : item.employeeId}
                         </td>
                         <td className="p-3 font-semibold text-slate-700 dark:text-slate-300">
@@ -1003,23 +1082,23 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
 
           </div>
 
-          {/* 🖨️ Print Preview Sheet */}
+          {/* 🖨️ ID Card Print Preview Sheet */}
           <div className="space-y-4">
             <div className="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm print:hidden">
               <div>
                 <h4 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
-                  <Printer className="w-5 h-5 text-blue-600" />
+                  <Printer className="w-5 h-5 text-indigo-600" />
                   Print Preview Sheet ({selectedCardsToPrint.length} Cards Selected)
                 </h4>
                 <p className="text-xs text-slate-500">
-                  Active Template: <strong className="text-blue-700">{activeTemplate.name}</strong> ({activeTemplate.pageLayout?.width}mm x {activeTemplate.pageLayout?.height}mm)
+                  Active Template: <strong className="text-indigo-700">{activeTemplate.name}</strong> ({activeTemplate.pageLayout?.width}mm x {activeTemplate.pageLayout?.height}mm)
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => window.print()}
                 disabled={selectedCardsToPrint.length === 0}
-                className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-xl text-xs font-black shadow-lg shadow-blue-500/25 flex items-center gap-2 transition-all hover:scale-105"
+                className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white rounded-xl text-xs font-black shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all hover:scale-105"
               >
                 <Printer className="w-4 h-4" /> Print {selectedCardsToPrint.length} Cards (PDF)
               </button>
@@ -1042,15 +1121,15 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                       {/* Card Header */}
                       <div className="flex items-center justify-between border-b border-indigo-100 pb-2 mb-3 bg-gradient-to-r from-blue-50 to-indigo-50 p-2.5 rounded-xl pr-2">
                         <div className="flex items-center gap-2">
-                          <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-xs">
-                            E
+                          <div className="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-black text-xs">
+                            DMPS
                           </div>
                           <div>
                             <h5 className="text-[11px] font-black text-slate-900 leading-tight">{activeTemplate.branch}</h5>
-                            <span className="text-[8px] font-bold text-blue-700 uppercase">{activeTemplate.name}</span>
+                            <span className="text-[8px] font-bold text-indigo-700 uppercase">{activeTemplate.name}</span>
                           </div>
                         </div>
-                        <span className="text-[10px] font-mono font-bold bg-blue-100 text-blue-900 px-2 py-0.5 rounded">
+                        <span className="text-[10px] font-mono font-bold bg-indigo-100 text-indigo-900 px-2 py-0.5 rounded">
                           {item.academicSession || "2026-27"}
                         </span>
                       </div>
@@ -1060,7 +1139,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                         <img
                           src={item.photo || "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150"}
                           alt={item.name}
-                          className="w-16 h-16 rounded-xl object-cover ring-2 ring-blue-500/20 shrink-0"
+                          className="w-16 h-16 rounded-xl object-cover ring-2 ring-indigo-500/20 shrink-0"
                         />
                         <div className="text-[10px] space-y-0.5 flex-1">
                           <p className="text-sm font-black text-slate-900">{item.name}</p>
@@ -1096,79 +1175,21 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* SECTION 5: ISSUED CERTIFICATES (TC, Bonafide, Conduct) */}
-      {/* ========================================================================= */}
-      {activeSection === 'certificates' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden p-5 space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-            <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <FileText className="w-5 h-5 text-blue-600" />
-              Official Institutional Certificates
-            </h3>
-            <button
-              onClick={() => setIsGenerateCertModalOpen(true)}
-              className="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20"
-            >
-              + Issue Certificate
-            </button>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
-                  <th className="p-3.5">Certificate Serial</th>
-                  <th className="p-3.5">Student Name</th>
-                  <th className="p-3.5">Class</th>
-                  <th className="p-3.5">Certificate Type</th>
-                  <th className="p-3.5">Issue Date</th>
-                  <th className="p-3.5">Status</th>
-                  <th className="p-3.5 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {certificates.map(cert => (
-                  <tr key={cert.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                    <td className="p-3.5 font-mono font-bold text-slate-900 dark:text-white">{cert.certificateNo}</td>
-                    <td className="p-3.5 font-bold text-slate-900 dark:text-white">{cert.studentName}</td>
-                    <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-300">{cert.class}</td>
-                    <td className="p-3.5 font-bold text-blue-600 dark:text-blue-400">{cert.type}</td>
-                    <td className="p-3.5 text-slate-500">{cert.issueDate}</td>
-                    <td className="p-3.5">
-                      <Badge variant="success" size="sm">{cert.status}</Badge>
-                    </td>
-                    <td className="p-3.5 text-right">
-                      <button
-                        onClick={() => { setSelectedCert(cert); setIsCertModalOpen(true); }}
-                        className="px-3 py-1.5 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 rounded-lg font-bold hover:bg-blue-100 flex items-center gap-1.5 ml-auto"
-                      >
-                        <Printer className="w-3.5 h-3.5" /> Print
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* SECTION 6: ADMIT CARD TEMPLATE DESIGNER */}
+      {/* SECTION 4: ADMIT CARD TEMPLATE SETUP */}
       {/* ========================================================================= */}
       {activeSection === 'admit_template' && (
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
               <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
-                <LayoutTemplate className="w-5 h-5 text-blue-600" />
+                <LayoutTemplate className="w-5 h-5 text-indigo-600" />
                 Admit Card Template & Hall Ticket Setup
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">Design exam hall ticket layouts, exam center details, and student instructions.</p>
             </div>
             <button
               onClick={() => showToast('Admit Card Template settings saved!', 'success')}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-2"
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-2"
             >
               <Check className="w-4 h-4" /> Save Template
             </button>
@@ -1214,16 +1235,16 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
 
             <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
               <h4 className="font-bold text-slate-900 dark:text-white text-xs flex items-center gap-2">
-                <Printer className="w-4 h-4 text-blue-600" /> Admit Card Live Preview Layout
+                <Printer className="w-4 h-4 text-indigo-600" /> Admit Card Live Preview Layout
               </h4>
               <div className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-300 dark:border-slate-700 shadow-sm space-y-2 text-[11px]">
                 <div className="text-center border-b pb-2">
                   <p className="font-black text-slate-900 dark:text-white text-xs">{schoolInfo.name}</p>
-                  <p className="text-[10px] text-slate-500 font-bold">ANNUAL CBSE EXAMINATION ADMIT CARD (2026-27)</p>
+                  <p className="text-[10px] text-slate-500 font-bold">ANNUAL CBSE / BSB EXAMINATION ADMIT CARD (2026-27)</p>
                 </div>
                 <div className="flex justify-between items-center py-1">
                   <div>
-                    <p className="font-bold">Student: <span className="text-blue-600">Aarav Sharma</span></p>
+                    <p className="font-bold">Student: <span className="text-indigo-600">Aarav Sharma</span></p>
                     <p className="text-slate-500 text-[10px]">Class: 10th - A | Roll: #101</p>
                   </div>
                   <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 border flex items-center justify-center text-[9px] font-bold text-slate-400">
@@ -1241,21 +1262,382 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* SECTION 7: CERTIFICATE TEMPLATES */}
+      {/* SECTION 5: GENERATE ADMIT CARD (CONNECTED DIRECTLY TO EXAM SCHEME) */}
+      {/* ========================================================================= */}
+      {activeSection === 'admit_cards' && (
+        <div className="space-y-6">
+          {/* Exam & Class Selection Header */}
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 print:hidden">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
+              <div>
+                <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+                  <Award className="w-5 h-5 text-indigo-600" />
+                  Generate Examination Admit Card / Hall Ticket
+                </h3>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Admit Cards are dynamically connected with the Exam Master date sheet and timetable scheme.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                {/* Exam Selector */}
+                <div className="flex items-center gap-1.5 text-xs font-bold">
+                  <span className="text-slate-500">Examination:</span>
+                  <select
+                    value={selectedExamId}
+                    onChange={(e) => setSelectedExamId(e.target.value)}
+                    className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-200 font-bold border border-indigo-200 dark:border-indigo-800"
+                  >
+                    {examList.map(ex => (
+                      <option key={ex.id} value={ex.id}>{ex.name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Class Selector */}
+                <div className="flex items-center gap-1.5 text-xs font-bold">
+                  <span className="text-slate-500">Class:</span>
+                  <select
+                    value={selectedClass}
+                    onChange={(e) => setSelectedClass(e.target.value)}
+                    className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700"
+                  >
+                    <option value="Class 10">Class 10</option>
+                    <option value="Class 9">Class 9</option>
+                    <option value="Class 8">Class 8</option>
+                    <option value="Class 7">Class 7</option>
+                    <option value="Class 6">Class 6</option>
+                    <option value="All">All Classes</option>
+                  </select>
+                </div>
+
+                <div className="relative w-44">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+                  <input
+                    type="text"
+                    placeholder="Search student..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Connected Exam Scheme Info Banner */}
+            <div className="p-4 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900 space-y-2.5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="px-2.5 py-0.5 rounded-lg bg-indigo-600 text-white font-black text-[10px] uppercase tracking-wider">
+                    Connected Exam Scheme
+                  </span>
+                  <span className="text-xs font-black text-indigo-950 dark:text-indigo-200">
+                    {currentExam?.name}
+                  </span>
+                </div>
+                <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400">
+                  Center: <strong className="text-slate-900 dark:text-white">{currentExam?.centerName}</strong> • Reporting: <strong className="text-slate-900 dark:text-white">{currentExam?.reportingTime}</strong>
+                </span>
+              </div>
+
+              {/* Mini Date Sheet Table preview */}
+              <div className="overflow-x-auto rounded-xl border border-indigo-200/60 dark:border-indigo-800/60 bg-white dark:bg-slate-900">
+                <table className="w-full text-left text-[11px]">
+                  <thead>
+                    <tr className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold border-b">
+                      <th className="p-2">Exam Date</th>
+                      <th className="p-2">Day</th>
+                      <th className="p-2">Subject Code & Name</th>
+                      <th className="p-2">Time</th>
+                      <th className="p-2">Max Marks</th>
+                      <th className="p-2">Hall / Room</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                    {currentExamDateSheet.map((row, idx) => (
+                      <tr key={idx} className="hover:bg-indigo-50/30">
+                        <td className="p-2 font-mono font-bold text-indigo-700 dark:text-indigo-400">{row.date}</td>
+                        <td className="p-2 font-medium text-slate-600 dark:text-slate-400">{row.day}</td>
+                        <td className="p-2 font-bold text-slate-900 dark:text-white">{row.subjectCode} - {row.subject}</td>
+                        <td className="p-2 font-mono text-slate-600 dark:text-slate-400">{row.time}</td>
+                        <td className="p-2 font-bold text-emerald-600">{row.maxMarks}</td>
+                        <td className="p-2 text-slate-600 dark:text-slate-400">{row.room}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Roster Controls */}
+            <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-2xl border">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleSelectAll}
+                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 text-xs font-bold text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-700 hover:bg-indigo-50 flex items-center gap-1.5 shadow-xs"
+                >
+                  <CheckSquare className="w-3.5 h-3.5" /> Select All ({currentRoster.length})
+                </button>
+                <button
+                  type="button"
+                  onClick={handleClearSelection}
+                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 text-xs font-bold text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 flex items-center gap-1.5 shadow-xs"
+                >
+                  <Square className="w-3.5 h-3.5" /> Clear All
+                </button>
+              </div>
+
+              <div className="text-xs font-bold text-indigo-900 dark:text-indigo-300">
+                <span className="bg-indigo-600 text-white px-2.5 py-0.5 rounded-lg mr-1.5 font-black">{selectedIds.size}</span>
+                out of <span className="text-slate-700 dark:text-slate-300">{currentRoster.length}</span> students ready to print Admit Card
+              </div>
+            </div>
+
+            {/* Student Checkbox Table */}
+            <div className="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-2xl">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b">
+                    <th className="p-3 w-12 text-center">Include</th>
+                    <th className="p-3">Candidate Details</th>
+                    <th className="p-3">Roll No</th>
+                    <th className="p-3">Admission No</th>
+                    <th className="p-3">Class & Section</th>
+                    <th className="p-3">Father's Name</th>
+                    <th className="p-3 text-center">Admit Card Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {filteredRoster.map(item => {
+                    const isChecked = selectedIds.has(item.id);
+                    return (
+                      <tr
+                        key={item.id}
+                        onClick={() => handleToggleSelect(item.id)}
+                        className={`cursor-pointer transition-colors ${isChecked ? 'bg-indigo-50/40 dark:bg-indigo-950/25' : 'hover:bg-slate-50 opacity-70'}`}
+                      >
+                        <td className="p-3 text-center" onClick={(e) => e.stopPropagation()}>
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => handleToggleSelect(item.id)}
+                            className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                          />
+                        </td>
+                        <td className="p-3">
+                          <div className="flex items-center gap-2.5">
+                            <img src={item.photo} alt={item.name} className="w-7 h-7 rounded-lg object-cover ring-1 ring-slate-200" />
+                            <span className="font-bold text-slate-900 dark:text-white">{item.name}</span>
+                          </div>
+                        </td>
+                        <td className="p-3 font-mono font-bold text-indigo-700 dark:text-indigo-400">#{item.rollNo}</td>
+                        <td className="p-3 font-mono text-slate-600 dark:text-slate-300">{item.admissionNo}</td>
+                        <td className="p-3 font-semibold">{item.class}-{item.section}</td>
+                        <td className="p-3 text-slate-600 dark:text-slate-300">{item.parents?.fatherName || item.fatherName || 'N/A'}</td>
+                        <td className="p-3 text-center">
+                          {isChecked ? (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold text-[10px] border border-emerald-200">
+                              <Check className="w-3 h-3" /> Ready
+                            </span>
+                          ) : (
+                            <span className="text-[10px] text-slate-400">Excluded</span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Admit Card Print Sheet */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm print:hidden">
+              <div>
+                <h4 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+                  <Printer className="w-5 h-5 text-indigo-600" />
+                  Admit Cards Print Preview ({selectedCardsToPrint.length} Admit Cards)
+                </h4>
+                <p className="text-xs text-slate-500">
+                  Connected Scheme: <strong className="text-indigo-700">{currentExam?.name}</strong> • {currentExamDateSheet.length} Exam Sessions
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => window.print()}
+                disabled={selectedCardsToPrint.length === 0}
+                className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white rounded-xl text-xs font-black shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all hover:scale-105"
+              >
+                <Printer className="w-4 h-4" /> Print {selectedCardsToPrint.length} Admit Cards (PDF)
+              </button>
+            </div>
+
+            {/* Printable Hall Tickets (1 or 2 per page) */}
+            <div className="space-y-8 print:space-y-6">
+              {selectedCardsToPrint.map((student, idx) => (
+                <div
+                  key={student.id || idx}
+                  className="bg-white rounded-3xl border-2 border-slate-800 p-6 shadow-md text-slate-900 break-inside-avoid print:shadow-none print:border-2 print:border-black print:p-6"
+                >
+                  {/* Header */}
+                  <div className="text-center border-b-2 border-slate-900 pb-3 mb-4">
+                    <div className="flex items-center justify-between">
+                      <div className="w-16 h-16 rounded-2xl bg-indigo-900 text-white flex items-center justify-center font-black text-2xl border-2 border-slate-900">
+                        DMPS
+                      </div>
+                      <div className="flex-1 px-4">
+                        <h2 className="text-xl font-black tracking-tight text-slate-900 uppercase">
+                          {schoolInfo.name || 'Dadheech Memorial Public School'}
+                        </h2>
+                        <p className="text-[11px] font-bold text-slate-700 uppercase tracking-wide">
+                          RAMGHAT ROAD BORDER, JARGWAN, BULANDSHAHR (U.P.) • PIN: 202398
+                        </p>
+                        <p className="text-[10px] font-semibold text-slate-600">
+                          Affiliated to Bhartiya Shiksha Board (BSB) • Affiliation No: UP0F25070073 • School Code: 00065
+                        </p>
+                      </div>
+                      <div className="w-16 h-16 border-2 border-slate-900 rounded-xl overflow-hidden p-1 flex flex-col items-center justify-center text-[9px] font-bold">
+                        <QrCode className="w-10 h-10 text-slate-900" />
+                        <span className="font-mono text-[7px] leading-none">VERIFIED</span>
+                      </div>
+                    </div>
+
+                    <div className="mt-2 inline-block px-4 py-1 bg-slate-900 text-white rounded-full text-xs font-black uppercase tracking-wider">
+                      {currentExam?.name} - ADMIT CARD / HALL TICKET (2026-2027)
+                    </div>
+                  </div>
+
+                  {/* Candidate Information Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pb-4 border-b border-slate-300">
+                    <div className="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-y-2 gap-x-4 text-xs">
+                      <div>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase block">Candidate Name</span>
+                        <span className="font-black text-slate-900 text-sm">{student.name}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase block">Roll Number</span>
+                        <span className="font-mono font-black text-indigo-700 text-sm">#{student.rollNo}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase block">Admission / PEN No</span>
+                        <span className="font-mono font-bold text-slate-900">{student.admissionNo || 'DMPS-2026-01'}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase block">Class & Section</span>
+                        <span className="font-bold text-slate-900">{student.class} - Section {student.section || 'A'}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase block">Father's Name</span>
+                        <span className="font-bold text-slate-900">{student.parents?.fatherName || student.fatherName || 'Mr. Rajesh Sharma'}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase block">Mother's Name</span>
+                        <span className="font-bold text-slate-900">{student.parents?.motherName || 'Mrs. Sunita Sharma'}</span>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <span className="text-[10px] text-slate-500 font-bold uppercase block">Examination Center</span>
+                        <span className="font-bold text-slate-900">{currentExam?.centerName}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase block">Reporting Time</span>
+                        <span className="font-mono font-bold text-rose-600">{currentExam?.reportingTime}</span>
+                      </div>
+                    </div>
+
+                    {/* Student Photo */}
+                    <div className="flex justify-center md:justify-end">
+                      <div className="w-24 h-28 border-2 border-slate-900 rounded-xl overflow-hidden shadow-inner p-0.5 bg-slate-50">
+                        <img
+                          src={student.photo || "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150"}
+                          alt={student.name}
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Examination Scheme / Date Sheet Table */}
+                  <div className="my-4">
+                    <h5 className="text-[11px] font-black uppercase text-slate-900 tracking-wider mb-2">
+                      📅 Examination Schedule & Scheme of Subjects
+                    </h5>
+                    <table className="w-full text-left text-xs border-collapse border border-slate-800">
+                      <thead>
+                        <tr className="bg-slate-100 text-slate-900 font-black border-b border-slate-800">
+                          <th className="p-2 border-r border-slate-800 w-28">Date</th>
+                          <th className="p-2 border-r border-slate-800 w-24">Day</th>
+                          <th className="p-2 border-r border-slate-800 w-24">Subject Code</th>
+                          <th className="p-2 border-r border-slate-800">Subject Name</th>
+                          <th className="p-2 border-r border-slate-800 w-44">Exam Timing</th>
+                          <th className="p-2 border-r border-slate-800 w-28">Hall / Room</th>
+                          <th className="p-2 w-32 text-center">Invigilator Sign</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-800">
+                        {currentExamDateSheet.map((examRow, rIdx) => (
+                          <tr key={rIdx} className="hover:bg-slate-50">
+                            <td className="p-2 border-r border-slate-800 font-mono font-bold">{examRow.date}</td>
+                            <td className="p-2 border-r border-slate-800 font-semibold">{examRow.day}</td>
+                            <td className="p-2 border-r border-slate-800 font-mono font-bold text-center">{examRow.subjectCode}</td>
+                            <td className="p-2 border-r border-slate-800 font-bold">{examRow.subject}</td>
+                            <td className="p-2 border-r border-slate-800 font-mono text-[11px]">{examRow.time}</td>
+                            <td className="p-2 border-r border-slate-800 text-[11px] font-semibold">{examRow.room}</td>
+                            <td className="p-2 text-center text-[10px] text-slate-400">___________</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Important Instructions */}
+                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-300 text-[10px] text-slate-700 space-y-1">
+                    <span className="font-black text-slate-900 uppercase block">Important Instructions for Candidate:</span>
+                    <p>1. Candidates must carry this original Admit Card along with their official School ID Card to all exam sessions.</p>
+                    <p>2. Electronic gadgets, smart watches, and mobile phones are strictly banned inside the examination hall.</p>
+                    <p>3. Candidates must be seated at their designated room/desk 15 minutes before the first bell.</p>
+                    <p>4. School uniform is strictly compulsory during all exam days.</p>
+                  </div>
+
+                  {/* Signatures & Stamps */}
+                  <div className="grid grid-cols-3 gap-4 pt-8 text-center text-xs mt-4">
+                    <div>
+                      <div className="h-8 border-b-2 border-slate-900 border-dotted mb-1"></div>
+                      <span className="font-black text-slate-900">Candidate's Signature</span>
+                    </div>
+                    <div>
+                      <div className="h-8 border-b-2 border-slate-900 border-dotted mb-1"></div>
+                      <span className="font-black text-slate-900">Center Superintendent Signature</span>
+                    </div>
+                    <div>
+                      <div className="h-8 border-b-2 border-slate-900 border-dotted mb-1"></div>
+                      <span className="font-black text-slate-900">Principal Signature & Seal</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 6: CERTIFICATE TEMPLATES */}
       {/* ========================================================================= */}
       {activeSection === 'cert_template' && (
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
               <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
-                <Award className="w-5 h-5 text-blue-600" />
+                <Award className="w-5 h-5 text-indigo-600" />
                 Institutional Certificate Template Master
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">Customize layouts and text templates for TC, Bonafide, Character and Merit certificates.</p>
             </div>
             <button
               onClick={() => showToast('Certificate Template updated successfully!', 'success')}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-2"
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-2"
             >
               <Check className="w-4 h-4" /> Save Template
             </button>
@@ -1277,13 +1659,71 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
                 <div className="pt-2 flex justify-end gap-2">
                   <button
                     onClick={() => { setActiveSection('certificates'); setIsGenerateCertModalOpen(true); }}
-                    className="px-3 py-1 bg-blue-600 text-white font-bold rounded-lg text-[10px]"
+                    className="px-3 py-1 bg-indigo-600 text-white font-bold rounded-lg text-[10px]"
                   >
                     Issue This
                   </button>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 7: ISSUED STUDENT CERTIFICATES (TC, Bonafide, Conduct) */}
+      {/* ========================================================================= */}
+      {activeSection === 'certificates' && (
+        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden p-5 space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+              <FileText className="w-5 h-5 text-indigo-600" />
+              Official Institutional Certificates
+            </h3>
+            <button
+              onClick={() => setIsGenerateCertModalOpen(true)}
+              className="px-4 py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20"
+            >
+              + Issue Certificate
+            </button>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
+                  <th className="p-3.5">Certificate Serial</th>
+                  <th className="p-3.5">Student Name</th>
+                  <th className="p-3.5">Class</th>
+                  <th className="p-3.5">Certificate Type</th>
+                  <th className="p-3.5">Issue Date</th>
+                  <th className="p-3.5">Status</th>
+                  <th className="p-3.5 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                {certificates.map(cert => (
+                  <tr key={cert.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                    <td className="p-3.5 font-mono font-bold text-slate-900 dark:text-white">{cert.certificateNo}</td>
+                    <td className="p-3.5 font-bold text-slate-900 dark:text-white">{cert.studentName}</td>
+                    <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-300">{cert.class}</td>
+                    <td className="p-3.5 font-bold text-indigo-600 dark:text-indigo-400">{cert.type}</td>
+                    <td className="p-3.5 text-slate-500">{cert.issueDate}</td>
+                    <td className="p-3.5">
+                      <Badge variant="success" size="sm">{cert.status}</Badge>
+                    </td>
+                    <td className="p-3.5 text-right">
+                      <button
+                        onClick={() => { setSelectedCert(cert); setIsCertModalOpen(true); }}
+                        className="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 rounded-lg font-bold hover:bg-indigo-100 flex items-center gap-1.5 ml-auto"
+                      >
+                        <Printer className="w-3.5 h-3.5" /> Print
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       )}
@@ -1402,7 +1842,7 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
 
           <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
             <button type="button" onClick={() => setIsGenerateCertModalOpen(false)} className="px-4 py-2 text-slate-500 font-bold">Cancel</button>
-            <button type="submit" className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg">
+            <button type="submit" className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg">
               Generate & Print Certificate
             </button>
           </div>

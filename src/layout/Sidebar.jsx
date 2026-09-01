@@ -90,7 +90,6 @@ export const navigationGroups = [
     items: [
       { id: 'staff', label: 'Employee Directory & Profiles', badge: 'Active' },
       { id: 'staff-add', label: 'Add New Employee / Faculty', badge: 'New' },
-      { id: 'card-employee-id', label: 'Employee ID Cards & Print', badge: 'Print' },
       { id: 'staff-import', label: 'Import Staff Excel / CSV', badge: 'Bulk' }
     ]
   },
