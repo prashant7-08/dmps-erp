@@ -46,10 +46,21 @@ function AppContent() {
     return 'dashboard';
   };
 
+  // Detect if opened in dedicated Mobile App / ERP direct mode
+  const isDirectAppMode = () => {
+    const hash = (window.location.hash || '').toLowerCase();
+    const search = (window.location.search || '').toLowerCase();
+    const isStandalone = window.matchMedia && window.matchMedia('(display-mode: standalone)').matches;
+    return isStandalone || hash === '#login' || hash === '#app' || search.includes('mode=app') || search.includes('app=true');
+  };
+
   const [activeTab, setActiveTabState] = React.useState(getInitialTab);
   const [currentRole, setCurrentRole] = useState(authRole || 'Super Admin');
   const [selectedStudentForProfile, setSelectedStudentForProfile] = useState(null);
-  const [isViewingWebsite, setIsViewingWebsite] = useState(!isAuthenticated);
+  const [isViewingWebsite, setIsViewingWebsite] = useState(() => {
+    if (isDirectAppMode()) return false;
+    return !isAuthenticated;
+  });
 
   // Sync activeTab changes with browser history
   const setActiveTab = (tab, pushHistory = true) => {

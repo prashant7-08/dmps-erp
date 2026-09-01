@@ -136,10 +136,47 @@ export const LoginPage = ({ onLoginSuccess, onBackToWebsite }) => {
             </button>
           </form>
 
+          {/* Quick Role Preset Access Chips */}
+          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-2">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block text-center">
+              Quick Role Login Shortcuts
+            </span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <button
+                type="button"
+                onClick={() => { setEmail('parent'); setPassword('parent123'); }}
+                className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-emerald-500 text-center transition-all text-xs font-bold text-slate-800 dark:text-slate-200"
+              >
+                👨‍👩‍👧 Parent
+              </button>
+              <button
+                type="button"
+                onClick={() => { setEmail('teacher'); setPassword('teacher123'); }}
+                className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 text-center transition-all text-xs font-bold text-slate-800 dark:text-slate-200"
+              >
+                👩‍🏫 Teacher
+              </button>
+              <button
+                type="button"
+                onClick={() => { setEmail('accountant'); setPassword('accountant123'); }}
+                className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-amber-500 text-center transition-all text-xs font-bold text-slate-800 dark:text-slate-200"
+              >
+                💼 Accountant
+              </button>
+              <button
+                type="button"
+                onClick={() => { setEmail('admin'); setPassword('admin123'); }}
+                className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-purple-500 text-center transition-all text-xs font-bold text-slate-800 dark:text-slate-200"
+              >
+                👑 Super Admin
+              </button>
+            </div>
+          </div>
+
           {/* Footer Security Note & Developer Credit */}
-          <div className="text-center pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2">
+          <div className="text-center pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
             <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-              🔒 Protected by DMPS Multi-Branch Access Control
+              🔒 Protected by DMPS Multi-Branch Access Control • Installable PWA App
             </p>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] text-slate-600 dark:text-slate-300 font-bold shadow-sm">
               <span>Designed & Developed by</span>
