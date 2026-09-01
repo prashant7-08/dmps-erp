@@ -206,50 +206,50 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
     <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-300">
 
       {/* 🏫 DMPS Master School Header Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-950 p-6 sm:p-8 text-white shadow-xl border border-indigo-500/30">
-        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          <div className="space-y-3 max-w-3xl">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-950 px-5 py-4 sm:px-6 sm:py-5 text-white shadow-lg border border-indigo-500/30">
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="space-y-1.5 min-w-0">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/25 border border-indigo-400/40 text-indigo-200 text-xs font-bold shadow-inner">
-                <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/25 border border-indigo-400/40 text-indigo-200 text-[11px] font-bold shadow-inner">
+                <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
                 Session {schoolInfo.academicSession || '2026-2027'}
               </span>
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[11px] font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                 CBSE Affiliated • {schoolInfo.affiliationNo || 'UP-CBSE-83921'}
               </span>
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-slate-300 text-xs font-mono font-semibold">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/10 text-slate-300 text-[11px] font-mono font-semibold">
                 <Clock className="w-3 h-3 text-indigo-300" /> {currentTime}
               </span>
             </div>
 
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2 font-serif">
+            <div className="min-w-0">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-black tracking-tight text-white font-serif whitespace-nowrap overflow-hidden text-ellipsis">
                 {schoolInfo.name || 'Dadheech Memorial Public School'}
               </h2>
-              <p className="text-xs sm:text-sm text-indigo-200/90 mt-1 font-medium leading-relaxed">
-                Viewing: <strong className="text-amber-300 font-bold">{stats?.branchName || 'All Campuses'}</strong> | {stats?.totalStudents || 567} Active Students Registered
+              <p className="text-xs text-indigo-200/90 mt-0.5 font-medium whitespace-nowrap overflow-hidden text-ellipsis">
+                Viewing: <strong className="text-amber-300 font-bold">{stats?.branchName || 'All Campuses'}</strong> • {stats?.totalStudents || 567} Active Students Registered
               </p>
             </div>
           </div>
 
           {/* Quick Header CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
             <button
               onClick={() => setActiveTab('students')}
-              className="px-4 py-2.5 bg-white text-indigo-950 hover:bg-indigo-50 rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+              className="px-3.5 py-2 bg-white text-indigo-950 hover:bg-indigo-50 rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 hover:scale-105 active:scale-95"
             >
               <GraduationCap className="w-4 h-4 text-indigo-600" /> New Admission
             </button>
             <button
               onClick={() => setActiveTab('fees')}
-              className="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+              className="px-3.5 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 hover:scale-105 active:scale-95"
             >
               <CreditCard className="w-4 h-4" /> Collect Fee (POS)
             </button>
             <button
               onClick={onOpenAI}
-              className="px-4 py-2.5 bg-indigo-600/90 hover:bg-indigo-600 border border-indigo-400/40 text-white rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+              className="px-3.5 py-2 bg-indigo-600/90 hover:bg-indigo-600 border border-indigo-400/40 text-white rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 hover:scale-105 active:scale-95"
             >
               <Sparkles className="w-4 h-4 text-amber-300" /> Ask EduBot
             </button>
