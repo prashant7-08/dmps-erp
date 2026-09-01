@@ -545,6 +545,20 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                         {/* 1 to 31 Date Cells with In & Out Times */}
                         {monthlyMatrix.dates.map(d => {
                           const record = staff.dailyMap[d.dateStr];
+                          
+                          // Out of tenure (Before joining date or After leaving date)
+                          if (record?.status === 'NA') {
+                            return (
+                              <td
+                                key={d.dateStr}
+                                className="p-1 bg-slate-100/70 dark:bg-slate-800/40 border-r border-slate-200 dark:border-slate-700 text-[8px] font-mono text-slate-400"
+                                title={record?.statusLabel || 'Out of Active Tenure'}
+                              >
+                                <span className="text-[8px] font-bold text-slate-400">NA</span>
+                              </td>
+                            );
+                          }
+
                           if (d.isSunday) {
                             return (
                               <td
@@ -565,6 +579,23 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                                 title={d.holidayName || 'Declared Holiday'}
                               >
                                 <span className="text-[10px] text-blue-600 font-bold">H</span>
+                              </td>
+                            );
+                          }
+
+                          if (record?.status === 'OD') {
+                            return (
+                              <td
+                                key={d.dateStr}
+                                className="p-1 bg-purple-50/60 dark:bg-purple-950/20 border-r border-slate-200 dark:border-slate-700"
+                                title={`${staff.name} on ${d.dateStr}: Official Duty / Off-Campus Management`}
+                              >
+                                <div className="space-y-0.5 leading-none">
+                                  <span className="inline-block px-1 py-0.5 rounded bg-purple-100 text-purple-800 dark:bg-purple-900/60 dark:text-purple-300 text-[7px] font-black">
+                                    OD
+                                  </span>
+                                  <span className="text-[7px] text-purple-600 dark:text-purple-400 block font-mono">Off-Camp</span>
+                                </div>
                               </td>
                             );
                           }
@@ -595,7 +626,13 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                                 </div>
                               ) : (
                                 <div className="space-y-0.5 leading-none">
-                                  <span className={`text-[8px] font-mono font-bold block ${isLate ? 'text-amber-700 dark:text-amber-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
+                                  <span className={`text-[8px] font-mono font-bold block ${
+                                    isHalfDay
+                                      ? 'text-rose-500 font-semibold'
+                                      : isLate
+                                      ? 'text-amber-700 dark:text-amber-400'
+                                      : 'text-emerald-700 dark:text-emerald-400'
+                                  }`}>
                                     {record?.conciseIn || '07:45'}
                                   </span>
                                   <span className="text-[8px] font-mono text-slate-500 block">
@@ -603,10 +640,10 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                                   </span>
                                   <span className={`inline-block px-1 rounded text-[7px] font-black ${
                                     isLate
-                                      ? 'bg-amber-100 text-amber-800'
+                                      ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300'
                                       : isHalfDay
-                                      ? 'bg-cyan-100 text-cyan-800'
-                                      : 'bg-emerald-100 text-emerald-800'
+                                      ? 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/60 dark:text-cyan-300'
+                                      : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300'
                                   }`}>
                                     {isLate ? 'L' : isHalfDay ? 'HD' : 'P'}
                                   </span>
@@ -649,10 +686,12 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                   <span className="font-bold text-slate-800 dark:text-slate-200 uppercase">Legend:</span>
                   <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span> [P] Present</span>
                   <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-600 inline-block"></span> [L] Late Arrival</span>
-                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-cyan-600 inline-block"></span> [HD] Half Day</span>
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-cyan-600 inline-block"></span> [HD] Half Day (Morning Missed)</span>
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-purple-600 inline-block"></span> [OD] Official Duty</span>
                   <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-rose-600 inline-block"></span> [A] Absent</span>
-                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-slate-400 inline-block"></span> [WO] Weekly Off (Sunday)</span>
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-slate-400 inline-block"></span> [WO] Sunday Off</span>
                   <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-600 inline-block"></span> [H] Holiday</span>
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-slate-300 inline-block"></span> [NA] Inactive / Out of Tenure</span>
                 </div>
                 <div>
                   Verified by Biometric Machine: <strong>Secureye S-FB3K</strong> (Shift: 08:00 AM - 02:00 PM)

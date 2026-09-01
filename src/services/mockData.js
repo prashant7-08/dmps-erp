@@ -230,11 +230,11 @@ export const initialSchoolData = {
         "sqlId": "1",
         "employeeId": "EMP-2026-001",
         "enrollId": "1",
-        "name": "Super Admin (Prashant)",
-        "designation": "Teacher",
-        "department": "Academics",
+        "name": "Prashant Kumar Rajput",
+        "designation": "Super Admin & Principal",
+        "department": "Administration",
         "phone": "9719476606",
-        "email": "superadmin(prashant)@dmps-school.edu.in",
+        "email": "prashant@dmps-school.edu.in",
         "joiningDate": "2024-03-19",
         "salary": 25000,
         "branchId": "BR-01",
@@ -401,9 +401,10 @@ export const initialSchoolData = {
         "phone": "9528626183",
         "email": "mohinichauhan@dmps-school.edu.in",
         "joiningDate": "2024-05-24",
+        "leavingDate": "2026-08-13",
         "salary": 4000,
         "branchId": "BR-01",
-        "status": "Active"
+        "status": "Left"
     },
     {
         "id": "TCH-1013",
@@ -491,24 +492,10 @@ export const initialSchoolData = {
         "phone": "9627739384",
         "email": "ks4760481@gmail.com",
         "joiningDate": "2026-03-01",
+        "leavingDate": "2026-07-13",
         "salary": 10000,
         "branchId": "BR-01",
-        "status": "Active"
-    },
-    {
-        "id": "TCH-1019",
-        "sqlId": "25",
-        "employeeId": "EMP-2026-019",
-        "enrollId": "25",
-        "name": "Prashant Kumar Rajput",
-        "designation": "Principal",
-        "department": "Senior Secondary",
-        "phone": "9719476606",
-        "email": "prashantkumarrajput@dmps-school.edu.in",
-        "joiningDate": "2026-08-07",
-        "salary": 25000,
-        "branchId": "BR-01",
-        "status": "Active"
+        "status": "Left"
     },
     {
         "id": "TCH-1020",

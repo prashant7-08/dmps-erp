@@ -1,6 +1,6 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V14_BULLETPROOF';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V15_REAL_STAFF_RULES';
 
 class SchoolService {
   constructor() {
@@ -18,7 +18,7 @@ class SchoolService {
             ...JSON.parse(JSON.stringify(initialSchoolData)),
             ...parsed,
             branches: Array.isArray(parsed.branches) && parsed.branches.length > 0 ? parsed.branches : initialSchoolData.branches,
-            teachers: Array.isArray(parsed.teachers) && parsed.teachers.length > 0 ? parsed.teachers : initialSchoolData.teachers,
+            teachers: initialSchoolData.teachers, // Always sync official 22 staff roster
             classes: Array.isArray(parsed.classes) && parsed.classes.length > 0 ? parsed.classes : initialSchoolData.classes,
             biometricLogs: Array.isArray(parsed.biometricLogs) && parsed.biometricLogs.length > 0 ? parsed.biometricLogs : initialSchoolData.biometricLogs,
             staffAttendance: Array.isArray(parsed.staffAttendance) && parsed.staffAttendance.length > 0 ? parsed.staffAttendance : initialSchoolData.staffAttendance
@@ -676,13 +676,58 @@ class SchoolService {
       let lCount = 0;
       let hdCount = 0;
       let aCount = 0;
+      let odCount = 0;
       let woCount = 0;
       let hCount = 0;
+      let naCount = 0;
+      let activeWorkingDays = 0;
       let totalMins = 0;
+
+      const isPrashant = (t.name || '').toLowerCase().includes('prashant') || t.id === 'TCH-1001' || t.employeeId === 'EMP-2026-001';
+      const isPramodMD = (t.name || '').toUpperCase().includes('PRAMOD KUMAR') && !((t.name || '').toUpperCase().includes('SHARMA'));
+      const isShwetaSwati = (t.name || '').toUpperCase().includes('SHWETA') || (t.name || '').toUpperCase().includes('SWATI');
 
       dates.forEach(d => {
         const { dateStr, isSunday, isHoliday, holidayName } = d;
 
+        // 1. Check Tenure validity (Joining and Leaving Dates)
+        if (t.joiningDate && dateStr < t.joiningDate) {
+          naCount++;
+          dailyMap[dateStr] = {
+            dateStr,
+            status: 'NA',
+            statusLabel: `Not Joined Yet (Joined ${t.joiningDate})`,
+            inTime: '--:--',
+            outTime: '--:--',
+            conciseIn: 'NA',
+            conciseOut: '--:--',
+            workDuration: '0h 00m',
+            isSunday,
+            isHoliday,
+            isTenureActive: false
+          };
+          return;
+        }
+
+        if (t.leavingDate && dateStr > t.leavingDate) {
+          naCount++;
+          dailyMap[dateStr] = {
+            dateStr,
+            status: 'NA',
+            statusLabel: `Left School on ${t.leavingDate}`,
+            inTime: '--:--',
+            outTime: '--:--',
+            conciseIn: 'NA',
+            conciseOut: '--:--',
+            workDuration: '0h 00m',
+            isSunday,
+            isHoliday,
+            isTenureActive: false
+          };
+          return;
+        }
+
+        // Active tenure day
         if (isSunday) {
           woCount++;
           dailyMap[dateStr] = {
@@ -695,7 +740,8 @@ class SchoolService {
             conciseOut: '--:--',
             workDuration: '0h 00m',
             isSunday: true,
-            isHoliday: false
+            isHoliday: false,
+            isTenureActive: true
           };
           return;
         }
@@ -713,12 +759,16 @@ class SchoolService {
             workDuration: '0h 00m',
             isSunday: false,
             isHoliday: true,
-            holidayName
+            holidayName,
+            isTenureActive: true
           };
           return;
         }
 
-        // Check if attendance row exists
+        // Working day in active tenure
+        activeWorkingDays++;
+
+        // Check if explicit attendance row exists in database
         const existingAtt = Array.isArray(staffAtt) ? staffAtt.find(r => r && (r.staffId === t.id || r.name === t.name || r.employeeId === t.employeeId) && r.date === dateStr) : null;
         const existingPunch = Array.isArray(bioLogs) ? bioLogs.find(l => l && (l.staffId === t.id || l.name === t.name || l.employeeId === t.employeeId) && l.punchDate === dateStr) : null;
 
@@ -737,28 +787,90 @@ class SchoolService {
           inTime = existingPunch.inTime || '07:45 AM';
           outTime = existingPunch.outTime || '02:30 PM';
           workDuration = '6h 45m';
-        } else {
-          // Deterministic realistic punch generator based on staff and date
-          const seed = (t.name.length * 13 + d.dayNum * 7 + month * 19) % 100;
-          if (seed < 4) {
+        } else if (isPrashant) {
+          // 👑 Prashant Kumar Rajput (Super Admin): Visits school ~4-5 specific days per month
+          // Selected days: 1st, 8th, 15th, 22nd, 28th (if working day)
+          const campusDays = [1, 8, 15, 22, 28];
+          if (campusDays.includes(d.dayNum)) {
+            status = 'Present';
+            inTime = '09:15 AM';
+            outTime = '01:45 PM';
+            workDuration = '4h 30m';
+          } else {
+            status = 'OD';
+            inTime = '--:--';
+            outTime = '--:--';
+            workDuration = '0h 00m';
+          }
+        } else if (isPramodMD) {
+          // 👔 Pramod Kumar (Managing Director): Campus inspection ~10-12 days, other OD
+          const mdDays = [2, 4, 7, 9, 11, 14, 16, 18, 21, 23, 25, 29];
+          if (mdDays.includes(d.dayNum)) {
+            status = 'Present';
+            inTime = '08:30 AM';
+            outTime = '02:30 PM';
+            workDuration = '6h 00m';
+          } else {
+            status = 'OD';
+            inTime = '--:--';
+            outTime = '--:--';
+            workDuration = '0h 00m';
+          }
+        } else if (isShwetaSwati) {
+          // ⏰ Shweta Raghav & Swati Raghav: Habitually late, morning punch frequently missed!
+          const seed = (t.name.length * 17 + d.dayNum * 13 + month * 23) % 100;
+          if (seed < 12) {
+            // ~3-4 days on time
+            status = 'Present';
+            inTime = `07:${String(45 + (seed % 10)).padStart(2, '0')} AM`;
+            outTime = `02:25 PM`;
+            workDuration = '6h 40m';
+          } else if (seed < 40) {
+            // ~6-7 days Morning punch missed -> Machine rule auto Half-Day (HD)
+            status = 'Half-Day';
+            inTime = `Missed`;
+            outTime = `02:${String(20 + (seed % 15)).padStart(2, '0')} PM`;
+            workDuration = '3h 30m';
+          } else if (seed < 92) {
+            // ~13-15 days Late Arrival
+            status = 'Late';
+            inTime = `08:${String(15 + (seed % 25)).padStart(2, '0')} AM`;
+            outTime = `02:${String(20 + (seed % 15)).padStart(2, '0')} PM`;
+            workDuration = '6h 05m';
+          } else {
+            // ~1-2 days Absent
             status = 'Absent';
             inTime = '--:--';
             outTime = '--:--';
             workDuration = '0h 00m';
-          } else if (seed < 8) {
+          }
+        } else {
+          // 🏫 Regular Teachers & Drivers: Realistic school machine setting
+          // Teachers frequently miss morning punch -> Auto Half-Day!
+          const seed = (t.name.length * 13 + d.dayNum * 7 + month * 19) % 100;
+          if (seed < 5) {
+            // ~1-2 days Absent
+            status = 'Absent';
+            inTime = '--:--';
+            outTime = '--:--';
+            workDuration = '0h 00m';
+          } else if (seed < 28) {
+            // ~5-6 days Morning Punch Missed -> Auto Half-Day (HD)
             status = 'Half-Day';
-            inTime = `07:${String(40 + (seed % 15)).padStart(2, '0')} AM`;
-            outTime = `12:15 PM`;
-            workDuration = '4h 30m';
-          } else if (seed < 18) {
+            inTime = `Missed`;
+            outTime = `02:${String(15 + (seed % 20)).padStart(2, '0')} PM`;
+            workDuration = '3h 30m';
+          } else if (seed < 48) {
+            // ~4-5 days Late Arrival
             status = 'Late';
-            inTime = `08:${String(2 + (seed % 18)).padStart(2, '0')} AM`;
-            outTime = `02:${String(20 + (seed % 20)).padStart(2, '0')} PM`;
-            workDuration = '6h 20m';
+            inTime = `08:${String(5 + (seed % 18)).padStart(2, '0')} AM`;
+            outTime = `02:${String(15 + (seed % 20)).padStart(2, '0')} PM`;
+            workDuration = '6h 15m';
           } else {
+            // Regular On-Time Present
             status = 'Present';
-            inTime = `07:${String(35 + (seed % 22)).padStart(2, '0')} AM`;
-            outTime = `02:${String(15 + (seed % 30)).padStart(2, '0')} PM`;
+            inTime = `07:${String(35 + (seed % 20)).padStart(2, '0')} AM`;
+            outTime = `02:${String(15 + (seed % 25)).padStart(2, '0')} PM`;
             workDuration = '6h 45m';
           }
         }
@@ -766,10 +878,13 @@ class SchoolService {
         // Format inTime and outTime concisely (e.g. 07:45 / 14:30)
         let conciseIn = inTime;
         let conciseOut = outTime;
-        if (inTime && inTime.includes(':') && inTime !== '--:--') {
+        if (inTime && inTime.includes(':') && inTime !== '--:--' && inTime !== 'Missed') {
           const parts = inTime.replace(' AM', '').replace(' PM', '').split(':');
           conciseIn = `${parts[0].padStart(2, '0')}:${parts[1] || '00'}`;
+        } else if (inTime === 'Missed') {
+          conciseIn = 'Missed';
         }
+
         if (outTime && outTime.includes(':') && outTime !== '--:--') {
           const parts = outTime.split(':');
           let hr = parseInt(parts[0], 10) || 2;
@@ -780,29 +895,38 @@ class SchoolService {
 
         if (status === 'Present') pCount++;
         else if (status === 'Late') { lCount++; pCount++; }
+        else if (status === 'OD') odCount++;
         else if (status === 'Half-Day') hdCount++;
         else if (status === 'Absent') aCount++;
 
         // Minutes calculation
-        if (status === 'Present' || status === 'Late') totalMins += 405; // ~6.75h
-        else if (status === 'Half-Day') totalMins += 240; // 4h
+        if (status === 'Present' || status === 'Late' || status === 'OD') totalMins += 405; // ~6.75h
+        else if (status === 'Half-Day') totalMins += 210; // ~3.5h
 
         dailyMap[dateStr] = {
           dateStr,
           status,
+          statusLabel: status === 'OD' ? 'Official Duty / Off-Campus' : status === 'Half-Day' ? 'Morning Punch Missed (Half-Day)' : status,
           inTime,
           outTime,
           conciseIn,
           conciseOut,
           workDuration,
           isSunday: false,
-          isHoliday: false
+          isHoliday: false,
+          isTenureActive: true
         };
       });
 
-      const workingDays = totalDays - woCount - hCount;
-      const payableDays = pCount + (hdCount * 0.5) + woCount + hCount;
-      const turnoutPct = workingDays > 0 ? (((pCount + (hdCount * 0.5)) / workingDays) * 100).toFixed(1) : '100.0';
+      // Accurate payableDays strictly within active tenure
+      const payableDays = isPrashant 
+        ? totalDays 
+        : (activeWorkingDays > 0 ? ((pCount - lCount) + lCount + odCount + (hdCount * 0.5) + woCount + hCount) : 0);
+      
+      const effectiveWorkingDays = activeWorkingDays;
+      const turnoutPct = effectiveWorkingDays > 0 
+        ? (((pCount + odCount + (hdCount * 0.5)) / effectiveWorkingDays) * 100).toFixed(1) 
+        : '0.0';
       const totalHours = (totalMins / 60).toFixed(1);
 
       return {
@@ -812,15 +936,20 @@ class SchoolService {
         designation: t.designation || 'Teacher',
         department: t.department || 'Academics',
         phone: t.phone || '97589 75880',
+        joiningDate: t.joiningDate || '',
+        leavingDate: t.leavingDate || '',
+        status: t.status || 'Active',
         avatar: t.photo || t.avatar || '',
         dailyMap,
         summary: {
           totalDays,
-          workingDays,
+          workingDays: effectiveWorkingDays,
           presentCount: pCount - lCount,
           lateCount: lCount,
           halfDayCount: hdCount,
           absentCount: aCount,
+          odCount,
+          naCount,
           weeklyOffCount: woCount,
           holidayCount: hCount,
           payableDays,
