@@ -68,11 +68,12 @@ export const AttendancePage = ({ initialType = 'student' }) => {
   });
 
   // Teachers / Staff Data with Real-Time Biometric Punch Logs
-  const [teachers, setTeachers] = useState(() => schoolService.getTeachers(activeBranchId));
+  const [teachers, setTeachers] = useState(() => schoolService.getTeachers(activeBranchId) || []);
   const [staffRecords, setStaffRecords] = useState(() => {
-    const logs = schoolService.getBiometricLogs();
-    return teachers.map(t => {
-      const punch = logs.find(l => l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name);
+    const logs = Array.isArray(schoolService.getBiometricLogs()) ? schoolService.getBiometricLogs() : [];
+    const tList = Array.isArray(teachers) ? teachers : [];
+    return tList.map(t => {
+      const punch = logs.find(l => l && (l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name));
       return {
         staffId: t.id,
         name: t.name,
@@ -90,7 +91,7 @@ export const AttendancePage = ({ initialType = 'student' }) => {
   });
 
   const refreshData = () => {
-    const sList = schoolService.getStudents(activeBranchId);
+    const sList = schoolService.getStudents(activeBranchId) || [];
     setStudents(sList);
     setStudentRecords(sList.map(s => ({
       studentId: s.id,
@@ -102,11 +103,11 @@ export const AttendancePage = ({ initialType = 'student' }) => {
       remarks: ''
     })));
 
-    const tList = schoolService.getTeachers(activeBranchId);
+    const tList = schoolService.getTeachers(activeBranchId) || [];
     setTeachers(tList);
-    const logs = schoolService.getBiometricLogs(selectedDate);
+    const logs = Array.isArray(schoolService.getBiometricLogs(selectedDate)) ? schoolService.getBiometricLogs(selectedDate) : [];
     setStaffRecords(tList.map(t => {
-      const punch = logs.find(l => l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name);
+      const punch = logs.find(l => l && (l.staffId === t.id || l.employeeId === t.employeeId || l.name === t.name));
       return {
         staffId: t.id,
         name: t.name,

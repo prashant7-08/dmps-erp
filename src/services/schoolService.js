@@ -1,6 +1,6 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V13_REAL_BIOMETRIC_MATRIX';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V14_BULLETPROOF';
 
 class SchoolService {
   constructor() {
@@ -14,7 +14,15 @@ class SchoolService {
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed && Array.isArray(parsed.students) && parsed.students.length >= 100) {
-          return parsed;
+          return {
+            ...JSON.parse(JSON.stringify(initialSchoolData)),
+            ...parsed,
+            branches: Array.isArray(parsed.branches) && parsed.branches.length > 0 ? parsed.branches : initialSchoolData.branches,
+            teachers: Array.isArray(parsed.teachers) && parsed.teachers.length > 0 ? parsed.teachers : initialSchoolData.teachers,
+            classes: Array.isArray(parsed.classes) && parsed.classes.length > 0 ? parsed.classes : initialSchoolData.classes,
+            biometricLogs: Array.isArray(parsed.biometricLogs) && parsed.biometricLogs.length > 0 ? parsed.biometricLogs : initialSchoolData.biometricLogs,
+            staffAttendance: Array.isArray(parsed.staffAttendance) && parsed.staffAttendance.length > 0 ? parsed.staffAttendance : initialSchoolData.staffAttendance
+          };
         }
       }
     } catch (e) {
@@ -425,13 +433,14 @@ class SchoolService {
   }
 
   getBiometricLogs(date = null) {
-    if (!this.data.biometricLogs || this.data.biometricLogs.length < 50) {
+    if (!Array.isArray(this.data.biometricLogs) || this.data.biometricLogs.length < 50) {
       this.syncAllPastBiometricOverWifi();
     }
+    const logs = Array.isArray(this.data.biometricLogs) ? this.data.biometricLogs : [];
     if (date && date !== 'all') {
-      return (this.data.biometricLogs || []).filter(l => l.punchDate === date);
+      return logs.filter(l => l && l.punchDate === date);
     }
-    return this.data.biometricLogs || [];
+    return logs;
   }
 
   addBiometricLog(log) {
