@@ -81,8 +81,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
   // Live Clock
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
 
-  // Calendar State (August 2026)
-  const [calendarView, setCalendarView] = useState('Month');
+  // Hovered Bar State
   const [hoveredBar, setHoveredBar] = useState(null);
 
   useEffect(() => {
@@ -177,9 +176,6 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
     { date: '30-Aug', employeePresent: 0, employeeTotal: 23, studentRate: 0, isSunday: true },
     { date: '31-Aug', employeePresent: 22, employeeTotal: 23, studentRate: 95.4 }
   ];
-
-  // Calendar Days Grid Generation for August 2026 (Aug 1 = Saturday)
-  const august2026Days = Array.from({ length: 31 }, (_, i) => i + 1);
 
   // 🎯 ROLE-SPECIFIC DEDICATED DASHBOARD VIEWS
   if (currentRole === 'Accountant') {
@@ -709,88 +705,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       </div>
 
       {/* ========================================================================= */}
-      {/* 📅 SECTION 5: INTERACTIVE AUGUST 2026 CALENDAR */}
-      {/* ========================================================================= */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
-              <button className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-            <button className="px-3 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-xs font-bold rounded-xl text-slate-700 dark:text-slate-200">
-              Today
-            </button>
-            <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-indigo-600" /> August 2026
-            </h3>
-          </div>
-
-          {/* View Mode Pills */}
-          <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold">
-            {['Month', 'Week', 'Day', 'List'].map(mode => (
-              <button
-                key={mode}
-                onClick={() => setCalendarView(mode)}
-                className={`px-3 py-1 rounded-lg transition-all ${
-                  calendarView === mode ? 'bg-blue-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                }`}
-              >
-                {mode}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* 7-Column Days Grid */}
-        <div className="grid grid-cols-7 gap-1 text-center">
-          {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
-            <div key={day} className="py-2 text-xs font-black text-slate-500 uppercase bg-slate-50 dark:bg-slate-800/40 rounded-xl">
-              {day}
-            </div>
-          ))}
-
-          {/* August 1 is Saturday -> 5 padding slots from Mon to Fri */}
-          <div className="p-2 text-xs text-slate-300 dark:text-slate-700">27</div>
-          <div className="p-2 text-xs text-slate-300 dark:text-slate-700">28</div>
-          <div className="p-2 text-xs text-slate-300 dark:text-slate-700">29</div>
-          <div className="p-2 text-xs text-slate-300 dark:text-slate-700">30</div>
-          <div className="p-2 text-xs text-slate-300 dark:text-slate-700">31</div>
-
-          {august2026Days.map(day => {
-            const isToday = day === 31;
-            const isSunday = [2, 9, 16, 23, 30].includes(day);
-            const isHoliday = day === 15; // Independence Day
-
-            return (
-              <div
-                key={day}
-                className={`min-h-[52px] sm:min-h-[64px] p-2 rounded-2xl border transition-all text-left flex flex-col justify-between ${
-                  isToday
-                    ? 'bg-blue-600 text-white border-blue-600 font-black shadow-md'
-                    : isSunday
-                    ? 'bg-rose-50/50 dark:bg-rose-950/20 border-rose-100 dark:border-rose-900/40 text-rose-600 font-bold'
-                    : isHoliday
-                    ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800 text-amber-800 font-bold'
-                    : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-indigo-300'
-                }`}
-              >
-                <span className="text-xs font-black">{day}</span>
-                {isToday && <span className="text-[9px] bg-white/20 px-1.5 py-0.5 rounded-md font-bold text-white self-start">Today</span>}
-                {isHoliday && <span className="text-[9px] bg-amber-200 text-amber-900 px-1 rounded font-bold">Holiday</span>}
-                {isSunday && <span className="text-[9px] text-rose-500 font-semibold">Sunday</span>}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* ========================================================================= */}
-      {/* 💰 SECTION 6: FINANCIAL DONUT & ANNUAL FEE SPLINE WAVE GRAPH */}
+      {/* 💰 SECTION 5: FINANCIAL DONUT & ANNUAL FEE SPLINE WAVE GRAPH */}
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
