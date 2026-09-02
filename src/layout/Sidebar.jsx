@@ -348,10 +348,21 @@ export const navigationGroups = [
   {
     id: 'frontend-group',
     permissionKey: 'dashboard',
-    label: 'FRONTEND / WEBSITE',
+    label: 'FRONTEND',
     icon: Globe,
     items: [
-      { id: 'website-view', label: 'Public School Website', badge: 'Live', isExternalWebsite: true }
+      { id: 'fe-setting', targetTab: 'frontend', subTab: 'setting', label: 'Setting', badge: 'CMS' },
+      { id: 'fe-menu', targetTab: 'frontend', subTab: 'menu', label: 'Menu', badge: null },
+      { id: 'fe-page-section', targetTab: 'frontend', subTab: 'page-section', label: 'Page Section', badge: null },
+      { id: 'fe-manage-page', targetTab: 'frontend', subTab: 'manage-page', label: 'Manage Page', badge: null },
+      { id: 'fe-slider', targetTab: 'frontend', subTab: 'slider', label: 'Slider', badge: 'Banner' },
+      { id: 'fe-features', targetTab: 'frontend', subTab: 'features', label: 'Features', badge: null },
+      { id: 'fe-testimonial', targetTab: 'frontend', subTab: 'testimonial', label: 'Testimonial', badge: null },
+      { id: 'fe-service', targetTab: 'frontend', subTab: 'service', label: 'Service', badge: null },
+      { id: 'fe-faq', targetTab: 'frontend', subTab: 'faq', label: 'Faq', badge: null },
+      { id: 'fe-gallery-category', targetTab: 'frontend', subTab: 'gallery-category', label: 'Gallery Category', badge: null },
+      { id: 'fe-gallery', targetTab: 'frontend', subTab: 'gallery', label: 'Gallery', badge: 'Media' },
+      { id: 'website-view', label: 'Public Live Website ↗', badge: 'Live', isExternalWebsite: true }
     ]
   },
   {

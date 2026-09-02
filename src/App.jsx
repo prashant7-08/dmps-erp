@@ -35,6 +35,7 @@ import { SettingsPage } from './pages/SettingsPage';
 import { StudentAdmissionPage } from './pages/StudentAdmissionPage';
 import { BiometricPage } from './pages/BiometricPage';
 import { AutomaticBellPage } from './pages/AutomaticBellPage';
+import { FrontendCMSPage } from './pages/FrontendCMSPage';
 
 function AppContent() {
   const { isAuthenticated, role: authRole } = useAuth();
@@ -377,6 +378,19 @@ function AppContent() {
       case 'reports-exam':
       case 'reports-inventory':
         return <ReportsPage initialTab={activeTab} />;
+      case 'frontend':
+      case 'fe-setting':
+      case 'fe-menu':
+      case 'fe-page-section':
+      case 'fe-manage-page':
+      case 'fe-slider':
+      case 'fe-features':
+      case 'fe-testimonial':
+      case 'fe-service':
+      case 'fe-faq':
+      case 'fe-gallery-category':
+      case 'fe-gallery':
+        return <FrontendCMSPage initialTab={activeTab} onOpenWebsite={() => setActiveTab('website')} />;
       case 'settings':
         return <SettingsPage />;
       default:
