@@ -371,9 +371,16 @@ export const navigationGroups = [
     label: 'SETTINGS',
     icon: Settings,
     items: [
-      { id: 'settings', label: 'Global & School Settings', badge: null },
-      { id: 'settings', label: 'Role Permissions & Access', badge: 'RBAC' },
-      { id: 'settings', label: 'Database Backup & Restore', badge: 'SQL' }
+      { id: 'setting-global', targetTab: 'settings', subTab: 'global', label: 'Global Settings', badge: 'App' },
+      { id: 'setting-school', targetTab: 'settings', subTab: 'school', label: 'School Settings', badge: 'CBSE' },
+      { id: 'setting-role-permission', targetTab: 'settings', subTab: 'role-permission', label: 'Role Permission', badge: 'RBAC' },
+      { id: 'setting-session', targetTab: 'settings', subTab: 'session', label: 'Session Settings', badge: '2026-27' },
+      { id: 'setting-translations', targetTab: 'settings', subTab: 'translations', label: 'Translations', badge: 'Lang' },
+      { id: 'setting-cron', targetTab: 'settings', subTab: 'cron', label: 'Cron Job', badge: 'Auto' },
+      { id: 'setting-modules', targetTab: 'settings', subTab: 'modules', label: 'Modules', badge: 'App Store' },
+      { id: 'setting-student-field', targetTab: 'settings', subTab: 'student-field', label: 'System Student Field', badge: null },
+      { id: 'setting-custom-field', targetTab: 'settings', subTab: 'custom-field', label: 'Custom Field', badge: '+' },
+      { id: 'setting-backup', targetTab: 'settings', subTab: 'backup', label: 'Database Backup', badge: 'SQL' }
     ]
   }
 ];

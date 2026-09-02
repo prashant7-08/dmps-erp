@@ -392,7 +392,17 @@ function AppContent() {
       case 'fe-gallery':
         return <FrontendCMSPage initialTab={activeTab} onOpenWebsite={() => setActiveTab('website')} />;
       case 'settings':
-        return <SettingsPage />;
+      case 'setting-global':
+      case 'setting-school':
+      case 'setting-role-permission':
+      case 'setting-session':
+      case 'setting-translations':
+      case 'setting-cron':
+      case 'setting-modules':
+      case 'setting-student-field':
+      case 'setting-custom-field':
+      case 'setting-backup':
+        return <SettingsPage initialTab={activeTab} />;
       default:
         return <DashboardPage currentRole={currentRole} setActiveTab={setActiveTab} onOpenAI={() => setIsAiModalOpen(true)} />;
     }
