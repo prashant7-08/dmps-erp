@@ -260,9 +260,15 @@ export const navigationGroups = [
       { id: 'exam-hall', targetTab: 'examination', subTab: 'exam-hall', label: 'Exam Hall', badge: null },
       { id: 'exam-trait', targetTab: 'examination', subTab: 'trait', label: 'Trait Type', badge: null },
       { id: 'exam-distribution', targetTab: 'examination', subTab: 'distribution', label: 'Distribution', badge: null },
-      { id: 'exam-setup', targetTab: 'examination', subTab: 'setup', label: 'Exam Setup', badge: null },
+      { id: 'exam-setup', targetTab: 'examination', subTab: 'setup', label: 'Exam Setup', badge: 'Setup' },
       { id: 'exam-schedule', targetTab: 'examination', subTab: 'schedule', label: 'Exam Schedule', badge: 'Date' },
-      { id: 'exam-marks', targetTab: 'examination', subTab: 'marks', label: 'Marks', badge: 'Marks' }
+      { id: 'exam-schedule-add', targetTab: 'examination', subTab: 'schedule-add', label: 'Add Schedule', badge: null },
+      { id: 'exam-marks', targetTab: 'examination', subTab: 'marks', label: 'Mark Entries', badge: 'Marks' },
+      { id: 'exam-marks-attendance', targetTab: 'examination', subTab: 'marks-attendance', label: 'Attendance Entries', badge: null },
+      { id: 'exam-marks-traits', targetTab: 'examination', subTab: 'marks-traits', label: 'Traits Entries', badge: null },
+      { id: 'exam-marks-profile', targetTab: 'examination', subTab: 'marks-profile', label: 'Profile Entries', badge: null },
+      { id: 'exam-generate-position', targetTab: 'examination', subTab: 'generate-position', label: 'Generate Position', badge: 'Rank' },
+      { id: 'exam-grades-range', targetTab: 'examination', subTab: 'grades-range', label: 'Grades Range', badge: 'CBSE' }
     ]
   },
   {

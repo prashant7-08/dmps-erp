@@ -259,7 +259,13 @@ function AppContent() {
       case 'exam-distribution':
       case 'exam-setup':
       case 'exam-schedule':
+      case 'exam-schedule-add':
       case 'exam-marks':
+      case 'exam-marks-attendance':
+      case 'exam-marks-traits':
+      case 'exam-marks-profile':
+      case 'exam-generate-position':
+      case 'exam-grades-range':
         return <ExaminationPage initialTab={activeTab} />;
       case 'notices':
         return <NoticeCommunicationPage />;
