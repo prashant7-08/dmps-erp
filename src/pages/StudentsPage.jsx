@@ -557,56 +557,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
         </div>
       </div>
 
-      {/* 📑 Tab Navigation: Active List vs Inactive List */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-2">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => {
-              setActiveTab('active');
-              setCurrentPage(1);
-            }}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
-              activeTab === 'active'
-                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25'
-                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100'
-            }`}
-          >
-            <UserCheck className="w-4 h-4" />
-            Active Student List
-            <span className="px-2 py-0.5 rounded-full text-[10px] bg-white/20">
-              {activeCount}
-            </span>
-          </button>
 
-          <button
-            onClick={() => {
-              setActiveTab('inactive');
-              setCurrentPage(1);
-            }}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
-              activeTab === 'inactive'
-                ? 'bg-rose-600 text-white shadow-md shadow-rose-500/25'
-                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100'
-            }`}
-          >
-            <UserX className="w-4 h-4" />
-            Inactive / Left List (TC)
-            <span className="px-2 py-0.5 rounded-full text-[10px] bg-white/20">
-              {inactiveCount}
-            </span>
-          </button>
-        </div>
-
-        {/* New Admission Button */}
-        {onOpenNewAdmission && (
-          <button
-            onClick={onOpenNewAdmission}
-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-md flex items-center gap-2 self-start sm:self-auto transition-all"
-          >
-            <Plus className="w-4 h-4" /> + New Student Admission
-          </button>
-        )}
-      </div>
 
       {/* 📊 Main Table Container with Export Toolbar */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
