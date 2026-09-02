@@ -43,13 +43,17 @@ import { useAuth } from '../context/AuthContext';
 import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import schoolService from '../services/schoolService';
 
-export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission = null }) => {
+export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = null, onOpenNewAdmission = null }) => {
   const { showToast } = useToast();
   const { activeBranchId, branches } = useAuth();
   
   // Data State
   const [allStudents, setAllStudents] = useState(() => schoolService.getStudents('all'));
-  const [activeTab, setActiveTab] = useState('active'); // 'active' | 'inactive'
+  const [activeTab, setActiveTab] = useState(initialTab); // 'active' | 'inactive'
+
+  useEffect(() => {
+    if (initialTab) setActiveTab(initialTab);
+  }, [initialTab]);
 
   // Filter States ("Select Ground" matching user's software)
   const [selectedBranch, setSelectedBranch] = useState('all');

@@ -220,7 +220,7 @@ export const BiometricPage = ({ onNavigateToStaffAttendance }) => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 shrink-0">
+        <div className="flex flex-wrap items-center gap-2 shrink-0 max-w-full">
           <button
             onClick={() => setShowImportModal(true)}
             className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/25 flex items-center gap-1.5 transition-all hover:scale-105"

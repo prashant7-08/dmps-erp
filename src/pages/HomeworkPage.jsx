@@ -297,14 +297,22 @@ export const HomeworkPage = ({ initialTab = 'homework' }) => {
                 <select
                   value={hwForm.subject}
                   onChange={(e) => setHwForm({ ...hwForm, subject: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold"
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Subject *</label>
+                <select
+                  value={hwForm.subject}
+                  onChange={(e) => setHwForm({ ...hwForm, subject: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
                 >
-                  <option value="Mathematics">Mathematics</option>
-                  <option value="Science">Science / Physics</option>
-                  <option value="English">English Literature</option>
-                  <option value="Hindi">Hindi Vyakaran</option>
-                  <option value="Social Science">Social Science</option>
+                  <option value="Mathematics">Mathematics (गणित)</option>
+                  <option value="Science">Science (विज्ञान / Physics)</option>
+                  <option value="English">English (अंग्रेजी)</option>
+                  <option value="Hindi">Hindi (हिंदी व्याकरण)</option>
+                  <option value="Social Science">Social Science (सामाजिक विज्ञान)</option>
+                  <option value="Sanskrit">Sanskrit (संस्कृत)</option>
                   <option value="Computer">Computer / IT</option>
+                  <option value="Drawing / Art">Drawing / Art</option>
                 </select>
               </div>
 
@@ -313,39 +321,86 @@ export const HomeworkPage = ({ initialTab = 'homework' }) => {
                 <select
                   value={hwForm.class}
                   onChange={(e) => setHwForm({ ...hwForm, class: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold"
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
                 >
-                  {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'].map(c => (
+                  {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'].map(c => (
                     <option key={c} value={c}>Class {c}</option>
                   ))}
                 </select>
               </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Section</label>
+                <select
+                  value={hwForm.section}
+                  onChange={(e) => setHwForm({ ...hwForm, section: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
+                >
+                  <option value="A">Section A</option>
+                  <option value="B">Section B</option>
+                  <option value="C">Section C</option>
+                  <option value="All">All Sections</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Due Submission Date *</label>
+                <input
+                  type="date"
+                  required
+                  value={hwForm.dueDate}
+                  onChange={(e) => setHwForm({ ...hwForm, dueDate: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold text-xs"
+                />
+              </div>
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Teacher Name</label>
+                <input
+                  type="text"
+                  value={hwForm.teacher}
+                  onChange={(e) => setHwForm({ ...hwForm, teacher: e.target.value })}
+                  placeholder="e.g. Mrs. BHOOMI YADAV"
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
+                />
+              </div>
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Due Submission Date *</label>
-              <input
-                type="date"
-                required
-                value={hwForm.dueDate}
-                onChange={(e) => setHwForm({ ...hwForm, dueDate: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-mono font-bold"
-              />
-            </div>
-
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Homework Instructions & Questions *</label>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Homework Instructions / Questions to Solve *</label>
               <textarea
-                rows="3"
+                rows="4"
                 required
-                placeholder="Explain the assignment problems to solve in fair notebook..."
+                placeholder="Type homework questions, exercise page number, notebook problems..."
                 value={hwForm.description}
                 onChange={(e) => setHwForm({ ...hwForm, description: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700"
+                className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs"
               />
             </div>
 
-            <div className="flex justify-end gap-2 pt-2">
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Attach Photo / Worksheet (Optional)</label>
+              <div className="flex items-center gap-2">
+                <input
+                  type="file"
+                  accept="image/*,.pdf,.doc,.docx"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      setHwForm(prev => ({
+                        ...prev,
+                        attachments: [file.name]
+                      }));
+                      showToast(`Worksheet photo/file attached: ${file.name}`, 'info');
+                    }
+                  }}
+                  className="w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsAddModalOpen(false)}
@@ -355,9 +410,9 @@ export const HomeworkPage = ({ initialTab = 'homework' }) => {
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow"
+                className="px-5 py-2.5 rounded-xl text-xs font-black bg-indigo-600 hover:bg-indigo-700 text-white shadow-md flex items-center gap-1.5"
               >
-                Publish Assignment
+                <CheckCircle2 className="w-4 h-4" /> Publish to Class Students
               </button>
             </div>
           </form>

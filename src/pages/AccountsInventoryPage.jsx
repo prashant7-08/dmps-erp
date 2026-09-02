@@ -62,12 +62,11 @@ export const AccountsInventoryPage = ({ initialTab = 'account' }) => {
 
   const resolveTab = (tab) => {
     if (!tab) return 'account';
-    if (tab === 'office-account' || tab === 'account') return 'account';
+    if (tab === 'office-account' || tab === 'account' || tab === 'office-cash-book') return 'account';
     if (tab === 'office-deposit' || tab === 'deposit') return 'deposit';
     if (tab === 'office-expense' || tab === 'expense') return 'expense';
     if (tab === 'office-transactions' || tab === 'transactions') return 'transactions';
     if (tab === 'office-voucher' || tab === 'voucher') return 'voucher';
-    if (tab === 'inventory') return 'inventory';
     return 'account';
   };
 

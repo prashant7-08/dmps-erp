@@ -78,8 +78,10 @@ export const navigationGroups = [
     permissionKey: 'students',
     label: 'STUDENT DETAILS',
     icon: GraduationCap,
-    isSingle: true,
-    targetTab: 'students'
+    items: [
+      { id: 'students-list', targetTab: 'students', subTab: 'list', label: 'All Active Students', badge: 'Active' },
+      { id: 'students-inactive', targetTab: 'students', subTab: 'inactive', label: 'Inactive / TC List', badge: 'Left' }
+    ]
   },
   {
     id: 'employee-group',
@@ -91,7 +93,8 @@ export const navigationGroups = [
       { id: 'staff-add', label: 'Add Employee', badge: 'New' },
       { id: 'hr-payment', targetTab: 'payroll', subTab: 'payment', label: 'Salary Payment & Payslips', badge: 'Pay' },
       { id: 'hr-advance-manage', targetTab: 'payroll', subTab: 'advance-manage', label: 'Advance Salary Loans', badge: 'Advance' },
-      { id: 'hr-leave-manage', targetTab: 'payroll', subTab: 'leave-manage', label: 'Leave Management', badge: 'Leave' }
+      { id: 'hr-leave-manage', targetTab: 'payroll', subTab: 'leave-manage', label: 'Leave Management', badge: 'Leave' },
+      { id: 'hr-award', targetTab: 'payroll', subTab: 'award', label: 'Faculty Awards & Honors', badge: 'Award' }
     ]
   },
   {
@@ -114,9 +117,9 @@ export const navigationGroups = [
     label: 'OFFICE CASH BOOK',
     icon: DollarSign,
     items: [
-      { id: 'office-deposit', targetTab: 'inventory', subTab: 'deposit', label: 'Cash In (Income / Fees)', badge: '+' },
-      { id: 'office-expense', targetTab: 'inventory', subTab: 'expense', label: 'Cash Out (Expenses / Diesel)', badge: '-' },
-      { id: 'office-transactions', targetTab: 'inventory', subTab: 'transactions', label: 'All Transactions Ledger', badge: 'Ledger' }
+      { id: 'office-deposit', targetTab: 'office-cash-book', subTab: 'deposit', label: 'Cash In (Income / Fees)', badge: '+' },
+      { id: 'office-expense', targetTab: 'office-cash-book', subTab: 'expense', label: 'Cash Out (Expenses / Diesel)', badge: '-' },
+      { id: 'office-transactions', targetTab: 'office-cash-book', subTab: 'transactions', label: 'All Transactions Ledger', badge: 'Ledger' }
     ]
   },
   {

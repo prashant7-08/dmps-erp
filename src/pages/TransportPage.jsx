@@ -204,7 +204,7 @@ export const TransportPage = ({ initialSection = 'routes' }) => {
                       <span className="font-bold text-slate-900 dark:text-white">{st.stopName}</span>
                       <span className="text-[10px] font-mono text-indigo-600 font-bold">{st.pickupTime}</span>
                     </div>
-                    <div className="text-[11px] text-slate-500 font-mono">11M Fare: ₹{st.fare}</div>
+                    <div className="text-[11px] text-slate-500 font-mono">Annual Fare (11M): ₹{st.fare}</div>
                   </div>
                 ))}
               </div>
@@ -267,8 +267,7 @@ export const TransportPage = ({ initialSection = 'routes' }) => {
                   <th className="p-3.5">Stop ID</th>
                   <th className="p-3.5">Village / Stoppage Name</th>
                   <th className="p-3.5">Assigned Route</th>
-                  <th className="p-3.5">Monthly Bus Fare</th>
-                  <th className="p-3.5">11-Month Annual Fare (×11)</th>
+                  <th className="p-3.5">11-Month Annual Bus Fare (×11)</th>
                   <th className="p-3.5">Active Commuters</th>
                 </tr>
               </thead>
@@ -278,7 +277,6 @@ export const TransportPage = ({ initialSection = 'routes' }) => {
                     <td className="p-3.5 font-mono font-bold text-indigo-600">{stp.id}</td>
                     <td className="p-3.5 font-bold text-slate-900 dark:text-white">{stp.village}</td>
                     <td className="p-3.5 text-slate-500">{stp.route}</td>
-                    <td className="p-3.5 font-mono text-slate-700 dark:text-slate-300">₹{stp.monthlyRate}/mo</td>
                     <td className="p-3.5 font-mono font-black text-emerald-600">₹{stp.rate11M.toLocaleString('en-IN')}</td>
                     <td className="p-3.5 font-bold text-slate-800 dark:text-slate-200">{stp.commuters} Students</td>
                   </tr>

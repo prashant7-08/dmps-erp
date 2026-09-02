@@ -202,7 +202,9 @@ function AppContent() {
           />
         );
       case 'students':
-        return <StudentsPage initialSelectedStudent={selectedStudentForProfile} onOpenNewAdmission={() => setActiveTab('admission')} />;
+      case 'students-list':
+      case 'students-inactive':
+        return <StudentsPage initialTab={activeTab === 'students-inactive' ? 'inactive' : 'active'} initialSelectedStudent={selectedStudentForProfile} onOpenNewAdmission={() => setActiveTab('admission')} />;
       case 'staff':
       case 'staff-add':
       case 'staff-import':
@@ -345,6 +347,7 @@ function AppContent() {
       case 'hr-award':
         return <HRPayrollPage initialTab={activeTab} />;
       case 'office-account':
+      case 'office-cash-book':
       case 'office-deposit':
       case 'office-expense':
       case 'office-transactions':
