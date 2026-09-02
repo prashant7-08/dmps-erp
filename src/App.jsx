@@ -165,8 +165,33 @@ function AppContent() {
       case 'administration':
         return <AdministrationPage />;
       case 'admission':
+      case 'admission-create':
         return (
           <StudentAdmissionPage
+            initialTab="create"
+            onAdmissionComplete={(newSt) => {
+              setSelectedStudentForProfile(newSt);
+              setActiveTab('students');
+            }}
+            onCancel={() => setActiveTab('students')}
+          />
+        );
+      case 'admission-online':
+        return (
+          <StudentAdmissionPage
+            initialTab="online"
+            onAdmissionComplete={(newSt) => {
+              setSelectedStudentForProfile(newSt);
+              setActiveTab('students');
+            }}
+            onCancel={() => setActiveTab('students')}
+          />
+        );
+      case 'students-import':
+      case 'admission-import':
+        return (
+          <StudentAdmissionPage
+            initialTab="import"
             onAdmissionComplete={(newSt) => {
               setSelectedStudentForProfile(newSt);
               setActiveTab('students');

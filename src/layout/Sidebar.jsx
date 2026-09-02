@@ -66,21 +66,21 @@ export const navigationGroups = [
   {
     id: 'admission-group',
     permissionKey: 'admission',
-    label: 'NEW ADMISSION',
+    label: 'ADMISSION',
     icon: UserPlus,
-    isSingle: true,
-    targetTab: 'admission'
+    items: [
+      { id: 'admission', label: 'Create Admission', badge: 'New' },
+      { id: 'admission-online', label: 'Online Admission', badge: 'Web' },
+      { id: 'students-import', label: 'Multiple Import', badge: 'Excel' }
+    ]
   },
   {
     id: 'students-group',
     permissionKey: 'students',
     label: 'STUDENT DETAILS',
     icon: GraduationCap,
-    items: [
-      { id: 'students', label: 'Student List & Profiles', badge: 'Active' },
-      { id: 'admission', label: 'New Student Admission', badge: 'New' },
-      { id: 'students-import', label: 'Import Excel / CSV', badge: 'Bulk' }
-    ]
+    isSingle: true,
+    targetTab: 'students'
   },
   {
     id: 'employee-group',

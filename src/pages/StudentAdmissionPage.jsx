@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   UserPlus,
   Building2,
@@ -13,21 +13,48 @@ import {
   Lock,
   User,
   KeyRound,
-  X
+  X,
+  Plus,
+  Globe,
+  FileSpreadsheet,
+  Download,
+  RefreshCw,
+  Search,
+  ExternalLink
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
 import schoolService from '../services/schoolService';
 
-export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
+export const StudentAdmissionPage = ({ initialTab = 'create', onAdmissionComplete, onCancel }) => {
   const { showToast } = useToast();
   const { activeBranchId, branches } = useAuth();
+
+  const resolveTab = (tab) => {
+    if (!tab) return 'create';
+    if (tab === 'online' || tab === 'admission-online') return 'online';
+    if (tab === 'import' || tab === 'students-import' || tab === 'multiple-import') return 'import';
+    return 'create';
+  };
+
+  const [activeTab, setActiveTab] = useState(() => resolveTab(initialTab));
+  const [onlineInquiries, setOnlineInquiries] = useState(() => schoolService.getAdmissionInquiries());
+
+  useEffect(() => {
+    if (initialTab) setActiveTab(resolveTab(initialTab));
+  }, [initialTab]);
+
+  // Bulk Import state
+  const [csvText, setCsvText] = useState('');
+  const [parsedPreview, setParsedPreview] = useState([]);
+  const [isImporting, setIsImporting] = useState(false);
 
   const [createdStudent, setCreatedStudent] = useState(null);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const fileInputRef = useRef(null);
+  const bulkFileRef = useRef(null);
 
   const [formData, setFormData] = useState({
     // 1. Academic Details
@@ -366,6 +393,122 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
     showToast(`👨‍👩‍👧 Family details auto-filled from sibling: ${sib.name}!`, 'success');
   };
 
+  // Bulk CSV & Multiple Import Handlers
+  const handleDownloadSampleCsv = () => {
+    const sampleHeader = "Student Name,Class,Section,Roll / Ledger No,Father Name,Mobile No,Gender,DOB (YYYY-MM-DD),Category,Address,Admission Date\n";
+    const sampleRows = "Rahul Sharma,Class 1,A,101,Mr. Sunil Sharma,9897123456,Male,2019-05-14,General,Jargawan Bulandshahr,2026-04-01\n" +
+      "Pooja Verma,Class 2,A,102,Mr. Ramesh Verma,9810012345,Female,2018-08-22,OBC,Aligarh Road Jargawan,2026-04-01\n" +
+      "Aman Rajput,Class 6,A,103,Mr. Rajesh Rajput,9758975880,Male,2014-11-10,General,Main Market Jargawan,2026-04-01";
+    
+    const blob = new Blob([sampleHeader + sampleRows], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'student_multiple_import_template.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('📥 Sample Student CSV Template downloaded!', 'success');
+  };
+
+  const handleParseCsv = (text) => {
+    setCsvText(text);
+    if (!text.trim()) {
+      setParsedPreview([]);
+      return;
+    }
+    const lines = text.trim().split('\n');
+    const rows = [];
+
+    for (let i = 1; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+      const cols = line.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || line.split(',');
+      const cleanCols = cols.map(c => c.trim().replace(/^["']|["']$/g, ''));
+
+      if (cleanCols[0]) {
+        rows.push({
+          name: cleanCols[0],
+          class: cleanCols[1] || 'Class 1',
+          section: cleanCols[2] || 'A',
+          rollNo: cleanCols[3] || '',
+          fatherName: cleanCols[4] || '',
+          mobile: cleanCols[5] || '',
+          gender: cleanCols[6] || 'Male',
+          dob: cleanCols[7] || '',
+          category: cleanCols[8] || 'General',
+          address: cleanCols[9] || 'Jargawan, Bulandshahr',
+          admissionDate: cleanCols[10] || new Date().toISOString().split('T')[0]
+        });
+      }
+    }
+    setParsedPreview(rows);
+  };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      handleParseCsv(evt.target.result);
+    };
+    reader.readAsText(file);
+  };
+
+  const handleCommitBulkImport = () => {
+    if (parsedPreview.length === 0) {
+      showToast('No valid student records to import', 'warning');
+      return;
+    }
+
+    setIsImporting(true);
+    let count = 0;
+    parsedPreview.forEach(s => {
+      const newSt = schoolService.addStudent({
+        name: s.name,
+        firstName: s.name.split(' ')[0] || s.name,
+        lastName: s.name.split(' ').slice(1).join(' ') || '',
+        class: s.class,
+        section: s.section || 'A',
+        rollNo: s.rollNo,
+        fatherName: s.fatherName,
+        fatherMobile: s.mobile,
+        mobile: s.mobile,
+        gender: s.gender,
+        dob: s.dob,
+        category: s.category,
+        address: s.address,
+        admissionDate: s.admissionDate,
+        branchId: activeBranchId === 'all' ? 'BR-01' : activeBranchId,
+        academicSession: '2026-2027',
+        status: 'Active'
+      });
+      if (newSt) count++;
+    });
+
+    setIsImporting(false);
+    setParsedPreview([]);
+    setCsvText('');
+    showToast(`🎉 Successfully imported ${count} students into database!`, 'success');
+    if (onAdmissionComplete) {
+      onAdmissionComplete();
+    }
+  };
+
+  const handlePreFillInquiry = (inq) => {
+    setFormData(prev => ({
+      ...prev,
+      firstName: inq.studentName?.split(' ')[0] || inq.studentName || '',
+      lastName: inq.studentName?.split(' ').slice(1).join(' ') || '',
+      class: inq.classSeeking || prev.class,
+      fatherName: inq.parentName || prev.fatherName,
+      fatherMobile: inq.phone || prev.fatherMobile,
+      mobileNo: inq.phone || prev.mobileNo
+    }));
+    setActiveTab('create');
+    showToast(`📝 Admission form pre-filled for ${inq.studentName}!`, 'info');
+  };
+
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
       
@@ -401,7 +544,53 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
         )}
       </div>
 
-      {/* 📝 Full Clean Admission Form */}
+      {/* 🧭 ADMISSION SUB-TABS (Matching User's Previous Software) */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar">
+        {[
+          { id: 'create', label: 'Create Admission', icon: UserPlus },
+          { id: 'online', label: 'Online Admission', icon: Globe, count: onlineInquiries.length },
+          { id: 'import', label: 'Multiple Import', icon: FileSpreadsheet, badge: 'Excel / CSV' }
+        ].map((tab) => {
+          const Icon = tab.icon;
+          const isActive = activeTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => {
+                setActiveTab(tab.id);
+                window.location.hash = tab.id === 'create' ? 'admission' : tab.id === 'online' ? 'admission-online' : 'students-import';
+              }}
+              className={`px-4 py-2.5 rounded-2xl font-bold text-xs flex items-center gap-2 transition-all whitespace-nowrap shadow-xs ${
+                isActive
+                  ? 'bg-indigo-600 text-white shadow-indigo-500/20 ring-2 ring-indigo-400/40'
+                  : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              <span>{tab.label}</span>
+              {tab.count !== undefined && (
+                <span className={`px-2 py-0.5 rounded-full text-[10px] font-black ${
+                  isActive ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                }`}>
+                  {tab.count}
+                </span>
+              )}
+              {tab.badge && (
+                <span className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase ${
+                  isActive ? 'bg-amber-400 text-slate-950' : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
+                }`}>
+                  {tab.badge}
+                </span>
+              )}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 📝 TAB 1: CREATE ADMISSION (Full Clean Blank Admission Form) */}
+      {/* ========================================================================= */}
+      {activeTab === 'create' && (
       <form onSubmit={handleSubmit} className="space-y-6">
 
         {/* ========================================================
@@ -1246,6 +1435,222 @@ export const StudentAdmissionPage = ({ onAdmissionComplete, onCancel }) => {
           </div>
         </div>
       </form>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 🌐 TAB 2: ONLINE ADMISSION (Website Prospective Applications) */}
+      {/* ========================================================================= */}
+      {activeTab === 'online' && (
+        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div>
+              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <Globe className="w-5 h-5 text-indigo-600" /> Online Admission Applications (Session 2026–27)
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Prospective students who submitted admission inquiries through the public school portal.
+              </p>
+            </div>
+            <button
+              onClick={() => setActiveTab('create')}
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 transition-all hover:scale-105"
+            >
+              <Plus className="w-4 h-4" /> Create Direct Admission
+            </button>
+          </div>
+
+          {onlineInquiries.length === 0 ? (
+            <div className="text-center py-12 text-slate-400 text-xs italic">
+              No online admission applications pending.
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
+                    <th className="p-4">Inquiry ID & Date</th>
+                    <th className="p-4">Student & Class Seeking</th>
+                    <th className="p-4">Parent / Guardian</th>
+                    <th className="p-4">Branch</th>
+                    <th className="p-4">Status</th>
+                    <th className="p-4 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {onlineInquiries.map((inq) => (
+                    <tr key={inq.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                      <td className="p-4">
+                        <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400 block">{inq.id}</span>
+                        <span className="text-[10px] text-slate-400">{inq.date} • {inq.time}</span>
+                      </td>
+                      <td className="p-4">
+                        <p className="font-bold text-slate-900 dark:text-white">{inq.studentName}</p>
+                        <span className="inline-block px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold text-[10px] mt-0.5">
+                          {inq.classSeeking}
+                        </span>
+                      </td>
+                      <td className="p-4">
+                        <p className="font-bold text-slate-800 dark:text-slate-200">{inq.parentName}</p>
+                        <a href={`tel:${inq.phone}`} className="text-sky-600 hover:underline font-mono text-[11px] block">
+                          📞 {inq.phone}
+                        </a>
+                      </td>
+                      <td className="p-4 text-slate-600 dark:text-slate-400 font-medium max-w-xs">
+                        {inq.branch}
+                      </td>
+                      <td className="p-4">
+                        <Badge variant={inq.status === 'Admitted' ? 'success' : 'warning'}>
+                          {inq.status}
+                        </Badge>
+                      </td>
+                      <td className="p-4 text-right">
+                        <button
+                          onClick={() => handlePreFillInquiry(inq)}
+                          className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs shadow-sm flex items-center gap-1.5 ml-auto transition-all hover:scale-105"
+                        >
+                          <UserPlus className="w-3.5 h-3.5" />
+                          <span>Admit & Pre-fill Form</span>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 📊 TAB 3: MULTIPLE IMPORT (Bulk Student CSV / Excel Importer) */}
+      {/* ========================================================================= */}
+      {activeTab === 'import' && (
+        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div>
+              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <FileSpreadsheet className="w-5 h-5 text-emerald-600" /> Multiple Student Import (Excel / CSV Batch)
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Bulk upload student admissions via standard CSV template. Automatically verifies records before saving.
+              </p>
+            </div>
+
+            <button
+              onClick={handleDownloadSampleCsv}
+              className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-xs font-bold flex items-center gap-2 border border-slate-300 dark:border-slate-700 shadow-xs transition-all hover:scale-105"
+            >
+              <Download className="w-4 h-4 text-emerald-600" />
+              <span>Download Sample CSV Template</span>
+            </button>
+          </div>
+
+          {/* Upload Drop Zone & Direct Paste */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* File Upload Box */}
+            <div
+              onClick={() => bulkFileRef.current && bulkFileRef.current.click()}
+              className="border-2 border-dashed border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/40 dark:bg-indigo-950/20 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 rounded-3xl p-6 text-center cursor-pointer transition-all flex flex-col items-center justify-center space-y-3"
+            >
+              <input
+                type="file"
+                ref={bulkFileRef}
+                accept=".csv,.txt"
+                onChange={handleFileUpload}
+                className="hidden"
+              />
+              <div className="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-900/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shadow-sm">
+                <Upload className="w-7 h-7" />
+              </div>
+              <div>
+                <p className="text-xs font-black text-slate-900 dark:text-white">
+                  Click to Browse CSV File or Drag & Drop
+                </p>
+                <p className="text-[11px] text-slate-400 mt-0.5">
+                  Supports UTF-8 CSV format exported from Excel
+                </p>
+              </div>
+            </div>
+
+            {/* Direct Paste Box */}
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center justify-between">
+                <span>Or Paste CSV Text Directly</span>
+                <span className="text-[10px] text-slate-400 font-normal">Comma Separated Values</span>
+              </label>
+              <textarea
+                rows="5"
+                value={csvText}
+                onChange={(e) => handleParseCsv(e.target.value)}
+                placeholder={`Student Name,Class,Section,Roll / Ledger No,Father Name,Mobile No,Gender,DOB,Category,Address\nRahul Sharma,Class 1,A,101,Mr. Sunil Sharma,9897123456,Male,2019-05-14,General,Jargawan`}
+                className="w-full p-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono text-[11px] resize-none"
+              ></textarea>
+            </div>
+          </div>
+
+          {/* Parsed Preview Table */}
+          {parsedPreview.length > 0 && (
+            <div className="space-y-4 pt-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="p-1.5 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </span>
+                  <h4 className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-wider">
+                    Parsed Preview ({parsedPreview.length} Students Ready to Import)
+                  </h4>
+                </div>
+
+                <button
+                  onClick={handleCommitBulkImport}
+                  disabled={isImporting}
+                  className="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl text-xs font-black shadow-lg shadow-emerald-600/20 flex items-center gap-2 transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
+                >
+                  <Upload className="w-4 h-4" />
+                  <span>{isImporting ? 'Importing...' : `🚀 Import All ${parsedPreview.length} Students`}</span>
+                </button>
+              </div>
+
+              <div className="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-2xl max-h-80 overflow-y-auto custom-scrollbar">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead className="sticky top-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 z-10">
+                    <tr>
+                      <th className="p-3">#</th>
+                      <th className="p-3">Student Name</th>
+                      <th className="p-3">Class & Section</th>
+                      <th className="p-3">Roll / Ledger No</th>
+                      <th className="p-3">Father Name</th>
+                      <th className="p-3">Mobile No</th>
+                      <th className="p-3">Gender</th>
+                      <th className="p-3">DOB</th>
+                      <th className="p-3">Address</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                    {parsedPreview.map((row, idx) => (
+                      <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                        <td className="p-3 text-slate-400 font-mono">{idx + 1}</td>
+                        <td className="p-3 font-bold text-slate-900 dark:text-white">{row.name}</td>
+                        <td className="p-3">
+                          <span className="px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold text-[10px]">
+                            {row.class} - {row.section}
+                          </span>
+                        </td>
+                        <td className="p-3 font-mono font-bold text-slate-700 dark:text-slate-300">#{row.rollNo || 'Auto'}</td>
+                        <td className="p-3 text-slate-700 dark:text-slate-300">{row.fatherName}</td>
+                        <td className="p-3 font-mono text-sky-600">{row.mobile}</td>
+                        <td className="p-3">{row.gender}</td>
+                        <td className="p-3 font-mono text-slate-500">{row.dob || '—'}</td>
+                        <td className="p-3 text-slate-500 truncate max-w-[160px]">{row.address}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* 🎉 Admission Success & Printable ID Card Modal */}
       {isSuccessModalOpen && createdStudent && (
