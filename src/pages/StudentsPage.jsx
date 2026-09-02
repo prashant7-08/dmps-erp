@@ -709,17 +709,24 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                   return (
                     <tr
                       key={student.id}
-                      className={`hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors ${
+                      onClick={(e) => {
+                        // Don't trigger if clicked on checkbox, action button or link
+                        if (e.target.closest('input') || e.target.closest('button') || e.target.closest('a')) return;
+                        setSelectedStudent(student);
+                        setProfileActiveTab('personal');
+                        setIsProfileModalOpen(true);
+                      }}
+                      className={`hover:bg-indigo-50/70 dark:hover:bg-slate-800/80 transition-all cursor-pointer select-none ${
                         isInactive ? 'bg-rose-50/30 dark:bg-rose-950/10' : ''
                       }`}
                     >
                       {/* Checkbox */}
-                      <td className="p-3 text-center print:hidden">
+                      <td className="p-3 text-center print:hidden" onClick={(e) => e.stopPropagation()}>
                         <input
                           type="checkbox"
                           checked={isSelected}
                           onChange={() => handleToggleStudent(student.id)}
-                          className="rounded text-sky-600 focus:ring-sky-500"
+                          className="rounded text-sky-600 focus:ring-sky-500 cursor-pointer"
                         />
                       </td>
 
@@ -741,9 +748,11 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                       </td>
 
                       {/* Name */}
-                      <td className="p-3 font-bold text-slate-900 dark:text-white uppercase tracking-tight whitespace-nowrap">
+                      <td className="p-3 font-bold text-slate-900 dark:text-white uppercase tracking-tight whitespace-nowrap group">
                         <div className="flex items-center gap-1.5">
-                          <span>{student.name}</span>
+                          <span className="text-indigo-600 dark:text-indigo-400 group-hover:underline font-black">
+                            {student.name}
+                          </span>
                           {student.isRteStudent && (
                             <span className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-amber-100 text-amber-900 border border-amber-300 dark:bg-amber-950 dark:text-amber-200 shrink-0">
                               🏛️ RTE
@@ -1431,20 +1440,22 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
               {/* Quick Actions inside Profile */}
               <div className="flex items-center gap-2">
                 <button
+                  type="button"
                   onClick={() => {
                     setIsProfileModalOpen(false);
                     handleOpenEditModal(selectedStudent);
                   }}
-                  className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold text-xs flex items-center gap-1 border border-white/20"
+                  className="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all"
                 >
-                  <Edit className="w-3.5 h-3.5" /> Edit
+                  <Edit className="w-4 h-4 text-slate-950" /> ✏️ Edit Details
                 </button>
                 <button
+                  type="button"
                   onClick={() => {
                     setIsProfileModalOpen(false);
                     setIsIdCardModalOpen(true);
                   }}
-                  className="px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-bold text-xs flex items-center gap-1 shadow-sm"
+                  className="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold text-xs flex items-center gap-1 shadow-sm transition-all"
                 >
                   <Printer className="w-3.5 h-3.5" /> ID Card
                 </button>
