@@ -278,7 +278,11 @@ function AppContent() {
       case 'hw-evaluation':
         return <HomeworkPage initialTab={activeTab} />;
       case 'library':
-        return <LibraryPage />;
+      case 'lib-books':
+      case 'lib-category':
+      case 'lib-my-issued':
+      case 'lib-issue-return':
+        return <LibraryPage initialTab={activeTab} />;
       case 'transport':
       case 'transport-routes':
       case 'transport-vehicles':

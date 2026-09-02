@@ -277,7 +277,10 @@ export const navigationGroups = [
     label: 'LIBRARY',
     icon: BookMarked,
     items: [
-      { id: 'library', label: 'Book List & Catalogs', badge: null }
+      { id: 'lib-books', targetTab: 'library', subTab: 'books', label: 'Books', badge: 'Catalog' },
+      { id: 'lib-category', targetTab: 'library', subTab: 'category', label: 'Books Category', badge: null },
+      { id: 'lib-my-issued', targetTab: 'library', subTab: 'my-issued', label: 'My Issued Book', badge: null },
+      { id: 'lib-issue-return', targetTab: 'library', subTab: 'issue-return', label: 'Book Issue/return', badge: 'Counter' }
     ]
   },
   {
