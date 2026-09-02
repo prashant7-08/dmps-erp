@@ -22,19 +22,19 @@ import {
 import { useToast } from '../components/common/Toast';
 import schoolService from '../services/schoolService';
 
-// Default DMPS Standard Period Schedule
+// Default DMPS Standard Period Schedule with Authentic MP3 Audio Tracks
 const DEFAULT_BELL_SCHEDULE = [
-  { id: 'b1', time: '07:45:00', label: 'Morning Assembly & Campus Gate Entry', type: 'Assembly', duration: 4, stroke: 'long' },
-  { id: 'b2', time: '08:15:00', label: 'Period 1 (Class Begins)', type: 'Period', duration: 2, stroke: 'single' },
-  { id: 'b3', time: '08:55:00', label: 'Period 2 (Subject Switch)', type: 'Period', duration: 2, stroke: 'single' },
-  { id: 'b4', time: '09:35:00', label: 'Period 3 (Subject Switch)', type: 'Period', duration: 2, stroke: 'single' },
-  { id: 'b5', time: '10:15:00', label: 'Period 4 (Pre-Recess Period)', type: 'Period', duration: 2, stroke: 'single' },
-  { id: 'b6', time: '10:55:00', label: '🥪 Recess / Nutrition & Lunch Break', type: 'Recess', duration: 5, stroke: 'double' },
-  { id: 'b7', time: '11:25:00', label: 'Period 5 (Post-Lunch Session Begins)', type: 'Period', duration: 2, stroke: 'single' },
-  { id: 'b8', time: '12:05:00', label: 'Period 6 (Subject Switch)', type: 'Period', duration: 2, stroke: 'single' },
-  { id: 'b9', time: '12:45:00', label: 'Period 7 (Activity & Practical Lab)', type: 'Period', duration: 2, stroke: 'single' },
-  { id: 'b10', time: '13:25:00', label: 'Period 8 (Diary & Homework Check)', type: 'Period', duration: 2, stroke: 'single' },
-  { id: 'b11', time: '14:00:00', label: '🎒 School Dismissal & Bus Departure', type: 'Departure', duration: 6, stroke: 'grand' }
+  { id: 'b1', time: '07:45:00', label: 'Morning Assembly & Campus Gate Entry', type: 'Assembly', audio: '16-Assembly.mp3', duration: 4, stroke: 'long' },
+  { id: 'b2', time: '08:15:00', label: 'Period 1 (Class Begins)', type: 'Period', audio: '01.mp3', duration: 2, stroke: 'single' },
+  { id: 'b3', time: '08:55:00', label: 'Period 2 (Subject Switch)', type: 'Period', audio: '02.mp3', duration: 2, stroke: 'single' },
+  { id: 'b4', time: '09:35:00', label: 'Period 3 (Subject Switch)', type: 'Period', audio: '03.mp3', duration: 2, stroke: 'single' },
+  { id: 'b5', time: '10:15:00', label: 'Period 4 (Pre-Recess Period)', type: 'Period', audio: '04.mp3', duration: 2, stroke: 'single' },
+  { id: 'b6', time: '10:55:00', label: '🥪 Recess / Nutrition & Lunch Break', type: 'Recess', audio: '17-lunch-time.mp3', duration: 5, stroke: 'double' },
+  { id: 'b7', time: '11:25:00', label: 'Period 5 (Post-Lunch Session Begins)', type: 'Period', audio: '05.mp3', duration: 2, stroke: 'single' },
+  { id: 'b8', time: '12:05:00', label: 'Period 6 (Subject Switch)', type: 'Period', audio: '06.mp3', duration: 2, stroke: 'single' },
+  { id: 'b9', time: '12:45:00', label: 'Period 7 (Activity & Practical Lab)', type: 'Period', audio: '07.mp3', duration: 2, stroke: 'single' },
+  { id: 'b10', time: '13:25:00', label: 'Period 8 (Diary & Homework Check)', type: 'Period', audio: '08.mp3', duration: 2, stroke: 'single' },
+  { id: 'b11', time: '14:00:00', label: '🎒 School Dismissal & Bus Departure', type: 'Departure', audio: '18-School-Close.mp3', duration: 6, stroke: 'grand' }
 ];
 
 export const AutomaticBellPage = () => {
@@ -49,42 +49,33 @@ export const AutomaticBellPage = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.9);
   const [isRinging, setIsRinging] = useState(false);
+  const [currentlyPlayingAudio, setCurrentlyPlayingAudio] = useState(null);
   const [lastRungBell, setLastRungBell] = useState(null);
   const [biometricLiveLog, setBiometricLiveLog] = useState([]);
   const [audioInitialized, setAudioInitialized] = useState(false);
 
   const audioCtxRef = useRef(null);
+  const activeAudioRef = useRef(null);
 
-  // Initialize Web Audio Context for realistic School Brass Gong Sound
-  const initAudio = () => {
+  // Fallback Web Audio Synthesizer
+  const playSynthesizerGong = (durationSeconds = 3, strokeType = 'single') => {
     if (!audioCtxRef.current) {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (AudioContext) {
-        audioCtxRef.current = new AudioContext();
-        setAudioInitialized(true);
-      }
-    } else if (audioCtxRef.current.state === 'suspended') {
-      audioCtxRef.current.resume();
-      setAudioInitialized(true);
+      if (AudioContext) audioCtxRef.current = new AudioContext();
     }
-  };
-
-  // 🔔 Realistic Brass Bell & Gong Sound Synthesizer using Web Audio API
-  const playBellSound = (durationSeconds = 3, strokeType = 'single') => {
-    initAudio();
     if (!audioCtxRef.current || isMuted) return;
 
     try {
       const ctx = audioCtxRef.current;
+      if (ctx.state === 'suspended') ctx.resume();
       const now = ctx.currentTime;
       setIsRinging(true);
 
-      const strikes = strokeType === 'double' ? [0, 1.2] : strokeType === 'grand' ? [0, 1.2, 2.4] : strokeType === 'long' ? [0, 1.5] : [0];
+      const strikes = strokeType === 'double' ? [0, 1.2] : strokeType === 'grand' ? [0, 1.2, 2.4] : [0];
 
       strikes.forEach(startTimeOffset => {
         const strikeTime = now + startTimeOffset;
-        // Primary Bell Frequencies (Harmonics of School Bell: 800Hz, 1200Hz, 2400Hz, 3200Hz)
-        const freqs = [659.25, 987.77, 1318.51, 2637.02]; // E5, B5, E6, E7 notes
+        const freqs = [659.25, 987.77, 1318.51, 2637.02];
         
         freqs.forEach((freq, idx) => {
           const osc = ctx.createOscillator();
@@ -93,7 +84,6 @@ export const AutomaticBellPage = () => {
           osc.type = idx === 0 ? 'sine' : idx === 1 ? 'triangle' : 'sine';
           osc.frequency.setValueAtTime(freq, strikeTime);
 
-          // Gong envelope: Instant attack, long exponential resonant decay
           gain.gain.setValueAtTime(0.001, strikeTime);
           gain.gain.linearRampToValueAtTime((volume / (idx + 1)) * 0.8, strikeTime + 0.02);
           gain.gain.exponentialRampToValueAtTime(0.0001, strikeTime + (durationSeconds * 0.8));
@@ -111,8 +101,38 @@ export const AutomaticBellPage = () => {
       }, (durationSeconds + 1) * 1000);
 
     } catch (e) {
-      console.error("Audio Synthesizer Error", e);
       setIsRinging(false);
+    }
+  };
+
+  // 🔔 High-Fidelity Audio Playback (Actual School MP3 Tracks with Web Audio Fallback)
+  const playBellSound = (audioFilename = '01.mp3', durationSeconds = 3, strokeType = 'single') => {
+    if (isMuted) return;
+    setIsRinging(true);
+    setCurrentlyPlayingAudio(audioFilename);
+
+    try {
+      if (activeAudioRef.current) {
+        activeAudioRef.current.pause();
+        activeAudioRef.current.currentTime = 0;
+      }
+
+      const audioUrl = `/assets/bell_audio/${audioFilename}`;
+      const audio = new Audio(audioUrl);
+      activeAudioRef.current = audio;
+      audio.volume = volume;
+
+      audio.play().then(() => {
+        audio.onended = () => {
+          setIsRinging(false);
+          setCurrentlyPlayingAudio(null);
+        };
+      }).catch(err => {
+        console.log("Audio file play prevented/failed, using synthesizer gong:", err);
+        playSynthesizerGong(durationSeconds, strokeType);
+      });
+    } catch (e) {
+      playSynthesizerGong(durationSeconds, strokeType);
     }
   };
 
@@ -128,7 +148,7 @@ export const AutomaticBellPage = () => {
         const matched = schedule.find(b => b.time === timeStr);
         if (matched && lastRungBell !== matched.id + '_' + timeStr) {
           setLastRungBell(matched.id + '_' + timeStr);
-          playBellSound(matched.duration, matched.stroke);
+          playBellSound(matched.audio || '01.mp3', matched.duration, matched.stroke);
           showToast(`🔔 BELL RINGING: ${matched.label}!`, 'info');
         }
       }
@@ -327,7 +347,7 @@ export const AutomaticBellPage = () => {
             <div className="mt-4 space-y-3">
               <div>
                 <label className="text-xs font-bold text-slate-600 dark:text-slate-400 flex items-center justify-between mb-1.5">
-                  <span>Chime Volume:</span>
+                  <span>Amplifier Output Volume:</span>
                   <span className="font-mono font-bold text-indigo-600">{Math.round(volume * 100)}%</span>
                 </label>
                 <input
@@ -336,18 +356,49 @@ export const AutomaticBellPage = () => {
                   max="1.0"
                   step="0.05"
                   value={volume}
-                  onChange={(e) => { setVolume(parseFloat(e.target.value)); initAudio(); }}
+                  onChange={(e) => { setVolume(parseFloat(e.target.value)); }}
                   className="w-full accent-indigo-600 cursor-pointer"
                 />
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900/60 text-xs text-indigo-900 dark:text-indigo-300 space-y-1">
-                <p className="font-bold flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-indigo-600" /> Synthetic Brass Gong Engine
-                </p>
+              {/* Real MP3 Tracks Palette */}
+              <div className="p-3.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900/60 space-y-2">
+                <div className="flex items-center justify-between text-indigo-950 dark:text-indigo-200 font-bold text-xs">
+                  <span className="flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-indigo-600" /> Real PA System Bell Chimes (MP3)
+                  </span>
+                  <span className="text-[10px] font-black uppercase text-indigo-600 dark:text-indigo-400 bg-white dark:bg-slate-900 px-2 py-0.5 rounded-full border border-indigo-200">
+                    Amplifier Ready 🔌
+                  </span>
+                </div>
+                
                 <p className="text-[11px] text-indigo-700 dark:text-indigo-400 leading-relaxed">
-                  No external MP3 files needed! Connect laptop's 3.5mm audio jack to the School PA Amplifier for clear, resonant chimes.
+                  Connect laptop's 3.5mm Aux jack to the School PA Amplifier. Real school bell audio will play automatically at each scheduled period:
                 </p>
+
+                {/* Quick Chime Preview Buttons */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 pt-1">
+                  {[
+                    { label: '🌅 Assembly', file: '16-Assembly.mp3' },
+                    { label: '🔔 Period 1', file: '01.mp3' },
+                    { label: '🥪 Lunch Break', file: '17-lunch-time.mp3' },
+                    { label: '🎒 School Close', file: '18-School-Close.mp3' },
+                    { label: '🇮🇳 Marching Song', file: 'Sare-Jahan-Se-Achha.mp3' },
+                    { label: '⚡ Short Chime', file: 'T-Short.mp3' }
+                  ].map((sfx, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => playBellSound(sfx.file)}
+                      className={`px-2 py-1.5 rounded-xl text-[10px] font-black flex items-center justify-center gap-1 transition-all ${
+                        currentlyPlayingAudio === sfx.file
+                          ? 'bg-amber-500 text-white shadow-xs animate-pulse'
+                          : 'bg-white dark:bg-slate-900 text-indigo-900 dark:text-indigo-200 border border-indigo-200 dark:border-slate-700 hover:bg-indigo-600 hover:text-white'
+                      }`}
+                    >
+                      <Play className="w-2.5 h-2.5 fill-current" /> {sfx.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -377,7 +428,7 @@ export const AutomaticBellPage = () => {
               Official Bell Timetable (Session 2026-27)
             </h3>
             <p className="text-xs text-slate-500">
-              Times are fully editable. Change any period time below and it saves automatically for the automatic bell.
+              Times and audio tracks are synchronized with the School PA System.
             </p>
           </div>
 
@@ -397,13 +448,14 @@ export const AutomaticBellPage = () => {
                 <th className="p-3">Period / Event</th>
                 <th className="p-3">Scheduled Time (HH:MM:SS)</th>
                 <th className="p-3">Type</th>
-                <th className="p-3">Chime Style</th>
-                <th className="p-3 text-right">Test Chime</th>
+                <th className="p-3">Audio Track</th>
+                <th className="p-3 text-right">Test Audio</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {schedule.map((item, idx) => {
                 const isNext = nextBell?.id === item.id;
+                const isItemPlaying = currentlyPlayingAudio === item.audio;
                 return (
                   <tr key={item.id} className={`hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-all ${
                     isNext ? 'bg-amber-50/70 dark:bg-amber-950/20 font-semibold' : ''
@@ -449,15 +501,21 @@ export const AutomaticBellPage = () => {
                     </td>
 
                     <td className="p-3 font-mono text-slate-500 text-[11px]">
-                      {item.stroke === 'double' ? 'Double Gong (🥪 Break)' : item.stroke === 'grand' ? 'Grand Chime (🎒 Departure)' : item.stroke === 'long' ? 'Long Chime (🌅 Assembly)' : 'Single Stroke'}
+                      <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[10px] font-bold text-indigo-600 dark:text-indigo-400">
+                        🎵 {item.audio || '01.mp3'}
+                      </span>
                     </td>
 
                     <td className="p-3 text-right">
                       <button
-                        onClick={() => { initAudio(); playBellSound(item.duration, item.stroke); }}
-                        className="px-3 py-1 rounded-lg bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-indigo-950 text-xs font-bold transition-all"
+                        onClick={() => playBellSound(item.audio || '01.mp3', item.duration, item.stroke)}
+                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                          isItemPlaying
+                            ? 'bg-amber-500 text-white animate-pulse'
+                            : 'bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-indigo-950'
+                        }`}
                       >
-                        🔊 Play
+                        {isItemPlaying ? '🔊 Playing...' : '🔊 Play Track'}
                       </button>
                     </td>
                   </tr>
