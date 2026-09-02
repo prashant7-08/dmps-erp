@@ -152,6 +152,102 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
     certificateContent: '[student_photo]\n[name]\nClass: [class] - [section] | Roll: [roll]\nFather: [father_name] | Mobile: [mobileno]\n[qr_code] [signature]'
   });
 
+  // 📜 Institutional Certificate Templates State (Pre-filled demo templates)
+  const [certTemplateTab, setCertTemplateTab] = useState('list');
+  const [certSearchQuery, setCertSearchQuery] = useState('');
+  const [certificateTemplates, setCertificateTemplates] = useState([
+    {
+      id: 'CERT-TMPL-01',
+      branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+      name: 'TRANSFER CERTIFICATE (T.C.)',
+      applicableUser: 'Student',
+      pageLayout: 'Portrait A4 (210 x 297 mm)',
+      bgImage: 'Official DMPS Crest Border',
+      createdAt: '25-Apr-2026',
+      content: 'This is to certify that [name], S/D of Shri [father_name] and Smt [mother_name], was admitted to this institution in Class [class] under Admission No [admission_no]. His/Her Date of Birth according to the Admission Register is [dob]. He/She has paid all school dues and his/her conduct has been [character].'
+    },
+    {
+      id: 'CERT-TMPL-02',
+      branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+      name: 'STUDENT BONAFIDE / STUDY CERTIFICATE',
+      applicableUser: 'Student',
+      pageLayout: 'Portrait A4 (210 x 297 mm)',
+      bgImage: 'Letterhead Watermark',
+      createdAt: '26-Apr-2026',
+      content: 'This is to certify that [name], Son/Daughter of Shri [father_name], is a bonafide student of Class [class], Section [section], Roll No [roll] during the academic session [session]. To the best of our knowledge, he/she bears a good moral character.'
+    },
+    {
+      id: 'CERT-TMPL-03',
+      branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+      name: 'CHARACTER & CONDUCT CERTIFICATE',
+      applicableUser: 'Student',
+      pageLayout: 'Portrait A4 (210 x 297 mm)',
+      bgImage: 'Golden Border Crest',
+      createdAt: '27-Apr-2026',
+      content: 'Certified that [name], S/o / D/o Shri [father_name], has been a regular student of this school from [admission_date] to [issue_date]. During his/her stay in the school, his/her character, conduct and behaviour were found to be Exemplary & Commendable.'
+    },
+    {
+      id: 'CERT-TMPL-04',
+      branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+      name: 'ACADEMIC EXCELLENCE & SPORTS MERIT AWARD',
+      applicableUser: 'Student',
+      pageLayout: 'Landscape A4 (297 x 210 mm)',
+      bgImage: 'Ornate Golden Shield Background',
+      createdAt: '28-Apr-2026',
+      content: 'This Certificate of Honor & Distinction is proudly presented to [name] of Class [class] for securing [percentage]% / 1st Position in [event_name] during the Annual Academic & Athletic Meet.'
+    },
+    {
+      id: 'CERT-TMPL-05',
+      branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+      name: 'FEE CLEARANCE & NO DUES CERTIFICATE',
+      applicableUser: 'Student',
+      pageLayout: 'Portrait A4 (210 x 297 mm)',
+      bgImage: 'Plain Official Border',
+      createdAt: '29-Apr-2026',
+      content: 'It is hereby certified that [name], Admission No [admission_no], Class [class] has cleared all tuition fees, transport charges and examination dues for Session [session]. No dues are pending against him/her.'
+    },
+    {
+      id: 'CERT-TMPL-06',
+      branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+      name: 'DATE OF BIRTH VERIFICATION CERTIFICATE',
+      applicableUser: 'Student',
+      pageLayout: 'Portrait A4 (210 x 297 mm)',
+      bgImage: 'Official Seal Letterhead',
+      createdAt: '30-Apr-2026',
+      content: 'As per School Admission Register Folio #[admission_no], the Date of Birth of [name], S/D of Shri [father_name] and Smt [mother_name] is [dob] ([dob_words]).'
+    },
+    {
+      id: 'CERT-TMPL-07',
+      branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+      name: 'EMPLOYEE EXPERIENCE & CONDUCT CERTIFICATE',
+      applicableUser: 'Employee',
+      pageLayout: 'Portrait A4 (210 x 297 mm)',
+      bgImage: 'Official Letterhead',
+      createdAt: '20-Apr-2026',
+      content: 'This is to certify that [teacher_name] has worked in our institution as [designation] in the Department of [department] from [joining_date] to [relieving_date]. During his/her tenure, we found him/her sincere, hardworking and dedicated.'
+    },
+    {
+      id: 'CERT-TMPL-08',
+      branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+      name: 'APPOINTMENT & SERVICE CONFIRMATION LETTER',
+      applicableUser: 'Employee',
+      pageLayout: 'Portrait A4 (210 x 297 mm)',
+      bgImage: 'Official Letterhead',
+      createdAt: '22-Apr-2026',
+      content: 'We are pleased to confirm your appointment as [designation] at Dadheech Memorial Public School with effect from [joining_date]. Your employee code is [employee_code].'
+    }
+  ]);
+
+  const [certTemplateForm, setCertTemplateForm] = useState({
+    id: null,
+    branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+    name: '',
+    applicableUser: 'Student',
+    pageLayout: 'Portrait A4 (210 x 297 mm)',
+    bgImage: 'Official DMPS Crest Border',
+    content: ''
+  });
+
   // Bulk Generation State for ID Cards
   const [selectedClass, setSelectedClass] = useState('Class 10');
   const [selectedDept, setSelectedDept] = useState('All');
@@ -1693,50 +1789,405 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* SECTION 6: CERTIFICATE TEMPLATES */}
+      {/* SECTION 6: CERTIFICATE TEMPLATES (Exact DMPS Screenshot Match with Demo Templates) */}
       {/* ========================================================================= */}
       {activeSection === 'cert_template' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-            <div>
-              <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
-                <Award className="w-5 h-5 text-indigo-600" />
-                Institutional Certificate Template Master
-              </h3>
-              <p className="text-xs text-slate-500 mt-0.5">Customize layouts and text templates for TC, Bonafide, Character and Merit certificates.</p>
-            </div>
+        <div className="space-y-6">
+
+          {/* Sub-tabs: Certificate List | Add Certificate */}
+          <div className="flex items-center gap-3 bg-slate-100 dark:bg-slate-800/80 p-1.5 rounded-2xl w-fit print:hidden">
             <button
-              onClick={() => showToast('Certificate Template updated successfully!', 'success')}
-              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-2"
+              onClick={() => setCertTemplateTab('list')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                certTemplateTab === 'list' ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-slate-600 dark:text-slate-400'
+              }`}
             >
-              <Check className="w-4 h-4" /> Save Template
+              <Layers className="w-4 h-4" /> Certificate List
+            </button>
+            <button
+              onClick={() => {
+                setCertTemplateForm({
+                  id: null,
+                  branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)',
+                  name: '',
+                  applicableUser: 'Student',
+                  pageLayout: 'Portrait A4 (210 x 297 mm)',
+                  bgImage: 'Official DMPS Crest Border',
+                  content: 'This is to certify that [name], S/D of Shri [father_name] and Smt [mother_name], was admitted to this institution in Class [class] under Admission No [admission_no]. His/Her Date of Birth according to the Admission Register is [dob]. He/She has paid all school dues and his/her conduct has been [character].'
+                });
+                setCertTemplateTab('create_edit');
+              }}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                certTemplateTab === 'create_edit' ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-slate-600 dark:text-slate-400'
+              }`}
+            >
+              <Edit className="w-4 h-4" /> {certTemplateForm.id ? 'Edit Certificate Template' : 'Add Certificate Template'}
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { id: 'TC', name: 'School Transfer Certificate (TC)', serialPrefix: 'TC-2026-', desc: 'Official school leaving & transfer certificate with conduct record.' },
-              { id: 'BONAFIDE', name: 'Student Bonafide Certificate', serialPrefix: 'BONA-2026-', desc: 'Proof of active student enrollment for passport, bus pass & bank.' },
-              { id: 'CHARACTER', name: 'Character & Conduct Certificate', serialPrefix: 'CHAR-2026-', desc: 'Official moral character and disciplinary verification.' },
-              { id: 'MERIT', name: 'Academic & Sports Merit Certificate', serialPrefix: 'MERIT-2026-', desc: 'Award certificate for academic rank holders & sports achievements.' }
-            ].map(item => (
-              <div key={item.id} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
-                <div className="flex items-center justify-between">
-                  <h4 className="font-bold text-slate-900 dark:text-white">{item.name}</h4>
-                  <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300">{item.serialPrefix}</span>
+          {/* 📋 VIEW 1: EXACT DMPS CERTIFICATE LIST TABLE */}
+          {certTemplateTab === 'list' && (
+            <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden space-y-4 p-5">
+              
+              {/* Toolbar & Filter */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+                <div className="flex items-center gap-1.5">
+                  <button onClick={() => showToast('Copied templates table to clipboard!', 'info')} className="p-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200" title="Copy"><Copy className="w-4 h-4" /></button>
+                  <button onClick={() => showToast('Exporting templates to Excel...', 'info')} className="p-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200" title="Excel"><FileText className="w-4 h-4" /></button>
+                  <button onClick={() => showToast('Exporting templates to CSV...', 'info')} className="p-2 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200" title="CSV"><Download className="w-4 h-4" /></button>
+                  <button onClick={() => window.print()} className="p-2 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200" title="Print"><Printer className="w-4 h-4" /></button>
                 </div>
-                <p className="text-[11px] text-slate-500">{item.desc}</p>
-                <div className="pt-2 flex justify-end gap-2">
-                  <button
-                    onClick={() => { setActiveSection('certificates'); setIsGenerateCertModalOpen(true); }}
-                    className="px-3 py-1 bg-indigo-600 text-white font-bold rounded-lg text-[10px]"
-                  >
-                    Issue This
-                  </button>
+
+                <div className="flex items-center gap-3">
+                  <div className="relative w-56">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+                    <input
+                      type="text"
+                      placeholder="Search certificate template..."
+                      value={certSearchQuery}
+                      onChange={(e) => setCertSearchQuery(e.target.value)}
+                      className="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+                    />
+                  </div>
+
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-500">
+                    <span>Show</span>
+                    <select className="p-1 rounded-lg border bg-slate-50 dark:bg-slate-800 text-xs">
+                      <option>20</option>
+                      <option>50</option>
+                    </select>
+                    <span>rows</span>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr className="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
+                      <th className="p-3.5">Sl</th>
+                      <th className="p-3.5">Branch</th>
+                      <th className="p-3.5">Certificate Name</th>
+                      <th className="p-3.5">Applicable User</th>
+                      <th className="p-3.5">Page Layout</th>
+                      <th className="p-3.5 text-center">Background Image</th>
+                      <th className="p-3.5">Created At</th>
+                      <th className="p-3.5 text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                    {certificateTemplates
+                      .filter(t => !certSearchQuery || t.name.toLowerCase().includes(certSearchQuery.toLowerCase()) || t.applicableUser.toLowerCase().includes(certSearchQuery.toLowerCase()))
+                      .map((tmpl, idx) => (
+                        <tr key={tmpl.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                          <td className="p-3.5 font-mono text-slate-400 font-bold">{idx + 1}</td>
+                          <td className="p-3.5 text-slate-600 dark:text-slate-400 font-medium max-w-[200px] truncate" title={tmpl.branch}>
+                            {tmpl.branch}
+                          </td>
+                          <td className="p-3.5 font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <span className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400">
+                              <Award className="w-3.5 h-3.5" />
+                            </span>
+                            <span>{tmpl.name}</span>
+                          </td>
+                          <td className="p-3.5">
+                            <Badge variant={tmpl.applicableUser === 'Student' ? 'primary' : 'purple'}>
+                              {tmpl.applicableUser}
+                            </Badge>
+                          </td>
+                          <td className="p-3.5 font-mono text-slate-600 dark:text-slate-300">{tmpl.pageLayout}</td>
+                          <td className="p-3.5 text-center">
+                            <span className="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-[10px] font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                              {tmpl.bgImage}
+                            </span>
+                          </td>
+                          <td className="p-3.5 font-mono text-slate-500">{tmpl.createdAt}</td>
+                          <td className="p-3.5 text-right">
+                            <div className="flex items-center justify-end gap-1.5">
+                              <button
+                                onClick={() => {
+                                  setCertTemplateForm(tmpl);
+                                  setCertTemplateTab('create_edit');
+                                }}
+                                className="p-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100"
+                                title="Edit Template"
+                              >
+                                <Edit className="w-3.5 h-3.5" />
+                              </button>
+                              <button
+                                onClick={() => {
+                                  if (tmpl.applicableUser === 'Student') {
+                                    setActiveSection('certificates');
+                                    setIsGenerateCertModalOpen(true);
+                                  } else {
+                                    setActiveSection('employee_certificates');
+                                    showToast(`Open employee list to issue ${tmpl.name}`, 'info');
+                                  }
+                                }}
+                                className="px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-bold text-[10px] hover:bg-indigo-700 shadow-sm"
+                                title="Issue this certificate"
+                              >
+                                Issue
+                              </button>
+                              <button
+                                onClick={() => {
+                                  if (window.confirm(`Delete certificate template "${tmpl.name}"?`)) {
+                                    setCertificateTemplates(prev => prev.filter(t => t.id !== tmpl.id));
+                                    showToast(`Template "${tmpl.name}" removed`, 'info');
+                                  }
+                                }}
+                                className="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100"
+                                title="Delete Template"
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* ✍️ VIEW 2: ADD / EDIT CERTIFICATE TEMPLATE DESIGNER */}
+          {certTemplateTab === 'create_edit' && (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              
+              {/* Form Controls */}
+              <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                  <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                    <Sliders className="w-5 h-5 text-indigo-600" />
+                    {certTemplateForm.id ? 'Edit Certificate Template' : 'Design New Certificate Template'}
+                  </h3>
+                  <button
+                    onClick={() => setCertTemplateTab('list')}
+                    className="text-xs font-bold text-slate-500 hover:text-slate-800"
+                  >
+                    Back to List
+                  </button>
+                </div>
+
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (!certTemplateForm.name.trim()) return;
+                    if (certTemplateForm.id) {
+                      setCertificateTemplates(prev => prev.map(t => t.id === certTemplateForm.id ? { ...certTemplateForm } : t));
+                      showToast(`Certificate Template "${certTemplateForm.name}" updated! 📜`, 'success');
+                    } else {
+                      const newTmpl = {
+                        id: `CERT-TMPL-${Date.now().toString().slice(-4)}`,
+                        ...certTemplateForm,
+                        createdAt: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+                      };
+                      setCertificateTemplates([...certificateTemplates, newTmpl]);
+                      showToast(`Certificate Template "${newTmpl.name}" created! 📜`, 'success');
+                    }
+                    setCertTemplateTab('list');
+                  }}
+                  className="space-y-4 text-xs"
+                >
+                  <div>
+                    <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Select Branch *</label>
+                    <select
+                      value={certTemplateForm.branch}
+                      onChange={(e) => setCertTemplateForm({ ...certTemplateForm, branch: e.target.value })}
+                      className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                    >
+                      <option value="DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)">DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)</option>
+                      <option value="DADHEECH MEMORIAL PUBLIC SCHOOL OLD JARGWAN CAMPUS">DADHEECH MEMORIAL PUBLIC SCHOOL OLD JARGWAN CAMPUS</option>
+                    </select>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Certificate Name *</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. CHARACTER CERTIFICATE"
+                        value={certTemplateForm.name}
+                        onChange={(e) => setCertTemplateForm({ ...certTemplateForm, name: e.target.value })}
+                        className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold uppercase"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Applicable User *</label>
+                      <select
+                        value={certTemplateForm.applicableUser}
+                        onChange={(e) => setCertTemplateForm({ ...certTemplateForm, applicableUser: e.target.value })}
+                        className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                      >
+                        <option value="Student">Student</option>
+                        <option value="Employee">Employee / Faculty</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Page Layout & Size</label>
+                      <select
+                        value={certTemplateForm.pageLayout}
+                        onChange={(e) => setCertTemplateForm({ ...certTemplateForm, pageLayout: e.target.value })}
+                        className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                      >
+                        <option value="Portrait A4 (210 x 297 mm)">📄 Portrait A4 (Vertical)</option>
+                        <option value="Landscape A4 (297 x 210 mm)">📜 Landscape A4 (Horizontal Award)</option>
+                        <option value="Legal Size (216 x 356 mm)">📑 Legal Size Sheet</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Background / Border Style</label>
+                      <select
+                        value={certTemplateForm.bgImage}
+                        onChange={(e) => setCertTemplateForm({ ...certTemplateForm, bgImage: e.target.value })}
+                        className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                      >
+                        <option value="Official DMPS Crest Border">Official DMPS Crest Border</option>
+                        <option value="Golden Border Crest">Golden Border Crest</option>
+                        <option value="Ornate Golden Shield Background">Ornate Golden Shield Background</option>
+                        <option value="Letterhead Watermark">Letterhead Watermark</option>
+                        <option value="Plain Official Border">Plain Official Border</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Dynamic Tags Helper */}
+                  <div>
+                    <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
+                      Insert Shortcode Tags (Click to insert):
+                    </span>
+                    <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto p-2 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+                      {[
+                        '[name]', '[father_name]', '[mother_name]', '[dob]', '[dob_words]',
+                        '[class]', '[section]', '[roll]', '[admission_no]', '[pen_no]',
+                        '[session]', '[issue_date]', '[admission_date]', '[character]',
+                        '[percentage]', '[designation]', '[department]', '[joining_date]',
+                        '[salary]', '[signature]', '[qr_code]'
+                      ].map(tag => (
+                        <button
+                          key={tag}
+                          type="button"
+                          onClick={() => {
+                            setCertTemplateForm(prev => ({
+                              ...prev,
+                              content: `${prev.content} ${tag}`
+                            }));
+                            showToast(`Inserted ${tag}`, 'info');
+                          }}
+                          className="px-2 py-0.5 rounded-md bg-white dark:bg-slate-900 text-indigo-700 dark:text-indigo-300 font-mono font-bold text-[10px] border border-indigo-200 dark:border-indigo-800 hover:bg-indigo-50"
+                        >
+                          {tag}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Certificate Body */}
+                  <div>
+                    <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Certificate Body Content *</label>
+                    <textarea
+                      rows={6}
+                      required
+                      value={certTemplateForm.content}
+                      onChange={(e) => setCertTemplateForm({ ...certTemplateForm, content: e.target.value })}
+                      placeholder="Write certificate paragraph text with shortcodes..."
+                      className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 font-sans text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div className="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <button
+                      type="button"
+                      onClick={() => setCertTemplateTab('list')}
+                      className="px-4 py-2 rounded-xl text-xs font-bold text-slate-500 hover:bg-slate-100"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      className="px-6 py-2.5 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/20 hover:scale-105 active:scale-95 transition-all"
+                    >
+                      {certTemplateForm.id ? 'Update Certificate Template' : 'Save Certificate Template'}
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              {/* Live Preview Box */}
+              <div className="lg:col-span-5 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                    <Sparkles className="w-4 h-4 text-amber-500" /> Live Certificate Preview
+                  </span>
+                  <Badge variant="primary">{certTemplateForm.applicableUser}</Badge>
+                </div>
+
+                <div className="bg-white rounded-3xl border-4 border-double border-indigo-900 p-6 text-slate-900 shadow-xl space-y-4 text-center relative overflow-hidden">
+                  <div className="absolute top-2 right-2 text-[8px] font-mono text-slate-400">
+                    {certTemplateForm.pageLayout}
+                  </div>
+
+                  {/* Header */}
+                  <div className="border-b-2 border-slate-900 pb-3">
+                    <h3 className="text-base font-black uppercase text-slate-900">
+                      {schoolInfo.name || 'DADHEECH MEMORIAL PUBLIC SCHOOL'}
+                    </h3>
+                    <p className="text-[9px] font-bold text-slate-600 uppercase">
+                      RAMGHAT ROAD, JARGWAN (BULANDSHAHR) • CBSE AFFILIATED
+                    </p>
+                    <div className="mt-2 inline-block px-3 py-0.5 bg-slate-900 text-white rounded-md text-[10px] font-black uppercase tracking-wider">
+                      {certTemplateForm.name || 'INSTITUTIONAL CERTIFICATE'}
+                    </div>
+                  </div>
+
+                  {/* Simulated Content */}
+                  <div className="text-xs leading-relaxed text-slate-800 text-justify p-3 bg-slate-50/50 rounded-xl border border-slate-200">
+                    {certTemplateForm.content
+                      .replace(/\[name\]/g, 'RITU YADAV')
+                      .replace(/\[father_name\]/g, 'Sh. Rajesh Yadav')
+                      .replace(/\[mother_name\]/g, 'Smt. Sunita Yadav')
+                      .replace(/\[class\]/g, 'Class 10')
+                      .replace(/\[section\]/g, 'A')
+                      .replace(/\[roll\]/g, '14')
+                      .replace(/\[admission_no\]/g, 'DMPS-2026-104')
+                      .replace(/\[dob\]/g, '15-Aug-2010')
+                      .replace(/\[dob_words\]/g, 'Fifteenth August Two Thousand Ten')
+                      .replace(/\[session\]/g, '2026-2027')
+                      .replace(/\[issue_date\]/g, '02-Sep-2026')
+                      .replace(/\[admission_date\]/g, '01-Apr-2020')
+                      .replace(/\[character\]/g, 'Exemplary')
+                      .replace(/\[percentage\]/g, '94.6')
+                      .replace(/\[teacher_name\]/g, 'Dr. Sonu Kumar')
+                      .replace(/\[designation\]/g, 'Senior Faculty PGT')
+                      .replace(/\[department\]/g, 'Science & Mathematics')
+                      .replace(/\[joining_date\]/g, '01-Jul-2021')
+                      .replace(/\[employee_code\]/g, 'EMP-2026-004')
+                      || 'Type your certificate content on the left to see live preview...'}
+                  </div>
+
+                  {/* Signatures */}
+                  <div className="grid grid-cols-2 gap-4 pt-4 text-center text-[10px] font-bold border-t border-slate-300">
+                    <div>
+                      <div className="border-t border-dashed border-slate-400 pt-1">Prepared By / Clerk</div>
+                    </div>
+                    <div>
+                      <div className="border-t border-dashed border-slate-400 pt-1">Principal / Headmaster</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          )}
+
         </div>
       )}
 
