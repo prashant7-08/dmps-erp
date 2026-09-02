@@ -305,30 +305,33 @@ export const Sidebar = ({
   const { showToast } = useToast();
   const effectiveRole = authRole || currentRole || 'Super Admin';
 
-  const [expandedGroups, setExpandedGroups] = useState(() => {
-    return {
-      'dashboard-group': true,
-      'reception-group': true,
-      'admission-group': true,
-      'student-accounting-group': true,
-      'supervision-group': true,
-      'attendance-group': true,
-      'academic-group': true,
-      'exam-master-group': true,
-      'library-group': true,
-      'bulk-sms-group': true,
-      'reports-group': true,
-      'branch-group': true,
-      'frontend-group': true,
-      'settings-group': true
-    };
-  });
+  const findParentGroupId = (tab) => {
+    for (const group of navigationGroups) {
+      if (group.isSingle && group.targetTab === tab) return group.id;
+      if (group.items) {
+        for (const item of group.items) {
+          if (item.targetTab === tab || item.id === tab) {
+            return group.id;
+          }
+        }
+      }
+    }
+    return null;
+  };
+
+  // Only ONE group is open at a time (Accordion mode)
+  const [expandedGroupId, setExpandedGroupId] = useState(() => findParentGroupId(activeTab) || 'student-accounting-group');
+
+  // Auto-expand active group when activeTab changes
+  useEffect(() => {
+    const parentId = findParentGroupId(activeTab);
+    if (parentId) {
+      setExpandedGroupId(parentId);
+    }
+  }, [activeTab]);
 
   const toggleGroup = (groupId) => {
-    setExpandedGroups(prev => ({
-      ...prev,
-      [groupId]: !prev[groupId]
-    }));
+    setExpandedGroupId(prev => (prev === groupId ? null : groupId));
   };
 
   const handleNavClick = (item) => {
@@ -399,7 +402,7 @@ export const Sidebar = ({
         <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1.5 custom-scrollbar">
           {navigationGroups.map(group => {
             const Icon = group.icon;
-            const isExpanded = expandedGroups[group.id];
+            const isExpanded = expandedGroupId === group.id;
 
             if (group.isSingle) {
               const isActive = activeTab === group.targetTab;
