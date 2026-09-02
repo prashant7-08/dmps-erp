@@ -58,6 +58,26 @@ function AppContent() {
 
   const [activeTab, setActiveTabState] = React.useState(getInitialTab);
   const [currentRole, setCurrentRole] = useState(authRole || 'Super Admin');
+  const [isOnline, setIsOnline] = useState(typeof navigator !== 'undefined' ? navigator.onLine : true);
+  const [showOnlineToast, setShowOnlineToast] = useState(false);
+
+  React.useEffect(() => {
+    const handleOnline = () => {
+      setIsOnline(true);
+      setShowOnlineToast(true);
+      setTimeout(() => setShowOnlineToast(false), 4000);
+    };
+    const handleOffline = () => {
+      setIsOnline(false);
+      setShowOnlineToast(false);
+    };
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
   const [selectedStudentForProfile, setSelectedStudentForProfile] = useState(null);
   const [isViewingWebsite, setIsViewingWebsite] = useState(() => {
     if (isDirectAppMode()) return false;
@@ -276,17 +296,31 @@ function AppContent() {
   };
 
   return (
-    <MainLayout
-      activeTab={activeTab}
-      setActiveTab={setActiveTab}
-      currentRole={currentRole}
-      setCurrentRole={handleRoleChange}
-      onQuickAction={handleQuickAction}
-      onSearchSelect={handleSearchSelect}
-      onViewWebsite={() => setIsViewingWebsite(true)}
-    >
-      {renderActivePage()}
-    </MainLayout>
+    <>
+      {!isOnline && (
+        <div className="fixed top-3 left-1/2 -translate-x-1/2 z-[99999] px-4 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-slate-950 text-xs font-black rounded-full shadow-2xl flex items-center gap-2 border border-amber-300 animate-pulse tracking-wide">
+          <span>⚡</span>
+          <span>No Internet Connection • Running in Offline Mode</span>
+        </div>
+      )}
+      {showOnlineToast && (
+        <div className="fixed top-3 left-1/2 -translate-x-1/2 z-[99999] px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold rounded-full shadow-2xl flex items-center gap-2 border border-emerald-300">
+          <span>🟢</span>
+          <span>Internet Connected • Cloud Synced</span>
+        </div>
+      )}
+      <MainLayout
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        currentRole={currentRole}
+        setCurrentRole={handleRoleChange}
+        onQuickAction={handleQuickAction}
+        onSearchSelect={handleSearchSelect}
+        onViewWebsite={() => setIsViewingWebsite(true)}
+      >
+        {renderActivePage()}
+      </MainLayout>
+    </>
   );
 }
 
