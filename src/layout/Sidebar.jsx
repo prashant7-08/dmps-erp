@@ -64,12 +64,10 @@ export const navigationGroups = [
   {
     id: 'admission-group',
     permissionKey: 'admission',
-    label: 'ADMISSION',
+    label: 'NEW ADMISSION',
     icon: UserPlus,
-    items: [
-      { id: 'admission', label: 'New Student Admission', badge: '2026-27' },
-      { id: 'admission-online', label: 'Online Web Inquiries', badge: 'Web' }
-    ]
+    isSingle: true,
+    targetTab: 'admission'
   },
   {
     id: 'students-group',
