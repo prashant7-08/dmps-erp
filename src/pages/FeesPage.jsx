@@ -53,6 +53,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   const resolveTab = (tab) => {
     if (!tab) return 'pos';
     if (tab === 'fees' || tab === 'fees-collect' || tab === 'pos') return 'pos';
+    if (tab === 'fees-payment-types' || tab === 'payment-types') return 'payment-types';
     if (tab === 'fees-types' || tab === 'types') return 'types';
     if (tab === 'fees-groups' || tab === 'groups') return 'groups';
     if (tab === 'fees-fine' || tab === 'fine') return 'fine';
@@ -76,11 +77,17 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   // Data States
   const [invoices, setInvoices] = useState(() => schoolService.getFeeInvoices(activeBranchId) || []);
   const [students, setStudents] = useState(() => schoolService.getStudents(activeBranchId) || []);
+  const [paymentTypes, setPaymentTypes] = useState(() => schoolService.getPaymentTypes() || []);
   const [feeTypes, setFeeTypes] = useState(() => schoolService.getFeeTypes() || []);
   const [feeGroups, setFeeGroups] = useState(() => schoolService.getFeeGroups() || []);
   const [fineSetup, setFineSetup] = useState(() => schoolService.getFineSetup() || {});
   const [offlinePayments, setOfflinePayments] = useState(() => schoolService.getOfflinePayments() || []);
   const [familyGroups, setFamilyGroups] = useState(() => schoolService.getAllFamilyGroups() || []);
+  const [siblingSearchQuery, setSiblingSearchQuery] = useState('');
+
+  // Payment Type Modal state
+  const [isAddPayTypeModalOpen, setIsAddPayTypeModalOpen] = useState(false);
+  const [payTypeFormData, setPayTypeFormData] = useState({ name: '', code: '', type: 'Offline', description: '' });
 
   // Individual Student Old Dues & Miscellaneous Popup State
   const [isStudentMiscModalOpen, setIsStudentMiscModalOpen] = useState(false);
@@ -140,7 +147,6 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   // Sibling Assign Modal
   const [isAssignSiblingModalOpen, setIsAssignSiblingModalOpen] = useState(false);
   const [mainStudentForAssign, setMainStudentForAssign] = useState(null);
-  const [siblingSearchQuery, setSiblingSearchQuery] = useState('');
 
   useEffect(() => {
     refreshAll();
@@ -149,12 +155,42 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   const refreshAll = () => {
     setInvoices([...schoolService.getFeeInvoices(activeBranchId)]);
     setStudents([...schoolService.getStudents(activeBranchId)]);
+    setPaymentTypes([...schoolService.getPaymentTypes()]);
     setFeeTypes([...schoolService.getFeeTypes()]);
     setFeeGroups([...schoolService.getFeeGroups()]);
     setFineSetup({ ...schoolService.getFineSetup() });
     setMiscFees([...schoolService.getMiscFees()]);
     setOfflinePayments([...schoolService.getOfflinePayments()]);
     setFamilyGroups([...schoolService.getAllFamilyGroups()]);
+  };
+
+  // 🤖 1-Click Auto-Link All Siblings Engine
+  const handleAutoLinkSiblings = () => {
+    const result = schoolService.autoLinkSiblingsByPhoneAndFather();
+    refreshAll();
+    showToast(`🎉 Automatically matched & linked ${result.linkedFamilyCount} sibling families (${result.linkedStudentCount} students)!`, 'success');
+  };
+
+  // Payment Type Master Handlers
+  const handleAddPaymentType = (e) => {
+    e.preventDefault();
+    if (!payTypeFormData.name) {
+      showToast('Please enter Payment Type Name', 'warning');
+      return;
+    }
+    schoolService.addPaymentType(payTypeFormData);
+    refreshAll();
+    setIsAddPayTypeModalOpen(false);
+    setPayTypeFormData({ name: '', code: '', type: 'Offline', description: '' });
+    showToast(`💳 Payment Type "${payTypeFormData.name}" added successfully!`, 'success');
+  };
+
+  const handleDeletePaymentType = (id, name) => {
+    if (window.confirm(`Delete payment type "${name}"?`)) {
+      schoolService.deletePaymentType(id);
+      refreshAll();
+      showToast(`Payment Type "${name}" removed`, 'info');
+    }
   };
 
   // Sync sibling allocations when primary student changes in POS
@@ -442,14 +478,15 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
         <div className="flex items-center gap-1 min-w-max text-xs font-bold">
           {[
             { id: 'pos', label: '💳 Fee Collect / Payment', badge: 'POS' },
+            { id: 'payment-types', label: '💳 Payments Type', count: paymentTypes.length },
+            { id: 'offline', label: '🏛️ Offline Payments', count: offlinePayments.length },
+            { id: 'siblings', label: '👨‍👩‍👧‍👦 Setup Siblings', badge: null },
+            { id: 'sibling-list', label: '📜 Sibling List', count: familyGroups.length },
             { id: 'types', label: '🏷️ Fees Type', count: feeTypes.length },
             { id: 'groups', label: '📂 Fees Group', count: feeGroups.length },
             { id: 'fine', label: '⚖️ Fine Setup', badge: 'Rules' },
             { id: 'allocation', label: '📌 Fees Allocation', badge: 'Bulk' },
             { id: 'dues', label: '⚠️ Due List / Reminder', count: totalDefaulters },
-            { id: 'siblings', label: '👨‍👩‍👧‍👦 Setup Siblings', badge: null },
-            { id: 'sibling-list', label: '📜 Sibling List', count: familyGroups.length },
-            { id: 'offline', label: '🏛️ Offline Payments', count: offlinePayments.length },
             { id: 'invoices', label: '🧾 Fee Receipts Ledger', count: invoices.length }
           ].map(tab => (
             <button
@@ -1394,46 +1431,162 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
       {/* ========================================================================= */}
       {/* 👨‍👩‍👧‍👦 TAB 7: SETUP SIBLINGS */}
       {/* ========================================================================= */}
+      {/* ========================================================================= */}
+      {/* 💳 TAB: PAYMENTS TYPE MASTER (Cash, UPI, DD, NEFT, Cheque) */}
+      {/* ========================================================================= */}
+      {activeTab === 'payment-types' && (
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div>
+              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <CreditCard className="w-5 h-5 text-indigo-600" /> Accepted Payment Modes & Counter Types
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Configure online and offline payment collection channels available at POS fee collection counter
+              </p>
+            </div>
+            <button
+              onClick={() => setIsAddPayTypeModalOpen(true)}
+              className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 transition-all hover:scale-105"
+            >
+              <Plus className="w-4 h-4" /> Add Payment Type
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {paymentTypes.map((pt) => (
+              <div
+                key={pt.id}
+                className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-3 hover:border-indigo-400 transition-all"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2.5 rounded-xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400">
+                      <CreditCard className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-black text-slate-900 dark:text-white">{pt.name}</h4>
+                      <span className="text-[10px] font-mono font-bold text-slate-400">Code: {pt.code}</span>
+                    </div>
+                  </div>
+                  {!pt.isDefault && (
+                    <button
+                      onClick={() => handleDeletePaymentType(pt.id, pt.name)}
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950 transition-colors"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+
+                <p className="text-xs text-slate-500">{pt.description}</p>
+
+                <div className="flex items-center justify-between text-xs pt-2 border-t border-slate-200 dark:border-slate-700">
+                  <span className="px-2 py-0.5 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-[10px] font-bold text-slate-600 dark:text-slate-300">
+                    Category: {pt.type}
+                  </span>
+                  {pt.isDefault ? (
+                    <span className="text-[10px] font-bold text-emerald-600">Default Counter Mode</span>
+                  ) : (
+                    <span className="font-mono text-[10px] text-slate-400">{pt.id}</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 👨‍👩‍👧‍👦 TAB: SETUP SIBLINGS */}
+      {/* ========================================================================= */}
       {activeTab === 'siblings' && (
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
-          <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex justify-between items-center">
+          {/* Sibling Auto-Match Hero Banner */}
+          <div className="p-5 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 text-white shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-amber-400" />
+                <h4 className="text-sm font-black uppercase tracking-wider">
+                  Automatic Sibling Detection Engine
+                </h4>
+              </div>
+              <p className="text-xs text-slate-300 max-w-xl">
+                Automatically scans all 567 student records, matches identical parent mobile numbers and father names, and links brothers & sisters into combined family accounts.
+              </p>
+            </div>
+            <button
+              onClick={handleAutoLinkSiblings}
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-xs shadow-md shadow-amber-500/20 flex items-center gap-2 shrink-0 hover:scale-105 active:scale-95 transition-all"
+            >
+              <Sparkles className="w-4 h-4" /> 🤖 Auto-Link All Siblings (87 Families)
+            </button>
+          </div>
+
+          <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
             <div>
               <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <Users className="w-5 h-5 text-purple-600" /> Class-Wise Sibling Assign & Linker
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">
-                Link real brothers & sisters together for joint single-receipt fee collection and family statements
+                Currently <strong>{familyGroups.length} Family Groups</strong> active across the school.
               </p>
             </div>
-            <button
-              onClick={() => setActiveTab('sibling-list')}
-              className="text-xs font-bold text-purple-600 hover:underline"
-            >
-              View Linked Families ({familyGroups.length}) →
-            </button>
+
+            <div className="flex items-center gap-3">
+              <div className="relative w-full sm:w-64">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search student, father or mobile..."
+                  value={siblingSearchQuery}
+                  onChange={(e) => setSiblingSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-medium"
+                />
+              </div>
+              <button
+                onClick={() => setActiveTab('sibling-list')}
+                className="px-3.5 py-1.5 bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 rounded-xl text-xs font-bold hover:bg-purple-200 shrink-0"
+              >
+                View Families ({familyGroups.length}) →
+              </button>
+            </div>
           </div>
 
-          <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden">
+          <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden max-h-[600px] overflow-y-auto custom-scrollbar">
             <table className="w-full text-left text-xs">
-              <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black uppercase text-[10px]">
+              <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black uppercase text-[10px] sticky top-0 z-10">
                 <tr>
                   <th className="p-3.5">Roll No</th>
                   <th className="p-3.5">Student Name</th>
                   <th className="p-3.5">Class</th>
-                  <th className="p-3.5">Father Name</th>
+                  <th className="p-3.5">Father & Mobile</th>
                   <th className="p-3.5">Linked Brothers / Sisters</th>
                   <th className="p-3.5 text-right">Assign Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {students.slice(0, 25).map(s => {
+                {students
+                  .filter(s => {
+                    if (!siblingSearchQuery) return true;
+                    const q = siblingSearchQuery.toLowerCase();
+                    return s.name.toLowerCase().includes(q) ||
+                      (s.fatherName && s.fatherName.toLowerCase().includes(q)) ||
+                      (s.fatherMobile && s.fatherMobile.includes(q)) ||
+                      (s.rollNo && String(s.rollNo).includes(q));
+                  })
+                  .slice(0, 50)
+                  .map(s => {
                   const linked = schoolService.getLinkedSiblings(s.id);
                   return (
                     <tr key={s.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
                       <td className="p-3.5 font-mono font-bold text-slate-500">#{s.rollNo}</td>
                       <td className="p-3.5 font-bold text-slate-900 dark:text-white">{s.name}</td>
                       <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-400">{s.class}</td>
-                      <td className="p-3.5 text-slate-500">{s.parents?.fatherName || s.fatherName || 'Father'}</td>
+                      <td className="p-3.5 text-slate-500">
+                        <div className="font-semibold text-slate-800 dark:text-slate-200">{s.parents?.fatherName || s.fatherName || 'Father'}</div>
+                        <div className="font-mono text-[10px] text-sky-600">{s.parents?.fatherPhone || s.fatherMobile || s.mobile || '—'}</div>
+                      </td>
                       <td className="p-3.5">
                         {linked.length > 0 ? (
                           <div className="flex flex-wrap gap-1.5">
@@ -1479,11 +1632,11 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 📜 TAB 8: SIBLING LIST (FAMILY DIRECTORY) */}
+      {/* 📜 TAB: SIBLING LIST (FAMILY DIRECTORY) */}
       {/* ========================================================================= */}
       {activeTab === 'sibling-list' && (
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
-          <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex justify-between items-center">
+          <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
             <div>
               <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <Users className="w-5 h-5 text-purple-600" /> Sibling Family Directory ({familyGroups.length} Families)
@@ -1494,21 +1647,21 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
             </div>
             <button
               onClick={() => setActiveTab('siblings')}
-              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold shadow"
+              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold shadow hover:scale-105 transition-all"
             >
               + Link New Siblings
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {familyGroups.map((fam, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 space-y-4 shadow-sm"
+                className="p-5 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 space-y-4 shadow-sm hover:border-purple-400 transition-all"
               >
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">{fam.familyName}</h4>
+                    <h4 className="text-sm font-black text-slate-900 dark:text-white">{fam.familyName}</h4>
                     <p className="text-xs text-slate-500 font-medium">Guardian: {fam.guardianName}</p>
                   </div>
                   <div className="text-right">
@@ -1523,9 +1676,12 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Children in School ({fam.members?.length}):</span>
                   <div className="space-y-1.5">
                     {fam.members?.map((m) => (
-                      <div key={m.id} className="flex justify-between items-center text-xs p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800">
-                        <span className="font-bold text-slate-800 dark:text-slate-200">{m.name} ({m.class})</span>
-                        <span className="font-mono text-rose-500 font-bold">Due: ₹{(m.feeSummary?.balance || 0).toLocaleString('en-IN')}</span>
+                      <div key={m.id} className="flex justify-between items-center text-xs p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800">
+                        <div>
+                          <span className="font-bold text-slate-800 dark:text-slate-200 block">{m.name}</span>
+                          <span className="text-[10px] text-slate-400 font-medium">Class {m.class} • Roll #{m.rollNo}</span>
+                        </div>
+                        <span className="font-mono text-rose-600 font-bold">Due: ₹{(m.feeSummary?.balance || 0).toLocaleString('en-IN')}</span>
                       </div>
                     ))}
                   </div>
@@ -1537,7 +1693,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                     setIsFamilyMode(true);
                     setActiveTab('pos');
                   }}
-                  className="w-full py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold shadow-sm flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-purple-500/20 flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
                 >
                   <Receipt className="w-4 h-4" /> Pay Family Dues (Single POS)
                 </button>
@@ -2025,6 +2181,94 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                 className="px-5 py-2 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white shadow hover:scale-105 active:scale-95 transition-all"
               >
                 💾 Save Dues for {targetStudentForMisc.name}
+              </button>
+            </div>
+          </form>
+        </Modal>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 💳 MODAL: ADD PAYMENT TYPE */}
+      {/* ========================================================================= */}
+      {isAddPayTypeModalOpen && (
+        <Modal
+          isOpen={isAddPayTypeModalOpen}
+          onClose={() => setIsAddPayTypeModalOpen(false)}
+          title="💳 Add New Fee Payment Mode / Counter Channel"
+          maxWidth="max-w-md"
+        >
+          <form onSubmit={handleAddPaymentType} className="space-y-4 text-xs">
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                Payment Mode Name (e.g. BharatPe QR / PhonePe) *
+              </label>
+              <input
+                type="text"
+                required
+                placeholder="e.g. PhonePe QR Standee"
+                value={payTypeFormData.name}
+                onChange={(e) => setPayTypeFormData({ ...payTypeFormData, name: e.target.value })}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  Code / Short Identifier
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. QR_PE"
+                  value={payTypeFormData.code}
+                  onChange={(e) => setPayTypeFormData({ ...payTypeFormData, code: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono uppercase"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  Channel Category
+                </label>
+                <select
+                  value={payTypeFormData.type}
+                  onChange={(e) => setPayTypeFormData({ ...payTypeFormData, type: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                >
+                  <option value="Offline">Offline / Counter</option>
+                  <option value="Digital">Digital / UPI</option>
+                  <option value="Bank">Bank Deposit / DD</option>
+                  <option value="Card">Card Swipe / POS</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                Description / Counter Notes
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. QR Scanner placed at counter window 1"
+                value={payTypeFormData.description}
+                onChange={(e) => setPayTypeFormData({ ...payTypeFormData, description: e.target.value })}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"
+              />
+            </div>
+
+            <div className="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <button
+                type="button"
+                onClick={() => setIsAddPayTypeModalOpen(false)}
+                className="px-4 py-2 rounded-xl text-xs font-bold text-slate-500 hover:bg-slate-100"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-5 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow hover:scale-105 active:scale-95 transition-all"
+              >
+                + Create Payment Mode
               </button>
             </div>
           </form>

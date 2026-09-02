@@ -6,6 +6,7 @@ class SchoolService {
   constructor() {
     this.listeners = new Set();
     this.data = this.loadData();
+    this.autoLinkSiblingsByPhoneAndFather();
   }
 
   loadData() {
@@ -1742,6 +1743,83 @@ class SchoolService {
         totalCombinedBalance: totalBalance
       };
     });
+  }
+
+  // Automatic Sibling Linking Algorithm matching mobile numbers & father names
+  autoLinkSiblingsByPhoneAndFather() {
+    const students = this.data?.students || [];
+    const phoneMap = new Map();
+
+    students.forEach(s => {
+      const p = s.fatherMobile || s.mobile || s.parents?.fatherMobile || s.motherMobile;
+      if (p) {
+        const cleanPhone = String(p).replace(/[^0-9]/g, '').slice(-10);
+        if (cleanPhone.length === 10) {
+          if (!phoneMap.has(cleanPhone)) {
+            phoneMap.set(cleanPhone, []);
+          }
+          phoneMap.get(cleanPhone).push(s);
+        }
+      }
+    });
+
+    let linkedFamilyCount = 0;
+    let linkedStudentCount = 0;
+
+    phoneMap.forEach((matchedStudents, phone) => {
+      if (matchedStudents.length > 1) {
+        const allIds = matchedStudents.map(s => s.id);
+        const fatherName = matchedStudents[0].fatherName || matchedStudents[0].parents?.fatherName || 'Guardian';
+        const familyKey = `FAM-${phone}`;
+
+        matchedStudents.forEach(stu => {
+          stu.familyId = familyKey;
+          stu.familyName = `${fatherName}'s Family`;
+          stu.guardianName = fatherName;
+          stu.linkedSiblingIds = allIds.filter(id => id !== stu.id);
+          linkedStudentCount++;
+        });
+
+        linkedFamilyCount++;
+      }
+    });
+
+    this.saveData();
+    return { linkedFamilyCount, linkedStudentCount };
+  }
+
+  // Payments Type Master (Cash, UPI, DD, NEFT, Cheque, POS Card)
+  getPaymentTypes() {
+    if (!this.data.paymentTypes || !Array.isArray(this.data.paymentTypes) || this.data.paymentTypes.length === 0) {
+      this.data.paymentTypes = [
+        { id: 'PAY-01', name: 'Cash Counter (नकद)', code: 'CASH', type: 'Offline', isDefault: true, description: 'Direct cash fee submission at school counter' },
+        { id: 'PAY-02', name: 'UPI / QR Code Scan (PhonePe / GPay / Paytm)', code: 'UPI', type: 'Digital', isDefault: false, description: 'Instant UPI QR code scan at account desk' },
+        { id: 'PAY-03', name: 'Bank Demand Draft (DD)', code: 'DD', type: 'Bank', isDefault: false, description: 'Demand Draft drawn in favor of school bank account' },
+        { id: 'PAY-04', name: 'NEFT / RTGS / IMPS Transfer', code: 'NEFT', type: 'Bank', isDefault: false, description: 'Direct bank account transfer with UTR Number' },
+        { id: 'PAY-05', name: 'Bank Cheque Deposit', code: 'CHEQUE', type: 'Bank', isDefault: false, description: 'Clearing cheque deposit subject to realization' },
+        { id: 'PAY-06', name: 'POS Debit/Credit Card Swipe', code: 'POS_CARD', type: 'Card', isDefault: false, description: 'Swipe machine card payment at school fee counter' }
+      ];
+      this.saveData();
+    }
+    return this.data.paymentTypes;
+  }
+
+  addPaymentType(typeData) {
+    const types = this.getPaymentTypes();
+    const newType = {
+      id: `PAY-${String(types.length + 1).padStart(2, '0')}`,
+      type: 'Offline',
+      isDefault: false,
+      ...typeData
+    };
+    this.data.paymentTypes.unshift(newType);
+    this.saveData();
+    return newType;
+  }
+
+  deletePaymentType(id) {
+    this.data.paymentTypes = this.getPaymentTypes().filter(p => p.id !== id);
+    this.saveData();
   }
 
   getFeeStructures() {

@@ -234,6 +234,8 @@ function AppContent() {
       case 'bell':
         return <AutomaticBellPage />;
       case 'fees':
+      case 'fees-payment-types':
+      case 'payment-types':
       case 'fees-offline':
       case 'fees-siblings':
       case 'fees-sibling-list':

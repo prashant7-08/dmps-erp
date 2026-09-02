@@ -116,6 +116,7 @@ export const navigationGroups = [
     label: 'STUDENT ACCOUNTING',
     icon: CreditCard,
     items: [
+      { id: 'fees-payment-types', targetTab: 'fees', subTab: 'payment-types', label: 'Payments Type', badge: null },
       { id: 'fees-offline', targetTab: 'fees', subTab: 'offline', label: 'Offline Payments', badge: null },
       { id: 'fees-siblings', targetTab: 'fees', subTab: 'siblings', label: 'Setup Siblings', badge: null },
       { id: 'fees-sibling-list', targetTab: 'fees', subTab: 'sibling-list', label: 'Sibling List', badge: null },
