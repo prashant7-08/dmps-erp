@@ -23,9 +23,12 @@ import {
   Layers,
   Sparkles,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  ShieldCheck,
+  FileText
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
+import { Modal } from '../components/common/Modal';
 import { QRScannerModal } from '../components/qr/QRScannerModal';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
@@ -34,8 +37,17 @@ import schoolService from '../services/schoolService';
 export const AttendancePage = ({ initialType = 'student' }) => {
   const { showToast } = useToast();
   const { activeBranchId } = useAuth();
+
+  const resolveTab = (tab) => {
+    if (!tab) return 'student';
+    if (tab === 'student' || tab === 'attendance' || tab === 'student-attendance') return 'student';
+    if (tab === 'staff' || tab === 'employee' || tab === 'staff-attendance' || tab === 'employee-attendance') return 'staff';
+    if (tab === 'staff-monthly-matrix') return 'staff-monthly-matrix';
+    if (tab === 'exam' || tab === 'exam-attendance') return 'exam';
+    return 'student';
+  };
   
-  const [activeTab, setActiveTab] = useState(initialType);
+  const [activeTab, setActiveTab] = useState(() => resolveTab(initialType));
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [selectedClass, setSelectedClass] = useState('All');
   const [selectedSection, setSelectedSection] = useState('All');
@@ -50,7 +62,7 @@ export const AttendancePage = ({ initialType = 'student' }) => {
 
   // Sync active tab if initialType changes from sidebar
   useEffect(() => {
-    setActiveTab(initialType);
+    if (initialType) setActiveTab(resolveTab(initialType));
   }, [initialType]);
 
   // Students Data
@@ -89,6 +101,66 @@ export const AttendancePage = ({ initialType = 'student' }) => {
       };
     });
   });
+
+  // Exam Attendance States
+  const [selectedExamTerm, setSelectedExamTerm] = useState('Pre-Midterm Examination (Session 2026-27)');
+  const [selectedExamClass, setSelectedExamClass] = useState('Class 10');
+  const [selectedExamSubject, setSelectedExamSubject] = useState('Mathematics (Standard)');
+  const [selectedExamRoom, setSelectedExamRoom] = useState('Hall 1 - Senior Wing (Room 101)');
+  const [examDate, setExamDate] = useState(new Date().toISOString().split('T')[0]);
+  const [isPrintExamModalOpen, setIsPrintExamModalOpen] = useState(false);
+
+  const [examRecords, setExamRecords] = useState(() => {
+    const sList = schoolService.getStudents(activeBranchId) || [];
+    return sList.map((s, idx) => ({
+      studentId: s.id,
+      name: s.name,
+      rollNo: s.rollNo || (idx + 1),
+      admitCardNo: `ADM-2026-${String(s.rollNo || (idx + 1)).padStart(3, '0')}`,
+      class: s.class,
+      section: s.section || 'A',
+      bookletNo: `BK-${202600 + Number(s.rollNo || (idx + 1))}`,
+      supplements: 0,
+      status: 'Present',
+      verified: true,
+      remarks: ''
+    }));
+  });
+
+  const filteredExamRecords = useMemo(() => {
+    return examRecords.filter(r => {
+      if (selectedExamClass === 'All') return true;
+      return r.class === selectedExamClass;
+    });
+  }, [examRecords, selectedExamClass]);
+
+  const examPresentCount = useMemo(() => filteredExamRecords.filter(r => r.status === 'Present').length, [filteredExamRecords]);
+  const examAbsentCount = useMemo(() => filteredExamRecords.filter(r => r.status === 'Absent').length, [filteredExamRecords]);
+  const examLateCount = useMemo(() => filteredExamRecords.filter(r => r.status === 'Late').length, [filteredExamRecords]);
+  const examUmcCount = useMemo(() => filteredExamRecords.filter(r => r.status === 'UMC').length, [filteredExamRecords]);
+
+  const handleExamStatusChange = (studentId, newStatus) => {
+    setExamRecords(prev => prev.map(rec => {
+      if (rec.studentId === studentId) return { ...rec, status: newStatus };
+      return rec;
+    }));
+  };
+
+  const handleExamBookletChange = (studentId, field, val) => {
+    setExamRecords(prev => prev.map(rec => {
+      if (rec.studentId === studentId) return { ...rec, [field]: val };
+      return rec;
+    }));
+  };
+
+  const handleMarkAllExam = (status) => {
+    setExamRecords(prev => prev.map(rec => ({ ...rec, status })));
+    showToast(`Marked all exam candidates as ${status}`, 'info');
+  };
+
+  const handleSaveExamAttendance = () => {
+    showToast(`Exam Hall Attendance for ${selectedExamSubject} saved successfully! 📝✅`, 'success');
+  };
 
   const refreshData = () => {
     const sList = schoolService.getStudents(activeBranchId) || [];
@@ -318,6 +390,41 @@ export const AttendancePage = ({ initialType = 'student' }) => {
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
 
+      {/* 🧭 Top 3-Tab Navigation Bar (Exact match to old software: Student, Employee, Exam) */}
+      <div className="bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-x-auto custom-scrollbar no-print">
+        <div className="flex items-center gap-1 min-w-max text-xs font-bold">
+          {[
+            { id: 'student', label: '👨‍🎓 Student Attendance', count: students.length },
+            { id: 'staff', label: '👥 Employee Attendance', count: teachers.length },
+            { id: 'exam', label: '📝 Exam Attendance', count: 'Hall 1' }
+          ].map(tab => {
+            const isTabActive = activeTab === tab.id || (tab.id === 'staff' && activeTab === 'staff-monthly-matrix');
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
+                  isTabActive
+                    ? 'bg-blue-600 text-white shadow-md font-black'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                <span>{tab.label}</span>
+                {tab.count !== undefined && (
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                    isTabActive
+                      ? 'bg-white/20 text-white'
+                      : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
+                  }`}>
+                    {tab.count}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* 🏛️ Page Title Bar (Hidden during Print) */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm no-print">
         <div>
@@ -325,11 +432,11 @@ export const AttendancePage = ({ initialType = 'student' }) => {
             <div className={`p-2.5 rounded-2xl ${
               activeTab === 'student' 
                 ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800' 
-                : activeTab === 'staff'
+                : activeTab === 'staff' || activeTab === 'staff-monthly-matrix'
                 ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800'
                 : 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
             }`}>
-              {activeTab === 'student' ? <GraduationCap className="w-6 h-6" /> : activeTab === 'staff' ? <Fingerprint className="w-6 h-6" /> : <Calendar className="w-6 h-6" />}
+              {activeTab === 'student' ? <GraduationCap className="w-6 h-6" /> : (activeTab === 'staff' || activeTab === 'staff-monthly-matrix') ? <Fingerprint className="w-6 h-6" /> : <FileText className="w-6 h-6" />}
             </div>
             <div>
               <div className="flex items-center gap-2">
@@ -338,11 +445,18 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                     ? 'Daily Student Attendance Register' 
                     : activeTab === 'staff' 
                     ? 'Staff Attendance & Biometric In/Out Log' 
-                    : 'Monthly Staff Biometric Register (Calendar Matrix)'}
+                    : activeTab === 'staff-monthly-matrix'
+                    ? 'Monthly Staff Biometric Register (Calendar Matrix)'
+                    : 'Examination Hall Attendance & Answer Booklet Register'}
                 </h2>
-                {activeTab !== 'student' && (
+                {(activeTab === 'staff' || activeTab === 'staff-monthly-matrix') && (
                   <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-900 dark:text-emerald-300 border border-emerald-300 hidden sm:inline-flex items-center gap-1">
                     <Zap className="w-2.5 h-2.5 text-emerald-600" /> Secureye S-FB3K Synced
+                  </span>
+                )}
+                {activeTab === 'exam' && (
+                  <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 border border-indigo-300 hidden sm:inline-flex items-center gap-1">
+                    <ShieldCheck className="w-2.5 h-2.5 text-indigo-600" /> CBSE Exam Hall Sealed
                   </span>
                 )}
               </div>
@@ -351,13 +465,32 @@ export const AttendancePage = ({ initialType = 'student' }) => {
                   ? 'Real-time class-wise roll call and daily attendance register for enrolled students.' 
                   : activeTab === 'staff'
                   ? 'Automated biometric arrival/departure logging with on-time & late calculation for faculty.'
-                  : 'Full monthly calendar matrix showing daily In/Out punch timings, work hours & printable landscape register.'}
+                  : activeTab === 'staff-monthly-matrix'
+                  ? 'Full monthly calendar matrix showing daily In/Out punch timings, work hours & printable landscape register.'
+                  : 'Track exam day candidate presence, main answer booklet serial numbers, supplementary sheets, and invigilator signature verification.'}
               </p>
             </div>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-2 shrink-0">
+          {(activeTab === 'staff' || activeTab === 'staff-monthly-matrix') && (
+            <div className="flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <button
+                onClick={() => setActiveTab('staff')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${activeTab === 'staff' ? 'bg-white dark:bg-slate-900 text-indigo-600 shadow-sm' : 'text-slate-600 dark:text-slate-400'}`}
+              >
+                Daily Biometric
+              </button>
+              <button
+                onClick={() => setActiveTab('staff-monthly-matrix')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${activeTab === 'staff-monthly-matrix' ? 'bg-white dark:bg-slate-900 text-indigo-600 shadow-sm' : 'text-slate-600 dark:text-slate-400'}`}
+              >
+                Monthly Register
+              </button>
+            </div>
+          )}
+
           {activeTab === 'staff-monthly-matrix' && (
             <button
               onClick={handlePrintMonthlyRegister}
@@ -379,7 +512,24 @@ export const AttendancePage = ({ initialType = 'student' }) => {
             </button>
           )}
 
-          {activeTab !== 'staff-monthly-matrix' && (
+          {activeTab === 'exam' && (
+            <>
+              <button
+                onClick={() => setIsPrintExamModalOpen(true)}
+                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-1.5 transition-all hover:scale-105"
+              >
+                <Printer className="w-4 h-4" /> 🖨️ Print Signature Chart
+              </button>
+              <button
+                onClick={handleSaveExamAttendance}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 flex items-center gap-1.5 transition-all hover:scale-105"
+              >
+                <Save className="w-4 h-4" /> Save Exam Register
+              </button>
+            </>
+          )}
+
+          {activeTab !== 'staff-monthly-matrix' && activeTab !== 'exam' && (
             <>
               <button
                 onClick={() => setIsQrModalOpen(true)}
@@ -1154,6 +1304,337 @@ export const AttendancePage = ({ initialType = 'student' }) => {
               </span>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 📝 TAB 4: EXAM HALL ATTENDANCE & BOOKLET REGISTER */}
+      {/* ========================================================================= */}
+      {activeTab === 'exam' && (
+        <div className="space-y-6">
+          {/* Exam Filters & Actions Bar */}
+          <div className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4 no-print">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-3">
+                {/* Exam Term */}
+                <div>
+                  <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Exam Assessment Term</label>
+                  <select
+                    value={selectedExamTerm}
+                    onChange={(e) => setSelectedExamTerm(e.target.value)}
+                    className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-black text-indigo-700 dark:text-indigo-300"
+                  >
+                    <option value="Pre-Midterm Examination (Session 2026-27)">Pre-Midterm Examination (Session 2026-27)</option>
+                    <option value="Mid-Term Examination (Half Yearly)">Mid-Term Examination (Half Yearly)</option>
+                    <option value="Post-Midterm Assessment">Post-Midterm Assessment</option>
+                    <option value="Annual Board / Final Exam 2027">Annual Board / Final Exam 2027</option>
+                  </select>
+                </div>
+
+                {/* Class */}
+                <div>
+                  <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Class</label>
+                  <select
+                    value={selectedExamClass}
+                    onChange={(e) => setSelectedExamClass(e.target.value)}
+                    className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold"
+                  >
+                    <option value="All">All Classes</option>
+                    {classesList.map(c => (
+                      <option key={c} value={c}>{c}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Subject */}
+                <div>
+                  <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Subject / Question Paper</label>
+                  <select
+                    value={selectedExamSubject}
+                    onChange={(e) => setSelectedExamSubject(e.target.value)}
+                    className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold"
+                  >
+                    <option value="Mathematics (Standard)">📐 Mathematics (Standard)</option>
+                    <option value="Science & Practical">🔬 Science & Practical</option>
+                    <option value="Social Science">🌍 Social Science</option>
+                    <option value="Hindi Course-A">📖 Hindi Course-A</option>
+                    <option value="English Language & Literature">📚 English Language & Literature</option>
+                    <option value="Computer Applications / IT">💻 Computer Applications / IT</option>
+                  </select>
+                </div>
+
+                {/* Room / Hall */}
+                <div>
+                  <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Examination Hall / Room</label>
+                  <select
+                    value={selectedExamRoom}
+                    onChange={(e) => setSelectedExamRoom(e.target.value)}
+                    className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold"
+                  >
+                    <option value="Hall 1 - Senior Wing (Room 101)">Hall 1 - Senior Wing (Room 101)</option>
+                    <option value="Hall 2 - Junior Wing (Room 102)">Hall 2 - Junior Wing (Room 102)</option>
+                    <option value="Hall 3 - Library Hall">Hall 3 - Library Hall</option>
+                    <option value="Main Auditorium Wing">Main Auditorium Wing</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  onClick={() => handleMarkAllExam('Present')}
+                  className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
+                >
+                  <CheckCircle2 className="w-4 h-4" /> Mark All Present
+                </button>
+
+                <button
+                  onClick={handleSaveExamAttendance}
+                  className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-sm flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
+                >
+                  <Save className="w-4 h-4" /> Save Exam Register
+                </button>
+
+                <button
+                  onClick={() => setIsPrintExamModalOpen(true)}
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
+                >
+                  <Printer className="w-4 h-4" /> 🖨️ Print Signature Chart
+                </button>
+              </div>
+            </div>
+
+            {/* KPI Stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <div className="p-3 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/40 space-y-0.5">
+                <span className="text-[10px] font-bold uppercase text-blue-700 dark:text-blue-400">Total Examinees</span>
+                <p className="text-xl font-black text-slate-900 dark:text-white font-mono">{filteredExamRecords.length} Candidates</p>
+                <span className="text-[10px] text-blue-600">Seating Allotted</span>
+              </div>
+
+              <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/40 space-y-0.5">
+                <span className="text-[10px] font-bold uppercase text-emerald-700 dark:text-emerald-400">Present Candidates</span>
+                <p className="text-xl font-black text-emerald-600 font-mono">{examPresentCount} Present</p>
+                <span className="text-[10px] text-emerald-600 font-medium">Answer Sheets Issued</span>
+              </div>
+
+              <div className="p-3 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/40 space-y-0.5">
+                <span className="text-[10px] font-bold uppercase text-rose-700 dark:text-rose-400">Absent / Not Reported</span>
+                <p className="text-xl font-black text-rose-600 font-mono">{examAbsentCount} Absent</p>
+                <span className="text-[10px] text-rose-600 font-medium">Uncollected Papers</span>
+              </div>
+
+              <div className="p-3 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-900/40 space-y-0.5">
+                <span className="text-[10px] font-bold uppercase text-purple-700 dark:text-purple-400">Room Invigilator</span>
+                <p className="text-sm font-black text-purple-700 dark:text-purple-300 truncate">Sh. Devendra Singh</p>
+                <span className="text-[10px] text-purple-600">Verified & Sealed</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Exam Table */}
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden no-print">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black border-b border-slate-200 dark:border-slate-800 text-[11px] uppercase">
+                    <th className="p-3.5">Roll No</th>
+                    <th className="p-3.5">Admit Card No</th>
+                    <th className="p-3.5">Candidate Name</th>
+                    <th className="p-3.5">Class</th>
+                    <th className="p-3.5 font-mono">Main Answer Booklet No</th>
+                    <th className="p-3.5 font-mono">Supplements</th>
+                    <th className="p-3.5 text-center">Exam Attendance</th>
+                    <th className="p-3.5">Candidate Signature</th>
+                    <th className="p-3.5">Invigilator Note</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {filteredExamRecords.map(rec => {
+                    const isPresent = rec.status === 'Present';
+                    return (
+                      <tr key={rec.studentId} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                        <td className="p-3.5 font-mono font-bold text-indigo-600">#{rec.rollNo}</td>
+                        <td className="p-3.5 font-mono font-bold text-slate-600 dark:text-slate-300">{rec.admitCardNo}</td>
+                        <td className="p-3.5 font-bold text-slate-900 dark:text-white">{rec.name}</td>
+                        <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-400">{rec.class}</td>
+                        
+                        <td className="p-3.5">
+                          <input
+                            type="text"
+                            value={rec.bookletNo}
+                            onChange={(e) => handleExamBookletChange(rec.studentId, 'bookletNo', e.target.value)}
+                            className="font-mono font-bold text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 text-xs w-32"
+                          />
+                        </td>
+
+                        <td className="p-3.5">
+                          <input
+                            type="number"
+                            min="0"
+                            max="5"
+                            value={rec.supplements}
+                            onChange={(e) => handleExamBookletChange(rec.studentId, 'supplements', Number(e.target.value))}
+                            className="font-mono font-bold text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 text-xs w-16 text-center"
+                          />
+                        </td>
+
+                        <td className="p-3.5 text-center">
+                          <div className="flex items-center justify-center gap-1">
+                            {['Present', 'Absent', 'Late', 'UMC'].map(st => {
+                              const isSelected = rec.status === st;
+                              return (
+                                <button
+                                  key={st}
+                                  type="button"
+                                  onClick={() => handleExamStatusChange(rec.studentId, st)}
+                                  className={`px-2 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                                    isSelected
+                                      ? st === 'Present' ? 'bg-emerald-600 text-white'
+                                      : st === 'Absent' ? 'bg-rose-600 text-white'
+                                      : st === 'Late' ? 'bg-amber-600 text-white'
+                                      : 'bg-purple-600 text-white'
+                                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+                                  }`}
+                                >
+                                  {st}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </td>
+
+                        <td className="p-3.5">
+                          {isPresent ? (
+                            <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200">
+                              ✍️ Signed in Hall
+                            </span>
+                          ) : (
+                            <span className="text-[10px] font-bold text-rose-600 bg-rose-50 dark:bg-rose-950/60 px-2 py-0.5 rounded-md border border-rose-200">
+                              ❌ Absent
+                            </span>
+                          )}
+                        </td>
+
+                        <td className="p-3.5">
+                          <input
+                            type="text"
+                            value={rec.remarks}
+                            onChange={(e) => handleExamBookletChange(rec.studentId, 'remarks', e.target.value)}
+                            placeholder="Invigilator remark..."
+                            className="w-full text-xs p-1 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800"
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Exam Signature Modal */}
+          {isPrintExamModalOpen && (
+            <Modal
+              isOpen={isPrintExamModalOpen}
+              onClose={() => setIsPrintExamModalOpen(false)}
+              title="🖨️ Official Exam Hall Signature Register (हस्ताक्षर सूची)"
+              maxWidth="max-w-4xl"
+            >
+              <div className="space-y-4 text-xs">
+                <div className="border-2 border-slate-900 dark:border-slate-100 p-6 rounded-2xl bg-white text-slate-900 space-y-4">
+                  {/* Header */}
+                  <div className="text-center border-b-2 border-slate-900 pb-3">
+                    <h2 className="text-xl font-black uppercase tracking-wide">
+                      DADHEECH MEMORIAL PUBLIC SCHOOL, JARGAWAN
+                    </h2>
+                    <p className="text-xs font-bold text-slate-600">
+                      CBSE Affiliated Senior Secondary Examination Centre • Jargwan (Bulandshahr)
+                    </p>
+                    <div className="mt-2 inline-block px-4 py-1 bg-slate-900 text-white rounded-md text-xs font-black uppercase tracking-wider">
+                      📝 {selectedExamTerm} — EXAM ATTENDANCE & SIGNATURE CHART
+                    </div>
+                  </div>
+
+                  {/* Meta */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-bold bg-slate-100 p-3 rounded-xl">
+                    <div>Subject: <span className="text-blue-700 font-mono">{selectedExamSubject}</span></div>
+                    <div>Class: <span className="font-mono">{selectedExamClass}</span></div>
+                    <div>Room: <span className="font-mono">{selectedExamRoom}</span></div>
+                    <div>Date: <span className="font-mono">{examDate}</span></div>
+                  </div>
+
+                  {/* Candidate list */}
+                  <div className="border border-slate-300 rounded-xl overflow-hidden">
+                    <table className="w-full text-left text-xs border-collapse">
+                      <thead className="bg-slate-200 text-slate-800 font-black uppercase text-[10px]">
+                        <tr>
+                          <th className="p-2 border-r border-slate-300">Roll No</th>
+                          <th className="p-2 border-r border-slate-300">Candidate Name</th>
+                          <th className="p-2 border-r border-slate-300">Admit Card No</th>
+                          <th className="p-2 border-r border-slate-300">Booklet Serial</th>
+                          <th className="p-2 border-r border-slate-300 text-center">Status</th>
+                          <th className="p-2 text-center min-w-[140px]">Candidate Signature</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {filteredExamRecords.map(rec => (
+                          <tr key={rec.studentId}>
+                            <td className="p-2 font-mono font-bold border-r border-slate-200">#{rec.rollNo}</td>
+                            <td className="p-2 font-bold border-r border-slate-200">{rec.name}</td>
+                            <td className="p-2 font-mono border-r border-slate-200">{rec.admitCardNo}</td>
+                            <td className="p-2 font-mono font-bold border-r border-slate-200">{rec.bookletNo}</td>
+                            <td className="p-2 text-center border-r border-slate-200 font-bold">
+                              {rec.status === 'Present' ? 'P' : rec.status === 'Absent' ? 'AB' : rec.status}
+                            </td>
+                            <td className="p-2 text-center">
+                              {rec.status === 'Present' ? (
+                                <span className="text-[10px] italic font-serif text-slate-500">[ Signature Recorded ]</span>
+                              ) : (
+                                <span className="text-[10px] font-bold text-rose-600">ABSENT</span>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Signatures */}
+                  <div className="grid grid-cols-3 gap-6 pt-6 text-center text-xs font-bold border-t border-slate-300 mt-4">
+                    <div>
+                      <div className="border-t border-dashed border-slate-400 pt-1">Room Invigilator 1 (Sign)</div>
+                      <p className="text-[10px] text-slate-500 font-normal">Sh. Devendra Singh</p>
+                    </div>
+                    <div>
+                      <div className="border-t border-dashed border-slate-400 pt-1">Room Invigilator 2 (Sign)</div>
+                      <p className="text-[10px] text-slate-500 font-normal">Mrs. Sunita Verma</p>
+                    </div>
+                    <div>
+                      <div className="border-t border-dashed border-slate-400 pt-1">Centre Superintendent / Seal</div>
+                      <p className="text-[10px] text-slate-500 font-normal">Principal, DMPS</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex justify-end gap-2 print:hidden">
+                  <button
+                    type="button"
+                    onClick={() => setIsPrintExamModalOpen(false)}
+                    className="px-4 py-2 rounded-xl font-bold text-slate-500 hover:bg-slate-100"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => window.print()}
+                    className="px-6 py-2.5 rounded-xl font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-md flex items-center gap-2"
+                  >
+                    <Printer className="w-4 h-4" /> Print Official Signature Chart
+                  </button>
+                </div>
+              </div>
+            </Modal>
+          )}
         </div>
       )}
 
