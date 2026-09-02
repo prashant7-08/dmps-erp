@@ -67,17 +67,52 @@
   *, *::before, *::after {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
 
   html, body {
     background: #ffffff !important;
-    color: #0f172a !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
     margin: 0 !important;
     padding: 0 !important;
     font-size: 11px !important;
     width: 100% !important;
     height: auto !important;
     overflow: visible !important;
+  }
+
+  /* Force pure white background on all containers and tables in print */
+  #root,
+  .dark,
+  [class*="dark:bg-"],
+  [class*="bg-slate-"],
+  [class*="bg-zinc-"],
+  div,
+  main,
+  section,
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  th {
+    background: #f8fafc !important;
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    border-bottom: 2px solid #0f172a !important;
+  }
+
+  td {
+    border-bottom: 1px solid #e2e8f0 !important;
   }
 
   /* Hide Navigation, Sidebar, Headers, Buttons, Floating widgets */

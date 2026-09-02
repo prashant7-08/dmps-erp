@@ -467,7 +467,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
     <div className="space-y-6 animate-in fade-in duration-300">
       
       {/* 🏛️ Top "Select Ground" Filter Card (Exact Matching Old Software) */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden print:hidden">
         <div className="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 px-5 py-3 text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <GraduationCap className="w-5 h-5" />
@@ -563,7 +563,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
         
         {/* Table Toolbar Header */}
-        <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-3 bg-slate-50/50 dark:bg-slate-800/40">
+        <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-3 bg-slate-50/50 dark:bg-slate-800/40 print:hidden">
           
           {/* Export Icons Toolbar */}
           <div className="flex items-center gap-1.5 flex-wrap">
@@ -625,12 +625,42 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
           </div>
         </div>
 
+        {/* 🏫 OFFICIAL SCHOOL PRINT HEADER (Visible ONLY on Printouts) */}
+        <div className="hidden print:block p-4 bg-white text-slate-950 border-b-2 border-slate-950 mb-3">
+          <div className="flex items-center justify-between gap-4 pb-2 border-b border-slate-300">
+            <div className="w-14 h-14 rounded-2xl bg-amber-400 text-slate-950 font-black text-sm flex items-center justify-center border border-slate-950 shrink-0">
+              DMPS
+            </div>
+            <div className="flex-1 text-center">
+              <h1 className="text-xl font-black text-slate-950 uppercase tracking-wide">
+                DADHEECH MEMORIAL PUBLIC SCHOOL
+              </h1>
+              <p className="text-xs font-bold text-slate-800">
+                Affiliated to Central Board of Secondary Education (CBSE), New Delhi • Affiliation No: 2133481 | School Code: 61348
+              </p>
+              <p className="text-[11px] text-slate-600">
+                Ramghat Road, Jargwan, Bulandshahr, Uttar Pradesh - 202395 | Helpline: +91 97588 82443, +91 98371 00000
+              </p>
+            </div>
+            <div className="text-right text-[10px] font-mono font-bold text-slate-700 shrink-0">
+              <p>Session: 2026-2027</p>
+              <p>Date: {new Date().toLocaleDateString('en-GB')}</p>
+            </div>
+          </div>
+
+          <div className="mt-2 flex items-center justify-between text-xs font-black uppercase text-slate-900">
+            <span>📋 OFFICIAL STUDENT ENROLMENT & ROLL REGISTER</span>
+            <span>Class: {selectedClass === 'all' ? 'All Classes' : selectedClass} | Section: {selectedSection === 'all' ? 'All' : selectedSection}</span>
+            <span>Total Enrolled: {filteredStudents.length} Students</span>
+          </div>
+        </div>
+
         {/* 📜 Responsive Table View */}
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
               <tr className="bg-slate-100/90 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold border-b border-slate-200 dark:border-slate-700 select-none">
-                <th className="p-3 text-center w-10">
+                <th className="p-3 text-center w-10 print:hidden">
                   <input
                     type="checkbox"
                     onChange={handleSelectAll}
@@ -638,7 +668,8 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                     className="rounded text-sky-600 focus:ring-sky-500"
                   />
                 </th>
-                <th className="p-3">Photo</th>
+                <th className="p-3 hidden print:table-cell text-center w-10">Sr. No</th>
+                <th className="p-3 print:hidden">Photo</th>
                 <th className="p-3">Name</th>
                 <th className="p-3">Father Name</th>
                 <th className="p-3">Mother Name</th>
@@ -653,7 +684,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                 <th className="p-3">PEN No.</th>
                 <th className="p-3">Student Aadhaar</th>
                 <th className="p-3 text-center">Status</th>
-                <th className="p-3 text-right">Actions</th>
+                <th className="p-3 text-right print:hidden">Actions</th>
               </tr>
             </thead>
 
@@ -671,7 +702,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                   </td>
                 </tr>
               ) : (
-                paginatedStudents.map((student) => {
+                paginatedStudents.map((student, index) => {
                   const isSelected = selectedStudentIds.includes(student.id);
                   const isInactive = student.status === 'Inactive';
 
@@ -683,7 +714,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                       }`}
                     >
                       {/* Checkbox */}
-                      <td className="p-3 text-center">
+                      <td className="p-3 text-center print:hidden">
                         <input
                           type="checkbox"
                           checked={isSelected}
@@ -692,8 +723,13 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                         />
                       </td>
 
+                      {/* Sr. No (Print Only) */}
+                      <td className="p-3 hidden print:table-cell text-center font-bold">
+                        {index + 1}
+                      </td>
+
                       {/* Photo Thumbnail */}
-                      <td className="p-3">
+                      <td className="p-3 print:hidden">
                         <img
                           src={student.photo || `https://ui-avatars.com/api/?name=${student.name.replace(' ', '+')}&background=4F46E5&color=fff&size=128&bold=true`}
                           alt={student.name}
@@ -797,7 +833,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                       </td>
 
                       {/* Actions */}
-                      <td className="p-3 text-right whitespace-nowrap">
+                      <td className="p-3 text-right whitespace-nowrap print:hidden">
                         <div className="flex items-center justify-end gap-1.5">
                           
                           {/* View Profile */}
@@ -864,7 +900,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
 
         {/* 📑 Table Pagination Footer */}
         {filteredStudents.length > 0 && rowsPerPage !== 'All' && (
-          <div className="p-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400 bg-slate-50/50 dark:bg-slate-800/40">
+          <div className="p-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400 bg-slate-50/50 dark:bg-slate-800/40 print:hidden">
             <div>
               Showing <span className="font-bold text-slate-900 dark:text-white">{(currentPage - 1) * Number(rowsPerPage) + 1}</span> to{' '}
               <span className="font-bold text-slate-900 dark:text-white">
@@ -896,6 +932,22 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
             </div>
           </div>
         )}
+
+        {/* ✍️ OFFICIAL PRINT SIGNATURE FOOTER */}
+        <div className="hidden print:flex justify-between items-end mt-12 px-6 py-4 text-xs font-bold text-slate-950 bg-white">
+          <div className="text-center">
+            <div className="w-44 border-b border-slate-900 mb-1"></div>
+            <p>Class Incharge / Prepared By</p>
+          </div>
+          <div className="text-center">
+            <div className="w-44 border-b border-slate-900 mb-1"></div>
+            <p>Admission & Accounts Cell</p>
+          </div>
+          <div className="text-center">
+            <div className="w-44 border-b border-slate-900 mb-1"></div>
+            <p>Principal Signature & Official Stamp</p>
+          </div>
+        </div>
       </div>
 
       {/* ========================================================== */}
