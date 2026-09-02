@@ -271,11 +271,9 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
 
   // Navigation Tabs
   const navTabs = [
-    { id: 'inquiries', label: 'Admission Inquiries', icon: Phone, count: inquiries.length },
+    { id: 'inquiries', label: 'Admission Inquiries & Desk', icon: Phone, count: inquiries.length },
     { id: 'visitors', label: 'Visitor Gate Passes', icon: ShieldCheck, count: visitors.filter(v => v.status === 'Inside Campus').length },
-    { id: 'calls', label: 'Phone Call Logs', icon: PhoneCall, count: callLogs.length },
-    { id: 'postal', label: 'Postal / Courier Records', icon: Package, count: postalRecords.length },
-    { id: 'complaints', label: 'Grievances & Tickets', icon: ShieldAlert, count: complaints.filter(c => c.status !== 'Resolved').length }
+    { id: 'complaints', label: 'Grievance & Complaints', icon: ShieldAlert, count: complaints.filter(c => c.status !== 'Resolved').length }
   ];
 
   return (

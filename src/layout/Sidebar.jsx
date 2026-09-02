@@ -58,8 +58,6 @@ export const navigationGroups = [
     items: [
       { id: 'helpdesk-inquiries', label: 'Admission Inquiries & Desk', badge: 'Live' },
       { id: 'helpdesk-passes', label: 'Visitor Gate Passes', badge: null },
-      { id: 'helpdesk-calls', label: 'Phone Call Logs', badge: 'Calls' },
-      { id: 'helpdesk-postal', label: 'Postal & Courier Records', badge: null },
       { id: 'helpdesk-grievance', label: 'Grievance & Complaints', badge: null }
     ]
   },
