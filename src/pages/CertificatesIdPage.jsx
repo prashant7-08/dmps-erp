@@ -473,7 +473,77 @@ export const CertificatesIdPage = ({ initialSection = 'student_cards' }) => {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
-      
+
+      {/* 🧭 Top 5-Tab Navigation Bar for CARD MANAGEMENT (Exact match to old software) */}
+      {(['templates', 'student_cards', 'employee_cards', 'admit_template', 'admit_cards'].includes(activeSection)) && (
+        <div className="bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-x-auto custom-scrollbar print:hidden">
+          <div className="flex items-center gap-1 min-w-max text-xs font-bold">
+            {[
+              { id: 'templates', label: '🪪 Id Card Templete', count: templates.length },
+              { id: 'student_cards', label: '🎓 Student Id Card', count: students.length },
+              { id: 'employee_cards', label: '👥 Employee Id Card', count: teachers.length },
+              { id: 'admit_template', label: '🎫 Admit Card Templete', count: 'CBSE' },
+              { id: 'admit_cards', label: '📋 Generate Admit Card', count: 'Live' }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveSection(tab.id)}
+                className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
+                  activeSection === tab.id
+                    ? 'bg-blue-600 text-white shadow-md font-black'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                <span>{tab.label}</span>
+                {tab.count !== undefined && (
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                    activeSection === tab.id
+                      ? 'bg-white/20 text-white'
+                      : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
+                  }`}>
+                    {tab.count}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 🧭 Top 3-Tab Navigation Bar for CERTIFICATES */}
+      {(['cert_template', 'certificates', 'employee_certificates'].includes(activeSection)) && (
+        <div className="bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-x-auto custom-scrollbar print:hidden">
+          <div className="flex items-center gap-1 min-w-max text-xs font-bold">
+            {[
+              { id: 'cert_template', label: '📜 Certificate Template', count: 4 },
+              { id: 'certificates', label: '🎓 Student Certificate (TC/Character/Merit)', count: certificates.length },
+              { id: 'employee_certificates', label: '👥 Employee Experience & Relieving Certificate', count: 3 }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveSection(tab.id)}
+                className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
+                  activeSection === tab.id
+                    ? 'bg-blue-600 text-white shadow-md font-black'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                <span>{tab.label}</span>
+                {tab.count !== undefined && (
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                    activeSection === tab.id
+                      ? 'bg-white/20 text-white'
+                      : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
+                  }`}>
+                    {tab.count}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* 🏷️ Master Breadcrumb Header (Hidden on Print) */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 print:hidden">
         <div className="flex items-center gap-3">
