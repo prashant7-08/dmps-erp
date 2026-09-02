@@ -308,10 +308,17 @@ function AppContent() {
       case 'cert-generate-employee':
         return <CertificatesIdPage initialSection={activeTab} />;
       case 'payroll':
+      case 'human-resource':
       case 'hr-template':
       case 'hr-assign':
       case 'hr-payment':
       case 'hr-advance':
+      case 'hr-advance-my':
+      case 'hr-advance-manage':
+      case 'hr-leave':
+      case 'hr-leave-category':
+      case 'hr-leave-my':
+      case 'hr-leave-manage':
       case 'hr-award':
         return <HRPayrollPage initialTab={activeTab} />;
       case 'office-account':

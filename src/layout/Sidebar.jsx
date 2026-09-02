@@ -208,6 +208,23 @@ export const navigationGroups = [
     ]
   },
   {
+    id: 'human-resource-group',
+    permissionKey: 'human_resource',
+    label: 'HUMAN RESOURCE',
+    icon: Briefcase,
+    items: [
+      { id: 'hr-template', targetTab: 'payroll', subTab: 'template', label: 'Salary Template', badge: 'Grade' },
+      { id: 'hr-assign', targetTab: 'payroll', subTab: 'assign', label: 'Salary Assign', badge: null },
+      { id: 'hr-payment', targetTab: 'payroll', subTab: 'payment', label: 'Salary Payment', badge: 'Payslip' },
+      { id: 'hr-advance-my', targetTab: 'payroll', subTab: 'advance-my', label: 'Advance Salary (My App)', badge: null },
+      { id: 'hr-advance-manage', targetTab: 'payroll', subTab: 'advance-manage', label: 'Advance Salary (Manage)', badge: 'Advance' },
+      { id: 'hr-leave-category', targetTab: 'payroll', subTab: 'leave-category', label: 'Leave Category', badge: null },
+      { id: 'hr-leave-my', targetTab: 'payroll', subTab: 'leave-my', label: 'Leave (My Application)', badge: null },
+      { id: 'hr-leave-manage', targetTab: 'payroll', subTab: 'leave-manage', label: 'Leave (Manage Application)', badge: 'Leave' },
+      { id: 'hr-award', targetTab: 'payroll', subTab: 'award', label: 'Award', badge: 'Award' }
+    ]
+  },
+  {
     id: 'academic-group',
     permissionKey: 'academic',
     label: 'ACADEMIC',
