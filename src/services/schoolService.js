@@ -2872,6 +2872,121 @@ class SchoolService {
   }
 
   // ==========================================
+  // 📞 PHONE CALL LOGS (Reception Desk)
+  // ==========================================
+  getCallLogs() {
+    if (!Array.isArray(this.data?.callLogs)) {
+      this.data.callLogs = [
+        {
+          id: 'CALL-101',
+          date: '02/09/2026',
+          time: '10:15 AM',
+          callerName: 'Sunil Sharma (Father)',
+          phone: '9897123456',
+          callType: 'Incoming',
+          purpose: 'Fee Inquiry & Term 2 Due Balance',
+          duration: '3m 20s',
+          response: 'Informed about online portal login and due amount ₹4,200',
+          followUpDate: '05/09/2026',
+          status: 'Resolved'
+        },
+        {
+          id: 'CALL-102',
+          date: '02/09/2026',
+          time: '11:40 AM',
+          callerName: 'Mrs. Rekha Devi (Mother)',
+          phone: '9412987654',
+          callType: 'Incoming',
+          purpose: 'Transport Route #3 Timing & Stoppage',
+          duration: '2m 10s',
+          response: 'Shared driver contact and scheduled morning pickup time 7:25 AM',
+          followUpDate: null,
+          status: 'Resolved'
+        }
+      ];
+      this.saveData();
+    }
+    return this.data.callLogs;
+  }
+
+  addCallLog(logData) {
+    if (!Array.isArray(this.data?.callLogs)) this.data.callLogs = [];
+    const newLog = {
+      id: `CALL-${Math.floor(100 + Math.random() * 900)}`,
+      date: new Date().toLocaleDateString('en-GB'),
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      status: logData.status || 'Resolved',
+      ...logData
+    };
+    this.data.callLogs.unshift(newLog);
+    this.saveData();
+    return newLog;
+  }
+
+  deleteCallLog(id) {
+    if (!Array.isArray(this.data?.callLogs)) return false;
+    this.data.callLogs = this.data.callLogs.filter(c => c.id !== id);
+    this.saveData();
+    return true;
+  }
+
+  // ==========================================
+  // 📦 POSTAL & COURIER RECORDS (Dispatch / Receive)
+  // ==========================================
+  getPostalRecords() {
+    if (!Array.isArray(this.data?.postalRecords)) {
+      this.data.postalRecords = [
+        {
+          id: 'POST-101',
+          type: 'Received',
+          trackingNo: 'ED829374921IN',
+          title: 'CBSE Board Circular & Exam Guidelines 2026',
+          sender: 'CBSE Regional Office, Noida',
+          receiver: 'Principal / Exam Cell, DMPS',
+          courierAgency: 'India Post Speed Post',
+          date: '01/09/2026',
+          confidential: false,
+          notes: 'Received by Front Desk, handed over to Principal Office'
+        },
+        {
+          id: 'POST-102',
+          type: 'Dispatched',
+          trackingNo: 'DTDC9823412',
+          title: 'Student Transfer Certificate (TC) & Marksheets',
+          sender: 'DMPS Reception Desk',
+          receiver: 'St. Paul School, Aligarh',
+          courierAgency: 'DTDC Express',
+          date: '02/09/2026',
+          confidential: true,
+          notes: 'Speed delivery requested by parent'
+        }
+      ];
+      this.saveData();
+    }
+    return this.data.postalRecords;
+  }
+
+  addPostalRecord(postalData) {
+    if (!Array.isArray(this.data?.postalRecords)) this.data.postalRecords = [];
+    const newPost = {
+      id: `POST-${Math.floor(100 + Math.random() * 900)}`,
+      date: new Date().toLocaleDateString('en-GB'),
+      type: postalData.type || 'Received',
+      ...postalData
+    };
+    this.data.postalRecords.unshift(newPost);
+    this.saveData();
+    return newPost;
+  }
+
+  deletePostalRecord(id) {
+    if (!Array.isArray(this.data?.postalRecords)) return false;
+    this.data.postalRecords = this.data.postalRecords.filter(p => p.id !== id);
+    this.saveData();
+    return true;
+  }
+
+  // ==========================================
   // 💾 1-CLICK BACKUP & DATABASE MANAGEMENT
   // ==========================================
   exportDatabaseJSON() {

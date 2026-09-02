@@ -283,6 +283,8 @@ function AppContent() {
       case 'helpdesk-visitors':
       case 'helpdesk-inquiries':
       case 'helpdesk-passes':
+      case 'helpdesk-calls':
+      case 'helpdesk-postal':
       case 'helpdesk-grievance':
       case 'admission-online':
         return <HelpdeskVisitorsPage initialTab={activeTab} />;
