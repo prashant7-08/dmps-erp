@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   Clock,
   User,
+  Users,
   ShieldCheck,
   Printer,
   Phone,
@@ -231,10 +232,10 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
         };
       case 'visitors':
         return {
-          icon: <ShieldCheck className="w-5 h-5 text-indigo-600" />,
-          title: 'Visitor Logbook & Gate Pass Register',
-          subtitle: 'Issue computerized gate passes and verify visitor check-in / check-out timestamps.',
-          badge: 'Campus Security'
+          icon: <Users className="w-5 h-5 text-indigo-600" />,
+          title: 'Visitors Logbook & Register',
+          subtitle: 'Record and track visitor check-in details, purpose, and departure times.',
+          badge: 'Reception Desk'
         };
       case 'calls':
         return {
@@ -272,7 +273,7 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
   // Navigation Tabs
   const navTabs = [
     { id: 'inquiries', label: 'Admission Inquiries & Desk', icon: Phone, count: inquiries.length },
-    { id: 'visitors', label: 'Visitor Gate Passes', icon: ShieldCheck, count: visitors.filter(v => v.status === 'Inside Campus').length },
+    { id: 'visitors', label: 'Visitors Logbook', icon: Users, count: visitors.filter(v => v.status === 'Inside Campus').length },
     { id: 'complaints', label: 'Grievance & Complaints', icon: ShieldAlert, count: complaints.filter(c => c.status !== 'Resolved').length }
   ];
 
@@ -501,10 +502,10 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
             <div>
               <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-indigo-600" /> Campus Security & Visitor Logbook
+                <Users className="w-5 h-5 text-indigo-600" /> Visitors Logbook & Register
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">
-                Issue visitor gate pass slips and track security check-in & check-out.
+                Record and track visitor arrival, purpose, and meeting logs.
               </p>
             </div>
             <span className="px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 text-xs font-bold border border-indigo-200 dark:border-indigo-800">
@@ -516,19 +517,17 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
             <table className="w-full text-left text-xs border-collapse">
               <thead>
                 <tr className="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
-                  <th className="p-4">Pass Number</th>
                   <th className="p-4">Visitor Name & Phone</th>
                   <th className="p-4">Purpose of Visit</th>
                   <th className="p-4">Person to Meet</th>
                   <th className="p-4">Entry / Exit Time</th>
                   <th className="p-4">Status</th>
-                  <th className="p-4 text-right">Gate Action</th>
+                  <th className="p-4 text-right">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 {visitors.map(vis => (
                   <tr key={vis.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                    <td className="p-4 font-mono font-bold text-slate-900 dark:text-white">{vis.passNo}</td>
                     <td className="p-4">
                       <p className="font-bold text-slate-900 dark:text-white">{vis.name}</p>
                       <p className="text-[10px] text-slate-500 font-mono">{vis.mobile}</p>
@@ -543,17 +542,7 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
                         {vis.status}
                       </Badge>
                     </td>
-                    <td className="p-4 text-right space-x-2">
-                      <button
-                        onClick={() => {
-                          setSelectedPassForPrint(vis);
-                          setTimeout(() => window.print(), 200);
-                        }}
-                        className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg font-bold text-xs inline-flex items-center gap-1"
-                        title="Print Gate Pass Slip"
-                      >
-                        <Printer className="w-3 h-3" /> Print
-                      </button>
+                    <td className="p-4 text-right">
                       {vis.status === 'Inside Campus' ? (
                         <button
                           onClick={() => handleCheckoutVisitor(vis.id)}
@@ -820,10 +809,12 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
       {/* ========================================================================= */}
       {/* MODAL 1: Issue Visitor Gate Pass */}
       {/* ========================================================================= */}
+      {/* MODAL 1: Add Visitor Log Entry */}
+      {/* ========================================================================= */}
       <Modal
         isOpen={isNewVisitorModalOpen}
         onClose={() => setIsNewVisitorModalOpen(false)}
-        title="Issue Campus Security Gate Pass"
+        title="New Visitor Log Entry"
         maxWidth="max-w-xl"
       >
         <form onSubmit={handleCreateVisitor} className="space-y-4 text-xs">
