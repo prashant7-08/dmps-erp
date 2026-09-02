@@ -276,7 +276,11 @@ function AppContent() {
       case 'transport-allocation':
         return <TransportPage initialSection={activeTab} />;
       case 'hostel':
-        return <HostelPage />;
+      case 'hostel-master':
+      case 'hostel-room':
+      case 'hostel-category':
+      case 'hostel-allocation':
+        return <HostelPage initialSection={activeTab} />;
       case 'medical':
         return <MedicalPage />;
       case 'sports':

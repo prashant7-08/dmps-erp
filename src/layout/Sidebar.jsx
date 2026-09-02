@@ -145,13 +145,15 @@ export const navigationGroups = [
     label: 'SUPERVISION',
     icon: Home,
     items: [
+      { id: 'hostel-master', targetTab: 'hostel', subTab: 'master', label: 'Hostel Master', badge: null },
+      { id: 'hostel-room', targetTab: 'hostel', subTab: 'rooms', label: 'Hostel Room', badge: null },
+      { id: 'hostel-category', targetTab: 'hostel', subTab: 'category', label: 'Category', badge: null },
+      { id: 'hostel-allocation', targetTab: 'hostel', subTab: 'allocation', label: 'Allocation Report', badge: null },
       { id: 'transport-routes', targetTab: 'transport', subTab: 'routes', label: 'Route Master', badge: null },
       { id: 'transport-vehicles', targetTab: 'transport', subTab: 'vehicles', label: 'Vehicle Master', badge: null },
       { id: 'transport-stoppage', targetTab: 'transport', subTab: 'stoppage', label: 'Stoppage', badge: '41' },
       { id: 'transport-assign', targetTab: 'transport', subTab: 'assign', label: 'Assign Stopage', badge: null },
-      { id: 'transport-allocation', targetTab: 'transport', subTab: 'allocation', label: 'Allocation Report', badge: null },
-      { id: 'hostel', targetTab: 'hostel', label: 'Hostel & Rooms', badge: null },
-      { id: 'medical', targetTab: 'medical', label: 'Medical & Health', badge: null }
+      { id: 'transport-allocation', targetTab: 'transport', subTab: 'allocation', label: 'Allocation Report', badge: null }
     ]
   },
   {
