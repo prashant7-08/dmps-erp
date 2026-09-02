@@ -268,7 +268,19 @@ function AppContent() {
       case 'exam-grades-range':
         return <ExaminationPage initialTab={activeTab} />;
       case 'notices':
-        return <NoticeCommunicationPage />;
+      case 'bulk-sms':
+      case 'sms-send':
+      case 'sms-report':
+      case 'sms-template':
+      case 'email-template':
+      case 'sms-birthday-student':
+      case 'sms-birthday-staff':
+      case 'message':
+      case 'message-inbox':
+      case 'message-compose':
+      case 'message-sent':
+      case 'message-trash':
+        return <NoticeCommunicationPage initialTab={activeTab} />;
       case 'parent-portal':
         return <ParentPortalPage onOpenAI={() => setIsAiModalOpen(true)} />;
       case 'student-portal':
@@ -356,7 +368,15 @@ function AppContent() {
       case 'admission-online':
         return <HelpdeskVisitorsPage initialTab={activeTab} />;
       case 'reports':
-        return <ReportsPage />;
+      case 'reports-student':
+      case 'reports-students':
+      case 'reports-fees':
+      case 'reports-financial':
+      case 'reports-attendance':
+      case 'reports-hr':
+      case 'reports-exam':
+      case 'reports-inventory':
+        return <ReportsPage initialTab={activeTab} />;
       case 'settings':
         return <SettingsPage />;
       default:

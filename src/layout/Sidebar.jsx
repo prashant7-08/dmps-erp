@@ -294,12 +294,29 @@ export const navigationGroups = [
     ]
   },
   {
-    id: 'sms-notices-group',
+    id: 'bulk-sms-group',
     permissionKey: 'sms_notices',
-    label: 'BULK SMS AND NOTICES',
+    label: 'BULK SMS AND EMAIL',
     icon: Bell,
     items: [
-      { id: 'notices', label: 'Circulars & Broadcast', badge: 'Notice' }
+      { id: 'sms-send', targetTab: 'notices', subTab: 'send', label: 'Send Sms / Email', badge: 'Broadcast' },
+      { id: 'sms-report', targetTab: 'notices', subTab: 'report', label: 'Sms / Email Report', badge: 'Logs' },
+      { id: 'sms-template', targetTab: 'notices', subTab: 'sms-template', label: 'Sms Template', badge: null },
+      { id: 'email-template', targetTab: 'notices', subTab: 'email-template', label: 'Email Template', badge: null },
+      { id: 'sms-birthday-student', targetTab: 'notices', subTab: 'birthday-student', label: 'Student Birthday Wishes', badge: '🎂' },
+      { id: 'sms-birthday-staff', targetTab: 'notices', subTab: 'birthday-staff', label: 'Staff Birthday Wishes', badge: '🎉' }
+    ]
+  },
+  {
+    id: 'message-group',
+    permissionKey: 'sms_notices',
+    label: 'MESSAGE (MAILBOX)',
+    icon: Mail,
+    items: [
+      { id: 'message-inbox', targetTab: 'notices', subTab: 'mailbox-inbox', label: 'Inbox', badge: '0' },
+      { id: 'message-compose', targetTab: 'notices', subTab: 'mailbox-compose', label: 'Compose Message', badge: 'New' },
+      { id: 'message-sent', targetTab: 'notices', subTab: 'mailbox-sent', label: 'Sent', badge: null },
+      { id: 'message-trash', targetTab: 'notices', subTab: 'mailbox-trash', label: 'Trash', badge: null }
     ]
   },
   {
@@ -308,7 +325,13 @@ export const navigationGroups = [
     label: 'REPORTS',
     icon: BarChart3,
     items: [
-      { id: 'reports', label: 'Consolidated School Reports', badge: 'All' }
+      { id: 'reports-student', targetTab: 'reports', subTab: 'students', label: 'STUDENT REPORTS', badge: 'Student' },
+      { id: 'reports-fees', targetTab: 'reports', subTab: 'fees', label: 'FEES REPORTS', badge: 'Fees' },
+      { id: 'reports-financial', targetTab: 'reports', subTab: 'financial', label: 'FINANCIAL REPORTS', badge: 'Accounts' },
+      { id: 'reports-attendance', targetTab: 'reports', subTab: 'attendance', label: 'ATTENDANCE REPORTS', badge: 'Biometric' },
+      { id: 'reports-hr', targetTab: 'reports', subTab: 'hr', label: 'HUMAN RESOURCE', badge: 'HR' },
+      { id: 'reports-exam', targetTab: 'reports', subTab: 'exam', label: 'EXAMINATION', badge: 'Marks' },
+      { id: 'reports-inventory', targetTab: 'reports', subTab: 'inventory', label: 'Inventory', badge: 'Stock' }
     ]
   },
   {
