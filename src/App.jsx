@@ -28,6 +28,7 @@ import { LeaveManagementPage } from './pages/LeaveManagementPage';
 import { CertificatesIdPage } from './pages/CertificatesIdPage';
 import { HRPayrollPage } from './pages/HRPayrollPage';
 import { AccountsInventoryPage } from './pages/AccountsInventoryPage';
+import { InventoryStorePage } from './pages/InventoryStorePage';
 import { HelpdeskVisitorsPage } from './pages/HelpdeskVisitorsPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { SettingsPage } from './pages/SettingsPage';
@@ -223,11 +224,15 @@ function AppContent() {
       case 'acad-teacher-schedule':
         return <TimetablePage initialTab={activeTab} />;
       case 'attendance':
+      case 'student-attendance':
         return <AttendancePage initialType="student" />;
       case 'staff-attendance':
+      case 'employee-attendance':
         return <AttendancePage initialType="staff" />;
       case 'staff-monthly-matrix':
         return <AttendancePage initialType="staff-monthly-matrix" />;
+      case 'exam-attendance':
+        return <AttendancePage initialType="exam" />;
       case 'biometric':
         return <BiometricPage onNavigateToStaffAttendance={() => setActiveTab('staff-attendance')} />;
       case 'automatic-bell':
@@ -309,13 +314,22 @@ function AppContent() {
       case 'hr-advance':
       case 'hr-award':
         return <HRPayrollPage initialTab={activeTab} />;
-      case 'inventory':
       case 'office-account':
       case 'office-deposit':
       case 'office-expense':
       case 'office-transactions':
       case 'office-voucher':
         return <AccountsInventoryPage initialTab={activeTab} />;
+      case 'inventory':
+      case 'inventory-store':
+      case 'inventory-product':
+      case 'inventory-category':
+      case 'inventory-supplier':
+      case 'inventory-unit':
+      case 'inventory-purchase':
+      case 'inventory-sales':
+      case 'inventory-issue':
+        return <InventoryStorePage initialTab={activeTab} />;
       case 'helpdesk-visitors':
       case 'helpdesk-inquiries':
       case 'helpdesk-passes':

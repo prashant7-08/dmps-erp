@@ -162,10 +162,9 @@ export const navigationGroups = [
     label: 'ATTENDANCE',
     icon: CheckSquare,
     items: [
-      { id: 'attendance', targetTab: 'attendance', label: 'Daily Student Attendance', badge: 'Daily' },
-      { id: 'staff-attendance', targetTab: 'staff-attendance', label: 'Staff / Teacher Attendance', badge: 'Staff' },
-      { id: 'staff-monthly-matrix', targetTab: 'staff-monthly-matrix', label: 'Monthly Biometric Register', badge: 'Calendar' },
-      { id: 'biometric', targetTab: 'biometric', label: 'Biometric Machine & Sync', badge: 'Secureye' }
+      { id: 'attendance', targetTab: 'attendance', label: 'Student', badge: 'Daily' },
+      { id: 'staff-attendance', targetTab: 'staff-attendance', label: 'Employee', badge: 'Staff' },
+      { id: 'exam-attendance', targetTab: 'exam-attendance', label: 'Exam', badge: 'Exam' }
     ]
   },
   {
@@ -174,7 +173,14 @@ export const navigationGroups = [
     label: 'INVENTORY',
     icon: Package,
     items: [
-      { id: 'inventory', targetTab: 'inventory', label: 'Item Stock & Store', badge: null }
+      { id: 'inventory-product', targetTab: 'inventory-store', subTab: 'product', label: 'Product', badge: null },
+      { id: 'inventory-category', targetTab: 'inventory-store', subTab: 'category', label: 'Category', badge: null },
+      { id: 'inventory-store', targetTab: 'inventory-store', subTab: 'store', label: 'Store', badge: null },
+      { id: 'inventory-supplier', targetTab: 'inventory-store', subTab: 'supplier', label: 'Supplier', badge: null },
+      { id: 'inventory-unit', targetTab: 'inventory-store', subTab: 'unit', label: 'Unit', badge: null },
+      { id: 'inventory-purchase', targetTab: 'inventory-store', subTab: 'purchase', label: 'Purchase', badge: 'Stock In' },
+      { id: 'inventory-sales', targetTab: 'inventory-store', subTab: 'sales', label: 'Sales', badge: 'POS' },
+      { id: 'inventory-issue', targetTab: 'inventory-store', subTab: 'issue', label: 'Issue', badge: 'Staff' }
     ]
   },
   {
