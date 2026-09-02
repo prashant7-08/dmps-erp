@@ -36,7 +36,9 @@ import {
   CreditCard as CardIcon,
   Globe,
   GitBranch,
-  Briefcase
+  Briefcase,
+  Mail,
+  MessageSquare
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../components/common/Toast';
@@ -56,9 +58,8 @@ export const navigationGroups = [
     label: 'RECEPTION / FRONT DESK',
     icon: Building2,
     items: [
-      { id: 'helpdesk-inquiries', label: 'Admission Inquiries & Desk', badge: 'Live' },
-      { id: 'helpdesk-passes', label: 'Visitor Gate Passes', badge: null },
-      { id: 'helpdesk-grievance', label: 'Grievance & Complaints', badge: null }
+      { id: 'helpdesk-inquiries', targetTab: 'helpdesk-visitors', subTab: 'inquiries', label: 'Admission Inquiries & Visitors', badge: 'Live' },
+      { id: 'helpdesk-grievance', targetTab: 'helpdesk-visitors', subTab: 'grievance', label: 'Grievance & Complaints', badge: null }
     ]
   },
   {
@@ -68,8 +69,8 @@ export const navigationGroups = [
     icon: UserPlus,
     items: [
       { id: 'admission', label: 'Create Admission', badge: 'New' },
-      { id: 'admission-online', label: 'Online Admission', badge: 'Web' },
-      { id: 'students-import', label: 'Multiple Import', badge: 'Excel' }
+      { id: 'admission-online', label: 'Online Admission Applications', badge: 'Web' },
+      { id: 'students-import', label: 'Multiple Import Excel', badge: 'Excel' }
     ]
   },
   {
@@ -83,29 +84,14 @@ export const navigationGroups = [
   {
     id: 'employee-group',
     permissionKey: 'staff',
-    label: 'EMPLOYEE',
+    label: 'EMPLOYEE & HR',
     icon: Users,
     items: [
-      { id: 'staff', label: 'Employee List', badge: 'Active' },
-      { id: 'employee-department', label: 'Add Department', badge: null },
-      { id: 'employee-designation', label: 'Add Designation', badge: null },
+      { id: 'staff', label: 'Employee Directory', badge: 'Active' },
       { id: 'staff-add', label: 'Add Employee', badge: 'New' },
-      { id: 'employee-deactivate', label: 'Login Deactivate', badge: 'Auth' },
-      { id: 'staff-import', label: 'Import Staff Excel / CSV', badge: 'Bulk' }
-    ]
-  },
-  {
-    id: 'staff-group',
-    permissionKey: 'staff',
-    label: 'HUMAN RESOURCE',
-    icon: Briefcase,
-    items: [
-      { id: 'hr-template', targetTab: 'payroll', subTab: 'template', label: 'Salary Template', badge: null },
-      { id: 'hr-assign', targetTab: 'payroll', subTab: 'assign', label: 'Salary Assign', badge: null },
-      { id: 'hr-payment', targetTab: 'payroll', subTab: 'payment', label: 'Salary Payment', badge: 'Pay' },
-      { id: 'hr-advance', targetTab: 'payroll', subTab: 'advance', label: 'Advance Salary', badge: null },
-      { id: 'hr-leave', targetTab: 'leave', subTab: 'leave', label: 'Leave', badge: 'Leave' },
-      { id: 'hr-award', targetTab: 'payroll', subTab: 'award', label: 'Award', badge: '🏆' }
+      { id: 'hr-payment', targetTab: 'payroll', subTab: 'payment', label: 'Salary Payment & Payslips', badge: 'Pay' },
+      { id: 'hr-advance-manage', targetTab: 'payroll', subTab: 'advance-manage', label: 'Advance Salary Loans', badge: 'Advance' },
+      { id: 'hr-leave-manage', targetTab: 'payroll', subTab: 'leave-manage', label: 'Leave Management', badge: 'Leave' }
     ]
   },
   {
@@ -114,46 +100,35 @@ export const navigationGroups = [
     label: 'STUDENT ACCOUNTING',
     icon: CreditCard,
     items: [
-      { id: 'fees-payment-types', targetTab: 'fees', subTab: 'payment-types', label: 'Payments Type', badge: null },
-      { id: 'fees-offline', targetTab: 'fees', subTab: 'offline', label: 'Offline Payments', badge: null },
-      { id: 'fees-siblings', targetTab: 'fees', subTab: 'siblings', label: 'Setup Siblings', badge: null },
-      { id: 'fees-sibling-list', targetTab: 'fees', subTab: 'sibling-list', label: 'Sibling List', badge: null },
-      { id: 'fees-types', targetTab: 'fees', subTab: 'types', label: 'Fees Type', badge: null },
-      { id: 'fees-groups', targetTab: 'fees', subTab: 'groups', label: 'Fees Group', badge: null },
-      { id: 'fees-fine', targetTab: 'fees', subTab: 'fine', label: 'Fine Setup', badge: null },
+      { id: 'fees-pos', targetTab: 'fees', subTab: 'pos', label: 'Fee Collect / POS Counter', badge: 'POS' },
+      { id: 'fees-dues', targetTab: 'fees', subTab: 'dues', label: 'Due List & Reminders (₹1.05 Cr)', badge: 'Due' },
       { id: 'fees-allocation', targetTab: 'fees', subTab: 'allocation', label: 'Fees Allocation', badge: null },
-      { id: 'fees-pos', targetTab: 'fees', subTab: 'pos', label: 'Fee Collect / Payment', badge: 'POS' },
-      { id: 'fees-dues', targetTab: 'fees', subTab: 'dues', label: 'Due List / Reminder', badge: 'Due' }
+      { id: 'fees-types', targetTab: 'fees', subTab: 'types', label: 'Fees Types & Groups', badge: null },
+      { id: 'fees-offline', targetTab: 'fees', subTab: 'offline', label: 'Offline Bank Payments', badge: null },
+      { id: 'fees-siblings', targetTab: 'fees', subTab: 'siblings', label: 'Setup Siblings Discount', badge: null }
     ]
   },
   {
     id: 'office-accounting-group',
     permissionKey: 'office_accounting',
-    label: 'OFFICE ACCOUNTING',
+    label: 'OFFICE CASH BOOK',
     icon: DollarSign,
     items: [
-      { id: 'office-account', targetTab: 'inventory', subTab: 'account', label: 'Account', badge: null },
-      { id: 'office-deposit', targetTab: 'inventory', subTab: 'deposit', label: 'New Deposit', badge: null },
-      { id: 'office-expense', targetTab: 'inventory', subTab: 'expense', label: 'New Expense', badge: null },
-      { id: 'office-transactions', targetTab: 'inventory', subTab: 'transactions', label: 'All Transactions', badge: null },
-      { id: 'office-voucher', targetTab: 'inventory', subTab: 'voucher', label: 'Voucher Head', badge: null }
+      { id: 'office-deposit', targetTab: 'inventory', subTab: 'deposit', label: 'Cash In (Income / Fees)', badge: '+' },
+      { id: 'office-expense', targetTab: 'inventory', subTab: 'expense', label: 'Cash Out (Expenses / Diesel)', badge: '-' },
+      { id: 'office-transactions', targetTab: 'inventory', subTab: 'transactions', label: 'All Transactions Ledger', badge: 'Ledger' }
     ]
   },
   {
     id: 'supervision-group',
     permissionKey: 'supervision',
-    label: 'SUPERVISION',
-    icon: Home,
+    label: 'SUPERVISION & FLEET',
+    icon: Bus,
     items: [
-      { id: 'hostel-master', targetTab: 'hostel', subTab: 'master', label: 'Hostel Master', badge: null },
-      { id: 'hostel-room', targetTab: 'hostel', subTab: 'rooms', label: 'Hostel Room', badge: null },
-      { id: 'hostel-category', targetTab: 'hostel', subTab: 'category', label: 'Category', badge: null },
-      { id: 'hostel-allocation', targetTab: 'hostel', subTab: 'allocation', label: 'Allocation Report', badge: null },
-      { id: 'transport-routes', targetTab: 'transport', subTab: 'routes', label: 'Route Master', badge: null },
-      { id: 'transport-vehicles', targetTab: 'transport', subTab: 'vehicles', label: 'Vehicle Master', badge: null },
-      { id: 'transport-stoppage', targetTab: 'transport', subTab: 'stoppage', label: 'Stoppage', badge: '41' },
-      { id: 'transport-assign', targetTab: 'transport', subTab: 'assign', label: 'Assign Stopage', badge: null },
-      { id: 'transport-allocation', targetTab: 'transport', subTab: 'allocation', label: 'Allocation Report', badge: null }
+      { id: 'transport-routes', targetTab: 'transport', subTab: 'routes', label: 'Bus Fleet & Route Master', badge: '6 Buses' },
+      { id: 'transport-stoppage', targetTab: 'transport', subTab: 'stoppage', label: 'Stoppage & Stop Fees', badge: '45+ Stops' },
+      { id: 'transport-assign', targetTab: 'transport', subTab: 'assign', label: 'Assign Student Bus Stoppage', badge: null },
+      { id: 'hostel-allocation', targetTab: 'hostel', subTab: 'allocation', label: 'Hostel Bed Allocation (5-6 Students)', badge: 'Hostel' }
     ]
   },
   {
@@ -162,82 +137,22 @@ export const navigationGroups = [
     label: 'ATTENDANCE',
     icon: CheckSquare,
     items: [
-      { id: 'attendance', targetTab: 'attendance', label: 'Student', badge: 'Daily' },
-      { id: 'staff-attendance', targetTab: 'staff-attendance', label: 'Employee', badge: 'Staff' },
-      { id: 'exam-attendance', targetTab: 'exam-attendance', label: 'Exam', badge: 'Exam' }
-    ]
-  },
-  {
-    id: 'inventory-group',
-    permissionKey: 'inventory',
-    label: 'INVENTORY',
-    icon: Package,
-    items: [
-      { id: 'inventory-product', targetTab: 'inventory-store', subTab: 'product', label: 'Product', badge: null },
-      { id: 'inventory-category', targetTab: 'inventory-store', subTab: 'category', label: 'Category', badge: null },
-      { id: 'inventory-store', targetTab: 'inventory-store', subTab: 'store', label: 'Store', badge: null },
-      { id: 'inventory-supplier', targetTab: 'inventory-store', subTab: 'supplier', label: 'Supplier', badge: null },
-      { id: 'inventory-unit', targetTab: 'inventory-store', subTab: 'unit', label: 'Unit', badge: null },
-      { id: 'inventory-purchase', targetTab: 'inventory-store', subTab: 'purchase', label: 'Purchase', badge: 'Stock In' },
-      { id: 'inventory-sales', targetTab: 'inventory-store', subTab: 'sales', label: 'Sales', badge: 'POS' },
-      { id: 'inventory-issue', targetTab: 'inventory-store', subTab: 'issue', label: 'Issue', badge: 'Staff' }
-    ]
-  },
-  {
-    id: 'card-management-group',
-    permissionKey: 'card_management',
-    label: 'CARD MANAGEMENT',
-    icon: Contact,
-    items: [
-      { id: 'card-id-template', targetTab: 'card-management', subTab: 'id-template', label: 'Id Card Templete', badge: null },
-      { id: 'card-student-id', targetTab: 'card-management', subTab: 'student-id', label: 'Student Id Card', badge: 'ID' },
-      { id: 'card-employee-id', targetTab: 'card-management', subTab: 'employee-id', label: 'Employee Id Card', badge: null },
-      { id: 'card-admit-template', targetTab: 'card-management', subTab: 'admit-template', label: 'Admit Card Templete', badge: null },
-      { id: 'card-generate-admit', targetTab: 'card-management', subTab: 'generate-admit', label: 'Generate Admit Card', badge: 'Exam' }
-    ]
-  },
-  {
-    id: 'certificate-group',
-    permissionKey: 'certificate',
-    label: 'CERTIFICATE',
-    icon: Award,
-    items: [
-      { id: 'cert-template', targetTab: 'certificates', subTab: 'template', label: 'Certificate Templete', badge: null },
-      { id: 'cert-generate-student', targetTab: 'certificates', subTab: 'generate-student', label: 'Generate Student', badge: 'TC' },
-      { id: 'cert-generate-employee', targetTab: 'certificates', subTab: 'generate-employee', label: 'Generate Employee', badge: null }
-    ]
-  },
-  {
-    id: 'human-resource-group',
-    permissionKey: 'human_resource',
-    label: 'HUMAN RESOURCE',
-    icon: Briefcase,
-    items: [
-      { id: 'hr-template', targetTab: 'payroll', subTab: 'template', label: 'Salary Template', badge: 'Grade' },
-      { id: 'hr-assign', targetTab: 'payroll', subTab: 'assign', label: 'Salary Assign', badge: null },
-      { id: 'hr-payment', targetTab: 'payroll', subTab: 'payment', label: 'Salary Payment', badge: 'Payslip' },
-      { id: 'hr-advance-my', targetTab: 'payroll', subTab: 'advance-my', label: 'Advance Salary (My App)', badge: null },
-      { id: 'hr-advance-manage', targetTab: 'payroll', subTab: 'advance-manage', label: 'Advance Salary (Manage)', badge: 'Advance' },
-      { id: 'hr-leave-category', targetTab: 'payroll', subTab: 'leave-category', label: 'Leave Category', badge: null },
-      { id: 'hr-leave-my', targetTab: 'payroll', subTab: 'leave-my', label: 'Leave (My Application)', badge: null },
-      { id: 'hr-leave-manage', targetTab: 'payroll', subTab: 'leave-manage', label: 'Leave (Manage Application)', badge: 'Leave' },
-      { id: 'hr-award', targetTab: 'payroll', subTab: 'award', label: 'Award', badge: 'Award' }
+      { id: 'attendance', targetTab: 'attendance', label: 'Student Daily Attendance', badge: 'Daily' },
+      { id: 'staff-attendance', targetTab: 'staff-attendance', label: 'Staff Biometric Attendance', badge: 'Staff' },
+      { id: 'automatic-bell', targetTab: 'automatic-bell', label: 'Automatic School Bell 🔔', badge: 'Auto' }
     ]
   },
   {
     id: 'academic-group',
     permissionKey: 'academic',
-    label: 'ACADEMIC',
+    label: 'ACADEMIC & TIMETABLE',
     icon: BookOpen,
     items: [
-      { id: 'acad-classes', targetTab: 'academics', subTab: 'classes', label: 'Control Classes', badge: null },
+      { id: 'acad-classes', targetTab: 'academics', subTab: 'classes', label: 'Control Classes & Sections', badge: null },
       { id: 'acad-assign-teacher', targetTab: 'academics', subTab: 'assign-teacher', label: 'Assign Class Teacher', badge: null },
-      { id: 'acad-subjects', targetTab: 'academics', subTab: 'subjects', label: 'Subject', badge: null },
-      { id: 'acad-class-assign', targetTab: 'academics', subTab: 'class-assign', label: 'Class Assign', badge: null },
-      { id: 'acad-class-schedule', targetTab: 'timetable', subTab: 'class-schedule', label: 'Class Schedule', badge: null },
-      { id: 'acad-teacher-schedule', targetTab: 'timetable', subTab: 'teacher-schedule', label: 'Teacher Schedule', badge: null },
-      { id: 'automatic-bell', targetTab: 'automatic-bell', label: 'Automatic School Bell', badge: '🔔 Auto' },
-      { id: 'acad-promotion', targetTab: 'academics', subTab: 'promotion', label: 'Promotion', badge: 'Roll' }
+      { id: 'acad-subjects', targetTab: 'academics', subTab: 'subjects', label: 'Subject Master', badge: null },
+      { id: 'acad-class-schedule', targetTab: 'timetable', subTab: 'class-schedule', label: 'Class Timetable Schedule', badge: 'Routine' },
+      { id: 'acad-promotion', targetTab: 'academics', subTab: 'promotion', label: 'Student Annual Promotion', badge: 'Roll' }
     ]
   },
   {
@@ -246,7 +161,7 @@ export const navigationGroups = [
     label: 'HOMEWORK',
     icon: FileSpreadsheet,
     items: [
-      { id: 'hw-homework', targetTab: 'homework', subTab: 'homework', label: 'Homework', badge: 'Daily' },
+      { id: 'hw-homework', targetTab: 'homework', subTab: 'homework', label: 'Daily Homework', badge: 'Daily' },
       { id: 'hw-evaluation', targetTab: 'homework', subTab: 'evaluation', label: 'Evaluation Report', badge: null }
     ]
   },
@@ -258,17 +173,36 @@ export const navigationGroups = [
     items: [
       { id: 'exam-term', targetTab: 'examination', subTab: 'exam-term', label: 'Exam Term', badge: 'Term' },
       { id: 'exam-hall', targetTab: 'examination', subTab: 'exam-hall', label: 'Exam Hall', badge: null },
-      { id: 'exam-trait', targetTab: 'examination', subTab: 'trait', label: 'Trait Type', badge: null },
-      { id: 'exam-distribution', targetTab: 'examination', subTab: 'distribution', label: 'Distribution', badge: null },
-      { id: 'exam-setup', targetTab: 'examination', subTab: 'setup', label: 'Exam Setup', badge: 'Setup' },
-      { id: 'exam-schedule', targetTab: 'examination', subTab: 'schedule', label: 'Exam Schedule', badge: 'Date' },
-      { id: 'exam-schedule-add', targetTab: 'examination', subTab: 'schedule-add', label: 'Add Schedule', badge: null },
-      { id: 'exam-marks', targetTab: 'examination', subTab: 'marks', label: 'Mark Entries', badge: 'Marks' },
+      { id: 'exam-trait', targetTab: 'examination', subTab: 'trait', label: 'Trait Type (Co-Scholastic)', badge: null },
+      { id: 'exam-distribution', targetTab: 'examination', subTab: 'distribution', label: 'Marks Distribution (80:20)', badge: null },
+      { id: 'exam-schedule', targetTab: 'examination', subTab: 'schedule', label: 'Exam Schedule Date Sheet', badge: 'Date' },
+      { id: 'exam-marks', targetTab: 'examination', subTab: 'marks', label: 'Mark Entries & Report Cards 🖨️', badge: 'Marks' },
       { id: 'exam-marks-attendance', targetTab: 'examination', subTab: 'marks-attendance', label: 'Attendance Entries', badge: null },
-      { id: 'exam-marks-traits', targetTab: 'examination', subTab: 'marks-traits', label: 'Traits Entries', badge: null },
-      { id: 'exam-marks-profile', targetTab: 'examination', subTab: 'marks-profile', label: 'Profile Entries', badge: null },
-      { id: 'exam-generate-position', targetTab: 'examination', subTab: 'generate-position', label: 'Generate Position', badge: 'Rank' },
-      { id: 'exam-grades-range', targetTab: 'examination', subTab: 'grades-range', label: 'Grades Range', badge: 'CBSE' }
+      { id: 'exam-generate-position', targetTab: 'examination', subTab: 'generate-position', label: 'Generate Position (1st, 2nd, 3rd)', badge: 'Rank' },
+      { id: 'exam-grades-range', targetTab: 'examination', subTab: 'grades-range', label: 'CBSE 9-Point Grades Range', badge: 'CBSE' }
+    ]
+  },
+  {
+    id: 'card-certificate-group',
+    permissionKey: 'card_management',
+    label: 'ID CARDS & CERTIFICATES',
+    icon: Contact,
+    items: [
+      { id: 'card-student-id', targetTab: 'card-management', subTab: 'student-id', label: 'Student ID Card Print', badge: 'ID' },
+      { id: 'card-employee-id', targetTab: 'card-management', subTab: 'employee-id', label: 'Employee ID Card Print', badge: null },
+      { id: 'card-generate-admit', targetTab: 'card-management', subTab: 'generate-admit', label: 'Generate Exam Admit Card', badge: 'Exam' },
+      { id: 'cert-generate-student', targetTab: 'certificates', subTab: 'generate-student', label: 'Student Transfer Certificate (TC)', badge: 'TC' },
+      { id: 'cert-generate-employee', targetTab: 'certificates', subTab: 'generate-employee', label: 'Employee Service Certificate', badge: null }
+    ]
+  },
+  {
+    id: 'inventory-group',
+    permissionKey: 'inventory',
+    label: 'INVENTORY & STORE',
+    icon: Package,
+    items: [
+      { id: 'inventory-product', targetTab: 'inventory-store', subTab: 'product', label: 'Store Stock Balances', badge: 'Stock' },
+      { id: 'inventory-sales', targetTab: 'inventory-store', subTab: 'sales', label: 'Uniform, Books & Stationery Issue / Sales', badge: 'POS' }
     ]
   },
   {
@@ -277,20 +211,10 @@ export const navigationGroups = [
     label: 'LIBRARY',
     icon: BookMarked,
     items: [
-      { id: 'lib-books', targetTab: 'library', subTab: 'books', label: 'Books', badge: 'Catalog' },
+      { id: 'lib-books', targetTab: 'library', subTab: 'books', label: 'Books Catalog', badge: 'Catalog' },
       { id: 'lib-category', targetTab: 'library', subTab: 'category', label: 'Books Category', badge: null },
       { id: 'lib-my-issued', targetTab: 'library', subTab: 'my-issued', label: 'My Issued Book', badge: null },
-      { id: 'lib-issue-return', targetTab: 'library', subTab: 'issue-return', label: 'Book Issue/return', badge: 'Counter' }
-    ]
-  },
-  {
-    id: 'events-group',
-    permissionKey: 'events_sports',
-    label: 'EVENTS & SPORTS',
-    icon: Trophy,
-    items: [
-      { id: 'sports', label: 'Sports & Tournaments', badge: null },
-      { id: 'calendar', label: 'Academic & Holiday Calendar', badge: null }
+      { id: 'lib-issue-return', targetTab: 'library', subTab: 'issue-return', label: 'Book Issue/return Desk', badge: 'Counter' }
     ]
   },
   {
@@ -299,10 +223,8 @@ export const navigationGroups = [
     label: 'BULK SMS AND EMAIL',
     icon: Bell,
     items: [
-      { id: 'sms-send', targetTab: 'notices', subTab: 'send', label: 'Send Sms / Email', badge: 'Broadcast' },
-      { id: 'sms-report', targetTab: 'notices', subTab: 'report', label: 'Sms / Email Report', badge: 'Logs' },
-      { id: 'sms-template', targetTab: 'notices', subTab: 'sms-template', label: 'Sms Template', badge: null },
-      { id: 'email-template', targetTab: 'notices', subTab: 'email-template', label: 'Email Template', badge: null },
+      { id: 'sms-send', targetTab: 'notices', subTab: 'send', label: 'Send Sms / WhatsApp Broadcast', badge: 'Broadcast' },
+      { id: 'sms-report', targetTab: 'notices', subTab: 'report', label: 'Sms / Email Report Logs', badge: 'Logs' },
       { id: 'sms-birthday-student', targetTab: 'notices', subTab: 'birthday-student', label: 'Student Birthday Wishes', badge: '🎂' },
       { id: 'sms-birthday-staff', targetTab: 'notices', subTab: 'birthday-staff', label: 'Staff Birthday Wishes', badge: '🎉' }
     ]
@@ -313,10 +235,8 @@ export const navigationGroups = [
     label: 'MESSAGE (MAILBOX)',
     icon: Mail,
     items: [
-      { id: 'message-inbox', targetTab: 'notices', subTab: 'mailbox-inbox', label: 'Inbox', badge: '0' },
-      { id: 'message-compose', targetTab: 'notices', subTab: 'mailbox-compose', label: 'Compose Message', badge: 'New' },
-      { id: 'message-sent', targetTab: 'notices', subTab: 'mailbox-sent', label: 'Sent', badge: null },
-      { id: 'message-trash', targetTab: 'notices', subTab: 'mailbox-trash', label: 'Trash', badge: null }
+      { id: 'message-inbox', targetTab: 'notices', subTab: 'mailbox-inbox', label: 'Inbox & Mailbox', badge: '0' },
+      { id: 'message-compose', targetTab: 'notices', subTab: 'mailbox-compose', label: 'Compose Message', badge: 'New' }
     ]
   },
   {
@@ -328,10 +248,9 @@ export const navigationGroups = [
       { id: 'reports-student', targetTab: 'reports', subTab: 'students', label: 'STUDENT REPORTS', badge: 'Student' },
       { id: 'reports-fees', targetTab: 'reports', subTab: 'fees', label: 'FEES REPORTS', badge: 'Fees' },
       { id: 'reports-financial', targetTab: 'reports', subTab: 'financial', label: 'FINANCIAL REPORTS', badge: 'Accounts' },
-      { id: 'reports-attendance', targetTab: 'reports', subTab: 'attendance', label: 'ATTENDANCE REPORTS', badge: 'Biometric' },
+      { id: 'reports-attendance', targetTab: 'reports', subTab: 'attendance', label: 'ATTENDANCE REPORTS (<75%)', badge: 'Biometric' },
       { id: 'reports-hr', targetTab: 'reports', subTab: 'hr', label: 'HUMAN RESOURCE', badge: 'HR' },
-      { id: 'reports-exam', targetTab: 'reports', subTab: 'exam', label: 'EXAMINATION', badge: 'Marks' },
-      { id: 'reports-inventory', targetTab: 'reports', subTab: 'inventory', label: 'Inventory', badge: 'Stock' }
+      { id: 'reports-exam', targetTab: 'reports', subTab: 'exam', label: 'EXAMINATION', badge: 'Marks' }
     ]
   },
   {
@@ -351,17 +270,11 @@ export const navigationGroups = [
     label: 'FRONTEND',
     icon: Globe,
     items: [
-      { id: 'fe-setting', targetTab: 'frontend', subTab: 'setting', label: 'Setting', badge: 'CMS' },
-      { id: 'fe-menu', targetTab: 'frontend', subTab: 'menu', label: 'Menu', badge: null },
-      { id: 'fe-page-section', targetTab: 'frontend', subTab: 'page-section', label: 'Page Section', badge: null },
-      { id: 'fe-manage-page', targetTab: 'frontend', subTab: 'manage-page', label: 'Manage Page', badge: null },
-      { id: 'fe-slider', targetTab: 'frontend', subTab: 'slider', label: 'Slider', badge: 'Banner' },
-      { id: 'fe-features', targetTab: 'frontend', subTab: 'features', label: 'Features', badge: null },
-      { id: 'fe-testimonial', targetTab: 'frontend', subTab: 'testimonial', label: 'Testimonial', badge: null },
-      { id: 'fe-service', targetTab: 'frontend', subTab: 'service', label: 'Service', badge: null },
-      { id: 'fe-faq', targetTab: 'frontend', subTab: 'faq', label: 'Faq', badge: null },
-      { id: 'fe-gallery-category', targetTab: 'frontend', subTab: 'gallery-category', label: 'Gallery Category', badge: null },
-      { id: 'fe-gallery', targetTab: 'frontend', subTab: 'gallery', label: 'Gallery', badge: 'Media' },
+      { id: 'fe-setting', targetTab: 'frontend', subTab: 'setting', label: 'Website Settings', badge: 'CMS' },
+      { id: 'fe-menu', targetTab: 'frontend', subTab: 'menu', label: 'Navigation Menu', badge: null },
+      { id: 'fe-slider', targetTab: 'frontend', subTab: 'slider', label: 'Homepage Sliders', badge: 'Banner' },
+      { id: 'fe-testimonial', targetTab: 'frontend', subTab: 'testimonial', label: 'Parent Testimonials', badge: null },
+      { id: 'fe-gallery', targetTab: 'frontend', subTab: 'gallery', label: 'Photo Gallery', badge: 'Media' },
       { id: 'website-view', label: 'Public Live Website ↗', badge: 'Live', isExternalWebsite: true }
     ]
   },
@@ -372,15 +285,11 @@ export const navigationGroups = [
     icon: Settings,
     items: [
       { id: 'setting-global', targetTab: 'settings', subTab: 'global', label: 'Global Settings', badge: 'App' },
-      { id: 'setting-school', targetTab: 'settings', subTab: 'school', label: 'School Settings', badge: 'CBSE' },
-      { id: 'setting-role-permission', targetTab: 'settings', subTab: 'role-permission', label: 'Role Permission', badge: 'RBAC' },
-      { id: 'setting-session', targetTab: 'settings', subTab: 'session', label: 'Session Settings', badge: '2026-27' },
-      { id: 'setting-translations', targetTab: 'settings', subTab: 'translations', label: 'Translations', badge: 'Lang' },
-      { id: 'setting-cron', targetTab: 'settings', subTab: 'cron', label: 'Cron Job', badge: 'Auto' },
-      { id: 'setting-modules', targetTab: 'settings', subTab: 'modules', label: 'Modules', badge: 'App Store' },
-      { id: 'setting-student-field', targetTab: 'settings', subTab: 'student-field', label: 'System Student Field', badge: null },
-      { id: 'setting-custom-field', targetTab: 'settings', subTab: 'custom-field', label: 'Custom Field', badge: '+' },
-      { id: 'setting-backup', targetTab: 'settings', subTab: 'backup', label: 'Database Backup', badge: 'SQL' }
+      { id: 'setting-school', targetTab: 'settings', subTab: 'school', label: 'School Profile & CBSE Info', badge: 'CBSE' },
+      { id: 'setting-role-permission', targetTab: 'settings', subTab: 'role-permission', label: 'Role Permissions (RBAC)', badge: 'RBAC' },
+      { id: 'setting-session', targetTab: 'settings', subTab: 'session', label: 'Academic Sessions (2026-27)', badge: '2026-27' },
+      { id: 'setting-cron', targetTab: 'settings', subTab: 'cron', label: 'Automated SMS & Bell Cron', badge: 'Auto' },
+      { id: 'setting-backup', targetTab: 'settings', subTab: 'backup', label: 'Database Backup & Restore', badge: 'SQL' }
     ]
   }
 ];
@@ -390,224 +299,169 @@ export const Sidebar = ({
   setActiveTab,
   currentRole = 'Super Admin',
   isOpen,
-  setIsOpen,
-  isCollapsed = false,
-  setIsCollapsed,
-  onOpenAI
+  onClose
 }) => {
-  const { activeBranchId, setActiveBranchId } = useAuth();
+  const { role: authRole, permissions: userPermissions } = useAuth();
   const { showToast } = useToast();
+  const effectiveRole = authRole || currentRole || 'Super Admin';
 
-  // Single-accordion mode: only one category expanded at a time (expanding one closes the others)
-  const [expandedGroupId, setExpandedGroupId] = useState(null);
-
-  // Auto-expand group containing current activeTab or branch
-  useEffect(() => {
-    const parentGroup = navigationGroups.find(grp => 
-      grp.items?.some(i => i.id === activeTab || i.targetTab === activeTab || (i.branchId && i.branchId === activeBranchId))
-    );
-    if (parentGroup) {
-      setExpandedGroupId(parentGroup.id);
-    }
-  }, [activeTab, activeBranchId]);
+  const [expandedGroups, setExpandedGroups] = useState(() => {
+    return {
+      'dashboard-group': true,
+      'reception-group': true,
+      'admission-group': true,
+      'student-accounting-group': true,
+      'supervision-group': true,
+      'attendance-group': true,
+      'academic-group': true,
+      'exam-master-group': true,
+      'library-group': true,
+      'bulk-sms-group': true,
+      'reports-group': true,
+      'branch-group': true,
+      'frontend-group': true,
+      'settings-group': true
+    };
+  });
 
   const toggleGroup = (groupId) => {
-    if (isCollapsed && setIsCollapsed) {
-      setIsCollapsed(false);
-    }
-    setExpandedGroupId(prev => (prev === groupId ? null : groupId));
+    setExpandedGroups(prev => ({
+      ...prev,
+      [groupId]: !prev[groupId]
+    }));
   };
 
-  // Dynamically Filter groups based on active role RBAC permissions
-  const isSuperAdmin = currentRole === 'Super Admin' || currentRole === 'Admin';
-  const visibleGroups = navigationGroups.filter(grp => {
-    if (isSuperAdmin) return true;
-    const permKey = grp.permissionKey || grp.id.replace('-group', '');
-    return schoolService.hasPermission(currentRole, permKey, 'view');
-  });
+  const handleNavClick = (item) => {
+    if (item.isExternalWebsite || item.id === 'website-view') {
+      setActiveTab('website');
+      if (onClose) onClose();
+      return;
+    }
+
+    if (item.branchId) {
+      localStorage.setItem('selectedBranchId', item.branchId);
+      showToast(`Switched active branch to: ${item.label}`, 'info');
+      setActiveTab('dashboard');
+      if (onClose) onClose();
+      return;
+    }
+
+    const tabToSet = item.targetTab || item.id;
+    setActiveTab(tabToSet);
+    if (onClose) onClose();
+  };
+
+  const isItemActive = (item) => {
+    if (item.isSingle) {
+      return activeTab === item.targetTab;
+    }
+    if (item.targetTab) {
+      return activeTab === item.targetTab || activeTab === item.id;
+    }
+    return activeTab === item.id;
+  };
 
   return (
     <>
       {/* Mobile Backdrop */}
       {isOpen && (
         <div
-          onClick={() => setIsOpen(false)}
+          onClick={onClose}
           className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-40 lg:hidden"
         />
       )}
 
       {/* Sidebar Container */}
       <aside
-        className={`fixed top-0 left-0 bottom-0 z-40 ${
-          isCollapsed ? 'lg:w-20 w-72' : 'w-72'
-        } bg-gradient-to-b from-sky-50 via-blue-50/60 to-sky-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 text-slate-700 dark:text-slate-300 flex flex-col border-r border-sky-100 dark:border-slate-800 transition-all duration-300 ease-in-out lg:translate-x-0 shadow-sm ${
+        className={`fixed top-0 left-0 bottom-0 z-50 w-72 bg-[#0c1e3d] text-slate-100 flex flex-col transition-transform duration-300 ease-in-out border-r border-slate-800 shadow-2xl lg:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* Brand Header with School Crest Mono */}
-        <div className={`p-4 border-b border-slate-200/80 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} bg-white dark:bg-slate-950/90 backdrop-blur-md`}>
+        {/* Brand Header */}
+        <div className="p-4 border-b border-slate-800/80 flex items-center justify-between bg-[#08152c]">
           <div className="flex items-center gap-3">
-            <div className="relative w-11 h-11 rounded-full bg-white p-0.5 shadow-md border-2 border-[#0b1e38] dark:border-amber-400 flex items-center justify-center shrink-0">
-              <img
-                src="/logo.png"
-                alt="Dadheech Group Crest"
-                className="w-full h-full object-contain rounded-full"
-              />
-              <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-white dark:border-slate-900 rounded-full shadow-xs"></span>
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-300 p-0.5 shadow-lg shadow-amber-500/20 flex items-center justify-center font-black text-slate-950 text-sm tracking-wider">
+              DMPS
             </div>
-            {!isCollapsed && (
-              <div className="animate-in fade-in duration-200">
-                <h1 className="text-base sm:text-lg font-black text-[#0b1e38] dark:text-white tracking-wider leading-none font-serif uppercase">
-                  DADHEECH
-                </h1>
-                <p className="text-[8.5px] font-black tracking-[0.18em] uppercase text-slate-500 dark:text-slate-400 mt-1">
-                  A GROUP OF EDUCATION
-                </p>
+            <div>
+              <h2 className="text-xs font-black tracking-wide text-white uppercase line-clamp-1">
+                Dadheech Memorial
+              </h2>
+              <div className="flex items-center gap-1.5 mt-0.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[10px] font-mono text-emerald-300 font-bold">ERP Active • CBSE 10th</span>
               </div>
-            )}
+            </div>
           </div>
         </div>
 
-        {/* AI Quick Trigger Banner */}
-        <div className="px-3 pt-3">
-          <button
-            onClick={onOpenAI}
-            title="Open EduBot AI Assistant"
-            className={`w-full group p-2.5 rounded-2xl bg-white/90 dark:bg-slate-950 border border-sky-200/80 dark:border-indigo-500/30 hover:border-blue-400 dark:hover:border-indigo-400 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} text-left transition-all shadow-sm hover:shadow-md hover:shadow-blue-500/10`}
-          >
-            <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-xl bg-blue-600 text-white dark:bg-indigo-500/20 dark:text-amber-300 shadow-sm">
-                <Sparkles className="w-3.5 h-3.5" />
-              </div>
-              {!isCollapsed && (
-                <div>
-                  <p className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-indigo-300 transition-colors">
-                    EduBot AI Assistant
-                  </p>
-                  <p className="text-[9px] text-slate-500 dark:text-indigo-300/80">
-                    Instant smart school insights
-                  </p>
-                </div>
-              )}
-            </div>
-            {!isCollapsed && (
-              <ChevronRight className="w-3.5 h-3.5 text-blue-500 dark:text-indigo-400 group-hover:translate-x-0.5 transition-transform" />
-            )}
-          </button>
-        </div>
+        {/* Navigation List */}
+        <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1.5 custom-scrollbar">
+          {navigationGroups.map(group => {
+            const Icon = group.icon;
+            const isExpanded = expandedGroups[group.id];
 
-        {/* Section Label */}
-        {!isCollapsed && (
-          <div className="px-4 pt-3 pb-1">
-            <p className="text-[9px] font-black uppercase tracking-wider text-sky-800 dark:text-slate-500">
-              MAIN ERP MODULES
-            </p>
-          </div>
-        )}
-
-        {/* Collapsible Accordion Navigation (Smart School ERP Layout) */}
-        <nav className="flex-1 overflow-y-auto px-2 py-1.5 space-y-1 custom-scrollbar text-xs font-semibold">
-          {visibleGroups.map((grp) => {
-            const Icon = grp.icon;
-
-            // Single Item (e.g. Dashboard)
-            if (grp.isSingle) {
-              const isActive = activeTab === grp.targetTab;
+            if (group.isSingle) {
+              const isActive = activeTab === group.targetTab;
               return (
                 <button
-                  key={grp.id}
-                  title={grp.label}
-                  onClick={() => {
-                    setActiveTab(grp.targetTab);
-                    if (window.innerWidth < 1024) setIsOpen(false);
-                  }}
-                  className={`w-full flex items-center ${isCollapsed ? 'justify-center px-2 py-2.5' : 'justify-between px-3 py-2'} rounded-xl transition-all ${
+                  key={group.id}
+                  onClick={() => handleNavClick(group)}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all ${
                     isActive
-                      ? 'bg-blue-600 dark:bg-indigo-600 text-white font-bold shadow-md shadow-blue-500/25 ring-1 ring-blue-400/40'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-blue-900 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-800/70 border border-transparent'
+                      ? 'bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-lg shadow-red-600/30'
+                      : 'text-slate-300 hover:bg-slate-800/60 hover:text-white'
                   }`}
                 >
-                  <div className="flex items-center gap-2.5">
-                    <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-blue-600 dark:text-slate-400'}`} />
-                    {!isCollapsed && <span className="font-bold text-xs">{grp.label}</span>}
+                  <div className="flex items-center gap-3">
+                    <Icon className="w-4 h-4" />
+                    <span>{group.label}</span>
                   </div>
                 </button>
               );
             }
 
-            // Accordion Category Group with (+) / (-) Toggle (Only 1 open at a time)
-            const isExpanded = expandedGroupId === grp.id;
-            const hasActiveChild = grp.items.some(i => i.id === activeTab || (i.branchId && i.branchId === activeBranchId));
-
             return (
-              <div key={grp.id} className="rounded-xl overflow-hidden transition-all">
-                {/* Category Header */}
+              <div key={group.id} className="space-y-1">
                 <button
-                  onClick={() => toggleGroup(grp.id)}
-                  title={grp.label}
-                  className={`w-full flex items-center ${isCollapsed ? 'justify-center px-2 py-2.5' : 'justify-between px-3 py-2'} rounded-xl transition-all text-left ${
-                    hasActiveChild
-                      ? 'bg-blue-50 dark:bg-slate-800/90 text-blue-900 dark:text-white font-black border border-blue-200/80 dark:border-slate-700 shadow-xs'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-blue-900 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-800/60 border border-transparent'
+                  onClick={() => toggleGroup(group.id)}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all ${
+                    isExpanded
+                      ? 'bg-[#c5221f] text-white shadow-md'
+                      : 'text-slate-300 hover:bg-slate-800/60 hover:text-white'
                   }`}
                 >
-                  <div className="flex items-center gap-2.5 truncate">
-                    <Icon className={`w-4 h-4 shrink-0 ${hasActiveChild ? 'text-blue-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400'}`} />
-                    {!isCollapsed && <span className="truncate text-xs font-bold uppercase tracking-tight">{grp.label}</span>}
+                  <div className="flex items-center gap-3">
+                    <Icon className="w-4 h-4 text-amber-300" />
+                    <span className="uppercase tracking-tight text-[11px]">{group.label}</span>
                   </div>
-                  
-                  {!isCollapsed && (
-                    <div className="flex items-center gap-1 shrink-0 ml-1.5">
-                      <span className={`w-4 h-4 rounded flex items-center justify-center text-[11px] font-black transition-colors ${
-                        isExpanded
-                          ? 'bg-blue-600 text-white dark:bg-indigo-600'
-                          : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
-                      }`}>
-                        {isExpanded ? '−' : '+'}
-                      </span>
-                    </div>
-                  )}
+                  <div className="text-white text-xs">
+                    {isExpanded ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                  </div>
                 </button>
 
-                {/* Sub-items (Expand/Collapse) */}
-                {isExpanded && !isCollapsed && (
-                  <div className="pl-5 pr-1 py-1 space-y-0.5 bg-white/40 dark:bg-slate-950/40 rounded-b-xl border-l-2 border-blue-400 dark:border-indigo-500 ml-3 mt-0.5 animate-in slide-in-from-top-1 duration-150">
-                    {grp.items.map((sub, sIdx) => {
-                      const isSubActive = sub.branchId ? (activeBranchId === sub.branchId && activeTab === 'administration') : (activeTab === sub.id);
+                {/* Sub-Items */}
+                {isExpanded && group.items && (
+                  <div className="pl-3 pr-1 py-1 space-y-0.5 bg-[#091730]/70 rounded-xl border border-slate-800/50">
+                    {group.items.map(item => {
+                      const isActive = isItemActive(item);
                       return (
                         <button
-                          key={sIdx}
-                          onClick={() => {
-                            if (sub.isExternalWebsite) {
-                              window.location.hash = '';
-                              window.location.reload();
-                              return;
-                            }
-                            if (sub.branchId) {
-                              setActiveBranchId(sub.branchId);
-                              setActiveTab('administration');
-                              showToast(`🏫 Active Branch switched to ${sub.label}!`, 'success');
-                              if (window.innerWidth < 1024) setIsOpen(false);
-                              return;
-                            }
-                            setActiveTab(sub.id);
-                            if (window.innerWidth < 1024) setIsOpen(false);
-                          }}
-                          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-[11px] transition-all text-left ${
-                            isSubActive
-                              ? 'bg-blue-600 text-white font-bold shadow-xs'
-                              : 'text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white hover:bg-sky-100/70 dark:hover:bg-slate-800'
+                          key={item.id}
+                          onClick={() => handleNavClick(item)}
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                            isActive
+                              ? 'bg-amber-500/20 text-amber-300 font-black border-l-2 border-amber-400'
+                              : 'text-slate-300 hover:bg-slate-800/40 hover:text-white'
                           }`}
                         >
-                          <div className="flex items-center gap-1.5 truncate">
-                            <span className={`w-1.5 h-1.5 rounded-full ${isSubActive ? 'bg-white' : 'bg-slate-400 dark:bg-slate-600'}`} />
-                            <span className="truncate">{sub.label}</span>
+                          <div className="flex items-center gap-2">
+                            <span className="text-amber-400 text-[10px]">▶</span>
+                            <span>{item.label}</span>
                           </div>
-                          {sub.badge && (
-                            <span className={`text-[9px] font-black uppercase px-1.5 py-0.2 rounded ${
-                              isSubActive ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800 dark:bg-slate-800 dark:text-slate-300'
-                            }`}>
-                              {sub.badge}
+                          {item.badge && (
+                            <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-white/10 text-white">
+                              {item.badge}
                             </span>
                           )}
                         </button>
@@ -618,33 +472,22 @@ export const Sidebar = ({
               </div>
             );
           })}
-        </nav>
-
-        {/* Footer User Info */}
-        <div className={`p-3 border-t border-sky-200/70 dark:border-slate-800 bg-white/70 dark:bg-slate-950/70 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
-          <div className="flex items-center gap-2 overflow-hidden">
-            <div className="w-7 h-7 rounded-lg bg-blue-100 dark:bg-indigo-950 border border-blue-200 dark:border-indigo-700/50 flex items-center justify-center text-blue-700 dark:text-indigo-300 font-bold text-xs shrink-0">
-              <ShieldCheck className="w-3.5 h-3.5" />
-            </div>
-            {!isCollapsed && (
-              <div className="truncate">
-                <p className="text-xs font-bold text-slate-900 dark:text-white truncate capitalize">{currentRole}</p>
-                <p className="text-[9px] text-sky-800 dark:text-slate-400 font-medium truncate">Session 2026-27</p>
-              </div>
-            )}
-          </div>
-          {!isCollapsed && (
-            <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" title="System Online"></span>
-          )}
         </div>
 
-        {/* 👑 Developer Credit */}
-        <div className="px-2 py-1.5 bg-sky-100/60 dark:bg-slate-950 text-center text-[10px] text-slate-500 dark:text-slate-400 border-t border-sky-200/60 dark:border-slate-800">
-          {isCollapsed ? (
-            <span className="font-bold text-amber-600">PR</span>
-          ) : (
-            <>Designed & Developed by <strong className="text-amber-600 dark:text-amber-400 font-black">Prashant Rajput</strong></>
-          )}
+        {/* Footer User Card */}
+        <div className="p-3 border-t border-slate-800 bg-[#08152c] flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-indigo-600/30 border border-indigo-400/30 flex items-center justify-center font-black text-indigo-300 text-xs">
+              {effectiveRole.charAt(0)}
+            </div>
+            <div>
+              <p className="text-xs font-bold text-white leading-tight">{effectiveRole}</p>
+              <p className="text-[10px] text-slate-400">Admin Control Panel</p>
+            </div>
+          </div>
+          <span className="text-[9px] font-mono font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-800/50">
+            v2.6 Live
+          </span>
         </div>
       </aside>
     </>
