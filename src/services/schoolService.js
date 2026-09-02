@@ -2578,64 +2578,12 @@ class SchoolService {
 
   // Admin & Staff Daily Task & Action Planner
   getTasks() {
-    if (!this.data.tasks || this.data.tasks.length === 0) {
-      this.data.tasks = [
-        {
-          id: 'TSK-101',
-          title: 'Verify CBSE Board Exam Registration Data for Class 10 & 12',
-          description: 'Match student Aadhaar and subject codes with board portal',
-          priority: 'urgent',
-          category: 'Academics',
-          dueDate: 'Today',
-          completed: false,
-          assignedTo: 'Academic In-Charge',
-          createdAt: new Date().toISOString().split('T')[0]
-        },
-        {
-          id: 'TSK-102',
-          title: 'Follow-up with Term 2 Sibling Fee Defaulters',
-          description: 'Call parents with balance > ₹20,000 for POS settlement',
-          priority: 'urgent',
-          category: 'Fees & Accounts',
-          dueDate: 'Today',
-          completed: false,
-          assignedTo: 'Accounts Officer',
-          createdAt: new Date().toISOString().split('T')[0]
-        },
-        {
-          id: 'TSK-103',
-          title: 'Finalize Mid-Term Question Paper Blueprints',
-          description: 'Review Science and Mathematics papers for Class 9 & 10',
-          priority: 'today',
-          category: 'Examinations',
-          dueDate: 'Today',
-          completed: true,
-          assignedTo: 'Examination Cell',
-          createdAt: new Date().toISOString().split('T')[0]
-        },
-        {
-          id: 'TSK-104',
-          title: 'Inspect School Bus Fleet Route #4 & #7 Speed Governors',
-          description: 'Routine safety audit and driver logbook verification',
-          priority: 'soon',
-          category: 'Transport',
-          dueDate: 'Tomorrow',
-          completed: false,
-          assignedTo: 'Transport Manager',
-          createdAt: new Date().toISOString().split('T')[0]
-        },
-        {
-          id: 'TSK-105',
-          title: 'Submit Monthly Teacher Bio-Metric Attendance to Portal',
-          description: 'Generate monthly percentage summary for payroll processing',
-          priority: 'today',
-          category: 'Administration',
-          dueDate: 'Today',
-          completed: false,
-          assignedTo: 'Principal Office',
-          createdAt: new Date().toISOString().split('T')[0]
-        }
-      ];
+    if (!this.data.tasks) {
+      this.data.tasks = [];
+    }
+    // Clean out initial demo tasks if present
+    if (Array.isArray(this.data.tasks) && this.data.tasks.some(t => ['TSK-101', 'TSK-102', 'TSK-103', 'TSK-104', 'TSK-105'].includes(t.id))) {
+      this.data.tasks = this.data.tasks.filter(t => !['TSK-101', 'TSK-102', 'TSK-103', 'TSK-104', 'TSK-105'].includes(t.id));
       this.saveData();
     }
     return this.data.tasks;

@@ -984,9 +984,19 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             })}
 
             {filteredTasks.length === 0 && (
-              <p className="text-center text-xs text-slate-400 py-6 italic">
-                No tasks found under "{taskFilter}".
-              </p>
+              <div className="text-center py-6 px-4 bg-slate-50/50 dark:bg-slate-800/30 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 space-y-2">
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                  {taskFilter === 'All' ? '✨ No tasks currently. Your action planner is clear!' : `No tasks found under "${taskFilter}".`}
+                </p>
+                {taskFilter === 'All' && !isAddingTask && (
+                  <button
+                    onClick={() => setIsAddingTask(true)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 hover:bg-purple-200 font-bold text-[11px] transition-all"
+                  >
+                    <Plus className="w-3.5 h-3.5" /> Add New Task
+                  </button>
+                )}
+              </div>
             )}
           </div>
         </div>
