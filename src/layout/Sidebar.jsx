@@ -85,11 +85,14 @@ export const navigationGroups = [
   {
     id: 'employee-group',
     permissionKey: 'staff',
-    label: 'EMPLOYEE DETAILS',
+    label: 'EMPLOYEE',
     icon: Users,
     items: [
-      { id: 'staff', label: 'Employee Directory & Profiles', badge: 'Active' },
-      { id: 'staff-add', label: 'Add New Employee / Faculty', badge: 'New' },
+      { id: 'staff', label: 'Employee List', badge: 'Active' },
+      { id: 'employee-department', label: 'Add Department', badge: null },
+      { id: 'employee-designation', label: 'Add Designation', badge: null },
+      { id: 'staff-add', label: 'Add Employee', badge: 'New' },
+      { id: 'employee-deactivate', label: 'Login Deactivate', badge: 'Auth' },
       { id: 'staff-import', label: 'Import Staff Excel / CSV', badge: 'Bulk' }
     ]
   },

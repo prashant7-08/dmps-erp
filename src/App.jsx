@@ -205,6 +205,11 @@ function AppContent() {
       case 'staff-add':
       case 'staff-import':
       case 'employees':
+      case 'employee-list':
+      case 'employee-department':
+      case 'employee-designation':
+      case 'employee-add':
+      case 'employee-deactivate':
         return <StaffPage initialSubTab={activeTab} onOpenIDCards={() => setActiveTab('card-employee-id')} />;
       case 'academics':
       case 'acad-classes':

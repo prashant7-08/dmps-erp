@@ -367,6 +367,90 @@ class SchoolService {
     this.saveData();
   }
 
+  toggleTeacherLoginStatus(id) {
+    const teacher = this.data.teachers.find(t => t.id === id);
+    if (teacher) {
+      teacher.loginDeactivated = !teacher.loginDeactivated;
+      this.saveData();
+      return teacher;
+    }
+    return null;
+  }
+
+  // Departments Master
+  getDepartments() {
+    if (!this.data.departments || !Array.isArray(this.data.departments) || this.data.departments.length === 0) {
+      this.data.departments = [
+        { id: 'DEP-01', name: 'Science & Biology', code: 'SCI', head: 'Dr. Vivek Agnihotri', memberCount: 5, color: 'emerald' },
+        { id: 'DEP-02', name: 'Mathematics', code: 'MATH', head: 'Mrs. Meenakshi Sundaram', memberCount: 4, color: 'blue' },
+        { id: 'DEP-03', name: 'English & Literature', code: 'ENG', head: 'Mrs. Shweta Rastogi', memberCount: 3, color: 'purple' },
+        { id: 'DEP-04', name: 'Hindi & Sanskrit', code: 'HIN', head: 'Pt. Ramakant Sharma', memberCount: 3, color: 'amber' },
+        { id: 'DEP-05', name: 'Social Studies & Commerce', code: 'SST', head: 'Mr. Alok Mishra', memberCount: 3, color: 'rose' },
+        { id: 'DEP-06', name: 'Computer Science & IT', code: 'IT', head: 'Er. Prashant Singh', memberCount: 2, color: 'indigo' },
+        { id: 'DEP-07', name: 'Primary Wing & Kindergarten', code: 'PRI', head: 'Mrs. Anjali Gupta', memberCount: 4, color: 'teal' },
+        { id: 'DEP-08', name: 'Physical Education & Sports', code: 'SPORTS', head: 'Mr. Sunil Gavaskar', memberCount: 2, color: 'orange' },
+        { id: 'DEP-09', name: 'Administration & Accounts', code: 'ADMIN', head: 'Mr. Rajesh Saxena', memberCount: 3, color: 'cyan' }
+      ];
+      this.saveData();
+    }
+    return this.data.departments;
+  }
+
+  addDepartment(deptData) {
+    const deps = this.getDepartments();
+    const newDept = {
+      id: `DEP-${String(deps.length + 1).padStart(2, '0')}`,
+      memberCount: 0,
+      color: 'indigo',
+      ...deptData
+    };
+    this.data.departments.unshift(newDept);
+    this.saveData();
+    return newDept;
+  }
+
+  deleteDepartment(id) {
+    this.data.departments = this.getDepartments().filter(d => d.id !== id);
+    this.saveData();
+  }
+
+  // Designations Master
+  getDesignations() {
+    if (!this.data.designations || !Array.isArray(this.data.designations) || this.data.designations.length === 0) {
+      this.data.designations = [
+        { id: 'DES-01', title: 'Principal', department: 'Administration & Accounts', rank: 1 },
+        { id: 'DES-02', title: 'Vice Principal', department: 'Administration & Accounts', rank: 2 },
+        { id: 'DES-03', title: 'PGT Faculty (Post Graduate Teacher)', department: 'Science & Biology', rank: 3 },
+        { id: 'DES-04', title: 'TGT Faculty (Trained Graduate Teacher)', department: 'Mathematics', rank: 4 },
+        { id: 'DES-05', title: 'PRT Faculty (Primary Teacher)', department: 'Primary Wing & Kindergarten', rank: 5 },
+        { id: 'DES-06', title: 'Headmaster / Headmistress', department: 'Primary Wing & Kindergarten', rank: 3 },
+        { id: 'DES-07', title: 'Librarian & Documentation Head', department: 'Administration & Accounts', rank: 6 },
+        { id: 'DES-08', title: 'Sports Director / PET Incharge', department: 'Physical Education & Sports', rank: 4 },
+        { id: 'DES-09', title: 'Senior Accountant / Fee Head', department: 'Administration & Accounts', rank: 5 },
+        { id: 'DES-10', title: 'IT Administrator & Lab Assistant', department: 'Computer Science & IT', rank: 5 }
+      ];
+      this.saveData();
+    }
+    return this.data.designations;
+  }
+
+  addDesignation(desigData) {
+    const des = this.getDesignations();
+    const newDesig = {
+      id: `DES-${String(des.length + 1).padStart(2, '0')}`,
+      rank: 4,
+      ...desigData
+    };
+    this.data.designations.unshift(newDesig);
+    this.saveData();
+    return newDesig;
+  }
+
+  deleteDesignation(id) {
+    this.data.designations = this.getDesignations().filter(d => d.id !== id);
+    this.saveData();
+  }
+
   markStaffAttendance(date, records) {
     if (!this.data.staffAttendance) this.data.staffAttendance = {};
     this.data.staffAttendance[date] = records;
