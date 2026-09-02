@@ -17,10 +17,36 @@ import {
   Download,
   Flame,
   ShieldCheck,
-  RefreshCw
+  RefreshCw,
+  Plus,
+  Edit2,
+  Trash2,
+  X,
+  Save,
+  Check,
+  Music
 } from 'lucide-react';
 import { useToast } from '../components/common/Toast';
 import schoolService from '../services/schoolService';
+
+// Available MP3 Audio Tracks Library
+const AUDIO_TRACKS = [
+  { id: '16-Assembly.mp3', label: '🌅 16-Assembly.mp3 (Morning Assembly & Prayer Chime)' },
+  { id: '01.mp3', label: '🔔 01.mp3 (Period 1 Double Bell Chime)' },
+  { id: '02.mp3', label: '🔔 02.mp3 (Period 2 Double Bell Chime)' },
+  { id: '03.mp3', label: '🔔 03.mp3 (Period 3 Double Bell Chime)' },
+  { id: '04.mp3', label: '🔔 04.mp3 (Period 4 Double Bell Chime)' },
+  { id: '05.mp3', label: '🔔 05.mp3 (Period 5 Double Bell Chime)' },
+  { id: '06.mp3', label: '🔔 06.mp3 (Period 6 Double Bell Chime)' },
+  { id: '07.mp3', label: '🔔 07.mp3 (Period 7 Double Bell Chime)' },
+  { id: '08.mp3', label: '🔔 08.mp3 (Period 8 Double Bell Chime)' },
+  { id: '09.mp3', label: '🔔 09.mp3 (Period 9 Double Bell Chime)' },
+  { id: '17-lunch-time.mp3', label: '🥪 17-lunch-time.mp3 (Lunch Break / Recess Chime)' },
+  { id: '18-School-Close.mp3', label: '🎒 18-School-Close.mp3 (School Dismissal / Close Chime)' },
+  { id: 'Sare-Jahan-Se-Achha.mp3', label: '🇮🇳 Sare-Jahan-Se-Achha.mp3 (Marching Anthem / Assembly)' },
+  { id: 'T-Short.mp3', label: '⚡ T-Short.mp3 (Short Warning / Transition Stroke)' },
+  { id: 'default_bell.mp3', label: '🔔 default_bell.mp3 (Standard School Bell Chime)' }
+];
 
 // Default DMPS Standard Period Schedule with Authentic MP3 Audio Tracks
 const DEFAULT_BELL_SCHEDULE = [
@@ -51,8 +77,18 @@ export const AutomaticBellPage = () => {
   const [isRinging, setIsRinging] = useState(false);
   const [currentlyPlayingAudio, setCurrentlyPlayingAudio] = useState(null);
   const [lastRungBell, setLastRungBell] = useState(null);
-  const [biometricLiveLog, setBiometricLiveLog] = useState([]);
-  const [audioInitialized, setAudioInitialized] = useState(false);
+
+  // 🔔 Add / Edit Modal State
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingBell, setEditingBell] = useState(null);
+  const [modalForm, setModalForm] = useState({
+    label: '',
+    time: '08:00:00',
+    type: 'Period',
+    audio: '01.mp3',
+    duration: 3,
+    stroke: 'single'
+  });
 
   const audioCtxRef = useRef(null);
   const activeAudioRef = useRef(null);
@@ -187,21 +223,97 @@ export const AutomaticBellPage = () => {
   };
 
   const handleManualRing = () => {
-    initAudio();
-    playBellSound(4, 'double');
+    playBellSound('01.mp3', 4, 'double');
     showToast('🔔 Manual Test Bell Triggered (Ringing Loud & Clear)!', 'success');
   };
 
-  const handleTimeChange = (id, newTime) => {
-    const updated = schedule.map(b => b.id === id ? { ...b, time: newTime } : b);
-    setSchedule(updated);
-    localStorage.setItem('dmps_bell_schedule', JSON.stringify(updated));
+  // ➕ Open Modal to Add New Period
+  const handleOpenAddModal = () => {
+    setEditingBell(null);
+    setModalForm({
+      label: '',
+      time: '08:00:00',
+      type: 'Period',
+      audio: '01.mp3',
+      duration: 3,
+      stroke: 'single'
+    });
+    setIsModalOpen(true);
   };
 
-  const handleLabelChange = (id, newLabel) => {
-    const updated = schedule.map(b => b.id === id ? { ...b, label: newLabel } : b);
-    setSchedule(updated);
-    localStorage.setItem('dmps_bell_schedule', JSON.stringify(updated));
+  // ✏️ Open Modal to Edit Existing Period
+  const handleOpenEditModal = (bell) => {
+    setEditingBell(bell);
+    setModalForm({
+      label: bell.label || '',
+      time: bell.time || '08:00:00',
+      type: bell.type || 'Period',
+      audio: bell.audio || '01.mp3',
+      duration: bell.duration || 3,
+      stroke: bell.stroke || 'single'
+    });
+    setIsModalOpen(true);
+  };
+
+  // 💾 Save Add / Edit Form
+  const handleSaveModal = (e) => {
+    e.preventDefault();
+    if (!modalForm.label.trim()) {
+      showToast('Please enter period / bell event name!', 'error');
+      return;
+    }
+
+    // Auto format time (if user typed HH:MM, append :00)
+    let formattedTime = modalForm.time.trim();
+    if (formattedTime.length === 5 && formattedTime.includes(':')) {
+      formattedTime = `${formattedTime}:00`;
+    }
+
+    if (editingBell) {
+      // Update existing bell
+      const updated = schedule.map(b => b.id === editingBell.id ? {
+        ...b,
+        label: modalForm.label.trim(),
+        time: formattedTime,
+        type: modalForm.type,
+        audio: modalForm.audio,
+        duration: modalForm.duration,
+        stroke: modalForm.stroke
+      } : b).sort((a, b) => a.time.localeCompare(b.time));
+
+      setSchedule(updated);
+      localStorage.setItem('dmps_bell_schedule', JSON.stringify(updated));
+      setIsModalOpen(false);
+      setEditingBell(null);
+      showToast('✅ Period bell updated successfully!', 'success');
+    } else {
+      // Add new bell
+      const newBell = {
+        id: `b_${Date.now()}`,
+        label: modalForm.label.trim(),
+        time: formattedTime,
+        type: modalForm.type,
+        audio: modalForm.audio,
+        duration: modalForm.duration,
+        stroke: modalForm.stroke
+      };
+
+      const updated = [...schedule, newBell].sort((a, b) => a.time.localeCompare(b.time));
+      setSchedule(updated);
+      localStorage.setItem('dmps_bell_schedule', JSON.stringify(updated));
+      setIsModalOpen(false);
+      showToast('🎉 New period bell added to timetable!', 'success');
+    }
+  };
+
+  // 🗑️ Delete Period from Schedule
+  const handleDeleteBell = (id, label) => {
+    if (window.confirm(`Delete "${label}" from automatic bell schedule?`)) {
+      const updated = schedule.filter(b => b.id !== id);
+      setSchedule(updated);
+      localStorage.setItem('dmps_bell_schedule', JSON.stringify(updated));
+      showToast(`Deleted "${label}" from bell timetable.`, 'info');
+    }
   };
 
   const handleResetDefault = () => {
@@ -420,36 +532,53 @@ export const AutomaticBellPage = () => {
         </div>
       </div>
 
-      {/* 📋 TIMETABLE PERIOD BELL SCHEDULE TABLE */}
+      {/* 📋 TIMETABLE PERIOD BELL SCHEDULE TABLE WITH ADD / EDIT / DELETE CONTROLS */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
           <div>
-            <h3 className="text-lg font-black text-slate-900 dark:text-white font-serif">
-              Official Bell Timetable (Session 2026-27)
-            </h3>
-            <p className="text-xs text-slate-500">
-              Times and audio tracks are synchronized with the School PA System.
+            <div className="flex items-center gap-2">
+              <h3 className="text-lg font-black text-slate-900 dark:text-white font-serif">
+                Official Bell Timetable (Session 2026-27)
+              </h3>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+                {schedule.length} Periods / Bells
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Manage automatic periods, recess breaks, assembly and dismissal bells with instant audio playback.
             </p>
           </div>
 
-          <button
-            onClick={handleResetDefault}
-            className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300 rounded-xl text-xs font-bold self-start sm:self-auto transition-all"
-          >
-            Reset Default Times
-          </button>
+          <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+            {/* ➕ Add New Period Button */}
+            <button
+              onClick={handleOpenAddModal}
+              className="px-3.5 py-2 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white rounded-xl text-xs font-black shadow-md shadow-indigo-500/20 flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
+            >
+              <Plus className="w-4 h-4" /> Add Period / Bell
+            </button>
+
+            {/* 🔄 Reset Default Times */}
+            <button
+              onClick={handleResetDefault}
+              className="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300 rounded-xl text-xs font-bold transition-all"
+            >
+              <RefreshCw className="w-3.5 h-3.5 inline mr-1" /> Reset Default
+            </button>
+          </div>
         </div>
 
-        {/* Schedule List */}
+        {/* Schedule List Table */}
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
               <tr className="border-b border-slate-200 dark:border-slate-800 text-[10px] uppercase font-black text-slate-400">
-                <th className="p-3">Period / Event</th>
-                <th className="p-3">Scheduled Time (HH:MM:SS)</th>
-                <th className="p-3">Type</th>
-                <th className="p-3">Audio Track</th>
-                <th className="p-3 text-right">Test Audio</th>
+                <th className="p-3">#</th>
+                <th className="p-3">Period / Event Name</th>
+                <th className="p-3">Time (HH:MM:SS)</th>
+                <th className="p-3">Category</th>
+                <th className="p-3">MP3 Audio Track</th>
+                <th className="p-3 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
@@ -457,20 +586,23 @@ export const AutomaticBellPage = () => {
                 const isNext = nextBell?.id === item.id;
                 const isItemPlaying = currentlyPlayingAudio === item.audio;
                 return (
-                  <tr key={item.id} className={`hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-all ${
-                    isNext ? 'bg-amber-50/70 dark:bg-amber-950/20 font-semibold' : ''
-                  }`}>
+                  <tr
+                    key={item.id}
+                    className={`hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-all ${
+                      isNext ? 'bg-amber-50/70 dark:bg-amber-950/20 font-semibold' : ''
+                    }`}
+                  >
+                    <td className="p-3">
+                      <span className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center text-[10px] font-mono font-bold">
+                        {idx + 1}
+                      </span>
+                    </td>
+
                     <td className="p-3 font-bold text-slate-900 dark:text-white">
                       <div className="flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center text-[10px] font-mono font-bold">
-                          {idx + 1}
+                        <span className="text-xs font-bold text-slate-900 dark:text-white">
+                          {item.label}
                         </span>
-                        <input
-                          type="text"
-                          value={item.label}
-                          onChange={(e) => handleLabelChange(item.id, e.target.value)}
-                          className="font-bold text-xs bg-transparent border-b border-dashed border-slate-300 dark:border-slate-700 focus:border-indigo-500 outline-none w-full max-w-sm text-slate-900 dark:text-white"
-                        />
                         {isNext && (
                           <span className="px-2 py-0.5 rounded-full bg-amber-200 text-amber-900 text-[9px] font-black uppercase shrink-0">
                             Upcoming
@@ -479,13 +611,10 @@ export const AutomaticBellPage = () => {
                       </div>
                     </td>
 
-                    <td className="p-3 font-mono font-bold">
-                      <input
-                        type="text"
-                        value={item.time}
-                        onChange={(e) => handleTimeChange(item.id, e.target.value)}
-                        className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-mono font-bold text-slate-900 dark:text-white w-24 text-center focus:border-indigo-500 outline-none"
-                      />
+                    <td className="p-3 font-mono font-bold text-slate-800 dark:text-slate-200">
+                      <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-mono font-bold">
+                        {item.time}
+                      </span>
                     </td>
 
                     <td className="p-3">
@@ -494,29 +623,54 @@ export const AutomaticBellPage = () => {
                           ? 'bg-amber-100 text-amber-800 border border-amber-300'
                           : item.type === 'Assembly' || item.type === 'Departure'
                           ? 'bg-purple-100 text-purple-800 border border-purple-300'
+                          : item.type === 'Special'
+                          ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
                           : 'bg-blue-50 text-blue-700 border border-blue-200'
                       }`}>
-                        {item.type}
+                        {item.type || 'Period'}
                       </span>
                     </td>
 
                     <td className="p-3 font-mono text-slate-500 text-[11px]">
-                      <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[10px] font-bold text-indigo-600 dark:text-indigo-400">
-                        🎵 {item.audio || '01.mp3'}
+                      <span className="px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-slate-800 border border-indigo-100 dark:border-slate-700 text-[10px] font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1 w-fit">
+                        <Music className="w-3 h-3 text-indigo-500" />
+                        {item.audio || '01.mp3'}
                       </span>
                     </td>
 
                     <td className="p-3 text-right">
-                      <button
-                        onClick={() => playBellSound(item.audio || '01.mp3', item.duration, item.stroke)}
-                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                          isItemPlaying
-                            ? 'bg-amber-500 text-white animate-pulse'
-                            : 'bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-indigo-950'
-                        }`}
-                      >
-                        {isItemPlaying ? '🔊 Playing...' : '🔊 Play Track'}
-                      </button>
+                      <div className="flex items-center justify-end gap-1.5">
+                        {/* 🔊 Play Track */}
+                        <button
+                          onClick={() => playBellSound(item.audio || '01.mp3', item.duration, item.stroke)}
+                          className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                            isItemPlaying
+                              ? 'bg-amber-500 text-white animate-pulse'
+                              : 'bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-indigo-950'
+                          }`}
+                          title="Test audio chime"
+                        >
+                          {isItemPlaying ? '🔊 Playing...' : '🔊 Play'}
+                        </button>
+
+                        {/* ✏️ Edit Bell */}
+                        <button
+                          onClick={() => handleOpenEditModal(item)}
+                          className="p-1.5 rounded-lg text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-slate-800 dark:text-slate-400 transition-colors"
+                          title="Edit this period time & audio"
+                        >
+                          <Edit2 className="w-3.5 h-3.5" />
+                        </button>
+
+                        {/* 🗑️ Delete Bell */}
+                        <button
+                          onClick={() => handleDeleteBell(item.id, item.label)}
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
+                          title="Delete this period from schedule"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 );
@@ -526,6 +680,135 @@ export const AutomaticBellPage = () => {
         </div>
       </div>
 
+      {/* ✍️ MODAL: ADD / EDIT PERIOD BELL DIALOG */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in">
+          <div className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-6 space-y-5 animate-in zoom-in-95">
+            
+            {/* Modal Header */}
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400">
+                  <Bell className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-base font-black text-slate-900 dark:text-white">
+                    {editingBell ? 'Edit Period Bell Timing' : 'Add New Period / Bell Event'}
+                  </h4>
+                  <p className="text-xs text-slate-400">
+                    {editingBell ? 'Update period label, time, and assigned audio track' : 'Set up a new automatic bell in the school timetable'}
+                  </p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="p-1.5 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Modal Form */}
+            <form onSubmit={handleSaveModal} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  Period / Event Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Period 1 (Mathematics) or Zero Period Assembly"
+                  value={modalForm.label}
+                  onChange={(e) => setModalForm({ ...modalForm, label: e.target.value })}
+                  className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    Scheduled Time (24h: HH:MM:SS) *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="08:15:00"
+                    value={modalForm.time}
+                    onChange={(e) => setModalForm({ ...modalForm, time: e.target.value })}
+                    className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-mono font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    Event Category
+                  </label>
+                  <select
+                    value={modalForm.type}
+                    onChange={(e) => setModalForm({ ...modalForm, type: e.target.value })}
+                    className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium cursor-pointer"
+                  >
+                    <option value="Period">🔔 Standard Period</option>
+                    <option value="Assembly">🌅 Morning Assembly & Prayer</option>
+                    <option value="Recess">🥪 Lunch Break / Recess</option>
+                    <option value="Departure">🎒 School Dismissal / Departure</option>
+                    <option value="Special">⚡ Special Activity / Warning</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  Assigned MP3 Bell Audio Track
+                </label>
+                <div className="flex items-center gap-2">
+                  <select
+                    value={modalForm.audio}
+                    onChange={(e) => setModalForm({ ...modalForm, audio: e.target.value })}
+                    className="flex-1 px-3.5 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium cursor-pointer"
+                  >
+                    {AUDIO_TRACKS.map(track => (
+                      <option key={track.id} value={track.id}>
+                        {track.label}
+                      </option>
+                    ))}
+                  </select>
+
+                  <button
+                    type="button"
+                    onClick={() => playBellSound(modalForm.audio)}
+                    className="px-3 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 rounded-xl text-xs font-bold flex items-center gap-1 border border-indigo-200 dark:border-indigo-800 shrink-0"
+                    title="Preview selected sound"
+                  >
+                    <Play className="w-3 h-3 fill-current" /> Preview
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  className="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-black flex items-center gap-1.5 shadow-md shadow-indigo-500/20"
+                >
+                  <Save className="w-4 h-4" /> {editingBell ? 'Save Changes' : 'Add Period Bell'}
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
+
+export default AutomaticBellPage;
