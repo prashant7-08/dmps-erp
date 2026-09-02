@@ -1303,93 +1303,72 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
               </div>
             </div>
 
-            {/* Profile Tab Navigation */}
-            <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-x-auto">
-              {[
-                { id: 'personal', label: '👤 Personal & Govt IDs', icon: User },
-                { id: 'parents', label: '👨‍👩‍👧 Parents & Siblings', icon: Users },
-                { id: 'fees', label: '💳 Fee Ledger & Family Dues', icon: DollarSign },
-                { id: 'transport', label: '🚌 Transport & Route', icon: Bus },
-                { id: 'attendance', label: '📅 Attendance History', icon: Calendar }
-              ].map(tab => (
-                <button
-                  key={tab.id}
-                  onClick={() => setProfileActiveTab(tab.id)}
-                  className={`px-3.5 py-1.5 rounded-xl font-bold whitespace-nowrap transition-all ${
-                    profileActiveTab === tab.id
-                      ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-
-            {/* TAB 1: Personal Details & Govt IDs */}
-            {profileActiveTab === 'personal' && (
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            {/* ═══ SECTION 1: Personal Details & Govt IDs ═══ */}
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+              <div className="bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-2.5 flex items-center gap-2">
+                <User className="w-4 h-4 text-white" />
+                <span className="text-white font-black text-xs uppercase tracking-wide">👤 Personal & Government IDs</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 bg-slate-50 dark:bg-slate-800/40">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Date of Birth</span>
                   <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.dob || '-'}</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Gender</span>
                   <p className="font-bold text-slate-900 dark:text-white capitalize mt-0.5">{selectedStudent.gender || '-'}</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Ledger No. (खाता संख्या)</span>
                   <p className="font-black text-indigo-600 dark:text-indigo-400 mt-0.5 font-mono">{selectedStudent.rollNo || '0'}</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Student Aadhaar No.</span>
                   <p className="font-bold text-slate-900 dark:text-white mt-0.5 font-mono">{selectedStudent.customFields?.studentAadhaar || '-'}</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">PEN Number</span>
                   <p className="font-bold text-slate-900 dark:text-white mt-0.5 font-mono">{selectedStudent.customFields?.penNo || '-'}</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Blood Group</span>
                   <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.bloodGroup || '-'}</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Religion & Caste</span>
                   <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.customFields?.religion || 'Hindu'} ({selectedStudent.customFields?.caste || 'General'})</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 col-span-2">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 col-span-2">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Residential Address</span>
                   <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.parents?.address || '-'}</p>
                 </div>
               </div>
-            )}
+            </div>
 
-            {/* TAB 2: Parents & Sibling Details */}
-            {profileActiveTab === 'parents' && (
-              <div className="space-y-4">
+            {/* ═══ SECTION 2: Parents & Siblings ═══ */}
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+              <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-2.5 flex items-center gap-2">
+                <Users className="w-4 h-4 text-white" />
+                <span className="text-white font-black text-xs uppercase tracking-wide">👨‍👩‍👧 Parents & Siblings</span>
+              </div>
+              <div className="p-4 bg-slate-50 dark:bg-slate-800/40 space-y-3">
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                     <span className="text-[10px] font-bold text-slate-400 uppercase">Father's Name</span>
                     <p className="font-black text-slate-900 dark:text-white mt-0.5 uppercase">{selectedStudent.parents?.fatherName || '-'}</p>
                     <p className="text-[11px] text-indigo-600 font-mono mt-0.5 font-bold">📱 {selectedStudent.parents?.fatherMobile || '-'}</p>
                   </div>
-
-                  <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                     <span className="text-[10px] font-bold text-slate-400 uppercase">Mother's Name</span>
                     <p className="font-black text-slate-900 dark:text-white mt-0.5 uppercase">{selectedStudent.parents?.motherName || '-'}</p>
                   </div>
                 </div>
-
-                {/* Sibling Info Box */}
                 {selectedStudent.feeSummary?.isElderSibling && selectedStudent.feeSummary?.familySiblings?.length > 0 && (
                   <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 space-y-2">
                     <h4 className="font-bold text-purple-950 dark:text-purple-200 flex items-center gap-1.5">
                       <Users className="w-4 h-4 text-purple-600" />
                       👑 Family Master Billing (Elder Sibling)
                     </h4>
-                    <p className="text-slate-600 dark:text-slate-300 text-[11px]">
-                      This student carries the consolidated family dues for all {selectedStudent.feeSummary.familySiblings.length + 1} brothers and sisters:
-                    </p>
                     <div className="divide-y divide-purple-200/60 dark:divide-purple-800/60 pt-1">
                       {selectedStudent.feeSummary.familySiblings.map(sib => (
                         <div key={sib.id} className="py-1.5 flex items-center justify-between text-[11px]">
@@ -1400,39 +1379,27 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                     </div>
                   </div>
                 )}
-
                 {selectedStudent.feeSummary?.linkedElderSibling && (
                   <div className="p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800">
-                    <h4 className="font-bold text-blue-950 dark:text-blue-200">
-                      👨‍👩‍👧 Linked with Elder Sibling
-                    </h4>
-                    <p className="text-slate-600 dark:text-slate-300 text-[11px] mt-1">
-                      Consolidated Family billing is managed under elder sibling: <strong className="text-blue-700 dark:text-blue-300">{selectedStudent.feeSummary.linkedElderSibling.name} ({selectedStudent.feeSummary.linkedElderSibling.class})</strong>.
-                    </p>
+                    <p className="font-bold text-blue-950 dark:text-blue-200 text-xs">👨‍👩‍👧 Linked with Elder Sibling: <strong>{selectedStudent.feeSummary.linkedElderSibling.name} ({selectedStudent.feeSummary.linkedElderSibling.class})</strong></p>
                   </div>
                 )}
               </div>
-            )}
+            </div>
 
-            {/* TAB 3: Fee Ledger */}
-            {profileActiveTab === 'fees' && (
-              <div className="space-y-4">
+            {/* ═══ SECTION 3: Fee Ledger & Family Dues ═══ */}
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+              <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2.5 flex items-center gap-2">
+                <DollarSign className="w-4 h-4 text-white" />
+                <span className="text-white font-black text-xs uppercase tracking-wide">💳 Fee Ledger & Family Dues</span>
+              </div>
+              <div className="p-4 bg-slate-50 dark:bg-slate-800/40 space-y-3">
                 {selectedStudent.isRteStudent && (
                   <div className="p-4 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-amber-950 dark:text-amber-100 space-y-2">
                     <div className="flex items-center justify-between flex-wrap gap-2">
-                      <p className="font-black flex items-center gap-1.5 text-xs">
-                        <span>🏛️</span> RTE Quota (Internal Admin & Management Fee Ledger):
-                      </p>
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-emerald-600 text-white shadow-xs">
-                        🔒 Parent View Masked (Only Transport Visible)
-                      </span>
+                      <p className="font-black flex items-center gap-1.5 text-xs"><span>🏛️</span> RTE Quota (Internal Admin Fee Ledger):</p>
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-emerald-600 text-white">🔒 Parent View Masked</span>
                     </div>
-
-                    <p className="text-[11px] text-slate-600 dark:text-slate-300">
-                      शासकीय नियमानुसार ट्यूशन फीस <strong>₹0.00 (माफ)</strong> है। नीचे दिए गए आंतरिक शुल्क (Annual, Smart Class, Exam) केवल <strong>मैनेजमेंट/एडमिन को दिखेंगे</strong>। पेरेंट व छात्र को केवल और केवल <strong>ट्रांसपोर्ट बस किराया</strong> दिखेगा।
-                    </p>
-
-                    {/* Admin Internal Fee Heads Breakdown */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-amber-500/20 text-xs">
                       <div className="p-2 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-amber-200 dark:border-amber-900/50">
                         <span className="text-[10px] font-bold text-slate-500 block">Tuition Fee</span>
@@ -1453,35 +1420,20 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                     </div>
                   </div>
                 )}
-
                 <div className="grid grid-cols-3 gap-3 text-center">
                   <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800">
-                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase">
-                      {selectedStudent.isRteStudent ? 'Admin Total Dues' : 'Annual Fee Due'}
-                    </span>
-                    <p className="text-base font-black text-amber-900 dark:text-amber-100 font-mono mt-0.5">
-                      ₹{(selectedStudent.feeSummary?.totalDue || 0).toLocaleString()}
-                    </p>
-                    {selectedStudent.isRteStudent && (
-                      <span className="text-[9px] font-bold text-purple-600 dark:text-purple-400 block mt-0.5">
-                        (Parent Sees: ₹{(selectedStudent.transport?.monthlyFare * 11 || 0).toLocaleString()})
-                      </span>
-                    )}
+                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase">{selectedStudent.isRteStudent ? 'Admin Total Dues' : 'Annual Fee Due'}</span>
+                    <p className="text-base font-black text-amber-900 dark:text-amber-100 font-mono mt-0.5">₹{(selectedStudent.feeSummary?.totalDue || 0).toLocaleString()}</p>
                   </div>
                   <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">
                     <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase">Amount Paid</span>
-                    <p className="text-base font-black text-emerald-900 dark:text-emerald-100 font-mono mt-0.5">
-                      ₹{(selectedStudent.feeSummary?.totalPaid || 0).toLocaleString()}
-                    </p>
+                    <p className="text-base font-black text-emerald-900 dark:text-emerald-100 font-mono mt-0.5">₹{(selectedStudent.feeSummary?.totalPaid || 0).toLocaleString()}</p>
                   </div>
                   <div className="p-3 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800">
                     <span className="text-[10px] font-bold text-rose-700 dark:text-rose-300 uppercase">Remaining Balance</span>
-                    <p className="text-base font-black text-rose-900 dark:text-rose-100 font-mono mt-0.5">
-                      ₹{(selectedStudent.feeSummary?.balance || 0).toLocaleString()}
-                    </p>
+                    <p className="text-base font-black text-rose-900 dark:text-rose-100 font-mono mt-0.5">₹{(selectedStudent.feeSummary?.balance || 0).toLocaleString()}</p>
                   </div>
                 </div>
-
                 {selectedStudent.feeSummary?.isElderSibling && (
                   <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800">
                     <div className="flex justify-between items-center text-xs font-bold text-purple-900 dark:text-purple-200">
@@ -1495,36 +1447,42 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                   </div>
                 )}
               </div>
-            )}
+            </div>
 
-            {/* TAB 4: Transport */}
-            {profileActiveTab === 'transport' && (
-              <div className="grid grid-cols-2 gap-3">
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            {/* ═══ SECTION 4: Transport & Route ═══ */}
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+              <div className="bg-gradient-to-r from-sky-500 to-cyan-500 px-4 py-2.5 flex items-center gap-2">
+                <Bus className="w-4 h-4 text-white" />
+                <span className="text-white font-black text-xs uppercase tracking-wide">🚌 Transport & Route</span>
+              </div>
+              <div className="grid grid-cols-2 gap-3 p-4 bg-slate-50 dark:bg-slate-800/40">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Transport Status</span>
-                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">
-                    {selectedStudent.transport?.isEnrolled ? 'Enrolled in School Bus' : 'Self Conveyance / Walk-in'}
-                  </p>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.isEnrolled ? 'Enrolled in School Bus' : 'Self Conveyance / Walk-in'}</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Village / Stop</span>
                   <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.stop || 'N/A'}</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Route Name</span>
                   <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.route || 'N/A'}</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Monthly Bus Fare</span>
                   <p className="font-bold text-slate-900 dark:text-white font-mono mt-0.5">₹{selectedStudent.transport?.monthlyFare || 0}</p>
                 </div>
               </div>
-            )}
+            </div>
 
-            {/* TAB 5: Attendance */}
-            {profileActiveTab === 'attendance' && (
-              <div className="grid grid-cols-3 gap-3 text-center">
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            {/* ═══ SECTION 5: Attendance History ═══ */}
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+              <div className="bg-gradient-to-r from-slate-600 to-slate-700 px-4 py-2.5 flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-white" />
+                <span className="text-white font-black text-xs uppercase tracking-wide">📅 Attendance History</span>
+              </div>
+              <div className="grid grid-cols-3 gap-3 p-4 bg-slate-50 dark:bg-slate-800/40 text-center">
+                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Working Days</span>
                   <p className="text-base font-black text-slate-900 dark:text-white mt-0.5">88 Days</p>
                 </div>
@@ -1537,7 +1495,7 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                   <p className="text-base font-black text-indigo-900 dark:text-indigo-100 mt-0.5">{selectedStudent.attendanceSummary?.percentage || 95.5}%</p>
                 </div>
               </div>
-            )}
+            </div>
 
           </div>
         )}
