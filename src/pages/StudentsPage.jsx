@@ -968,39 +968,15 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
         title={`Edit Student Details: ${editFormData.name} (Adm: ${editFormData.admissionNo})`}
         maxWidth="max-w-4xl"
       >
-        <form onSubmit={handleSaveEditForm} className="space-y-5 text-xs">
-          
-          {/* Edit Modal Sub-Tabs */}
-          <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-x-auto">
-            {[
-              { id: 'academic', label: '1. Academic & Branch', icon: GraduationCap },
-              { id: 'personal', label: '2. Student Personal & IDs', icon: User },
-              { id: 'parents', label: '3. Parents & Guardian', icon: Users },
-              { id: 'transport', label: '4. Transport & Conveyance', icon: Bus },
-              { id: 'previous', label: '5. Previous School History', icon: BookOpen }
-            ].map(tab => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setEditActiveTab(tab.id)}
-                  className={`px-3.5 py-2 rounded-xl font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
-                    editActiveTab === tab.id
-                      ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
+        <form onSubmit={handleSaveEditForm} className="space-y-6 text-xs">
 
-          {/* TAB 1: Academic & Branch Details */}
-          {editActiveTab === 'academic' && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+          {/* ═══ SECTION 1: Academic & Branch Details ═══ */}
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+            <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-2.5 flex items-center gap-2">
+              <GraduationCap className="w-4 h-4 text-white" />
+              <span className="text-white font-black text-xs uppercase tracking-wide">1. Academic & Branch Details</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Campus / Branch</label>
                 <select
@@ -1075,19 +1051,15 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                 />
               </div>
 
-              {/* 🏛️ RTE 25% Quota Toggle in Edit Modal */}
+              {/* 🏛️ RTE 25% Quota Toggle */}
               <div className="md:col-span-3 p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-2 border-amber-400/60 dark:border-amber-600/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex items-start sm:items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
-                    🏛️
-                  </div>
+                  <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">🏛️</div>
                   <div>
                     <p className="font-black text-amber-950 dark:text-amber-100 text-xs sm:text-sm flex items-center gap-2">
                       RTE (Right to Education / आरटीई 25% कोटा) Student?
                       {editFormData.isRteStudent && (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase bg-amber-500 text-white animate-pulse">
-                          100% Free Tuition Activated
-                        </span>
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase bg-amber-500 text-white animate-pulse">100% Free Tuition Activated</span>
                       )}
                     </p>
                     <p className="text-[11px] text-amber-900/80 dark:text-amber-300/80 mt-0.5">
@@ -1095,116 +1067,59 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                     </p>
                   </div>
                 </div>
-
                 <label className="relative inline-flex items-center cursor-pointer shrink-0">
-                  <input
-                    type="checkbox"
-                    name="isRteStudent"
-                    checked={editFormData.isRteStudent}
-                    onChange={(e) => setEditFormData(prev => ({ ...prev, isRteStudent: e.target.checked }))}
-                    className="sr-only peer"
-                  />
+                  <input type="checkbox" name="isRteStudent" checked={editFormData.isRteStudent} onChange={(e) => setEditFormData(prev => ({ ...prev, isRteStudent: e.target.checked }))} className="sr-only peer" />
                   <div className="w-12 h-7 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[3px] after:left-[3px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5.5 after:w-5.5 after:transition-all peer-checked:bg-amber-600 shadow-inner"></div>
                 </label>
               </div>
             </div>
-          )}
+          </div>
 
-          {/* TAB 2: Student Personal & Government IDs */}
-          {editActiveTab === 'personal' && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+          {/* ═══ SECTION 2: Student Personal & Government IDs ═══ */}
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+            <div className="bg-gradient-to-r from-violet-600 to-purple-600 px-4 py-2.5 flex items-center gap-2">
+              <User className="w-4 h-4 text-white" />
+              <span className="text-white font-black text-xs uppercase tracking-wide">2. Student Personal & Government IDs</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">First Name *</label>
-                <input
-                  type="text"
-                  required
-                  value={editFormData.firstName}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, firstName: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase"
-                />
+                <input type="text" required value={editFormData.firstName} onChange={(e) => setEditFormData(prev => ({ ...prev, firstName: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Last Name</label>
-                <input
-                  type="text"
-                  value={editFormData.lastName}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, lastName: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase"
-                />
+                <input type="text" value={editFormData.lastName} onChange={(e) => setEditFormData(prev => ({ ...prev, lastName: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Gender *</label>
-                <select
-                  value={editFormData.gender}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, gender: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                >
+                <select value={editFormData.gender} onChange={(e) => setEditFormData(prev => ({ ...prev, gender: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold">
                   <option value="female">Female</option>
                   <option value="male">Male</option>
                 </select>
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Date of Birth</label>
-                <input
-                  type="date"
-                  value={editFormData.dob}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, dob: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="date" value={editFormData.dob} onChange={(e) => setEditFormData(prev => ({ ...prev, dob: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Student Aadhaar Number</label>
-                <input
-                  type="text"
-                  value={editFormData.aadhaarNo}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, aadhaarNo: e.target.value }))}
-                  placeholder="12 digit Aadhaar"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
-                />
+                <input type="text" value={editFormData.aadhaarNo} onChange={(e) => setEditFormData(prev => ({ ...prev, aadhaarNo: e.target.value }))} placeholder="12 digit Aadhaar" className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">PEN Number (Govt.)</label>
-                <input
-                  type="text"
-                  value={editFormData.penNo}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, penNo: e.target.value }))}
-                  placeholder="Permanent Education No."
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
-                />
+                <input type="text" value={editFormData.penNo} onChange={(e) => setEditFormData(prev => ({ ...prev, penNo: e.target.value }))} placeholder="Permanent Education No." className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Religion</label>
-                <input
-                  type="text"
-                  value={editFormData.religion}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, religion: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" value={editFormData.religion} onChange={(e) => setEditFormData(prev => ({ ...prev, religion: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Caste / Category</label>
-                <input
-                  type="text"
-                  value={editFormData.caste}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, caste: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" value={editFormData.caste} onChange={(e) => setEditFormData(prev => ({ ...prev, caste: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Blood Group</label>
-                <select
-                  value={editFormData.bloodGroup}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, bloodGroup: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                >
+                <select value={editFormData.bloodGroup} onChange={(e) => setEditFormData(prev => ({ ...prev, bloodGroup: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold">
                   <option value="">Select Blood Group</option>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
@@ -1217,173 +1132,99 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                 </select>
               </div>
             </div>
-          )}
+          </div>
 
-          {/* TAB 3: Parents & Guardian Details */}
-          {editActiveTab === 'parents' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+          {/* ═══ SECTION 3: Parents & Guardian Details ═══ */}
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+            <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-2.5 flex items-center gap-2">
+              <Users className="w-4 h-4 text-white" />
+              <span className="text-white font-black text-xs uppercase tracking-wide">3. Parents & Guardian Details</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Name *</label>
-                <input
-                  type="text"
-                  required
-                  value={editFormData.fatherName}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, fatherName: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase"
-                />
+                <input type="text" required value={editFormData.fatherName} onChange={(e) => setEditFormData(prev => ({ ...prev, fatherName: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Mobile Number *</label>
-                <input
-                  type="tel"
-                  required
-                  value={editFormData.fatherMobile}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, fatherMobile: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
-                />
+                <input type="tel" required value={editFormData.fatherMobile} onChange={(e) => setEditFormData(prev => ({ ...prev, fatherMobile: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mother's Name</label>
-                <input
-                  type="text"
-                  value={editFormData.motherName}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, motherName: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase"
-                />
+                <input type="text" value={editFormData.motherName} onChange={(e) => setEditFormData(prev => ({ ...prev, motherName: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold uppercase" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Occupation</label>
-                <input
-                  type="text"
-                  value={editFormData.fatherOccupation}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, fatherOccupation: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" value={editFormData.fatherOccupation} onChange={(e) => setEditFormData(prev => ({ ...prev, fatherOccupation: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
-
               <div className="md:col-span-2">
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Residential Address *</label>
-                <input
-                  type="text"
-                  required
-                  value={editFormData.presentAddress}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, presentAddress: e.target.value, permanentAddress: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" required value={editFormData.presentAddress} onChange={(e) => setEditFormData(prev => ({ ...prev, presentAddress: e.target.value, permanentAddress: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
             </div>
-          )}
+          </div>
 
-          {/* TAB 4: Transport & Conveyance */}
-          {editActiveTab === 'transport' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+          {/* ═══ SECTION 4: Transport & Conveyance ═══ */}
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+            <div className="bg-gradient-to-r from-orange-500 to-amber-500 px-4 py-2.5 flex items-center gap-2">
+              <Bus className="w-4 h-4 text-white" />
+              <span className="text-white font-black text-xs uppercase tracking-wide">4. Transport & Conveyance</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Facility Required</label>
-                <select
-                  value={editFormData.facilityType}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, facilityType: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                >
+                <select value={editFormData.facilityType} onChange={(e) => setEditFormData(prev => ({ ...prev, facilityType: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold">
                   <option value="None">None (Self Conveyance)</option>
                   <option value="Transport">School Bus / Transport</option>
                 </select>
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Route Name</label>
-                <input
-                  type="text"
-                  value={editFormData.transportRoute}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, transportRoute: e.target.value }))}
-                  placeholder="e.g. Route 1 - Nagla Dharakpur Side"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" value={editFormData.transportRoute} onChange={(e) => setEditFormData(prev => ({ ...prev, transportRoute: e.target.value }))} placeholder="e.g. Route 1 - Nagla Dharakpur Side" className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Stoppage / Village Name</label>
-                <input
-                  type="text"
-                  value={editFormData.transportStop}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, transportStop: e.target.value }))}
-                  placeholder="e.g. Baijala, Dharakpur, Kaliyanpur..."
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" value={editFormData.transportStop} onChange={(e) => setEditFormData(prev => ({ ...prev, transportStop: e.target.value }))} placeholder="e.g. Baijala, Dharakpur, Kaliyanpur..." className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Transport Fare (₹)</label>
-                <input
-                  type="number"
-                  value={editFormData.transportFare}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, transportFare: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
-                />
+                <input type="number" value={editFormData.transportFare} onChange={(e) => setEditFormData(prev => ({ ...prev, transportFare: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold" />
               </div>
             </div>
-          )}
+          </div>
 
-          {/* TAB 5: Previous School Details */}
-          {editActiveTab === 'previous' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+          {/* ═══ SECTION 5: Previous School History ═══ */}
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+            <div className="bg-gradient-to-r from-slate-600 to-slate-700 px-4 py-2.5 flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-white" />
+              <span className="text-white font-black text-xs uppercase tracking-wide">5. Previous School History</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Previous School Name</label>
-                <input
-                  type="text"
-                  value={editFormData.previousSchoolName}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, previousSchoolName: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" value={editFormData.previousSchoolName} onChange={(e) => setEditFormData(prev => ({ ...prev, previousSchoolName: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Previous Class</label>
-                <input
-                  type="text"
-                  value={editFormData.previousClass}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, previousClass: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" value={editFormData.previousClass} onChange={(e) => setEditFormData(prev => ({ ...prev, previousClass: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Transfer Certificate (TC) No.</label>
-                <input
-                  type="text"
-                  value={editFormData.previousTcNo}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, previousTcNo: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" value={editFormData.previousTcNo} onChange={(e) => setEditFormData(prev => ({ ...prev, previousTcNo: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
-
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Remarks</label>
-                <input
-                  type="text"
-                  value={editFormData.previousRemarks}
-                  onChange={(e) => setEditFormData(prev => ({ ...prev, previousRemarks: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                />
+                <input type="text" value={editFormData.previousRemarks} onChange={(e) => setEditFormData(prev => ({ ...prev, previousRemarks: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
             </div>
-          )}
+          </div>
 
           {/* Form Actions */}
           <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-200 dark:border-slate-700">
-            <button
-              type="button"
-              onClick={() => setIsEditModalOpen(false)}
-              className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-300"
-            >
+            <button type="button" onClick={() => setIsEditModalOpen(false)} className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-300">
               Cancel
             </button>
-            <button
-              type="submit"
-              className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-md shadow-indigo-500/20 flex items-center gap-1.5"
-            >
+            <button type="submit" className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-md shadow-indigo-500/20 flex items-center gap-1.5">
               <Save className="w-4 h-4" /> Save Student Details
             </button>
           </div>
