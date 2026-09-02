@@ -267,14 +267,6 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
         </div>
 
         <div className="flex items-center gap-2">
-          {activeTab === 'payment' && (
-            <button
-              onClick={handleDisbursePayroll}
-              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2 hover:scale-105 active:scale-95 transition-all"
-            >
-              <CreditCard className="w-4 h-4" /> Disburse {selectedMonth} Payroll
-            </button>
-          )}
 
           {activeTab === 'template' && (
             <button

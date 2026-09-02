@@ -1290,16 +1290,6 @@ export const StudentsPage = ({ initialSelectedStudent = null, onOpenNewAdmission
                 >
                   <Edit className="w-4 h-4 text-slate-950" /> ✏️ Edit Details
                 </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsProfileModalOpen(false);
-                    setIsIdCardModalOpen(true);
-                  }}
-                  className="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold text-xs flex items-center gap-1 shadow-sm transition-all"
-                >
-                  <Printer className="w-3.5 h-3.5" /> ID Card
-                </button>
               </div>
             </div>
 

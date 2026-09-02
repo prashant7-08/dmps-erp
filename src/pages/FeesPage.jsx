@@ -83,6 +83,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   const [fineSetup, setFineSetup] = useState(() => schoolService.getFineSetup() || {});
   const [offlinePayments, setOfflinePayments] = useState(() => schoolService.getOfflinePayments() || []);
   const [familyGroups, setFamilyGroups] = useState(() => schoolService.getAllFamilyGroups() || []);
+  const [miscFees, setMiscFees] = useState([]);
   const [siblingSearchQuery, setSiblingSearchQuery] = useState('');
 
   // Payment Type Modal state
@@ -159,7 +160,9 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
     setFeeTypes([...schoolService.getFeeTypes()]);
     setFeeGroups([...schoolService.getFeeGroups()]);
     setFineSetup({ ...schoolService.getFineSetup() });
-    setMiscFees([...schoolService.getMiscFees()]);
+    if (typeof schoolService.getMiscFees === 'function') {
+      setMiscFees([...schoolService.getMiscFees()]);
+    }
     setOfflinePayments([...schoolService.getOfflinePayments()]);
     setFamilyGroups([...schoolService.getAllFamilyGroups()]);
   };
