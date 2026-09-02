@@ -412,12 +412,12 @@ export const Sidebar = ({
                   onClick={() => handleNavClick(group)}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all ${
                     isActive
-                      ? 'bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-lg shadow-red-600/30'
+                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25 border border-blue-400/30'
                       : 'text-slate-300 hover:bg-slate-800/60 hover:text-white'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4 text-blue-300" />
                     <span>{group.label}</span>
                   </div>
                 </button>
@@ -430,12 +430,12 @@ export const Sidebar = ({
                   onClick={() => toggleGroup(group.id)}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all ${
                     isExpanded
-                      ? 'bg-[#c5221f] text-white shadow-md'
+                      ? 'bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-md border border-blue-400/30'
                       : 'text-slate-300 hover:bg-slate-800/60 hover:text-white'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className="w-4 h-4 text-amber-300" />
+                    <Icon className="w-4 h-4 text-blue-300" />
                     <span className="uppercase tracking-tight text-[11px]">{group.label}</span>
                   </div>
                   <div className="text-white text-xs">
@@ -454,12 +454,12 @@ export const Sidebar = ({
                           onClick={() => handleNavClick(item)}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
                             isActive
-                              ? 'bg-amber-500/20 text-amber-300 font-black border-l-2 border-amber-400'
+                              ? 'bg-blue-500/20 text-blue-300 font-black border-l-2 border-blue-400'
                               : 'text-slate-300 hover:bg-slate-800/40 hover:text-white'
                           }`}
                         >
                           <div className="flex items-center gap-2">
-                            <span className="text-amber-400 text-[10px]">▶</span>
+                            <span className="text-blue-400 text-[10px]">▶</span>
                             <span>{item.label}</span>
                           </div>
                           {item.badge && (
