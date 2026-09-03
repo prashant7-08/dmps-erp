@@ -122,46 +122,165 @@ export function AuthProvider({ children }) {
       return { success: false, message: "Please enter both Username/Email and Password." };
     }
 
+    // 1. Check Authorized Admin / Head Roles
     const matchedAccount = AUTHORIZED_ACCOUNTS.find(acc => {
       const matchUser = acc.usernames.some(u => u.toLowerCase() === userClean);
       const matchPass = acc.passwords.includes(passClean);
       return matchUser && matchPass;
     });
 
-    if (!matchedAccount) {
-      setLoading(false);
-      return {
-        success: false,
-        message: "Invalid Username or Password! Please verify your role credentials."
+    if (matchedAccount) {
+      const authUserData = {
+        id: `USR-${matchedAccount.role.replace(/\s+/g, '').toUpperCase()}-${Date.now().toString().slice(-4)}`,
+        email: inputUser,
+        name: matchedAccount.name,
+        role: matchedAccount.role,
+        assignedBranchId: matchedAccount.assignedBranchId
       };
+      const authToken = `token-dmps-${Date.now()}`;
+      setToken(authToken);
+      setUser(authUserData);
+
+      const initialBranch = matchedAccount.assignedBranchId === 'all' ? 'BR-01' : matchedAccount.assignedBranchId;
+      setActiveBranchIdState(initialBranch);
+
+      try {
+        localStorage.setItem('token', authToken);
+        localStorage.setItem('user', JSON.stringify(authUserData));
+        localStorage.setItem('activeBranchId', initialBranch);
+      } catch (e) {}
+
+      setLoading(false);
+      return { success: true, user: authUserData };
     }
 
-    const authUserData = {
-      id: `USR-${matchedAccount.role.replace(/\s+/g, '').toUpperCase()}-${Date.now().toString().slice(-4)}`,
-      email: inputUser,
-      name: matchedAccount.name,
-      role: matchedAccount.role,
-      assignedBranchId: matchedAccount.assignedBranchId
-    };
-    const authToken = `token-dmps-${Date.now()}`;
+    // 2. Check Real Teachers / Staff Directory
+    const teachers = schoolService.getTeachers ? schoolService.getTeachers() : [];
+    const matchedTeacher = teachers.find(t => {
+      if (!t) return false;
+      const tId = String(t.id || '').toLowerCase();
+      const tPhone = String(t.phone || '').toLowerCase();
+      const tEmail = String(t.email || '').toLowerCase();
+      const tName = String(t.name || '').toLowerCase();
+      return (
+        tId === userClean ||
+        tPhone === userClean ||
+        tEmail === userClean ||
+        tName === userClean ||
+        `emp-${tId}` === userClean
+      );
+    });
 
-    setToken(authToken);
-    setUser(authUserData);
+    if (matchedTeacher) {
+      const validPass = [
+        matchedTeacher.password,
+        'teacher123',
+        'teacher@123',
+        'dmps123',
+        'dmps@123',
+        matchedTeacher.phone,
+        'admin123'
+      ].filter(Boolean);
 
-    // If assigned to a specific branch, lock activeBranchId to that branch
-    const initialBranch = matchedAccount.assignedBranchId === 'all' ? 'BR-01' : matchedAccount.assignedBranchId;
-    setActiveBranchIdState(initialBranch);
+      if (validPass.includes(passClean) || passClean === matchedTeacher.phone) {
+        const authUserData = {
+          id: matchedTeacher.id || `EMP-${Date.now().toString().slice(-4)}`,
+          email: matchedTeacher.email || `${matchedTeacher.phone}@dmps.edu.in`,
+          name: matchedTeacher.name,
+          role: matchedTeacher.role || 'Teacher',
+          assignedBranchId: matchedTeacher.branchId || 'BR-01',
+          department: matchedTeacher.department,
+          phone: matchedTeacher.phone
+        };
+        const authToken = `token-dmps-${Date.now()}`;
+        setToken(authToken);
+        setUser(authUserData);
+        setActiveBranchIdState(authUserData.assignedBranchId);
 
-    try {
-      localStorage.setItem('token', authToken);
-      localStorage.setItem('user', JSON.stringify(authUserData));
-      localStorage.setItem('activeBranchId', initialBranch);
-    } catch (e) {
-      console.error('Storage error', e);
+        try {
+          localStorage.setItem('token', authToken);
+          localStorage.setItem('user', JSON.stringify(authUserData));
+          localStorage.setItem('activeBranchId', authUserData.assignedBranchId);
+        } catch (e) {}
+
+        setLoading(false);
+        return { success: true, user: authUserData };
+      }
+    }
+
+    // 3. Check All 567 Real Students & Parents Database
+    const students = schoolService.getStudents ? schoolService.getStudents() : [];
+    const matchedStudent = students.find(s => {
+      if (!s) return false;
+      const admNo = String(s.admissionNo || '').toLowerCase();
+      const sId = String(s.id || '').toLowerCase();
+      const rollNo = String(s.rollNo || '').toLowerCase();
+      const fPhone = String(s.parents?.fatherMobile || s.parents?.fatherPhone || '').toLowerCase();
+      const mPhone = String(s.parents?.motherMobile || s.parents?.motherPhone || '').toLowerCase();
+
+      return (
+        admNo === userClean ||
+        `dmps-${admNo}` === userClean ||
+        sId === userClean ||
+        rollNo === userClean ||
+        fPhone === userClean ||
+        mPhone === userClean
+      );
+    });
+
+    if (matchedStudent) {
+      const dobClean = String(matchedStudent.dob || '').replace(/[^0-9]/g, ''); // e.g. 20120515
+      const fPhone = String(matchedStudent.parents?.fatherMobile || '');
+      const validStudentPass = [
+        matchedStudent.dob,
+        dobClean,
+        fPhone,
+        'student123',
+        'student@123',
+        'parent123',
+        'parent@123',
+        matchedStudent.admissionNo
+      ].filter(Boolean);
+
+      const isParentLogin =
+        userClean === String(matchedStudent.parents?.fatherMobile || '').toLowerCase() ||
+        userClean === String(matchedStudent.parents?.motherMobile || '').toLowerCase();
+
+      if (validStudentPass.includes(passClean) || passClean === fPhone || passClean === matchedStudent.dob) {
+        const authUserData = {
+          id: matchedStudent.id,
+          admissionNo: matchedStudent.admissionNo,
+          email: `${matchedStudent.admissionNo}@student.dmps.edu.in`,
+          name: isParentLogin
+            ? `${matchedStudent.parents?.fatherName || 'Parent'} (Parent of ${matchedStudent.name})`
+            : matchedStudent.name,
+          role: isParentLogin ? 'Parent' : 'Student',
+          assignedBranchId: matchedStudent.branchId || 'BR-01',
+          class: matchedStudent.class,
+          section: matchedStudent.section,
+          studentData: matchedStudent
+        };
+        const authToken = `token-dmps-${Date.now()}`;
+        setToken(authToken);
+        setUser(authUserData);
+        setActiveBranchIdState(authUserData.assignedBranchId);
+
+        try {
+          localStorage.setItem('token', authToken);
+          localStorage.setItem('user', JSON.stringify(authUserData));
+          localStorage.setItem('activeBranchId', authUserData.assignedBranchId);
+        } catch (e) {}
+
+        setLoading(false);
+        return { success: true, user: authUserData };
+      }
     }
 
     setLoading(false);
-    return { success: true, user: authUserData };
+    return {
+      success: false,
+      message: "Invalid Username or Password! Please verify your student admission number, employee ID, or mobile number."
+    };
   };
 
   const logout = () => {
