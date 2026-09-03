@@ -352,7 +352,7 @@ export const Sidebar = ({
       return;
     }
 
-    const tabToSet = item.targetTab || item.id;
+    const tabToSet = item.isSingle ? item.targetTab : (item.id || item.targetTab);
     setActiveTab(tabToSet);
     if (onClose) onClose();
   };
@@ -360,9 +360,6 @@ export const Sidebar = ({
   const isItemActive = (item) => {
     if (item.isSingle) {
       return activeTab === item.targetTab;
-    }
-    if (item.targetTab) {
-      return activeTab === item.targetTab || activeTab === item.id;
     }
     return activeTab === item.id;
   };
