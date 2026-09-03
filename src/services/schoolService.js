@@ -2057,14 +2057,15 @@ class SchoolService {
     };
   }
 
-  collectFee({ studentId, amountPaid, paymentMode, remarks, discount = 0, fine = 0, isFamilyPayment = false, siblingAllocations = [], customReceiptNo = '' }) {
+  collectFee({ studentId, amountPaid, paymentMode, paymentDate, remarks, discount = 0, fine = 0, isFamilyPayment = false, siblingAllocations = [], customReceiptNo = '' }) {
     const primaryStudent = this.getStudentById(studentId);
     const invoiceNo = `REC-2026/${Math.floor(1000 + Math.random() * 9000)}`;
+    const effectivePaymentDate = paymentDate || new Date().toISOString().split('T')[0];
     
     // If custom receipt number is provided by user, use it; otherwise auto-generate
     const trimmedCustomReceipt = customReceiptNo ? String(customReceiptNo).trim() : '';
     const receiptNo = trimmedCustomReceipt || (isFamilyPayment ? `RCPT-FAM-${Math.floor(8000 + Math.random() * 2000)}` : `RCPT-${Math.floor(8000 + Math.random() * 2000)}`);
-    const txnId = `${paymentMode.toUpperCase().replace(/[^A-Z]/g, '')}/TXN/${Date.now().toString().slice(-8)}`;
+    const txnId = `${(paymentMode || 'CASH').toUpperCase().replace(/[^A-Z]/g, '')}/TXN/${Date.now().toString().slice(-8)}`;
 
     // CASE 1: CONSOLIDATED SIBLING PAYMENT
     if (isFamilyPayment && siblingAllocations && siblingAllocations.length > 0) {
@@ -2108,10 +2109,10 @@ class SchoolService {
           fine: Number(alloc.fine || 0),
           paidAmount: allocPaid,
           dueAmount: newBalance,
-          dueDate: new Date().toISOString().split('T')[0],
-          paymentDate: new Date().toISOString().split('T')[0],
+          dueDate: effectivePaymentDate,
+          paymentDate: effectivePaymentDate,
           status: newStatus,
-          paymentMode,
+          paymentMode: paymentMode || 'Cash',
           transactionId: txnId,
           isFamilyLinked: true,
           isCombinedFamilyInvoice: false,
@@ -2149,10 +2150,10 @@ class SchoolService {
         fine: totalFine,
         paidAmount: totalAmountProcessed,
         dueAmount: breakdown.reduce((acc, b) => acc + b.remainingBalance, 0),
-        dueDate: new Date().toISOString().split('T')[0],
-        paymentDate: new Date().toISOString().split('T')[0],
+        dueDate: effectivePaymentDate,
+        paymentDate: effectivePaymentDate,
         status: breakdown.every(b => b.remainingBalance === 0) ? "Paid" : "Partial",
-        paymentMode,
+        paymentMode: paymentMode || 'Cash',
         transactionId: txnId,
         isCombinedFamilyInvoice: true,
         siblingBreakdown: breakdown
@@ -2192,10 +2193,10 @@ class SchoolService {
       fine: Number(fine),
       paidAmount: Number(amountPaid),
       dueAmount: newBalance,
-      dueDate: new Date().toISOString().split('T')[0],
-      paymentDate: new Date().toISOString().split('T')[0],
+      dueDate: effectivePaymentDate,
+      paymentDate: effectivePaymentDate,
       status: newStatus,
-      paymentMode,
+      paymentMode: paymentMode || 'Cash',
       transactionId: txnId,
       isCombinedFamilyInvoice: false
     };

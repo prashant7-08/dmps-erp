@@ -35,7 +35,8 @@ import {
   BookOpen,
   Award,
   IdCard,
-  DollarSign
+  DollarSign,
+  Receipt
 } from 'lucide-react';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
@@ -98,6 +99,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   const [feeForm, setFeeForm] = useState({
     amount: '',
     paymentMode: 'Cash',
+    paymentDate: new Date().toISOString().split('T')[0],
     discount: 0,
     remarks: 'School Fee Payment',
     receiptNo: ''
@@ -133,6 +135,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
     setFeeForm({
       amount: defaultDue > 0 ? defaultDue : 1000,
       paymentMode: 'Cash',
+      paymentDate: new Date().toISOString().split('T')[0],
       discount: 0,
       remarks: 'School Fee Installment',
       receiptNo: `REC-${Date.now().toString().slice(-5)}`
@@ -214,6 +217,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
         studentId: studentForFee.id,
         amountPaid: amt,
         paymentMode: feeForm.paymentMode,
+        paymentDate: feeForm.paymentDate,
         remarks: feeForm.remarks,
         discount: Number(feeForm.discount) || 0,
         customReceiptNo: feeForm.receiptNo
@@ -2194,296 +2198,397 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
         isOpen={isFeeModalOpen}
         onClose={() => setIsFeeModalOpen(false)}
         title={`💳 Collect / Pay Fee: ${studentForFee?.name || ''}`}
-        maxWidth="max-w-lg"
+        maxWidth="max-w-2xl"
       >
-        {studentForFee && (
-          <form onSubmit={handleCollectFeeSubmit} className="space-y-4 text-xs">
-            {/* Student Info Pill */}
-            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/80 border border-blue-200 dark:border-slate-700 flex items-center justify-between">
-              <div>
-                <p className="font-black text-sm text-slate-900 dark:text-white uppercase">{studentForFee.name}</p>
-                <p className="text-[11px] text-slate-500 font-bold">
-                  Class: <span className="text-indigo-600 dark:text-indigo-400 uppercase">{studentForFee.class}-{studentForFee.section}</span> | 
-                  Adm: <span className="font-mono">{studentForFee.admissionNo}</span> | 
-                  Father: <span>{studentForFee.parents?.fatherName || 'N/A'}</span>
-                </p>
+        {studentForFee && (() => {
+          // Retrieve all past fee invoices/receipts for this student
+          const pastInvoices = (schoolService.getFeeInvoices() || []).filter(
+            inv => inv.studentId === studentForFee.id || inv.studentName === studentForFee.name
+          );
+
+          return (
+            <form onSubmit={handleCollectFeeSubmit} className="space-y-4 text-xs">
+              {/* Student Info Pill */}
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/80 border border-blue-200 dark:border-slate-700 flex items-center justify-between">
+                <div>
+                  <p className="font-black text-sm text-slate-900 dark:text-white uppercase">{studentForFee.name}</p>
+                  <p className="text-[11px] text-slate-500 font-bold">
+                    Class: <span className="text-indigo-600 dark:text-indigo-400 uppercase">{studentForFee.class}-{studentForFee.section}</span> | 
+                    Adm: <span className="font-mono">{studentForFee.admissionNo}</span> | 
+                    Father: <span>{studentForFee.parents?.fatherName || 'N/A'}</span>
+                  </p>
+                </div>
+                <div className="text-right">
+                  <span className="text-[10px] uppercase font-bold text-rose-600 block">Total Due</span>
+                  <span className="font-mono font-black text-base text-rose-700 dark:text-rose-400">
+                    ₹{(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')}
+                  </span>
+                </div>
               </div>
-              <div className="text-right">
-                <span className="text-[10px] uppercase font-bold text-rose-600 block">Total Due</span>
-                <span className="font-mono font-black text-base text-rose-700 dark:text-rose-400">
-                  ₹{(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')}
+
+              {/* 🏷️ Itemized Head Due Breakdown Table */}
+              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                  Applicable Fee Structure Breakdown:
                 </span>
-              </div>
-            </div>
-
-            {/* 🏷️ Itemized Head Due Breakdown Table */}
-            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                Applicable Fee Structure Breakdown:
-              </span>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px]">
-                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-400 block">🎓 Tuition Fee</span>
-                  <strong className="font-mono text-slate-900 dark:text-white">
-                    ₹{(studentForFee.feeSummary?.tuitionDue !== undefined ? studentForFee.feeSummary.tuitionDue : 13500).toLocaleString('en-IN')}
-                  </strong>
-                </div>
-
-                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-400 block">🚌 Transport Fee</span>
-                  <strong className="font-mono text-slate-900 dark:text-white">
-                    ₹{(studentForFee.feeSummary?.transportDue11Months !== undefined ? studentForFee.feeSummary.transportDue11Months : (Number(studentForFee.transport?.monthlyFare || 0) * (studentForFee.transport?.months || 11))).toLocaleString('en-IN')}
-                  </strong>
-                </div>
-
-                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-400 block">🏢 Hostel Fee</span>
-                  <strong className="font-mono text-slate-900 dark:text-white">
-                    ₹{Number(studentForFee.feeSummary?.hostelDue || 0).toLocaleString('en-IN')}
-                  </strong>
-                </div>
-
-                {/* 📜 Old Session Fees */}
-                <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-700 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-black text-amber-800 dark:text-amber-300">📜 Old Session Fees</span>
-                    {canManageFees ? (
-                      <button
-                        type="button"
-                        onClick={() => setEditingOldDues(!editingOldDues)}
-                        title="Edit Old Session Dues"
-                        className="p-1 rounded-lg bg-amber-200 dark:bg-amber-900 text-amber-950 dark:text-amber-100 hover:bg-amber-300 transition-colors cursor-pointer"
-                      >
-                        {editingOldDues ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3" />}
-                      </button>
-                    ) : (
-                      <span title="Fee editing locked (Super Admin & Branch Head only)" className="text-amber-700 text-xs">🔒</span>
-                    )}
-                  </div>
-                  {editingOldDues ? (
-                    <div className="flex items-center gap-1 pt-1">
-                      <input
-                        type="number"
-                        value={tempOldDues}
-                        onChange={(e) => setTempOldDues(e.target.value)}
-                        placeholder="Old dues..."
-                        className="w-full p-1 rounded border border-amber-400 bg-white dark:bg-slate-900 font-mono font-bold text-xs text-amber-900 dark:text-amber-100"
-                        autoFocus
-                      />
-                      <button
-                        type="button"
-                        onClick={() => handleSaveOldDuesInline(studentForFee.id)}
-                        className="px-2 py-1 bg-amber-600 hover:bg-amber-700 text-white font-black rounded text-[10px] shadow-xs cursor-pointer"
-                      >
-                        Save
-                      </button>
-                    </div>
-                  ) : (
-                    <strong className="font-mono font-black text-amber-900 dark:text-amber-100 block">
-                      ₹{Number(studentForFee.feeSummary?.oldSessionDues || 0).toLocaleString('en-IN')}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px]">
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <span className="text-[10px] text-slate-400 block">🎓 Tuition Fee</span>
+                    <strong className="font-mono text-slate-900 dark:text-white">
+                      ₹{(studentForFee.feeSummary?.tuitionDue !== undefined ? studentForFee.feeSummary.tuitionDue : 13500).toLocaleString('en-IN')}
                     </strong>
-                  )}
-                </div>
+                  </div>
 
-                {/* 📦 Misc Charges */}
-                <div className={`p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1.5 ${editingMisc ? 'col-span-2 sm:col-span-3 bg-indigo-50/40 dark:bg-indigo-950/20 border-indigo-300 dark:border-indigo-800' : ''}`}>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-slate-500 dark:text-slate-300 font-black flex items-center gap-1">
-                      📦 Misc Charges {miscItemsList.length > 0 && <span className="px-1.5 py-0.2 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-[9px] font-bold">({miscItemsList.length} items)</span>}
-                    </span>
-                    {canManageFees ? (
-                      <button
-                        type="button"
-                        onClick={() => setEditingMisc(!editingMisc)}
-                        title="Add / Manage Miscellaneous Charge Items"
-                        className="p-1 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 transition-colors cursor-pointer"
-                      >
-                        {editingMisc ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3 text-indigo-600" />}
-                      </button>
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <span className="text-[10px] text-slate-400 block">🚌 Transport Fee</span>
+                    <strong className="font-mono text-slate-900 dark:text-white">
+                      ₹{(studentForFee.feeSummary?.transportDue11Months !== undefined ? studentForFee.feeSummary.transportDue11Months : (Number(studentForFee.transport?.monthlyFare || 0) * (studentForFee.transport?.months || 11))).toLocaleString('en-IN')}
+                    </strong>
+                  </div>
+
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <span className="text-[10px] text-slate-400 block">🏢 Hostel Fee</span>
+                    <strong className="font-mono text-slate-900 dark:text-white">
+                      ₹{Number(studentForFee.feeSummary?.hostelDue || 0).toLocaleString('en-IN')}
+                    </strong>
+                  </div>
+
+                  {/* 📜 Old Session Fees */}
+                  <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-700 space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black text-amber-800 dark:text-amber-300">📜 Old Session Fees</span>
+                      {canManageFees ? (
+                        <button
+                          type="button"
+                          onClick={() => setEditingOldDues(!editingOldDues)}
+                          title="Edit Old Session Dues"
+                          className="p-1 rounded-lg bg-amber-200 dark:bg-amber-900 text-amber-950 dark:text-amber-100 hover:bg-amber-300 transition-colors cursor-pointer"
+                        >
+                          {editingOldDues ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3" />}
+                        </button>
+                      ) : (
+                        <span title="Fee editing locked (Super Admin & Branch Head only)" className="text-amber-700 text-xs">🔒</span>
+                      )}
+                    </div>
+                    {editingOldDues ? (
+                      <div className="flex items-center gap-1 pt-1">
+                        <input
+                          type="number"
+                          value={tempOldDues}
+                          onChange={(e) => setTempOldDues(e.target.value)}
+                          placeholder="Old dues..."
+                          className="w-full p-1 rounded border border-amber-400 bg-white dark:bg-slate-900 font-mono font-bold text-xs text-amber-900 dark:text-amber-100"
+                          autoFocus
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleSaveOldDuesInline(studentForFee.id)}
+                          className="px-2 py-1 bg-amber-600 hover:bg-amber-700 text-white font-black rounded text-[10px] shadow-xs cursor-pointer"
+                        >
+                          Save
+                        </button>
+                      </div>
                     ) : (
-                      <span title="Misc editing locked (Super Admin & Branch Head only)" className="text-slate-400 text-xs">🔒</span>
+                      <strong className="font-mono font-black text-amber-900 dark:text-amber-100 block">
+                        ₹{Number(studentForFee.feeSummary?.oldSessionDues || 0).toLocaleString('en-IN')}
+                      </strong>
                     )}
                   </div>
 
-                  {editingMisc ? (
-                    <div className="space-y-2 pt-1">
-                      {/* Existing Items List */}
-                      {miscItemsList.length > 0 && (
-                        <div className="space-y-1 max-h-28 overflow-y-auto pr-1">
-                          {miscItemsList.map(item => (
-                            <div key={item.id} className="flex items-center justify-between p-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-[11px]">
-                              <span className="font-bold text-slate-700 dark:text-slate-300">🔹 {item.title}</span>
-                              <div className="flex items-center gap-2">
-                                <span className="font-mono font-black text-indigo-600 dark:text-indigo-400">₹{Number(item.amount).toLocaleString('en-IN')}</span>
-                                <button
-                                  type="button"
-                                  onClick={() => handleRemoveMiscItem(studentForFee.id, item.id)}
-                                  className="text-rose-500 hover:text-rose-700 p-0.5 cursor-pointer"
-                                  title="Remove this item"
-                                >
-                                  <X className="w-3 h-3" />
-                                </button>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
+                  {/* 📦 Misc Charges */}
+                  <div className={`p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1.5 ${editingMisc ? 'col-span-2 sm:col-span-3 bg-indigo-50/40 dark:bg-indigo-950/20 border-indigo-300 dark:border-indigo-800' : ''}`}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-slate-500 dark:text-slate-300 font-black flex items-center gap-1">
+                        📦 Misc Charges {miscItemsList.length > 0 && <span className="px-1.5 py-0.2 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-[9px] font-bold">({miscItemsList.length} items)</span>}
+                      </span>
+                      {canManageFees ? (
+                        <button
+                          type="button"
+                          onClick={() => setEditingMisc(!editingMisc)}
+                          title="Add / Manage Miscellaneous Charge Items"
+                          className="p-1 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 transition-colors cursor-pointer"
+                        >
+                          {editingMisc ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3 text-indigo-600" />}
+                        </button>
+                      ) : (
+                        <span title="Misc editing locked (Super Admin & Branch Head only)" className="text-slate-400 text-xs">🔒</span>
                       )}
+                    </div>
 
-                      {/* Add New Item Input Row */}
-                      <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800 space-y-1.5">
-                        <span className="text-[10px] font-bold text-indigo-900 dark:text-indigo-200 block">
-                          ➕ Add New Charge (e.g. Dress, Diary, Belt, Activity, Tour, Fine):
-                        </span>
-                        <div className="flex items-center gap-1.5">
-                          <input
-                            type="text"
-                            value={newMiscTitle}
-                            onChange={(e) => setNewMiscTitle(e.target.value)}
-                            placeholder="Item Name (e.g. Uniform / Dress)..."
-                            className="flex-1 p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-medium"
-                          />
-                          <input
-                            type="number"
-                            value={newMiscAmount}
-                            onChange={(e) => setNewMiscAmount(e.target.value)}
-                            placeholder="₹ Amount"
-                            className="w-24 p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-mono font-bold text-xs"
-                          />
+                    {editingMisc ? (
+                      <div className="space-y-2 pt-1">
+                        {/* Existing Items List */}
+                        {miscItemsList.length > 0 && (
+                          <div className="space-y-1 max-h-28 overflow-y-auto pr-1">
+                            {miscItemsList.map(item => (
+                              <div key={item.id} className="flex items-center justify-between p-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-[11px]">
+                                <span className="font-bold text-slate-700 dark:text-slate-300">🔹 {item.title}</span>
+                                <div className="flex items-center gap-2">
+                                  <span className="font-mono font-black text-indigo-600 dark:text-indigo-400">₹{Number(item.amount).toLocaleString('en-IN')}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleRemoveMiscItem(studentForFee.id, item.id)}
+                                    className="text-rose-500 hover:text-rose-700 p-0.5 cursor-pointer"
+                                    title="Remove this item"
+                                  >
+                                    <X className="w-3 h-3" />
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Add New Item Input Row */}
+                        <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800 space-y-1.5">
+                          <span className="text-[10px] font-bold text-indigo-900 dark:text-indigo-200 block">
+                            ➕ Add New Charge (e.g. Dress, Diary, Belt, Activity, Tour, Fine):
+                          </span>
+                          <div className="flex items-center gap-1.5">
+                            <input
+                              type="text"
+                              value={newMiscTitle}
+                              onChange={(e) => setNewMiscTitle(e.target.value)}
+                              placeholder="Item Name (e.g. Uniform / Dress)..."
+                              className="flex-1 p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-medium"
+                            />
+                            <input
+                              type="number"
+                              value={newMiscAmount}
+                              onChange={(e) => setNewMiscAmount(e.target.value)}
+                              placeholder="₹ Amount"
+                              className="w-24 p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-mono font-bold text-xs"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => handleAddNewMiscItem(studentForFee.id)}
+                              className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-lg text-xs shadow-xs cursor-pointer"
+                            >
+                              + Add
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div>
+                        <strong className="font-mono text-slate-900 dark:text-white block">
+                          ₹{Number(studentForFee.feeSummary?.miscellaneousDue || 0).toLocaleString('en-IN')}
+                        </strong>
+                        {miscItemsList.length > 0 && (
+                          <div className="flex flex-wrap gap-1 pt-1">
+                            {miscItemsList.map(item => (
+                              <span key={item.id} className="text-[9px] px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-medium">
+                                {item.title}: ₹{Number(item.amount).toLocaleString()}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800">
+                    <span className="text-[10px] text-indigo-600 dark:text-indigo-400 block">💰 Total Gross Due</span>
+                    <strong className="font-mono text-indigo-950 dark:text-indigo-200 font-black">
+                      ₹{(studentForFee.feeSummary?.totalDue || 0).toLocaleString('en-IN')}
+                    </strong>
+                  </div>
+                </div>
+              </div>
+
+              {/* 📜 Previous Payments & Receipts Ledger */}
+              <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
+                    <Receipt className="w-3.5 h-3.5 text-indigo-600" /> Fee Payment Ledger & Previous Receipts (पूर्व भुगतान इतिहास)
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-500">
+                    {pastInvoices.length} Payment{pastInvoices.length === 1 ? '' : 's'} Recorded
+                  </span>
+                </div>
+
+                {/* Summary Comparison Numbers */}
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <span className="text-[9.5px] text-slate-400 font-bold block">Total Gross Fee</span>
+                    <span className="font-mono font-black text-xs text-slate-900 dark:text-white">
+                      ₹{(studentForFee.feeSummary?.totalDue || 0).toLocaleString('en-IN')}
+                    </span>
+                  </div>
+                  <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">
+                    <span className="text-[9.5px] text-emerald-700 dark:text-emerald-400 font-bold block">Already Paid</span>
+                    <span className="font-mono font-black text-xs text-emerald-600 dark:text-emerald-400">
+                      ₹{(studentForFee.feeSummary?.totalPaid || 0).toLocaleString('en-IN')}
+                    </span>
+                  </div>
+                  <div className="p-2 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800">
+                    <span className="text-[9.5px] text-rose-700 dark:text-rose-400 font-bold block">Remaining Due</span>
+                    <span className="font-mono font-black text-xs text-rose-600 dark:text-rose-400">
+                      ₹{(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Previous Receipts List */}
+                {pastInvoices.length > 0 ? (
+                  <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+                    {pastInvoices.map((rcpt, idx) => (
+                      <div
+                        key={rcpt.id || idx}
+                        className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs hover:border-indigo-300 transition-colors"
+                      >
+                        <div className="space-y-0.5">
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono font-black text-indigo-600 dark:text-indigo-400 text-[11px]">
+                              {rcpt.receiptNo || rcpt.invoiceNo}
+                            </span>
+                            <span className="px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800 font-bold text-[9px] text-slate-600 dark:text-slate-300">
+                              {rcpt.paymentMode || 'Cash'}
+                            </span>
+                          </div>
+                          <p className="text-[10px] text-slate-500">
+                            📅 Paid on: <strong className="text-slate-800 dark:text-slate-200">{rcpt.paymentDate || rcpt.dueDate}</strong> • {rcpt.feeType || 'Fee Installment'}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          <span className="font-mono font-black text-emerald-600 text-xs">
+                            ₹{(rcpt.paidAmount || rcpt.amount || 0).toLocaleString('en-IN')}
+                          </span>
                           <button
                             type="button"
-                            onClick={() => handleAddNewMiscItem(studentForFee.id)}
-                            className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-lg text-xs shadow-xs cursor-pointer"
+                            onClick={() => {
+                              setRecentReceipt(rcpt);
+                              setIsReceiptModalOpen(true);
+                            }}
+                            className="px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900 text-indigo-600 dark:text-indigo-300 rounded-lg font-bold text-[10px] flex items-center gap-1 cursor-pointer transition-all hover:scale-105"
+                            title="View & Print Official Fee Receipt"
                           >
-                            + Add
+                            <Printer className="w-3 h-3" /> View Receipt
                           </button>
                         </div>
                       </div>
-                    </div>
-                  ) : (
-                    <div>
-                      <strong className="font-mono text-slate-900 dark:text-white block">
-                        ₹{Number(studentForFee.feeSummary?.miscellaneousDue || 0).toLocaleString('en-IN')}
-                      </strong>
-                      {miscItemsList.length > 0 && (
-                        <div className="flex flex-wrap gap-1 pt-1">
-                          {miscItemsList.map(item => (
-                            <span key={item.id} className="text-[9px] px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-medium">
-                              {item.title}: ₹{Number(item.amount).toLocaleString()}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-[10px] text-slate-400 italic text-center py-1">
+                    No prior fee installments recorded yet for this academic session.
+                  </p>
+                )}
+              </div>
+
+              {/* Amount to Collect */}
+              <div>
+                <div className="flex justify-between items-center mb-1">
+                  <label className="font-bold text-slate-700 dark:text-slate-300">
+                    Amount to Collect (₹) <span className="text-rose-500">*</span>
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setFeeForm(prev => ({ ...prev, amount: studentForFee.feeSummary?.balance || 0 }))}
+                    className="text-[10px] font-bold text-indigo-600 hover:underline cursor-pointer"
+                  >
+                    Pay Full Balance (₹{Number(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')})
+                  </button>
                 </div>
-
-                <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800">
-                  <span className="text-[10px] text-indigo-600 dark:text-indigo-400 block">💰 Total Gross Due</span>
-                  <strong className="font-mono text-indigo-950 dark:text-indigo-200 font-black">
-                    ₹{(studentForFee.feeSummary?.totalDue || 0).toLocaleString('en-IN')}
-                  </strong>
-                </div>
-              </div>
-            </div>
-
-            {/* Amount to Collect */}
-            <div>
-              <div className="flex justify-between items-center mb-1">
-                <label className="font-bold text-slate-700 dark:text-slate-300">
-                  Amount to Collect (₹) <span className="text-rose-500">*</span>
-                </label>
-                <button
-                  type="button"
-                  onClick={() => setFeeForm(prev => ({ ...prev, amount: studentForFee.feeSummary?.balance || 0 }))}
-                  className="text-[10px] font-bold text-indigo-600 hover:underline cursor-pointer"
-                >
-                  Pay Full Balance (₹{Number(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')})
-                </button>
-              </div>
-              <input
-                type="number"
-                required
-                min={1}
-                max={studentForFee.feeSummary?.balance || 999999}
-                value={feeForm.amount}
-                onChange={(e) => setFeeForm(prev => ({ ...prev, amount: e.target.value }))}
-                placeholder="Enter fee amount collected..."
-                className="w-full p-3 rounded-xl border-2 border-indigo-500 bg-white dark:bg-slate-800 font-mono font-black text-base text-slate-900 dark:text-white shadow-sm focus:ring-2 focus:ring-indigo-400"
-              />
-            </div>
-
-            {/* Payment Mode & Custom Receipt No */}
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Payment Mode</label>
-                <select
-                  value={feeForm.paymentMode}
-                  onChange={(e) => setFeeForm(prev => ({ ...prev, paymentMode: e.target.value }))}
-                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
-                >
-                  <option value="Cash">💵 Cash</option>
-                  <option value="UPI / Online">📱 UPI / QR Code / Online</option>
-                  <option value="Bank Transfer (NEFT/RTGS)">🏦 Bank Transfer</option>
-                  <option value="Cheque">📜 Cheque</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Receipt No.</label>
-                <input
-                  type="text"
-                  value={feeForm.receiptNo}
-                  onChange={(e) => setFeeForm(prev => ({ ...prev, receiptNo: e.target.value }))}
-                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
-                />
-              </div>
-            </div>
-
-            {/* Discount / Concession & Remarks */}
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Discount / Concession (₹) {!canManageFees && <span className="text-[10px] text-amber-600 font-normal">🔒 Admin Only</span>}
-                </label>
                 <input
                   type="number"
-                  min={0}
-                  disabled={!canManageFees}
-                  value={feeForm.discount}
-                  onChange={(e) => setFeeForm(prev => ({ ...prev, discount: e.target.value }))}
-                  className={`w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold ${!canManageFees ? 'opacity-60 cursor-not-allowed bg-slate-100 dark:bg-slate-900' : ''}`}
+                  required
+                  min={1}
+                  max={studentForFee.feeSummary?.balance || 999999}
+                  value={feeForm.amount}
+                  onChange={(e) => setFeeForm(prev => ({ ...prev, amount: e.target.value }))}
+                  placeholder="Enter fee amount collected..."
+                  className="w-full p-3 rounded-xl border-2 border-indigo-500 bg-white dark:bg-slate-800 font-mono font-black text-base text-slate-900 dark:text-white shadow-sm focus:ring-2 focus:ring-indigo-400"
                 />
               </div>
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Remarks / Note</label>
-                <input
-                  type="text"
-                  value={feeForm.remarks}
-                  onChange={(e) => setFeeForm(prev => ({ ...prev, remarks: e.target.value }))}
-                  placeholder="e.g. Installment 1, Bus fee, Old Session clear..."
-                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-medium"
-                />
-              </div>
-            </div>
 
-            {/* Form Actions */}
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-700">
-              <button
-                type="button"
-                onClick={() => setIsFeeModalOpen(false)}
-                className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-300"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold shadow-lg shadow-emerald-500/20 flex items-center gap-1.5 transition-all hover:scale-105"
-              >
-                <CreditCard className="w-4 h-4" /> Collect ₹{Number(feeForm.amount || 0).toLocaleString('en-IN')} & Print Receipt
-              </button>
-            </div>
-          </form>
-        )}
+              {/* Collection Date, Payment Mode & Receipt No */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                    Collection / Payment Date *
+                  </label>
+                  <input
+                    type="date"
+                    required
+                    value={feeForm.paymentDate}
+                    onChange={(e) => setFeeForm(prev => ({ ...prev, paymentDate: e.target.value }))}
+                    className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-slate-900 dark:text-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Payment Mode</label>
+                  <select
+                    value={feeForm.paymentMode}
+                    onChange={(e) => setFeeForm(prev => ({ ...prev, paymentMode: e.target.value }))}
+                    className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-slate-900 dark:text-white"
+                  >
+                    <option value="Cash">💵 Cash</option>
+                    <option value="UPI / Online">📱 UPI / QR Code / Online</option>
+                    <option value="Bank Transfer (NEFT/RTGS)">🏦 Bank Transfer</option>
+                    <option value="Cheque">📜 Cheque</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Receipt No.</label>
+                  <input
+                    type="text"
+                    value={feeForm.receiptNo}
+                    onChange={(e) => setFeeForm(prev => ({ ...prev, receiptNo: e.target.value }))}
+                    className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold text-slate-900 dark:text-white"
+                  />
+                </div>
+              </div>
+
+              {/* Discount / Concession & Remarks */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                    Discount / Concession (₹) {!canManageFees && <span className="text-[10px] text-amber-600 font-normal">🔒 Admin Only</span>}
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    disabled={!canManageFees}
+                    value={feeForm.discount}
+                    onChange={(e) => setFeeForm(prev => ({ ...prev, discount: e.target.value }))}
+                    className={`w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold ${!canManageFees ? 'opacity-60 cursor-not-allowed bg-slate-100 dark:bg-slate-900' : ''}`}
+                  />
+                </div>
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Remarks / Note</label>
+                  <input
+                    type="text"
+                    value={feeForm.remarks}
+                    onChange={(e) => setFeeForm(prev => ({ ...prev, remarks: e.target.value }))}
+                    placeholder="e.g. Installment 1, Bus fee, Old Session clear..."
+                    className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-medium text-slate-900 dark:text-white"
+                  />
+                </div>
+              </div>
+
+              {/* Form Actions */}
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-700">
+                <button
+                  type="button"
+                  onClick={() => setIsFeeModalOpen(false)}
+                  className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-300 cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black shadow-lg shadow-emerald-500/25 flex items-center gap-2 cursor-pointer transition-all hover:scale-105"
+                >
+                  <CreditCard className="w-4 h-4" /> Collect ₹{Number(feeForm.amount || 0).toLocaleString('en-IN')} & Print Receipt
+                </button>
+              </div>
+            </form>
+          );
+        })()}
       </Modal>
 
       {/* ========================================================== */}

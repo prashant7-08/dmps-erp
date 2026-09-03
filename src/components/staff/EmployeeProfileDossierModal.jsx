@@ -130,6 +130,16 @@ export const EmployeeProfileDossierModal = ({
 
             {/* Quick Action Buttons */}
             <div className="flex items-center gap-2 flex-wrap justify-end">
+              {onPaySalary && (
+                <button
+                  onClick={() => onPaySalary(employee)}
+                  title="Pay Monthly Salary directly right here"
+                  className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black flex items-center gap-1.5 transition-all shadow-md cursor-pointer hover:scale-105"
+                >
+                  <DollarSign className="w-3.5 h-3.5" /> 💰 Pay Salary
+                </button>
+              )}
+
               <button
                 onClick={() => setIsPrintDossierOpen(true)}
                 title="Print Complete Employee Service Book & Profile"

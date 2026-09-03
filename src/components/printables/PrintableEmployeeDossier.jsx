@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import { Printer, X, Download } from 'lucide-react';
+import { Printer, X, Download, DollarSign, Wallet } from 'lucide-react';
 
-export const PrintableEmployeeDossier = ({ employee, schoolInfo, onClose }) => {
+export const PrintableEmployeeDossier = ({ employee, schoolInfo, onClose, onPaySalary }) => {
   const printRef = useRef(null);
 
   if (!employee) return null;
@@ -13,7 +13,7 @@ export const PrintableEmployeeDossier = ({ employee, schoolInfo, onClose }) => {
   return (
     <div className="space-y-3 font-sans">
       {/* Action Bar (Hidden in Print) */}
-      <div className="flex items-center justify-between bg-slate-100 dark:bg-slate-800 p-2.5 rounded-2xl print:hidden border border-slate-200 dark:border-slate-700">
+      <div className="flex flex-wrap items-center justify-between bg-slate-100 dark:bg-slate-800 p-2.5 rounded-2xl print:hidden border border-slate-200 dark:border-slate-700 gap-2">
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
           <p className="text-xs font-bold text-slate-800 dark:text-slate-200">
@@ -21,6 +21,14 @@ export const PrintableEmployeeDossier = ({ employee, schoolInfo, onClose }) => {
           </p>
         </div>
         <div className="flex items-center gap-2">
+          {onPaySalary && (
+            <button
+              onClick={() => onPaySalary(employee)}
+              className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm cursor-pointer hover:scale-105 transition-all"
+            >
+              <DollarSign className="w-3.5 h-3.5" /> 💰 Pay Monthly Salary
+            </button>
+          )}
           <button
             onClick={handlePrint}
             className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm cursor-pointer"
