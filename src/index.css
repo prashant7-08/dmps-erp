@@ -316,7 +316,7 @@
 .animate-header-ticker {
   display: flex;
   width: max-content;
-  animation: headerTickerLoop 26s linear infinite;
+  animation: headerTickerLoop 30s linear infinite;
 }
 
 .animate-header-ticker:hover {
