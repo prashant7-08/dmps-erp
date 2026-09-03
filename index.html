@@ -77,6 +77,17 @@
           var st = document.getElementById('loader-status-text');
           if (st) st.innerText = 'OFFLINE • WAITING FOR NETWORK...';
         });
+
+        // Safety fallback: if app takes more than 3 seconds due to network or Vercel build transition
+        setTimeout(function() {
+          var loader = document.getElementById('initial-loader');
+          if (loader && loader.parentElement) {
+            var st = document.getElementById('loader-status-text');
+            if (st) {
+              st.innerHTML = '<button onclick="window.location.reload(true);" style="background:#f59e0b; color:#0b1e38; border:none; padding:8px 18px; border-radius:12px; font-weight:800; cursor:pointer; font-size:12px; margin-top:8px; box-shadow:0 4px 12px rgba(245,158,11,0.3);">⚡ Tap to Refresh & Load App</button>';
+            }
+          }
+        }, 3500);
       </script>
     </div>
     <script type="module" src="/src/main.jsx"></script>
