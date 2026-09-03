@@ -14,6 +14,7 @@ import {
   Clock,
   Printer,
   DollarSign,
+  Receipt,
   Edit,
   ShieldCheck,
   AlertCircle,
@@ -136,7 +137,7 @@ export const EmployeeProfileDossierModal = ({
                   title="Pay Monthly Salary"
                   className="px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black text-xs flex items-center gap-1 transition-all shadow-sm cursor-pointer shrink-0 hover:scale-105 active:scale-95 whitespace-nowrap"
                 >
-                  <DollarSign className="w-3 h-3" /> Pay Salary
+                  <CreditCard className="w-3 h-3" /> Pay Salary
                 </button>
               )}
 
@@ -161,10 +162,10 @@ export const EmployeeProfileDossierModal = ({
               {onPrintPaySlip && (
                 <button
                   onClick={() => onPrintPaySlip(employee)}
-                  title="Print Monthly Pay Slip"
-                  className="px-2.5 py-1.5 rounded-xl bg-emerald-600/80 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1 transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 whitespace-nowrap"
+                  title="Print Official Monthly Pay Slip"
+                  className="px-2.5 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs flex items-center gap-1 transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 whitespace-nowrap"
                 >
-                  <DollarSign className="w-3 h-3" /> Payslip
+                  <Receipt className="w-3 h-3" /> Print Slip
                 </button>
               )}
 

@@ -108,6 +108,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   });
 
   const handleOpenPaySalary = (staff) => {
+    setSelectedStaff(staff);
     const base = staff.salary?.basic || staff.salary?.netSalary || staff.basicSalary || staff.salary || 25000;
     setSalaryPayForm({
       staffId: staff.id,
@@ -161,6 +162,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     }
 
     setIsPaySalaryModalOpen(false);
+    setIsPaySlipModalOpen(true);
   };
 
   // Masters Modals
@@ -2784,7 +2786,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
               type="submit"
               className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black shadow-lg shadow-emerald-500/25 flex items-center gap-1.5 cursor-pointer text-xs transition-all hover:scale-105 active:scale-95"
             >
-              <CheckCircle2 className="w-4 h-4" /> Confirm & Disburse ₹{Number(salaryPayForm.paidAmount || 0).toLocaleString('en-IN')}
+              <CreditCard className="w-4 h-4" /> Disburse ₹{Number(salaryPayForm.paidAmount || 0).toLocaleString('en-IN')} & Print Slip
             </button>
           </div>
         </form>
@@ -2835,6 +2837,25 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
               setIsPrintDossierModalOpen(false);
               handleOpenPaySalary(st);
             }}
+          />
+        </Modal>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 🧾 MODAL: OFFICIAL MONTHLY SALARY PAYSLIP                                 */}
+      {/* ========================================================================= */}
+      {isPaySlipModalOpen && selectedStaff && (
+        <Modal
+          isOpen={isPaySlipModalOpen}
+          onClose={() => setIsPaySlipModalOpen(false)}
+          title={`Official Salary Slip - ${selectedStaff.name}`}
+          maxWidth="max-w-3xl"
+        >
+          <PrintablePaySlip
+            teacher={selectedStaff}
+            month={salaryPayForm.month || 'August 2026'}
+            schoolInfo={schoolInfo}
+            onPrint={() => window.print()}
           />
         </Modal>
       )}
