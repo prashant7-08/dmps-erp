@@ -165,6 +165,18 @@ export function AuthProvider({ children }) {
     });
 
     if (matchedTeacher) {
+      if (
+        matchedTeacher.loginDeactivated ||
+        matchedTeacher.loginAccess === 'Disabled' ||
+        ['Inactive', 'Resigned', 'Left', 'Terminated'].includes(matchedTeacher.status)
+      ) {
+        setLoading(false);
+        return {
+          success: false,
+          message: `🔒 Login Access Denied: The ERP account for "${matchedTeacher.name}" is deactivated (${matchedTeacher.status || 'Resigned / Left'}). Login permissions have been revoked by Administration.`
+        };
+      }
+
       const validPass = [
         matchedTeacher.password,
         'teacher123',

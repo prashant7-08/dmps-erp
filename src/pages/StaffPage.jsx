@@ -31,7 +31,11 @@ import {
   Check,
   UserPlus,
   User,
-  CreditCard
+  CreditCard,
+  Edit2,
+  FileText,
+  CheckSquare,
+  Square
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
@@ -158,9 +162,32 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   // Masters Modals
   const [isAddDeptModalOpen, setIsAddDeptModalOpen] = useState(false);
   const [deptFormData, setDeptFormData] = useState({ name: '', code: '', head: '', color: 'indigo' });
+  const [isEditDeptModalOpen, setIsEditDeptModalOpen] = useState(false);
+  const [editingDept, setEditingDept] = useState(null);
+  const [editDeptFormData, setEditDeptFormData] = useState({ id: '', name: '', code: '', head: '', color: 'indigo' });
 
   const [isAddDesigModalOpen, setIsAddDesigModalOpen] = useState(false);
   const [desigFormData, setDesigFormData] = useState({ title: '', department: 'Science & Biology', rank: 3 });
+  const [isEditDesigModalOpen, setIsEditDesigModalOpen] = useState(false);
+  const [editingDesig, setEditingDesig] = useState(null);
+  const [editDesigFormData, setEditDesigFormData] = useState({ id: '', title: '', department: '', rank: 3 });
+
+  // Print All Staff Register Modal State
+  const [isPrintAllStaffModalOpen, setIsPrintAllStaffModalOpen] = useState(false);
+  const [printDeptFilter, setPrintDeptFilter] = useState('ALL');
+  const [printStatusFilter, setPrintStatusFilter] = useState('ALL');
+  const [printRoleFilter, setPrintRoleFilter] = useState('ALL');
+  const [printColumns, setPrintColumns] = useState({
+    empId: true,
+    name: true,
+    department: true,
+    designation: true,
+    mobile: true,
+    qualification: true,
+    joiningDate: true,
+    basicSalary: true,
+    status: true
+  });
 
   // Bulk CSV / Excel state
   const [csvText, setCsvText] = useState('');
@@ -317,6 +344,53 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       setDesignations([...schoolService.getDesignations()]);
       showToast(`Designation "${title}" deleted`, 'info');
     }
+  };
+
+  const handleOpenEditDept = (dept) => {
+    setEditingDept(dept);
+    setEditDeptFormData({
+      id: dept.id,
+      name: dept.name,
+      code: dept.code || '',
+      head: dept.head || '',
+      color: dept.color || 'indigo'
+    });
+    setIsEditDeptModalOpen(true);
+  };
+
+  const handleEditDeptSubmit = (e) => {
+    e.preventDefault();
+    if (!editDeptFormData.name) {
+      showToast('Please enter Department Name', 'warning');
+      return;
+    }
+    schoolService.updateDepartment(editDeptFormData.id, editDeptFormData);
+    setDepartments([...schoolService.getDepartments()]);
+    setIsEditDeptModalOpen(false);
+    showToast(`🏢 Department "${editDeptFormData.name}" updated successfully!`, 'success');
+  };
+
+  const handleOpenEditDesig = (desig) => {
+    setEditingDesig(desig);
+    setEditDesigFormData({
+      id: desig.id,
+      title: desig.title,
+      department: desig.department || (departments[0]?.name || 'General'),
+      rank: desig.rank || 4
+    });
+    setIsEditDesigModalOpen(true);
+  };
+
+  const handleEditDesigSubmit = (e) => {
+    e.preventDefault();
+    if (!editDesigFormData.title) {
+      showToast('Please enter Designation Title', 'warning');
+      return;
+    }
+    schoolService.updateDesignation(editDesigFormData.id, editDesigFormData);
+    setDesignations([...schoolService.getDesignations()]);
+    setIsEditDesigModalOpen(false);
+    showToast(`🎖️ Designation "${editDesigFormData.title}" updated successfully!`, 'success');
   };
 
   const handleDownloadSampleCsv = () => {
@@ -502,13 +576,16 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       assignedRoute: teacher.assignedRoute || 'Route 1 - Ramghat Line',
       classTeacherOf: teacher.classTeacherOf || 'None',
       basicSalary: teacher.salary?.basic || teacher.salary?.netSalary || teacher.basicSalary || teacher.salary || 25000,
-      upiId: teacher.upiId || teacher.phone || teacher.mobile || ''
+      upiId: teacher.upiId || teacher.phone || teacher.mobile || '',
+      status: teacher.status || (teacher.loginDeactivated ? 'Resigned' : 'Active'),
+      loginDeactivated: Boolean(teacher.loginDeactivated)
     });
     setIsEditStaffModalOpen(true);
   };
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
+    const isDeactivated = ['Resigned', 'Left', 'Inactive', 'Terminated'].includes(editFormData.status) || Boolean(editFormData.loginDeactivated);
     const updated = schoolService.updateTeacher(editFormData.id, {
       name: editFormData.name,
       role: editFormData.role,
@@ -545,7 +622,10 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
         basic: Number(editFormData.basicSalary) || 25000,
         netSalary: Number(editFormData.basicSalary) || 25000
       },
-      upiId: editFormData.upiId || ''
+      upiId: editFormData.upiId || '',
+      status: editFormData.status || 'Active',
+      loginDeactivated: isDeactivated,
+      loginAccess: isDeactivated ? 'Disabled' : 'Enabled'
     });
 
     refreshData();
@@ -553,7 +633,11 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     if (selectedStaff && selectedStaff.id === editFormData.id) {
       setSelectedStaff(updated);
     }
-    showToast(`✅ Profile for ${editFormData.name} successfully updated!`, 'success');
+    if (isDeactivated) {
+      showToast(`⚠️ Staff member marked as "${editFormData.status || 'Deactivated'}". ERP login access has been automatically revoked! 🔒`, 'warning');
+    } else {
+      showToast(`✅ Profile for ${editFormData.name} successfully updated!`, 'success');
+    }
   };
 
   const handleDelete = (id, name) => {
@@ -600,6 +684,14 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5">
+          <button
+            onClick={() => setIsPrintAllStaffModalOpen(true)}
+            className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold shadow-xs flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+            title="Print Official Staff Register Directory"
+          >
+            <Printer className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+            <span>Print All Employees</span>
+          </button>
           <button
             onClick={() => setIsAddStaffModalOpen(true)}
             className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
@@ -871,12 +963,22 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                         <span className="text-[10px] font-mono font-bold text-slate-400">Code: {dept.code || dept.id}</span>
                       </div>
                     </div>
-                    <button
-                      onClick={() => handleDeleteDept(dept.id, dept.name)}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950 transition-colors"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => handleOpenEditDept(dept)}
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-colors"
+                        title="Edit Department"
+                      >
+                        <Edit2 className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() => handleDeleteDept(dept.id, dept.name)}
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950 transition-colors"
+                        title="Delete Department"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
 
                   <div className="flex items-center justify-between text-xs pt-2 border-t border-slate-200 dark:border-slate-700">
@@ -927,12 +1029,22 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                       <span className="text-[10px] text-slate-400">Dept: {desig.department}</span>
                     </div>
                   </div>
-                  <button
-                    onClick={() => handleDeleteDesig(desig.id, desig.title)}
-                    className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950 transition-colors"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => handleOpenEditDesig(desig)}
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-colors"
+                      title="Edit Designation"
+                    >
+                      <Edit2 className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => handleDeleteDesig(desig.id, desig.title)}
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950 transition-colors"
+                      title="Delete Designation"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
 
                 <div className="flex items-center justify-between text-xs pt-2 border-t border-slate-200 dark:border-slate-700">
@@ -1774,6 +1886,71 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   placeholder="e.g. 9719476606@upi / PhonePe No."
                   className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
                 />
+              </div>
+            </div>
+          </div>
+
+          {/* Section 5: Employment & Login Access Status */}
+          <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-2xs">
+            <div className="bg-slate-100 dark:bg-slate-800/80 px-3.5 py-2 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <KeyRound className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                <span className="font-black text-slate-900 dark:text-white uppercase text-[11px]">
+                  5. Employment & ERP Login Access (कार्य स्थिति एवं लॉगिन नियंत्रण)
+                </span>
+              </div>
+              <span className={`text-[10px] font-black px-2.5 py-0.5 rounded-full ${
+                ['Resigned', 'Left', 'Inactive', 'Terminated'].includes(editFormData.status)
+                  ? 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300'
+                  : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+              }`}>
+                {['Resigned', 'Left', 'Inactive', 'Terminated'].includes(editFormData.status) ? '🔒 Login Revoked' : '🔓 Login Active'}
+              </span>
+            </div>
+
+            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Employment Working Status *</label>
+                <select
+                  value={editFormData.status || 'Active'}
+                  onChange={(e) => {
+                    const newStatus = e.target.value;
+                    const isDeact = ['Resigned', 'Left', 'Inactive', 'Terminated'].includes(newStatus);
+                    setEditFormData({
+                      ...editFormData,
+                      status: newStatus,
+                      loginDeactivated: isDeact
+                    });
+                  }}
+                  className={`w-full p-2.5 rounded-xl border font-bold ${
+                    ['Resigned', 'Left', 'Inactive', 'Terminated'].includes(editFormData.status)
+                      ? 'border-rose-300 bg-rose-50 text-rose-800 dark:bg-rose-950 dark:border-rose-900 dark:text-rose-200'
+                      : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
+                  }`}
+                >
+                  <option value="Active">🟢 Active (वर्तमान में कार्यरत)</option>
+                  <option value="On Leave">🟡 On Long Leave (अवकाश पर)</option>
+                  <option value="Resigned">🔴 Resigned (इस्तीफा / सेवामुक्त - Auto Deactivate Login)</option>
+                  <option value="Left">🔴 Left School (स्कूल छोड़ दिया - Auto Deactivate Login)</option>
+                  <option value="Terminated">⛔ Terminated (निष्कासित - Auto Deactivate Login)</option>
+                </select>
+                {['Resigned', 'Left', 'Inactive', 'Terminated'].includes(editFormData.status) && (
+                  <p className="text-[10px] text-rose-600 dark:text-rose-400 font-semibold mt-1">
+                    ⚠️ Marking this employee as {editFormData.status} will automatically revoke and deactivate their ERP login!
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Direct ERP Login Access</label>
+                <select
+                  value={editFormData.loginDeactivated ? 'Disabled' : 'Enabled'}
+                  onChange={(e) => setEditFormData({ ...editFormData, loginDeactivated: e.target.value === 'Disabled' })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                >
+                  <option value="Enabled">🔓 Enabled (Allow Login)</option>
+                  <option value="Disabled">🔒 Disabled (Revoke & Block Login)</option>
+                </select>
               </div>
             </div>
           </div>
@@ -2640,6 +2817,361 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
           handleOpenPaySalary(st);
         }}
       />
+
+      {/* ========================================================================= */}
+      {/* 🏢 MODAL: EDIT DEPARTMENT */}
+      {/* ========================================================================= */}
+      <Modal
+        isOpen={isEditDeptModalOpen}
+        onClose={() => setIsEditDeptModalOpen(false)}
+        title={`Edit Department: ${editingDept?.name || ''}`}
+        maxWidth="max-w-lg"
+      >
+        <form onSubmit={handleEditDeptSubmit} className="space-y-4 text-xs">
+          <div>
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department Name *</label>
+            <input
+              type="text"
+              required
+              value={editDeptFormData.name}
+              onChange={(e) => setEditDeptFormData({ ...editDeptFormData, name: e.target.value })}
+              placeholder="e.g. Science & Biology"
+              className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department Code</label>
+              <input
+                type="text"
+                value={editDeptFormData.code}
+                onChange={(e) => setEditDeptFormData({ ...editDeptFormData, code: e.target.value.toUpperCase() })}
+                placeholder="e.g. SCI"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono"
+              />
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Head of Department (HOD)</label>
+              <input
+                type="text"
+                value={editDeptFormData.head}
+                onChange={(e) => setEditDeptFormData({ ...editDeptFormData, head: e.target.value })}
+                placeholder="e.g. Dr. Vivek Agnihotri"
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
+              />
+            </div>
+          </div>
+
+          <div className="flex justify-end gap-3 pt-3 border-t border-slate-200 dark:border-slate-800">
+            <button type="button" onClick={() => setIsEditDeptModalOpen(false)} className="px-4 py-2 text-slate-500 font-bold">Cancel</button>
+            <button type="submit" className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg">Save Changes</button>
+          </div>
+        </form>
+      </Modal>
+
+      {/* ========================================================================= */}
+      {/* 🎖️ MODAL: EDIT DESIGNATION */}
+      {/* ========================================================================= */}
+      <Modal
+        isOpen={isEditDesigModalOpen}
+        onClose={() => setIsEditDesigModalOpen(false)}
+        title={`Edit Designation: ${editingDesig?.title || ''}`}
+        maxWidth="max-w-lg"
+      >
+        <form onSubmit={handleEditDesigSubmit} className="space-y-4 text-xs">
+          <div>
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Designation Title *</label>
+            <input
+              type="text"
+              required
+              value={editDesigFormData.title}
+              onChange={(e) => setEditDesigFormData({ ...editDesigFormData, title: e.target.value })}
+              placeholder="e.g. Senior PGT Faculty"
+              className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Assigned Department</label>
+              <select
+                value={editDesigFormData.department}
+                onChange={(e) => setEditDesigFormData({ ...editDesigFormData, department: e.target.value })}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
+              >
+                {departments.map(d => (
+                  <option key={d.id} value={d.name}>{d.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Hierarchy Rank (1 = Top)</label>
+              <select
+                value={editDesigFormData.rank}
+                onChange={(e) => setEditDesigFormData({ ...editDesigFormData, rank: Number(e.target.value) })}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
+              >
+                <option value={1}>Level 1 - Executive / Director</option>
+                <option value={2}>Level 2 - Principal / Head</option>
+                <option value={3}>Level 3 - Senior Faculty / PGT / HOD</option>
+                <option value={4}>Level 4 - Secondary Faculty / TGT</option>
+                <option value={5}>Level 5 - Primary / PRT</option>
+                <option value={6}>Level 6 - Support Staff / Driver / Admin</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="flex justify-end gap-3 pt-3 border-t border-slate-200 dark:border-slate-800">
+            <button type="button" onClick={() => setIsEditDesigModalOpen(false)} className="px-4 py-2 text-slate-500 font-bold">Cancel</button>
+            <button type="submit" className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg">Save Changes</button>
+          </div>
+        </form>
+      </Modal>
+
+      {/* ========================================================================= */}
+      {/* 🖨️ MODAL: PRINT ALL EMPLOYEES / STAFF REGISTER DIRECTORY */}
+      {/* ========================================================================= */}
+      <Modal
+        isOpen={isPrintAllStaffModalOpen}
+        onClose={() => setIsPrintAllStaffModalOpen(false)}
+        title="Print Official Faculty & Staff Master Register"
+        maxWidth="max-w-5xl"
+      >
+        <div className="space-y-4 text-xs">
+          {/* Controls Bar (Hidden in Print) */}
+          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 space-y-3 print:hidden">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Filter by Department</label>
+                <select
+                  value={printDeptFilter}
+                  onChange={(e) => setPrintDeptFilter(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-semibold"
+                >
+                  <option value="ALL">All Departments ({departments.length})</option>
+                  {departments.map(d => (
+                    <option key={d.id} value={d.name}>{d.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Filter by Employment Status</label>
+                <select
+                  value={printStatusFilter}
+                  onChange={(e) => setPrintStatusFilter(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-semibold"
+                >
+                  <option value="ALL">All Staff (Active + Resigned/Left)</option>
+                  <option value="ACTIVE_ONLY">🟢 Active Staff Only</option>
+                  <option value="RESIGNED_ONLY">🔴 Resigned / Left Staff Only</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Filter by Staff Role</label>
+                <select
+                  value={printRoleFilter}
+                  onChange={(e) => setPrintRoleFilter(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-semibold"
+                >
+                  <option value="ALL">All Roles</option>
+                  <option value="Teacher">Teaching Faculty</option>
+                  <option value="Principal">Principal / Head</option>
+                  <option value="Driver">Transport Drivers</option>
+                  <option value="Admin">Administration & Accounts</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Column Toggles */}
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="font-bold text-slate-500 uppercase text-[10px]">Show Columns:</span>
+                {[
+                  { key: 'empId', label: 'Emp ID' },
+                  { key: 'department', label: 'Department' },
+                  { key: 'designation', label: 'Designation' },
+                  { key: 'mobile', label: 'Mobile' },
+                  { key: 'qualification', label: 'Qualification' },
+                  { key: 'basicSalary', label: 'Basic Salary' },
+                  { key: 'status', label: 'Status' }
+                ].map(col => (
+                  <label key={col.key} className="flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-300 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={printColumns[col.key]}
+                      onChange={(e) => setPrintColumns({ ...printColumns, [col.key]: e.target.checked })}
+                      className="w-3.5 h-3.5 rounded text-indigo-600 focus:ring-indigo-500"
+                    />
+                    <span>{col.label}</span>
+                  </label>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black shadow-lg shadow-indigo-500/20 flex items-center gap-2 cursor-pointer transition-all hover:scale-105"
+              >
+                <Printer className="w-4 h-4" />
+                <span>🖨️ Print Master Register</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Printable Document Container */}
+          {(() => {
+            const printFilteredTeachers = teachers.filter(t => {
+              const matchesDept = printDeptFilter === 'ALL' || t.department === printDeptFilter;
+              const isResigned = ['Resigned', 'Left', 'Inactive', 'Terminated'].includes(t.status) || Boolean(t.loginDeactivated);
+              const matchesStatus = printStatusFilter === 'ALL' || (printStatusFilter === 'ACTIVE_ONLY' ? !isResigned : isResigned);
+              const matchesRole = printRoleFilter === 'ALL' || (t.role === printRoleFilter || t.designation?.toLowerCase().includes(printRoleFilter.toLowerCase()));
+              return matchesDept && matchesStatus && matchesRole;
+            });
+
+            const totalMonthlySalary = printFilteredTeachers.reduce((sum, t) => {
+              const base = t.salary?.basic || t.salary?.netSalary || t.basicSalary || t.salary || 25000;
+              return sum + (Number(base) || 0);
+            }, 0);
+
+            const activeCount = printFilteredTeachers.filter(t => !['Resigned', 'Left', 'Inactive', 'Terminated'].includes(t.status) && !t.loginDeactivated).length;
+            const resignedCount = printFilteredTeachers.length - activeCount;
+
+            return (
+              <div id="printable-staff-register" className="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-4 print:border-none print:shadow-none print:p-0 print:m-0">
+                {/* School Letterhead Header */}
+                <div className="text-center pb-3 border-b-2 border-slate-900 dark:border-slate-200 space-y-1">
+                  <h1 className="text-xl sm:text-2xl font-black uppercase text-slate-900 dark:text-white font-serif tracking-wide">
+                    {schoolInfo.name || 'Dadheech Memorial Public School'}
+                  </h1>
+                  <p className="text-xs text-slate-600 dark:text-slate-300 font-medium">
+                    {schoolInfo.address || 'Ramghat Road Border, Jargwan, Bulandshahr (U.P.)'} | Affiliation No: {schoolInfo.affiliationNo || 'UP-CBSE-83921'}
+                  </p>
+                  <div className="pt-1 flex items-center justify-between text-[11px] font-bold text-slate-700 dark:text-slate-300 border-t border-slate-200 dark:border-slate-700 mt-2 pt-1.5">
+                    <span className="uppercase font-mono">STAFF & FACULTY MASTER REGISTER ({schoolInfo.academicSession || '2026-2027'})</span>
+                    <span>Total Employees Listed: <strong>{printFilteredTeachers.length}</strong></span>
+                    <span>Date Generated: <strong>{new Date().toLocaleDateString('en-GB')}</strong></span>
+                  </div>
+                </div>
+
+                {/* Table */}
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-[11px] border-collapse border border-slate-300 dark:border-slate-700">
+                    <thead className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-black uppercase text-[10px]">
+                      <tr>
+                        <th className="p-2 border border-slate-300 dark:border-slate-700 w-8 text-center">#</th>
+                        {printColumns.empId && <th className="p-2 border border-slate-300 dark:border-slate-700">Emp ID</th>}
+                        <th className="p-2 border border-slate-300 dark:border-slate-700">Employee Full Name</th>
+                        {printColumns.department && <th className="p-2 border border-slate-300 dark:border-slate-700">Department</th>}
+                        {printColumns.designation && <th className="p-2 border border-slate-300 dark:border-slate-700">Designation</th>}
+                        {printColumns.qualification && <th className="p-2 border border-slate-300 dark:border-slate-700">Qualification</th>}
+                        {printColumns.mobile && <th className="p-2 border border-slate-300 dark:border-slate-700">Contact Mobile</th>}
+                        {printColumns.basicSalary && <th className="p-2 border border-slate-300 dark:border-slate-700 text-right">Basic Salary</th>}
+                        {printColumns.status && <th className="p-2 border border-slate-300 dark:border-slate-700 text-center">Status</th>}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                      {printFilteredTeachers.map((t, idx) => {
+                        const isResigned = ['Resigned', 'Left', 'Inactive', 'Terminated'].includes(t.status) || Boolean(t.loginDeactivated);
+                        const base = t.salary?.basic || t.salary?.netSalary || t.basicSalary || t.salary || 25000;
+                        return (
+                          <tr key={t.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                            <td className="p-2 border border-slate-300 dark:border-slate-700 text-center font-mono font-bold text-slate-500">
+                              {idx + 1}
+                            </td>
+                            {printColumns.empId && (
+                              <td className="p-2 border border-slate-300 dark:border-slate-700 font-mono font-bold text-indigo-700 dark:text-indigo-400">
+                                {t.employeeId || t.staffId || t.id}
+                              </td>
+                            )}
+                            <td className="p-2 border border-slate-300 dark:border-slate-700 font-bold text-slate-900 dark:text-white">
+                              {t.name}
+                            </td>
+                            {printColumns.department && (
+                              <td className="p-2 border border-slate-300 dark:border-slate-700">
+                                {t.department}
+                              </td>
+                            )}
+                            {printColumns.designation && (
+                              <td className="p-2 border border-slate-300 dark:border-slate-700 font-medium">
+                                {t.designation}
+                              </td>
+                            )}
+                            {printColumns.qualification && (
+                              <td className="p-2 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+                                {t.qualification || 'Graduate'}
+                              </td>
+                            )}
+                            {printColumns.mobile && (
+                              <td className="p-2 border border-slate-300 dark:border-slate-700 font-mono">
+                                {t.phone || t.mobile || '-'}
+                              </td>
+                            )}
+                            {printColumns.basicSalary && (
+                              <td className="p-2 border border-slate-300 dark:border-slate-700 font-mono font-bold text-right text-emerald-700 dark:text-emerald-400">
+                                ₹{Number(base).toLocaleString('en-IN')}
+                              </td>
+                            )}
+                            {printColumns.status && (
+                              <td className="p-2 border border-slate-300 dark:border-slate-700 text-center font-bold">
+                                {isResigned ? (
+                                  <span className="text-rose-600 font-bold text-[10px]">🔴 {t.status || 'Resigned'}</span>
+                                ) : (
+                                  <span className="text-emerald-700 font-bold text-[10px]">🟢 Active</span>
+                                )}
+                              </td>
+                            )}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Summary Figures Footer */}
+                <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between text-xs font-bold text-slate-800 dark:text-slate-200">
+                  <div className="flex gap-4">
+                    <span>Active Employees: <strong className="text-emerald-600">{activeCount}</strong></span>
+                    <span>Resigned / Left: <strong className="text-rose-600">{resignedCount}</strong></span>
+                  </div>
+                  <div>
+                    <span>Total Monthly Payroll Demand: <strong className="font-mono text-emerald-700 dark:text-emerald-300 text-sm">₹{totalMonthlySalary.toLocaleString('en-IN')}</strong></span>
+                  </div>
+                </div>
+
+                {/* Signatures Block */}
+                <div className="pt-10 grid grid-cols-4 gap-4 text-center text-[10px] font-bold text-slate-700 dark:text-slate-300">
+                  <div className="border-t border-slate-400 pt-1.5">Prepared By (HR Admin)</div>
+                  <div className="border-t border-slate-400 pt-1.5">Accounts Head</div>
+                  <div className="border-t border-slate-400 pt-1.5">Principal In-Charge</div>
+                  <div className="border-t border-slate-400 pt-1.5">Managing Director (MD)</div>
+                </div>
+              </div>
+            );
+          })()}
+
+          <div className="flex justify-end gap-3 pt-3 border-t border-slate-200 dark:border-slate-800 print:hidden">
+            <button
+              type="button"
+              onClick={() => setIsPrintAllStaffModalOpen(false)}
+              className="px-4 py-2 text-slate-500 font-bold hover:text-slate-700 cursor-pointer"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-xl shadow-lg shadow-indigo-500/20 flex items-center gap-2 cursor-pointer transition-all hover:scale-105"
+            >
+              <Printer className="w-4 h-4" /> Print Document Now
+            </button>
+          </div>
+        </div>
+      </Modal>
 
     </div>
   );

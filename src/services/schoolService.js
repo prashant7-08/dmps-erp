@@ -465,6 +465,17 @@ class SchoolService {
     return newDept;
   }
 
+  updateDepartment(id, updates) {
+    const deps = this.getDepartments();
+    const idx = deps.findIndex(d => d.id === id);
+    if (idx !== -1) {
+      this.data.departments[idx] = { ...this.data.departments[idx], ...updates };
+      this.saveData();
+      return this.data.departments[idx];
+    }
+    return null;
+  }
+
   deleteDepartment(id) {
     this.data.departments = this.getDepartments().filter(d => d.id !== id);
     this.saveData();
@@ -500,6 +511,17 @@ class SchoolService {
     this.data.designations.unshift(newDesig);
     this.saveData();
     return newDesig;
+  }
+
+  updateDesignation(id, updates) {
+    const des = this.getDesignations();
+    const idx = des.findIndex(d => d.id === id);
+    if (idx !== -1) {
+      this.data.designations[idx] = { ...this.data.designations[idx], ...updates };
+      this.saveData();
+      return this.data.designations[idx];
+    }
+    return null;
   }
 
   deleteDesignation(id) {
