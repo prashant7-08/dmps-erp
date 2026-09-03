@@ -282,6 +282,15 @@ export const navigationGroups = [
     ]
   },
   {
+    id: 'role-permissions-single',
+    permissionKey: 'settings',
+    label: 'PORTAL & ROLE ACCESS',
+    icon: ShieldCheck,
+    isSingle: true,
+    targetTab: 'setting-role-permission',
+    badge: 'Permissions'
+  },
+  {
     id: 'settings-group',
     permissionKey: 'settings',
     label: 'SETTINGS',

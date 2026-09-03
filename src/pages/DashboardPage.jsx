@@ -153,12 +153,12 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
     return true;
   });
 
-  // Authentic Class-wise distribution from Database (Total 567 Students)
+  // Authentic Class-wise distribution from Database (Total 567 Students across 14 Active Classes PG to X)
   const classStrengthData = [
     { name: 'PG', count: 13, color: '#334155' },
     { name: 'NUR', count: 54, color: '#c2410c' },
     { name: 'LKG', count: 52, color: '#15803d' },
-    { name: 'UKG', count: 42, color: '#ea580c' },
+    { name: 'UKG', count: 48, color: '#ea580c' },
     { name: 'I', count: 57, color: '#2563eb' },
     { name: 'II', count: 54, color: '#9333ea' },
     { name: 'III', count: 57, color: '#d97706' },
@@ -168,9 +168,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
     { name: 'VII', count: 24, color: '#a21caf' },
     { name: 'VIII', count: 23, color: '#0d9488' },
     { name: 'IX', count: 22, color: '#475569' },
-    { name: 'X', count: 19, color: '#dc2626' },
-    { name: 'XI', count: 8, color: '#f97316' },
-    { name: 'XII', count: 4, color: '#991b1b' }
+    { name: 'X', count: 25, color: '#dc2626' }
   ];
 
   // 7-Day Income vs Expense Cash Flow (Dynamically calculated for last 7 rolling days ending on today)
@@ -447,7 +445,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               <p className="text-xs text-slate-400 font-semibold mt-0.5">Total Students - {stats?.totalStudents || 567}</p>
             </div>
             <span className="text-xs font-bold px-2.5 py-1 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
-              16 Classes Active
+              14 Active Classes (PG - 10th)
             </span>
           </div>
 
