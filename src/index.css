@@ -171,6 +171,48 @@
     display: none !important;
   }
 
+  /* 🖨️ Dedicated Staff Master Register Print Styling */
+  body:has(#printable-staff-register) #root > div > *:not(.fixed),
+  body:has(#printable-staff-register) [class*="print:hidden"],
+  body:has(#printable-staff-register) header,
+  body:has(#printable-staff-register) aside,
+  body:has(#printable-staff-register) nav {
+    display: none !important;
+  }
+
+  #printable-staff-register {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  #printable-staff-register table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1.5px solid #0f172a !important;
+  }
+
+  #printable-staff-register th {
+    background: #f1f5f9 !important;
+    background-color: #f1f5f9 !important;
+    border: 1px solid #334155 !important;
+    color: #0f172a !important;
+    font-weight: 900 !important;
+    padding: 4px 6px !important;
+  }
+
+  #printable-staff-register td {
+    border: 1px solid #475569 !important;
+    color: #000000 !important;
+    padding: 4px 6px !important;
+  }
+
   /* Printable Containers */
   .printable-biometric-register,
   .printable-area,

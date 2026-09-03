@@ -662,31 +662,32 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
       
-      {/* 🏛️ Header with Title & Quick Add Employee Button */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-        <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-sm shrink-0">
-            <Users className="w-6 h-6" />
+      {/* 🏛️ Compact Sleek Header Banner (Side-by-side Action Buttons) */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl px-4 py-3 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-xs shrink-0">
+            <Users className="w-5 h-5" />
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-200 border border-indigo-300">
-                Staff & HR Management
-              </span>
-              <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white font-serif">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white font-serif tracking-tight truncate">
                 Employee Management System
               </h2>
+              <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-200 border border-indigo-300">
+                Staff & HR
+              </span>
             </div>
-            <p className="text-xs text-slate-500 mt-0.5">
-              Faculty credentials, department allocations, designations, login access control & smart ID cards.
+            <p className="text-[11px] text-slate-500 truncate hidden sm:block">
+              Faculty credentials, department masters, login controls & official registers.
             </p>
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2.5">
+        {/* 🖨️ Side-by-Side Action Buttons */}
+        <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
           <button
             onClick={() => setIsPrintAllStaffModalOpen(true)}
-            className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold shadow-xs flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+            className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold shadow-xs flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 cursor-pointer"
             title="Print Official Staff Register Directory"
           >
             <Printer className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
@@ -694,9 +695,10 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
           </button>
           <button
             onClick={() => setIsAddStaffModalOpen(true)}
-            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+            className="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/20 flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
-            <UserPlus className="w-4 h-4" /> Add Employee
+            <UserPlus className="w-4 h-4" />
+            <span>Add Employee</span>
           </button>
         </div>
       </div>
@@ -2993,17 +2995,18 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 <span className="font-bold text-slate-500 uppercase text-[10px]">Show Columns:</span>
                 {[
                   { key: 'empId', label: 'Emp ID' },
+                  { key: 'parentName', label: "Father's Name" },
                   { key: 'department', label: 'Department' },
                   { key: 'designation', label: 'Designation' },
-                  { key: 'mobile', label: 'Mobile' },
                   { key: 'qualification', label: 'Qualification' },
-                  { key: 'basicSalary', label: 'Basic Salary' },
+                  { key: 'mobile', label: 'Mobile' },
+                  { key: 'basicSalary', label: 'Salary' },
                   { key: 'status', label: 'Status' }
                 ].map(col => (
                   <label key={col.key} className="flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-300 cursor-pointer">
                     <input
                       type="checkbox"
-                      checked={printColumns[col.key]}
+                      checked={printColumns[col.key] !== false}
                       onChange={(e) => setPrintColumns({ ...printColumns, [col.key]: e.target.checked })}
                       className="w-3.5 h-3.5 rounded text-indigo-600 focus:ring-indigo-500"
                     />
@@ -3018,12 +3021,12 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black shadow-lg shadow-indigo-500/20 flex items-center gap-2 cursor-pointer transition-all hover:scale-105"
               >
                 <Printer className="w-4 h-4" />
-                <span>🖨️ Print Master Register</span>
+                <span>🖨️ Print Official Register</span>
               </button>
             </div>
           </div>
 
-          {/* Printable Document Container */}
+          {/* Printable Document Container with Monogram Logo */}
           {(() => {
             const printFilteredTeachers = teachers.filter(t => {
               const matchesDept = printDeptFilter === 'ALL' || t.department === printDeptFilter;
@@ -3042,86 +3045,116 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
             const resignedCount = printFilteredTeachers.length - activeCount;
 
             return (
-              <div id="printable-staff-register" className="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-4 print:border-none print:shadow-none print:p-0 print:m-0">
-                {/* School Letterhead Header */}
-                <div className="text-center pb-3 border-b-2 border-slate-900 dark:border-slate-200 space-y-1">
-                  <h1 className="text-xl sm:text-2xl font-black uppercase text-slate-900 dark:text-white font-serif tracking-wide">
-                    {schoolInfo.name || 'Dadheech Memorial Public School'}
-                  </h1>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 font-medium">
-                    {schoolInfo.address || 'Ramghat Road Border, Jargwan, Bulandshahr (U.P.)'} | Affiliation No: {schoolInfo.affiliationNo || 'UP-CBSE-83921'}
-                  </p>
-                  <div className="pt-1 flex items-center justify-between text-[11px] font-bold text-slate-700 dark:text-slate-300 border-t border-slate-200 dark:border-slate-700 mt-2 pt-1.5">
-                    <span className="uppercase font-mono">STAFF & FACULTY MASTER REGISTER ({schoolInfo.academicSession || '2026-2027'})</span>
-                    <span>Total Employees Listed: <strong>{printFilteredTeachers.length}</strong></span>
-                    <span>Date Generated: <strong>{new Date().toLocaleDateString('en-GB')}</strong></span>
+              <div id="printable-staff-register" className="p-6 bg-white text-slate-900 border border-slate-300 rounded-2xl space-y-4 print:border-none print:shadow-none print:p-0 print:m-0 font-sans">
+                {/* 🏛️ Official School Letterhead Header with DMPS Monogram Emblem */}
+                <div className="border-b-2 border-slate-900 pb-3">
+                  <div className="flex items-center justify-between gap-4">
+                    {/* Official DMPS Monogram SVG */}
+                    <div className="w-16 h-16 rounded-2xl bg-indigo-950 text-amber-400 border-2 border-amber-500 flex flex-col items-center justify-center p-1.5 shadow-sm shrink-0">
+                      <span className="text-[9px] font-black tracking-widest text-amber-300 uppercase">DMPS</span>
+                      <div className="w-6 h-0.5 bg-amber-400 my-0.5 rounded-full"></div>
+                      <span className="text-[7px] font-bold text-white tracking-tighter">ESTD 2002</span>
+                    </div>
+
+                    <div className="text-center flex-1 space-y-0.5">
+                      <h1 className="text-xl sm:text-2xl font-black uppercase tracking-wide text-slate-950 font-serif">
+                        {schoolInfo.name || 'Dadheech Memorial Public School'}
+                      </h1>
+                      <p className="text-[11px] font-semibold text-slate-700">
+                        CBSE Affiliated Senior Secondary School • Affiliation No: <strong>{schoolInfo.affiliationNo || 'UP-CBSE-83921'}</strong> • School Code: <strong>81294</strong>
+                      </p>
+                      <p className="text-[10px] text-slate-600 font-medium">
+                        {schoolInfo.address || 'Ramghat Road Border, Jargwan, Bulandshahr (U.P.) - 202393'} | Phone: +91 97588 82443, +91 97194 76606
+                      </p>
+                    </div>
+
+                    <div className="w-16 h-16 rounded-2xl border border-dashed border-slate-400 flex flex-col items-center justify-center text-center p-1 shrink-0 text-[8px] font-bold text-slate-500">
+                      <span>CBSE</span>
+                      <span>AFFILIATED</span>
+                      <span>2026-27</span>
+                    </div>
+                  </div>
+
+                  {/* Register Meta Sub-Header */}
+                  <div className="pt-2 mt-2 border-t border-slate-300 flex items-center justify-between text-[11px] font-bold text-slate-800">
+                    <span className="uppercase px-2.5 py-0.5 bg-slate-100 rounded border border-slate-300 font-mono tracking-wide">
+                      📋 MASTER FACULTY & EMPLOYEE REGISTER (SESSION 2026-2027)
+                    </span>
+                    <span>Total Employees Listed: <strong className="font-mono text-indigo-900">{printFilteredTeachers.length}</strong></span>
+                    <span>Date of Generation: <strong className="font-mono">{new Date().toLocaleDateString('en-GB')}</strong></span>
                   </div>
                 </div>
 
-                {/* Table */}
+                {/* 📊 Crystal-Clear Master Table (Clean Solid Borders) */}
                 <div className="overflow-x-auto">
-                  <table className="w-full text-left text-[11px] border-collapse border border-slate-300 dark:border-slate-700">
-                    <thead className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-black uppercase text-[10px]">
-                      <tr>
-                        <th className="p-2 border border-slate-300 dark:border-slate-700 w-8 text-center">#</th>
-                        {printColumns.empId && <th className="p-2 border border-slate-300 dark:border-slate-700">Emp ID</th>}
-                        <th className="p-2 border border-slate-300 dark:border-slate-700">Employee Full Name</th>
-                        {printColumns.department && <th className="p-2 border border-slate-300 dark:border-slate-700">Department</th>}
-                        {printColumns.designation && <th className="p-2 border border-slate-300 dark:border-slate-700">Designation</th>}
-                        {printColumns.qualification && <th className="p-2 border border-slate-300 dark:border-slate-700">Qualification</th>}
-                        {printColumns.mobile && <th className="p-2 border border-slate-300 dark:border-slate-700">Contact Mobile</th>}
-                        {printColumns.basicSalary && <th className="p-2 border border-slate-300 dark:border-slate-700 text-right">Basic Salary</th>}
-                        {printColumns.status && <th className="p-2 border border-slate-300 dark:border-slate-700 text-center">Status</th>}
+                  <table className="w-full text-left text-[10px] border-collapse" style={{ border: '1.5px solid #0f172a' }}>
+                    <thead className="bg-slate-100 text-slate-950 font-black uppercase text-[9.5px]">
+                      <tr style={{ borderBottom: '1.5px solid #0f172a' }}>
+                        <th className="p-1.5 text-center w-7 border-r border-slate-400">#</th>
+                        {printColumns.empId !== false && <th className="p-1.5 border-r border-slate-400">Emp ID</th>}
+                        <th className="p-1.5 border-r border-slate-400">Faculty / Staff Name</th>
+                        {printColumns.parentName !== false && <th className="p-1.5 border-r border-slate-400">Father's Name</th>}
+                        {printColumns.department !== false && <th className="p-1.5 border-r border-slate-400">Department</th>}
+                        {printColumns.designation !== false && <th className="p-1.5 border-r border-slate-400">Designation</th>}
+                        {printColumns.qualification !== false && <th className="p-1.5 border-r border-slate-400">Qualification</th>}
+                        {printColumns.mobile !== false && <th className="p-1.5 border-r border-slate-400">Mobile Number</th>}
+                        {printColumns.basicSalary !== false && <th className="p-1.5 text-right border-r border-slate-400">Salary (₹)</th>}
+                        {printColumns.status !== false && <th className="p-1.5 text-center">Status</th>}
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                    <tbody className="divide-y divide-slate-300">
                       {printFilteredTeachers.map((t, idx) => {
                         const isResigned = ['Resigned', 'Left', 'Inactive', 'Terminated'].includes(t.status) || Boolean(t.loginDeactivated);
                         const base = t.salary?.basic || t.salary?.netSalary || t.basicSalary || t.salary || 25000;
                         return (
-                          <tr key={t.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                            <td className="p-2 border border-slate-300 dark:border-slate-700 text-center font-mono font-bold text-slate-500">
+                          <tr key={t.id} className="hover:bg-slate-50 border-b border-slate-300">
+                            <td className="p-1.5 text-center font-mono font-bold text-slate-700 border-r border-slate-300">
                               {idx + 1}
                             </td>
-                            {printColumns.empId && (
-                              <td className="p-2 border border-slate-300 dark:border-slate-700 font-mono font-bold text-indigo-700 dark:text-indigo-400">
+                            {printColumns.empId !== false && (
+                              <td className="p-1.5 font-mono font-bold text-indigo-950 border-r border-slate-300 whitespace-nowrap">
                                 {t.employeeId || t.staffId || t.id}
                               </td>
                             )}
-                            <td className="p-2 border border-slate-300 dark:border-slate-700 font-bold text-slate-900 dark:text-white">
+                            <td className="p-1.5 font-bold text-slate-950 border-r border-slate-300">
                               {t.name}
                             </td>
-                            {printColumns.department && (
-                              <td className="p-2 border border-slate-300 dark:border-slate-700">
+                            {printColumns.parentName !== false && (
+                              <td className="p-1.5 text-slate-800 border-r border-slate-300">
+                                {t.fatherName || t.motherName || '—'}
+                              </td>
+                            )}
+                            {printColumns.department !== false && (
+                              <td className="p-1.5 border-r border-slate-300 whitespace-nowrap">
                                 {t.department}
                               </td>
                             )}
-                            {printColumns.designation && (
-                              <td className="p-2 border border-slate-300 dark:border-slate-700 font-medium">
+                            {printColumns.designation !== false && (
+                              <td className="p-1.5 font-medium border-r border-slate-300">
                                 {t.designation}
                               </td>
                             )}
-                            {printColumns.qualification && (
-                              <td className="p-2 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+                            {printColumns.qualification !== false && (
+                              <td className="p-1.5 text-slate-700 border-r border-slate-300 whitespace-nowrap">
                                 {t.qualification || 'Graduate'}
                               </td>
                             )}
-                            {printColumns.mobile && (
-                              <td className="p-2 border border-slate-300 dark:border-slate-700 font-mono">
-                                {t.phone || t.mobile || '-'}
+                            {printColumns.mobile !== false && (
+                              <td className="p-1.5 font-mono border-r border-slate-300 whitespace-nowrap">
+                                {t.phone || t.mobile || '—'}
                               </td>
                             )}
-                            {printColumns.basicSalary && (
-                              <td className="p-2 border border-slate-300 dark:border-slate-700 font-mono font-bold text-right text-emerald-700 dark:text-emerald-400">
+                            {printColumns.basicSalary !== false && (
+                              <td className="p-1.5 font-mono font-bold text-right border-r border-slate-300 text-slate-900 whitespace-nowrap">
                                 ₹{Number(base).toLocaleString('en-IN')}
                               </td>
                             )}
-                            {printColumns.status && (
-                              <td className="p-2 border border-slate-300 dark:border-slate-700 text-center font-bold">
+                            {printColumns.status !== false && (
+                              <td className="p-1.5 text-center font-bold whitespace-nowrap">
                                 {isResigned ? (
-                                  <span className="text-rose-600 font-bold text-[10px]">🔴 {t.status || 'Resigned'}</span>
+                                  <span className="text-rose-700 font-bold text-[9px]">🔴 {t.status || 'Resigned'}</span>
                                 ) : (
-                                  <span className="text-emerald-700 font-bold text-[10px]">🟢 Active</span>
+                                  <span className="text-emerald-800 font-bold text-[9px]">🟢 Active</span>
                                 )}
                               </td>
                             )}
@@ -3132,23 +3165,36 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   </table>
                 </div>
 
-                {/* Summary Figures Footer */}
-                <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between text-xs font-bold text-slate-800 dark:text-slate-200">
+                {/* 📈 Summary Statistics Footer */}
+                <div className="p-2.5 bg-slate-100 rounded-xl border border-slate-300 flex flex-wrap items-center justify-between text-[11px] font-bold text-slate-900">
                   <div className="flex gap-4">
-                    <span>Active Employees: <strong className="text-emerald-600">{activeCount}</strong></span>
-                    <span>Resigned / Left: <strong className="text-rose-600">{resignedCount}</strong></span>
+                    <span>🟢 Active Working Faculty: <strong className="text-emerald-700">{activeCount}</strong></span>
+                    <span>🔴 Resigned / Former Staff: <strong className="text-rose-700">{resignedCount}</strong></span>
+                    <span>Total Staff Count: <strong>{printFilteredTeachers.length}</strong></span>
                   </div>
                   <div>
-                    <span>Total Monthly Payroll Demand: <strong className="font-mono text-emerald-700 dark:text-emerald-300 text-sm">₹{totalMonthlySalary.toLocaleString('en-IN')}</strong></span>
+                    <span>Total Monthly Payroll Demand: <strong className="font-mono text-emerald-800 text-sm">₹{totalMonthlySalary.toLocaleString('en-IN')}</strong></span>
                   </div>
                 </div>
 
-                {/* Signatures Block */}
-                <div className="pt-10 grid grid-cols-4 gap-4 text-center text-[10px] font-bold text-slate-700 dark:text-slate-300">
-                  <div className="border-t border-slate-400 pt-1.5">Prepared By (HR Admin)</div>
-                  <div className="border-t border-slate-400 pt-1.5">Accounts Head</div>
-                  <div className="border-t border-slate-400 pt-1.5">Principal In-Charge</div>
-                  <div className="border-t border-slate-400 pt-1.5">Managing Director (MD)</div>
+                {/* ✍️ 4 Official Authority Signatures */}
+                <div className="pt-8 grid grid-cols-4 gap-6 text-center text-[10px] font-bold text-slate-800">
+                  <div className="border-t-2 border-slate-900 pt-1.5">
+                    <span>Prepared by</span>
+                    <span className="block text-[9px] text-slate-500 font-normal mt-0.5">HR & Establishment</span>
+                  </div>
+                  <div className="border-t-2 border-slate-900 pt-1.5">
+                    <span>Checked by</span>
+                    <span className="block text-[9px] text-slate-500 font-normal mt-0.5">Accounts Officer</span>
+                  </div>
+                  <div className="border-t-2 border-slate-900 pt-1.5">
+                    <span>Verified by</span>
+                    <span className="block text-[9px] text-slate-500 font-normal mt-0.5">Principal In-Charge</span>
+                  </div>
+                  <div className="border-t-2 border-slate-900 pt-1.5">
+                    <span>Approved by</span>
+                    <span className="block text-[9px] text-slate-500 font-normal mt-0.5">Managing Director (MD)</span>
+                  </div>
                 </div>
               </div>
             );
