@@ -49,6 +49,17 @@ export const CustomListPage = () => {
   const [printOrientation, setPrintOrientation] = useState('landscape'); // 'portrait', 'landscape'
   const [colsPerPart, setColsPerPart] = useState(7); // Max additional columns per printable sheet part
   const [activePartView, setActivePartView] = useState('ALL'); // 'ALL' = Print all parts, or 0, 1, 2, 3...
+  const [sortBy, setSortBy] = useState('name'); // Default: Alphabetical (A to Z)
+  const [sortOrder, setSortOrder] = useState('asc'); // 'asc' | 'desc'
+
+  const handleSort = (field) => {
+    if (sortBy === field) {
+      setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(field);
+      setSortOrder('asc');
+    }
+  };
 
   // 2. Available Columns Definition (Compact Short Labels & Data Widths)
   const availableColumns = useMemo(() => [
@@ -232,6 +243,38 @@ export const CustomListPage = () => {
       if (filterAttendance === 'GOOD' && attPct < 75) return false;
 
       return true;
+    }).sort((a, b) => {
+      let cmp = 0;
+      if (sortBy === 'name') {
+        cmp = (a.name || '').localeCompare(b.name || '', undefined, { sensitivity: 'base' });
+      } else if (sortBy === 'fatherName') {
+        cmp = (a.parents?.fatherName || '').localeCompare(b.parents?.fatherName || '', undefined, { sensitivity: 'base' });
+      } else if (sortBy === 'motherName') {
+        cmp = (a.parents?.motherName || '').localeCompare(b.parents?.motherName || '', undefined, { sensitivity: 'base' });
+      } else if (sortBy === 'dob') {
+        cmp = (a.dob || '').localeCompare(b.dob || '');
+      } else if (sortBy === 'primaryMobile') {
+        cmp = (a.parents?.fatherMobile || '').localeCompare(b.parents?.fatherMobile || '');
+      } else if (sortBy === 'class') {
+        cmp = (a.class || '').localeCompare(b.class || '', undefined, { numeric: true });
+      } else if (sortBy === 'section') {
+        cmp = (a.section || '').localeCompare(b.section || '');
+      } else if (sortBy === 'admissionNo') {
+        cmp = (parseInt(a.admissionNo) || 0) - (parseInt(b.admissionNo) || 0);
+      } else if (sortBy === 'rollNo') {
+        cmp = (parseInt(a.rollNo) || 0) - (parseInt(b.rollNo) || 0);
+      } else if (sortBy === 'totalDue') {
+        cmp = (Number(a.feeSummary?.totalDue) || 0) - (Number(b.feeSummary?.totalDue) || 0);
+      } else if (sortBy === 'totalPaid') {
+        cmp = (Number(a.feeSummary?.totalPaid) || 0) - (Number(b.feeSummary?.totalPaid) || 0);
+      } else if (sortBy === 'balanceDue') {
+        cmp = (Number(a.feeSummary?.balance) || 0) - (Number(b.feeSummary?.balance) || 0);
+      } else if (sortBy === 'attendanceRate') {
+        cmp = (Number(a.attendanceSummary?.percentage) || 0) - (Number(b.attendanceSummary?.percentage) || 0);
+      } else {
+        cmp = (a.name || '').localeCompare(b.name || '');
+      }
+      return sortOrder === 'asc' ? cmp : -cmp;
     });
   }, [
     allStudents,
@@ -247,7 +290,9 @@ export const CustomListPage = () => {
     filterFeeStatus,
     filterMinDue,
     filterSibling,
-    filterAttendance
+    filterAttendance,
+    sortBy,
+    sortOrder
   ]);
 
   // Active Selected Columns List
@@ -502,10 +547,17 @@ export const CustomListPage = () => {
                 {part.columns.map(c => (
                   <th
                     key={c.id}
-                    className={`py-2 px-2 whitespace-nowrap border-r border-slate-200 dark:border-slate-700 text-${c.align || 'left'}`}
+                    onClick={() => handleSort(c.id)}
+                    className={`py-2 px-2 whitespace-nowrap border-r border-slate-200 dark:border-slate-700 text-${c.align || 'left'} cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors select-none`}
                     style={{ width: c.width || 'auto' }}
+                    title={`Click to sort by ${c.fullLabel || c.label}`}
                   >
-                    {c.label}
+                    <span className="inline-flex items-center gap-1">
+                      {c.label}
+                      <span className="text-[9px] text-slate-400 print:hidden">
+                        {sortBy === c.id ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                      </span>
+                    </span>
                   </th>
                 ))}
               </tr>

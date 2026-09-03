@@ -139,9 +139,11 @@ class SchoolService {
 
   // Students Module
   getStudents(branchId = null) {
-    const list = this.data.students || [];
-    if (!branchId || branchId === 'all') return list;
-    return list.filter(s => s.branchId === branchId);
+    let list = this.data.students || [];
+    if (branchId && branchId !== 'all') {
+      list = list.filter(s => s.branchId === branchId);
+    }
+    return [...list].sort((a, b) => (a.name || '').localeCompare(b.name || '', undefined, { sensitivity: 'base' }));
   }
 
   getStudentById(id) {

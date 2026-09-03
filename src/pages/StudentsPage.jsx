@@ -62,6 +62,17 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   const [searchQuery, setSearchQuery] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState('name'); // Default: Alphabetical (A to Z)
+  const [sortOrder, setSortOrder] = useState('asc'); // 'asc' | 'desc'
+
+  const handleSort = (field) => {
+    if (sortBy === field) {
+      setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(field);
+      setSortOrder('asc');
+    }
+  };
 
   // Selection for bulk actions
   const [selectedStudentIds, setSelectedStudentIds] = useState([]);
@@ -238,7 +249,40 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
 
       return true;
     });
-  }, [allStudents, activeTab, selectedBranch, selectedClass, selectedSection, searchQuery]);
+
+    // Sort by selected column (Default: Name A-Z)
+    return [...list].sort((a, b) => {
+      let cmp = 0;
+      if (sortBy === 'name') {
+        cmp = (a.name || '').localeCompare(b.name || '', undefined, { sensitivity: 'base' });
+      } else if (sortBy === 'fatherName') {
+        cmp = (a.parents?.fatherName || '').localeCompare(b.parents?.fatherName || '', undefined, { sensitivity: 'base' });
+      } else if (sortBy === 'motherName') {
+        cmp = (a.parents?.motherName || '').localeCompare(b.parents?.motherName || '', undefined, { sensitivity: 'base' });
+      } else if (sortBy === 'dob') {
+        cmp = (a.dob || '').localeCompare(b.dob || '');
+      } else if (sortBy === 'mobile') {
+        cmp = (a.parents?.fatherMobile || '').localeCompare(b.parents?.fatherMobile || '');
+      } else if (sortBy === 'address') {
+        cmp = (a.parents?.address || '').localeCompare(b.parents?.address || '');
+      } else if (sortBy === 'class') {
+        cmp = (a.class || '').localeCompare(b.class || '', undefined, { numeric: true });
+      } else if (sortBy === 'section') {
+        cmp = (a.section || '').localeCompare(b.section || '');
+      } else if (sortBy === 'admissionNo') {
+        cmp = (parseInt(a.admissionNo) || 0) - (parseInt(b.admissionNo) || 0);
+      } else if (sortBy === 'rollNo') {
+        cmp = (parseInt(a.rollNo) || 0) - (parseInt(b.rollNo) || 0);
+      } else if (sortBy === 'gender') {
+        cmp = (a.gender || '').localeCompare(b.gender || '');
+      } else if (sortBy === 'status') {
+        cmp = (a.status || '').localeCompare(b.status || '');
+      } else {
+        cmp = (a.name || '').localeCompare(b.name || '');
+      }
+      return sortOrder === 'asc' ? cmp : -cmp;
+    });
+  }, [allStudents, activeTab, selectedBranch, selectedClass, selectedSection, searchQuery, sortBy, sortOrder]);
 
   // Pagination
   const paginatedStudents = useMemo(() => {
@@ -674,20 +718,104 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 </th>
                 <th className="p-3 hidden print:table-cell text-center w-10">Sr. No</th>
                 <th className="p-3 print:hidden">Photo</th>
-                <th className="p-3">Name</th>
-                <th className="p-3">Father Name</th>
-                <th className="p-3">Mother Name</th>
-                <th className="p-3">Date Of Birth</th>
-                <th className="p-3">Mobile Number</th>
-                <th className="p-3">Address</th>
-                <th className="p-3">Class</th>
-                <th className="p-3">Section</th>
-                <th className="p-3">Register No</th>
-                <th className="p-3">Gender</th>
-                <th className="p-3 text-indigo-600 font-black">Ledger No. (खाता नं.)</th>
+                <th
+                  onClick={() => handleSort('name')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Name {sortBy === 'name' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('fatherName')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Father Name {sortBy === 'fatherName' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('motherName')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Mother Name {sortBy === 'motherName' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('dob')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Date Of Birth {sortBy === 'dob' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('mobile')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Mobile Number {sortBy === 'mobile' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('address')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Address {sortBy === 'address' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('class')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Class {sortBy === 'class' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('section')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Section {sortBy === 'section' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('admissionNo')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Register No {sortBy === 'admissionNo' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('gender')}
+                  className="p-3 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Gender {sortBy === 'gender' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
+                <th
+                  onClick={() => handleSort('rollNo')}
+                  className="p-3 text-indigo-600 font-black cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    Ledger No. {sortBy === 'rollNo' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
                 <th className="p-3">PEN No.</th>
                 <th className="p-3">Student Aadhaar</th>
-                <th className="p-3 text-center">Status</th>
+                <th
+                  onClick={() => handleSort('status')}
+                  className="p-3 text-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span className="flex items-center justify-center gap-1">
+                    Status {sortBy === 'status' ? (sortOrder === 'asc' ? '▲' : '▼') : '↕'}
+                  </span>
+                </th>
                 <th className="p-3 text-right print:hidden">Actions</th>
               </tr>
             </thead>
