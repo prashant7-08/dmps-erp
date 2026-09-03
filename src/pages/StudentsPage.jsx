@@ -41,6 +41,7 @@ import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
 import { PrintableIDCard } from '../components/printables/PrintableIDCard';
+import { PrintableStudentDossier } from '../components/printables/PrintableStudentDossier';
 import schoolService from '../services/schoolService';
 
 export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = null, onOpenNewAdmission = null }) => {
@@ -86,6 +87,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   const [editActiveTab, setEditActiveTab] = useState('academic'); // 'academic' | 'personal' | 'parents' | 'transport' | 'previous'
   
   const [isIdCardModalOpen, setIsIdCardModalOpen] = useState(false);
+  const [printDocType, setPrintDocType] = useState('dossier'); // 'dossier' | 'idcard'
   const [isDeactivateModalOpen, setIsDeactivateModalOpen] = useState(false);
   const [isBulkDeactivateModalOpen, setIsBulkDeactivateModalOpen] = useState(false);
   const [studentToDeactivate, setStudentToDeactivate] = useState(null);
@@ -1249,14 +1251,16 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                             <Edit className="w-3.5 h-3.5 text-amber-600" />
                           </button>
 
-                          {/* ID Card */}
+                          {/* Print Student Dossier & Fee Dues */}
                           <button
-                            onClick={() => {
+                            onClick={(e) => {
+                              e.stopPropagation();
                               setSelectedStudent(student);
+                              setPrintDocType('dossier');
                               setIsIdCardModalOpen(true);
                             }}
-                            title="Print ID Card"
-                            className="p-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg transition-all"
+                            title="Print Full Student Details & Fee Dues Statement"
+                            className="p-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg transition-all cursor-pointer"
                           >
                             <Printer className="w-3.5 h-3.5 text-purple-600" />
                           </button>
@@ -1790,14 +1794,24 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
               </div>
 
               {/* Quick Actions inside Profile */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPrintDocType('dossier');
+                    setIsIdCardModalOpen(true);
+                  }}
+                  className="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                >
+                  <Printer className="w-4 h-4 text-white" /> 🖨️ Print Master Sheet
+                </button>
                 <button
                   type="button"
                   onClick={() => {
                     setIsProfileModalOpen(false);
                     handleOpenEditModal(selectedStudent);
                   }}
-                  className="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all"
+                  className="px-3.5 py-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 >
                   <Edit className="w-4 h-4 text-slate-950" /> ✏️ Edit Details
                 </button>
@@ -2528,6 +2542,60 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 Close
               </button>
             </div>
+          </div>
+        )}
+      </Modal>
+
+      {/* ========================================================== */}
+      {/* 🖨️ MODAL: PRINT COMPLETE STUDENT DOSSIER & FEE STATEMENT   */}
+      {/* ========================================================== */}
+      <Modal
+        isOpen={isIdCardModalOpen}
+        onClose={() => setIsIdCardModalOpen(false)}
+        title={printDocType === 'dossier' ? `Official Student Master Record & Fee Statement: ${selectedStudent?.name || ''}` : `Student Identity Card: ${selectedStudent?.name || ''}`}
+        maxWidth="max-w-4xl"
+      >
+        {selectedStudent && (
+          <div className="space-y-4">
+            {/* View Switcher Tabs */}
+            <div className="flex items-center gap-2 p-1.5 bg-slate-100 dark:bg-slate-800 rounded-xl print:hidden">
+              <button
+                type="button"
+                onClick={() => setPrintDocType('dossier')}
+                className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  printDocType === 'dossier'
+                    ? 'bg-indigo-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-white/50'
+                }`}
+              >
+                <FileText className="w-3.5 h-3.5" /> 📋 Complete Student Details & Fee Statement (Default)
+              </button>
+              <button
+                type="button"
+                onClick={() => setPrintDocType('idcard')}
+                className={`py-2 px-4 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  printDocType === 'idcard'
+                    ? 'bg-indigo-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-white/50'
+                }`}
+              >
+                <IdCard className="w-3.5 h-3.5" /> 🪪 ID Card
+              </button>
+            </div>
+
+            {printDocType === 'dossier' ? (
+              <PrintableStudentDossier student={selectedStudent} onClose={() => setIsIdCardModalOpen(false)} />
+            ) : (
+              <div className="space-y-4">
+                <PrintableIDCard person={selectedStudent} type="student" />
+                <button
+                  onClick={() => window.print()}
+                  className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                >
+                  <Printer className="w-4 h-4" /> Print Student ID Card
+                </button>
+              </div>
+            )}
           </div>
         )}
       </Modal>
