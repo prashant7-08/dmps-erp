@@ -514,7 +514,15 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       <div className="bg-[#0b1e38] text-slate-200 py-2.5 px-4 sm:px-8 text-xs border-b border-slate-800 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           
-          <div className="hidden sm:block"></div>
+          <div className="flex items-center gap-2.5 text-[11px] font-medium text-slate-300 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-800/90 border border-slate-700/80 text-amber-300 font-bold text-[10px] tracking-wide shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+              Affiliated to BSB (as CBSE)
+            </span>
+            <span className="hidden sm:inline text-slate-300 font-semibold text-[11px]">
+              • PG to 12th (Senior Secondary)
+            </span>
+          </div>
 
           <div className="flex items-center gap-3 ml-auto flex-wrap">
             <div className="hidden lg:flex items-center gap-1.5 border-r border-slate-700 pr-3 mr-1">
