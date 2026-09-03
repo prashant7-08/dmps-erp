@@ -153,10 +153,10 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
     // Sibling detection
     const fatherMobile = student.parents?.fatherMobile || student.parents?.mobile || student.phone;
     const fatherName = (student.parents?.fatherName || '').trim().toLowerCase();
-    const allStudents = students || [];
+    const studentsList = allStudents || schoolService.getStudents('all') || [];
     const sibs = (student.feeSummary?.familySiblings?.length > 0)
-      ? student.feeSummary.familySiblings.map(s => allStudents.find(st => st.id === s.id || st.name === s.name) || s)
-      : allStudents.filter(s => {
+      ? student.feeSummary.familySiblings.map(s => studentsList.find(st => st.id === s.id || st.name === s.name) || s)
+      : studentsList.filter(s => {
           if (s.id === student.id) return false;
           if (fatherMobile && (s.parents?.fatherMobile === fatherMobile || s.parents?.mobile === fatherMobile || s.phone === fatherMobile)) return true;
           if (fatherName && fatherName.length > 2 && (s.parents?.fatherName || '').trim().toLowerCase() === fatherName) return true;
@@ -1930,14 +1930,14 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   </span>
                 </div>
 
-                <p className="text-xs text-indigo-200 font-bold">
+                <p className="text-xs text-indigo-200 font-bold whitespace-nowrap">
                   Class: <span className="text-amber-300 uppercase">{selectedStudent.class} - {selectedStudent.section}</span> | 
                   Adm No: <span className="text-amber-300 font-mono">{selectedStudent.admissionNo}</span> | 
                   Ledger No. (खाता नं.): <span className="text-emerald-300 font-mono font-black">#{selectedStudent.rollNo}</span>
                 </p>
 
-                <p className="text-[11px] text-slate-300">
-                  Campus: {selectedStudent.branchName}
+                <p className="text-[11px] text-slate-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                  Campus: {selectedStudent.branchName || 'Dadheech Memorial Public School (Main Campus)'}
                 </p>
               </div>
 
