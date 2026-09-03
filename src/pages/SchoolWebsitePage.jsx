@@ -666,26 +666,22 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           <div className="flex-1 overflow-hidden relative">
             <div className="animate-header-ticker text-[11px] sm:text-xs font-semibold select-none flex items-center">
               <span className="text-amber-300 font-bold">Affiliated to BSB (as CBSE)</span>
-              <span className="text-slate-500 mx-2.5">•</span>
-              <span className="text-slate-100 font-medium">PG to 12th (Senior Secondary)</span>
-              <span className="text-slate-500 mx-2.5">•</span>
+              <span className="text-slate-500 mx-3">•</span>
+              <span className="text-slate-100 font-medium">PG to 12th</span>
+              <span className="text-slate-500 mx-3">•</span>
               <span className="text-amber-300 font-bold">Admissions Open 2026-27</span>
-              <span className="text-slate-500 mx-2.5">•</span>
-              <span className="text-slate-200 font-medium">Dadheech Memorial Public School</span>
-              <span className="text-slate-500 mx-2.5">•</span>
+              <span className="text-slate-500 mx-3">•</span>
               <span className="text-emerald-400 font-bold">Excellence in Education Since 2002</span>
-              <span className="text-amber-400 mx-4">★</span>
+              <span className="text-amber-400 mx-5">★</span>
               
               <span className="text-amber-300 font-bold">Affiliated to BSB (as CBSE)</span>
-              <span className="text-slate-500 mx-2.5">•</span>
-              <span className="text-slate-100 font-medium">PG to 12th (Senior Secondary)</span>
-              <span className="text-slate-500 mx-2.5">•</span>
+              <span className="text-slate-500 mx-3">•</span>
+              <span className="text-slate-100 font-medium">PG to 12th</span>
+              <span className="text-slate-500 mx-3">•</span>
               <span className="text-amber-300 font-bold">Admissions Open 2026-27</span>
-              <span className="text-slate-500 mx-2.5">•</span>
-              <span className="text-slate-200 font-medium">Dadheech Memorial Public School</span>
-              <span className="text-slate-500 mx-2.5">•</span>
+              <span className="text-slate-500 mx-3">•</span>
               <span className="text-emerald-400 font-bold">Excellence in Education Since 2002</span>
-              <span className="text-amber-400 mx-4">★</span>
+              <span className="text-amber-400 mx-5">★</span>
             </div>
           </div>
 
