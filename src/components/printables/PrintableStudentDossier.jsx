@@ -227,7 +227,7 @@ export const PrintableStudentDossier = ({ student, onClose = null }) => {
             <thead>
               <tr className="bg-slate-100 divide-x divide-slate-300 text-slate-700 font-bold border-b border-slate-300">
                 <th className="p-0.5 px-1">Tuition Fee</th>
-                <th className="p-0.5 px-1">Transport ({student.transport?.months || 11}M)</th>
+                <th className="p-0.5 px-1">Transport Fee</th>
                 <th className="p-0.5 px-1">Hostel Fee</th>
                 <th className="p-0.5 px-1 bg-amber-200/60 text-amber-950 font-black">Old Session</th>
                 <th className="p-0.5 px-1">Misc Charges</th>
@@ -261,7 +261,7 @@ export const PrintableStudentDossier = ({ student, onClose = null }) => {
               <span>• Stop: <strong>{student.transport.stop || student.transport.stoppage || 'N/A'}</strong></span>
             </div>
             <div className="font-mono font-bold text-slate-800">
-              Vehicle: {student.transport.vehicle || 'Bus'} (₹{student.transport.monthlyFare || 0}/M × {student.transport.months || 11}M)
+              Vehicle: {student.transport.vehicle || 'Bus'} (Annual Fare: ₹{Number(transportFare11M || 0).toLocaleString('en-IN')})
             </div>
           </div>
         )}

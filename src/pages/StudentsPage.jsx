@@ -46,7 +46,7 @@ import schoolService from '../services/schoolService';
 
 export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = null, onOpenNewAdmission = null }) => {
   const { showToast } = useToast();
-  const { activeBranchId, branches } = useAuth();
+  const { activeBranchId, branches, canManageFees } = useAuth();
   
   // Data State
   const [allStudents, setAllStudents] = useState(() => schoolService.getStudents('all'));
@@ -1561,6 +1561,12 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 Full Year Ledger
               </span>
             </div>
+            {!canManageFees && (
+              <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 p-2.5 rounded-xl text-amber-900 dark:text-amber-200 text-xs font-bold flex items-center gap-1.5 m-4 mb-0">
+                <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
+                🔒 Fee dues & concession editing is locked (Only Super Admin, Admin & Branch Head can edit).
+              </div>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4">
               
               {/* Tuition Fee */}
@@ -1570,9 +1576,10 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 </label>
                 <input
                   type="number"
+                  disabled={!canManageFees}
                   value={editFormData.tuitionDue}
                   onChange={(e) => setEditFormData(prev => ({ ...prev, tuitionDue: e.target.value }))}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                  className={`w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold ${!canManageFees ? 'opacity-60 cursor-not-allowed bg-slate-100 dark:bg-slate-900' : ''}`}
                 />
               </div>
 
@@ -1583,10 +1590,11 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 </label>
                 <input
                   type="number"
+                  disabled={!canManageFees}
                   value={editFormData.hostelDue}
                   onChange={(e) => setEditFormData(prev => ({ ...prev, hostelDue: e.target.value }))}
                   placeholder="0"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                  className={`w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold ${!canManageFees ? 'opacity-60 cursor-not-allowed bg-slate-100 dark:bg-slate-900' : ''}`}
                 />
               </div>
 
@@ -1597,10 +1605,11 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 </label>
                 <input
                   type="number"
+                  disabled={!canManageFees}
                   value={editFormData.oldSessionDues}
                   onChange={(e) => setEditFormData(prev => ({ ...prev, oldSessionDues: e.target.value }))}
                   placeholder="0"
-                  className="w-full p-1.5 rounded-lg border border-amber-300 dark:border-amber-800 bg-white dark:bg-slate-900 font-mono font-black text-amber-900 dark:text-amber-200"
+                  className={`w-full p-1.5 rounded-lg border border-amber-300 dark:border-amber-800 bg-white dark:bg-slate-900 font-mono font-black text-amber-900 dark:text-amber-200 ${!canManageFees ? 'opacity-60 cursor-not-allowed' : ''}`}
                 />
               </div>
 
@@ -2221,7 +2230,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 </div>
 
                 <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-400 block">🚌 Transport (11M)</span>
+                  <span className="text-[10px] text-slate-400 block">🚌 Transport Fee</span>
                   <strong className="font-mono text-slate-900 dark:text-white">
                     ₹{(studentForFee.feeSummary?.transportDue11Months !== undefined ? studentForFee.feeSummary.transportDue11Months : (Number(studentForFee.transport?.monthlyFare || 0) * (studentForFee.transport?.months || 11))).toLocaleString('en-IN')}
                   </strong>
@@ -2238,14 +2247,18 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-700 space-y-1">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-black text-amber-800 dark:text-amber-300">📜 Old Session Fees</span>
-                    <button
-                      type="button"
-                      onClick={() => setEditingOldDues(!editingOldDues)}
-                      title="Edit Old Session Dues"
-                      className="p-1 rounded-lg bg-amber-200 dark:bg-amber-900 text-amber-950 dark:text-amber-100 hover:bg-amber-300 transition-colors"
-                    >
-                      {editingOldDues ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3" />}
-                    </button>
+                    {canManageFees ? (
+                      <button
+                        type="button"
+                        onClick={() => setEditingOldDues(!editingOldDues)}
+                        title="Edit Old Session Dues"
+                        className="p-1 rounded-lg bg-amber-200 dark:bg-amber-900 text-amber-950 dark:text-amber-100 hover:bg-amber-300 transition-colors cursor-pointer"
+                      >
+                        {editingOldDues ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3" />}
+                      </button>
+                    ) : (
+                      <span title="Fee editing locked (Super Admin & Branch Head only)" className="text-amber-700 text-xs">🔒</span>
+                    )}
                   </div>
                   {editingOldDues ? (
                     <div className="flex items-center gap-1 pt-1">
@@ -2260,7 +2273,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                       <button
                         type="button"
                         onClick={() => handleSaveOldDuesInline(studentForFee.id)}
-                        className="px-2 py-1 bg-amber-600 hover:bg-amber-700 text-white font-black rounded text-[10px] shadow-xs"
+                        className="px-2 py-1 bg-amber-600 hover:bg-amber-700 text-white font-black rounded text-[10px] shadow-xs cursor-pointer"
                       >
                         Save
                       </button>
@@ -2278,14 +2291,18 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                     <span className="text-[10px] text-slate-500 dark:text-slate-300 font-black flex items-center gap-1">
                       📦 Misc Charges {miscItemsList.length > 0 && <span className="px-1.5 py-0.2 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-[9px] font-bold">({miscItemsList.length} items)</span>}
                     </span>
-                    <button
-                      type="button"
-                      onClick={() => setEditingMisc(!editingMisc)}
-                      title="Add / Manage Miscellaneous Charge Items"
-                      className="p-1 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 transition-colors"
-                    >
-                      {editingMisc ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3 text-indigo-600" />}
-                    </button>
+                    {canManageFees ? (
+                      <button
+                        type="button"
+                        onClick={() => setEditingMisc(!editingMisc)}
+                        title="Add / Manage Miscellaneous Charge Items"
+                        className="p-1 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 transition-colors cursor-pointer"
+                      >
+                        {editingMisc ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3 text-indigo-600" />}
+                      </button>
+                    ) : (
+                      <span title="Misc editing locked (Super Admin & Branch Head only)" className="text-slate-400 text-xs">🔒</span>
+                    )}
                   </div>
 
                   {editingMisc ? (
@@ -2301,7 +2318,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                                 <button
                                   type="button"
                                   onClick={() => handleRemoveMiscItem(studentForFee.id, item.id)}
-                                  className="text-rose-500 hover:text-rose-700 p-0.5"
+                                  className="text-rose-500 hover:text-rose-700 p-0.5 cursor-pointer"
                                   title="Remove this item"
                                 >
                                   <X className="w-3 h-3" />
@@ -2335,7 +2352,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                           <button
                             type="button"
                             onClick={() => handleAddNewMiscItem(studentForFee.id)}
-                            className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-lg text-xs shadow-xs"
+                            className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-lg text-xs shadow-xs cursor-pointer"
                           >
                             + Add
                           </button>
@@ -2378,19 +2395,20 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 <button
                   type="button"
                   onClick={() => setFeeForm(prev => ({ ...prev, amount: studentForFee.feeSummary?.balance || 0 }))}
-                  className="text-[10px] font-bold text-indigo-600 hover:underline"
+                  className="text-[10px] font-bold text-indigo-600 hover:underline cursor-pointer"
                 >
-                  Pay Full Balance (₹{(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')})
+                  Pay Full Balance (₹{Number(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')})
                 </button>
               </div>
               <input
                 type="number"
                 required
                 min={1}
+                max={studentForFee.feeSummary?.balance || 999999}
                 value={feeForm.amount}
                 onChange={(e) => setFeeForm(prev => ({ ...prev, amount: e.target.value }))}
-                placeholder="Enter payment amount..."
-                className="w-full p-3 rounded-xl border-2 border-emerald-500/50 focus:border-emerald-600 bg-white dark:bg-slate-800 font-mono font-black text-lg text-emerald-700 dark:text-emerald-300"
+                placeholder="Enter fee amount collected..."
+                className="w-full p-3 rounded-xl border-2 border-indigo-500 bg-white dark:bg-slate-800 font-mono font-black text-base text-slate-900 dark:text-white shadow-sm focus:ring-2 focus:ring-indigo-400"
               />
             </div>
 
@@ -2404,10 +2422,9 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
                 >
                   <option value="Cash">💵 Cash</option>
-                  <option value="UPI">📱 UPI / QR Code</option>
+                  <option value="UPI / Online">📱 UPI / QR Code / Online</option>
+                  <option value="Bank Transfer (NEFT/RTGS)">🏦 Bank Transfer</option>
                   <option value="Cheque">📜 Cheque</option>
-                  <option value="Bank Transfer">🏛️ Bank Transfer / NEFT</option>
-                  <option value="Card">💳 Debit / Credit Card</option>
                 </select>
               </div>
 
@@ -2425,13 +2442,16 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
             {/* Discount / Concession & Remarks */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Discount / Concession (₹)</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  Discount / Concession (₹) {!canManageFees && <span className="text-[10px] text-amber-600 font-normal">🔒 Admin Only</span>}
+                </label>
                 <input
                   type="number"
                   min={0}
+                  disabled={!canManageFees}
                   value={feeForm.discount}
                   onChange={(e) => setFeeForm(prev => ({ ...prev, discount: e.target.value }))}
-                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                  className={`w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold ${!canManageFees ? 'opacity-60 cursor-not-allowed bg-slate-100 dark:bg-slate-900' : ''}`}
                 />
               </div>
               <div>

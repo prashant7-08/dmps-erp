@@ -282,6 +282,18 @@ export function AuthProvider({ children }) {
   const isSuperAdmin = user?.role === 'Super Admin' || user?.assignedBranchId === 'all';
   const activeBranch = branches.find(b => b.id === activeBranchId) || (activeBranchId === 'all' ? { id: 'all', name: 'All Campuses (Consolidated)', shortCode: 'ALL' } : branches[0]);
 
+  // Strict Permission: Only Super Admin, Admin, and Head of Branch (Principal / Head In-Charge / Manager) can Edit/Delete Fees
+  const canManageFees = !user || (
+    user.role === 'Super Admin' ||
+    user.role === 'Admin' ||
+    user.role === 'Principal' ||
+    user.role === 'Head In-Charge' ||
+    (user.role || '').toLowerCase().includes('admin') ||
+    (user.role || '').toLowerCase().includes('principal') ||
+    (user.role || '').toLowerCase().includes('head') ||
+    (user.role || '').toLowerCase().includes('manager')
+  );
+
   return (
     <AuthContext.Provider
       value={{
@@ -295,6 +307,7 @@ export function AuthProvider({ children }) {
         activeBranch,
         branches,
         isSuperAdmin,
+        canManageFees,
         login,
         logout,
         loading
