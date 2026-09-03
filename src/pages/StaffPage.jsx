@@ -29,7 +29,9 @@ import {
   Lock,
   Unlock,
   Check,
-  UserPlus
+  UserPlus,
+  User,
+  CreditCard
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
@@ -37,6 +39,7 @@ import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
 import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import { PrintablePaySlip } from '../components/printables/PrintablePaySlip';
+import { EmployeeProfileDossierModal } from '../components/staff/EmployeeProfileDossierModal';
 import schoolService from '../services/schoolService';
 
 export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
@@ -61,6 +64,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   const [deptFilter, setDeptFilter] = useState('All');
   
   const [selectedStaff, setSelectedStaff] = useState(null);
+  const [isProfileDossierOpen, setIsProfileDossierOpen] = useState(false);
   const [isPaySlipModalOpen, setIsPaySlipModalOpen] = useState(false);
   const [isIdCardModalOpen, setIsIdCardModalOpen] = useState(false);
   const [isAddStaffModalOpen, setIsAddStaffModalOpen] = useState(false);
@@ -172,29 +176,81 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     setTeachers(schoolService.getTeachers(activeBranchId));
   }, [activeBranchId]);
 
-  // Edit Teacher State
+  // Comprehensive Multi-Duty Staff State (Matching User's Screenshot)
   const [editFormData, setEditFormData] = useState({
     id: '',
+    staffId: '',
     name: '',
-    department: 'Science',
-    designation: 'PGT Physics',
-    qualification: 'M.Sc., B.Ed.',
+    role: 'Teacher',
+    department: 'Junior',
+    designation: 'Teacher',
+    qualification: 'B.Sc.',
+    experienceDetails: '1 month',
+    totalExperience: '1 month',
+    subjectTaught: 'English',
+    previousSchool: 'John Howard Convent School, Jargwan (BSR)',
     mobile: '',
     email: '',
-    classTeacherOf: 'Class 10 - A',
-    basicSalary: 62000
+    gender: 'Female',
+    religion: 'Hindu',
+    caste: 'OBC',
+    bloodGroup: 'O+',
+    dob: '2007-08-01',
+    fatherName: 'Jitendra Singh',
+    motherName: 'Bijnesh Devi',
+    spouseName: '',
+    maritalStatus: 'Unmarried',
+    presentAddress: 'Baijala Kothi Jirauli Dhoom Singh, Aligarh',
+    permanentAddress: 'Baijala Kothi Jirauli Dhoom Singh, Aligarh',
+    aadhaarNo: '857490433971',
+    drivingLicenseNo: '',
+    licenseExpiry: '',
+    additionalDuties: [],
+    assignedBus: 'Bus 01',
+    assignedRoute: 'Route 1 - Main City / Ramghat',
+    classTeacherOf: 'None',
+    basicSalary: 25000,
+    bankName: 'State Bank of India (SBI)',
+    accountNo: '382910482910',
+    ifscCode: 'SBIN0001234',
+    bankBranch: 'Jargwan Branch'
   });
 
   const [formData, setFormData] = useState({
     name: '',
-    department: 'Science & Biology',
-    designation: 'PGT Faculty',
-    qualification: 'M.Sc., B.Ed.',
+    role: 'Teacher',
+    department: 'Junior',
+    designation: 'Teacher',
+    qualification: 'B.Sc., B.Ed.',
+    experienceDetails: '1 year',
+    totalExperience: '1 year',
+    subjectTaught: 'English',
+    previousSchool: 'Fresh Appointment / Direct Entry',
     mobile: '',
     email: '',
     gender: 'Male',
-    classTeacherOf: 'Class 10 - A',
-    basicSalary: 45000
+    religion: 'Hindu',
+    caste: 'General',
+    bloodGroup: 'O+',
+    dob: '1995-05-15',
+    fatherName: '',
+    motherName: '',
+    spouseName: '',
+    maritalStatus: 'Unmarried',
+    presentAddress: 'Ramghat Road Border, Jargwan, Bulandshahr (U.P.)',
+    permanentAddress: 'Ramghat Road Border, Jargwan, Bulandshahr (U.P.)',
+    aadhaarNo: '',
+    drivingLicenseNo: '',
+    licenseExpiry: '',
+    additionalDuties: [],
+    assignedBus: 'Bus 01',
+    assignedRoute: 'Route 1 - Main City / Ramghat',
+    classTeacherOf: 'None',
+    basicSalary: 25000,
+    bankName: 'State Bank of India (SBI)',
+    accountNo: '',
+    ifscCode: 'SBIN0001234',
+    bankBranch: 'Jargwan Branch'
   });
 
   const refreshData = () => {
@@ -365,54 +421,89 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       department: formData.department,
       designation: formData.designation,
       qualification: formData.qualification,
+      experienceDetails: formData.experienceDetails || '1 year',
+      totalExperience: formData.totalExperience || '1 year',
+      subjectTaught: formData.subjectTaught || 'General',
+      previousSchool: formData.previousSchool || 'Fresh Appointment',
       mobile: formData.mobile,
-      email: formData.email,
+      email: formData.email || `${formData.name.toLowerCase().replace(/\s+/g, '')}@dmps-school.edu.in`,
       gender: formData.gender,
+      religion: formData.religion || 'Hindu',
+      caste: formData.caste || 'General',
+      bloodGroup: formData.bloodGroup || 'O+',
+      dob: formData.dob || '1995-05-15',
+      fatherName: formData.fatherName || '',
+      motherName: formData.motherName || '',
+      spouseName: formData.spouseName || '',
+      maritalStatus: formData.maritalStatus || 'Unmarried',
+      presentAddress: formData.presentAddress,
+      permanentAddress: formData.permanentAddress,
+      aadhaarNo: formData.aadhaarNo,
+      drivingLicenseNo: formData.drivingLicenseNo,
+      licenseExpiry: formData.licenseExpiry,
+      additionalDuties: formData.additionalDuties || [],
+      assignedBus: formData.assignedBus || 'Bus 01',
+      assignedRoute: formData.assignedRoute || 'Route 1 - Main City / Ramghat',
       classTeacherOf: formData.classTeacherOf === 'None' ? '' : formData.classTeacherOf,
       photo: `https://images.unsplash.com/photo-${formData.gender === 'Female' ? '1573496359142-b8d87734a5a2' : '1534528741775-53994a69daeb'}?w=150&auto=format&fit=crop&q=80`,
       salary: {
-        basic: Number(formData.basicSalary) || 45000,
-        hra: (Number(formData.basicSalary) || 45000) * 0.25,
-        da: (Number(formData.basicSalary) || 45000) * 0.18,
+        basic: Number(formData.basicSalary) || 25000,
+        hra: (Number(formData.basicSalary) || 25000) * 0.25,
+        da: (Number(formData.basicSalary) || 25000) * 0.18,
         specialAllowance: 4500,
-        pfDeduction: (Number(formData.basicSalary) || 45000) * 0.12,
-        taxDeduction: 5100,
-        netSalary: Math.round((Number(formData.basicSalary) || 45000) * 1.31 - 5100)
+        pfDeduction: (Number(formData.basicSalary) || 25000) * 0.12,
+        taxDeduction: 1500,
+        netSalary: Math.round((Number(formData.basicSalary) || 25000) * 1.31 - 1500)
       },
-      bankDetails: {
-        bankName: 'State Bank of India',
-        accountNo: '38192849182',
-        ifsc: 'SBIN0001829'
-      }
+      bankName: formData.bankName || 'State Bank of India (SBI)',
+      accountNo: formData.accountNo || '382910482910',
+      ifscCode: formData.ifscCode || 'SBIN0001234',
+      bankBranch: formData.bankBranch || 'Jargwan Branch'
     });
 
     refreshData();
     setIsAddStaffModalOpen(false);
-    setFormData({
-      name: '',
-      department: 'Science & Biology',
-      designation: 'PGT Faculty',
-      qualification: 'M.Sc., B.Ed.',
-      mobile: '',
-      email: '',
-      gender: 'Male',
-      classTeacherOf: 'Class 10 - A',
-      basicSalary: 45000
-    });
-    showToast(`🎉 New Faculty ${newTeacher.name} appointed successfully!`, 'success');
+    showToast(`🎉 New Staff Member ${newTeacher.name} appointed successfully!`, 'success');
   };
 
   const handleEditOpen = (teacher) => {
     setEditFormData({
       id: teacher.id,
-      name: teacher.name,
-      department: teacher.department,
-      designation: teacher.designation,
-      qualification: teacher.qualification,
-      mobile: teacher.mobile,
-      email: teacher.email,
+      staffId: teacher.staffId || teacher.employeeId || teacher.id,
+      name: teacher.name || '',
+      role: teacher.role || 'Teacher',
+      department: teacher.department || 'Junior',
+      designation: teacher.designation || 'Teacher',
+      qualification: teacher.qualification || 'B.Sc.',
+      experienceDetails: teacher.experienceDetails || '1 month',
+      totalExperience: teacher.totalExperience || '1 month',
+      subjectTaught: teacher.subjectTaught || teacher.subject || 'English',
+      previousSchool: teacher.previousSchool || 'John Howard Convent School, Jargwan (BSR)',
+      mobile: teacher.phone || teacher.mobile || '',
+      email: teacher.email || '',
+      gender: teacher.gender || 'Female',
+      religion: teacher.religion || 'Hindu',
+      caste: teacher.caste || 'OBC',
+      bloodGroup: teacher.bloodGroup || 'O+',
+      dob: teacher.dob || '2007-08-01',
+      fatherName: teacher.fatherName || 'Jitendra Singh',
+      motherName: teacher.motherName || 'Bijnesh Devi',
+      spouseName: teacher.spouseName || '',
+      maritalStatus: teacher.maritalStatus || 'Unmarried',
+      presentAddress: teacher.presentAddress || 'Baijala Kothi Jirauli Dhoom Singh, Aligarh',
+      permanentAddress: teacher.permanentAddress || 'Baijala Kothi Jirauli Dhoom Singh, Aligarh',
+      aadhaarNo: teacher.aadhaarNo || '857490433971',
+      drivingLicenseNo: teacher.drivingLicenseNo || '',
+      licenseExpiry: teacher.licenseExpiry || '',
+      additionalDuties: Array.isArray(teacher.additionalDuties) ? teacher.additionalDuties : [],
+      assignedBus: teacher.assignedBus || 'Bus 01',
+      assignedRoute: teacher.assignedRoute || 'Route 1 - Main City / Ramghat',
       classTeacherOf: teacher.classTeacherOf || 'None',
-      basicSalary: teacher.salary?.basic || 45000
+      basicSalary: teacher.salary?.basic || teacher.salary?.netSalary || teacher.basicSalary || teacher.salary || 25000,
+      bankName: teacher.bankName || teacher.bankDetails?.bankName || 'State Bank of India (SBI)',
+      accountNo: teacher.accountNo || teacher.bankDetails?.accountNo || '382910482910',
+      ifscCode: teacher.ifscCode || teacher.bankDetails?.ifsc || 'SBIN0001234',
+      bankBranch: teacher.bankBranch || 'Jargwan Branch'
     });
     setIsEditStaffModalOpen(true);
   };
@@ -421,11 +512,34 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     e.preventDefault();
     const updated = schoolService.updateTeacher(editFormData.id, {
       name: editFormData.name,
+      role: editFormData.role,
       department: editFormData.department,
       designation: editFormData.designation,
       qualification: editFormData.qualification,
+      experienceDetails: editFormData.experienceDetails,
+      totalExperience: editFormData.totalExperience,
+      subjectTaught: editFormData.subjectTaught,
+      previousSchool: editFormData.previousSchool,
       mobile: editFormData.mobile,
+      phone: editFormData.mobile,
       email: editFormData.email,
+      gender: editFormData.gender,
+      religion: editFormData.religion,
+      caste: editFormData.caste,
+      bloodGroup: editFormData.bloodGroup,
+      dob: editFormData.dob,
+      fatherName: editFormData.fatherName,
+      motherName: editFormData.motherName,
+      spouseName: editFormData.spouseName,
+      maritalStatus: editFormData.maritalStatus,
+      presentAddress: editFormData.presentAddress,
+      permanentAddress: editFormData.permanentAddress,
+      aadhaarNo: editFormData.aadhaarNo,
+      drivingLicenseNo: editFormData.drivingLicenseNo,
+      licenseExpiry: editFormData.licenseExpiry,
+      additionalDuties: editFormData.additionalDuties,
+      assignedBus: editFormData.assignedBus,
+      assignedRoute: editFormData.assignedRoute,
       classTeacherOf: editFormData.classTeacherOf === 'None' ? '' : editFormData.classTeacherOf,
       salary: {
         basic: Number(editFormData.basicSalary),
@@ -433,9 +547,13 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
         da: Number(editFormData.basicSalary) * 0.18,
         specialAllowance: 4500,
         pfDeduction: Number(editFormData.basicSalary) * 0.12,
-        taxDeduction: 5100,
-        netSalary: Math.round(Number(editFormData.basicSalary) * 1.31 - 5100)
-      }
+        taxDeduction: 1500,
+        netSalary: Math.round(Number(editFormData.basicSalary) * 1.31 - 1500)
+      },
+      bankName: editFormData.bankName,
+      accountNo: editFormData.accountNo,
+      ifscCode: editFormData.ifscCode,
+      bankBranch: editFormData.bankBranch
     });
 
     refreshData();
@@ -443,7 +561,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     if (selectedStaff && selectedStaff.id === editFormData.id) {
       setSelectedStaff(updated);
     }
-    showToast(`Faculty credentials for ${editFormData.name} updated! ✏️`, 'success');
+    showToast(`Staff profile for ${editFormData.name} successfully updated! ✏️`, 'success');
   };
 
   const handleDelete = (id, name) => {
@@ -598,27 +716,46 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   {filtered.map((t) => (
                     <tr key={t.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
                       <td className="p-4">
-                        <div className="flex items-center gap-3">
+                        <div
+                          onClick={() => {
+                            setSelectedStaff(t);
+                            setIsProfileDossierOpen(true);
+                          }}
+                          className="flex items-center gap-3 cursor-pointer group"
+                          title="Click to view 360° Employee Dossier"
+                        >
                           <img
-                            src={t.photo || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'}
+                            src={t.photo || `https://ui-avatars.com/api/?name=${t.name.replace(/\s+/g, '+')}&background=4F46E5&color=fff&size=128&bold=true`}
                             alt={t.name}
-                            className="w-9 h-9 rounded-full object-cover border border-slate-200 dark:border-slate-700"
+                            className="w-9 h-9 rounded-full object-cover border border-slate-200 dark:border-slate-700 group-hover:ring-2 group-hover:ring-indigo-500 transition-all"
+                            onError={(e) => {
+                              e.target.src = `https://ui-avatars.com/api/?name=${t.name.replace(/\s+/g, '+')}&background=4F46E5&color=fff&size=128&bold=true`;
+                            }}
                           />
                           <div>
-                            <p className="font-bold text-slate-900 dark:text-white">{t.name}</p>
-                            <p className="text-[10px] text-slate-400 font-medium">{t.qualification}</p>
+                            <p className="font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 transition-colors flex items-center gap-1.5">
+                              <span>{t.name}</span>
+                              {t.additionalDuties && t.additionalDuties.length > 0 && (
+                                <span className="px-1.5 py-0.2 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-300 text-[8.5px] font-bold">
+                                  ⚡ Multi-Duty
+                                </span>
+                              )}
+                            </p>
+                            <p className="text-[10px] text-slate-400 font-medium">
+                              {t.qualification || 'Faculty'} {t.subjectTaught ? `• ${t.subjectTaught}` : ''}
+                            </p>
                           </div>
                         </div>
                       </td>
                       <td className="p-4 font-mono font-bold text-slate-600 dark:text-slate-400">
-                        {t.employeeId || t.id}
+                        {t.employeeId || t.staffId || t.id}
                       </td>
                       <td className="p-4">
                         <p className="font-bold text-slate-800 dark:text-slate-200">{t.designation}</p>
-                        <span className="text-[10px] text-slate-400">{t.department}</span>
+                        <span className="text-[10px] text-slate-400">{t.department} • {t.role || 'Teacher'}</span>
                       </td>
                       <td className="p-4">
-                        {t.classTeacherOf ? (
+                        {t.classTeacherOf && t.classTeacherOf !== 'None' ? (
                           <span className="px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-bold text-[10px] border border-indigo-200 dark:border-indigo-800">
                             {t.classTeacherOf}
                           </span>
@@ -627,7 +764,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                         )}
                       </td>
                       <td className="p-4">
-                        <p className="text-slate-700 dark:text-slate-300 font-mono text-[11px]">{t.mobile}</p>
+                        <p className="text-slate-700 dark:text-slate-300 font-mono text-[11px]">{t.phone || t.mobile || 'N/A'}</p>
                         <p className="text-slate-400 text-[10px] truncate max-w-[140px]">{t.email}</p>
                       </td>
                       <td className="p-4">
@@ -640,31 +777,41 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                           <button
                             onClick={() => {
                               setSelectedStaff(t);
+                              setIsProfileDossierOpen(true);
+                            }}
+                            title="View 360° Complete Employee Profile"
+                            className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                          >
+                            <Eye className="w-3.5 h-3.5" />
+                          </button>
+                          <button
+                            onClick={() => {
+                              setSelectedStaff(t);
                               setIsIdCardModalOpen(true);
                             }}
                             title="Print Smart Faculty ID Card"
-                            className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 transition-colors"
+                            className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 transition-colors cursor-pointer"
                           >
                             <Printer className="w-3.5 h-3.5" />
                           </button>
                           <button
                             onClick={() => handleOpenPaySalary(t)}
                             title="Pay Monthly Salary"
-                            className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 transition-colors"
+                            className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 transition-colors cursor-pointer"
                           >
                             <DollarSign className="w-3.5 h-3.5" />
                           </button>
                           <button
                             onClick={() => handleEditOpen(t)}
                             title="Edit Credentials"
-                            className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 hover:bg-blue-100 transition-colors"
+                            className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 hover:bg-blue-100 transition-colors cursor-pointer"
                           >
                             <Edit className="w-3.5 h-3.5" />
                           </button>
                           <button
                             onClick={() => handleDelete(t.id, t.name)}
                             title="Delete Staff"
-                            className="p-1.5 rounded-lg bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 hover:bg-rose-100 transition-colors"
+                            className="p-1.5 rounded-lg bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 hover:bg-rose-100 transition-colors cursor-pointer"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
@@ -1122,254 +1269,969 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
         </form>
       </Modal>
 
-      {/* Edit Staff Modal */}
+      {/* ========================================================================= */}
+      {/* ✏️ MODAL: EDIT EMPLOYEE PROFILE (All Screenshot Fields + Multi-Duty) */}
+      {/* ========================================================================= */}
       <Modal
         isOpen={isEditStaffModalOpen}
         onClose={() => setIsEditStaffModalOpen(false)}
-        title={`Edit Credentials: ${editFormData.name}`}
-        maxWidth="max-w-xl"
-      >
-        <form onSubmit={handleEditSubmit} className="space-y-4 text-xs">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Full Name</label>
-              <input
-                type="text"
-                required
-                value={editFormData.name}
-                onChange={(e) => setEditFormData({ ...editFormData, name: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department</label>
-              <select
-                value={editFormData.department}
-                onChange={(e) => setEditFormData({ ...editFormData, department: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              >
-                {departments.map(d => (
-                  <option key={d.id} value={d.name}>{d.name}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Designation</label>
-              <input
-                type="text"
-                value={editFormData.designation}
-                onChange={(e) => setEditFormData({ ...editFormData, designation: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Qualification</label>
-              <input
-                type="text"
-                value={editFormData.qualification}
-                onChange={(e) => setEditFormData({ ...editFormData, qualification: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mobile</label>
-              <input
-                type="text"
-                value={editFormData.mobile}
-                onChange={(e) => setEditFormData({ ...editFormData, mobile: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Email</label>
-              <input
-                type="email"
-                value={editFormData.email}
-                onChange={(e) => setEditFormData({ ...editFormData, email: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Class Teacher Assignment</label>
-              <select
-                value={editFormData.classTeacherOf}
-                onChange={(e) => setEditFormData({ ...editFormData, classTeacherOf: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              >
-                <option value="None">None (Subject Teacher Only)</option>
-                <option value="Class 10 - A">Class 10 - A</option>
-                <option value="Class 10 - B">Class 10 - B</option>
-                <option value="Class 9 - A">Class 9 - A</option>
-                <option value="Class 8 - A">Class 8 - A</option>
-              </select>
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Basic Salary (₹)</label>
-              <input
-                type="number"
-                value={editFormData.basicSalary}
-                onChange={(e) => setEditFormData({ ...editFormData, basicSalary: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
-              />
-            </div>
-          </div>
-
-          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
-            <button type="button" onClick={() => setIsEditStaffModalOpen(false)} className="px-4 py-2 text-slate-500 font-bold">Cancel</button>
-            <button type="submit" className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg">Save Faculty Credentials</button>
-          </div>
-        </form>
-      </Modal>
-
-      {/* ID Card Modal */}
-      <Modal
-        isOpen={isIdCardModalOpen}
-        onClose={() => setIsIdCardModalOpen(false)}
-        title="Official Faculty Identity Card"
-        maxWidth="max-w-3xl"
-      >
-        {selectedStaff && (
-          <PrintableIDCard person={selectedStaff} type="teacher" schoolInfo={schoolInfo} />
-        )}
-      </Modal>
-
-      {/* Pay Slip Modal */}
-      <Modal
-        isOpen={isPaySlipModalOpen}
-        onClose={() => setIsPaySlipModalOpen(false)}
-        title="Staff Monthly Salary Pay Slip"
+        title={`Edit Employee Record: ${editFormData.name} (${editFormData.staffId || editFormData.id})`}
         maxWidth="max-w-4xl"
       >
-        {selectedStaff && (
-          <PrintablePaySlip teacher={selectedStaff} month="August 2026" schoolInfo={schoolInfo} />
-        )}
-      </Modal>
+        <form onSubmit={handleEditSubmit} className="space-y-4 text-xs">
+          
+          {/* Section 1: Academic & Employment Credentials */}
+          <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-2xs">
+            <div className="bg-indigo-50 dark:bg-indigo-950/40 px-3.5 py-2 border-b border-indigo-200 dark:border-indigo-800 flex items-center gap-2">
+              <GraduationCap className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <span className="font-black text-indigo-950 dark:text-indigo-200 uppercase text-[11px]">
+                1. Academic & Employment Details
+              </span>
+            </div>
+            
+            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Role *</label>
+                <select
+                  value={editFormData.role}
+                  onChange={(e) => setEditFormData({ ...editFormData, role: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                >
+                  <option value="Teacher">🎓 Teaching Faculty / Teacher</option>
+                  <option value="Driver">🚌 Transport Bus Driver</option>
+                  <option value="Receptionist">🏢 Reception & Front Desk</option>
+                  <option value="Accountant">💵 Cashier / Accountant</option>
+                  <option value="Housekeeping">🧹 Housekeeping / Maid / Ayah</option>
+                  <option value="Security">🛡️ Security Guard</option>
+                  <option value="Principal">🏛️ Principal / Head of Branch</option>
+                  <option value="Manager">👑 Manager / Administrator</option>
+                </select>
+              </div>
 
-      {/* Add Staff Modal */}
-      <Modal
-        isOpen={isAddStaffModalOpen}
-        onClose={() => setIsAddStaffModalOpen(false)}
-        title="Appoint New Employee / Faculty Member"
-        maxWidth="max-w-xl"
-      >
-        <form onSubmit={handleAddSubmit} className="space-y-4 text-xs">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Employee Full Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="e.g. Prashant Kumar Rajput"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department *</label>
-              <select
-                value={formData.department}
-                onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              >
-                {departments.map(d => (
-                  <option key={d.id} value={d.name}>{d.name}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Designation *</label>
-              <input
-                type="text"
-                required
-                value={formData.designation}
-                onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
-                placeholder="e.g. PGT Physics"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Qualification</label>
-              <input
-                type="text"
-                value={formData.qualification}
-                onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
-                placeholder="e.g. M.Sc., B.Ed."
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mobile *</label>
-              <input
-                type="text"
-                required
-                value={formData.mobile}
-                onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-                placeholder="+91 98000 00000"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Email *</label>
-              <input
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="faculty@dmps.edu.in"
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              />
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Gender</label>
-              <select
-                value={formData.gender}
-                onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              >
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Class Teacher Of</label>
-              <select
-                value={formData.classTeacherOf}
-                onChange={(e) => setFormData({ ...formData, classTeacherOf: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-              >
-                <option value="None">None (Subject Teacher Only)</option>
-                <option value="Class 10 - A">Class 10 - A</option>
-                <option value="Class 10 - B">Class 10 - B</option>
-                <option value="Class 9 - A">Class 9 - A</option>
-                <option value="Class 8 - A">Class 8 - A</option>
-                <option value="Class 7 - A">Class 7 - A</option>
-              </select>
-            </div>
-            <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Basic Salary (₹)</label>
-              <input
-                type="number"
-                value={formData.basicSalary}
-                onChange={(e) => setFormData({ ...formData, basicSalary: e.target.value })}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
-              />
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department *</label>
+                <select
+                  value={editFormData.department}
+                  onChange={(e) => setEditFormData({ ...editFormData, department: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                >
+                  {departments.map(d => (
+                    <option key={d.id} value={d.name}>{d.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Designation *</label>
+                <input
+                  type="text"
+                  required
+                  value={editFormData.designation}
+                  onChange={(e) => setEditFormData({ ...editFormData, designation: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Qualification *</label>
+                <input
+                  type="text"
+                  value={editFormData.qualification}
+                  onChange={(e) => setEditFormData({ ...editFormData, qualification: e.target.value })}
+                  placeholder="e.g. B.Sc., B.Ed., M.A."
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Subject Taught</label>
+                <input
+                  type="text"
+                  value={editFormData.subjectTaught}
+                  onChange={(e) => setEditFormData({ ...editFormData, subjectTaught: e.target.value })}
+                  placeholder="e.g. English, Science, Mathematics"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Total Experience</label>
+                <input
+                  type="text"
+                  value={editFormData.totalExperience}
+                  onChange={(e) => setEditFormData({ ...editFormData, totalExperience: e.target.value })}
+                  placeholder="e.g. 1 Month, 3 Years"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div className="sm:col-span-2">
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Previous School / Organization</label>
+                <input
+                  type="text"
+                  value={editFormData.previousSchool}
+                  onChange={(e) => setEditFormData({ ...editFormData, previousSchool: e.target.value })}
+                  placeholder="e.g. John Howard Convent School, Jargwan (BSR)"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+          {/* Section 2: Personal Details */}
+          <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-2xs">
+            <div className="bg-blue-50 dark:bg-blue-950/40 px-3.5 py-2 border-b border-blue-200 dark:border-blue-800 flex items-center gap-2">
+              <User className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <span className="font-black text-blue-950 dark:text-blue-200 uppercase text-[11px]">
+                2. Personal & Identity Details
+              </span>
+            </div>
+
+            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Full Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={editFormData.name}
+                  onChange={(e) => setEditFormData({ ...editFormData, name: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mobile No. *</label>
+                <input
+                  type="text"
+                  required
+                  value={editFormData.mobile}
+                  onChange={(e) => setEditFormData({ ...editFormData, mobile: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Email ID</label>
+                <input
+                  type="email"
+                  value={editFormData.email}
+                  onChange={(e) => setEditFormData({ ...editFormData, email: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Gender</label>
+                <select
+                  value={editFormData.gender}
+                  onChange={(e) => setEditFormData({ ...editFormData, gender: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                >
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Date of Birth (DOB)</label>
+                <input
+                  type="date"
+                  value={editFormData.dob}
+                  onChange={(e) => setEditFormData({ ...editFormData, dob: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Blood Group</label>
+                <select
+                  value={editFormData.bloodGroup}
+                  onChange={(e) => setEditFormData({ ...editFormData, bloodGroup: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800"
+                >
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Religion</label>
+                <input
+                  type="text"
+                  value={editFormData.religion}
+                  onChange={(e) => setEditFormData({ ...editFormData, religion: e.target.value })}
+                  placeholder="Hindu, Muslim, Sikh, etc."
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Caste / Category</label>
+                <input
+                  type="text"
+                  value={editFormData.caste}
+                  onChange={(e) => setEditFormData({ ...editFormData, caste: e.target.value })}
+                  placeholder="OBC, General, SC, ST"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Name</label>
+                <input
+                  type="text"
+                  value={editFormData.fatherName}
+                  onChange={(e) => setEditFormData({ ...editFormData, fatherName: e.target.value })}
+                  placeholder="Father's full name"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mother's Name</label>
+                <input
+                  type="text"
+                  value={editFormData.motherName}
+                  onChange={(e) => setEditFormData({ ...editFormData, motherName: e.target.value })}
+                  placeholder="Mother's full name"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Marital Status</label>
+                <select
+                  value={editFormData.maritalStatus}
+                  onChange={(e) => setEditFormData({ ...editFormData, maritalStatus: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800"
+                >
+                  <option value="Unmarried">Unmarried</option>
+                  <option value="Married">Married</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Spouse Name (If Married)</label>
+                <input
+                  type="text"
+                  value={editFormData.spouseName}
+                  onChange={(e) => setEditFormData({ ...editFormData, spouseName: e.target.value })}
+                  placeholder="Husband / Wife name"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div className="sm:col-span-2">
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Present Address</label>
+                <input
+                  type="text"
+                  value={editFormData.presentAddress}
+                  onChange={(e) => setEditFormData({ ...editFormData, presentAddress: e.target.value })}
+                  placeholder="Village / Town, Tehsil, District, State"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div className="sm:col-span-2">
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Permanent Address</label>
+                <input
+                  type="text"
+                  value={editFormData.permanentAddress}
+                  onChange={(e) => setEditFormData({ ...editFormData, permanentAddress: e.target.value })}
+                  placeholder="Permanent residential address"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3: Statutory IDs & Dual Role Assignments (दोहरी भूमिका) */}
+          <div className="border border-amber-300 dark:border-amber-800 rounded-2xl overflow-hidden bg-amber-50/30 dark:bg-amber-950/20 shadow-2xs">
+            <div className="bg-amber-100/80 dark:bg-amber-950/60 px-3.5 py-2 border-b border-amber-200 dark:border-amber-800 flex items-center justify-between">
+              <span className="font-black text-amber-950 dark:text-amber-200 uppercase text-[11px] flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-amber-600" />
+                3. Statutory IDs & Multi-Duty Assignment (दोहरी भूमिका)
+              </span>
+              <span className="text-[10px] text-amber-900 dark:text-amber-300 font-bold">
+                Assigned Additional Responsibilities
+              </span>
+            </div>
+
+            <div className="p-3.5 space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Aadhaar Card No.</label>
+                  <input
+                    type="text"
+                    value={editFormData.aadhaarNo}
+                    onChange={(e) => setEditFormData({ ...editFormData, aadhaarNo: e.target.value })}
+                    placeholder="12-digit Aadhaar"
+                    className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                  />
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Driving License No. (DL)</label>
+                  <input
+                    type="text"
+                    value={editFormData.drivingLicenseNo}
+                    onChange={(e) => setEditFormData({ ...editFormData, drivingLicenseNo: e.target.value })}
+                    placeholder="e.g. UP13 20210004567"
+                    className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                  />
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">License Expiry Date</label>
+                  <input
+                    type="date"
+                    value={editFormData.licenseExpiry}
+                    onChange={(e) => setEditFormData({ ...editFormData, licenseExpiry: e.target.value })}
+                    className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                  />
+                </div>
+              </div>
+
+              {/* Dual Role Duty Checkboxes */}
+              <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-amber-800/60 space-y-2">
+                <span className="font-black text-slate-800 dark:text-slate-200 text-[11px] block">
+                  ⚡ Does this staff member have secondary / additional duties (e.g. Teacher Driving Bus or Handling Reception)?
+                </span>
+                <div className="flex flex-wrap gap-4 text-xs">
+                  <label className="flex items-center gap-2 font-bold cursor-pointer text-slate-800 dark:text-slate-200">
+                    <input
+                      type="checkbox"
+                      checked={editFormData.additionalDuties?.includes('Transport Driver')}
+                      onChange={(e) => {
+                        const cur = editFormData.additionalDuties || [];
+                        const updated = e.target.checked
+                          ? [...cur, 'Transport Driver']
+                          : cur.filter(d => d !== 'Transport Driver');
+                        setEditFormData({ ...editFormData, additionalDuties: updated });
+                      }}
+                      className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500"
+                    />
+                    <span>🚌 Transport Bus Driver & Route In-charge</span>
+                  </label>
+
+                  <label className="flex items-center gap-2 font-bold cursor-pointer text-slate-800 dark:text-slate-200">
+                    <input
+                      type="checkbox"
+                      checked={editFormData.additionalDuties?.includes('Front Desk & Reception')}
+                      onChange={(e) => {
+                        const cur = editFormData.additionalDuties || [];
+                        const updated = e.target.checked
+                          ? [...cur, 'Front Desk & Reception']
+                          : cur.filter(d => d !== 'Front Desk & Reception');
+                        setEditFormData({ ...editFormData, additionalDuties: updated });
+                      }}
+                      className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500"
+                    />
+                    <span>🏢 Front Desk, Reception & Cash Counter</span>
+                  </label>
+                </div>
+
+                {/* If Transport Driver is assigned: Vehicle & Route fields */}
+                {(editFormData.role === 'Driver' || editFormData.additionalDuties?.includes('Transport Driver')) && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <div>
+                      <label className="font-bold text-orange-950 dark:text-orange-200 block mb-1">
+                        🚌 Assigned Vehicle / Bus No.
+                      </label>
+                      <select
+                        value={editFormData.assignedBus}
+                        onChange={(e) => setEditFormData({ ...editFormData, assignedBus: e.target.value })}
+                        className="w-full p-2 rounded-xl border border-orange-300 dark:border-orange-800 bg-orange-50/50 dark:bg-slate-800 font-bold"
+                      >
+                        <option value="Bus 01">Bus 01 (UP-13-AT-1234 - Ramghat Line)</option>
+                        <option value="Bus 02">Bus 02 (UP-13-AT-5678 - Barheti Line)</option>
+                        <option value="Bus 03">Bus 03 (UP-13-AT-9012 - Kaliyanpur Line)</option>
+                        <option value="Bus 04">Bus 04 (UP-13-AT-3456 - Baijala Line)</option>
+                        <option value="Bus 05">Bus 05 (UP-13-AT-7890 - City Express)</option>
+                        <option value="Van 01">Van 01 (Kids Wing Van)</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="font-bold text-orange-950 dark:text-orange-200 block mb-1">
+                        📍 Assigned Route Name
+                      </label>
+                      <input
+                        type="text"
+                        value={editFormData.assignedRoute}
+                        onChange={(e) => setEditFormData({ ...editFormData, assignedRoute: e.target.value })}
+                        placeholder="e.g. Route 1 - Ramghat Road Border"
+                        className="w-full p-2 rounded-xl border border-orange-300 dark:border-orange-800 bg-orange-50/50 dark:bg-slate-800 font-bold"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4: Bank Account & Monthly Salary */}
+          <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-2xs">
+            <div className="bg-emerald-50 dark:bg-emerald-950/40 px-3.5 py-2 border-b border-emerald-200 dark:border-emerald-800 flex items-center gap-2">
+              <CreditCard className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <span className="font-black text-emerald-950 dark:text-emerald-200 uppercase text-[11px]">
+                4. Bank Account & Monthly Salary Structure
+              </span>
+            </div>
+
+            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Basic Salary (₹) *</label>
+                <input
+                  type="number"
+                  required
+                  value={editFormData.basicSalary}
+                  onChange={(e) => setEditFormData({ ...editFormData, basicSalary: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold text-emerald-700 dark:text-emerald-300"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Bank Name</label>
+                <input
+                  type="text"
+                  value={editFormData.bankName}
+                  onChange={(e) => setEditFormData({ ...editFormData, bankName: e.target.value })}
+                  placeholder="e.g. State Bank of India (SBI)"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Account Number</label>
+                <input
+                  type="text"
+                  value={editFormData.accountNo}
+                  onChange={(e) => setEditFormData({ ...editFormData, accountNo: e.target.value })}
+                  placeholder="Bank A/C Number"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">IFSC Code & Branch</label>
+                <input
+                  type="text"
+                  value={editFormData.ifscCode}
+                  onChange={(e) => setEditFormData({ ...editFormData, ifscCode: e.target.value })}
+                  placeholder="e.g. SBIN0001234"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-end gap-3 pt-3 border-t border-slate-200 dark:border-slate-800">
             <button
               type="button"
-              onClick={() => setIsAddStaffModalOpen(false)}
-              className="px-4 py-2 text-slate-500 font-bold hover:text-slate-700"
+              onClick={() => setIsEditStaffModalOpen(false)}
+              className="px-4 py-2.5 text-slate-500 font-bold hover:text-slate-700 cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/20"
+              className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-xl shadow-lg shadow-indigo-500/20 cursor-pointer"
             >
-              Appoint Faculty Member
+              Save Employee Credentials
+            </button>
+          </div>
+        </form>
+      </Modal>
+
+      {/* ========================================================================= */}
+      {/* ➕ MODAL: ADD EMPLOYEE (Comprehensive Multi-Duty Appointing Form) */}
+      {/* ========================================================================= */}
+      <Modal
+        isOpen={isAddStaffModalOpen}
+        onClose={() => setIsAddStaffModalOpen(false)}
+        title="Appoint New Employee / Staff Member"
+        maxWidth="max-w-4xl"
+      >
+        <form onSubmit={handleAddSubmit} className="space-y-4 text-xs">
+          
+          {/* Section 1: Academic & Employment Credentials */}
+          <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-2xs">
+            <div className="bg-indigo-50 dark:bg-indigo-950/40 px-3.5 py-2 border-b border-indigo-200 dark:border-indigo-800 flex items-center gap-2">
+              <GraduationCap className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <span className="font-black text-indigo-950 dark:text-indigo-200 uppercase text-[11px]">
+                1. Academic & Employment Details
+              </span>
+            </div>
+            
+            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Role *</label>
+                <select
+                  value={formData.role}
+                  onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                >
+                  <option value="Teacher">🎓 Teaching Faculty / Teacher</option>
+                  <option value="Driver">🚌 Transport Bus Driver</option>
+                  <option value="Receptionist">🏢 Reception & Front Desk</option>
+                  <option value="Accountant">💵 Cashier / Accountant</option>
+                  <option value="Housekeeping">🧹 Housekeeping / Maid / Ayah</option>
+                  <option value="Security">🛡️ Security Guard</option>
+                  <option value="Principal">🏛️ Principal / Head of Branch</option>
+                  <option value="Manager">👑 Manager / Administrator</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department *</label>
+                <select
+                  value={formData.department}
+                  onChange={(e) => setFormData({ ...formData, department: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                >
+                  {departments.map(d => (
+                    <option key={d.id} value={d.name}>{d.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Designation *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.designation}
+                  onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
+                  placeholder="e.g. Teacher, Bus Driver"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Qualification *</label>
+                <input
+                  type="text"
+                  value={formData.qualification}
+                  onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
+                  placeholder="e.g. B.Sc., B.Ed., M.A."
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Subject Taught</label>
+                <input
+                  type="text"
+                  value={formData.subjectTaught}
+                  onChange={(e) => setFormData({ ...formData, subjectTaught: e.target.value })}
+                  placeholder="e.g. English, Science, Mathematics"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Total Experience</label>
+                <input
+                  type="text"
+                  value={formData.totalExperience}
+                  onChange={(e) => setFormData({ ...formData, totalExperience: e.target.value })}
+                  placeholder="e.g. 1 Month, 3 Years"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div className="sm:col-span-2">
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Previous School / Organization</label>
+                <input
+                  type="text"
+                  value={formData.previousSchool}
+                  onChange={(e) => setFormData({ ...formData, previousSchool: e.target.value })}
+                  placeholder="e.g. John Howard Convent School, Jargwan (BSR)"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Section 2: Personal Details */}
+          <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-2xs">
+            <div className="bg-blue-50 dark:bg-blue-950/40 px-3.5 py-2 border-b border-blue-200 dark:border-blue-800 flex items-center gap-2">
+              <User className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <span className="font-black text-blue-950 dark:text-blue-200 uppercase text-[11px]">
+                2. Personal & Identity Details
+              </span>
+            </div>
+
+            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Full Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Employee Full Name"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mobile No. *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.mobile}
+                  onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                  placeholder="+91 98000 00000"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Email ID</label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="faculty@dmps.edu.in"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Gender</label>
+                <select
+                  value={formData.gender}
+                  onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                >
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Date of Birth (DOB)</label>
+                <input
+                  type="date"
+                  value={formData.dob}
+                  onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Blood Group</label>
+                <select
+                  value={formData.bloodGroup}
+                  onChange={(e) => setFormData({ ...formData, bloodGroup: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800"
+                >
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Religion</label>
+                <input
+                  type="text"
+                  value={formData.religion}
+                  onChange={(e) => setFormData({ ...formData, religion: e.target.value })}
+                  placeholder="Hindu, Muslim, Sikh, etc."
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Caste / Category</label>
+                <input
+                  type="text"
+                  value={formData.caste}
+                  onChange={(e) => setFormData({ ...formData, caste: e.target.value })}
+                  placeholder="OBC, General, SC, ST"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Father's Name</label>
+                <input
+                  type="text"
+                  value={formData.fatherName}
+                  onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })}
+                  placeholder="Father's full name"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mother's Name</label>
+                <input
+                  type="text"
+                  value={formData.motherName}
+                  onChange={(e) => setFormData({ ...formData, motherName: e.target.value })}
+                  placeholder="Mother's full name"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Marital Status</label>
+                <select
+                  value={formData.maritalStatus}
+                  onChange={(e) => setFormData({ ...formData, maritalStatus: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800"
+                >
+                  <option value="Unmarried">Unmarried</option>
+                  <option value="Married">Married</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Spouse Name (If Married)</label>
+                <input
+                  type="text"
+                  value={formData.spouseName}
+                  onChange={(e) => setFormData({ ...formData, spouseName: e.target.value })}
+                  placeholder="Husband / Wife name"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div className="sm:col-span-2">
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Present Address</label>
+                <input
+                  type="text"
+                  value={formData.presentAddress}
+                  onChange={(e) => setFormData({ ...formData, presentAddress: e.target.value })}
+                  placeholder="Village / Town, Tehsil, District, State"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div className="sm:col-span-2">
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Permanent Address</label>
+                <input
+                  type="text"
+                  value={formData.permanentAddress}
+                  onChange={(e) => setFormData({ ...formData, permanentAddress: e.target.value })}
+                  placeholder="Permanent residential address"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3: Statutory IDs & Dual Role Assignments (दोहरी भूमिका) */}
+          <div className="border border-amber-300 dark:border-amber-800 rounded-2xl overflow-hidden bg-amber-50/30 dark:bg-amber-950/20 shadow-2xs">
+            <div className="bg-amber-100/80 dark:bg-amber-950/60 px-3.5 py-2 border-b border-amber-200 dark:border-amber-800 flex items-center justify-between">
+              <span className="font-black text-amber-950 dark:text-amber-200 uppercase text-[11px] flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-amber-600" />
+                3. Statutory IDs & Multi-Duty Assignment (दोहरी भूमिका)
+              </span>
+              <span className="text-[10px] text-amber-900 dark:text-amber-300 font-bold">
+                Assigned Additional Responsibilities
+              </span>
+            </div>
+
+            <div className="p-3.5 space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Aadhaar Card No.</label>
+                  <input
+                    type="text"
+                    value={formData.aadhaarNo}
+                    onChange={(e) => setFormData({ ...formData, aadhaarNo: e.target.value })}
+                    placeholder="12-digit Aadhaar"
+                    className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                  />
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Driving License No. (DL)</label>
+                  <input
+                    type="text"
+                    value={formData.drivingLicenseNo}
+                    onChange={(e) => setFormData({ ...formData, drivingLicenseNo: e.target.value })}
+                    placeholder="e.g. UP13 20210004567"
+                    className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                  />
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">License Expiry Date</label>
+                  <input
+                    type="date"
+                    value={formData.licenseExpiry}
+                    onChange={(e) => setFormData({ ...formData, licenseExpiry: e.target.value })}
+                    className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                  />
+                </div>
+              </div>
+
+              {/* Dual Role Duty Checkboxes */}
+              <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-amber-800/60 space-y-2">
+                <span className="font-black text-slate-800 dark:text-slate-200 text-[11px] block">
+                  ⚡ Does this staff member have secondary / additional duties (e.g. Teacher Driving Bus or Handling Reception)?
+                </span>
+                <div className="flex flex-wrap gap-4 text-xs">
+                  <label className="flex items-center gap-2 font-bold cursor-pointer text-slate-800 dark:text-slate-200">
+                    <input
+                      type="checkbox"
+                      checked={formData.additionalDuties?.includes('Transport Driver')}
+                      onChange={(e) => {
+                        const cur = formData.additionalDuties || [];
+                        const updated = e.target.checked
+                          ? [...cur, 'Transport Driver']
+                          : cur.filter(d => d !== 'Transport Driver');
+                        setFormData({ ...formData, additionalDuties: updated });
+                      }}
+                      className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500"
+                    />
+                    <span>🚌 Transport Bus Driver & Route In-charge</span>
+                  </label>
+
+                  <label className="flex items-center gap-2 font-bold cursor-pointer text-slate-800 dark:text-slate-200">
+                    <input
+                      type="checkbox"
+                      checked={formData.additionalDuties?.includes('Front Desk & Reception')}
+                      onChange={(e) => {
+                        const cur = formData.additionalDuties || [];
+                        const updated = e.target.checked
+                          ? [...cur, 'Front Desk & Reception']
+                          : cur.filter(d => d !== 'Front Desk & Reception');
+                        setFormData({ ...formData, additionalDuties: updated });
+                      }}
+                      className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500"
+                    />
+                    <span>🏢 Front Desk, Reception & Cash Counter</span>
+                  </label>
+                </div>
+
+                {/* If Transport Driver is assigned: Vehicle & Route fields */}
+                {(formData.role === 'Driver' || formData.additionalDuties?.includes('Transport Driver')) && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <div>
+                      <label className="font-bold text-orange-950 dark:text-orange-200 block mb-1">
+                        🚌 Assigned Vehicle / Bus No.
+                      </label>
+                      <select
+                        value={formData.assignedBus}
+                        onChange={(e) => setFormData({ ...formData, assignedBus: e.target.value })}
+                        className="w-full p-2 rounded-xl border border-orange-300 dark:border-orange-800 bg-orange-50/50 dark:bg-slate-800 font-bold"
+                      >
+                        <option value="Bus 01">Bus 01 (UP-13-AT-1234 - Ramghat Line)</option>
+                        <option value="Bus 02">Bus 02 (UP-13-AT-5678 - Barheti Line)</option>
+                        <option value="Bus 03">Bus 03 (UP-13-AT-9012 - Kaliyanpur Line)</option>
+                        <option value="Bus 04">Bus 04 (UP-13-AT-3456 - Baijala Line)</option>
+                        <option value="Bus 05">Bus 05 (UP-13-AT-7890 - City Express)</option>
+                        <option value="Van 01">Van 01 (Kids Wing Van)</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="font-bold text-orange-950 dark:text-orange-200 block mb-1">
+                        📍 Assigned Route Name
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.assignedRoute}
+                        onChange={(e) => setFormData({ ...formData, assignedRoute: e.target.value })}
+                        placeholder="e.g. Route 1 - Ramghat Road Border"
+                        className="w-full p-2 rounded-xl border border-orange-300 dark:border-orange-800 bg-orange-50/50 dark:bg-slate-800 font-bold"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4: Bank Account & Monthly Salary */}
+          <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-2xs">
+            <div className="bg-emerald-50 dark:bg-emerald-950/40 px-3.5 py-2 border-b border-emerald-200 dark:border-emerald-800 flex items-center gap-2">
+              <CreditCard className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <span className="font-black text-emerald-950 dark:text-emerald-200 uppercase text-[11px]">
+                4. Bank Account & Monthly Salary Structure
+              </span>
+            </div>
+
+            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Basic Salary (₹) *</label>
+                <input
+                  type="number"
+                  required
+                  value={formData.basicSalary}
+                  onChange={(e) => setFormData({ ...formData, basicSalary: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold text-emerald-700 dark:text-emerald-300"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Bank Name</label>
+                <input
+                  type="text"
+                  value={formData.bankName}
+                  onChange={(e) => setFormData({ ...formData, bankName: e.target.value })}
+                  placeholder="e.g. State Bank of India (SBI)"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Account Number</label>
+                <input
+                  type="text"
+                  value={formData.accountNo}
+                  onChange={(e) => setFormData({ ...formData, accountNo: e.target.value })}
+                  placeholder="Bank A/C Number"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">IFSC Code & Branch</label>
+                <input
+                  type="text"
+                  value={formData.ifscCode}
+                  onChange={(e) => setFormData({ ...formData, ifscCode: e.target.value })}
+                  placeholder="e.g. SBIN0001234"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-end gap-3 pt-3 border-t border-slate-200 dark:border-slate-800">
+            <button
+              type="button"
+              onClick={() => setIsAddStaffModalOpen(false)}
+              className="px-4 py-2.5 text-slate-500 font-bold hover:text-slate-700 cursor-pointer"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-xl shadow-lg shadow-indigo-500/20 cursor-pointer"
+            >
+              Appoint Staff Member
             </button>
           </div>
         </form>
@@ -1660,6 +2522,33 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
           </div>
         </form>
       </Modal>
+
+      {/* ========================================================================= */}
+      {/* 🌟 360° EMPLOYEE PROFILE & DOSSIER MODAL (With Driver Passenger Roster) */}
+      {/* ========================================================================= */}
+      <EmployeeProfileDossierModal
+        isOpen={isProfileDossierOpen}
+        onClose={() => setIsProfileDossierOpen(false)}
+        employee={selectedStaff}
+        onEdit={(st) => {
+          setIsProfileDossierOpen(false);
+          handleEditOpen(st);
+        }}
+        onPrintIdCard={(st) => {
+          setIsProfileDossierOpen(false);
+          setSelectedStaff(st);
+          setIsIdCardModalOpen(true);
+        }}
+        onPrintPaySlip={(st) => {
+          setIsProfileDossierOpen(false);
+          setSelectedStaff(st);
+          setIsPaySlipModalOpen(true);
+        }}
+        onPaySalary={(st) => {
+          setIsProfileDossierOpen(false);
+          handleOpenPaySalary(st);
+        }}
+      />
 
     </div>
   );
