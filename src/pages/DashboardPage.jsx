@@ -82,8 +82,28 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
   // Live Clock
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
 
-  // Hovered Bar State
+  // Hovered Bar & Chart Tooltip States
   const [hoveredBar, setHoveredBar] = useState(null);
+  const [donutHover, setDonutHover] = useState(null);
+  const [waveHoverMonth, setWaveHoverMonth] = useState(null);
+
+  // 12-Month Academic Session Fee Lifecycle (Apr to Mar)
+  const academicMonthsData = useMemo(() => {
+    return [
+      { name: 'Apr', fullName: 'April 2026', total: 11317500, collected: 185000, remaining: 11132500, x: 45, y: 150, status: 'Past (Q1 Session Start)' },
+      { name: 'May', fullName: 'May 2026', total: 11317500, collected: 420000, remaining: 10897500, x: 105, y: 125, status: 'Past (Q1 Admissions)' },
+      { name: 'Jun', fullName: 'June 2026', total: 11317500, collected: 650000, remaining: 10667500, x: 165, y: 105, status: 'Past (Summer Session)' },
+      { name: 'Jul', fullName: 'July 2026', total: 11317500, collected: 890000, remaining: 10427500, x: 225, y: 85, status: 'Past (Term 1 Installment)' },
+      { name: 'Aug', fullName: 'August 2026', total: 11317500, collected: 1033100, remaining: 10284400, x: 285, y: 65, status: 'Past (Pre-Midterm Collections)' },
+      { name: 'Sep', fullName: 'September 2026', total: 11317500, collected: 1033100, remaining: 10284400, x: 345, y: 65, status: 'Current Active Month (Today: 03 Sep)' },
+      { name: 'Oct', fullName: 'October 2026', total: 11317500, collected: 0, remaining: 10284400, x: 405, y: 170, status: 'Upcoming (Term 2 Target)' },
+      { name: 'Nov', fullName: 'November 2026', total: 11317500, collected: 0, remaining: 10284400, x: 465, y: 170, status: 'Upcoming (Term 2 Target)' },
+      { name: 'Dec', fullName: 'December 2026', total: 11317500, collected: 0, remaining: 10284400, x: 525, y: 170, status: 'Upcoming (Term 2 Target)' },
+      { name: 'Jan', fullName: 'January 2027', total: 11317500, collected: 0, remaining: 10284400, x: 585, y: 170, status: 'Upcoming (Term 3 Finals)' },
+      { name: 'Feb', fullName: 'February 2027', total: 11317500, collected: 0, remaining: 10284400, x: 640, y: 170, status: 'Upcoming (Board Prep)' },
+      { name: 'Mar', fullName: 'March 2027', total: 11317500, collected: 0, remaining: 10284400, x: 685, y: 170, status: 'Upcoming (Session Closing)' },
+    ];
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -1099,8 +1119,8 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        {/* 1. Income Vs Expense Of Current Month (Donut Chart) */}
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+        {/* 1. Income Vs Expense Of Current Month (Non-Clipping Donut Chart) */}
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4 relative">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
             <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
               Income Vs Expense Of {financialSummary.monthName.split(' ')[0] || 'September'}
@@ -1110,59 +1130,105 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             </span>
           </div>
 
-          <div className="flex flex-col items-center justify-center py-3 space-y-4">
-            {/* Donut Ring with Center Currency Icon */}
-            <div className="relative w-44 h-44 flex items-center justify-center">
-              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+          <div
+            className="flex flex-col items-center justify-center py-3 space-y-4 cursor-pointer relative"
+            onMouseEnter={() => setDonutHover(true)}
+            onMouseLeave={() => setDonutHover(false)}
+          >
+            {/* Donut Ring with Non-Clipping ViewBox */}
+            <div className="relative w-48 h-48 flex items-center justify-center">
+              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 50 50">
                 {/* Background Ring */}
                 <circle
-                  cx="18"
-                  cy="18"
-                  r="15.9155"
+                  cx="25"
+                  cy="25"
+                  r="18"
                   className="text-slate-100 dark:text-slate-800"
-                  strokeWidth="5"
+                  strokeWidth="4"
                   stroke="currentColor"
                   fill="none"
                 />
-                {/* Expense (Pink/Magenta) */}
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="15.9155"
-                  className="text-pink-600 transition-all duration-700"
-                  strokeWidth="5"
-                  strokeDasharray="25, 100"
-                  strokeDashoffset="0"
-                  stroke="currentColor"
-                  fill="none"
-                />
-                {/* Income (Teal/Emerald) */}
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="15.9155"
-                  className="text-teal-600 transition-all duration-700"
-                  strokeWidth="5"
-                  strokeDasharray="75, 100"
-                  strokeDashoffset="-25"
-                  stroke="currentColor"
-                  fill="none"
-                />
+
+                {/* If month has 0 income and 0 expense (clean new month state) */}
+                {financialSummary.monthIncome === 0 && financialSummary.monthExpense === 0 ? (
+                  <circle
+                    cx="25"
+                    cy="25"
+                    r="18"
+                    className="text-teal-500/40 dark:text-teal-400/30"
+                    strokeWidth="4"
+                    strokeDasharray="4 3"
+                    stroke="currentColor"
+                    fill="none"
+                  />
+                ) : (
+                  <>
+                    {/* Expense Segment */}
+                    <circle
+                      cx="25"
+                      cy="25"
+                      r="18"
+                      className="text-pink-600 transition-all duration-700"
+                      strokeWidth="4"
+                      strokeDasharray={`${(financialSummary.monthExpense / (financialSummary.monthIncome + financialSummary.monthExpense || 1)) * 113} 113`}
+                      strokeDashoffset="0"
+                      stroke="currentColor"
+                      fill="none"
+                    />
+                    {/* Income Segment */}
+                    <circle
+                      cx="25"
+                      cy="25"
+                      r="18"
+                      className="text-teal-600 transition-all duration-700"
+                      strokeWidth="4"
+                      strokeDasharray={`${(financialSummary.monthIncome / (financialSummary.monthIncome + financialSummary.monthExpense || 1)) * 113} 113`}
+                      strokeDashoffset={`-${(financialSummary.monthExpense / (financialSummary.monthIncome + financialSummary.monthExpense || 1)) * 113}`}
+                      stroke="currentColor"
+                      fill="none"
+                    />
+                  </>
+                )}
               </svg>
 
               {/* Center Cash Icon */}
               <div className="absolute flex flex-col items-center justify-center text-center">
                 <DollarSign className="w-7 h-7 text-teal-600 dark:text-teal-400" />
                 <span className="text-[10px] font-black text-slate-500 uppercase mt-0.5">Surplus</span>
-                <span className="text-sm font-black text-teal-600 font-mono">100%</span>
+                <span className="text-sm font-black text-teal-600 font-mono">
+                  {financialSummary.monthIncome > 0
+                    ? `${(((financialSummary.monthIncome - financialSummary.monthExpense) / financialSummary.monthIncome) * 100).toFixed(1)}%`
+                    : '₹0.00'}
+                </span>
               </div>
             </div>
+
+            {/* Hover Tooltip Popup for Donut */}
+            {donutHover && (
+              <div className="absolute -top-3 bg-slate-900/95 backdrop-blur text-white text-xs p-3 rounded-2xl shadow-xl border border-slate-700 z-30 pointer-events-none animate-in fade-in duration-150 space-y-1 w-52">
+                <div className="font-bold text-teal-400 border-b border-slate-700 pb-1">
+                  📅 {financialSummary.monthName} Flow
+                </div>
+                <div className="flex justify-between">
+                  <span>Income:</span>
+                  <strong className="text-emerald-400 font-mono">₹{financialSummary.monthIncome.toLocaleString('en-IN')}</strong>
+                </div>
+                <div className="flex justify-between">
+                  <span>Expense:</span>
+                  <strong className="text-rose-400 font-mono">₹{financialSummary.monthExpense.toLocaleString('en-IN')}</strong>
+                </div>
+                <div className="flex justify-between border-t border-slate-700 pt-1">
+                  <span>Net Surplus:</span>
+                  <strong className="text-cyan-300 font-mono">₹{financialSummary.monthBalance.toLocaleString('en-IN')}</strong>
+                </div>
+              </div>
+            )}
 
             {/* Bottom Legend */}
             <div className="flex items-center justify-center gap-5 text-xs font-bold pt-1">
               <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-full bg-teal-600"></span>
-                <span className="text-slate-700 dark:text-slate-300">Income: ₹{financialSummary.cumulativeIncome.toLocaleString('en-IN')}</span>
+                <span className="text-slate-700 dark:text-slate-300">Income: ₹{financialSummary.monthIncome.toLocaleString('en-IN')}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-full bg-pink-600"></span>
@@ -1172,25 +1238,25 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           </div>
         </div>
 
-        {/* 2. Annual Fee Summary (Spline Area Wave Chart with Exact Y-Axis) */}
-        <div className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+        {/* 2. Annual Fee Summary (Spline Area Wave Chart with Accurate September Cutoff & Hover Tooltips) */}
+        <div className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4 relative">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
               <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
                 Annual Fee Summary
               </h3>
               <p className="text-xs text-slate-500 font-mono mt-0.5">
-                Total Dues: <strong className="text-slate-900 dark:text-white">₹1,13,17,500</strong> | Collected: <strong className="text-emerald-600">₹10,33,100</strong> | Remaining: <strong className="text-rose-600">₹1,02,84,400</strong>
+                Total Dues: <strong className="text-slate-900 dark:text-white">₹1,13,17,500</strong> | Collected (Till Sep): <strong className="text-emerald-600">₹10,33,100</strong> | Remaining: <strong className="text-rose-600">₹1,02,84,400</strong>
               </p>
             </div>
             <div className="flex items-center gap-3 text-[11px] font-bold">
               <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-sm bg-amber-500"></span>
-                <span>Total</span>
+                <span>Total Demand</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-sm bg-emerald-600"></span>
-                <span>Collected</span>
+                <span>Collected (Apr-Sep)</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-sm bg-rose-600"></span>
@@ -1216,16 +1282,16 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               <svg className="w-full h-full" viewBox="0 0 700 200" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="remainingGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#e11d48" stopOpacity="0.45" />
-                    <stop offset="100%" stopColor="#e11d48" stopOpacity="0.05" />
+                    <stop offset="0%" stopColor="#e11d48" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#e11d48" stopOpacity="0.02" />
                   </linearGradient>
                   <linearGradient id="collectedGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.55" />
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.5" />
                     <stop offset="100%" stopColor="#10b981" stopOpacity="0.05" />
                   </linearGradient>
                   <linearGradient id="totalGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.65" />
-                    <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.05" />
+                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.02" />
                   </linearGradient>
                 </defs>
 
@@ -1237,47 +1303,140 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 <line x1="0" y1="140" x2="700" y2="140" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
                 <line x1="0" y1="170" x2="700" y2="170" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
 
-                {/* Area 1: Remaining Fee (Red Wave) */}
+                {/* Vertical Cutoff Separator at September (Active vs Future) */}
+                <line x1="345" y1="0" x2="345" y2="170" stroke="#10b981" strokeWidth="2" strokeDasharray="4 3" opacity="0.7" />
+
+                {/* Area 1: Remaining Fee (Red Wave strictly up to Sep x=345) */}
                 <path
-                  d="M 50 170 Q 200 15, 380 170 L 380 170 L 50 170 Z"
+                  d="M 45 170 C 120 170, 180 20, 345 35 L 345 170 Z"
                   fill="url(#remainingGrad)"
                 />
                 <path
-                  d="M 50 170 Q 200 15, 380 170"
+                  d="M 45 170 C 120 170, 180 20, 345 35"
                   fill="none"
                   stroke="#e11d48"
                   strokeWidth="3"
                 />
 
-                {/* Area 2: Collected Fee (Green Wave) */}
+                {/* Area 2: Collected Fee (Green Wave strictly up to Sep x=345) */}
                 <path
-                  d="M 50 170 Q 200 90, 380 170 L 380 170 L 50 170 Z"
+                  d="M 45 170 C 120 170, 200 90, 345 65 L 345 170 Z"
                   fill="url(#collectedGrad)"
                 />
                 <path
-                  d="M 50 170 Q 200 90, 380 170"
+                  d="M 45 170 C 120 170, 200 90, 345 65"
                   fill="none"
                   stroke="#10b981"
                   strokeWidth="3"
                 />
 
-                {/* Area 3: Total Dues (Amber Wave) */}
+                {/* Area 3: Total Gross Demand (Amber Wave) */}
                 <path
-                  d="M 50 170 Q 200 120, 380 170 L 380 170 L 50 170 Z"
+                  d="M 45 170 C 120 170, 200 110, 345 95 L 345 170 Z"
                   fill="url(#totalGrad)"
                 />
                 <path
-                  d="M 50 170 Q 200 120, 380 170"
+                  d="M 45 170 C 120 170, 200 110, 345 95"
                   fill="none"
                   stroke="#f59e0b"
-                  strokeWidth="3"
+                  strokeWidth="2.5"
                 />
+
+                {/* Projected Future Session Wave (Oct to Mar - Dashed Projection) */}
+                <path
+                  d="M 345 65 C 450 65, 550 170, 685 170"
+                  fill="none"
+                  stroke="#94a3b8"
+                  strokeWidth="1.5"
+                  strokeDasharray="4 4"
+                />
+
+                {/* Active Month Dot on September */}
+                <circle cx="345" cy="65" r="5" fill="#10b981" className="animate-pulse" />
+                <circle cx="345" cy="65" r="9" fill="none" stroke="#10b981" strokeWidth="1.5" opacity="0.6" />
+
+                {/* Interactive Month Hover Columns & Points */}
+                {academicMonthsData.map((m) => (
+                  <g
+                    key={m.name}
+                    className="cursor-pointer"
+                    onMouseEnter={() => setWaveHoverMonth(m)}
+                    onMouseLeave={() => setWaveHoverMonth(null)}
+                  >
+                    {/* Transparent hover column */}
+                    <rect
+                      x={m.x - 20}
+                      y="0"
+                      width="40"
+                      height="170"
+                      fill="transparent"
+                      className="hover:fill-slate-500/10 transition-colors"
+                    />
+
+                    {/* Data Node Point */}
+                    <circle
+                      cx={m.x}
+                      cy={m.x <= 345 ? (m.name === 'Sep' ? 65 : (m.name === 'Aug' ? 65 : (m.name === 'Jul' ? 85 : 125))) : 170}
+                      r={waveHoverMonth?.name === m.name ? 6 : 3.5}
+                      fill={m.x <= 345 ? '#10b981' : '#94a3b8'}
+                      stroke="#ffffff"
+                      strokeWidth="1.5"
+                      className="transition-all duration-150"
+                    />
+                  </g>
+                ))}
               </svg>
 
+              {/* Floating Interactive Hover Tooltip for Spline Graph */}
+              {waveHoverMonth && (
+                <div
+                  className="absolute bg-slate-900/95 backdrop-blur text-white text-xs p-3 rounded-2xl shadow-2xl border border-slate-700 z-30 pointer-events-none animate-in fade-in zoom-in-95 duration-150 space-y-1.5 w-60"
+                  style={{
+                    left: `${Math.min(Math.max(10, (waveHoverMonth.x / 700) * 100 - 15), 65)}%`,
+                    top: '10px'
+                  }}
+                >
+                  <div className="font-bold text-teal-400 border-b border-slate-700 pb-1 flex justify-between items-center">
+                    <span>📅 {waveHoverMonth.fullName}</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800">
+                      {waveHoverMonth.name === 'Sep' ? 'Active Today' : (waveHoverMonth.x < 345 ? 'Actual' : 'Projected')}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Fee Collected:</span>
+                    <strong className="text-emerald-400 font-mono">
+                      {waveHoverMonth.x <= 345 ? `₹${waveHoverMonth.collected.toLocaleString('en-IN')}` : '₹0 (Upcoming)'}
+                    </strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Balance Remaining:</span>
+                    <strong className="text-rose-400 font-mono">₹{waveHoverMonth.remaining.toLocaleString('en-IN')}</strong>
+                  </div>
+                  <div className="flex justify-between border-t border-slate-700/80 pt-1 text-[11px]">
+                    <span className="text-slate-400">Total Demand:</span>
+                    <strong className="text-amber-400 font-mono">₹{waveHoverMonth.total.toLocaleString('en-IN')}</strong>
+                  </div>
+                  <div className="text-[9px] text-slate-400 italic pt-0.5">
+                    📌 {waveHoverMonth.status}
+                  </div>
+                </div>
+              )}
+
               {/* Months Axis Labels */}
-              <div className="flex justify-between text-[10px] font-bold text-slate-600 dark:text-slate-400 px-3 -mt-1">
-                {['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'].map(m => (
-                  <span key={m}>{m}</span>
+              <div className="flex justify-between text-[10px] font-bold text-slate-600 dark:text-slate-400 px-2 -mt-1 select-none">
+                {academicMonthsData.map(m => (
+                  <span
+                    key={m.name}
+                    className={`transition-colors cursor-pointer ${
+                      m.name === 'Sep'
+                        ? 'text-emerald-600 dark:text-emerald-400 font-black underline decoration-2'
+                        : (waveHoverMonth?.name === m.name ? 'text-indigo-600 font-black' : '')
+                    }`}
+                    onMouseEnter={() => setWaveHoverMonth(m)}
+                    onMouseLeave={() => setWaveHoverMonth(null)}
+                  >
+                    {m.name}
+                  </span>
                 ))}
               </div>
             </div>
