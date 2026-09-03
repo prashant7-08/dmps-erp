@@ -362,7 +362,7 @@ export const Sidebar = ({
       return;
     }
 
-    const tabToSet = item.isSingle ? item.targetTab : (item.id || item.targetTab);
+    const tabToSet = item.targetTab || item.id;
     setActiveTab(tabToSet);
     if (onClose) onClose();
     if (setIsOpen) setIsOpen(false);

@@ -385,6 +385,8 @@ function AppContent() {
       case 'custom-list':
       case 'customlist':
       case 'custom-reports':
+      case 'reports-custom-list':
+      case 'students-custom-list':
         return <CustomListPage />;
       case 'frontend':
       case 'fe-setting':

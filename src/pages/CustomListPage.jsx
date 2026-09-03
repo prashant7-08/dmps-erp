@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import {
   Printer,
   FileSpreadsheet,
@@ -17,7 +17,12 @@ import {
   Calendar,
   CheckCircle2,
   AlertCircle,
-  FileText
+  FileText,
+  SlidersHorizontal,
+  Maximize2,
+  Minimize2,
+  RotateCw,
+  ChevronDown
 } from 'lucide-react';
 import schoolService from '../services/schoolService';
 import { useToast } from '../components/common/Toast';
@@ -30,55 +35,59 @@ export const CustomListPage = () => {
     name: 'Dadheech Memorial Public School',
     academicSession: '2026-2027',
     affiliationNo: 'UP-CBSE-83921',
-    address: 'Jargwan, Bulandshahr (U.P.)'
+    address: 'Ramghat Road Border, Jargwan, Bulandshahr (U.P.)'
   };
 
   // 1. Report Title & Heading
   const [fileHeading, setFileHeading] = useState('STUDENTS LIST WITH CONCESSION');
   const [subHeading, setSubHeading] = useState('Official Student Ledger & Demographic Register');
 
-  // 2. Available Columns Definition with Categories
+  // Print Density & Orientation Controls
+  const [printDensity, setPrintDensity] = useState('compact'); // 'compact', 'standard', 'spacious'
+  const [printOrientation, setPrintOrientation] = useState('landscape'); // 'portrait', 'landscape'
+
+  // 2. Available Columns Definition (Compact Short Labels & Data Widths)
   const availableColumns = useMemo(() => [
     // Basic Details
-    { id: 'admissionNo', label: 'REGISTRATION / ADM NO', category: 'Basic', default: true },
-    { id: 'rollNo', label: 'ROLL NO', category: 'Basic', default: true },
-    { id: 'name', label: 'STUDENT NAME', category: 'Basic', default: true },
-    { id: 'fatherName', label: "FATHER'S NAME", category: 'Basic', default: true },
-    { id: 'motherName', label: "MOTHER'S NAME", category: 'Basic', default: false },
-    { id: 'gender', label: 'GENDER', category: 'Basic', default: true },
-    { id: 'dob', label: 'DATE OF BIRTH', category: 'Basic', default: false },
-    { id: 'class', label: 'CLASS', category: 'Basic', default: true },
-    { id: 'section', label: 'SECTION', category: 'Basic', default: true },
-    { id: 'branchName', label: 'BRANCH / CAMPUS', category: 'Basic', default: false },
-    { id: 'admissionDate', label: 'DATE OF ADMISSION', category: 'Basic', default: false },
+    { id: 'admissionNo', label: 'Adm No', fullLabel: 'Admission No', category: 'Basic', default: true, width: '70px', align: 'center' },
+    { id: 'rollNo', label: 'Roll', fullLabel: 'Roll No', category: 'Basic', default: true, width: '50px', align: 'center' },
+    { id: 'name', label: 'Student Name', fullLabel: 'Student Full Name', category: 'Basic', default: true, width: '150px', align: 'left' },
+    { id: 'fatherName', label: "Father Name", fullLabel: "Father's Name", category: 'Basic', default: true, width: '140px', align: 'left' },
+    { id: 'motherName', label: "Mother Name", fullLabel: "Mother's Name", category: 'Basic', default: false, width: '130px', align: 'left' },
+    { id: 'gender', label: 'Gender', fullLabel: 'Gender (M/F)', category: 'Basic', default: true, width: '60px', align: 'center' },
+    { id: 'dob', label: 'DOB', fullLabel: 'Date of Birth', category: 'Basic', default: false, width: '85px', align: 'center' },
+    { id: 'class', label: 'Class', fullLabel: 'Class Grade', category: 'Basic', default: true, width: '60px', align: 'center' },
+    { id: 'section', label: 'Sec', fullLabel: 'Section', category: 'Basic', default: true, width: '45px', align: 'center' },
+    { id: 'branchName', label: 'Campus', fullLabel: 'Campus / Branch', category: 'Basic', default: false, width: '110px', align: 'left' },
+    { id: 'admissionDate', label: 'Adm Date', fullLabel: 'Date of Admission', category: 'Basic', default: false, width: '85px', align: 'center' },
 
     // Contact & ID Info
-    { id: 'primaryMobile', label: 'MOBILE NUMBER', category: 'Contact & ID', default: true },
-    { id: 'altMobile', label: 'ALTERNATE MOBILE', category: 'Contact & ID', default: false },
-    { id: 'address', label: 'RESIDENTIAL ADDRESS', category: 'Contact & ID', default: false },
-    { id: 'aadhaar', label: 'STUDENT AADHAAR', category: 'Contact & ID', default: false },
-    { id: 'penNo', label: 'PEN / APAAR NO', category: 'Contact & ID', default: false },
-    { id: 'category', label: 'SOCIAL CATEGORY', category: 'Contact & ID', default: false },
-    { id: 'religion', label: 'RELIGION', category: 'Contact & ID', default: false },
-    { id: 'siblings', label: 'LINKED SIBLINGS', category: 'Contact & ID', default: false },
+    { id: 'primaryMobile', label: 'Mobile', fullLabel: 'Primary Mobile No', category: 'Contact & ID', default: true, width: '95px', align: 'center' },
+    { id: 'altMobile', label: 'Alt Mobile', fullLabel: 'Mother / Alt Mobile', category: 'Contact & ID', default: false, width: '95px', align: 'center' },
+    { id: 'address', label: 'Address / Village', fullLabel: 'Residential Address', category: 'Contact & ID', default: false, width: '160px', align: 'left' },
+    { id: 'aadhaar', label: 'Aadhaar', fullLabel: 'Student Aadhaar Card', category: 'Contact & ID', default: false, width: '95px', align: 'center' },
+    { id: 'penNo', label: 'PEN No', fullLabel: 'PEN / APAAR Code', category: 'Contact & ID', default: false, width: '90px', align: 'center' },
+    { id: 'category', label: 'Category', fullLabel: 'Social Caste Category', category: 'Contact & ID', default: false, width: '70px', align: 'center' },
+    { id: 'religion', label: 'Religion', fullLabel: 'Religion', category: 'Contact & ID', default: false, width: '70px', align: 'center' },
+    { id: 'siblings', label: 'Siblings', fullLabel: 'Linked Siblings Family', category: 'Contact & ID', default: false, width: '90px', align: 'center' },
 
     // Transport Fleet
-    { id: 'transportStatus', label: 'TRANSPORT SERVICE', category: 'Transport', default: false },
-    { id: 'stoppage', label: 'BUS STOPPAGE / VILLAGE', category: 'Transport', default: false },
-    { id: 'route', label: 'TRANSPORT ROUTE', category: 'Transport', default: false },
-    { id: 'monthlyFare', label: 'MONTHLY BUS FARE', category: 'Transport', default: false },
-    { id: 'annualTransport', label: 'ANNUAL TRANSPORT (11M)', category: 'Transport', default: false },
+    { id: 'transportStatus', label: 'Bus Facility', fullLabel: 'Bus Facility (Y/N)', category: 'Transport', default: false, width: '70px', align: 'center' },
+    { id: 'stoppage', label: 'Bus Stoppage', fullLabel: 'Village Bus Stoppage', category: 'Transport', default: false, width: '120px', align: 'left' },
+    { id: 'route', label: 'Route', fullLabel: 'Bus Route No', category: 'Transport', default: false, width: '70px', align: 'center' },
+    { id: 'monthlyFare', label: 'Fare/Mo', fullLabel: 'Monthly Bus Fare', category: 'Transport', default: false, width: '75px', align: 'right' },
+    { id: 'annualTransport', label: 'Bus Due (11M)', fullLabel: 'Annual Bus Fare (11M)', category: 'Transport', default: false, width: '90px', align: 'right' },
 
     // Fees & Dues Data
-    { id: 'tuitionDue', label: 'TUITION FEE DUE', category: 'Fees & Dues', default: false },
-    { id: 'totalDue', label: 'TOTAL FEE DUE', category: 'Fees & Dues', default: false },
-    { id: 'totalPaid', label: 'FEE PAID (REALIZED)', category: 'Fees & Dues', default: false },
-    { id: 'balanceDue', label: 'REMAINING BALANCE', category: 'Fees & Dues', default: true },
-    { id: 'feeStatus', label: 'FEE STATUS', category: 'Fees & Dues', default: false },
+    { id: 'tuitionDue', label: 'Tuition Due', fullLabel: 'Annual Tuition Fee', category: 'Fees & Dues', default: false, width: '85px', align: 'right' },
+    { id: 'totalDue', label: 'Total Due', fullLabel: 'Gross Annual Demand', category: 'Fees & Dues', default: false, width: '85px', align: 'right' },
+    { id: 'totalPaid', label: 'Paid Fee', fullLabel: 'Real Fee Collected', category: 'Fees & Dues', default: false, width: '85px', align: 'right' },
+    { id: 'balanceDue', label: 'Balance Due', fullLabel: 'Outstanding Balance', category: 'Fees & Dues', default: true, width: '90px', align: 'right' },
+    { id: 'feeStatus', label: 'Fee Status', fullLabel: 'Fee Payment Status', category: 'Fees & Dues', default: false, width: '75px', align: 'center' },
 
     // Attendance
-    { id: 'attendanceRate', label: 'ATTENDANCE %', category: 'Attendance', default: false },
-    { id: 'studentStatus', label: 'STUDENT STATUS', category: 'Attendance', default: false }
+    { id: 'attendanceRate', label: 'Att %', fullLabel: 'Attendance Rate %', category: 'Attendance', default: false, width: '55px', align: 'center' },
+    { id: 'studentStatus', label: 'Status', fullLabel: 'Enrollment Status', category: 'Attendance', default: false, width: '65px', align: 'center' }
   ], []);
 
   // Selected Columns State
@@ -113,24 +122,30 @@ export const CustomListPage = () => {
     if (presetName === 'master') {
       setFileHeading('GENERAL STUDENT MASTER ADMISSION REGISTER');
       ['admissionNo', 'rollNo', 'name', 'fatherName', 'motherName', 'gender', 'dob', 'class', 'section', 'primaryMobile', 'address'].forEach(id => { cols[id] = true; });
+      setPrintOrientation('landscape');
     } else if (presetName === 'defaulters') {
       setFileHeading('OUTSTANDING FEE DEFAULTERS & BALANCE RECOVERY LIST');
       ['admissionNo', 'rollNo', 'name', 'fatherName', 'class', 'section', 'primaryMobile', 'totalDue', 'totalPaid', 'balanceDue', 'feeStatus'].forEach(id => { cols[id] = true; });
       setFilterFeeStatus('DEFAULTER');
+      setPrintOrientation('landscape');
     } else if (presetName === 'transport') {
       setFileHeading('SCHOOL BUS FLEET PASSENGER ROSTER & STOPPAGE LIST');
       ['admissionNo', 'name', 'fatherName', 'class', 'section', 'primaryMobile', 'transportStatus', 'stoppage', 'route', 'monthlyFare', 'annualTransport'].forEach(id => { cols[id] = true; });
       setFilterTransport('TRANSPORT_ONLY');
+      setPrintOrientation('landscape');
     } else if (presetName === 'siblings') {
       setFileHeading('ENROLLED SIBLING FAMILIES & CONCESSION VERIFICATION LIST');
       ['admissionNo', 'name', 'fatherName', 'motherName', 'class', 'section', 'primaryMobile', 'siblings', 'balanceDue'].forEach(id => { cols[id] = true; });
       setFilterSibling('SIBLINGS_ONLY');
+      setPrintOrientation('landscape');
     } else if (presetName === 'udise') {
       setFileHeading('GOVERNMENT UDISE+ / CASTE & RELIGION DEMOGRAPHIC REPORT');
       ['admissionNo', 'name', 'fatherName', 'gender', 'dob', 'class', 'aadhaar', 'penNo', 'category', 'religion', 'address'].forEach(id => { cols[id] = true; });
+      setPrintOrientation('landscape');
     } else if (presetName === 'exam') {
       setFileHeading('EXAMINATION ROLL REGISTER & CANDIDATE ATTENDANCE SHEET');
       ['rollNo', 'admissionNo', 'name', 'fatherName', 'class', 'section', 'gender', 'attendanceRate'].forEach(id => { cols[id] = true; });
+      setPrintOrientation('portrait');
     }
     setSelectedColumns(cols);
     showToast(`Template "${presetName.toUpperCase()}" loaded! 📋`, 'info');
@@ -266,63 +281,54 @@ export const CustomListPage = () => {
     return Array.from(set).sort();
   }, [allStudents]);
 
-  // Helper function to render cell value
+  // Trigger Print with Custom Document Orientation
+  const handlePrint = () => {
+    window.print();
+  };
+
+  // Helper function to render cell value with tight formatting
   const renderCellValue = (student, colId, index) => {
     switch (colId) {
-      case 'admissionNo': return <strong className="font-mono text-indigo-600 dark:text-indigo-400">{student.admissionNo}</strong>;
+      case 'admissionNo': return <strong className="font-mono text-indigo-700 dark:text-indigo-400 font-bold">{student.admissionNo}</strong>;
       case 'rollNo': return <span className="font-mono font-bold text-slate-700 dark:text-slate-300">{student.rollNo}</span>;
       case 'name': return <strong className="text-slate-900 dark:text-white font-bold">{student.name}</strong>;
       case 'fatherName': return student.parents?.fatherName || '-';
       case 'motherName': return student.parents?.motherName || '-';
-      case 'gender': return student.gender || 'Male';
+      case 'gender': return student.gender === 'Female' ? 'F' : 'M';
       case 'dob': return student.dob || '-';
-      case 'class': return <span className="font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">{student.class}</span>;
+      case 'class': return <span className="font-bold">{student.class}</span>;
       case 'section': return student.section || 'A';
-      case 'branchName': return student.branchName || 'Senior Campus';
+      case 'branchName': return (student.branchName || 'Senior').split(' ')[0];
       case 'admissionDate': return '01/04/2026';
-      case 'primaryMobile': return <span className="font-mono text-blue-600 dark:text-blue-400">{student.parents?.fatherMobile || '-'}</span>;
-      case 'altMobile': return student.parents?.motherMobile || '-';
-      case 'address': return student.parents?.address || '-';
+      case 'primaryMobile': return <span className="font-mono font-medium">{student.parents?.fatherMobile || '-'}</span>;
+      case 'altMobile': return <span className="font-mono">{student.parents?.motherMobile || '-'}</span>;
+      case 'address': return <span className="truncate max-w-[150px] inline-block" title={student.parents?.address}>{student.parents?.address || '-'}</span>;
       case 'aadhaar': return student.customFields?.studentAadhaar || 'Verified';
       case 'penNo': return student.customFields?.penNo || `PEN-${student.admissionNo}`;
-      case 'category': return student.customFields?.caste || 'General';
+      case 'category': return student.customFields?.caste || 'GEN';
       case 'religion': return student.customFields?.religion || 'Hindu';
       case 'siblings': {
         const sibCount = student.linkedSiblingIds?.length || 0;
-        return sibCount > 0 ? (
-          <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 dark:bg-emerald-950 dark:text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-200">
-            {sibCount} Sibling{sibCount > 1 ? 's' : ''} Linked
-          </span>
-        ) : <span className="text-slate-400 text-xs">Single Child</span>;
+        return sibCount > 0 ? `${sibCount} Sib` : 'Single';
       }
-      case 'transportStatus': return student.transport?.route && student.transport.route !== 'None' ? (
-        <span className="text-emerald-600 font-bold flex items-center gap-1 text-xs">
-          <Bus className="w-3 h-3" /> Yes
-        </span>
-      ) : <span className="text-slate-400 text-xs">Self (Walker)</span>;
+      case 'transportStatus': return student.transport?.route && student.transport.route !== 'None' ? 'Yes' : 'No';
       case 'stoppage': return student.transport?.stoppage || 'Jargwan';
-      case 'route': return student.transport?.route || 'None';
+      case 'route': return student.transport?.route || 'Self';
       case 'monthlyFare': return `₹${Number(student.transport?.monthlyFare || 0).toLocaleString('en-IN')}`;
       case 'annualTransport': return `₹${Number(student.transport?.annualFare11M || 0).toLocaleString('en-IN')}`;
       case 'tuitionDue': return `₹${Number(student.feeSummary?.tuitionDue || 0).toLocaleString('en-IN')}`;
-      case 'totalDue': return <strong className="font-mono text-slate-900 dark:text-white">₹{Number(student.feeSummary?.totalDue || 0).toLocaleString('en-IN')}</strong>;
-      case 'totalPaid': return <span className="font-mono font-bold text-emerald-600">₹{Number(student.feeSummary?.totalPaid || 0).toLocaleString('en-IN')}</span>;
+      case 'totalDue': return <strong className="font-mono">₹{Number(student.feeSummary?.totalDue || 0).toLocaleString('en-IN')}</strong>;
+      case 'totalPaid': return <span className="font-mono text-emerald-700 font-bold">₹{Number(student.feeSummary?.totalPaid || 0).toLocaleString('en-IN')}</span>;
       case 'balanceDue': {
         const b = Number(student.feeSummary?.balance || 0);
-        return <strong className={`font-mono font-bold ${b > 0 ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600'}`}>₹{b.toLocaleString('en-IN')}</strong>;
+        return <strong className={`font-mono font-bold ${b > 0 ? 'text-rose-700' : 'text-emerald-700'}`}>₹{b.toLocaleString('en-IN')}</strong>;
       }
       case 'feeStatus': {
         const st = student.feeSummary?.status || (student.feeSummary?.balance === 0 ? 'Paid' : 'Pending');
-        return (
-          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-            st === 'Paid' ? 'bg-emerald-100 text-emerald-800' : (st === 'Partial' ? 'bg-amber-100 text-amber-800' : 'bg-rose-100 text-rose-800')
-          }`}>
-            {st}
-          </span>
-        );
+        return st;
       }
-      case 'attendanceRate': return <span className="font-bold font-mono text-indigo-600">{student.attendanceSummary?.percentage || 95}%</span>;
-      case 'studentStatus': return <span className="text-emerald-600 font-bold text-xs">{student.status || 'Active'}</span>;
+      case 'attendanceRate': return `${student.attendanceSummary?.percentage || 95}%`;
+      case 'studentStatus': return student.status || 'Active';
       default: return '-';
     }
   };
@@ -397,6 +403,56 @@ export const CustomListPage = () => {
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
 
+      {/* Global Print Styles Injection */}
+      <style>{`
+        @media print {
+          @page {
+            size: ${printOrientation === 'landscape' ? 'landscape' : 'portrait'};
+            margin: 6mm 8mm;
+          }
+          body, html, #root {
+            background: #ffffff !important;
+            color: #000000 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            font-size: ${printDensity === 'compact' ? '9px' : (printDensity === 'standard' ? '10px' : '11px')} !important;
+          }
+          aside, nav, header, .print\\:hidden, [class*="Sidebar"], [class*="TopNav"] {
+            display: none !important;
+            visibility: hidden !important;
+          }
+          main, div[class*="lg:pl-"] {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          .custom-print-table-container {
+            width: 100% !important;
+            overflow: visible !important;
+          }
+          .custom-print-table {
+            width: 100% !important;
+            table-layout: auto !important;
+            border-collapse: collapse !important;
+            font-size: ${printDensity === 'compact' ? '9px' : (printDensity === 'standard' ? '10px' : '11px')} !important;
+          }
+          .custom-print-table th, .custom-print-table td {
+            border: 1px solid #94a3b8 !important;
+            padding: ${printDensity === 'compact' ? '2px 4px' : '4px 6px'} !important;
+            color: #000000 !important;
+          }
+          .custom-print-table thead {
+            display: table-header-group !important;
+            background-color: #f1f5f9 !important;
+          }
+          .custom-print-table tr {
+            page-break-inside: avoid !important;
+          }
+        }
+      `}</style>
+
       {/* ========================================================================= */}
       {/* 📋 TOP HEADER & PRESET BUTTONS (Screen View) */}
       {/* ========================================================================= */}
@@ -412,25 +468,69 @@ export const CustomListPage = () => {
                   Custom List Report & Print Generator
                 </h1>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  Select custom columns, filter parameters, and print official student dossier sheets
+                  Select custom columns, filter parameters, and print official auto-fitted student dossiers
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Action Buttons */}
+          {/* Action Buttons with Density and Page Orientation */}
           <div className="flex items-center gap-2.5 flex-wrap">
+            {/* Page Orientation Selector */}
+            <div className="flex items-center rounded-xl bg-slate-100 dark:bg-slate-800 p-1 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+              <button
+                onClick={() => setPrintOrientation('portrait')}
+                className={`px-2.5 py-1.5 rounded-lg transition-all ${
+                  printOrientation === 'portrait' ? 'bg-white dark:bg-slate-900 text-indigo-600 shadow-sm' : 'text-slate-500'
+                }`}
+                title="Portrait (Vertical Page)"
+              >
+                📄 Portrait
+              </button>
+              <button
+                onClick={() => setPrintOrientation('landscape')}
+                className={`px-2.5 py-1.5 rounded-lg transition-all ${
+                  printOrientation === 'landscape' ? 'bg-white dark:bg-slate-900 text-indigo-600 shadow-sm' : 'text-slate-500'
+                }`}
+                title="Landscape (Horizontal Wide Page)"
+              >
+                📑 Landscape (Wide)
+              </button>
+            </div>
+
+            {/* Density Selector */}
+            <div className="flex items-center rounded-xl bg-slate-100 dark:bg-slate-800 p-1 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+              <button
+                onClick={() => setPrintDensity('compact')}
+                className={`px-2.5 py-1.5 rounded-lg transition-all ${
+                  printDensity === 'compact' ? 'bg-white dark:bg-slate-900 text-indigo-600 shadow-sm' : 'text-slate-500'
+                }`}
+                title="Compact tight columns for fitting maximum data on A4"
+              >
+                ⚡ Compact
+              </button>
+              <button
+                onClick={() => setPrintDensity('standard')}
+                className={`px-2.5 py-1.5 rounded-lg transition-all ${
+                  printDensity === 'standard' ? 'bg-white dark:bg-slate-900 text-indigo-600 shadow-sm' : 'text-slate-500'
+                }`}
+              >
+                Standard
+              </button>
+            </div>
+
             <button
               onClick={handleExportCSV}
-              className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
+              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
             >
-              <FileSpreadsheet className="w-4 h-4" /> Export to Excel
+              <FileSpreadsheet className="w-4 h-4" /> Export CSV
             </button>
+
             <button
-              onClick={() => window.print()}
+              onClick={handlePrint}
               className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-600/20 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
             >
-              <Printer className="w-4 h-4" /> Print Custom List
+              <Printer className="w-4 h-4" /> Print Full List
             </button>
           </div>
         </div>
@@ -481,7 +581,7 @@ export const CustomListPage = () => {
         </div>
 
         {/* File Heading Title Input */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center justify-between">
               <span>File Heading (Title Printed on Top):</span>
@@ -492,27 +592,27 @@ export const CustomListPage = () => {
               value={fileHeading}
               onChange={(e) => setFileHeading(e.target.value)}
               placeholder="e.g. STUDENTS LIST WITH CONCESSION"
-              className="w-full px-4 py-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono"
+              className="w-full px-4 py-2 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono"
             />
           </div>
 
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-              Sub-Heading / Note:
+              Sub-Heading / Academic Note:
             </label>
             <input
               type="text"
               value={subHeading}
               onChange={(e) => setSubHeading(e.target.value)}
               placeholder="e.g. Session 2026-27 | Prepared for Office Records"
-              className="w-full px-4 py-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
         </div>
       </div>
 
       {/* ========================================================================= */}
-      {/* 🔘 SELECT COLUMNS SECTION (Grouped Checkboxes) */}
+      {/* 🔘 SELECT COLUMNS SECTION (Compact Checkboxes) */}
       {/* ========================================================================= */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4 print:hidden">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
@@ -540,11 +640,11 @@ export const CustomListPage = () => {
         </div>
 
         {/* Columns Grid by Category */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {['Basic', 'Contact & ID', 'Transport', 'Fees & Dues', 'Attendance'].map(cat => {
             const catCols = availableColumns.filter(c => c.category === cat);
             return (
-              <div key={cat} className="space-y-2">
+              <div key={cat} className="space-y-1.5">
                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">
                   {cat} Fields:
                 </span>
@@ -554,7 +654,7 @@ export const CustomListPage = () => {
                     return (
                       <label
                         key={col.id}
-                        className={`flex items-center gap-2 p-2.5 rounded-xl border text-xs font-bold cursor-pointer transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded-xl border text-xs font-bold cursor-pointer transition-all ${
                           isChecked
                             ? 'bg-indigo-50/80 dark:bg-indigo-950/60 border-indigo-400 text-indigo-900 dark:text-indigo-200 shadow-sm'
                             : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-slate-400'
@@ -564,9 +664,9 @@ export const CustomListPage = () => {
                           type="checkbox"
                           checked={isChecked}
                           onChange={() => toggleColumn(col.id)}
-                          className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 border-slate-300"
+                          className="w-3.5 h-3.5 rounded text-indigo-600 focus:ring-indigo-500 border-slate-300"
                         />
-                        <span className="truncate">{col.label}</span>
+                        <span className="truncate">{col.fullLabel || col.label}</span>
                       </label>
                     );
                   })}
@@ -794,9 +894,9 @@ export const CustomListPage = () => {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 print:hidden">
         <div className="p-4 rounded-3xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/60 flex items-center justify-between">
           <div>
-            <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-wider block">Filtered Students</span>
+            <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-wider block">Filtered Records</span>
             <span className="text-2xl font-black font-mono text-slate-900 dark:text-white">{filteredStudents.length}</span>
-            <span className="text-[11px] text-slate-500 block">Out of {allStudents.length}</span>
+            <span className="text-[11px] text-slate-500 block">Out of {allStudents.length} Students</span>
           </div>
           <Users className="w-8 h-8 text-indigo-500 opacity-60" />
         </div>
@@ -834,21 +934,21 @@ export const CustomListPage = () => {
       </div>
 
       {/* ========================================================================= */}
-      {/* 📄 OFFICIAL PRINTABLE DOSSIER TABLE (Visible on Screen & Print) */}
+      {/* 📄 OFFICIAL PRINTABLE DOSSIER TABLE (Auto-Fitted Clean Layout) */}
       {/* ========================================================================= */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden print:border-none print:shadow-none print:rounded-none">
+      <div className="custom-print-table-container bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden print:border-none print:shadow-none print:rounded-none">
 
-        {/* Official Printable Header (Visible when Printing) */}
-        <div className="p-6 border-b border-slate-200 dark:border-slate-800 print:block space-y-2 text-center">
-          <h2 className="text-2xl font-black tracking-wide text-slate-900 dark:text-white uppercase">
+        {/* Official Printable Header */}
+        <div className="p-5 border-b border-slate-200 dark:border-slate-800 space-y-1.5 text-center">
+          <h2 className="text-xl sm:text-2xl font-black tracking-wide text-slate-900 dark:text-white uppercase font-sans">
             {schoolInfo.name}
           </h2>
-          <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
+          <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 font-medium">
             {schoolInfo.address} | Affiliation No: {schoolInfo.affiliationNo} | Academic Session: {schoolInfo.academicSession}
           </p>
 
-          <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs font-bold gap-2">
-            <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-mono uppercase tracking-wider border border-slate-300 dark:border-slate-700">
+          <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center text-[11px] sm:text-xs font-bold gap-2">
+            <span className="px-3 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-mono uppercase tracking-wider border border-slate-300 dark:border-slate-700">
               📌 {fileHeading || 'STUDENTS CUSTOM LIST'}
             </span>
             <span className="text-slate-500">
@@ -857,7 +957,7 @@ export const CustomListPage = () => {
           </div>
         </div>
 
-        {/* Dynamic Table with Selected Columns */}
+        {/* Dynamic Table with Selected Columns & Compact Fit */}
         <div className="overflow-x-auto min-w-full">
           {activeColumnsList.length === 0 ? (
             <div className="p-12 text-center text-slate-400 font-bold space-y-2">
@@ -865,19 +965,27 @@ export const CustomListPage = () => {
               <p>No columns selected. Please check at least 1 column from the selection above.</p>
             </div>
           ) : (
-            <table className="w-full text-left text-xs border-collapse">
+            <table className={`custom-print-table w-full text-left border-collapse ${
+              printDensity === 'compact' ? 'text-[11px]' : (printDensity === 'standard' ? 'text-xs' : 'text-sm')
+            }`}>
               <thead>
-                <tr className="bg-slate-100 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 uppercase tracking-wider text-[11px] font-black">
-                  <th className="py-3.5 px-3 w-10 text-center">#</th>
+                <tr className="bg-slate-100 dark:bg-slate-800/80 border-b border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 uppercase tracking-tight font-black">
+                  <th className="py-2 px-2 w-8 text-center border-r border-slate-200 dark:border-slate-700">#</th>
                   {activeColumnsList.map(c => (
-                    <th key={c.id} className="py-3.5 px-3.5 whitespace-nowrap">{c.label}</th>
+                    <th
+                      key={c.id}
+                      className={`py-2 px-2.5 whitespace-nowrap border-r border-slate-200 dark:border-slate-700 text-${c.align || 'left'}`}
+                      style={{ width: c.width || 'auto' }}
+                    >
+                      {c.label}
+                    </th>
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
                 {filteredStudents.length === 0 ? (
                   <tr>
-                    <td colSpan={activeColumnsList.length + 1} className="py-12 text-center text-slate-400 font-bold">
+                    <td colSpan={activeColumnsList.length + 1} className="py-10 text-center text-slate-400 font-bold">
                       No student records match the selected filter conditions.
                     </td>
                   </tr>
@@ -885,11 +993,14 @@ export const CustomListPage = () => {
                   filteredStudents.map((student, idx) => (
                     <tr
                       key={student.id}
-                      className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors odd:bg-white even:bg-slate-50/30 dark:odd:bg-slate-900 dark:even:bg-slate-900/60"
+                      className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors odd:bg-white even:bg-slate-50/40 dark:odd:bg-slate-900 dark:even:bg-slate-900/60"
                     >
-                      <td className="py-3 px-3 text-center font-mono font-bold text-slate-400">{idx + 1}</td>
+                      <td className="py-1.5 px-2 text-center font-mono text-slate-500 border-r border-slate-100 dark:border-slate-800">{idx + 1}</td>
                       {activeColumnsList.map(c => (
-                        <td key={c.id} className="py-3 px-3.5 whitespace-nowrap">
+                        <td
+                          key={c.id}
+                          className={`py-1.5 px-2.5 whitespace-nowrap border-r border-slate-100 dark:border-slate-800 text-${c.align || 'left'}`}
+                        >
                           {renderCellValue(student, c.id, idx)}
                         </td>
                       ))}
@@ -901,17 +1012,17 @@ export const CustomListPage = () => {
               {/* Table Footer Totals */}
               {filteredStudents.length > 0 && (
                 <tfoot>
-                  <tr className="bg-slate-100 dark:bg-slate-800 border-t-2 border-slate-300 dark:border-slate-700 font-black text-slate-900 dark:text-white text-xs">
-                    <td colSpan={2} className="py-3.5 px-3 text-center uppercase tracking-wider">
-                      TOTALS ({filteredStudents.length} Students)
+                  <tr className="bg-slate-100 dark:bg-slate-800 border-t-2 border-slate-400 dark:border-slate-600 font-black text-slate-900 dark:text-white text-xs">
+                    <td colSpan={2} className="py-2.5 px-2 text-center uppercase tracking-wider">
+                      TOTALS ({filteredStudents.length})
                     </td>
                     {activeColumnsList.slice(1).map(c => {
-                      if (c.id === 'totalDue') return <td key={c.id} className="py-3.5 px-3.5 font-mono">₹{summaryTotals.dueSum.toLocaleString('en-IN')}</td>;
-                      if (c.id === 'tuitionDue') return <td key={c.id} className="py-3.5 px-3.5 font-mono">₹{summaryTotals.tuitionSum.toLocaleString('en-IN')}</td>;
-                      if (c.id === 'annualTransport') return <td key={c.id} className="py-3.5 px-3.5 font-mono">₹{summaryTotals.transportSum.toLocaleString('en-IN')}</td>;
-                      if (c.id === 'totalPaid') return <td key={c.id} className="py-3.5 px-3.5 font-mono text-emerald-600">₹{summaryTotals.paidSum.toLocaleString('en-IN')}</td>;
-                      if (c.id === 'balanceDue') return <td key={c.id} className="py-3.5 px-3.5 font-mono text-rose-600">₹{summaryTotals.balanceSum.toLocaleString('en-IN')}</td>;
-                      return <td key={c.id} className="py-3.5 px-3.5">-</td>;
+                      if (c.id === 'totalDue') return <td key={c.id} className="py-2.5 px-2.5 font-mono text-right">₹{summaryTotals.dueSum.toLocaleString('en-IN')}</td>;
+                      if (c.id === 'tuitionDue') return <td key={c.id} className="py-2.5 px-2.5 font-mono text-right">₹{summaryTotals.tuitionSum.toLocaleString('en-IN')}</td>;
+                      if (c.id === 'annualTransport') return <td key={c.id} className="py-2.5 px-2.5 font-mono text-right">₹{summaryTotals.transportSum.toLocaleString('en-IN')}</td>;
+                      if (c.id === 'totalPaid') return <td key={c.id} className="py-2.5 px-2.5 font-mono text-emerald-700 text-right">₹{summaryTotals.paidSum.toLocaleString('en-IN')}</td>;
+                      if (c.id === 'balanceDue') return <td key={c.id} className="py-2.5 px-2.5 font-mono text-rose-700 text-right">₹{summaryTotals.balanceSum.toLocaleString('en-IN')}</td>;
+                      return <td key={c.id} className="py-2.5 px-2.5 text-center">-</td>;
                     })}
                   </tr>
                 </tfoot>
@@ -921,21 +1032,21 @@ export const CustomListPage = () => {
         </div>
 
         {/* Official Printable Signatures Block (Visible on Print) */}
-        <div className="p-8 pt-12 border-t border-slate-200 dark:border-slate-800 hidden print:grid grid-cols-4 gap-8 text-center text-xs font-bold text-slate-800">
-          <div className="space-y-8">
-            <div className="h-10 border-b border-dashed border-slate-400" />
+        <div className="p-6 pt-10 border-t border-slate-300 dark:border-slate-800 hidden print:grid grid-cols-4 gap-6 text-center text-xs font-bold text-slate-800">
+          <div className="space-y-6">
+            <div className="h-8 border-b border-dashed border-slate-400" />
             <span>Prepared By (Clerk)</span>
           </div>
-          <div className="space-y-8">
-            <div className="h-10 border-b border-dashed border-slate-400" />
+          <div className="space-y-6">
+            <div className="h-8 border-b border-dashed border-slate-400" />
             <span>Verified By (In-Charge)</span>
           </div>
-          <div className="space-y-8">
-            <div className="h-10 border-b border-dashed border-slate-400" />
+          <div className="space-y-6">
+            <div className="h-8 border-b border-dashed border-slate-400" />
             <span>Accountant Signature</span>
           </div>
-          <div className="space-y-8">
-            <div className="h-10 border-b border-dashed border-slate-400" />
+          <div className="space-y-6">
+            <div className="h-8 border-b border-dashed border-slate-400" />
             <span>Principal / Director Seal</span>
           </div>
         </div>
