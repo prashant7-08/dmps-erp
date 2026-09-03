@@ -1831,7 +1831,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
               </div>
 
               {/* Quick Actions inside Profile (All in 1 Clean Row) */}
-              <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-2 flex-wrap shrink-0">
                 <button
                   type="button"
                   onClick={() => {
@@ -1840,7 +1840,17 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   }}
                   className="px-3.5 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 >
-                  <CreditCard className="w-3.5 h-3.5 text-white" /> 💳 Collect Fee
+                  <CreditCard className="w-3.5 h-3.5 text-white" /> 💳 Collect / Pay Fee
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsProfileModalOpen(false);
+                    handleOpenEditModal(selectedStudent);
+                  }}
+                  className="px-3.5 py-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                >
+                  <Edit className="w-3.5 h-3.5 text-slate-950" /> ✏️ Edit Details
                 </button>
                 <button
                   type="button"
@@ -1852,16 +1862,6 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   className="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 >
                   <Printer className="w-3.5 h-3.5 text-white" /> 🖨️ Master Sheet
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsProfileModalOpen(false);
-                    handleOpenEditModal(selectedStudent);
-                  }}
-                  className="px-3.5 py-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
-                >
-                  <Edit className="w-3.5 h-3.5 text-slate-950" /> ✏️ Edit Details
                 </button>
               </div>
             </div>
