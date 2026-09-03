@@ -688,6 +688,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                     <th className="p-4">Faculty Member</th>
                     <th className="p-4">Employee ID</th>
                     <th className="p-4">Department & Role</th>
+                    <th className="p-4">Joining Date</th>
                     <th className="p-4">Class Teacher</th>
                     <th className="p-4">Mobile & Email</th>
                     <th className="p-4">Status</th>
@@ -738,6 +739,11 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                         <span className="text-[10px] text-slate-400">{t.department} • {t.role || 'Teacher'}</span>
                       </td>
                       <td className="p-4">
+                        <span className="font-mono text-slate-600 dark:text-slate-400 text-[11px]">
+                          {t.joiningDate ? new Date(t.joiningDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '—'}
+                        </span>
+                      </td>
+                      <td className="p-4">
                         {t.classTeacherOf && t.classTeacherOf !== 'None' ? (
                           <span className="px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-bold text-[10px] border border-indigo-200 dark:border-indigo-800">
                             {t.classTeacherOf}
@@ -751,9 +757,18 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                         <p className="text-slate-400 text-[10px] truncate max-w-[140px]">{t.email}</p>
                       </td>
                       <td className="p-4">
-                        <Badge variant={t.loginDeactivated ? 'danger' : 'success'}>
-                          {t.loginDeactivated ? 'Login Disabled' : 'Active'}
-                        </Badge>
+                        {t.status === 'Left' ? (
+                          <Badge variant="danger">Left / Resigned</Badge>
+                        ) : t.loginDeactivated ? (
+                          <Badge variant="danger">Login Disabled</Badge>
+                        ) : (
+                          <Badge variant="success">Active</Badge>
+                        )}
+                        {t.leavingDate && t.status === 'Left' && (
+                          <div className="text-[9px] font-mono text-rose-500 mt-0.5">
+                            Left: {new Date(t.leavingDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
+                          </div>
+                        )}
                       </td>
                       <td className="p-4 text-right">
                         <div className="flex items-center justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>

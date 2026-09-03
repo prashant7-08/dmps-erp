@@ -140,10 +140,75 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
   const [applyLeaveForm, setApplyLeaveForm] = useState({ staffName: 'SHWETA RAGHAV', category: 'Casual Leave (CL)', fromDate: '', toDate: '', totalDays: '1', reason: '' });
   const [awardForm, setAwardForm] = useState({ title: '', recipient: '', prize: '', category: 'Academic Excellence' });
 
-  // Total Payroll Calculation (Sum of actual staff salaries)
+  // Helper: Parse 'August 2026' => Date object (1st of that month)
+  const parseMonthStr = (monthStr) => {
+    if (!monthStr) return null;
+    const clean = monthStr.replace(/\s*\(.*\)/, '').trim(); // remove parentheses
+    const d = new Date(clean);
+    return isNaN(d) ? null : d;
+  };
+
+  // Helper: Check if employee is eligible for salary in selected month
+  const isSalaryEligible = (teacher, monthStr) => {
+    const monthDate = parseMonthStr(monthStr);
+    if (!monthDate) return true;
+    const monthYear = monthDate.getFullYear() * 100 + monthDate.getMonth(); // YYYYMM number
+
+    // Check joining date
+    if (teacher.joiningDate) {
+      const jd = new Date(teacher.joiningDate);
+      const joinYM = jd.getFullYear() * 100 + jd.getMonth();
+      if (monthYear < joinYM) return false; // selected month is before joining
+    }
+
+    // Check leaving date
+    if (teacher.leavingDate && teacher.status === 'Left') {
+      const ld = new Date(teacher.leavingDate);
+      const leaveYM = ld.getFullYear() * 100 + ld.getMonth();
+      if (monthYear > leaveYM) return false; // selected month is after leaving
+    }
+
+    return true;
+  };
+
+  // Helper: Calculate pro-rated salary (for partial months on joining/leaving)
+  const calcProRatedSalary = (teacher, base, monthStr) => {
+    if (!base) return 0;
+    const monthDate = parseMonthStr(monthStr);
+    if (!monthDate) return base;
+    const monthYear = monthDate.getFullYear() * 100 + monthDate.getMonth();
+    const daysInMonth = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0).getDate();
+
+    let effectiveStart = 1;
+    let effectiveEnd = daysInMonth;
+
+    if (teacher.joiningDate) {
+      const jd = new Date(teacher.joiningDate);
+      const joinYM = jd.getFullYear() * 100 + jd.getMonth();
+      if (monthYear === joinYM) effectiveStart = jd.getDate();
+    }
+    if (teacher.leavingDate && teacher.status === 'Left') {
+      const ld = new Date(teacher.leavingDate);
+      const leaveYM = ld.getFullYear() * 100 + ld.getMonth();
+      if (monthYear === leaveYM) effectiveEnd = ld.getDate();
+    }
+
+    const effectiveDays = Math.max(0, effectiveEnd - effectiveStart + 1);
+    if (effectiveDays < daysInMonth) {
+      return Math.round((base / daysInMonth) * effectiveDays);
+    }
+    return base;
+  };
+
+  // Active employees (currently working)
+  const activeTeachers = useMemo(() => teachers.filter(t => t.status !== 'Left'), [teachers]);
+  // Former employees
+  const formerTeachers = useMemo(() => teachers.filter(t => t.status === 'Left'), [teachers]);
+
+  // Total Payroll Calculation (Sum of active staff salaries only)
   const totalPayrollExpenditure = useMemo(() => {
-    return teachers.reduce((acc, t) => acc + (t.basicSalary || t.salary?.basic || t.salary || 4000), 0);
-  }, [teachers]);
+    return activeTeachers.reduce((acc, t) => acc + (t.basicSalary || t.salary?.basic || t.salary || 4000), 0);
+  }, [activeTeachers]);
 
   // Individual Salary Payment Modal State
   const [isPaySalaryModalOpen, setIsPaySalaryModalOpen] = useState(false);
@@ -166,19 +231,25 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
 
   const handleOpenPaySalary = (staff) => {
     const base = staff.basicSalary || staff.salary?.basic || staff.salary || 4000;
+    const proRated = calcProRatedSalary(staff, base, selectedMonth);
+    const isPartialMonth = proRated < base;
+    const deductionAmt = isPartialMonth ? (base - proRated) : 0;
+    const deductionNote = isPartialMonth ? `Pro-rated salary (partial month: joining/leaving date adjustment)` : '';
     setSalaryPayForm({
       staffId: staff.id,
       staffName: staff.name,
       designation: staff.designation || 'Faculty',
       employeeId: staff.employeeId || staff.id,
+      joiningDate: staff.joiningDate || '',
+      leavingDate: staff.leavingDate || '',
       month: selectedMonth,
       baseSalary: base,
-      deductionAmount: 0,
-      deductionReason: '',
+      deductionAmount: deductionAmt,
+      deductionReason: deductionNote,
       advanceDeduction: 0,
       bonus: 0,
-      netPayable: base,
-      paidAmount: base,
+      netPayable: proRated,
+      paidAmount: proRated,
       paymentMode: 'UPI / PhonePe / GPay',
       remarks: `${selectedMonth} Salary`
     });
@@ -578,7 +649,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
             <div className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-1">
               <span className="text-xs font-bold text-slate-400 uppercase">Monthly Salary Outflow (मासिक वेतन)</span>
               <p className="text-2xl font-black font-mono text-slate-900 dark:text-white">₹{totalPayrollExpenditure.toLocaleString('en-IN')}</p>
-              <span className="text-[11px] text-slate-500 font-semibold">{teachers.length} Active Teaching & Support Staff</span>
+              <span className="text-[11px] text-slate-500 font-semibold">{activeTeachers.length} Active Teaching & Support Staff</span>
             </div>
             <div className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-1">
               <span className="text-xs font-bold text-slate-400 uppercase">Salary Structure Mode</span>
@@ -592,26 +663,44 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
             </div>
           </div>
 
+          {/* ✅ Active Staff Payroll Table */}
           <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
+            <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <h4 className="font-black text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Active Staff — {activeTeachers.length} Employees
+              </h4>
+              <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-3 py-1 rounded-full">
+                Total: ₹{totalPayrollExpenditure.toLocaleString('en-IN')}/mo
+              </span>
+            </div>
             <table className="w-full text-left text-xs">
               <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black uppercase text-[10px]">
                 <tr>
                   <th className="p-3.5">Employee</th>
                   <th className="p-3.5">Designation</th>
+                  <th className="p-3.5">Joining Date</th>
                   <th className="p-3.5">Monthly Salary (₹)</th>
                   <th className="p-3.5">Payment Mobile / UPI</th>
-                  <th className="p-3.5">Status</th>
                   <th className="p-3.5 text-right">Pay Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {teachers.map(t => {
-                  const salary = t.basicSalary || t.salary?.basic || t.salary || 4000;
+                {activeTeachers.map(t => {
+                  const base = t.basicSalary || t.salary?.basic || t.salary || 4000;
+                  const eligible = isSalaryEligible(t, selectedMonth);
+                  const proRated = eligible ? calcProRatedSalary(t, base, selectedMonth) : 0;
+                  const isPartial = proRated > 0 && proRated < base;
                   return (
-                    <tr key={t.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <tr key={t.id} className={`hover:bg-slate-50 dark:hover:bg-slate-800/50 ${!eligible ? 'opacity-40' : ''}`}>
                       <td className="p-3.5">
                         <div className="flex items-center gap-2.5">
-                          <img src={t.photo} alt={t.name} className="w-8 h-8 rounded-lg object-cover" />
+                          <img
+                            src={t.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=16a34a&color=fff&size=64&bold=true`}
+                            alt={t.name}
+                            className="w-8 h-8 rounded-lg object-cover"
+                            onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=16a34a&color=fff&size=64&bold=true`; }}
+                          />
                           <div>
                             <p className="font-bold text-slate-900 dark:text-white">{t.name}</p>
                             <p className="text-[10px] text-slate-400 font-mono">{t.employeeId}</p>
@@ -621,24 +710,46 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                       <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-300">
                         {t.designation} <span className="text-[10px] text-slate-400">({t.department})</span>
                       </td>
+                      <td className="p-3.5">
+                        <span className="font-mono text-slate-600 dark:text-slate-300">
+                          {t.joiningDate ? new Date(t.joiningDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '—'}
+                        </span>
+                        {!eligible && (
+                          <div className="text-[9px] font-bold text-rose-500 mt-0.5">❌ Not Eligible (Joined After / Not Started)</div>
+                        )}
+                      </td>
                       <td className="p-3.5 font-mono font-black text-slate-900 dark:text-white text-sm">
-                        ₹{salary.toLocaleString('en-IN')}
+                        {eligible ? (
+                          <span>
+                            ₹{proRated.toLocaleString('en-IN')}
+                            {isPartial && (
+                              <span className="ml-1.5 text-[9px] font-bold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full">
+                                Pro-rated
+                              </span>
+                            )}
+                          </span>
+                        ) : (
+                          <span className="text-slate-400">—</span>
+                        )}
                       </td>
                       <td className="p-3.5 font-mono text-slate-600 dark:text-slate-300">
-                        <div>📱 {t.phone || t.mobile || '9719476606'}</div>
-                        <div className="text-[10px] text-indigo-600 dark:text-indigo-400">UPI: {t.upiId || t.phone || t.mobile || '9719476606@upi'}</div>
-                      </td>
-                      <td className="p-3.5">
-                        <Badge variant="success">Active Remuneration</Badge>
+                        <div>📱 {t.phone || t.mobile || '—'}</div>
+                        <div className="text-[10px] text-indigo-600 dark:text-indigo-400">UPI: {t.upiId || t.phone || t.mobile || '—'}</div>
                       </td>
                       <td className="p-3.5 text-right">
                         <div className="flex items-center justify-end gap-1.5">
-                          <button
-                            onClick={() => handleOpenPaySalary(t)}
-                            className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-[11px] shadow-sm flex items-center gap-1 transition-all hover:scale-105"
-                          >
-                            <DollarSign className="w-3.5 h-3.5" /> Pay Salary
-                          </button>
+                          {eligible ? (
+                            <button
+                              onClick={() => handleOpenPaySalary(t)}
+                              className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-[11px] shadow-sm flex items-center gap-1 transition-all hover:scale-105"
+                            >
+                              <DollarSign className="w-3.5 h-3.5" /> Pay Salary
+                            </button>
+                          ) : (
+                            <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-400 rounded-xl font-bold text-[11px]">
+                              Not Eligible
+                            </span>
+                          )}
                           <button
                             onClick={() => {
                               setSelectedStaff(t);
@@ -656,6 +767,105 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
               </tbody>
             </table>
           </div>
+
+          {/* 🔴 Former Staff Section (Left / Resigned) */}
+          {formerTeachers.length > 0 && (
+            <div className="bg-white dark:bg-slate-900 rounded-3xl border border-rose-200/60 dark:border-rose-900/40 shadow-sm overflow-hidden">
+              <div className="px-4 py-3 border-b border-rose-100 dark:border-rose-900/30 flex items-center justify-between bg-rose-50/60 dark:bg-rose-950/20">
+                <h4 className="font-black text-rose-800 dark:text-rose-300 text-sm flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-rose-500"></span>
+                  Former Staff (Resigned / Left) — {formerTeachers.length} Records
+                </h4>
+                <span className="text-[11px] font-bold text-rose-600 dark:text-rose-400 bg-rose-100 dark:bg-rose-950 px-3 py-1 rounded-full">
+                  ⚠️ Salary eligible only upto leaving date
+                </span>
+              </div>
+              <table className="w-full text-left text-xs">
+                <thead className="bg-rose-50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-400 font-black uppercase text-[10px]">
+                  <tr>
+                    <th className="p-3.5">Employee</th>
+                    <th className="p-3.5">Designation</th>
+                    <th className="p-3.5">Joining Date</th>
+                    <th className="p-3.5">Last Working Date</th>
+                    <th className="p-3.5">Final Salary (₹)</th>
+                    <th className="p-3.5 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-rose-50 dark:divide-rose-900/20">
+                  {formerTeachers.map(t => {
+                    const base = t.basicSalary || t.salary?.basic || t.salary || 4000;
+                    const eligible = isSalaryEligible(t, selectedMonth);
+                    const proRated = eligible ? calcProRatedSalary(t, base, selectedMonth) : 0;
+                    return (
+                      <tr key={t.id} className="hover:bg-rose-50/60 dark:hover:bg-rose-950/20 opacity-80">
+                        <td className="p-3.5">
+                          <div className="flex items-center gap-2.5">
+                            <img
+                              src={t.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=e11d48&color=fff&size=64&bold=true`}
+                              alt={t.name}
+                              className="w-8 h-8 rounded-lg object-cover grayscale"
+                              onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=e11d48&color=fff&size=64&bold=true`; }}
+                            />
+                            <div>
+                              <p className="font-bold text-slate-600 dark:text-slate-400 line-through">{t.name}</p>
+                              <p className="text-[10px] text-slate-400 font-mono">{t.employeeId}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="p-3.5 text-slate-500 dark:text-slate-500">
+                          {t.designation} <span className="text-[10px]">({t.department})</span>
+                        </td>
+                        <td className="p-3.5 font-mono text-slate-500">
+                          {t.joiningDate ? new Date(t.joiningDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '—'}
+                        </td>
+                        <td className="p-3.5">
+                          <span className="font-mono font-bold text-rose-600 dark:text-rose-400">
+                            {t.leavingDate ? new Date(t.leavingDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '—'}
+                          </span>
+                          <Badge variant="danger" className="ml-2">Left / Resigned</Badge>
+                        </td>
+                        <td className="p-3.5 font-mono font-black">
+                          {eligible ? (
+                            <span className="text-amber-700 dark:text-amber-400">
+                              ₹{proRated.toLocaleString('en-IN')}
+                              <span className="ml-1.5 text-[9px] font-bold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full">Final / Pro-rated</span>
+                            </span>
+                          ) : (
+                            <span className="text-slate-400">Not Applicable</span>
+                          )}
+                        </td>
+                        <td className="p-3.5 text-right">
+                          <div className="flex items-center justify-end gap-1.5">
+                            {eligible ? (
+                              <button
+                                onClick={() => handleOpenPaySalary(t)}
+                                className="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-bold text-[11px] shadow-sm flex items-center gap-1 transition-all"
+                              >
+                                <DollarSign className="w-3.5 h-3.5" /> Final Pay
+                              </button>
+                            ) : (
+                              <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-400 rounded-xl font-bold text-[11px]">
+                                Completed
+                              </span>
+                            )}
+                            <button
+                              onClick={() => {
+                                setSelectedStaff(t);
+                                setIsPaySlipModalOpen(true);
+                              }}
+                              className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-slate-200 rounded-xl font-bold text-[11px]"
+                            >
+                              <Printer className="w-3.5 h-3.5 inline mr-1" /> Slip
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       )}
 
