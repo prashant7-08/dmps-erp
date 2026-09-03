@@ -1,11 +1,12 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V16_AUTHENTIC_SQL_SYNC';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V17_ELDER_CHILD_SIBLINGS';
 
 class SchoolService {
   constructor() {
     this.listeners = new Set();
     this.data = this.loadData();
+    this.autoLinkSiblingsByPhoneAndFather();
   }
 
   loadData() {
@@ -1708,8 +1709,6 @@ class SchoolService {
         if (!groupsMap.has(famKey)) {
           groupsMap.set(famKey, {
             familyId: famKey,
-            familyName: s.familyName || `${s.name.split(' ').pop()} Family Group`,
-            guardianName: s.guardianName || s.parents?.fatherName || 'Family Guardian',
             members: []
           });
         }
@@ -1720,51 +1719,54 @@ class SchoolService {
       }
     });
 
-    // Compute totals for each family
-    return Array.from(groupsMap.values()).map(grp => {
-      // Sort members so elder child (higher class / age) is primary
-      grp.members.sort((a, b) => {
-        const classNumA = parseInt(a.class.replace(/\D/g, '')) || 0;
-        const classNumB = parseInt(b.class.replace(/\D/g, '')) || 0;
-        return classNumB - classNumA;
+    const classOrder = ['XII', '12th', 'XI', '11th', 'X', '10th', 'IX', '9th', 'VIII', '8th', 'VII', '7th', 'VI', '6th', 'V', '5th', 'IV', '4th', 'III', '3rd', 'II', '2nd', 'I', '1st', 'UKG', 'LKG', 'NURSERY', 'NUR', 'PG'];
+
+    // Compute totals & names for each family based on elder child
+    return Array.from(groupsMap.values())
+      .filter(grp => grp.members && grp.members.length > 1)
+      .map(grp => {
+        // Sort members so elder child (higher class / age) is primary
+        grp.members.sort((a, b) => {
+          const idxA = classOrder.indexOf(a.class) !== -1 ? classOrder.indexOf(a.class) : 99;
+          const idxB = classOrder.indexOf(b.class) !== -1 ? classOrder.indexOf(b.class) : 99;
+          return idxA - idxB;
+        });
+
+        const primary = grp.members[0];
+        const elderName = primary.name;
+        const fatherName = primary.parents?.fatherName || primary.fatherName || 'Guardian';
+        const totalDue = grp.members.reduce((acc, m) => acc + (m.feeSummary?.totalDue || 0), 0);
+        const totalPaid = grp.members.reduce((acc, m) => acc + (m.feeSummary?.totalPaid || 0), 0);
+        const totalBalance = grp.members.reduce((acc, m) => acc + (m.feeSummary?.balance || 0), 0);
+
+        return {
+          ...grp,
+          familyName: `${elderName} & Siblings (${primary.class})`,
+          guardianName: fatherName,
+          primaryStudent: primary,
+          totalCombinedDue: totalDue,
+          totalCombinedPaid: totalPaid,
+          totalCombinedBalance: totalBalance
+        };
       });
-
-      const primary = grp.members[0];
-      const totalDue = grp.members.reduce((acc, m) => acc + (m.feeSummary?.totalDue || 45000), 0);
-      const totalPaid = grp.members.reduce((acc, m) => acc + (m.feeSummary?.totalPaid || 0), 0);
-      const totalBalance = grp.members.reduce((acc, m) => acc + (m.feeSummary?.balance || 0), 0);
-
-      return {
-        ...grp,
-        primaryStudent: primary,
-        totalCombinedDue: totalDue,
-        totalCombinedPaid: totalPaid,
-        totalCombinedBalance: totalBalance
-      };
-    });
   }
 
-  // Sibling Linking: Only link if father name is authentic and phone is unique (not generic school number)
+  // Automatic Sibling Linking Algorithm matching authentic parent mobile numbers
   autoLinkSiblingsByPhoneAndFather() {
     const students = this.data?.students || [];
-    const genericPhones = new Set(['9758975880', '9627032626', '9719476606', '9758882443', '9758900000']);
-    const parentMatchMap = new Map();
+    const genericPhones = new Set(['9758975880', '9627032626', '9719476606', '9758882443', '9758900000', '9719000000']);
+    const phoneMap = new Map();
+    const classOrder = ['XII', '12th', 'XI', '11th', 'X', '10th', 'IX', '9th', 'VIII', '8th', 'VII', '7th', 'VI', '6th', 'V', '5th', 'IV', '4th', 'III', '3rd', 'II', '2nd', 'I', '1st', 'UKG', 'LKG', 'NURSERY', 'NUR', 'PG'];
 
     students.forEach(s => {
-      // If student already has verified SQL linked siblings, preserve them
-      if (s.linkedSiblingIds && s.linkedSiblingIds.length > 0) return;
-
-      const p = s.fatherMobile || s.mobile || s.parents?.fatherMobile || s.motherMobile;
-      const father = (s.parents?.fatherName || '').trim().toLowerCase();
-      
-      if (p && father && father.length > 3 && !father.includes('guardian') && !father.includes('parent')) {
+      const p = s.parents?.fatherMobile || s.fatherMobile || s.parents?.motherMobile || s.mobile;
+      if (p) {
         const cleanPhone = String(p).replace(/[^0-9]/g, '').slice(-10);
-        if (cleanPhone.length === 10 && !genericPhones.has(cleanPhone)) {
-          const matchKey = `${cleanPhone}_${father.slice(0, 5)}`;
-          if (!parentMatchMap.has(matchKey)) {
-            parentMatchMap.set(matchKey, []);
+        if (cleanPhone.length === 10 && !genericPhones.has(cleanPhone) && cleanPhone !== '0000000000') {
+          if (!phoneMap.has(cleanPhone)) {
+            phoneMap.set(cleanPhone, []);
           }
-          parentMatchMap.get(matchKey).push(s);
+          phoneMap.get(cleanPhone).push(s);
         }
       }
     });
@@ -1772,15 +1774,24 @@ class SchoolService {
     let linkedFamilyCount = 0;
     let linkedStudentCount = 0;
 
-    parentMatchMap.forEach((matchedStudents) => {
+    phoneMap.forEach((matchedStudents, phone) => {
       if (matchedStudents.length > 1) {
+        // Sort so elder child is first
+        matchedStudents.sort((a, b) => {
+          const idxA = classOrder.indexOf(a.class) !== -1 ? classOrder.indexOf(a.class) : 99;
+          const idxB = classOrder.indexOf(b.class) !== -1 ? classOrder.indexOf(b.class) : 99;
+          return idxA - idxB;
+        });
+
+        const elder = matchedStudents[0];
         const allIds = matchedStudents.map(s => s.id);
-        const fatherName = matchedStudents[0].parents?.fatherName || 'Guardian';
-        const familyKey = `FAM-${matchedStudents[0].id.replace('STU-', '')}`;
+        const fatherName = elder.parents?.fatherName || elder.fatherName || 'Guardian';
+        const familyKey = `FAM-${phone}`;
+        const familyName = `${elder.name} & Siblings (${elder.class})`;
 
         matchedStudents.forEach(stu => {
           stu.familyId = familyKey;
-          stu.familyName = `${fatherName}'s Family`;
+          stu.familyName = familyName;
           stu.guardianName = fatherName;
           stu.linkedSiblingIds = allIds.filter(id => id !== stu.id);
           linkedStudentCount++;
@@ -1790,6 +1801,7 @@ class SchoolService {
       }
     });
 
+    this.saveData();
     return { linkedFamilyCount, linkedStudentCount };
   }
 
