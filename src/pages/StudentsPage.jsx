@@ -1798,6 +1798,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 <button
                   type="button"
                   onClick={() => {
+                    setIsProfileModalOpen(false);
                     setPrintDocType('dossier');
                     setIsIdCardModalOpen(true);
                   }}
