@@ -665,7 +665,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           {/* 📢 Sliding Continuous News Ticker (Left part before Instagram) */}
           <div className="flex-1 overflow-hidden relative">
             <div className="animate-header-ticker text-[11px] sm:text-xs font-semibold select-none flex items-center">
-              <div className="flex items-center gap-6 sm:gap-10 mr-28 sm:mr-44 shrink-0">
+              <div className="flex items-center gap-3 sm:gap-3.5 mr-[60vw] shrink-0">
                 <span className="text-amber-300 font-bold">Affiliated to BSB (as CBSE)</span>
                 <span className="text-amber-400 text-[10px]">★</span>
                 <span className="text-slate-100 font-medium">PG to 12th</span>
@@ -673,10 +673,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <span className="text-amber-300 font-bold">Admissions Open 2026-27</span>
                 <span className="text-amber-400 text-[10px]">★</span>
                 <span className="text-emerald-400 font-bold">Excellence in Education Since 2002</span>
-                <span className="text-amber-400 text-[10px]">★</span>
               </div>
               
-              <div className="flex items-center gap-6 sm:gap-10 mr-28 sm:mr-44 shrink-0">
+              <div className="flex items-center gap-3 sm:gap-3.5 mr-[60vw] shrink-0">
                 <span className="text-amber-300 font-bold">Affiliated to BSB (as CBSE)</span>
                 <span className="text-amber-400 text-[10px]">★</span>
                 <span className="text-slate-100 font-medium">PG to 12th</span>
@@ -684,7 +683,6 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 <span className="text-amber-300 font-bold">Admissions Open 2026-27</span>
                 <span className="text-amber-400 text-[10px]">★</span>
                 <span className="text-emerald-400 font-bold">Excellence in Education Since 2002</span>
-                <span className="text-amber-400 text-[10px]">★</span>
               </div>
             </div>
           </div>
