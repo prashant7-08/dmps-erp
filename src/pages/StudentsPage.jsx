@@ -2197,6 +2197,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
         onClose={() => setIsFeeModalOpen(false)}
         title={`💳 Collect / Pay Fee: ${studentForFee?.name || ''}`}
         maxWidth="max-w-2xl"
+        bodyPadding="p-2 sm:p-3"
       >
         {studentForFee && (() => {
           // Retrieve all past fee invoices/receipts for this student
