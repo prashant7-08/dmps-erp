@@ -101,9 +101,13 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   });
   const [isReceiptModalOpen, setIsReceiptModalOpen] = useState(false);
   const [recentReceipt, setRecentReceipt] = useState(null);
+  const [editingOldDues, setEditingOldDues] = useState(false);
+  const [tempOldDues, setTempOldDues] = useState(0);
 
   const handleOpenFeeModal = (student) => {
     setStudentForFee(student);
+    setEditingOldDues(false);
+    setTempOldDues(student.feeSummary?.oldSessionDues || 0);
     const defaultDue = student.feeSummary?.balance || 0;
     setFeeForm({
       amount: defaultDue > 0 ? defaultDue : 1000,
@@ -113,6 +117,19 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
       receiptNo: `REC-${Date.now().toString().slice(-5)}`
     });
     setIsFeeModalOpen(true);
+  };
+
+  const handleSaveOldDuesInline = (studentId) => {
+    const val = Number(tempOldDues) || 0;
+    const updated = schoolService.updateStudent(studentId, { oldSessionDues: val });
+    if (updated) {
+      setStudentForFee(updated);
+      setSelectedStudent(updated);
+      refreshStudents();
+      setEditingOldDues(false);
+      setFeeForm(prev => ({ ...prev, amount: updated.feeSummary?.balance || 0 }));
+      showToast(`Old Session Fees updated to ₹${val.toLocaleString('en-IN')}! Total balance recalculated. 📜`, 'success');
+    }
   };
 
   const handleCollectFeeSubmit = (e) => {
@@ -2059,11 +2076,40 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   </strong>
                 </div>
 
-                <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-700">
-                  <span className="text-[10px] font-black text-amber-800 dark:text-amber-300 block">📜 Old Session Fees</span>
-                  <strong className="font-mono font-black text-amber-900 dark:text-amber-100">
-                    ₹{Number(studentForFee.feeSummary?.oldSessionDues || 0).toLocaleString('en-IN')}
-                  </strong>
+                <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-700 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-black text-amber-800 dark:text-amber-300">📜 Old Session Fees</span>
+                    <button
+                      type="button"
+                      onClick={() => setEditingOldDues(!editingOldDues)}
+                      className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-amber-200 dark:bg-amber-900 text-amber-950 dark:text-amber-100 hover:bg-amber-300 transition-colors"
+                    >
+                      {editingOldDues ? '✕ Cancel' : '✏️ Add / Edit'}
+                    </button>
+                  </div>
+                  {editingOldDues ? (
+                    <div className="flex items-center gap-1 pt-1">
+                      <input
+                        type="number"
+                        value={tempOldDues}
+                        onChange={(e) => setTempOldDues(e.target.value)}
+                        placeholder="Old dues..."
+                        className="w-full p-1 rounded border border-amber-400 bg-white dark:bg-slate-900 font-mono font-bold text-xs text-amber-900 dark:text-amber-100"
+                        autoFocus
+                      />
+                      <button
+                        type="button"
+                        onClick={() => handleSaveOldDuesInline(studentForFee.id)}
+                        className="px-2 py-1 bg-amber-600 hover:bg-amber-700 text-white font-black rounded text-[10px] shadow-xs"
+                      >
+                        Save
+                      </button>
+                    </div>
+                  ) : (
+                    <strong className="font-mono font-black text-amber-900 dark:text-amber-100 block">
+                      ₹{Number(studentForFee.feeSummary?.oldSessionDues || 0).toLocaleString('en-IN')}
+                    </strong>
+                  )}
                 </div>
 
                 <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
