@@ -1099,7 +1099,7 @@ export const initialSchoolData = {
         "stoppage": "GOKULPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0001"
@@ -1152,7 +1152,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-065"
@@ -1207,7 +1207,7 @@ export const initialSchoolData = {
         "stoppage": "KANAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0003"
@@ -1260,7 +1260,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0004"
@@ -1313,7 +1313,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0005"
@@ -1366,7 +1366,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0006"
@@ -1419,7 +1419,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA Urf RAMVAS",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0007"
@@ -1472,7 +1472,7 @@ export const initialSchoolData = {
         "stoppage": "MUDAKHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0008"
@@ -1525,7 +1525,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHAIRA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0009"
@@ -1578,7 +1578,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-134",
@@ -1634,7 +1634,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0011"
@@ -1687,7 +1687,7 @@ export const initialSchoolData = {
         "stoppage": "GANGA GARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-105"
@@ -1742,7 +1742,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0013"
@@ -1795,7 +1795,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-044"
@@ -1850,7 +1850,7 @@ export const initialSchoolData = {
         "stoppage": "HARVANSHPUR JIROULI DHOOM SINGH ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-368"
@@ -1905,7 +1905,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0016"
@@ -1958,7 +1958,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0018"
@@ -2011,7 +2011,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0019"
@@ -2064,7 +2064,7 @@ export const initialSchoolData = {
         "stoppage": "CHIROURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-081"
@@ -2119,7 +2119,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0021"
@@ -2172,7 +2172,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0022"
@@ -2225,7 +2225,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA SHUMALI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0023"
@@ -2278,7 +2278,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0025"
@@ -2331,7 +2331,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-305",
@@ -2387,7 +2387,7 @@ export const initialSchoolData = {
         "stoppage": "JARGAWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-245"
@@ -2442,7 +2442,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0031"
@@ -2495,7 +2495,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0032"
@@ -2548,7 +2548,7 @@ export const initialSchoolData = {
         "stoppage": "VILL+POST- JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0034"
@@ -2601,7 +2601,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-037",
@@ -2657,7 +2657,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-036"
@@ -2712,7 +2712,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0039"
@@ -2765,7 +2765,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0041"
@@ -2818,7 +2818,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-014"
@@ -2873,7 +2873,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-089"
@@ -2928,7 +2928,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-096",
@@ -2985,7 +2985,7 @@ export const initialSchoolData = {
         "stoppage": "KHEDIYA BAHADURGARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-280"
@@ -3040,7 +3040,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0049"
@@ -3093,7 +3093,7 @@ export const initialSchoolData = {
         "stoppage": "DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-109"
@@ -3148,7 +3148,7 @@ export const initialSchoolData = {
         "stoppage": "CHIROURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-166"
@@ -3203,7 +3203,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0054"
@@ -3256,7 +3256,7 @@ export const initialSchoolData = {
         "stoppage": "BAGI NAGLA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-260"
@@ -3311,7 +3311,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-165"
@@ -3366,7 +3366,7 @@ export const initialSchoolData = {
         "stoppage": "MAHARAJPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0058"
@@ -3419,7 +3419,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-087",
@@ -3475,7 +3475,7 @@ export const initialSchoolData = {
         "stoppage": "KANAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0062"
@@ -3528,7 +3528,7 @@ export const initialSchoolData = {
         "stoppage": "NOJALPUR BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0063"
@@ -3581,7 +3581,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-084",
@@ -3637,7 +3637,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-378"
@@ -3692,7 +3692,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-503",
@@ -3748,7 +3748,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA KOTHI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0070"
@@ -3801,7 +3801,7 @@ export const initialSchoolData = {
         "stoppage": "MAHARAJPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0071"
@@ -3854,7 +3854,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHIPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-413",
@@ -3910,7 +3910,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA URF RAMBAS",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-156"
@@ -3965,7 +3965,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-195"
@@ -4020,7 +4020,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-043"
@@ -4075,7 +4075,7 @@ export const initialSchoolData = {
         "stoppage": "GOKULPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-147"
@@ -4130,7 +4130,7 @@ export const initialSchoolData = {
         "stoppage": "CHIROURI (BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-020"
@@ -4185,7 +4185,7 @@ export const initialSchoolData = {
         "stoppage": "GOKULPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-168",
@@ -4241,7 +4241,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADSPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-293"
@@ -4296,7 +4296,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-178"
@@ -4351,7 +4351,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-062"
@@ -4406,7 +4406,7 @@ export const initialSchoolData = {
         "stoppage": "MUDAKHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-041"
@@ -4461,7 +4461,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-046"
@@ -4516,7 +4516,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0088"
@@ -4569,7 +4569,7 @@ export const initialSchoolData = {
         "stoppage": "NATHPUR POST-NAHAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-191"
@@ -4624,7 +4624,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-330",
@@ -4681,7 +4681,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-203"
@@ -4736,7 +4736,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-107",
@@ -4792,7 +4792,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-047"
@@ -4847,7 +4847,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0095"
@@ -4900,7 +4900,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHIPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-034"
@@ -4955,7 +4955,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0098"
@@ -5008,7 +5008,7 @@ export const initialSchoolData = {
         "stoppage": "HARVANSHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-180"
@@ -5063,7 +5063,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0101"
@@ -5116,7 +5116,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-012"
@@ -5171,7 +5171,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-095"
@@ -5226,7 +5226,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0106"
@@ -5279,7 +5279,7 @@ export const initialSchoolData = {
         "stoppage": "DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-052"
@@ -5334,7 +5334,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-307",
@@ -5390,7 +5390,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-173"
@@ -5445,7 +5445,7 @@ export const initialSchoolData = {
         "stoppage": "CHIROURI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0112"
@@ -5498,7 +5498,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA SHUMALI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-314"
@@ -5553,7 +5553,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-183"
@@ -5608,7 +5608,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-036"
@@ -5663,7 +5663,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-284",
@@ -5719,7 +5719,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMPUR DISTT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-133"
@@ -5774,7 +5774,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-142"
@@ -5829,7 +5829,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA CHIROURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-240",
@@ -5885,7 +5885,7 @@ export const initialSchoolData = {
         "stoppage": "KUNJALPUR GAHTOLI NIRMAL ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0124"
@@ -5938,7 +5938,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-254"
@@ -5993,7 +5993,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-129"
@@ -6048,7 +6048,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-128"
@@ -6103,7 +6103,7 @@ export const initialSchoolData = {
         "stoppage": "MALAHPUR ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-486"
@@ -6158,7 +6158,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0129"
@@ -6211,7 +6211,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-170"
@@ -6266,7 +6266,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMPUR DISTT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-208",
@@ -6322,7 +6322,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-010"
@@ -6377,7 +6377,7 @@ export const initialSchoolData = {
         "stoppage": "BAGI NAGLA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0133"
@@ -6430,7 +6430,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARAH ATRAULI ALG.",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-220"
@@ -6485,7 +6485,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-363"
@@ -6540,7 +6540,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI POSTJARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-216"
@@ -6595,7 +6595,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0137"
@@ -6648,7 +6648,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-282"
@@ -6703,7 +6703,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR ALUPURA POST- NARUPURA ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0139"
@@ -6756,7 +6756,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-123"
@@ -6811,7 +6811,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-410"
@@ -6866,7 +6866,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0143"
@@ -6919,7 +6919,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI JARGWAN BULAND SHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-047"
@@ -6974,7 +6974,7 @@ export const initialSchoolData = {
         "stoppage": "GOKULPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-080"
@@ -7029,7 +7029,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-199"
@@ -7084,7 +7084,7 @@ export const initialSchoolData = {
         "stoppage": "CHIROURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-029"
@@ -7139,7 +7139,7 @@ export const initialSchoolData = {
         "stoppage": "KUDHAINI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0148"
@@ -7192,7 +7192,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI (BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-232"
@@ -7247,7 +7247,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-315"
@@ -7302,7 +7302,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI BULAND SHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0151"
@@ -7355,7 +7355,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-189"
@@ -7410,7 +7410,7 @@ export const initialSchoolData = {
         "stoppage": "CHIROURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0153"
@@ -7463,7 +7463,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-076"
@@ -7518,7 +7518,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT BULAND SHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0155"
@@ -7571,7 +7571,7 @@ export const initialSchoolData = {
         "stoppage": "CHAINDAULA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-265"
@@ -7626,7 +7626,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT PO RAMGHAT BSR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-383"
@@ -7681,7 +7681,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-061"
@@ -7736,7 +7736,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAONDIBAI BUANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-202",
@@ -7792,7 +7792,7 @@ export const initialSchoolData = {
         "stoppage": "DHARAKPUR BULAND SHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-332"
@@ -7847,7 +7847,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-010"
@@ -7902,7 +7902,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-057"
@@ -7957,7 +7957,7 @@ export const initialSchoolData = {
         "stoppage": "CHIROURI BSR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-053"
@@ -8012,7 +8012,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0164"
@@ -8065,7 +8065,7 @@ export const initialSchoolData = {
         "stoppage": "VILL.- GOKULPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-082"
@@ -8120,7 +8120,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-132"
@@ -8175,7 +8175,7 @@ export const initialSchoolData = {
         "stoppage": "MUDAKHERA / NAGLA ACHALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0168"
@@ -8228,7 +8228,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-436"
@@ -8283,7 +8283,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-113"
@@ -8338,7 +8338,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR GOVINDPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-350"
@@ -8393,7 +8393,7 @@ export const initialSchoolData = {
         "stoppage": "MAHRAJPUR BANJARA NAGLA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0172"
@@ -8446,7 +8446,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-374"
@@ -8501,7 +8501,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-085"
@@ -8556,7 +8556,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0175"
@@ -8609,7 +8609,7 @@ export const initialSchoolData = {
         "stoppage": "HARVANSHPUR ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-102"
@@ -8664,7 +8664,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN BULAND SHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-512"
@@ -8719,7 +8719,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-295"
@@ -8774,7 +8774,7 @@ export const initialSchoolData = {
         "stoppage": "VILL-POST JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-117"
@@ -8829,7 +8829,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-358"
@@ -8884,7 +8884,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-351"
@@ -8939,7 +8939,7 @@ export const initialSchoolData = {
         "stoppage": "KUDHAINI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-210"
@@ -8994,7 +8994,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-388"
@@ -9049,7 +9049,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-154"
@@ -9104,7 +9104,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0644"
@@ -9157,7 +9157,7 @@ export const initialSchoolData = {
         "stoppage": "NATHPUR NAHAL ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-091"
@@ -9212,7 +9212,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0189"
@@ -9265,7 +9265,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0190"
@@ -9318,7 +9318,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-078"
@@ -9373,7 +9373,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAWN BANGARBULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-252"
@@ -9428,7 +9428,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-148"
@@ -9483,7 +9483,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR ALIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-326"
@@ -9538,7 +9538,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-223"
@@ -9593,7 +9593,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-162"
@@ -9648,7 +9648,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN (BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-094"
@@ -9703,7 +9703,7 @@ export const initialSchoolData = {
         "stoppage": "BAGI NAGLA CHIRURI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-262",
@@ -9759,7 +9759,7 @@ export const initialSchoolData = {
         "stoppage": "CHIROURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0201"
@@ -9812,7 +9812,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0203"
@@ -9865,7 +9865,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-133"
@@ -9920,7 +9920,7 @@ export const initialSchoolData = {
         "stoppage": "MAHARAJPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0205"
@@ -9973,7 +9973,7 @@ export const initialSchoolData = {
         "stoppage": "KUDHAINI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-186",
@@ -10029,7 +10029,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT DEBAI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0207"
@@ -10082,7 +10082,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0208"
@@ -10135,7 +10135,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0209"
@@ -10188,7 +10188,7 @@ export const initialSchoolData = {
         "stoppage": "GANGA GARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-300"
@@ -10243,7 +10243,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0211"
@@ -10296,7 +10296,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI JARGWAN BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-138"
@@ -10351,7 +10351,7 @@ export const initialSchoolData = {
         "stoppage": "MAHARAJPUR URF RATUA NAGLA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0213"
@@ -10404,7 +10404,7 @@ export const initialSchoolData = {
         "stoppage": "KUDHAINI CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0214"
@@ -10457,7 +10457,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA URF RAMVAS BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0215"
@@ -10510,7 +10510,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-136"
@@ -10565,7 +10565,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-289"
@@ -10620,7 +10620,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-201"
@@ -10675,7 +10675,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-303"
@@ -10730,7 +10730,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI (BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0221"
@@ -10783,7 +10783,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-277"
@@ -10838,7 +10838,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR GOVINDPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 6"
+        "route": "Route 6: Anoopshahr Crossing"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0223"
@@ -10891,7 +10891,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI (BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0224"
@@ -10944,7 +10944,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-047"
@@ -10999,7 +10999,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0226"
@@ -11052,7 +11052,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI (BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-151"
@@ -11107,7 +11107,7 @@ export const initialSchoolData = {
         "stoppage": "VILLAGE BAJHERA POST DHARAKPUR DISTRCT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0230"
@@ -11160,7 +11160,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0231"
@@ -11213,7 +11213,7 @@ export const initialSchoolData = {
         "stoppage": "KANAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-237"
@@ -11268,7 +11268,7 @@ export const initialSchoolData = {
         "stoppage": "KANAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-236"
@@ -11323,7 +11323,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BULADSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0235"
@@ -11376,7 +11376,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-125"
@@ -11431,7 +11431,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHAGAWN BANGAR (BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0237"
@@ -11484,7 +11484,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0238"
@@ -11537,7 +11537,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-423"
@@ -11592,7 +11592,7 @@ export const initialSchoolData = {
         "stoppage": "GADAIPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-308"
@@ -11647,7 +11647,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-031"
@@ -11702,7 +11702,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0208"
@@ -11755,7 +11755,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-092"
@@ -11810,7 +11810,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0244"
@@ -11863,7 +11863,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA URF RAMVAS BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0247"
@@ -11916,7 +11916,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAWN BANGAR BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-196"
@@ -11971,7 +11971,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-127"
@@ -12026,7 +12026,7 @@ export const initialSchoolData = {
         "stoppage": "BAINI NAGLA UNCHAGAON DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-285"
@@ -12081,7 +12081,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA RAMVAS(BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0251"
@@ -12134,7 +12134,7 @@ export const initialSchoolData = {
         "stoppage": "GANGA GARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-447",
@@ -12190,7 +12190,7 @@ export const initialSchoolData = {
         "stoppage": "GAHTAULI NIRMAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0253"
@@ -12243,7 +12243,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-095"
@@ -12298,7 +12298,7 @@ export const initialSchoolData = {
         "stoppage": "BAGI NAGLA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-056"
@@ -12353,7 +12353,7 @@ export const initialSchoolData = {
         "stoppage": "KUDHAINI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-210"
@@ -12408,7 +12408,7 @@ export const initialSchoolData = {
         "stoppage": "BAGI NAGLA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-204"
@@ -12463,7 +12463,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-292"
@@ -12518,7 +12518,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-431"
@@ -12573,7 +12573,7 @@ export const initialSchoolData = {
         "stoppage": "CHAINDAULA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-158"
@@ -12628,7 +12628,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-062"
@@ -12683,7 +12683,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0259"
@@ -12736,7 +12736,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0260"
@@ -12789,7 +12789,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0261"
@@ -12842,7 +12842,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-421"
@@ -12897,7 +12897,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-316"
@@ -12952,7 +12952,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0264"
@@ -13005,7 +13005,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0265"
@@ -13058,7 +13058,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GOAN DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-162"
@@ -13113,7 +13113,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-226"
@@ -13168,7 +13168,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN (BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0271"
@@ -13221,7 +13221,7 @@ export const initialSchoolData = {
         "stoppage": "KHEDIYA BAHADURGARHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-048"
@@ -13276,7 +13276,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-333"
@@ -13331,7 +13331,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-140"
@@ -13386,7 +13386,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-462"
@@ -13441,7 +13441,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-121"
@@ -13496,7 +13496,7 @@ export const initialSchoolData = {
         "stoppage": "BAINI NAGLA UNCHAGAON DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-255"
@@ -13551,7 +13551,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-222"
@@ -13606,7 +13606,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-335"
@@ -13661,7 +13661,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPURE BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-310"
@@ -13716,7 +13716,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-263"
@@ -13771,7 +13771,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-083"
@@ -13826,7 +13826,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GURVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0284"
@@ -13879,7 +13879,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-182"
@@ -13934,7 +13934,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0286"
@@ -13987,7 +13987,7 @@ export const initialSchoolData = {
         "stoppage": "V+P RAMGHAT DIST BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0287"
@@ -14040,7 +14040,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0288"
@@ -14093,7 +14093,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0289"
@@ -14146,7 +14146,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH DEBAI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-214"
@@ -14201,7 +14201,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0291"
@@ -14254,7 +14254,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0292"
@@ -14307,7 +14307,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-224"
@@ -14362,7 +14362,7 @@ export const initialSchoolData = {
         "stoppage": "GOKULPUR KHADAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-082"
@@ -14417,7 +14417,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-026"
@@ -14472,7 +14472,7 @@ export const initialSchoolData = {
         "stoppage": "BAGI NAGLA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-204"
@@ -14527,7 +14527,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-112"
@@ -14582,7 +14582,7 @@ export const initialSchoolData = {
         "stoppage": "GADAIPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-244"
@@ -14637,7 +14637,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-291"
@@ -14692,7 +14692,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN DIBAI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0300"
@@ -14745,7 +14745,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 6"
+        "route": "Route 6: Anoopshahr Crossing"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0301"
@@ -14798,7 +14798,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0302"
@@ -14851,7 +14851,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA SHUMALI JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-116"
@@ -14906,7 +14906,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-152"
@@ -14961,7 +14961,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-271"
@@ -15016,7 +15016,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-459"
@@ -15071,7 +15071,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0310"
@@ -15124,7 +15124,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA URF RAMVAS POST DIST+BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-373"
@@ -15179,7 +15179,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0313"
@@ -15232,7 +15232,7 @@ export const initialSchoolData = {
         "stoppage": "JIRAULI DHOOM SINGH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-354"
@@ -15287,7 +15287,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR ALUPURA ATRULI ALIGRAH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-200"
@@ -15342,7 +15342,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0317"
@@ -15395,7 +15395,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-092"
@@ -15450,7 +15450,7 @@ export const initialSchoolData = {
         "stoppage": "DHARAKPUR DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-163"
@@ -15505,7 +15505,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA POST RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-281"
@@ -15560,7 +15560,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0322"
@@ -15613,7 +15613,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI (BULANDSHAHR)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-290"
@@ -15668,7 +15668,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0324"
@@ -15721,7 +15721,7 @@ export const initialSchoolData = {
         "stoppage": "PESARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-352"
@@ -15776,7 +15776,7 @@ export const initialSchoolData = {
         "stoppage": "KUHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0327"
@@ -15829,7 +15829,7 @@ export const initialSchoolData = {
         "stoppage": "GADAIPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0240"
@@ -15882,7 +15882,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA DHARAKPUR DIBAI BSR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-346"
@@ -15937,7 +15937,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-345"
@@ -15992,7 +15992,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0335"
@@ -16045,7 +16045,7 @@ export const initialSchoolData = {
         "stoppage": "BAGI NAGLA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0336"
@@ -16098,7 +16098,7 @@ export const initialSchoolData = {
         "stoppage": "KHEDIYA RAFATPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0337"
@@ -16151,7 +16151,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR GOVINDPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-175"
@@ -16206,7 +16206,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-185"
@@ -16261,7 +16261,7 @@ export const initialSchoolData = {
         "stoppage": "PESARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-337"
@@ -16316,7 +16316,7 @@ export const initialSchoolData = {
         "stoppage": "JIRAULI DHOOM SINGH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-325"
@@ -16371,7 +16371,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-384"
@@ -16426,7 +16426,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-357"
@@ -16481,7 +16481,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-356"
@@ -16536,7 +16536,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-184"
@@ -16591,7 +16591,7 @@ export const initialSchoolData = {
         "stoppage": "MONIPURA URF RAMVAS",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-583"
@@ -16646,7 +16646,7 @@ export const initialSchoolData = {
         "stoppage": "Muhammadpur",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0347"
@@ -16699,7 +16699,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-137"
@@ -16754,7 +16754,7 @@ export const initialSchoolData = {
         "stoppage": "GAHTOLI NIRMAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0351"
@@ -16807,7 +16807,7 @@ export const initialSchoolData = {
         "stoppage": "GOKULPUR KHADAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0352"
@@ -16860,7 +16860,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0353"
@@ -16913,7 +16913,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0354"
@@ -16966,7 +16966,7 @@ export const initialSchoolData = {
         "stoppage": "HARVANSHPUR JIROLI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-015"
@@ -17021,7 +17021,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0356"
@@ -17074,7 +17074,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0357"
@@ -17127,7 +17127,7 @@ export const initialSchoolData = {
         "stoppage": "VIJAY NAGALIYA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0358"
@@ -17180,7 +17180,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-323"
@@ -17235,7 +17235,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-177"
@@ -17290,7 +17290,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0364"
@@ -17343,7 +17343,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-069"
@@ -17398,7 +17398,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0366"
@@ -17451,7 +17451,7 @@ export const initialSchoolData = {
         "stoppage": "PESARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-559"
@@ -17506,7 +17506,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0368"
@@ -17559,7 +17559,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-468"
@@ -17614,7 +17614,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-159"
@@ -17669,7 +17669,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-355"
@@ -17724,7 +17724,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-092"
@@ -17779,7 +17779,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-125"
@@ -17834,7 +17834,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-187"
@@ -17889,7 +17889,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0377"
@@ -17942,7 +17942,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0378"
@@ -17995,7 +17995,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-424"
@@ -18050,7 +18050,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-397"
@@ -18105,7 +18105,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-396"
@@ -18160,7 +18160,7 @@ export const initialSchoolData = {
         "stoppage": "CPS HOSPITAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0382"
@@ -18213,7 +18213,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-404"
@@ -18268,7 +18268,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-121"
@@ -18323,7 +18323,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0384"
@@ -18376,7 +18376,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-399"
@@ -18431,7 +18431,7 @@ export const initialSchoolData = {
         "stoppage": "MONIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0387"
@@ -18484,7 +18484,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0388"
@@ -18537,7 +18537,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0389"
@@ -18590,7 +18590,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-143"
@@ -18645,7 +18645,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0392"
@@ -18698,7 +18698,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-074"
@@ -18753,7 +18753,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-074"
@@ -18808,7 +18808,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0394"
@@ -18861,7 +18861,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR ALUPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-174"
@@ -18916,7 +18916,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR GOVINDPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0397"
@@ -18969,7 +18969,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR GOVINDPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0397"
@@ -19022,7 +19022,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0398"
@@ -19075,7 +19075,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0399"
@@ -19128,7 +19128,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-270"
@@ -19183,7 +19183,7 @@ export const initialSchoolData = {
         "stoppage": "GOKULPUR KHADAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0401"
@@ -19236,7 +19236,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-243"
@@ -19291,7 +19291,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [
         "STU-2026-395"
@@ -19346,7 +19346,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-435"
@@ -19401,7 +19401,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0405"
@@ -19454,7 +19454,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT BANGAR DEBAI [BSR]",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0406"
@@ -19507,7 +19507,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI JARGWAN BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0407"
@@ -19560,7 +19560,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-026"
@@ -19615,7 +19615,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-264"
@@ -19670,7 +19670,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0410"
@@ -19723,7 +19723,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-426"
@@ -19778,7 +19778,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-172"
@@ -19833,7 +19833,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0415"
@@ -19886,7 +19886,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-257"
@@ -19941,7 +19941,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0418"
@@ -19994,7 +19994,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0419"
@@ -20047,7 +20047,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0420"
@@ -20100,7 +20100,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0421"
@@ -20153,7 +20153,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0422"
@@ -20206,7 +20206,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0423"
@@ -20259,7 +20259,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0423"
@@ -20312,7 +20312,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-257"
@@ -20367,7 +20367,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0427"
@@ -20420,7 +20420,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0428"
@@ -20473,7 +20473,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0428"
@@ -20526,7 +20526,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0430"
@@ -20579,7 +20579,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0431"
@@ -20632,7 +20632,7 @@ export const initialSchoolData = {
         "stoppage": "NAGALA SUMALI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0432"
@@ -20685,7 +20685,7 @@ export const initialSchoolData = {
         "stoppage": "AURANGABA KASER",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-457"
@@ -20740,7 +20740,7 @@ export const initialSchoolData = {
         "stoppage": "AURANGABAD KASER DIBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-456"
@@ -20795,7 +20795,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-320"
@@ -20850,7 +20850,7 @@ export const initialSchoolData = {
         "stoppage": "MOUNIPURA RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0436"
@@ -20903,7 +20903,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAPUR DEBAI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0437"
@@ -20956,7 +20956,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-283"
@@ -21011,7 +21011,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0442"
@@ -21064,7 +21064,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0443"
@@ -21117,7 +21117,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-382"
@@ -21172,7 +21172,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0445"
@@ -21225,7 +21225,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0446"
@@ -21278,7 +21278,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0448"
@@ -21331,7 +21331,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0449"
@@ -21384,7 +21384,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0450"
@@ -21437,7 +21437,7 @@ export const initialSchoolData = {
         "stoppage": "CHAKATHAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-476"
@@ -21492,7 +21492,7 @@ export const initialSchoolData = {
         "stoppage": "CHAKATHAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-475"
@@ -21547,7 +21547,7 @@ export const initialSchoolData = {
         "stoppage": "PESARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0453"
@@ -21600,7 +21600,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0454"
@@ -21653,7 +21653,7 @@ export const initialSchoolData = {
         "stoppage": "DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0455"
@@ -21706,7 +21706,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0456"
@@ -21759,7 +21759,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR ALUPURA ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-482",
@@ -21815,7 +21815,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR ALUPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-481"
@@ -21870,7 +21870,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [
         "STU-2026-481"
@@ -21925,7 +21925,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0460"
@@ -21978,7 +21978,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0461"
@@ -22031,7 +22031,7 @@ export const initialSchoolData = {
         "stoppage": "MALAHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-130"
@@ -22086,7 +22086,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGER RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-489"
@@ -22141,7 +22141,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON BANGER RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-488"
@@ -22196,7 +22196,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR KHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0469"
@@ -22249,7 +22249,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0471"
@@ -22302,7 +22302,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0472"
@@ -22355,7 +22355,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-498",
@@ -22411,7 +22411,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-497"
@@ -22466,7 +22466,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0475"
@@ -22519,7 +22519,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-071"
@@ -22574,7 +22574,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [
         "STU-2026-071"
@@ -22629,7 +22629,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-508",
@@ -22685,7 +22685,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-507"
@@ -22740,7 +22740,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0485"
@@ -22793,7 +22793,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0486"
@@ -22846,7 +22846,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-181"
@@ -22901,7 +22901,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0488"
@@ -22954,7 +22954,7 @@ export const initialSchoolData = {
         "stoppage": "MOHAMMADPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0489"
@@ -23007,7 +23007,7 @@ export const initialSchoolData = {
         "stoppage": "MAHAJPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0490"
@@ -23060,7 +23060,7 @@ export const initialSchoolData = {
         "stoppage": "MUDAKHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0491"
@@ -23113,7 +23113,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-497"
@@ -23168,7 +23168,7 @@ export const initialSchoolData = {
         "stoppage": "PESARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0493"
@@ -23221,7 +23221,7 @@ export const initialSchoolData = {
         "stoppage": "Uncha gown",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0494"
@@ -23274,7 +23274,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-521"
@@ -23329,7 +23329,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-520"
@@ -23384,7 +23384,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-523"
@@ -23439,7 +23439,7 @@ export const initialSchoolData = {
         "stoppage": "Jargwan (Bulandshahr)",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-522"
@@ -23494,7 +23494,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0499"
@@ -23547,7 +23547,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-641"
@@ -23602,7 +23602,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-530"
@@ -23657,7 +23657,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-529"
@@ -23712,7 +23712,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR GOVINDPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0505"
@@ -23765,7 +23765,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0668"
@@ -23818,7 +23818,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATROLI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0676"
@@ -23871,7 +23871,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUTR  BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0669"
@@ -23924,7 +23924,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0665"
@@ -23977,7 +23977,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0678"
@@ -24030,7 +24030,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0672"
@@ -24083,7 +24083,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI JARGWAN ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0631"
@@ -24136,7 +24136,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0677"
@@ -24189,7 +24189,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0664"
@@ -24242,7 +24242,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI TALUKA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0326"
@@ -24295,7 +24295,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI TALUKA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0326"
@@ -24348,7 +24348,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN DEBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0674"
@@ -24401,7 +24401,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0670"
@@ -24454,7 +24454,7 @@ export const initialSchoolData = {
         "stoppage": "KANAKPUR LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0673"
@@ -24507,7 +24507,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0670"
@@ -24560,7 +24560,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0667"
@@ -24613,7 +24613,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0671"
@@ -24666,7 +24666,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR  ATROLI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0530"
@@ -24719,7 +24719,7 @@ export const initialSchoolData = {
         "stoppage": "PESARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [
         "STU-2026-380"
@@ -24774,7 +24774,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0532"
@@ -24827,7 +24827,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0533"
@@ -24880,7 +24880,7 @@ export const initialSchoolData = {
         "stoppage": "KUDHANI CHIRAURI DIBAI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0534"
@@ -24933,7 +24933,7 @@ export const initialSchoolData = {
         "stoppage": "MAHARAJPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0535"
@@ -24986,7 +24986,7 @@ export const initialSchoolData = {
         "stoppage": "MAHARAJPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0535"
@@ -25039,7 +25039,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0537"
@@ -25092,7 +25092,7 @@ export const initialSchoolData = {
         "stoppage": "GOKULPUR KHADAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0539"
@@ -25145,7 +25145,7 @@ export const initialSchoolData = {
         "stoppage": "GOKULPUR KHADAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0539"
@@ -25198,7 +25198,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0540"
@@ -25251,7 +25251,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0541"
@@ -25304,7 +25304,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0542"
@@ -25357,7 +25357,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR ALUPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0543"
@@ -25410,7 +25410,7 @@ export const initialSchoolData = {
         "stoppage": "JIRAULI DHOOM SINGH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0314"
@@ -25463,7 +25463,7 @@ export const initialSchoolData = {
         "stoppage": "MONIPURA RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0545"
@@ -25516,7 +25516,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN DIBAI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0546"
@@ -25569,7 +25569,7 @@ export const initialSchoolData = {
         "stoppage": "MONIPURA RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0547"
@@ -25622,7 +25622,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0546"
@@ -25675,7 +25675,7 @@ export const initialSchoolData = {
         "stoppage": "MONIPURA RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0549"
@@ -25728,7 +25728,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT DIBAI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0550"
@@ -25781,7 +25781,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0551"
@@ -25834,7 +25834,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0551"
@@ -25887,7 +25887,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0553"
@@ -25940,7 +25940,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0554"
@@ -25993,7 +25993,7 @@ export const initialSchoolData = {
         "stoppage": "RAMVAS MONIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-359"
@@ -26048,7 +26048,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0554"
@@ -26101,7 +26101,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0557"
@@ -26154,7 +26154,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0558"
@@ -26207,7 +26207,7 @@ export const initialSchoolData = {
         "stoppage": "RETUKA NAGLA / MAHARAJPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0559"
@@ -26260,7 +26260,7 @@ export const initialSchoolData = {
         "stoppage": "BAGINAGLA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0560"
@@ -26313,7 +26313,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR  ATRAULI  ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0561"
@@ -26366,7 +26366,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0562"
@@ -26419,7 +26419,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0564"
@@ -26472,7 +26472,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0564"
@@ -26525,7 +26525,7 @@ export const initialSchoolData = {
         "stoppage": "MONIPURA RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0565"
@@ -26578,7 +26578,7 @@ export const initialSchoolData = {
         "stoppage": "MAHAKA PANHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0566"
@@ -26631,7 +26631,7 @@ export const initialSchoolData = {
         "stoppage": "MAHAKA PANHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0300"
@@ -26684,7 +26684,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0568"
@@ -26737,7 +26737,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0568"
@@ -26790,7 +26790,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0569"
@@ -26843,7 +26843,7 @@ export const initialSchoolData = {
         "stoppage": "POOTHRI KHURD SHIKARPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0570"
@@ -26896,7 +26896,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0571"
@@ -26949,7 +26949,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT BANGER",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0572"
@@ -27002,7 +27002,7 @@ export const initialSchoolData = {
         "stoppage": "HARVANSHPUR JIRAULI DHOOM SINGH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0573"
@@ -27055,7 +27055,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA AJMERI GUNNOR SAMBHAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0574"
@@ -27108,7 +27108,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA AJMERI GUNNOR SAMBHAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0575"
@@ -27161,7 +27161,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI JARGWAN BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0576"
@@ -27214,7 +27214,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR GOVINDPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0577"
@@ -27267,7 +27267,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0578"
@@ -27320,7 +27320,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0579"
@@ -27373,7 +27373,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT BANGER",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0580"
@@ -27426,7 +27426,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0581"
@@ -27479,7 +27479,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA POST DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0582"
@@ -27532,7 +27532,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA   SHUMALI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0583"
@@ -27585,7 +27585,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI RAMGHAT BULANDSHAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0584"
@@ -27638,7 +27638,7 @@ export const initialSchoolData = {
         "stoppage": "KUNJALPUR  GAHTOLI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 2"
+        "route": "Route 2: Barheti - Ramghat"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0585"
@@ -27691,7 +27691,7 @@ export const initialSchoolData = {
         "stoppage": "PESARI RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0586"
@@ -27744,7 +27744,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0587"
@@ -27797,7 +27797,7 @@ export const initialSchoolData = {
         "stoppage": "SAME",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0588"
@@ -27850,7 +27850,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR GOVINDPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 6"
+        "route": "Route 6: Anoopshahr Crossing"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0589"
@@ -27903,7 +27903,7 @@ export const initialSchoolData = {
         "stoppage": "GANESHPUR GOVINDPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 6"
+        "route": "Route 6: Anoopshahr Crossing"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0590"
@@ -27956,7 +27956,7 @@ export const initialSchoolData = {
         "stoppage": "CHAKATHAL ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0591"
@@ -28009,7 +28009,7 @@ export const initialSchoolData = {
         "stoppage": "CHAKATHAL ATRAULI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0592"
@@ -28062,7 +28062,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI JARGWAN BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0593"
@@ -28115,7 +28115,7 @@ export const initialSchoolData = {
         "stoppage": "RAMVVAS URF MONIPURA RAMGHAT BULANDSHSHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0594"
@@ -28168,7 +28168,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA AJMERI DANDA SAMBHAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0597"
@@ -28221,7 +28221,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA AJMERI DANDA SAMBHAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0597"
@@ -28274,7 +28274,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA AJMERI DANDA SAMBHAL",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0600"
@@ -28327,7 +28327,7 @@ export const initialSchoolData = {
         "stoppage": "RAMGHAT BANGER DEBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0604"
@@ -28380,7 +28380,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR DEBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0605"
@@ -28433,7 +28433,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0606"
@@ -28486,7 +28486,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA JATNI RAMGHAT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0607"
@@ -28539,7 +28539,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0608"
@@ -28592,7 +28592,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0609"
@@ -28645,7 +28645,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0610"
@@ -28698,7 +28698,7 @@ export const initialSchoolData = {
         "stoppage": "JIRAULI DHOOM SINGH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0611"
@@ -28751,7 +28751,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-526"
@@ -28806,7 +28806,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA VIDHI JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0613"
@@ -28859,7 +28859,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0614"
@@ -28912,7 +28912,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0354"
@@ -28965,7 +28965,7 @@ export const initialSchoolData = {
         "stoppage": "LOHGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0449"
@@ -29018,7 +29018,7 @@ export const initialSchoolData = {
         "stoppage": "KUDHAINI CHIROURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0534"
@@ -29071,7 +29071,7 @@ export const initialSchoolData = {
         "stoppage": "NOJALPUR KHADAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0620"
@@ -29124,7 +29124,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0621"
@@ -29177,7 +29177,7 @@ export const initialSchoolData = {
         "stoppage": "NOJALPUR KHADAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0622"
@@ -29230,7 +29230,7 @@ export const initialSchoolData = {
         "stoppage": "VIJAY NAGLIYA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0623"
@@ -29283,7 +29283,7 @@ export const initialSchoolData = {
         "stoppage": "MUDHAKHERA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0624"
@@ -29336,7 +29336,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA JATNI RAMGHAT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0625"
@@ -29389,7 +29389,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA TODI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0626"
@@ -29442,7 +29442,7 @@ export const initialSchoolData = {
         "stoppage": "KUDHAINI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0627"
@@ -29495,7 +29495,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA JATANI RAMGHAT BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0628"
@@ -29548,7 +29548,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0629"
@@ -29601,7 +29601,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA KOTHI ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0630"
@@ -29654,7 +29654,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0632"
@@ -29707,7 +29707,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 4"
+        "route": "Route 4: Dibai Road - Jahangirpur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0633"
@@ -29760,7 +29760,7 @@ export const initialSchoolData = {
         "stoppage": "PESARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0634"
@@ -29813,7 +29813,7 @@ export const initialSchoolData = {
         "stoppage": "GANGAGARH RAMGHAT BULANDSHAR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0635"
@@ -29866,7 +29866,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA JATANI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0636"
@@ -29919,7 +29919,7 @@ export const initialSchoolData = {
         "stoppage": "CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0637"
@@ -29972,7 +29972,7 @@ export const initialSchoolData = {
         "stoppage": "RAIPUR KHAS ATRAULI ALLIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0638"
@@ -30025,7 +30025,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0639"
@@ -30078,7 +30078,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [
         "STU-2026-112"
@@ -30133,7 +30133,7 @@ export const initialSchoolData = {
         "stoppage": "MUHAMMADPUR BADHERAATRAULI  ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0641"
@@ -30186,7 +30186,7 @@ export const initialSchoolData = {
         "stoppage": "BAGI NAGLA CHIRAURI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0642"
@@ -30239,7 +30239,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0643"
@@ -30292,7 +30292,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA GARVI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0644"
@@ -30345,7 +30345,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHAGAWN RAMGHAT",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0645"
@@ -30398,7 +30398,7 @@ export const initialSchoolData = {
         "stoppage": "BAIJALA ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0646"
@@ -30451,7 +30451,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0647"
@@ -30504,7 +30504,7 @@ export const initialSchoolData = {
         "stoppage": "DADAR ALUPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0648"
@@ -30557,7 +30557,7 @@ export const initialSchoolData = {
         "stoppage": "DADAR ALUPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0648"
@@ -30610,7 +30610,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0650"
@@ -30663,7 +30663,7 @@ export const initialSchoolData = {
         "stoppage": "PESARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0651"
@@ -30716,7 +30716,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA KOTHI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0652"
@@ -30769,7 +30769,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR ALUPURA NARUPURA ATRAULI ALIGARH",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0653"
@@ -30822,7 +30822,7 @@ export const initialSchoolData = {
         "stoppage": "DADHAR ALUPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0654"
@@ -30875,7 +30875,7 @@ export const initialSchoolData = {
         "stoppage": "BAJHERA  DHARAKPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0655"
@@ -30928,7 +30928,7 @@ export const initialSchoolData = {
         "stoppage": "NEAR CD INTER COLLEGE JARGWAN BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0656"
@@ -30981,7 +30981,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0658"
@@ -31034,7 +31034,7 @@ export const initialSchoolData = {
         "stoppage": "MONIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0659"
@@ -31087,7 +31087,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0660"
@@ -31140,7 +31140,7 @@ export const initialSchoolData = {
         "stoppage": "ATARASI  BAMASHA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0661"
@@ -31193,7 +31193,7 @@ export const initialSchoolData = {
         "stoppage": "KALIYANPUR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0662"
@@ -31246,7 +31246,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0663"
@@ -31299,7 +31299,7 @@ export const initialSchoolData = {
         "stoppage": "JARGWAN",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0680"
@@ -31352,7 +31352,7 @@ export const initialSchoolData = {
         "stoppage": "UNCHA GAON",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 5"
+        "route": "Route 5: Naraura - Dharampur"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0681"
@@ -31405,7 +31405,7 @@ export const initialSchoolData = {
         "stoppage": "SILHARI",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0682"
@@ -31458,7 +31458,7 @@ export const initialSchoolData = {
         "stoppage": "MONIPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 3"
+        "route": "Route 3: Sadharanpur - Kaser"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0683"
@@ -31511,7 +31511,7 @@ export const initialSchoolData = {
         "stoppage": "KATAK NARUPURA",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 0"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0684"
@@ -31564,7 +31564,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR DEBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0685"
@@ -31617,7 +31617,7 @@ export const initialSchoolData = {
         "stoppage": "NAGLA DHARAKPUR DEBAI BULANDSHAHR",
         "monthlyFare": 500,
         "annualFare11M": 5500,
-        "route": "Route 1"
+        "route": "Route 1: Jargwan - Baraura"
     },
     "linkedSiblingIds": [],
     "familyId": "FAM-0686"

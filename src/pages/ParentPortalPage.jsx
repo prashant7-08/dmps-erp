@@ -227,10 +227,9 @@ export const ParentPortalPage = ({ onOpenAI }) => {
             </h3>
 
             <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-2 text-xs">
-              <div className="flex justify-between"><span>Assigned Route:</span><strong className="text-slate-900 dark:text-white">{selectedChild.transport?.route || 'Route 1: NAGLA DHARAKPUR SIDE'}</strong></div>
-              <div className="flex justify-between"><span>Designated Stop:</span><strong className="text-slate-900 dark:text-white">{selectedChild.transport?.stop || 'JARGWAN'}</strong></div>
-              <div className="flex justify-between"><span>Monthly Bus Rate:</span><strong className="text-emerald-700 font-bold">₹{selectedChild.transport?.monthlyFare || 350}/mo</strong></div>
-              <div className="flex justify-between"><span>11-Month Annual Transport:</span><strong className="text-indigo-700 font-bold">₹{(selectedChild.transport?.monthlyFare * 11 || 3850).toLocaleString()}</strong></div>
+              <div className="flex justify-between"><span>Assigned Route:</span><strong className="text-slate-900 dark:text-white">{selectedChild.transport?.route || 'Route 1: Jargwan - Baraura Route'}</strong></div>
+              <div className="flex justify-between"><span>Designated Stop:</span><strong className="text-slate-900 dark:text-white">{selectedChild.transport?.stop || selectedChild.transport?.stoppage || 'JARGWAN'}</strong></div>
+              <div className="flex justify-between"><span>Session Transport Fee (11M):</span><strong className="text-indigo-700 font-bold">₹{((selectedChild.transport?.monthlyFare || 350) * 11).toLocaleString('en-IN')}</strong></div>
               <div className="flex justify-between"><span>Conveyance Driver:</span><strong className="text-slate-900 dark:text-white">Hemraj Singh (+91 97194 76606)</strong></div>
             </div>
           </div>

@@ -2044,8 +2044,8 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.stop || selectedStudent.transport?.stoppage || 'N/A'}</p>
                 </div>
                 <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase">Monthly Rate</span>
-                  <p className="font-bold text-slate-900 dark:text-white font-mono mt-0.5">₹{selectedStudent.transport?.monthlyFare || 0} / mo</p>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Assigned Bus Route</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.route || 'Route 1: Jargwan - Baraura Route'}</p>
                 </div>
                 <div className="p-3 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-800">
                   <span className="text-[10px] font-bold text-cyan-700 dark:text-cyan-300 uppercase">Annual Transport Due ({selectedStudent.transport?.months || 11}M)</span>

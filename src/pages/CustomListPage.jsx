@@ -88,10 +88,9 @@ export const CustomListPage = () => {
 
     // Transport Fleet
     { id: 'transportStatus', label: 'Bus Facility', fullLabel: 'Bus Facility (Y/N)', category: 'Transport', default: false, width: '70px', align: 'center' },
-    { id: 'stoppage', label: 'Bus Stoppage', fullLabel: 'Village Bus Stoppage', category: 'Transport', default: false, width: '120px', align: 'left' },
-    { id: 'route', label: 'Route', fullLabel: 'Bus Route No', category: 'Transport', default: false, width: '70px', align: 'center' },
-    { id: 'monthlyFare', label: 'Fare/Mo', fullLabel: 'Monthly Bus Fare', category: 'Transport', default: false, width: '75px', align: 'right' },
-    { id: 'annualTransport', label: 'Bus Due (11M)', fullLabel: 'Annual Bus Fare (11M)', category: 'Transport', default: false, width: '90px', align: 'right' },
+    { id: 'stoppage', label: 'Bus Stoppage', fullLabel: 'Village Bus Stoppage', category: 'Transport', default: false, width: '130px', align: 'left' },
+    { id: 'route', label: 'Bus Route', fullLabel: 'Assigned Bus Route', category: 'Transport', default: false, width: '160px', align: 'left' },
+    { id: 'annualTransport', label: 'Annual Bus Fee', fullLabel: 'Annual Transport Fee (11M)', category: 'Transport', default: false, width: '95px', align: 'right' },
 
     // Fees & Dues Data
     { id: 'tuitionDue', label: 'Tuition Due', fullLabel: 'Annual Tuition Fee', category: 'Fees & Dues', default: false, width: '85px', align: 'right' },
@@ -145,7 +144,7 @@ export const CustomListPage = () => {
       setPrintOrientation('landscape');
     } else if (presetName === 'transport') {
       setFileHeading('SCHOOL BUS FLEET PASSENGER ROSTER & STOPPAGE LIST');
-      ['admissionNo', 'name', 'fatherName', 'class', 'section', 'primaryMobile', 'transportStatus', 'stoppage', 'route', 'monthlyFare', 'annualTransport'].forEach(id => { cols[id] = true; });
+      ['admissionNo', 'name', 'fatherName', 'class', 'section', 'primaryMobile', 'transportStatus', 'stoppage', 'route', 'annualTransport'].forEach(id => { cols[id] = true; });
       setFilterTransport('TRANSPORT_ONLY');
       setPrintOrientation('landscape');
     } else if (presetName === 'siblings') {
@@ -415,9 +414,8 @@ export const CustomListPage = () => {
       }
       case 'transportStatus': return student.transport?.route && student.transport.route !== 'None' ? 'Yes' : 'No';
       case 'stoppage': return student.transport?.stoppage || 'Jargwan';
-      case 'route': return student.transport?.route || 'Self';
-      case 'monthlyFare': return `₹${Number(student.transport?.monthlyFare || 0).toLocaleString('en-IN')}`;
-      case 'annualTransport': return `₹${Number(student.transport?.annualFare11M || 0).toLocaleString('en-IN')}`;
+      case 'route': return student.transport?.route || 'Self / Walk';
+      case 'annualTransport': return `₹${Number(student.feeSummary?.transportDue11Months !== undefined ? student.feeSummary.transportDue11Months : ((student.transport?.monthlyFare || 0) * (student.transport?.months || 11))).toLocaleString('en-IN')}`;
       case 'tuitionDue': return `₹${Number(student.feeSummary?.tuitionDue || 0).toLocaleString('en-IN')}`;
       case 'totalDue': return <strong className="font-mono">₹{Number(student.feeSummary?.totalDue || 0).toLocaleString('en-IN')}</strong>;
       case 'totalPaid': return <span className="font-mono text-emerald-700 font-bold">₹{Number(student.feeSummary?.totalPaid || 0).toLocaleString('en-IN')}</span>;
@@ -468,9 +466,8 @@ export const CustomListPage = () => {
             case 'siblings': return s.linkedSiblingIds?.join(' | ') || 'Single Child';
             case 'transportStatus': return s.transport?.route && s.transport.route !== 'None' ? 'Yes' : 'No';
             case 'stoppage': return s.transport?.stoppage || '';
-            case 'route': return s.transport?.route || '';
-            case 'monthlyFare': return s.transport?.monthlyFare || 0;
-            case 'annualTransport': return s.transport?.annualFare11M || 0;
+            case 'route': return s.transport?.route || 'Self / Walk';
+            case 'annualTransport': return s.feeSummary?.transportDue11Months !== undefined ? s.feeSummary.transportDue11Months : ((s.transport?.monthlyFare || 0) * (s.transport?.months || 11));
             case 'tuitionDue': return s.feeSummary?.tuitionDue || 0;
             case 'totalDue': return s.feeSummary?.totalDue || 0;
             case 'totalPaid': return s.feeSummary?.totalPaid || 0;

@@ -47,20 +47,20 @@ export const TransportPage = ({ initialSection = 'routes' }) => {
 
   // 41 Authentic Village Stoppages Data with 11-Month calculation
   const [stoppages, setStoppages] = useState([
-    { id: 'STP-01', village: 'Jargwan (Campus Base)', monthlyRate: 350, rate11M: 3850, commuters: 85, route: 'Route 1' },
-    { id: 'STP-02', village: 'Barheti (Ramghat Border)', monthlyRate: 450, rate11M: 4950, commuters: 48, route: 'Route 2' },
-    { id: 'STP-03', village: 'Baraura', monthlyRate: 500, rate11M: 5500, commuters: 32, route: 'Route 1' },
-    { id: 'STP-04', village: 'Sadharanpur', monthlyRate: 550, rate11M: 6050, commuters: 24, route: 'Route 3' },
-    { id: 'STP-05', village: 'Charaura', monthlyRate: 600, rate11M: 6600, commuters: 36, route: 'Route 1' },
-    { id: 'STP-06', village: 'Dibai Road', monthlyRate: 650, rate11M: 7150, commuters: 28, route: 'Route 4' },
-    { id: 'STP-07', village: 'Kalyanpur', monthlyRate: 500, rate11M: 5500, commuters: 19, route: 'Route 2' },
-    { id: 'STP-08', village: 'Bhatpura', monthlyRate: 600, rate11M: 6600, commuters: 22, route: 'Route 3' },
-    { id: 'STP-09', village: 'Naraura Border', monthlyRate: 850, rate11M: 9350, commuters: 18, route: 'Route 5' },
-    { id: 'STP-10', village: 'Ramghat Ghat Stand', monthlyRate: 700, rate11M: 7700, commuters: 30, route: 'Route 2' },
-    { id: 'STP-11', village: 'Anoopshahr Road Crossing', monthlyRate: 870, rate11M: 9570, commuters: 15, route: 'Route 6' },
-    { id: 'STP-12', village: 'Kaser Kalan', monthlyRate: 550, rate11M: 6050, commuters: 21, route: 'Route 3' },
-    { id: 'STP-13', village: 'Jahangirpur', monthlyRate: 600, rate11M: 6600, commuters: 16, route: 'Route 4' },
-    { id: 'STP-14', village: 'Dharampur', monthlyRate: 500, rate11M: 5500, commuters: 14, route: 'Route 1' }
+    { id: 'STP-01', village: 'Jargwan (Campus Base)', monthlyRate: 350, rate11M: 3850, commuters: 85, route: 'Route 1: Jargwan - Baraura' },
+    { id: 'STP-02', village: 'Barheti (Ramghat Border)', monthlyRate: 450, rate11M: 4950, commuters: 48, route: 'Route 2: Barheti - Ramghat' },
+    { id: 'STP-03', village: 'Baraura', monthlyRate: 500, rate11M: 5500, commuters: 32, route: 'Route 1: Jargwan - Baraura' },
+    { id: 'STP-04', village: 'Sadharanpur', monthlyRate: 550, rate11M: 6050, commuters: 24, route: 'Route 3: Sadharanpur - Kaser' },
+    { id: 'STP-05', village: 'Charaura', monthlyRate: 600, rate11M: 6600, commuters: 36, route: 'Route 1: Jargwan - Baraura' },
+    { id: 'STP-06', village: 'Dibai Road', monthlyRate: 650, rate11M: 7150, commuters: 28, route: 'Route 4: Dibai Road - Jahangirpur' },
+    { id: 'STP-07', village: 'Kalyanpur', monthlyRate: 500, rate11M: 5500, commuters: 19, route: 'Route 2: Barheti - Ramghat' },
+    { id: 'STP-08', village: 'Bhatpura', monthlyRate: 600, rate11M: 6600, commuters: 22, route: 'Route 3: Sadharanpur - Kaser' },
+    { id: 'STP-09', village: 'Naraura Border', monthlyRate: 850, rate11M: 9350, commuters: 18, route: 'Route 5: Naraura - Dharampur' },
+    { id: 'STP-10', village: 'Ramghat Ghat Stand', monthlyRate: 700, rate11M: 7700, commuters: 30, route: 'Route 2: Barheti - Ramghat' },
+    { id: 'STP-11', village: 'Anoopshahr Road Crossing', monthlyRate: 870, rate11M: 9570, commuters: 15, route: 'Route 6: Anoopshahr Crossing' },
+    { id: 'STP-12', village: 'Kaser Kalan', monthlyRate: 550, rate11M: 6050, commuters: 21, route: 'Route 3: Sadharanpur - Kaser' },
+    { id: 'STP-13', village: 'Jahangirpur', monthlyRate: 600, rate11M: 6600, commuters: 16, route: 'Route 4: Dibai Road - Jahangirpur' },
+    { id: 'STP-14', village: 'Dharampur', monthlyRate: 500, rate11M: 5500, commuters: 14, route: 'Route 1: Jargwan - Baraura' }
   ]);
 
   // Vehicles Fleet
