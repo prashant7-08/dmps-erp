@@ -210,7 +210,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[11px] font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                CBSE Affiliated • {schoolInfo.affiliationNo || 'UP-CBSE-83921'}
+                BSB Affiliated (Up to 12th) • {schoolInfo.affiliationNo || 'UP0F25070073'}
               </span>
             </div>
 
@@ -219,7 +219,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 {schoolInfo.name || 'Dadheech Memorial Public School'}
               </h2>
               <p className="text-xs text-indigo-200/90 mt-0.5 font-medium whitespace-nowrap overflow-hidden text-ellipsis">
-                Viewing: <strong className="text-amber-300 font-bold">{stats?.branchName || 'All Campuses'}</strong> • {stats?.totalStudents || 567} Active Students Registered
+                Viewing: <strong className="text-amber-300 font-bold">{stats?.branchName || 'All Campuses'}</strong> • {stats?.totalStudents || 567} Active Students (PG to 10th)
               </p>
             </div>
           </div>
