@@ -104,14 +104,28 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   const [editingOldDues, setEditingOldDues] = useState(false);
   const [tempOldDues, setTempOldDues] = useState(0);
   const [editingMisc, setEditingMisc] = useState(false);
-  const [tempMisc, setTempMisc] = useState(0);
+  const [miscItemsList, setMiscItemsList] = useState([]);
+  const [newMiscTitle, setNewMiscTitle] = useState('');
+  const [newMiscAmount, setNewMiscAmount] = useState('');
 
   const handleOpenFeeModal = (student) => {
     setStudentForFee(student);
     setEditingOldDues(false);
     setTempOldDues(student.feeSummary?.oldSessionDues || 0);
     setEditingMisc(false);
-    setTempMisc(student.feeSummary?.miscellaneousDue || 0);
+    
+    // Initialize itemized misc list
+    const existingBreakdown = student.feeSummary?.miscellaneousBreakdown;
+    if (Array.isArray(existingBreakdown) && existingBreakdown.length > 0) {
+      setMiscItemsList(existingBreakdown);
+    } else if (Number(student.feeSummary?.miscellaneousDue || 0) > 0) {
+      setMiscItemsList([{ id: 'misc_1', title: 'General Misc Fee', amount: Number(student.feeSummary.miscellaneousDue) }]);
+    } else {
+      setMiscItemsList([]);
+    }
+    setNewMiscTitle('');
+    setNewMiscAmount('');
+
     const defaultDue = student.feeSummary?.balance || 0;
     setFeeForm({
       amount: defaultDue > 0 ? defaultDue : 1000,
@@ -136,16 +150,50 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
     }
   };
 
-  const handleSaveMiscInline = (studentId) => {
-    const val = Number(tempMisc) || 0;
-    const updated = schoolService.updateStudent(studentId, { miscellaneousDue: val });
+  const handleAddNewMiscItem = (studentId) => {
+    const title = newMiscTitle.trim() || 'Miscellaneous Charge';
+    const amount = Number(newMiscAmount);
+    if (!amount || amount <= 0) {
+      showToast('Please enter a valid misc charge amount!', 'error');
+      return;
+    }
+
+    const updatedList = [...miscItemsList, { id: 'misc_' + Date.now(), title, amount }];
+    const totalMisc = updatedList.reduce((sum, item) => sum + Number(item.amount || 0), 0);
+
+    const updated = schoolService.updateStudent(studentId, {
+      miscellaneousBreakdown: updatedList,
+      miscellaneousDue: totalMisc
+    });
+
     if (updated) {
       setStudentForFee(updated);
       setSelectedStudent(updated);
+      setMiscItemsList(updatedList);
+      setNewMiscTitle('');
+      setNewMiscAmount('');
       refreshStudents();
-      setEditingMisc(false);
       setFeeForm(prev => ({ ...prev, amount: updated.feeSummary?.balance || 0 }));
-      showToast(`Miscellaneous Charges updated to ₹${val.toLocaleString('en-IN')}! 📦`, 'success');
+      showToast(`Added '${title}' (₹${amount.toLocaleString()}) to Misc Charges! 📦`, 'success');
+    }
+  };
+
+  const handleRemoveMiscItem = (studentId, itemId) => {
+    const updatedList = miscItemsList.filter(item => item.id !== itemId);
+    const totalMisc = updatedList.reduce((sum, item) => sum + Number(item.amount || 0), 0);
+
+    const updated = schoolService.updateStudent(studentId, {
+      miscellaneousBreakdown: updatedList,
+      miscellaneousDue: totalMisc
+    });
+
+    if (updated) {
+      setStudentForFee(updated);
+      setSelectedStudent(updated);
+      setMiscItemsList(updatedList);
+      refreshStudents();
+      setFeeForm(prev => ({ ...prev, amount: updated.feeSummary?.balance || 0 }));
+      showToast('Misc charge item removed! 🗑️', 'info');
     }
   };
 
@@ -2132,40 +2180,90 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 </div>
 
                 {/* 📦 Misc Charges */}
-                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1">
+                <div className={`p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1.5 ${editingMisc ? 'col-span-2 sm:col-span-3 bg-indigo-50/40 dark:bg-indigo-950/20 border-indigo-300 dark:border-indigo-800' : ''}`}>
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-slate-400 font-bold">📦 Misc Charges</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-300 font-black flex items-center gap-1">
+                      📦 Misc Charges {miscItemsList.length > 0 && <span className="px-1.5 py-0.2 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-[9px] font-bold">({miscItemsList.length} items)</span>}
+                    </span>
                     <button
                       type="button"
                       onClick={() => setEditingMisc(!editingMisc)}
-                      title="Edit Miscellaneous Charges"
+                      title="Add / Manage Miscellaneous Charge Items"
                       className="p-1 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 transition-colors"
                     >
                       {editingMisc ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3 text-indigo-600" />}
                     </button>
                   </div>
+
                   {editingMisc ? (
-                    <div className="flex items-center gap-1 pt-1">
-                      <input
-                        type="number"
-                        value={tempMisc}
-                        onChange={(e) => setTempMisc(e.target.value)}
-                        placeholder="Misc charges..."
-                        className="w-full p-1 rounded border border-indigo-400 bg-white dark:bg-slate-900 font-mono font-bold text-xs text-slate-900 dark:text-white"
-                        autoFocus
-                      />
-                      <button
-                        type="button"
-                        onClick={() => handleSaveMiscInline(studentForFee.id)}
-                        className="px-2 py-1 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded text-[10px] shadow-xs"
-                      >
-                        Save
-                      </button>
+                    <div className="space-y-2 pt-1">
+                      {/* Existing Items List */}
+                      {miscItemsList.length > 0 && (
+                        <div className="space-y-1 max-h-28 overflow-y-auto pr-1">
+                          {miscItemsList.map(item => (
+                            <div key={item.id} className="flex items-center justify-between p-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-[11px]">
+                              <span className="font-bold text-slate-700 dark:text-slate-300">🔹 {item.title}</span>
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono font-black text-indigo-600 dark:text-indigo-400">₹{Number(item.amount).toLocaleString('en-IN')}</span>
+                                <button
+                                  type="button"
+                                  onClick={() => handleRemoveMiscItem(studentForFee.id, item.id)}
+                                  className="text-rose-500 hover:text-rose-700 p-0.5"
+                                  title="Remove this item"
+                                >
+                                  <X className="w-3 h-3" />
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Add New Item Input Row */}
+                      <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800 space-y-1.5">
+                        <span className="text-[10px] font-bold text-indigo-900 dark:text-indigo-200 block">
+                          ➕ Add New Charge (e.g. Dress, Diary, Belt, Activity, Tour, Fine):
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <input
+                            type="text"
+                            value={newMiscTitle}
+                            onChange={(e) => setNewMiscTitle(e.target.value)}
+                            placeholder="Item Name (e.g. Uniform / Dress)..."
+                            className="flex-1 p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-medium"
+                          />
+                          <input
+                            type="number"
+                            value={newMiscAmount}
+                            onChange={(e) => setNewMiscAmount(e.target.value)}
+                            placeholder="₹ Amount"
+                            className="w-24 p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-mono font-bold text-xs"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => handleAddNewMiscItem(studentForFee.id)}
+                            className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-lg text-xs shadow-xs"
+                          >
+                            + Add
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   ) : (
-                    <strong className="font-mono text-slate-900 dark:text-white block">
-                      ₹{Number(studentForFee.feeSummary?.miscellaneousDue || 0).toLocaleString('en-IN')}
-                    </strong>
+                    <div>
+                      <strong className="font-mono text-slate-900 dark:text-white block">
+                        ₹{Number(studentForFee.feeSummary?.miscellaneousDue || 0).toLocaleString('en-IN')}
+                      </strong>
+                      {miscItemsList.length > 0 && (
+                        <div className="flex flex-wrap gap-1 pt-1">
+                          {miscItemsList.map(item => (
+                            <span key={item.id} className="text-[9px] px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-medium">
+                              {item.title}: ₹{Number(item.amount).toLocaleString()}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   )}
                 </div>
 

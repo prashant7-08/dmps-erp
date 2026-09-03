@@ -259,7 +259,15 @@ class SchoolService {
       const tuitionDue = isRte ? 0 : (updates.tuitionDue !== undefined ? Number(updates.tuitionDue) : (existing.feeSummary?.tuitionDue !== undefined ? existing.feeSummary.tuitionDue : 13500));
       const hostelDue = Number(updates.hostelDue !== undefined ? updates.hostelDue : (existing.feeSummary?.hostelDue || 0));
       const oldSessionDues = Number(updates.oldSessionDues !== undefined ? updates.oldSessionDues : (existing.feeSummary?.oldSessionDues || 0));
-      const miscellaneousDue = Number(updates.miscellaneousDue !== undefined ? updates.miscellaneousDue : (existing.feeSummary?.miscellaneousDue || 0));
+      
+      let miscBreakdown = updates.miscellaneousBreakdown !== undefined ? updates.miscellaneousBreakdown : (existing.feeSummary?.miscellaneousBreakdown || []);
+      let miscellaneousDue = Number(updates.miscellaneousDue !== undefined ? updates.miscellaneousDue : (existing.feeSummary?.miscellaneousDue || 0));
+      
+      // If breakdown is provided, auto-sum
+      if (Array.isArray(miscBreakdown) && miscBreakdown.length > 0) {
+        miscellaneousDue = miscBreakdown.reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
+      }
+
       const otherChargesDue = isRte ? (updates.otherChargesDue !== undefined ? Number(updates.otherChargesDue) : (existing.feeSummary?.otherChargesDue || 4500)) : 0;
       
       const totalDue = tuitionDue + otherChargesDue + transportDue + hostelDue + oldSessionDues + miscellaneousDue;
@@ -272,6 +280,7 @@ class SchoolService {
         hostelDue: hostelDue,
         oldSessionDues: oldSessionDues,
         miscellaneousDue: miscellaneousDue,
+        miscellaneousBreakdown: miscBreakdown,
         otherChargesDue: otherChargesDue,
         otherChargesBreakdown: isRte ? {
           annualCharges: 2000,
