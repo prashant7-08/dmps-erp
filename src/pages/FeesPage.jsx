@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   CreditCard,
   Plus,
@@ -85,6 +85,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   const [familyGroups, setFamilyGroups] = useState(() => schoolService.getAllFamilyGroups() || []);
   const [miscFees, setMiscFees] = useState([]);
   const [siblingSearchQuery, setSiblingSearchQuery] = useState('');
+  const [modalSiblingSearch, setModalSiblingSearch] = useState('');
 
   // Payment Type Modal state
   const [isAddPayTypeModalOpen, setIsAddPayTypeModalOpen] = useState(false);
@@ -150,10 +151,6 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   const [isAssignSiblingModalOpen, setIsAssignSiblingModalOpen] = useState(false);
   const [mainStudentForAssign, setMainStudentForAssign] = useState(null);
 
-  useEffect(() => {
-    refreshAll();
-  }, [activeBranchId]);
-
   const refreshAll = () => {
     setStudents(schoolService.getStudents(activeBranchId) || []);
     setInvoices(schoolService.getFeeInvoices(activeBranchId) || []);
@@ -166,26 +163,30 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   };
 
   // 🤖 1-Click Auto-Link All Siblings Engine
-  const handleAutoLinkSiblings = () => {
-    const result = schoolService.autoLinkSiblingsByPhoneAndFather();
+  const handleAutoLinkAllSiblings = () => {
+    const result = schoolService.autoLinkAllSiblings();
     refreshAll();
-    showToast(`🎉 Automatically matched & linked ${result.linkedFamilyCount} sibling families (${result.linkedStudentCount} students)!`, 'success');
+    showToast(
+      `🎉 Auto-Link Completed! Successfully created ${result.linkedFamilyCount} Family Groups linking ${result.linkedStudentCount} real brothers & sisters!`,
+      'success'
+    );
   };
 
-  // Payment Type Master Handlers
+  // 1-Click Payment Type Creation
   const handleAddPaymentType = (e) => {
     e.preventDefault();
     if (!payTypeFormData.name) {
-      showToast('Please enter Payment Type Name', 'warning');
+      showToast('Please enter a payment mode name', 'warning');
       return;
     }
     schoolService.addPaymentType(payTypeFormData);
     refreshAll();
-    setIsAddPayTypeModalOpen(false);
     setPayTypeFormData({ name: '', code: '', type: 'Offline', description: '' });
-    showToast(`💳 Payment Type "${payTypeFormData.name}" added successfully!`, 'success');
+    setIsAddPayTypeModalOpen(false);
+    showToast(`Payment Mode "${payTypeFormData.name}" added successfully!`, 'success');
   };
 
+  // 1-Click Delete Payment Type
   const handleDeletePaymentType = (id, name) => {
     if (window.confirm(`Delete payment type "${name}"?`)) {
       schoolService.deletePaymentType(id);
@@ -194,7 +195,18 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
     }
   };
 
-  // Sync sibling allocations when primary student changes in POS
+  // 🤖 Auto-detect siblings and default isFamilyMode to true when siblings exist
+  useEffect(() => {
+    if (!primaryStudentId) return;
+    const sibs = schoolService.getLinkedSiblings(primaryStudentId);
+    if (sibs && sibs.length > 0) {
+      setIsFamilyMode(true);
+    } else {
+      setIsFamilyMode(false);
+    }
+  }, [primaryStudentId]);
+
+  // Sync sibling allocations when primary student or isFamilyMode changes in POS
   useEffect(() => {
     if (!primaryStudentId) return;
     const primary = schoolService.getStudentById(primaryStudentId);
@@ -230,6 +242,28 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
       setSiblingAllocations([primaryAlloc]);
     }
   }, [primaryStudentId, isFamilyMode]);
+
+  // Fast Memoized Sibling Modal Search List
+  const filteredModalSiblings = useMemo(() => {
+    if (!mainStudentForAssign) return [];
+    const q = modalSiblingSearch.trim().toLowerCase();
+    if (!q) {
+      return students.filter(s => s.id !== mainStudentForAssign.id).slice(0, 25);
+    }
+    return students
+      .filter(s => s.id !== mainStudentForAssign.id)
+      .filter(s => {
+        const name = (s.name || '').toLowerCase();
+        const cls = (s.class || '').toLowerCase();
+        const father = (s.parents?.fatherName || s.fatherName || '').toLowerCase();
+        const mother = (s.parents?.motherName || s.motherName || '').toLowerCase();
+        const phone = (s.parents?.fatherPhone || s.fatherMobile || s.mobile || s.phone || '').toLowerCase();
+        const roll = (s.rollNo || '').toLowerCase();
+        const adm = (s.admissionNo || '').toLowerCase();
+        return name.includes(q) || cls.includes(q) || father.includes(q) || mother.includes(q) || phone.includes(q) || roll.includes(q) || adm.includes(q);
+      })
+      .slice(0, 30);
+  }, [students, mainStudentForAssign, modalSiblingSearch]);
 
   // POS Submission
   const handleCollectFeeSubmit = (e) => {
@@ -475,20 +509,19 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
         </div>
       </div>
 
-      {/* 🧭 Comprehensive 10-Tab Navigation Bar (Exact Workflow matching your screenshots) */}
+      {/* 🧭 Comprehensive Navigation Bar */}
       <div className="bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-x-auto custom-scrollbar">
         <div className="flex items-center gap-1 min-w-max text-xs font-bold">
           {[
-            { id: 'pos', label: '💳 Fee Collect / Payment', badge: 'POS' },
-            { id: 'payment-types', label: '💳 Payments Type', count: paymentTypes.length },
-            { id: 'offline', label: '🏛️ Offline Payments', count: offlinePayments.length },
+            { id: 'pos', label: '💳 Fee Collect / POS Counter', badge: 'POS' },
+            { id: 'dues', label: '⚠️ Due List & Reminders', count: totalDefaulters },
+            { id: 'payment-types', label: '💳 Payments Type (Cash & UPI)', count: paymentTypes.length },
             { id: 'siblings', label: '👨‍👩‍👧‍👦 Setup Siblings', badge: null },
-            { id: 'sibling-list', label: '📜 Sibling List', count: familyGroups.length },
+            { id: 'sibling-list', label: '📜 Sibling Directory', count: familyGroups.length },
             { id: 'types', label: '🏷️ Fees Type', count: feeTypes.length },
             { id: 'groups', label: '📂 Fees Group', count: feeGroups.length },
             { id: 'fine', label: '⚖️ Fine Setup', badge: 'Rules' },
             { id: 'allocation', label: '📌 Fees Allocation', badge: 'Bulk' },
-            { id: 'dues', label: '⚠️ Due List / Reminder', count: totalDefaulters },
             { id: 'invoices', label: '🧾 Fee Receipts Ledger', count: invoices.length }
           ].map(tab => (
             <button
@@ -741,11 +774,8 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                   onChange={(e) => setPosPaymentMode(e.target.value)}
                   className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold"
                 >
-                  <option value="Cash Counter">💵 Cash Counter</option>
-                  <option value="UPI / QR Code">📱 UPI / QR Code</option>
-                  <option value="Bank Demand Draft (DD)">🏛️ Demand Draft (DD)</option>
-                  <option value="NEFT / Net Banking">🌐 NEFT / Net Banking</option>
-                  <option value="Cheque Deposit">📜 Cheque Deposit</option>
+                  <option value="Cash Counter">💵 Cash Counter (नकद)</option>
+                  <option value="UPI / QR Code">📱 UPI / QR Code Scan</option>
                 </select>
               </div>
 
@@ -2146,47 +2176,66 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
       {isAssignSiblingModalOpen && mainStudentForAssign && (
         <Modal
           isOpen={isAssignSiblingModalOpen}
-          onClose={() => setIsAssignSiblingModalOpen(false)}
+          onClose={() => {
+            setIsAssignSiblingModalOpen(false);
+            setModalSiblingSearch('');
+          }}
           title={`Link Sibling for ${mainStudentForAssign.name} (${mainStudentForAssign.class})`}
           maxWidth="max-w-xl"
         >
           <div className="space-y-4 text-xs">
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Search Brother/Sister (by Name or Class):</label>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                Search Brother/Sister (by Name, Class, Father/Mother Name, Mobile No. or Ledger No.):
+              </label>
               <input
                 type="text"
-                placeholder="Type sibling name or father mobile..."
-                value={siblingSearchQuery}
-                onChange={(e) => setSiblingSearchQuery(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-medium"
+                autoFocus
+                placeholder="Type name, father name, mobile number, roll/ledger no..."
+                value={modalSiblingSearch}
+                onChange={(e) => setModalSiblingSearch(e.target.value)}
+                className="w-full p-3 rounded-xl border-2 border-indigo-500 bg-white dark:bg-slate-900 font-medium text-xs shadow-sm focus:ring-2 focus:ring-indigo-400"
               />
             </div>
 
-            <div className="max-h-60 overflow-y-auto space-y-2 border border-slate-200 dark:border-slate-700 rounded-2xl p-2">
-              {students
-                .filter(s => s.id !== mainStudentForAssign.id)
-                .filter(s => !siblingSearchQuery || s.name.toLowerCase().includes(siblingSearchQuery.toLowerCase()) || s.class.toLowerCase().includes(siblingSearchQuery.toLowerCase()))
-                .slice(0, 15)
-                .map(stu => (
+            <div className="max-h-72 overflow-y-auto space-y-2 border border-slate-200 dark:border-slate-700 rounded-2xl p-2 custom-scrollbar">
+              {filteredModalSiblings.length > 0 ? (
+                filteredModalSiblings.map(stu => (
                   <div key={stu.id} className="flex justify-between items-center p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition-colors">
                     <div>
-                      <p className="font-bold text-slate-900 dark:text-white">{stu.name}</p>
-                      <p className="text-[10px] text-slate-500">Class {stu.class} • Father: {stu.parents?.fatherName || stu.fatherName || 'Father'}</p>
+                      <div className="flex items-center gap-2">
+                        <p className="font-black text-slate-900 dark:text-white">{stu.name}</p>
+                        <span className="px-1.5 py-0.2 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold text-[9px]">
+                          Class {stu.class}
+                        </span>
+                        <span className="text-[9px] font-mono text-slate-400">
+                          #{stu.rollNo || stu.admissionNo}
+                        </span>
+                      </div>
+                      <p className="text-[10px] text-slate-500 mt-0.5">
+                        👨‍👩‍👧 Father: <strong>{stu.parents?.fatherName || stu.fatherName || 'N/A'}</strong> • 📞 {stu.parents?.fatherPhone || stu.fatherMobile || stu.mobile || 'N/A'}
+                      </p>
                     </div>
                     <button
                       type="button"
                       onClick={() => {
                         schoolService.linkSiblingToStudent(mainStudentForAssign.id, stu.id);
                         refreshAll();
-                        showToast(`Linked ${stu.name} as sibling!`, 'success');
+                        showToast(`Linked ${stu.name} as sibling to ${mainStudentForAssign.name}! 👨‍👩‍👧‍👦`, 'success');
                         setIsAssignSiblingModalOpen(false);
+                        setModalSiblingSearch('');
                       }}
-                      className="px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-bold text-[11px]"
+                      className="px-3.5 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold text-xs flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
                     >
                       + Link Brother/Sister
                     </button>
                   </div>
-                ))}
+                ))
+              ) : (
+                <div className="text-center py-6 text-slate-400 text-xs italic">
+                  No matching student found for "{modalSiblingSearch}". Try typing student name, father name, or mobile.
+                </div>
+              )}
             </div>
           </div>
         </Modal>

@@ -1942,18 +1942,25 @@ class SchoolService {
     return { linkedFamilyCount, linkedStudentCount };
   }
 
-  // Payments Type Master (Cash, UPI, DD, NEFT, Cheque, POS Card)
+  // Payments Type Master (Only Official Cash & UPI QR Modes)
   getPaymentTypes() {
     if (!this.data.paymentTypes || !Array.isArray(this.data.paymentTypes) || this.data.paymentTypes.length === 0) {
       this.data.paymentTypes = [
         { id: 'PAY-01', name: 'Cash Counter (नकद)', code: 'CASH', type: 'Offline', isDefault: true, description: 'Direct cash fee submission at school counter' },
-        { id: 'PAY-02', name: 'UPI / QR Code Scan (PhonePe / GPay / Paytm)', code: 'UPI', type: 'Digital', isDefault: false, description: 'Instant UPI QR code scan at account desk' },
-        { id: 'PAY-03', name: 'Bank Demand Draft (DD)', code: 'DD', type: 'Bank', isDefault: false, description: 'Demand Draft drawn in favor of school bank account' },
-        { id: 'PAY-04', name: 'NEFT / RTGS / IMPS Transfer', code: 'NEFT', type: 'Bank', isDefault: false, description: 'Direct bank account transfer with UTR Number' },
-        { id: 'PAY-05', name: 'Bank Cheque Deposit', code: 'CHEQUE', type: 'Bank', isDefault: false, description: 'Clearing cheque deposit subject to realization' },
-        { id: 'PAY-06', name: 'POS Debit/Credit Card Swipe', code: 'POS_CARD', type: 'Card', isDefault: false, description: 'Swipe machine card payment at school fee counter' }
+        { id: 'PAY-02', name: 'UPI / QR Code Scan (PhonePe / GPay / Paytm)', code: 'UPI', type: 'Digital', isDefault: false, description: 'Instant UPI QR code scan at account desk' }
       ];
       this.saveData();
+    } else {
+      // Ensure only the 2 requested payment types are retained
+      const validCodes = ['CASH', 'UPI'];
+      const filtered = this.data.paymentTypes.filter(p => validCodes.includes(p.code));
+      if (filtered.length !== this.data.paymentTypes.length) {
+        this.data.paymentTypes = [
+          { id: 'PAY-01', name: 'Cash Counter (नकद)', code: 'CASH', type: 'Offline', isDefault: true, description: 'Direct cash fee submission at school counter' },
+          { id: 'PAY-02', name: 'UPI / QR Code Scan (PhonePe / GPay / Paytm)', code: 'UPI', type: 'Digital', isDefault: false, description: 'Instant UPI QR code scan at account desk' }
+        ];
+        this.saveData();
+      }
     }
     return this.data.paymentTypes;
   }
@@ -2038,16 +2045,18 @@ class SchoolService {
       boysCount: boys,
       girlsCount: girls,
       totalTeachers: teachers.length,
+      activeTeachers: teachers.filter(t => !['Resigned', 'Left', 'Inactive'].includes(t.status) && !t.loginDeactivated).length,
+      leftTeachers: teachers.filter(t => ['Resigned', 'Left', 'Inactive'].includes(t.status) || Boolean(t.loginDeactivated)).length,
+      monthlyIncome,
+      monthlyExpense,
+      incomeToDate,
+      expenseToDate,
+      balanceToDate,
       totalTuitionFees: totalTuitionFees,
       totalTransportFees: totalTransportFees,
-      totalDueFees: totalDues,
-      totalCollectedFees: totalCollected,
-      totalRemainingFees: totalRemaining,
-      monthlyIncome: monthlyIncome,
-      monthlyExpense: monthlyExpense,
-      incomeToDate: incomeToDate,
-      expenseToDate: expenseToDate,
-      balanceToDate: balanceToDate,
+      totalFeeDemand: totalDues,
+      totalFeeCollected: totalCollected,
+      totalFeeRemaining: totalRemaining,
       attendanceRate: students.length > 0
         ? (students.reduce((a, b) => a + (b.attendanceSummary?.percentage || 95), 0) / students.length).toFixed(1)
         : '95.0',
@@ -2057,7 +2066,19 @@ class SchoolService {
     };
   }
 
-  collectFee({ studentId, amountPaid, paymentMode, paymentDate, remarks, discount = 0, fine = 0, isFamilyPayment = false, siblingAllocations = [], customReceiptNo = '' }) {
+  collectFee({
+    studentId,
+    amountPaid,
+    paymentMode,
+    paymentDate,
+    remarks,
+    discount = 0,
+    fine = 0,
+    isFamilyPayment = false,
+    siblingAllocations = [],
+    customReceiptNo = '',
+    headAllocation = null
+  }) {
     const primaryStudent = this.getStudentById(studentId);
     const invoiceNo = `REC-2026/${Math.floor(1000 + Math.random() * 9000)}`;
     const effectivePaymentDate = paymentDate || new Date().toISOString().split('T')[0];
@@ -2086,12 +2107,33 @@ class SchoolService {
         const newBalance = Math.max(0, totalDue - currentPaid);
         const newStatus = newBalance === 0 ? "Paid" : currentPaid > 0 ? "Partial" : "Overdue";
 
+        // Head allocation per sibling if provided
+        const sibHeadAlloc = alloc.headAllocation || {
+          tuition: Math.min(allocPaid, Math.max(0, (stu.feeSummary?.tuitionDue || 13500) - (stu.feeSummary?.tuitionPaid || 0))),
+          transport: Math.max(0, allocPaid - Math.min(allocPaid, Math.max(0, (stu.feeSummary?.tuitionDue || 13500) - (stu.feeSummary?.tuitionPaid || 0)))),
+          hostel: 0,
+          oldSession: 0,
+          misc: 0
+        };
+
+        const newTuitionPaid = (stu.feeSummary?.tuitionPaid || 0) + Number(sibHeadAlloc.tuition || 0);
+        const newTransportPaid = (stu.feeSummary?.transportPaid || 0) + Number(sibHeadAlloc.transport || 0);
+        const newHostelPaid = (stu.feeSummary?.hostelPaid || 0) + Number(sibHeadAlloc.hostel || 0);
+        const newOldSessionPaid = (stu.feeSummary?.oldSessionPaid || 0) + Number(sibHeadAlloc.oldSession || 0);
+        const newMiscPaid = (stu.feeSummary?.miscPaid || 0) + Number(sibHeadAlloc.misc || 0);
+
         // Update student individual fee summary
         stu.feeSummary = {
+          ...stu.feeSummary,
           totalDue,
           totalPaid: currentPaid,
           balance: newBalance,
-          status: newStatus
+          status: newStatus,
+          tuitionPaid: newTuitionPaid,
+          transportPaid: newTransportPaid,
+          hostelPaid: newHostelPaid,
+          oldSessionPaid: newOldSessionPaid,
+          miscPaid: newMiscPaid
         };
 
         // Record individual sub-invoice for student records & individual slip
@@ -2118,7 +2160,8 @@ class SchoolService {
           isCombinedFamilyInvoice: false,
           familyReceiptRef: receiptNo,
           primaryStudentName: primaryStudent?.name,
-          primaryStudentId: primaryStudent?.id
+          primaryStudentId: primaryStudent?.id,
+          headAllocation: sibHeadAlloc
         };
 
         this.data.feeInvoices.unshift(subInvoice);
@@ -2131,7 +2174,8 @@ class SchoolService {
           allocatedPaid: allocPaid,
           remainingBalance: newBalance,
           totalDue: totalDue,
-          status: newStatus
+          status: newStatus,
+          headAllocation: sibHeadAlloc
         });
       });
 
@@ -2164,20 +2208,52 @@ class SchoolService {
       return masterInvoice;
     }
 
-    // CASE 2: SINGLE STUDENT PAYMENT
+    // CASE 2: SINGLE STUDENT PAYMENT WITH HEAD-WISE ALLOCATION
+    const effectiveHeadAlloc = headAllocation || {
+      tuition: Number(amountPaid),
+      transport: 0,
+      hostel: 0,
+      oldSession: 0,
+      misc: 0
+    };
+
     const currentPaid = (primaryStudent?.feeSummary?.totalPaid || 0) + Number(amountPaid);
     const totalDue = primaryStudent?.feeSummary?.totalDue || 45000;
     const newBalance = Math.max(0, totalDue - currentPaid);
     const newStatus = newBalance === 0 ? "Paid" : "Partial";
 
     if (primaryStudent) {
+      const prevTuitionPaid = primaryStudent.feeSummary?.tuitionPaid || 0;
+      const prevTransportPaid = primaryStudent.feeSummary?.transportPaid || 0;
+      const prevHostelPaid = primaryStudent.feeSummary?.hostelPaid || 0;
+      const prevOldSessionPaid = primaryStudent.feeSummary?.oldSessionPaid || 0;
+      const prevMiscPaid = primaryStudent.feeSummary?.miscPaid || 0;
+
       primaryStudent.feeSummary = {
+        ...primaryStudent.feeSummary,
         totalDue,
         totalPaid: currentPaid,
         balance: newBalance,
-        status: newStatus
+        status: newStatus,
+        tuitionPaid: prevTuitionPaid + Number(effectiveHeadAlloc.tuition || 0),
+        transportPaid: prevTransportPaid + Number(effectiveHeadAlloc.transport || 0),
+        hostelPaid: prevHostelPaid + Number(effectiveHeadAlloc.hostel || 0),
+        oldSessionPaid: prevOldSessionPaid + Number(effectiveHeadAlloc.oldSession || 0),
+        miscPaid: prevMiscPaid + Number(effectiveHeadAlloc.misc || 0)
       };
     }
+
+    // Construct human-friendly feeType description based on paid heads
+    const paidHeadNames = [];
+    if (Number(effectiveHeadAlloc.tuition) > 0) paidHeadNames.push('Tuition');
+    if (Number(effectiveHeadAlloc.transport) > 0) paidHeadNames.push('Transport');
+    if (Number(effectiveHeadAlloc.hostel) > 0) paidHeadNames.push('Hostel');
+    if (Number(effectiveHeadAlloc.oldSession) > 0) paidHeadNames.push('Old Session Dues');
+    if (Number(effectiveHeadAlloc.misc) > 0) paidHeadNames.push('Misc');
+    
+    const feeDescription = paidHeadNames.length > 0 
+      ? `${paidHeadNames.join(' + ')} Fee Payment` 
+      : (remarks || "School Fee Installment");
 
     const newInvoice = {
       id: `INV-2026-${Date.now().toString().slice(-4)}`,
@@ -2187,7 +2263,7 @@ class SchoolService {
       studentName: primaryStudent?.name || "Student",
       class: `${primaryStudent?.class || "Class 10"}-${primaryStudent?.section || "A"}`,
       rollNo: primaryStudent?.rollNo || "101",
-      feeType: remarks || "Term 2 Tuition & Development Fee",
+      feeType: remarks ? `${feeDescription} (${remarks})` : feeDescription,
       amount: totalDue,
       discount: Number(discount),
       fine: Number(fine),
@@ -2198,7 +2274,8 @@ class SchoolService {
       status: newStatus,
       paymentMode: paymentMode || 'Cash',
       transactionId: txnId,
-      isCombinedFamilyInvoice: false
+      isCombinedFamilyInvoice: false,
+      headAllocation: effectiveHeadAlloc
     };
 
     this.data.feeInvoices.unshift(newInvoice);

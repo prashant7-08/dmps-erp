@@ -102,12 +102,11 @@ export const navigationGroups = [
     label: 'STUDENT ACCOUNTING',
     icon: CreditCard,
     items: [
-      { id: 'fees-pos', targetTab: 'fees', subTab: 'pos', label: 'Fee Collect / POS Counter', badge: 'POS' },
-      { id: 'fees-dues', targetTab: 'fees', subTab: 'dues', label: 'Due List & Reminders (₹1.05 Cr)', badge: 'Due' },
-      { id: 'fees-allocation', targetTab: 'fees', subTab: 'allocation', label: 'Fees Allocation', badge: null },
-      { id: 'fees-types', targetTab: 'fees', subTab: 'types', label: 'Fees Types & Groups', badge: null },
-      { id: 'fees-offline', targetTab: 'fees', subTab: 'offline', label: 'Offline Bank Payments', badge: null },
-      { id: 'fees-siblings', targetTab: 'fees', subTab: 'siblings', label: 'Setup Siblings Discount', badge: null }
+      { id: 'fees-pos', label: 'Fee Collect / POS Counter', badge: 'POS' },
+      { id: 'fees-dues', label: 'Due List & Reminders', badge: 'Due' },
+      { id: 'fees-allocation', label: 'Fees Allocation', badge: null },
+      { id: 'fees-types', label: 'Fees Types & Groups', badge: null },
+      { id: 'fees-siblings', label: 'Setup Siblings Discount', badge: null }
     ]
   },
   {
@@ -369,7 +368,7 @@ export const Sidebar = ({
       return;
     }
 
-    const tabToSet = item.targetTab || item.id;
+    const tabToSet = item.id || item.targetTab;
     setActiveTab(tabToSet);
     if (onClose) onClose();
     if (setIsOpen) setIsOpen(false);
@@ -377,9 +376,9 @@ export const Sidebar = ({
 
   const isItemActive = (item) => {
     if (item.isSingle) {
-      return activeTab === item.targetTab;
+      return activeTab === item.targetTab || activeTab === item.id;
     }
-    return activeTab === item.id;
+    return activeTab === item.id || (item.targetTab && activeTab === item.targetTab);
   };
 
   const handleClose = () => {

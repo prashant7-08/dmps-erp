@@ -170,34 +170,52 @@ export const PrintableFeeReceipt = ({ invoice, schoolInfo, onPrint }) => {
           <table className="w-full text-left text-xs border-collapse border border-slate-300 mb-5">
             <thead>
               <tr className="bg-slate-100 font-bold text-slate-900">
-                <th className="border border-slate-300 px-3 py-2">Sl.</th>
-                <th className="border border-slate-300 px-3 py-2">Particulars / Fee Description</th>
-                <th className="border border-slate-300 px-3 py-2 text-right">Amount (₹)</th>
+                <th className="border border-slate-300 px-3 py-2 w-12 text-center">Sl.</th>
+                <th className="border border-slate-300 px-3 py-2">Particulars / Fee Head Description</th>
+                <th className="border border-slate-300 px-3 py-2 text-right">Amount Paid (₹)</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="border border-slate-300 px-3 py-2">1</td>
-                <td className="border border-slate-300 px-3 py-2 font-semibold">{invoice.feeType}</td>
-                <td className="border border-slate-300 px-3 py-2 text-right font-bold">₹{invoice.paidAmount?.toLocaleString('en-IN')}</td>
-              </tr>
+              {(() => {
+                const ha = invoice.headAllocation;
+                const rows = [];
+                if (ha) {
+                  if (Number(ha.tuition) > 0) rows.push({ title: '🎓 School / Tuition Fee (शिक्षण शुल्क)', amount: Number(ha.tuition) });
+                  if (Number(ha.transport) > 0) rows.push({ title: '🚌 Transport / Bus Fare (वाहन शुल्क)', amount: Number(ha.transport) });
+                  if (Number(ha.hostel) > 0) rows.push({ title: '🏢 Hostel Accommodation Fee (छात्रावास शुल्क)', amount: Number(ha.hostel) });
+                  if (Number(ha.oldSession) > 0) rows.push({ title: '📜 Old Session Dues Clearance (गत वर्ष बकाया)', amount: Number(ha.oldSession) });
+                  if (Number(ha.misc) > 0) rows.push({ title: '📦 Miscellaneous Charges (अन्य शुल्क)', amount: Number(ha.misc) });
+                }
+
+                if (rows.length === 0) {
+                  rows.push({ title: invoice.feeType || 'School Academic Fee Installment', amount: invoice.paidAmount });
+                }
+
+                return rows.map((r, i) => (
+                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                    <td className="border border-slate-300 px-3 py-2 text-center font-bold text-slate-500">{i + 1}</td>
+                    <td className="border border-slate-300 px-3 py-2 font-bold text-slate-900">{r.title}</td>
+                    <td className="border border-slate-300 px-3 py-2 text-right font-mono font-black text-emerald-700">₹{r.amount?.toLocaleString('en-IN')}</td>
+                  </tr>
+                ));
+              })()}
               {invoice.discount > 0 && (
                 <tr className="text-emerald-700">
-                  <td className="border border-slate-300 px-3 py-1.5">-</td>
+                  <td className="border border-slate-300 px-3 py-1.5 text-center">-</td>
                   <td className="border border-slate-300 px-3 py-1.5 font-medium">Special Concession / Sibling Discount</td>
-                  <td className="border border-slate-300 px-3 py-1.5 text-right">-₹{invoice.discount?.toLocaleString('en-IN')}</td>
+                  <td className="border border-slate-300 px-3 py-1.5 text-right font-mono font-bold">-₹{invoice.discount?.toLocaleString('en-IN')}</td>
                 </tr>
               )}
               {invoice.fine > 0 && (
                 <tr className="text-rose-700">
-                  <td className="border border-slate-300 px-3 py-1.5">-</td>
+                  <td className="border border-slate-300 px-3 py-1.5 text-center">-</td>
                   <td className="border border-slate-300 px-3 py-1.5 font-medium">Late Payment Surcharge / Fine</td>
-                  <td className="border border-slate-300 px-3 py-1.5 text-right">+₹{invoice.fine?.toLocaleString('en-IN')}</td>
+                  <td className="border border-slate-300 px-3 py-1.5 text-right font-mono font-bold">+₹{invoice.fine?.toLocaleString('en-IN')}</td>
                 </tr>
               )}
-              <tr className="bg-slate-50 font-black text-sm text-slate-900 border-t-2 border-slate-800">
-                <td className="border border-slate-300 px-3 py-2 text-right" colSpan={2}>TOTAL AMOUNT PAID:</td>
-                <td className="border border-slate-300 px-3 py-2 text-right text-emerald-700">₹{invoice.paidAmount?.toLocaleString('en-IN')}</td>
+              <tr className="bg-slate-100 font-black text-sm text-slate-900 border-t-2 border-slate-800">
+                <td className="border border-slate-300 px-3 py-2 text-right uppercase" colSpan={2}>TOTAL AMOUNT PAID:</td>
+                <td className="border border-slate-300 px-3 py-2 text-right font-mono text-emerald-700 text-base">₹{invoice.paidAmount?.toLocaleString('en-IN')}</td>
               </tr>
             </tbody>
           </table>

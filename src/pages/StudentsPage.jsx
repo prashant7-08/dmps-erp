@@ -93,10 +93,15 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   const [isBulkDeactivateModalOpen, setIsBulkDeactivateModalOpen] = useState(false);
   const [studentToDeactivate, setStudentToDeactivate] = useState(null);
 
-  // 1-Click Fee Collection Modal States
+  // 1-Click Fee Collection Modal States (Head-Wise Itemized System)
   const [isFeeModalOpen, setIsFeeModalOpen] = useState(false);
   const [studentForFee, setStudentForFee] = useState(null);
   const [feeForm, setFeeForm] = useState({
+    tuitionPay: '',
+    transportPay: '',
+    hostelPay: '',
+    oldSessionPay: '',
+    miscPay: '',
     amount: '',
     paymentMode: 'Cash',
     paymentDate: new Date().toISOString().split('T')[0],
@@ -131,9 +136,21 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
     setNewMiscTitle('');
     setNewMiscAmount('');
 
-    const defaultDue = student.feeSummary?.balance || 0;
+    const tuitionRem = Math.max(0, (student.feeSummary?.tuitionDue || 13500) - (student.feeSummary?.tuitionPaid || 0));
+    const transportRem = Math.max(0, (student.feeSummary?.transportDue11Months || 0) - (student.feeSummary?.transportPaid || 0));
+    const hostelRem = Math.max(0, (student.feeSummary?.hostelDue || 0) - (student.feeSummary?.hostelPaid || 0));
+    const oldSessionRem = Math.max(0, (student.feeSummary?.oldSessionDues || 0) - (student.feeSummary?.oldSessionPaid || 0));
+    const miscRem = Math.max(0, (student.feeSummary?.miscellaneousDue || 0) - (student.feeSummary?.miscPaid || 0));
+
+    const totalDue = tuitionRem + transportRem + hostelRem + oldSessionRem + miscRem;
+
     setFeeForm({
-      amount: defaultDue > 0 ? defaultDue : 1000,
+      tuitionPay: tuitionRem > 0 ? tuitionRem : '',
+      transportPay: transportRem > 0 ? transportRem : '',
+      hostelPay: hostelRem > 0 ? hostelRem : '',
+      oldSessionPay: oldSessionRem > 0 ? oldSessionRem : '',
+      miscPay: miscRem > 0 ? miscRem : '',
+      amount: totalDue > 0 ? totalDue : 1000,
       paymentMode: 'Cash',
       paymentDate: new Date().toISOString().split('T')[0],
       discount: 0,
@@ -220,7 +237,14 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
         paymentDate: feeForm.paymentDate,
         remarks: feeForm.remarks,
         discount: Number(feeForm.discount) || 0,
-        customReceiptNo: feeForm.receiptNo
+        customReceiptNo: feeForm.receiptNo,
+        headAllocation: {
+          tuition: Number(feeForm.tuitionPay || 0),
+          transport: Number(feeForm.transportPay || 0),
+          hostel: Number(feeForm.hostelPay || 0),
+          oldSession: Number(feeForm.oldSessionPay || 0),
+          misc: Number(feeForm.miscPay || 0)
+        }
       });
 
       refreshStudents();
@@ -2477,31 +2501,276 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 )}
               </div>
 
-              {/* Amount to Collect */}
-              <div>
-                <div className="flex justify-between items-center mb-1">
-                  <label className="font-bold text-slate-700 dark:text-slate-300">
-                    Amount to Collect (₹) <span className="text-rose-500">*</span>
-                  </label>
-                  <button
-                    type="button"
-                    onClick={() => setFeeForm(prev => ({ ...prev, amount: studentForFee.feeSummary?.balance || 0 }))}
-                    className="text-[10px] font-bold text-indigo-600 hover:underline cursor-pointer"
-                  >
-                    Pay Full Balance (₹{Number(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')})
-                  </button>
-                </div>
-                <input
-                  type="number"
-                  required
-                  min={1}
-                  max={studentForFee.feeSummary?.balance || 999999}
-                  value={feeForm.amount}
-                  onChange={(e) => setFeeForm(prev => ({ ...prev, amount: e.target.value }))}
-                  placeholder="Enter fee amount collected..."
-                  className="w-full p-3 rounded-xl border-2 border-indigo-500 bg-white dark:bg-slate-800 font-mono font-black text-base text-slate-900 dark:text-white shadow-sm focus:ring-2 focus:ring-indigo-400"
-                />
-              </div>
+              {/* 🎯 Head-Wise Fee Collection Inputs (मद-वार फीस भुगतान) */}
+              {(() => {
+                const tuitionDue = studentForFee.feeSummary?.tuitionDue || 13500;
+                const tuitionPaid = studentForFee.feeSummary?.tuitionPaid || 0;
+                const tuitionRem = Math.max(0, tuitionDue - tuitionPaid);
+
+                const transportDue = studentForFee.feeSummary?.transportDue11Months || 0;
+                const transportPaid = studentForFee.feeSummary?.transportPaid || 0;
+                const transportRem = Math.max(0, transportDue - transportPaid);
+
+                const hostelDue = studentForFee.feeSummary?.hostelDue || 0;
+                const hostelPaid = studentForFee.feeSummary?.hostelPaid || 0;
+                const hostelRem = Math.max(0, hostelDue - hostelPaid);
+
+                const oldSessionDue = studentForFee.feeSummary?.oldSessionDues || 0;
+                const oldSessionPaid = studentForFee.feeSummary?.oldSessionPaid || 0;
+                const oldSessionRem = Math.max(0, oldSessionDue - oldSessionPaid);
+
+                const miscDue = studentForFee.feeSummary?.miscellaneousDue || 0;
+                const miscPaid = studentForFee.feeSummary?.miscPaid || 0;
+                const miscRem = Math.max(0, miscDue - miscPaid);
+
+                const totalRemBalance = tuitionRem + transportRem + hostelRem + oldSessionRem + miscRem;
+
+                const updateHeadAmount = (head, val) => {
+                  const numVal = val === '' ? '' : Number(val);
+                  setFeeForm(prev => {
+                    const next = { ...prev, [head]: numVal };
+                    const sum = Number(next.tuitionPay || 0) + Number(next.transportPay || 0) + Number(next.hostelPay || 0) + Number(next.oldSessionPay || 0) + Number(next.miscPay || 0);
+                    next.amount = sum;
+                    return next;
+                  });
+                };
+
+                const setPayAll = () => {
+                  setFeeForm(prev => ({
+                    ...prev,
+                    tuitionPay: tuitionRem > 0 ? tuitionRem : '',
+                    transportPay: transportRem > 0 ? transportRem : '',
+                    hostelPay: hostelRem > 0 ? hostelRem : '',
+                    oldSessionPay: oldSessionRem > 0 ? oldSessionRem : '',
+                    miscPay: miscRem > 0 ? miscRem : '',
+                    amount: totalRemBalance
+                  }));
+                };
+
+                const setPayTuitionOnly = () => {
+                  setFeeForm(prev => ({
+                    ...prev,
+                    tuitionPay: tuitionRem,
+                    transportPay: '',
+                    hostelPay: '',
+                    oldSessionPay: '',
+                    miscPay: '',
+                    amount: tuitionRem
+                  }));
+                };
+
+                const setPayTransportOnly = () => {
+                  setFeeForm(prev => ({
+                    ...prev,
+                    tuitionPay: '',
+                    transportPay: transportRem,
+                    hostelPay: '',
+                    oldSessionPay: '',
+                    miscPay: '',
+                    amount: transportRem
+                  }));
+                };
+
+                return (
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
+                      <span className="text-xs font-black text-slate-800 dark:text-slate-200 uppercase tracking-wide flex items-center gap-1.5">
+                        <CreditCard className="w-4 h-4 text-emerald-600" /> Head-Wise Fee Allocation (मद-वार फीस चयन)
+                      </span>
+                      <div className="flex items-center gap-2">
+                        {tuitionRem > 0 && (
+                          <button
+                            type="button"
+                            onClick={setPayTuitionOnly}
+                            className="px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 text-indigo-700 dark:text-indigo-300 font-bold text-[10px] cursor-pointer"
+                          >
+                            🎓 Pay Tuition Only (₹{tuitionRem.toLocaleString('en-IN')})
+                          </button>
+                        )}
+                        {transportRem > 0 && (
+                          <button
+                            type="button"
+                            onClick={setPayTransportOnly}
+                            className="px-2.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-950/60 hover:bg-amber-100 text-amber-700 dark:text-amber-300 font-bold text-[10px] cursor-pointer"
+                          >
+                            🚌 Pay Bus Only (₹{transportRem.toLocaleString('en-IN')})
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          onClick={setPayAll}
+                          className="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 text-emerald-700 dark:text-emerald-300 font-bold text-[10px] cursor-pointer"
+                        >
+                          ⚡ Pay All Due (₹{totalRemBalance.toLocaleString('en-IN')})
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Head-Wise Itemized Table */}
+                    <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden">
+                      <table className="w-full text-left text-xs">
+                        <thead className="bg-slate-100 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-300 text-[11px]">
+                          <tr>
+                            <th className="p-2.5">Fee Head</th>
+                            <th className="p-2.5 text-right">Total Due</th>
+                            <th className="p-2.5 text-right">Paid So Far</th>
+                            <th className="p-2.5 text-right">Balance Due</th>
+                            <th className="p-2.5 text-right">Paying Now (₹)</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                          {/* 1. Tuition Fee */}
+                          <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                            <td className="p-2.5 font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                              <span>🎓</span> School / Tuition Fee
+                            </td>
+                            <td className="p-2.5 text-right font-mono text-slate-600 dark:text-slate-300">₹{tuitionDue.toLocaleString('en-IN')}</td>
+                            <td className="p-2.5 text-right font-mono text-emerald-600">₹{tuitionPaid.toLocaleString('en-IN')}</td>
+                            <td className="p-2.5 text-right font-mono font-bold text-rose-600">₹{tuitionRem.toLocaleString('en-IN')}</td>
+                            <td className="p-2.5 text-right">
+                              <div className="flex items-center justify-end gap-1">
+                                <input
+                                  type="number"
+                                  min={0}
+                                  max={tuitionRem}
+                                  placeholder="0"
+                                  value={feeForm.tuitionPay}
+                                  onChange={(e) => updateHeadAmount('tuitionPay', e.target.value)}
+                                  className="w-28 p-1.5 rounded-lg border-2 border-indigo-400 dark:border-indigo-600 font-mono font-black text-right text-indigo-700 dark:text-indigo-300 bg-white dark:bg-slate-900 text-xs"
+                                />
+                                {tuitionRem > 0 && (
+                                  <button
+                                    type="button"
+                                    onClick={() => updateHeadAmount('tuitionPay', tuitionRem)}
+                                    className="px-1.5 py-1 text-[10px] font-bold text-indigo-600 bg-indigo-50 dark:bg-indigo-950 rounded hover:bg-indigo-100"
+                                    title="Fill full tuition fee"
+                                  >
+                                    Full
+                                  </button>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+
+                          {/* 2. Transport Fee */}
+                          {(transportDue > 0 || studentForFee.transportOpted || studentForFee.route) && (
+                            <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                              <td className="p-2.5 font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                                <span>🚌</span> Bus / Transport Fee (11 Mo.)
+                              </td>
+                              <td className="p-2.5 text-right font-mono text-slate-600 dark:text-slate-300">₹{transportDue.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right font-mono text-emerald-600">₹{transportPaid.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right font-mono font-bold text-rose-600">₹{transportRem.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right">
+                                <div className="flex items-center justify-end gap-1">
+                                  <input
+                                    type="number"
+                                    min={0}
+                                    max={transportRem}
+                                    placeholder="0"
+                                    value={feeForm.transportPay}
+                                    onChange={(e) => updateHeadAmount('transportPay', e.target.value)}
+                                    className="w-28 p-1.5 rounded-lg border border-amber-400 dark:border-amber-600 font-mono font-bold text-right text-amber-700 dark:text-amber-300 bg-white dark:bg-slate-900 text-xs"
+                                  />
+                                  {transportRem > 0 && (
+                                    <button
+                                      type="button"
+                                      onClick={() => updateHeadAmount('transportPay', transportRem)}
+                                      className="px-1.5 py-1 text-[10px] font-bold text-amber-600 bg-amber-50 dark:bg-amber-950 rounded hover:bg-amber-100"
+                                      title="Fill full transport fee"
+                                    >
+                                      Full
+                                    </button>
+                                  )}
+                                </div>
+                              </td>
+                            </tr>
+                          )}
+
+                          {/* 3. Hostel Fee */}
+                          {(hostelDue > 0 || studentForFee.hostelOpted) && (
+                            <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                              <td className="p-2.5 font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                                <span>🏢</span> Hostel Accommodation Fee
+                              </td>
+                              <td className="p-2.5 text-right font-mono text-slate-600 dark:text-slate-300">₹{hostelDue.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right font-mono text-emerald-600">₹{hostelPaid.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right font-mono font-bold text-rose-600">₹{hostelRem.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right">
+                                <input
+                                  type="number"
+                                  min={0}
+                                  max={hostelRem}
+                                  placeholder="0"
+                                  value={feeForm.hostelPay}
+                                  onChange={(e) => updateHeadAmount('hostelPay', e.target.value)}
+                                  className="w-28 p-1.5 rounded-lg border border-slate-300 dark:border-slate-600 font-mono font-bold text-right bg-white dark:bg-slate-900 text-xs"
+                                />
+                              </td>
+                            </tr>
+                          )}
+
+                          {/* 4. Old Session Dues */}
+                          {oldSessionDue > 0 && (
+                            <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                              <td className="p-2.5 font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                                <span>📜</span> Old Session Arrears (गत वर्ष बकाया)
+                              </td>
+                              <td className="p-2.5 text-right font-mono text-slate-600 dark:text-slate-300">₹{oldSessionDue.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right font-mono text-emerald-600">₹{oldSessionPaid.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right font-mono font-bold text-rose-600">₹{oldSessionRem.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right">
+                                <input
+                                  type="number"
+                                  min={0}
+                                  max={oldSessionRem}
+                                  placeholder="0"
+                                  value={feeForm.oldSessionPay}
+                                  onChange={(e) => updateHeadAmount('oldSessionPay', e.target.value)}
+                                  className="w-28 p-1.5 rounded-lg border border-rose-400 font-mono font-bold text-right text-rose-700 bg-white dark:bg-slate-900 text-xs"
+                                />
+                              </td>
+                            </tr>
+                          )}
+
+                          {/* 5. Miscellaneous Charges */}
+                          {miscDue > 0 && (
+                            <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                              <td className="p-2.5 font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                                <span>📦</span> Miscellaneous Charges
+                              </td>
+                              <td className="p-2.5 text-right font-mono text-slate-600 dark:text-slate-300">₹{miscDue.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right font-mono text-emerald-600">₹{miscPaid.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right font-mono font-bold text-rose-600">₹{miscRem.toLocaleString('en-IN')}</td>
+                              <td className="p-2.5 text-right">
+                                <input
+                                  type="number"
+                                  min={0}
+                                  max={miscRem}
+                                  placeholder="0"
+                                  value={feeForm.miscPay}
+                                  onChange={(e) => updateHeadAmount('miscPay', e.target.value)}
+                                  className="w-28 p-1.5 rounded-lg border border-slate-300 dark:border-slate-600 font-mono font-bold text-right bg-white dark:bg-slate-900 text-xs"
+                                />
+                              </td>
+                            </tr>
+                          )}
+                        </tbody>
+                        <tfoot className="bg-slate-100 dark:bg-slate-800 font-black border-t-2 border-slate-300 dark:border-slate-700">
+                          <tr>
+                            <td colSpan={4} className="p-2.5 text-right text-slate-900 dark:text-white uppercase">
+                              TOTAL AMOUNT TO COLLECT (कुल देय राशि):
+                            </td>
+                            <td className="p-2.5 text-right font-mono text-emerald-600 text-sm">
+                              ₹{Number(feeForm.amount || 0).toLocaleString('en-IN')}
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                );
+              })()}
 
               {/* Collection Date, Payment Mode & Receipt No */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -2525,10 +2794,8 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                     onChange={(e) => setFeeForm(prev => ({ ...prev, paymentMode: e.target.value }))}
                     className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-slate-900 dark:text-white"
                   >
-                    <option value="Cash">💵 Cash</option>
-                    <option value="UPI / Online">📱 UPI / QR Code / Online</option>
-                    <option value="Bank Transfer (NEFT/RTGS)">🏦 Bank Transfer</option>
-                    <option value="Cheque">📜 Cheque</option>
+                    <option value="Cash">💵 Cash Counter (नकद)</option>
+                    <option value="UPI / Online">📱 UPI / QR Code Scan</option>
                   </select>
                 </div>
 
