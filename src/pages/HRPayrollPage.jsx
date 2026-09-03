@@ -62,13 +62,23 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
   const [selectedMonth, setSelectedMonth] = useState('August 2026');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // 1. Salary Templates State
+  // 1. School Salary Grades (Exact match to DMPS Grades)
   const [templates, setTemplates] = useState([
-    { id: 'TPL-01', name: 'Senior PGT Faculty', basic: 35000, da: 7000, hra: 5000, medical: 1500, pf: 4200, tax: 1500, net: 42800 },
-    { id: 'TPL-02', name: 'TGT Subject Teacher', basic: 26000, da: 5200, hra: 3800, medical: 1200, pf: 3120, tax: 1000, net: 32080 },
-    { id: 'TPL-03', name: 'PRT / Primary Teacher', basic: 18000, da: 3600, hra: 2500, medical: 1000, pf: 2160, tax: 500, net: 22440 },
-    { id: 'TPL-04', name: 'Administrative Staff', basic: 20000, da: 4000, hra: 3000, medical: 1000, pf: 2400, tax: 600, net: 25000 },
-    { id: 'TPL-05', name: 'Bus Driver & Support Staff', basic: 14000, da: 2800, hra: 1800, medical: 800, pf: 1680, tax: 0, net: 17720 }
+    { id: 'GRD-3000', name: '3000', basic: 3000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-3250', name: '3250', basic: 3250, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-3500', name: '3500', basic: 3500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-4000', name: '4000', basic: 4000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-4500', name: '4500', basic: 4500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-4800', name: '4800', basic: 4800, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-5000', name: '5000', basic: 5000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-5500', name: '5500', basic: 5500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-6500', name: '6500', basic: 6500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-7000', name: '7000', basic: 7000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-9400', name: '9400', basic: 9400, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-10000', name: '10000', basic: 10000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-10500', name: '10500', basic: 10500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-15000', name: '15000', basic: 15000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
+    { id: 'GRD-25000', name: '25000', basic: 25000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' }
   ]);
 
   // 2. Staff Salary Assignment Roster
@@ -79,12 +89,10 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       employeeId: t.employeeId || `EMP-2026-${String(idx + 1).padStart(3, '0')}`,
       designation: t.designation || 'Teacher',
       department: t.department || 'Academics',
-      assignedTemplate: idx < 5 ? 'Senior PGT Faculty' : idx < 12 ? 'TGT Subject Teacher' : idx < 18 ? 'PRT / Primary Teacher' : 'Bus Driver & Support Staff',
-      bankName: 'State Bank of India (SBI)',
-      accountNo: `394820100${2300 + idx}`,
-      ifsc: 'SBIN0001248',
-      panNo: `ABCPR${3820 + idx}F`,
-      uan: `101489201${100 + idx}`
+      assignedSalary: t.basicSalary || t.salary?.basic || t.salary || 4000,
+      paymentMode: 'UPI / PhonePe / GPay',
+      mobile: t.phone || t.mobile || '9719476606',
+      upiId: t.upiId || t.phone || t.mobile || '9719476606@upi'
     }));
   });
 
@@ -132,9 +140,9 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
   const [applyLeaveForm, setApplyLeaveForm] = useState({ staffName: 'SHWETA RAGHAV', category: 'Casual Leave (CL)', fromDate: '', toDate: '', totalDays: '1', reason: '' });
   const [awardForm, setAwardForm] = useState({ title: '', recipient: '', prize: '', category: 'Academic Excellence' });
 
-  // Total Payroll Calculation
+  // Total Payroll Calculation (Sum of actual staff salaries)
   const totalPayrollExpenditure = useMemo(() => {
-    return teachers.reduce((acc, t) => acc + (t.salary?.netSalary || 32000), 0) || 736000;
+    return teachers.reduce((acc, t) => acc + (t.basicSalary || t.salary?.basic || t.salary || 4000), 0);
   }, [teachers]);
 
   // Individual Salary Payment Modal State
@@ -145,19 +153,19 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
     designation: '',
     employeeId: '',
     month: 'August 2026',
-    baseSalary: 30000,
-    absentDays: 0,
-    leaveDeduction: 0,
+    baseSalary: 25000,
+    deductionAmount: 0,
+    deductionReason: '',
     advanceDeduction: 0,
     bonus: 0,
-    netPayable: 30000,
-    paidAmount: 30000,
-    paymentMode: 'Bank Transfer (NEFT/RTGS)',
-    remarks: 'Monthly Salary Payment'
+    netPayable: 25000,
+    paidAmount: 25000,
+    paymentMode: 'UPI / PhonePe / GPay',
+    remarks: 'August 2026 Salary'
   });
 
   const handleOpenPaySalary = (staff) => {
-    const base = staff.salary?.netSalary || 32080;
+    const base = staff.basicSalary || staff.salary?.basic || staff.salary || 4000;
     setSalaryPayForm({
       staffId: staff.id,
       staffName: staff.name,
@@ -165,13 +173,13 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       employeeId: staff.employeeId || staff.id,
       month: selectedMonth,
       baseSalary: base,
-      absentDays: 0,
-      leaveDeduction: 0,
+      deductionAmount: 0,
+      deductionReason: '',
       advanceDeduction: 0,
       bonus: 0,
       netPayable: base,
       paidAmount: base,
-      paymentMode: 'Bank Transfer (NEFT/RTGS)',
+      paymentMode: 'UPI / PhonePe / GPay',
       remarks: `${selectedMonth} Salary`
     });
     setIsPaySalaryModalOpen(true);
@@ -181,13 +189,11 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
     setSalaryPayForm(prev => {
       const updated = { ...prev, [field]: value };
       const base = Number(updated.baseSalary) || 0;
-      const absent = Number(updated.absentDays) || 0;
-      const leaveDed = Math.round((base / 30) * absent);
+      const deduction = Number(updated.deductionAmount) || 0;
       const advDed = Number(updated.advanceDeduction) || 0;
       const bon = Number(updated.bonus) || 0;
-      const net = Math.max(0, base - leaveDed - advDed + bon);
+      const net = Math.max(0, base - deduction - advDed + bon);
 
-      updated.leaveDeduction = leaveDed;
       updated.netPayable = net;
       if (field !== 'paidAmount') {
         updated.paidAmount = net;
@@ -352,30 +358,89 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       </div>
 
       {/* ========================================================================= */}
-      {/* 💳 1. PAYROLL - SALARY TEMPLATE */}
+      {/* 💳 1. PAYROLL - SALARY TEMPLATE (Exact match to DMPS Grades) */}
       {/* ========================================================================= */}
       {activeTab === 'template' && (
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {templates.map(tpl => (
-              <div key={tpl.id} className="p-5 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3 hover:border-indigo-400 transition-all">
-                <div className="flex justify-between items-start">
-                  <h4 className="font-bold text-slate-900 dark:text-white text-base">{tpl.name}</h4>
-                  <Badge variant="primary">{tpl.id}</Badge>
-                </div>
-                <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 font-mono">
-                  <div className="flex justify-between"><span>Basic Pay:</span><strong>₹{tpl.basic.toLocaleString('en-IN')}</strong></div>
-                  <div className="flex justify-between text-emerald-600"><span>Dearness Allowance (DA):</span><strong>+₹{tpl.da.toLocaleString('en-IN')}</strong></div>
-                  <div className="flex justify-between text-emerald-600"><span>House Rent Allowance (HRA):</span><strong>+₹{tpl.hra.toLocaleString('en-IN')}</strong></div>
-                  <div className="flex justify-between text-emerald-600"><span>Medical Allowance:</span><strong>+₹{tpl.medical.toLocaleString('en-IN')}</strong></div>
-                  <div className="flex justify-between text-rose-500"><span>EPF Deduction (12%):</span><strong>-₹{tpl.pf.toLocaleString('en-IN')}</strong></div>
-                  <div className="flex justify-between text-rose-500"><span>Professional Tax (TDS):</span><strong>-₹{tpl.tax.toLocaleString('en-IN')}</strong></div>
-                  <div className="flex justify-between pt-2 border-t border-slate-200 dark:border-slate-700 font-black text-slate-900 dark:text-white text-sm">
-                    <span>Net Take-Home Salary:</span><strong className="text-emerald-600">₹{tpl.net.toLocaleString('en-IN')}</strong>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <CreditCard className="w-5 h-5 text-indigo-600" /> Salary Grades & Pay Scales (वेतन श्रेणियां)
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                School Basic Salary Grade slabs (July 2026 onwards) • 100% Direct Remuneration (No Tax/EPF Deductions)
+              </p>
+            </div>
+            <button
+              onClick={() => setIsAddTemplateModalOpen(true)}
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1.5"
+            >
+              <Plus className="w-4 h-4" /> Add Salary Grade
+            </button>
+          </div>
+
+          <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-2xs">
+            <table className="w-full text-left text-xs">
+              <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black uppercase text-[10px]">
+                <tr>
+                  <th className="p-3.5 w-12 text-center">Sl</th>
+                  <th className="p-3.5">Branch</th>
+                  <th className="p-3.5 font-bold">Salary Grades</th>
+                  <th className="p-3.5 font-bold">Basic Salary</th>
+                  <th className="p-3.5 text-center">Overtime Rate (Per Hour)</th>
+                  <th className="p-3.5 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                {templates.map((tpl, idx) => (
+                  <tr key={tpl.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                    <td className="p-3.5 text-center font-mono font-bold text-slate-400">{idx + 1}</td>
+                    <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-300 uppercase text-[11px] tracking-tight">
+                      {tpl.branch || 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)'}
+                    </td>
+                    <td className="p-3.5 font-bold font-mono text-indigo-700 dark:text-indigo-300">
+                      {tpl.name}
+                    </td>
+                    <td className="p-3.5 font-mono font-black text-slate-900 dark:text-white text-sm">
+                      ₹{tpl.basic.toFixed(2)}
+                    </td>
+                    <td className="p-3.5 text-center font-mono text-slate-500">
+                      {tpl.overtimeRate || 0}
+                    </td>
+                    <td className="p-3.5 text-right">
+                      <div className="flex items-center justify-end gap-1.5">
+                        <button
+                          onClick={() => showToast(`Grade ${tpl.name} details: ₹${tpl.basic}/mo`, 'info')}
+                          className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors"
+                          title="View Grade"
+                        >
+                          <FileText className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          onClick={() => showToast(`Edit Grade ${tpl.name}`, 'info')}
+                          className="p-1.5 rounded-lg bg-amber-50 dark:bg-amber-950 text-amber-600 hover:bg-amber-100 dark:hover:bg-amber-900 transition-colors"
+                          title="Edit Grade"
+                        >
+                          <Edit2 className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          onClick={() => {
+                            if (window.confirm(`Delete Grade ${tpl.name}?`)) {
+                              setTemplates(templates.filter(t => t.id !== tpl.id));
+                              showToast(`Grade ${tpl.name} removed`, 'warning');
+                            }
+                          }}
+                          className="p-1.5 rounded-lg bg-rose-50 dark:bg-rose-950 text-rose-600 hover:bg-rose-100 dark:hover:bg-rose-900 transition-colors"
+                          title="Delete Grade"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       )}
@@ -385,15 +450,28 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       {/* ========================================================================= */}
       {activeTab === 'assign' && (
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
-          <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-x-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <Users className="w-5 h-5 text-indigo-600" /> Staff Salary Grade Allocation (कर्मचारी वेतन आवंटन)
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Individual assigned monthly salary grades & payment phone numbers
+              </p>
+            </div>
+            <span className="text-xs font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl">
+              {teachers.length} Assigned Staff
+            </span>
+          </div>
+
+          <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-x-auto shadow-2xs">
             <table className="w-full text-left text-xs">
               <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black uppercase text-[10px]">
                 <tr>
                   <th className="p-3.5">Employee</th>
                   <th className="p-3.5">Department</th>
-                  <th className="p-3.5">Assigned Grade Template</th>
-                  <th className="p-3.5">Bank Account Details</th>
-                  <th className="p-3.5">PAN & EPF UAN</th>
+                  <th className="p-3.5">Assigned Salary Grade (वेतन)</th>
+                  <th className="p-3.5">Payment Mode / UPI Mobile</th>
                   <th className="p-3.5 text-right">Status</th>
                 </tr>
               </thead>
@@ -406,28 +484,29 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                     </td>
                     <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-400">{st.department}</td>
                     <td className="p-3.5">
-                      <select
-                        value={st.assignedTemplate}
-                        onChange={(e) => {
-                          const val = e.target.value;
-                          setStaffAssignments(prev => prev.map(item => item.staffId === st.staffId ? { ...item, assignedTemplate: val } : item));
-                          showToast(`Updated pay grade to ${val} for ${st.name}`, 'info');
-                        }}
-                        className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold text-xs text-indigo-700 dark:text-indigo-300"
-                      >
-                        {templates.map(tpl => (
-                          <option key={tpl.id} value={tpl.name}>{tpl.name} (Net: ₹{tpl.net})</option>
-                        ))}
-                      </select>
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono font-black text-emerald-600 dark:text-emerald-400 text-sm">
+                          ₹{st.assignedSalary.toLocaleString('en-IN')}/mo
+                        </span>
+                        <select
+                          value={st.assignedSalary}
+                          onChange={(e) => {
+                            const val = Number(e.target.value);
+                            setStaffAssignments(prev => prev.map(item => item.staffId === st.staffId ? { ...item, assignedSalary: val } : item));
+                            schoolService.updateTeacher(st.staffId, { basicSalary: val, salary: { basic: val, netSalary: val } });
+                            showToast(`Updated salary to ₹${val.toLocaleString('en-IN')} for ${st.name}`, 'info');
+                          }}
+                          className="p-1 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold text-xs text-indigo-700 dark:text-indigo-300"
+                        >
+                          {templates.map(tpl => (
+                            <option key={tpl.id} value={tpl.basic}>Grade ₹{tpl.basic}</option>
+                          ))}
+                        </select>
+                      </div>
                     </td>
                     <td className="p-3.5 text-xs text-slate-600 dark:text-slate-300 font-mono">
-                      <div>{st.bankName}</div>
-                      <div>A/C: {st.accountNo}</div>
-                      <div className="text-[10px] text-slate-400">IFSC: {st.ifsc}</div>
-                    </td>
-                    <td className="p-3.5 text-xs font-mono text-slate-700 dark:text-slate-300">
-                      <div>PAN: <strong>{st.panNo}</strong></div>
-                      <div>UAN: <strong>{st.uan}</strong></div>
+                      <div className="font-bold text-slate-800 dark:text-slate-200">📱 {st.mobile}</div>
+                      <div className="text-[10px] text-indigo-600 dark:text-indigo-400">UPI: {st.upiId}</div>
                     </td>
                     <td className="p-3.5 text-right">
                       <Badge variant="success">Assigned & Active</Badge>
@@ -445,21 +524,71 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       {/* ========================================================================= */}
       {activeTab === 'payment' && (
         <div className="space-y-5">
+          {/* Top Month Selector & Info Alert */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white dark:bg-slate-900 p-4 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div className="flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-indigo-600" />
+              <div>
+                <span className="text-xs font-bold text-slate-400 uppercase">Select Salary Disbursal Month:</span>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <select
+                    value={selectedMonth}
+                    onChange={(e) => setSelectedMonth(e.target.value)}
+                    className="p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-black text-sm text-slate-900 dark:text-white"
+                  >
+                    <option value="August 2026">August 2026 (Current Active)</option>
+                    <option value="July 2026">July 2026 (Revised Scale Active)</option>
+                    <option value="September 2026">September 2026</option>
+                    <option value="October 2026">October 2026</option>
+                    <option value="November 2026">November 2026</option>
+                    <option value="December 2026">December 2026</option>
+                    <option value="January 2027">January 2027</option>
+                    <option value="February 2027">February 2027</option>
+                    <option value="March 2027">March 2027</option>
+                    <option value="April 2027">April 2027</option>
+                    <option value="May 2027">May 2027</option>
+                    <option value="June 2026 (Summer Vacation)">June 2026 (☀️ Summer Vacation - No Pay)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-xs text-slate-500 font-semibold flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              100% Direct Remuneration (No Tax/EPF Cut)
+            </div>
+          </div>
+
+          {/* June Vacation Special Notice */}
+          {selectedMonth.includes('June') && (
+            <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/50 border border-amber-300 dark:border-amber-800 flex items-start gap-3">
+              <span className="text-2xl">☀️</span>
+              <div>
+                <h4 className="font-black text-amber-900 dark:text-amber-200 text-sm">
+                  June Summer Vacation (ग्रीष्मावकाश) - No Salary Disbursal
+                </h4>
+                <p className="text-xs text-amber-800 dark:text-amber-300 mt-0.5">
+                  As per DMPS school norms, June month is summer vacation and is unpaid. The revised pay scale is active starting July 2026 onwards.
+                </p>
+              </div>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-1">
-              <span className="text-xs font-bold text-slate-400 uppercase">Monthly Payroll Outflow</span>
+              <span className="text-xs font-bold text-slate-400 uppercase">Monthly Salary Outflow (मासिक वेतन)</span>
               <p className="text-2xl font-black font-mono text-slate-900 dark:text-white">₹{totalPayrollExpenditure.toLocaleString('en-IN')}</p>
               <span className="text-[11px] text-slate-500 font-semibold">{teachers.length} Active Teaching & Support Staff</span>
             </div>
             <div className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-1">
-              <span className="text-xs font-bold text-slate-400 uppercase">Total EPF Fund (12%)</span>
-              <p className="text-2xl font-black font-mono text-indigo-600">₹88,320</p>
-              <span className="text-[11px] text-slate-500 font-semibold">Government EPF Account Deposited</span>
+              <span className="text-xs font-bold text-slate-400 uppercase">Salary Structure Mode</span>
+              <p className="text-2xl font-black font-mono text-emerald-600">100% Direct Pay</p>
+              <span className="text-[11px] text-slate-500 font-semibold">No Corporate Tax / EPF Deductions</span>
             </div>
             <div className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-1">
-              <span className="text-xs font-bold text-slate-400 uppercase">Payroll Cycle Status</span>
-              <p className="text-2xl font-black text-emerald-600">Ready to Disburse</p>
-              <span className="text-[11px] text-emerald-600 font-bold">{selectedMonth}</span>
+              <span className="text-xs font-bold text-slate-400 uppercase">Payroll Month</span>
+              <p className="text-2xl font-black text-indigo-600">{selectedMonth}</p>
+              <span className="text-[11px] text-emerald-600 font-bold">Direct UPI / Cash Disbursal</span>
             </div>
           </div>
 
@@ -469,16 +598,15 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                 <tr>
                   <th className="p-3.5">Employee</th>
                   <th className="p-3.5">Designation</th>
-                  <th className="p-3.5">Basic Pay</th>
-                  <th className="p-3.5">Allowances (HRA+DA)</th>
-                  <th className="p-3.5">Deductions (PF+Tax)</th>
-                  <th className="p-3.5">Net Salary</th>
-                  <th className="p-3.5 text-right">Pay Slip</th>
+                  <th className="p-3.5">Monthly Salary (₹)</th>
+                  <th className="p-3.5">Payment Mobile / UPI</th>
+                  <th className="p-3.5">Status</th>
+                  <th className="p-3.5 text-right">Pay Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 {teachers.map(t => {
-                  const s = t.salary || { basic: 26000, hra: 3800, da: 5200, pfDeduction: 3120, taxDeduction: 1000, netSalary: 32080 };
+                  const salary = t.basicSalary || t.salary?.basic || t.salary || 4000;
                   return (
                     <tr key={t.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
                       <td className="p-3.5">
@@ -490,11 +618,19 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                           </div>
                         </div>
                       </td>
-                      <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-300">{t.designation}</td>
-                      <td className="p-3.5 font-mono text-slate-700 dark:text-slate-300">₹{(s.basic || 26000).toLocaleString('en-IN')}</td>
-                      <td className="p-3.5 font-mono text-emerald-600">+₹{((s.hra || 0) + (s.da || 0)).toLocaleString('en-IN')}</td>
-                      <td className="p-3.5 font-mono text-rose-500">-₹{((s.pfDeduction || 0) + (s.taxDeduction || 0)).toLocaleString('en-IN')}</td>
-                      <td className="p-3.5 font-mono font-black text-slate-900 dark:text-white">₹{(s.netSalary || 32080).toLocaleString('en-IN')}</td>
+                      <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-300">
+                        {t.designation} <span className="text-[10px] text-slate-400">({t.department})</span>
+                      </td>
+                      <td className="p-3.5 font-mono font-black text-slate-900 dark:text-white text-sm">
+                        ₹{salary.toLocaleString('en-IN')}
+                      </td>
+                      <td className="p-3.5 font-mono text-slate-600 dark:text-slate-300">
+                        <div>📱 {t.phone || t.mobile || '9719476606'}</div>
+                        <div className="text-[10px] text-indigo-600 dark:text-indigo-400">UPI: {t.upiId || t.phone || t.mobile || '9719476606@upi'}</div>
+                      </td>
+                      <td className="p-3.5">
+                        <Badge variant="success">Active Remuneration</Badge>
+                      </td>
                       <td className="p-3.5 text-right">
                         <div className="flex items-center justify-end gap-1.5">
                           <button
@@ -1445,7 +1581,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                Salary Month
+                Salary Month (वेतन माह)
               </label>
               <select
                 value={salaryPayForm.month}
@@ -1453,25 +1589,31 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                 className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
               >
                 <option value="August 2026">August 2026</option>
+                <option value="July 2026">July 2026 (Revised Scale Active)</option>
                 <option value="September 2026">September 2026</option>
                 <option value="October 2026">October 2026</option>
-                <option value="July 2026">July 2026 (Arrears)</option>
+                <option value="November 2026">November 2026</option>
+                <option value="December 2026">December 2026</option>
+                <option value="January 2027">January 2027</option>
+                <option value="February 2027">February 2027</option>
+                <option value="March 2027">March 2027</option>
+                <option value="April 2027">April 2027</option>
+                <option value="May 2027">May 2027</option>
               </select>
             </div>
 
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                Payment Mode
+                Payment Mode (भुगतान का माध्यम)
               </label>
               <select
                 value={salaryPayForm.paymentMode}
                 onChange={(e) => handleSalaryFormChange('paymentMode', e.target.value)}
                 className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
               >
-                <option value="Direct Bank Transfer (NEFT/RTGS)">Direct Bank Transfer (NEFT/RTGS)</option>
-                <option value="Cash">Cash (Office Chest)</option>
-                <option value="UPI / QR Code">UPI / QR Code</option>
-                <option value="Bank Cheque">Bank Cheque</option>
+                <option value="UPI / PhonePe / GPay">📱 UPI / PhonePe / GPay / QR Scan</option>
+                <option value="Cash">💵 Cash (कैश नकद भुगतान)</option>
+                <option value="Bank Account Transfer">🏦 Direct Bank Transfer</option>
               </select>
             </div>
           </div>
@@ -1479,57 +1621,64 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
           {/* Deductions & Additions */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
             <h4 className="font-black text-slate-900 dark:text-white uppercase text-[11px] tracking-wide">
-              Leave Deductions & Adjustments
+              Deductions & Adjustments (छुट्टी / लोन कटौती व बोनस)
             </h4>
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                  Absent / Unpaid Leaves (Days)
+                  Leave Deduction (कटौती राशि ₹)
                 </label>
                 <input
                   type="number"
                   min="0"
-                  max="31"
-                  value={salaryPayForm.absentDays}
-                  onChange={(e) => handleSalaryFormChange('absentDays', e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
-                  placeholder="0"
+                  value={salaryPayForm.deductionAmount}
+                  onChange={(e) => handleSalaryFormChange('deductionAmount', e.target.value)}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold text-rose-600"
+                  placeholder="₹0"
                 />
-                {salaryPayForm.leaveDeduction > 0 && (
-                  <span className="text-[10px] font-bold text-rose-500 block mt-0.5">
-                    -₹{salaryPayForm.leaveDeduction.toLocaleString('en-IN')} Cut
-                  </span>
-                )}
               </div>
 
               <div>
                 <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                  Advance Salary EMI / Loan Cut
+                  Advance Salary EMI / Loan Cut (₹)
                 </label>
                 <input
                   type="number"
                   min="0"
                   value={salaryPayForm.advanceDeduction}
                   onChange={(e) => handleSalaryFormChange('advanceDeduction', e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold text-rose-600"
                   placeholder="₹0"
                 />
               </div>
 
               <div>
                 <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                  Bonus / Extra Allowance (+)
+                  Bonus / Extra Allowance (+) (₹)
                 </label>
                 <input
                   type="number"
                   min="0"
                   value={salaryPayForm.bonus}
                   onChange={(e) => handleSalaryFormChange('bonus', e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold text-emerald-600"
                   placeholder="₹0"
                 />
               </div>
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
+                Deduction Reason / Remark (कटौती का कारण / टिप्पणी)
+              </label>
+              <input
+                type="text"
+                value={salaryPayForm.deductionReason}
+                onChange={(e) => handleSalaryFormChange('deductionReason', e.target.value)}
+                placeholder="उदा. 2 दिन की अनुपस्थिति / बिना सूचना छुट्टी कट"
+                className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs"
+              />
             </div>
           </div>
 
@@ -1539,7 +1688,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
               <span className="font-black text-indigo-950 dark:text-indigo-200 uppercase">
                 Net Salary Payable This Month:
               </span>
-              <span className="text-lg font-black font-mono text-indigo-700 dark:text-indigo-300">
+              <span className="text-xl font-black font-mono text-emerald-600 dark:text-emerald-400">
                 ₹{salaryPayForm.netPayable.toLocaleString('en-IN')}
               </span>
             </div>
@@ -1579,13 +1728,13 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
 
           <div>
             <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-              Remarks / Transaction Reference
+              Payment Remarks (टिप्पणी)
             </label>
             <input
               type="text"
               value={salaryPayForm.remarks}
               onChange={(e) => handleSalaryFormChange('remarks', e.target.value)}
-              placeholder="e.g. UTR / Cheque No / Monthly Cash Payment"
+              placeholder="e.g. UPI Ref / Cash Disbursed"
               className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs"
             />
           </div>
