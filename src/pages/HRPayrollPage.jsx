@@ -607,8 +607,11 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                     onChange={(e) => setSelectedMonth(e.target.value)}
                     className="p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-black text-sm text-slate-900 dark:text-white"
                   >
-                    <option value="August 2026">August 2026 (Current Active)</option>
+                    <option value="April 2026">April 2026 (Session Start)</option>
+                    <option value="May 2026">May 2026</option>
+                    <option value="June 2026 (Summer Vacation)">June 2026 (☀️ Summer Vacation - No Pay)</option>
                     <option value="July 2026">July 2026 (Revised Scale Active)</option>
+                    <option value="August 2026">August 2026 (Current Active)</option>
                     <option value="September 2026">September 2026</option>
                     <option value="October 2026">October 2026</option>
                     <option value="November 2026">November 2026</option>
@@ -616,9 +619,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                     <option value="January 2027">January 2027</option>
                     <option value="February 2027">February 2027</option>
                     <option value="March 2027">March 2027</option>
-                    <option value="April 2027">April 2027</option>
-                    <option value="May 2027">May 2027</option>
-                    <option value="June 2026 (Summer Vacation)">June 2026 (☀️ Summer Vacation - No Pay)</option>
+                    <option value="April 2027">April 2027 (Next Session Start)</option>
                   </select>
                 </div>
               </div>
