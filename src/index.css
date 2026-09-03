@@ -171,16 +171,23 @@
     display: none !important;
   }
 
-  /* 🖨️ Dedicated Staff Master Register Print Styling */
-  body:has(#printable-staff-register) {
-    background: #ffffff !important;
-  }
-
-  body:has(#printable-staff-register) #root > div > *:not(.fixed) {
+  /* 🖨️ Hide everything on background page when any printable document is open */
+  body:has(#printable-staff-register) #root > div > *:not(.fixed),
+  body:has(#printable-employee-dossier) #root > div > *:not(.fixed),
+  body:has(#printable-fee-receipt) #root > div > *:not(.fixed),
+  body:has(#printable-id-card) #root > div > *:not(.fixed),
+  body:has(#printable-payslip) #root > div > *:not(.fixed),
+  body:has(.printable-area) #root > div > *:not(.fixed) {
     display: none !important;
   }
 
-  #printable-staff-register {
+  /* 📄 Standalone Pure Print Documents */
+  #printable-employee-dossier,
+  #printable-fee-receipt,
+  #printable-id-card,
+  #printable-payslip,
+  #printable-staff-register,
+  .printable-area {
     display: block !important;
     visibility: visible !important;
     position: fixed !important;
@@ -197,15 +204,21 @@
     z-index: 9999999 !important;
   }
 
-  #printable-staff-register * {
+  #printable-employee-dossier *,
+  #printable-fee-receipt *,
+  #printable-id-card *,
+  #printable-payslip *,
+  #printable-staff-register *,
+  .printable-area * {
     visibility: visible !important;
     color: #000000 !important;
   }
 
+  #printable-employee-dossier table,
   #printable-staff-register table {
     width: 100% !important;
     border-collapse: collapse !important;
-    border: 1.5px solid #000000 !important;
+    border: 1px solid #000000 !important;
   }
 
   #printable-staff-register th {

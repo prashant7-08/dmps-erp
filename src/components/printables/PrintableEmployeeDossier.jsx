@@ -46,17 +46,20 @@ export const PrintableEmployeeDossier = ({ employee, schoolInfo, onClose, onPayS
         </div>
       </div>
 
-      {/* 📄 OFFICIAL HALF-A4 / A5 COMPACT MASTER EMPLOYEE DOSSIER */}
-      <div className="bg-white text-slate-950 p-2.5 sm:p-3 rounded-lg border border-slate-300 shadow-sm print:border-none print:p-0 print:m-0 print:shadow-none text-[9px] leading-tight space-y-1 max-w-[720px] mx-auto">
+      {/* 📄 OFFICIAL MASTER EMPLOYEE DOSSIER (A4 1-PAGE PRECISION PRINT) */}
+      <div 
+        id="printable-employee-dossier"
+        className="bg-white text-slate-950 p-4 sm:p-5 rounded-lg border border-slate-300 shadow-sm print:border-none print:p-0 print:m-0 print:shadow-none text-[9.5px] leading-tight space-y-2 max-w-[760px] mx-auto font-sans"
+      >
         
         {/* 1. Official School Header with Monogram */}
-        <div className="border-b-2 border-slate-950 pb-1 text-center">
-          <div className="flex items-center justify-between gap-2">
+        <div className="border-b-2 border-slate-950 pb-1.5 text-center">
+          <div className="flex items-center justify-between gap-3">
             {/* School Monogram */}
             <img
               src="/logo.png"
               alt="DMPS Monogram"
-              className="w-11 h-11 object-contain shrink-0"
+              className="w-12 h-12 object-contain shrink-0"
               onError={(e) => {
                 e.target.style.display = 'none';
               }}

@@ -128,33 +128,33 @@ export const EmployeeProfileDossierModal = ({
               </div>
             </div>
 
-            {/* Quick Action Buttons */}
-            <div className="flex items-center gap-2 flex-wrap justify-end">
+            {/* Quick Action Buttons (All in 1 Clean Single Line) */}
+            <div className="flex items-center gap-1.5 flex-nowrap shrink-0 overflow-x-auto custom-scrollbar py-0.5">
               {onPaySalary && (
                 <button
                   onClick={() => onPaySalary(employee)}
-                  title="Pay Monthly Salary directly right here"
-                  className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black flex items-center gap-1.5 transition-all shadow-md cursor-pointer hover:scale-105"
+                  title="Pay Monthly Salary"
+                  className="px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black text-xs flex items-center gap-1 transition-all shadow-sm cursor-pointer shrink-0 hover:scale-105 active:scale-95 whitespace-nowrap"
                 >
-                  <DollarSign className="w-3.5 h-3.5" /> 💰 Pay Salary
+                  <DollarSign className="w-3 h-3" /> Pay Salary
                 </button>
               )}
 
               <button
                 onClick={() => setIsPrintDossierOpen(true)}
-                title="Print Complete Employee Service Book & Profile"
-                className="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                title="Print Complete Employee Service Record & Dossier"
+                className="px-2.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-1 transition-all shadow-xs cursor-pointer shrink-0 hover:scale-105 active:scale-95 whitespace-nowrap"
               >
-                <Printer className="w-3.5 h-3.5" /> Print Dossier
+                <Printer className="w-3 h-3" /> Dossier
               </button>
 
               {onPrintIdCard && (
                 <button
                   onClick={() => onPrintIdCard(employee)}
                   title="Print ID Card"
-                  className="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+                  className="px-2.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs flex items-center gap-1 transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 whitespace-nowrap"
                 >
-                  <FileText className="w-3.5 h-3.5" /> ID Card
+                  <FileText className="w-3 h-3" /> ID Card
                 </button>
               )}
 
@@ -162,9 +162,9 @@ export const EmployeeProfileDossierModal = ({
                 <button
                   onClick={() => onPrintPaySlip(employee)}
                   title="Print Monthly Pay Slip"
-                  className="px-3 py-2 rounded-xl bg-emerald-600/80 hover:bg-emerald-600 text-white font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+                  className="px-2.5 py-1.5 rounded-xl bg-emerald-600/80 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1 transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 whitespace-nowrap"
                 >
-                  <DollarSign className="w-3.5 h-3.5" /> Pay Slip
+                  <DollarSign className="w-3 h-3" /> Payslip
                 </button>
               )}
 
@@ -172,9 +172,9 @@ export const EmployeeProfileDossierModal = ({
                 <button
                   onClick={() => onEdit(employee)}
                   title="Edit Profile Information"
-                  className="px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+                  className="px-2.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-1 transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 whitespace-nowrap"
                 >
-                  <Edit className="w-3.5 h-3.5" /> Edit Profile
+                  <Edit className="w-3 h-3" /> Edit
                 </button>
               )}
             </div>

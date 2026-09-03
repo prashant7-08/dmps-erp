@@ -43,6 +43,7 @@ import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
 import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import { PrintablePaySlip } from '../components/printables/PrintablePaySlip';
+import { PrintableEmployeeDossier } from '../components/printables/PrintableEmployeeDossier';
 import { EmployeeProfileDossierModal } from '../components/staff/EmployeeProfileDossierModal';
 import schoolService from '../services/schoolService';
 
@@ -69,6 +70,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   
   const [selectedStaff, setSelectedStaff] = useState(null);
   const [isProfileDossierOpen, setIsProfileDossierOpen] = useState(false);
+  const [isPrintDossierModalOpen, setIsPrintDossierModalOpen] = useState(false);
   const [isPaySlipModalOpen, setIsPaySlipModalOpen] = useState(false);
   const [isIdCardModalOpen, setIsIdCardModalOpen] = useState(false);
   const [isAddStaffModalOpen, setIsAddStaffModalOpen] = useState(() => initialSubTab === 'staff-add' || initialSubTab === 'employee-add');
@@ -889,10 +891,10 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                           <button
                             onClick={() => {
                               setSelectedStaff(t);
-                              setIsIdCardModalOpen(true);
+                              setIsPrintDossierModalOpen(true);
                             }}
-                            title="Print Smart Faculty ID Card"
-                            className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 transition-colors cursor-pointer"
+                            title="Print Official Master Service Record & Dossier"
+                            className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors cursor-pointer"
                           >
                             <Printer className="w-3.5 h-3.5" />
                           </button>
@@ -2819,6 +2821,28 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
           handleOpenPaySalary(st);
         }}
       />
+
+      {/* ========================================================================= */}
+      {/* 🖨️ MODAL: DIRECT PRINT EMPLOYEE MASTER DOSSIER / SERVICE BOOK */}
+      {/* ========================================================================= */}
+      {isPrintDossierModalOpen && selectedStaff && (
+        <Modal
+          isOpen={isPrintDossierModalOpen}
+          onClose={() => setIsPrintDossierModalOpen(false)}
+          title={`Official Service Record - ${selectedStaff.name}`}
+          maxWidth="max-w-4xl"
+        >
+          <PrintableEmployeeDossier
+            employee={selectedStaff}
+            schoolInfo={schoolInfo}
+            onClose={() => setIsPrintDossierModalOpen(false)}
+            onPaySalary={(st) => {
+              setIsPrintDossierModalOpen(false);
+              handleOpenPaySalary(st);
+            }}
+          />
+        </Modal>
+      )}
 
       {/* ========================================================================= */}
       {/* 🏢 MODAL: EDIT DEPARTMENT */}
