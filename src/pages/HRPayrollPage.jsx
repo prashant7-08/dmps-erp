@@ -230,11 +230,23 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
   });
 
   const handleOpenPaySalary = (staff) => {
-    const base = staff.basicSalary || staff.salary?.basic || staff.salary || 4000;
-    const proRated = calcProRatedSalary(staff, base, selectedMonth);
-    const isPartialMonth = proRated < base;
-    const deductionAmt = isPartialMonth ? (base - proRated) : 0;
+    // 1. Check if month is prior to July (April, May, June) vs July onwards
+    const isPreJuly = selectedMonth.includes('April') || selectedMonth.includes('May') || selectedMonth.includes('June');
+    const base = staff.basicSalary || staff.salary?.basic || staff.salary || 25000;
+    const effectiveBase = (isPreJuly && staff.preJulySalary) ? staff.preJulySalary : base;
+
+    const proRated = calcProRatedSalary(staff, effectiveBase, selectedMonth);
+    const isPartialMonth = proRated < effectiveBase;
+    const deductionAmt = isPartialMonth ? (effectiveBase - proRated) : 0;
     const deductionNote = isPartialMonth ? `Pro-rated salary (partial month: joining/leaving date adjustment)` : '';
+
+    // 2. Fetch Advance and Arrears balance for this employee
+    const balSummary = schoolService.getStaffBalanceSummary ? schoolService.getStaffBalanceSummary(staff.id) : { advanceBalance: 0, pendingArrears: 0 };
+    const advBalance = Number(balSummary.advanceBalance || 0);
+    const arrearsBalance = Number(balSummary.pendingArrears || 0);
+
+    const net = Math.max(0, proRated - advBalance + arrearsBalance);
+
     setSalaryPayForm({
       staffId: staff.id,
       staffName: staff.name,
@@ -243,15 +255,16 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       joiningDate: staff.joiningDate || '',
       leavingDate: staff.leavingDate || '',
       month: selectedMonth,
-      baseSalary: base,
+      baseSalary: effectiveBase,
       deductionAmount: deductionAmt,
       deductionReason: deductionNote,
-      advanceDeduction: 0,
+      advanceDeduction: advBalance,
+      arrearsAdded: arrearsBalance,
       bonus: 0,
-      netPayable: proRated,
-      paidAmount: proRated,
+      netPayable: net,
+      paidAmount: net,
       paymentMode: 'UPI / PhonePe / GPay',
-      remarks: `${selectedMonth} Salary`
+      remarks: `${selectedMonth} Salary Disbursed`
     });
     setIsPaySalaryModalOpen(true);
   };
@@ -262,8 +275,9 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       const base = Number(updated.baseSalary) || 0;
       const deduction = Number(updated.deductionAmount) || 0;
       const advDed = Number(updated.advanceDeduction) || 0;
+      const arrAdd = Number(updated.arrearsAdded) || 0;
       const bon = Number(updated.bonus) || 0;
-      const net = Math.max(0, base - deduction - advDed + bon);
+      const net = Math.max(0, base - deduction - advDed + arrAdd + bon);
 
       updated.netPayable = net;
       if (field !== 'paidAmount') {
@@ -277,12 +291,40 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
     e.preventDefault();
     const paid = Number(salaryPayForm.paidAmount) || 0;
     const net = Number(salaryPayForm.netPayable) || 0;
+    const base = Number(salaryPayForm.baseSalary) || 0;
     const extraAdvance = Math.max(0, paid - net);
+    const unpaidArrears = Math.max(0, net - paid);
+    const advDeducted = Number(salaryPayForm.advanceDeduction) || 0;
+    const arrearsPaid = Number(salaryPayForm.arrearsAdded) || 0;
+
+    // Save to schoolService ledger
+    schoolService.saveStaffSalaryPayment({
+      staffId: salaryPayForm.staffId,
+      employeeId: salaryPayForm.employeeId,
+      staffName: salaryPayForm.staffName,
+      designation: salaryPayForm.designation,
+      month: salaryPayForm.month,
+      baseSalary: base,
+      deductionAmount: Number(salaryPayForm.deductionAmount) || 0,
+      deductionReason: salaryPayForm.deductionReason || '',
+      advanceDeducted: advDeducted,
+      arrearsAdded: arrearsPaid,
+      arrearsPaid: Math.min(arrearsPaid, paid),
+      bonus: Number(salaryPayForm.bonus) || 0,
+      netPayable: net,
+      paidAmount: paid,
+      excessPaidAsAdvance: extraAdvance,
+      unpaidArrearsRemaining: unpaidArrears,
+      paymentMode: salaryPayForm.paymentMode,
+      remarks: salaryPayForm.remarks
+    });
 
     if (extraAdvance > 0) {
-      showToast(`💰 ₹${paid.toLocaleString('en-IN')} paid to ${salaryPayForm.staffName}! Extra ₹${extraAdvance.toLocaleString('en-IN')} recorded as Advance Salary for next month.`, 'success');
-    } else if (paid < net) {
-      showToast(`⚠️ Partial payment of ₹${paid.toLocaleString('en-IN')} recorded for ${salaryPayForm.staffName}. Remaining Due: ₹${(net - paid).toLocaleString('en-IN')}`, 'info');
+      showToast(`💰 ₹${paid.toLocaleString('en-IN')} paid to ${salaryPayForm.staffName}! Extra ₹${extraAdvance.toLocaleString('en-IN')} recorded as Advance Salary (अगले महीने अपने-आप कटेगा).`, 'success');
+    } else if (unpaidArrears > 0) {
+      showToast(`⚠️ Partial payment of ₹${paid.toLocaleString('en-IN')} recorded for ${salaryPayForm.staffName}. Remaining Arrears: ₹${unpaidArrears.toLocaleString('en-IN')} (अगले महीने जुड़ेगा / बाद में दे सकते हैं).`, 'info');
+    } else if (arrearsPaid > 0) {
+      showToast(`✅ Full Salary of ₹${paid.toLocaleString('en-IN')} paid including previous arrears (+₹${arrearsPaid.toLocaleString('en-IN')})! All dues settled (हिसाब बराबर)!`, 'success');
     } else {
       showToast(`✅ Full Salary of ₹${paid.toLocaleString('en-IN')} successfully paid to ${salaryPayForm.staffName} for ${salaryPayForm.month}!`, 'success');
     }
@@ -1774,18 +1816,35 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
         maxWidth="max-w-2xl"
       >
         <form onSubmit={handleConfirmSalaryPayment} className="space-y-4 text-xs">
-          {/* Staff Info Banner */}
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white flex items-center justify-between shadow-md">
+          {/* Staff Info Banner with Editable Base Salary */}
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md">
             <div>
-              <span className="text-[10px] font-black uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded-md">
-                {salaryPayForm.designation}
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-black uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded-md">
+                  {salaryPayForm.designation}
+                </span>
+                <span className="text-[10px] font-bold bg-emerald-900/50 px-2 py-0.5 rounded-md text-emerald-200">
+                  Session 2026-27
+                </span>
+              </div>
               <h3 className="text-lg font-black uppercase mt-1">{salaryPayForm.staffName}</h3>
               <p className="text-xs text-emerald-100 font-mono">Emp ID: {salaryPayForm.employeeId}</p>
             </div>
-            <div className="text-right">
-              <span className="text-[10px] uppercase font-bold text-emerald-100">Base Monthly Salary</span>
-              <p className="text-xl font-black font-mono">₹{salaryPayForm.baseSalary.toLocaleString('en-IN')}</p>
+            <div className="bg-white/10 p-2.5 rounded-xl border border-white/20 text-right">
+              <label className="text-[10px] uppercase font-bold text-emerald-100 block mb-0.5">
+                Base Monthly Salary for {salaryPayForm.month} (₹)
+              </label>
+              <div className="flex items-center justify-end gap-1.5">
+                <span className="text-sm font-bold font-mono">₹</span>
+                <input
+                  type="number"
+                  min="0"
+                  value={salaryPayForm.baseSalary}
+                  onChange={(e) => handleSalaryFormChange('baseSalary', e.target.value)}
+                  className="w-28 p-1.5 rounded-lg bg-white text-slate-900 text-right font-black font-mono text-sm border-0 focus:ring-2 focus:ring-amber-400"
+                  title="Modify base salary for this month if different (e.g. Pre-July revision)"
+                />
+              </div>
             </div>
           </div>
 
@@ -1801,6 +1860,9 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
               >
                 <option value="August 2026">August 2026</option>
                 <option value="July 2026">July 2026 (Revised Scale Active)</option>
+                <option value="June 2026">June 2026 (Pre-July Scale)</option>
+                <option value="May 2026">May 2026 (Pre-July Scale)</option>
+                <option value="April 2026">April 2026 (Pre-July Scale)</option>
                 <option value="September 2026">September 2026</option>
                 <option value="October 2026">October 2026</option>
                 <option value="November 2026">November 2026</option>
@@ -1808,8 +1870,6 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                 <option value="January 2027">January 2027</option>
                 <option value="February 2027">February 2027</option>
                 <option value="March 2027">March 2027</option>
-                <option value="April 2027">April 2027</option>
-                <option value="May 2027">May 2027</option>
               </select>
             </div>
 
@@ -1824,56 +1884,76 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
               >
                 <option value="UPI / PhonePe / GPay">📱 UPI / PhonePe / GPay / QR Scan</option>
                 <option value="Cash">💵 Cash (कैश नकद भुगतान)</option>
-                <option value="Bank Account Transfer">🏦 Direct Bank Transfer</option>
+                <option value="Bank Account Transfer">🏦 Direct Bank Transfer (NEFT/RTGS)</option>
+                <option value="Bank Cheque">📝 Bank Cheque</option>
               </select>
             </div>
           </div>
 
           {/* Deductions & Additions */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
-            <h4 className="font-black text-slate-900 dark:text-white uppercase text-[11px] tracking-wide">
-              Deductions & Adjustments (छुट्टी / लोन कटौती व बोनस)
-            </h4>
+            <div className="flex items-center justify-between">
+              <h4 className="font-black text-slate-900 dark:text-white uppercase text-[11px] tracking-wide flex items-center gap-1.5">
+                <span>⚖️</span> Deductions, Advance Adjustment & Previous Arrears (कटौती व बकाया)
+              </h4>
+              <span className="text-[10px] text-slate-400 font-semibold">Auto-Synced with Ledger</span>
+            </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               <div>
-                <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                  Leave Deduction (कटौती राशि ₹)
+                <label className="font-bold text-rose-600 dark:text-rose-400 block mb-1">
+                  Leave Deduction (-) ₹
                 </label>
                 <input
                   type="number"
                   min="0"
                   value={salaryPayForm.deductionAmount}
                   onChange={(e) => handleSalaryFormChange('deductionAmount', e.target.value)}
-                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold text-rose-600"
+                  className="w-full p-2.5 rounded-xl border border-rose-300 dark:border-rose-800 bg-white dark:bg-slate-900 font-bold text-rose-600 font-mono"
                   placeholder="₹0"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                  Advance Salary EMI / Loan Cut (₹)
+                <label className="font-bold text-rose-700 dark:text-rose-400 block mb-1">
+                  Advance Cut / Loan (-) ₹
                 </label>
                 <input
                   type="number"
                   min="0"
                   value={salaryPayForm.advanceDeduction}
                   onChange={(e) => handleSalaryFormChange('advanceDeduction', e.target.value)}
-                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold text-rose-600"
-                  placeholder="₹0"
+                  className="w-full p-2.5 rounded-xl border border-rose-300 dark:border-rose-800 bg-white dark:bg-slate-900 font-bold text-rose-700 font-mono"
+                  placeholder="₹0 (Auto-deducted)"
+                  title="Extra advance taken earlier auto-deducts here"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                  Bonus / Extra Allowance (+) (₹)
+                <label className="font-bold text-emerald-700 dark:text-emerald-400 block mb-1">
+                  Previous Arrears Due (+) ₹
+                </label>
+                <input
+                  type="number"
+                  min="0"
+                  value={salaryPayForm.arrearsAdded || 0}
+                  onChange={(e) => handleSalaryFormChange('arrearsAdded', e.target.value)}
+                  className="w-full p-2.5 rounded-xl border border-emerald-300 dark:border-emerald-800 bg-white dark:bg-slate-900 font-bold text-emerald-700 font-mono"
+                  placeholder="₹0 (Auto-added)"
+                  title="Unpaid/Short salary from previous month auto-adds here"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-emerald-600 dark:text-emerald-400 block mb-1">
+                  Bonus / Allowance (+) ₹
                 </label>
                 <input
                   type="number"
                   min="0"
                   value={salaryPayForm.bonus}
                   onChange={(e) => handleSalaryFormChange('bonus', e.target.value)}
-                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold text-emerald-600"
+                  className="w-full p-2.5 rounded-xl border border-emerald-300 dark:border-emerald-800 bg-white dark:bg-slate-900 font-bold text-emerald-600 font-mono"
                   placeholder="₹0"
                 />
               </div>
@@ -1881,13 +1961,13 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
 
             <div>
               <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                Deduction Reason / Remark (कटौती का कारण / टिप्पणी)
+                Deduction / Arrears Reason / Remarks (कारण / टिप्पणी)
               </label>
               <input
                 type="text"
                 value={salaryPayForm.deductionReason}
                 onChange={(e) => handleSalaryFormChange('deductionReason', e.target.value)}
-                placeholder="उदा. 2 दिन की अनुपस्थिति / बिना सूचना छुट्टी कट"
+                placeholder="उदा. 2 दिन अनुपस्थिति कट / पिछले महीने का ₹5,000 बकाया भुगतान / एडवांस समायोजन"
                 className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs"
               />
             </div>
@@ -1896,17 +1976,17 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
           {/* Net Payable & Payment Input */}
           <div className="p-4 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/40 border-2 border-indigo-200 dark:border-indigo-800 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="font-black text-indigo-950 dark:text-indigo-200 uppercase">
-                Net Salary Payable This Month:
+              <span className="font-black text-indigo-950 dark:text-indigo-200 uppercase text-xs">
+                Net Salary Payable for {salaryPayForm.month}:
               </span>
-              <span className="text-xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+              <span className="text-xl font-black font-mono text-indigo-700 dark:text-indigo-300">
                 ₹{salaryPayForm.netPayable.toLocaleString('en-IN')}
               </span>
             </div>
 
             <div>
               <label className="font-black text-slate-800 dark:text-slate-200 block mb-1">
-                Amount Being Paid Now (₹) <span className="text-rose-500">*</span>
+                Real Amount Being Paid Right Now (नकद / बैंक में दिया गया कुल रुपया ₹) <span className="text-rose-500">*</span>
               </label>
               <input
                 type="number"
@@ -1917,21 +1997,42 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
               />
             </div>
 
-            {/* Advance Carry-Forward or Pending Dues Alert */}
+            {/* Live Advance Carry-Forward Alert */}
             {salaryPayForm.paidAmount > salaryPayForm.netPayable && (
-              <div className="p-2.5 rounded-xl bg-purple-100 dark:bg-purple-950/60 border border-purple-300 dark:border-purple-800 text-purple-900 dark:text-purple-200 font-bold flex items-center gap-2">
-                <span>👑</span>
-                <span>
-                  Extra ₹{(salaryPayForm.paidAmount - salaryPayForm.netPayable).toLocaleString('en-IN')} Paid! This excess amount will be added to Advance Salary and automatically deducted next month.
-                </span>
+              <div className="p-3 rounded-xl bg-purple-100 dark:bg-purple-950/80 border border-purple-300 dark:border-purple-800 text-purple-900 dark:text-purple-200 font-bold space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">👑</span>
+                  <span className="text-xs uppercase font-black">
+                    Extra ₹{(salaryPayForm.paidAmount - salaryPayForm.netPayable).toLocaleString('en-IN')} Advance Disbursed!
+                  </span>
+                </div>
+                <p className="text-[11px] font-normal leading-relaxed text-purple-800 dark:text-purple-300">
+                  Slip will record: <strong>Regular Salary ₹{salaryPayForm.netPayable.toLocaleString('en-IN')} + Advance ₹{(salaryPayForm.paidAmount - salaryPayForm.netPayable).toLocaleString('en-IN')} = Total ₹{salaryPayForm.paidAmount.toLocaleString('en-IN')}</strong>. This ₹{(salaryPayForm.paidAmount - salaryPayForm.netPayable).toLocaleString('en-IN')} will be <strong>automatically deducted from next month's salary</strong>.
+                </p>
               </div>
             )}
 
+            {/* Live Short/Partial Payment Arrears Alert */}
             {salaryPayForm.paidAmount < salaryPayForm.netPayable && (
-              <div className="p-2.5 rounded-xl bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200 font-bold flex items-center gap-2">
-                <span>⚠️</span>
-                <span>
-                  Partial Payment: ₹{(salaryPayForm.netPayable - salaryPayForm.paidAmount).toLocaleString('en-IN')} will remain as balance salary due for this staff.
+              <div className="p-3 rounded-xl bg-amber-100 dark:bg-amber-950/80 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200 font-bold space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">⚠️</span>
+                  <span className="text-xs uppercase font-black">
+                    Partial Payment: ₹{(salaryPayForm.netPayable - salaryPayForm.paidAmount).toLocaleString('en-IN')} Remaining Arrears!
+                  </span>
+                </div>
+                <p className="text-[11px] font-normal leading-relaxed text-amber-800 dark:text-amber-300">
+                  School owes this employee <strong>₹{(salaryPayForm.netPayable - salaryPayForm.paidAmount).toLocaleString('en-IN')}</strong>. You can pay it later this month or it will <strong>automatically add into next month's salary</strong> to clear all dues.
+                </p>
+              </div>
+            )}
+
+            {/* Live Arrears Settled Alert */}
+            {salaryPayForm.arrearsAdded > 0 && salaryPayForm.paidAmount >= salaryPayForm.netPayable && (
+              <div className="p-3 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 font-bold flex items-center gap-2">
+                <span>✅</span>
+                <span className="text-xs">
+                  Previous month arrears (+₹{Number(salaryPayForm.arrearsAdded).toLocaleString('en-IN')}) included & fully paid! All dues cleared (<strong>हिसाब बराबर - ₹0 Due</strong>).
                 </span>
               </div>
             )}
@@ -1939,13 +2040,13 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
 
           <div>
             <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-              Payment Remarks (टिप्पणी)
+              Payment Remarks / Reference (टिप्पणी / यूटीआर नंबर)
             </label>
             <input
               type="text"
               value={salaryPayForm.remarks}
               onChange={(e) => handleSalaryFormChange('remarks', e.target.value)}
-              placeholder="e.g. UPI Ref / Cash Disbursed"
+              placeholder="e.g. UPI Ref / Cash Disbursed from Main Office"
               className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs"
             />
           </div>

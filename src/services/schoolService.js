@@ -529,6 +529,66 @@ class SchoolService {
     this.saveData();
   }
 
+  // Staff Salary Ledger, Arrears & Advance Adjustment Engine
+  getStaffSalaryRecords(staffId = null) {
+    if (!this.data.staffSalaryPayments || !Array.isArray(this.data.staffSalaryPayments)) {
+      this.data.staffSalaryPayments = [];
+    }
+    if (staffId) {
+      return this.data.staffSalaryPayments.filter(p => p.staffId === staffId || p.employeeId === staffId);
+    }
+    return this.data.staffSalaryPayments;
+  }
+
+  getStaffBalanceSummary(staffId) {
+    const records = this.getStaffSalaryRecords(staffId);
+    let advanceBalance = 0; // Money staff owes school (extra taken)
+    let pendingArrears = 0; // Money school owes staff (underpaid/due)
+
+    records.forEach(r => {
+      // If payment has excess paid recorded as advance
+      if (r.excessPaidAsAdvance) {
+        advanceBalance += Number(r.excessPaidAsAdvance || 0);
+      }
+      // If advance was deducted in this payment
+      if (r.advanceDeducted) {
+        advanceBalance = Math.max(0, advanceBalance - Number(r.advanceDeducted || 0));
+      }
+      // If payment had pending arrears
+      if (r.unpaidArrearsRemaining) {
+        pendingArrears += Number(r.unpaidArrearsRemaining || 0);
+      }
+      // If arrears were cleared in this payment
+      if (r.arrearsPaid) {
+        pendingArrears = Math.max(0, pendingArrears - Number(r.arrearsPaid || 0));
+      }
+    });
+
+    return { advanceBalance, pendingArrears, records };
+  }
+
+  saveStaffSalaryPayment(record) {
+    if (!this.data.staffSalaryPayments || !Array.isArray(this.data.staffSalaryPayments)) {
+      this.data.staffSalaryPayments = [];
+    }
+
+    const newRecord = {
+      id: `PAY-${Date.now()}`,
+      disbursementDate: new Date().toISOString(),
+      timestamp: new Date().toLocaleString('en-IN'),
+      ...record
+    };
+
+    // Remove existing record for same staff & month if re-disbursing/updating
+    this.data.staffSalaryPayments = this.data.staffSalaryPayments.filter(
+      p => !(p.staffId === record.staffId && p.month === record.month)
+    );
+
+    this.data.staffSalaryPayments.unshift(newRecord);
+    this.saveData();
+    return newRecord;
+  }
+
   markStaffAttendance(date, records) {
     if (!this.data.staffAttendance) this.data.staffAttendance = {};
     this.data.staffAttendance[date] = records;
