@@ -103,11 +103,15 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   const [recentReceipt, setRecentReceipt] = useState(null);
   const [editingOldDues, setEditingOldDues] = useState(false);
   const [tempOldDues, setTempOldDues] = useState(0);
+  const [editingMisc, setEditingMisc] = useState(false);
+  const [tempMisc, setTempMisc] = useState(0);
 
   const handleOpenFeeModal = (student) => {
     setStudentForFee(student);
     setEditingOldDues(false);
     setTempOldDues(student.feeSummary?.oldSessionDues || 0);
+    setEditingMisc(false);
+    setTempMisc(student.feeSummary?.miscellaneousDue || 0);
     const defaultDue = student.feeSummary?.balance || 0;
     setFeeForm({
       amount: defaultDue > 0 ? defaultDue : 1000,
@@ -128,7 +132,20 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
       refreshStudents();
       setEditingOldDues(false);
       setFeeForm(prev => ({ ...prev, amount: updated.feeSummary?.balance || 0 }));
-      showToast(`Old Session Fees updated to ₹${val.toLocaleString('en-IN')}! Total balance recalculated. 📜`, 'success');
+      showToast(`Old Session Fees updated to ₹${val.toLocaleString('en-IN')}! 📜`, 'success');
+    }
+  };
+
+  const handleSaveMiscInline = (studentId) => {
+    const val = Number(tempMisc) || 0;
+    const updated = schoolService.updateStudent(studentId, { miscellaneousDue: val });
+    if (updated) {
+      setStudentForFee(updated);
+      setSelectedStudent(updated);
+      refreshStudents();
+      setEditingMisc(false);
+      setFeeForm(prev => ({ ...prev, amount: updated.feeSummary?.balance || 0 }));
+      showToast(`Miscellaneous Charges updated to ₹${val.toLocaleString('en-IN')}! 📦`, 'success');
     }
   };
 
@@ -2076,15 +2093,17 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   </strong>
                 </div>
 
+                {/* 📜 Old Session Fees */}
                 <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-700 space-y-1">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-black text-amber-800 dark:text-amber-300">📜 Old Session Fees</span>
                     <button
                       type="button"
                       onClick={() => setEditingOldDues(!editingOldDues)}
-                      className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-amber-200 dark:bg-amber-900 text-amber-950 dark:text-amber-100 hover:bg-amber-300 transition-colors"
+                      title="Edit Old Session Dues"
+                      className="p-1 rounded-lg bg-amber-200 dark:bg-amber-900 text-amber-950 dark:text-amber-100 hover:bg-amber-300 transition-colors"
                     >
-                      {editingOldDues ? '✕ Cancel' : '✏️ Add / Edit'}
+                      {editingOldDues ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3" />}
                     </button>
                   </div>
                   {editingOldDues ? (
@@ -2112,11 +2131,42 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   )}
                 </div>
 
-                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-400 block">📦 Misc Charges</span>
-                  <strong className="font-mono text-slate-900 dark:text-white">
-                    ₹{Number(studentForFee.feeSummary?.miscellaneousDue || 0).toLocaleString('en-IN')}
-                  </strong>
+                {/* 📦 Misc Charges */}
+                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-slate-400 font-bold">📦 Misc Charges</span>
+                    <button
+                      type="button"
+                      onClick={() => setEditingMisc(!editingMisc)}
+                      title="Edit Miscellaneous Charges"
+                      className="p-1 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 transition-colors"
+                    >
+                      {editingMisc ? <X className="w-3 h-3" /> : <Edit className="w-3 h-3 text-indigo-600" />}
+                    </button>
+                  </div>
+                  {editingMisc ? (
+                    <div className="flex items-center gap-1 pt-1">
+                      <input
+                        type="number"
+                        value={tempMisc}
+                        onChange={(e) => setTempMisc(e.target.value)}
+                        placeholder="Misc charges..."
+                        className="w-full p-1 rounded border border-indigo-400 bg-white dark:bg-slate-900 font-mono font-bold text-xs text-slate-900 dark:text-white"
+                        autoFocus
+                      />
+                      <button
+                        type="button"
+                        onClick={() => handleSaveMiscInline(studentForFee.id)}
+                        className="px-2 py-1 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded text-[10px] shadow-xs"
+                      >
+                        Save
+                      </button>
+                    </div>
+                  ) : (
+                    <strong className="font-mono text-slate-900 dark:text-white block">
+                      ₹{Number(studentForFee.feeSummary?.miscellaneousDue || 0).toLocaleString('en-IN')}
+                    </strong>
+                  )}
                 </div>
 
                 <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800">
