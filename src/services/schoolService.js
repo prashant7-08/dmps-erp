@@ -1,12 +1,11 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V15_REAL_STAFF_RULES';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V16_AUTHENTIC_SQL_SYNC';
 
 class SchoolService {
   constructor() {
     this.listeners = new Set();
     this.data = this.loadData();
-    this.autoLinkSiblingsByPhoneAndFather();
   }
 
   loadData() {
@@ -1745,20 +1744,27 @@ class SchoolService {
     });
   }
 
-  // Automatic Sibling Linking Algorithm matching mobile numbers & father names
+  // Sibling Linking: Only link if father name is authentic and phone is unique (not generic school number)
   autoLinkSiblingsByPhoneAndFather() {
     const students = this.data?.students || [];
-    const phoneMap = new Map();
+    const genericPhones = new Set(['9758975880', '9627032626', '9719476606', '9758882443', '9758900000']);
+    const parentMatchMap = new Map();
 
     students.forEach(s => {
+      // If student already has verified SQL linked siblings, preserve them
+      if (s.linkedSiblingIds && s.linkedSiblingIds.length > 0) return;
+
       const p = s.fatherMobile || s.mobile || s.parents?.fatherMobile || s.motherMobile;
-      if (p) {
+      const father = (s.parents?.fatherName || '').trim().toLowerCase();
+      
+      if (p && father && father.length > 3 && !father.includes('guardian') && !father.includes('parent')) {
         const cleanPhone = String(p).replace(/[^0-9]/g, '').slice(-10);
-        if (cleanPhone.length === 10) {
-          if (!phoneMap.has(cleanPhone)) {
-            phoneMap.set(cleanPhone, []);
+        if (cleanPhone.length === 10 && !genericPhones.has(cleanPhone)) {
+          const matchKey = `${cleanPhone}_${father.slice(0, 5)}`;
+          if (!parentMatchMap.has(matchKey)) {
+            parentMatchMap.set(matchKey, []);
           }
-          phoneMap.get(cleanPhone).push(s);
+          parentMatchMap.get(matchKey).push(s);
         }
       }
     });
@@ -1766,11 +1772,11 @@ class SchoolService {
     let linkedFamilyCount = 0;
     let linkedStudentCount = 0;
 
-    phoneMap.forEach((matchedStudents, phone) => {
+    parentMatchMap.forEach((matchedStudents) => {
       if (matchedStudents.length > 1) {
         const allIds = matchedStudents.map(s => s.id);
-        const fatherName = matchedStudents[0].fatherName || matchedStudents[0].parents?.fatherName || 'Guardian';
-        const familyKey = `FAM-${phone}`;
+        const fatherName = matchedStudents[0].parents?.fatherName || 'Guardian';
+        const familyKey = `FAM-${matchedStudents[0].id.replace('STU-', '')}`;
 
         matchedStudents.forEach(stu => {
           stu.familyId = familyKey;
@@ -1784,7 +1790,6 @@ class SchoolService {
       }
     });
 
-    this.saveData();
     return { linkedFamilyCount, linkedStudentCount };
   }
 
