@@ -141,6 +141,9 @@ function AppContent() {
     if (type === 'student') {
       setSelectedStudentForProfile(item);
       setActiveTab('students');
+    } else if (type === 'student-fee') {
+      setSelectedStudentForProfile(item);
+      setActiveTab('fees-collection');
     } else if (type === 'teacher') {
       setActiveTab('staff');
     }

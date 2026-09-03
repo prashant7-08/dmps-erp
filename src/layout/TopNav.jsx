@@ -144,7 +144,20 @@ export const TopNav = ({
   const teachers = schoolService.getTeachers(activeBranchId);
 
   const filteredStudents = searchQuery.trim()
-    ? students.filter(s => (s.name || '').toLowerCase().includes(searchQuery.toLowerCase()) || String(s.rollNo || '').includes(searchQuery) || String(s.admissionNo || '').toLowerCase().includes(searchQuery.toLowerCase()))
+    ? students.filter(s => {
+        const q = searchQuery.toLowerCase().trim();
+        return (
+          (s.name || '').toLowerCase().includes(q) ||
+          (s.parents?.fatherName || '').toLowerCase().includes(q) ||
+          (s.parents?.motherName || '').toLowerCase().includes(q) ||
+          String(s.parents?.fatherMobile || '').includes(q) ||
+          String(s.parents?.motherMobile || '').includes(q) ||
+          (s.parents?.address || '').toLowerCase().includes(q) ||
+          (s.class || '').toLowerCase().includes(q) ||
+          String(s.rollNo || '').includes(q) ||
+          String(s.admissionNo || '').toLowerCase().includes(q)
+        );
+      }).slice(0, 10)
     : [];
 
   const filteredTeachers = searchQuery.trim()
@@ -194,7 +207,7 @@ export const TopNav = ({
                 setShowSearchResults(true);
               }}
               onFocus={() => setShowSearchResults(true)}
-              placeholder="Search students (Name / Roll / Adm No), staff..."
+              placeholder="Search by Name, Father, Mobile, Adm No, Class..."
               className="w-full pl-10 pr-9 py-2 text-xs sm:text-sm rounded-2xl bg-slate-100/90 dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 shadow-inner transition-all font-medium"
             />
             {searchQuery && (
@@ -207,37 +220,76 @@ export const TopNav = ({
             )}
           </div>
 
-          {/* Search Dropdown Results with guaranteed spacious width */}
+          {/* Search Dropdown Results with exact matching old software look */}
           {showSearchResults && searchQuery.trim() && (
-            <div className="absolute left-0 top-full mt-2 w-[320px] sm:w-[400px] md:w-[460px] max-w-[90vw] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-3 z-50 max-h-96 overflow-y-auto custom-scrollbar animate-in fade-in">
+            <div className="absolute left-0 top-full mt-2 w-[320px] sm:w-[380px] md:w-[420px] max-w-[90vw] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-3 z-50 max-h-[420px] overflow-y-auto custom-scrollbar animate-in fade-in">
               <div className="flex justify-between items-center px-2 py-1 mb-2 border-b border-slate-100 dark:border-slate-800">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Search Results</span>
-                <button onClick={() => setShowSearchResults(false)} className="text-xs text-slate-400 hover:text-slate-600">Close</button>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  Search Results ({filteredStudents.length + filteredTeachers.length})
+                </span>
+                <button onClick={() => setShowSearchResults(false)} className="text-xs font-bold text-slate-400 hover:text-slate-600">✕ Close</button>
               </div>
 
               {filteredStudents.length === 0 && filteredTeachers.length === 0 ? (
-                <div className="p-4 text-center text-xs text-slate-400">No matching records found.</div>
+                <div className="p-4 text-center text-xs text-slate-400">No matching students or staff found.</div>
               ) : (
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {filteredStudents.map(s => (
                     <div
                       key={s.id}
-                      onClick={() => {
-                        if (onSearchSelect) onSearchSelect('student', s);
-                        setShowSearchResults(false);
-                      }}
-                      className="flex items-center justify-between p-2 rounded-xl hover:bg-indigo-50 dark:hover:bg-slate-800 cursor-pointer transition-colors"
+                      className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-indigo-400/60 bg-slate-50/50 dark:bg-slate-800/40 transition-all text-xs space-y-1 shadow-xs"
                     >
-                      <div className="flex items-center gap-2.5">
-                        <img src={s.photo} alt={s.name} className="w-7 h-7 rounded-lg object-cover" />
-                        <div>
-                          <p className="text-xs font-bold text-slate-900 dark:text-white">{s.name}</p>
-                          <p className="text-[10px] text-slate-400">Roll {s.rollNo} • {s.class}-{s.section}</p>
+                      <div className="flex justify-between items-start gap-2">
+                        <div className="space-y-0.5">
+                          <p className="font-bold text-slate-700 dark:text-slate-300 text-[11px]">
+                            Register No.: <strong className="font-mono text-slate-900 dark:text-white font-bold">{s.admissionNo}</strong>
+                          </p>
+                          <p className="font-black text-blue-600 dark:text-blue-400 uppercase text-xs">
+                            Name: {s.name}
+                          </p>
+                          <p className="font-bold text-emerald-600 dark:text-emerald-400 uppercase text-[11px]">
+                            Father: {s.parents?.fatherName || 'N/A'}
+                          </p>
+                          <p className="text-slate-600 dark:text-slate-400 font-bold text-[11px]">
+                            Class: <span className="uppercase text-slate-900 dark:text-white font-black">{s.class}-{s.section || 'A'}</span>
+                          </p>
+                          <p className="text-slate-500 font-mono text-[11px]">
+                            Mobile: <span className="font-bold text-slate-700 dark:text-slate-300">{s.parents?.fatherMobile || 'N/A'}</span>
+                          </p>
+                        </div>
+                        <div className="text-right shrink-0">
+                          <img
+                            src={s.photo || `https://ui-avatars.com/api/?name=${s.name.replace(' ', '+')}&background=4F46E5&color=fff&size=128&bold=true`}
+                            alt={s.name}
+                            className="w-10 h-10 rounded-xl object-cover border border-slate-200 shadow-xs mb-1"
+                          />
+                          <span className="text-[10px] font-mono font-bold text-rose-600 block">
+                            Due: ₹{(s.feeSummary?.balance || 0).toLocaleString('en-IN')}
+                          </span>
                         </div>
                       </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
-                        Student
-                      </span>
+
+                      {/* Details & Collect Buttons (Matching old software style) */}
+                      <div className="flex items-center gap-2 pt-2 border-t border-slate-200 dark:border-slate-700">
+                        <button
+                          onClick={() => {
+                            if (onSearchSelect) onSearchSelect('student', s);
+                            setShowSearchResults(false);
+                          }}
+                          className="flex-1 py-1.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] shadow-xs text-center transition-all hover:scale-102"
+                        >
+                          Details
+                        </button>
+                        <button
+                          onClick={() => {
+                            if (onSearchSelect) onSearchSelect('student-fee', s);
+                            setShowSearchResults(false);
+                          }}
+                          className="flex-1 py-1.5 px-3 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold text-[11px] shadow-xs text-center transition-all hover:scale-102"
+                        >
+                          Collect
+                        </button>
+                      </div>
                     </div>
                   ))}
 
@@ -248,10 +300,10 @@ export const TopNav = ({
                         if (onSearchSelect) onSearchSelect('teacher', t);
                         setShowSearchResults(false);
                       }}
-                      className="flex items-center justify-between p-2 rounded-xl hover:bg-purple-50 dark:hover:bg-slate-800 cursor-pointer transition-colors"
+                      className="flex items-center justify-between p-2 rounded-xl hover:bg-purple-50 dark:hover:bg-slate-800 cursor-pointer transition-colors border border-slate-100 dark:border-slate-800"
                     >
                       <div className="flex items-center gap-2.5">
-                        <img src={t.photo} alt={t.name} className="w-7 h-7 rounded-lg object-cover" />
+                        <img src={t.photo} alt={t.name} className="w-8 h-8 rounded-lg object-cover" />
                         <div>
                           <p className="text-xs font-bold text-slate-900 dark:text-white">{t.name}</p>
                           <p className="text-[10px] text-slate-400">{t.designation} • {t.department}</p>

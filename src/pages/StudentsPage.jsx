@@ -89,6 +89,61 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   const [isDeactivateModalOpen, setIsDeactivateModalOpen] = useState(false);
   const [studentToDeactivate, setStudentToDeactivate] = useState(null);
 
+  // 1-Click Fee Collection Modal States
+  const [isFeeModalOpen, setIsFeeModalOpen] = useState(false);
+  const [studentForFee, setStudentForFee] = useState(null);
+  const [feeForm, setFeeForm] = useState({
+    amount: '',
+    paymentMode: 'Cash',
+    discount: 0,
+    remarks: 'School Fee Payment',
+    receiptNo: ''
+  });
+  const [isReceiptModalOpen, setIsReceiptModalOpen] = useState(false);
+  const [recentReceipt, setRecentReceipt] = useState(null);
+
+  const handleOpenFeeModal = (student) => {
+    setStudentForFee(student);
+    const defaultDue = student.feeSummary?.balance || 0;
+    setFeeForm({
+      amount: defaultDue > 0 ? defaultDue : 1000,
+      paymentMode: 'Cash',
+      discount: 0,
+      remarks: 'School Fee Installment',
+      receiptNo: `REC-${Date.now().toString().slice(-5)}`
+    });
+    setIsFeeModalOpen(true);
+  };
+
+  const handleCollectFeeSubmit = (e) => {
+    e.preventDefault();
+    if (!studentForFee) return;
+    const amt = Number(feeForm.amount);
+    if (!amt || amt <= 0) {
+      showToast('Please enter a valid amount greater than zero!', 'error');
+      return;
+    }
+
+    try {
+      const inv = schoolService.collectFee({
+        studentId: studentForFee.id,
+        amountPaid: amt,
+        paymentMode: feeForm.paymentMode,
+        remarks: feeForm.remarks,
+        discount: Number(feeForm.discount) || 0,
+        customReceiptNo: feeForm.receiptNo
+      });
+
+      refreshStudents();
+      setIsFeeModalOpen(false);
+      setRecentReceipt(inv);
+      setIsReceiptModalOpen(true);
+      showToast(`Fee payment of ₹${amt.toLocaleString('en-IN')} recorded successfully! 💳`, 'success');
+    } catch (err) {
+      showToast('Payment processing error: ' + err.message, 'error');
+    }
+  };
+
   // Comprehensive Edit Form State (Matching Create Admission Form)
   const [editFormData, setEditFormData] = useState({
     id: '',
@@ -983,6 +1038,18 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                       <td className="p-3 text-right whitespace-nowrap print:hidden">
                         <div className="flex items-center justify-end gap-1.5">
                           
+                          {/* Pay Fee / Collect Button */}
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleOpenFeeModal(student);
+                            }}
+                            title="Collect / Pay Fee"
+                            className="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold text-[10px] flex items-center gap-1 shadow-xs transition-all hover:scale-105 active:scale-95"
+                          >
+                            <CreditCard className="w-3 h-3" /> Collect
+                          </button>
+
                           {/* View Profile */}
                           <button
                             onClick={() => {
@@ -1614,6 +1681,21 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                     <p className="text-base font-black text-rose-900 dark:text-rose-100 font-mono mt-0.5">₹{(selectedStudent.feeSummary?.balance || 0).toLocaleString()}</p>
                   </div>
                 </div>
+
+                {/* Quick 1-Click Collect Fee Button */}
+                <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-700">
+                  <span className="text-xs font-bold text-slate-500">Quick Fee Settlement:</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsProfileModalOpen(false);
+                      handleOpenFeeModal(selectedStudent);
+                    }}
+                    className="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl font-bold text-xs shadow-md shadow-emerald-500/20 flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
+                  >
+                    <CreditCard className="w-3.5 h-3.5" /> 💳 Collect / Pay Fee Now
+                  </button>
+                </div>
                 {selectedStudent.feeSummary?.isElderSibling && (
                   <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800">
                     <div className="flex justify-between items-center text-xs font-bold text-purple-900 dark:text-purple-200">
@@ -1789,6 +1871,194 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
             >
               <Printer className="w-4 h-4" /> Print Student ID Card
             </button>
+          </div>
+        )}
+      </Modal>
+
+      {/* ========================================================== */}
+      {/* 💳 MODAL: 1-CLICK FEE COLLECTION / PAYMENT                */}
+      {/* ========================================================== */}
+      <Modal
+        isOpen={isFeeModalOpen}
+        onClose={() => setIsFeeModalOpen(false)}
+        title={`💳 Collect / Pay Fee: ${studentForFee?.name || ''}`}
+        maxWidth="max-w-lg"
+      >
+        {studentForFee && (
+          <form onSubmit={handleCollectFeeSubmit} className="space-y-4 text-xs">
+            {/* Student Info Pill */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/80 border border-blue-200 dark:border-slate-700 flex items-center justify-between">
+              <div>
+                <p className="font-black text-sm text-slate-900 dark:text-white uppercase">{studentForFee.name}</p>
+                <p className="text-[11px] text-slate-500 font-bold">
+                  Class: <span className="text-indigo-600 dark:text-indigo-400 uppercase">{studentForFee.class}-{studentForFee.section}</span> | 
+                  Adm: <span className="font-mono">{studentForFee.admissionNo}</span> | 
+                  Father: <span>{studentForFee.parents?.fatherName || 'N/A'}</span>
+                </p>
+              </div>
+              <div className="text-right">
+                <span className="text-[10px] uppercase font-bold text-rose-600 block">Total Due</span>
+                <span className="font-mono font-black text-base text-rose-700 dark:text-rose-400">
+                  ₹{(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')}
+                </span>
+              </div>
+            </div>
+
+            {/* Amount to Collect */}
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                Amount to Collect (₹) <span className="text-rose-500">*</span>
+              </label>
+              <input
+                type="number"
+                required
+                min={1}
+                value={feeForm.amount}
+                onChange={(e) => setFeeForm(prev => ({ ...prev, amount: e.target.value }))}
+                placeholder="Enter payment amount..."
+                className="w-full p-3 rounded-xl border-2 border-emerald-500/50 focus:border-emerald-600 bg-white dark:bg-slate-800 font-mono font-black text-lg text-emerald-700 dark:text-emerald-300"
+              />
+            </div>
+
+            {/* Payment Mode & Custom Receipt No */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Payment Mode</label>
+                <select
+                  value={feeForm.paymentMode}
+                  onChange={(e) => setFeeForm(prev => ({ ...prev, paymentMode: e.target.value }))}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                >
+                  <option value="Cash">💵 Cash</option>
+                  <option value="UPI">📱 UPI / QR Code</option>
+                  <option value="Cheque">📜 Cheque</option>
+                  <option value="Bank Transfer">🏛️ Bank Transfer / NEFT</option>
+                  <option value="Card">💳 Debit / Credit Card</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Receipt No.</label>
+                <input
+                  type="text"
+                  value={feeForm.receiptNo}
+                  onChange={(e) => setFeeForm(prev => ({ ...prev, receiptNo: e.target.value }))}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+            </div>
+
+            {/* Discount / Concession & Remarks */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Discount / Concession (₹)</label>
+                <input
+                  type="number"
+                  min={0}
+                  value={feeForm.discount}
+                  onChange={(e) => setFeeForm(prev => ({ ...prev, discount: e.target.value }))}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Remarks / Note</label>
+                <input
+                  type="text"
+                  value={feeForm.remarks}
+                  onChange={(e) => setFeeForm(prev => ({ ...prev, remarks: e.target.value }))}
+                  placeholder="e.g. Installment 1, Bus fee..."
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-medium"
+                />
+              </div>
+            </div>
+
+            {/* Form Actions */}
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-700">
+              <button
+                type="button"
+                onClick={() => setIsFeeModalOpen(false)}
+                className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-300"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold shadow-lg shadow-emerald-500/20 flex items-center gap-1.5 transition-all hover:scale-105"
+              >
+                <CreditCard className="w-4 h-4" /> Collect ₹{Number(feeForm.amount || 0).toLocaleString('en-IN')} & Print Receipt
+              </button>
+            </div>
+          </form>
+        )}
+      </Modal>
+
+      {/* ========================================================== */}
+      {/* 🧾 MODAL: INSTANT PRINTABLE FEE RECEIPT                    */}
+      {/* ========================================================== */}
+      <Modal
+        isOpen={isReceiptModalOpen}
+        onClose={() => setIsReceiptModalOpen(false)}
+        title="Official Fee Payment Receipt"
+        maxWidth="max-w-md"
+      >
+        {recentReceipt && (
+          <div className="space-y-4">
+            <div className="p-4 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs space-y-3 print:border-none">
+              <div className="text-center border-b border-slate-200 dark:border-slate-800 pb-2">
+                <h3 className="font-black text-base text-slate-900 dark:text-white uppercase tracking-wide">DADHEECH MEMORIAL PUBLIC SCHOOL</h3>
+                <p className="text-[10px] text-slate-500">Murlipur, Dharakpur, Aligarh | Academic Session: 2026-2027</p>
+                <span className="inline-block mt-1 px-3 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px] uppercase">
+                  ✓ Fee Payment Receipt (PAID)
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 text-[11px]">
+                <div>
+                  <span className="text-slate-400 block">Receipt No:</span>
+                  <strong className="font-mono text-slate-900 dark:text-white">{recentReceipt.receiptNo || recentReceipt.id}</strong>
+                </div>
+                <div className="text-right">
+                  <span className="text-slate-400 block">Date:</span>
+                  <strong className="text-slate-900 dark:text-white">{recentReceipt.date || new Date().toLocaleDateString('en-GB')}</strong>
+                </div>
+                <div>
+                  <span className="text-slate-400 block">Student Name:</span>
+                  <strong className="text-blue-600 dark:text-blue-400 uppercase">{recentReceipt.studentName}</strong>
+                </div>
+                <div className="text-right">
+                  <span className="text-slate-400 block">Adm / Roll:</span>
+                  <strong className="font-mono text-slate-900 dark:text-white">{recentReceipt.studentAdmNo || 'N/A'}</strong>
+                </div>
+                <div>
+                  <span className="text-slate-400 block">Payment Mode:</span>
+                  <strong className="text-slate-900 dark:text-white">{recentReceipt.paymentMode || 'Cash'}</strong>
+                </div>
+                <div className="text-right">
+                  <span className="text-slate-400 block">Amount Paid:</span>
+                  <strong className="text-base font-black text-emerald-600 font-mono">₹{Number(recentReceipt.amountPaid || recentReceipt.amount || 0).toLocaleString('en-IN')}</strong>
+                </div>
+              </div>
+
+              <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex justify-between text-[10px] text-slate-400">
+                <span>Authorized Cashier</span>
+                <span>System Generated Receipt</span>
+              </div>
+            </div>
+
+            <div className="flex gap-2">
+              <button
+                onClick={() => window.print()}
+                className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md"
+              >
+                <Printer className="w-4 h-4" /> Print Receipt
+              </button>
+              <button
+                onClick={() => setIsReceiptModalOpen(false)}
+                className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs"
+              >
+                Close
+              </button>
+            </div>
           </div>
         )}
       </Modal>
