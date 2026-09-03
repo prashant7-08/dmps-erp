@@ -2397,7 +2397,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           <div>
             <h4 className="font-bold text-white mb-3 text-sm">Campus Helplines</h4>
             <ul className="space-y-2 text-[11px]">
-              <li className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <li className="flex items-center gap-2 flex-wrap">
                 <button
                   onClick={() => navigateTo('campuses')}
                   className="font-bold text-amber-300 hover:text-amber-200 hover:underline transition-colors text-left cursor-pointer"
@@ -2408,7 +2408,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   +91 97589 75880
                 </a>
               </li>
-              <li className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <li className="flex items-center gap-2 flex-wrap">
                 <button
                   onClick={() => navigateTo('campuses')}
                   className="font-bold text-amber-300 hover:text-amber-200 hover:underline transition-colors text-left cursor-pointer"
@@ -2419,7 +2419,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                   +91 86300 08371
                 </a>
               </li>
-              <li className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <li className="flex items-center gap-2 flex-wrap">
                 <button
                   onClick={() => navigateTo('campuses')}
                   className="font-bold text-amber-300 hover:text-amber-200 hover:underline transition-colors text-left cursor-pointer"
