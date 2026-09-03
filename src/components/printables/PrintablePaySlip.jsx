@@ -73,20 +73,20 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
             <span className="font-bold text-slate-900">{teacher.department}</span>
           </div>
           <div>
-            <span className="text-slate-500 block font-semibold">Bank Name:</span>
-            <span className="font-semibold text-slate-800">{teacher.bankDetails?.bankName || "SBI"}</span>
+            <span className="text-slate-500 block font-semibold">Registered Mobile:</span>
+            <span className="font-mono font-bold text-slate-900">{teacher.phone || teacher.mobile || "—"}</span>
           </div>
           <div>
-            <span className="text-slate-500 block font-semibold">Bank A/C No:</span>
-            <span className="font-mono font-bold text-slate-900">{teacher.bankDetails?.accountNo || "918020038472"}</span>
+            <span className="text-slate-500 block font-semibold">Payment Mode / UPI:</span>
+            <span className="font-mono font-bold text-slate-900">{teacher.upiId || "UPI / Cash / PhonePe"}</span>
           </div>
           <div>
-            <span className="text-slate-500 block font-semibold">IFSC Code:</span>
-            <span className="font-mono font-bold text-slate-900">{teacher.bankDetails?.ifsc || "SBIN0004521"}</span>
+            <span className="text-slate-500 block font-semibold">Pay Period:</span>
+            <span className="font-bold text-slate-900">August 2026</span>
           </div>
           <div>
             <span className="text-slate-500 block font-semibold">Working Days:</span>
-            <span className="font-bold text-slate-900">26 Days (Present: 26)</span>
+            <span className="font-bold text-slate-900">26 Days</span>
           </div>
         </div>
 
@@ -99,24 +99,16 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
             </div>
             <div className="p-3 space-y-2">
               <div className="flex justify-between">
-                <span>Basic Salary</span>
-                <span className="font-bold">₹{salary.basic?.toLocaleString('en-IN')}</span>
+                <span>Monthly Basic Salary</span>
+                <span className="font-bold font-mono">₹{(salary.basic || teacher.basicSalary || teacher.salary || 25000).toLocaleString('en-IN')}</span>
               </div>
               <div className="flex justify-between">
-                <span>House Rent Allowance (HRA)</span>
-                <span className="font-bold">₹{salary.hra?.toLocaleString('en-IN') || 0}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Dearness Allowance (DA)</span>
-                <span className="font-bold">₹{salary.da?.toLocaleString('en-IN') || 0}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Special / Academic Allowance</span>
-                <span className="font-bold">₹{salary.specialAllowance?.toLocaleString('en-IN') || 0}</span>
+                <span>Bonus / Special Allowance</span>
+                <span className="font-bold font-mono">₹{salary.bonus?.toLocaleString('en-IN') || 0}</span>
               </div>
               <div className="border-t border-slate-200 pt-2 flex justify-between font-black text-slate-900">
-                <span>Gross Earnings:</span>
-                <span className="text-emerald-700">₹{totalEarnings.toLocaleString('en-IN')}</span>
+                <span>Gross Payable:</span>
+                <span className="text-emerald-700 font-mono">₹{((salary.basic || teacher.basicSalary || teacher.salary || 25000) + (salary.bonus || 0)).toLocaleString('en-IN')}</span>
               </div>
             </div>
           </div>
@@ -128,24 +120,21 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
             </div>
             <div className="p-3 space-y-2">
               <div className="flex justify-between">
-                <span>Provident Fund (EPF 12%)</span>
-                <span className="font-bold">₹{salary.pfDeduction?.toLocaleString('en-IN') || 0}</span>
+                <span>Leave / Absent Cut</span>
+                <span className="font-bold font-mono text-rose-600">₹{salary.deductionAmount?.toLocaleString('en-IN') || salary.leaveDeduction?.toLocaleString('en-IN') || 0}</span>
               </div>
-              <div className="flex justify-between">
-                <span>Income Tax (TDS)</span>
-                <span className="font-bold">₹{salary.taxDeduction?.toLocaleString('en-IN') || 0}</span>
-              </div>
-              <div className="flex justify-between text-slate-400">
-                <span>Professional Tax</span>
-                <span>₹0</span>
-              </div>
-              <div className="flex justify-between text-slate-400">
-                <span>Loan / Advance Recovery</span>
-                <span>₹0</span>
+              {salary.deductionReason && (
+                <div className="text-[10px] text-rose-600 font-medium italic">
+                  Reason: {salary.deductionReason}
+                </div>
+              )}
+              <div className="flex justify-between text-slate-500">
+                <span>Advance / Loan Recovery</span>
+                <span className="font-mono">₹{salary.advanceDeduction?.toLocaleString('en-IN') || 0}</span>
               </div>
               <div className="border-t border-slate-200 pt-2 flex justify-between font-black text-slate-900">
                 <span>Total Deductions:</span>
-                <span className="text-rose-700">₹{totalDeductions.toLocaleString('en-IN')}</span>
+                <span className="text-rose-700 font-mono">₹{((salary.deductionAmount || salary.leaveDeduction || 0) + (salary.advanceDeduction || 0)).toLocaleString('en-IN')}</span>
               </div>
             </div>
           </div>
@@ -154,12 +143,12 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
         {/* Net Salary Banner */}
         <div className="flex items-center justify-between bg-indigo-950 text-white p-4 rounded-xl mb-6">
           <div>
-            <span className="text-xs uppercase text-indigo-300 font-semibold block">Net Take-Home Pay</span>
-            <span className="text-2xl font-black">₹{netPay.toLocaleString('en-IN')}</span>
+            <span className="text-xs uppercase text-indigo-300 font-semibold block">Net Take-Home Disbursed</span>
+            <span className="text-2xl font-black font-mono">₹{(salary.netPayable || salary.netSalary || (salary.basic || teacher.basicSalary || 25000)).toLocaleString('en-IN')}</span>
           </div>
           <div className="text-right">
             <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800">
-              <CheckCircle2 className="w-3.5 h-3.5" /> Direct Bank Transfer
+              <CheckCircle2 className="w-3.5 h-3.5" /> Disbursed via UPI / Cash
             </span>
           </div>
         </div>

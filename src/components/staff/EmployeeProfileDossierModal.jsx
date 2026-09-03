@@ -187,7 +187,7 @@ export const EmployeeProfileDossierModal = ({
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] text-slate-400 font-bold block">Branch</span>
-                <span className="font-bold text-slate-900 dark:text-white">{employee.branch || 'Main Branch (DMPS)'}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{employee.branch || 'Main Campus (DMPS)'}</span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
@@ -202,22 +202,22 @@ export const EmployeeProfileDossierModal = ({
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] text-slate-400 font-bold block">Qualification</span>
-                <span className="font-bold text-slate-900 dark:text-white">{employee.qualification || 'B.Sc., B.Ed.'}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{employee.qualification || 'Graduate'}</span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] text-slate-400 font-bold block">Subject Taught</span>
-                <span className="font-bold text-indigo-600 dark:text-indigo-400">{employee.subjectTaught || employee.subject || 'English / Science'}</span>
+                <span className="font-bold text-indigo-600 dark:text-indigo-400">{employee.subjectTaught || employee.subject || 'General / Primary'}</span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] text-slate-400 font-bold block">Total Experience</span>
-                <span className="font-bold text-slate-900 dark:text-white">{employee.totalExperience || employee.experienceDetails || '1 Month'}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{employee.totalExperience || employee.experienceDetails || '1 Year'}</span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 sm:col-span-2">
                 <span className="text-[10px] text-slate-400 font-bold block">Previous School / Organization</span>
-                <span className="font-bold text-slate-900 dark:text-white">{employee.previousSchool || 'John Howard Convent School, Jargwan (BSR)'}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{employee.previousSchool || 'Direct Appointment / Fresh Entry'}</span>
               </div>
             </div>
           </div>
@@ -239,12 +239,12 @@ export const EmployeeProfileDossierModal = ({
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] text-slate-400 font-bold block">Father's Name</span>
-                <span className="font-bold text-slate-900 dark:text-white">{employee.fatherName || 'Jitendra Singh'}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{employee.fatherName || '—'}</span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] text-slate-400 font-bold block">Mother's Name</span>
-                <span className="font-bold text-slate-900 dark:text-white">{employee.motherName || 'Bijnesh Devi'}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{employee.motherName || '—'}</span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
@@ -257,7 +257,7 @@ export const EmployeeProfileDossierModal = ({
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] text-slate-400 font-bold block">Date of Birth & Blood</span>
                 <span className="font-bold text-slate-900 dark:text-white font-mono">
-                  {employee.dob || '01/08/2007'} ({employee.bloodGroup || 'O+'})
+                  {employee.dob || '—'} ({employee.bloodGroup || 'O+'})
                 </span>
               </div>
 
@@ -268,12 +268,12 @@ export const EmployeeProfileDossierModal = ({
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] text-slate-400 font-bold block">Caste / Category</span>
-                <span className="font-bold text-slate-900 dark:text-white">{employee.caste || 'OBC'}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{employee.caste || 'General'}</span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <span className="text-[10px] text-slate-400 font-bold block">Aadhaar Card No.</span>
-                <span className="font-bold font-mono text-slate-900 dark:text-white">{employee.aadhaarNo || '857490433971'}</span>
+                <span className="font-bold font-mono text-slate-900 dark:text-white">{employee.aadhaarNo || '—'}</span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
@@ -284,7 +284,7 @@ export const EmployeeProfileDossierModal = ({
               <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 sm:col-span-2 md:col-span-4">
                 <span className="text-[10px] text-slate-400 font-bold block">Residential & Permanent Address</span>
                 <span className="font-medium text-slate-800 dark:text-slate-200">
-                  {employee.presentAddress || 'Baijala Kothi Jirauli Dhoom Singh, Aligarh, Uttar Pradesh'}
+                  {employee.presentAddress || employee.address || 'Ramghat Road Border, Jargwan, Bulandshahr (U.P.)'}
                 </span>
               </div>
             </div>

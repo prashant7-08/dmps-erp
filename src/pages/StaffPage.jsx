@@ -79,19 +79,19 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     designation: '',
     employeeId: '',
     month: 'August 2026',
-    baseSalary: 30000,
-    absentDays: 0,
-    leaveDeduction: 0,
+    baseSalary: 25000,
+    deductionAmount: 0,
+    deductionReason: '',
     advanceDeduction: 0,
     bonus: 0,
-    netPayable: 30000,
-    paidAmount: 30000,
-    paymentMode: 'Bank Transfer (NEFT/RTGS)',
-    remarks: 'Monthly Salary Payment'
+    netPayable: 25000,
+    paidAmount: 25000,
+    paymentMode: 'UPI / PhonePe / GPay',
+    remarks: 'August 2026 Salary Disbursed'
   });
 
   const handleOpenPaySalary = (staff) => {
-    const base = staff.salary?.netSalary || staff.basicSalary || 28000;
+    const base = staff.salary?.basic || staff.salary?.netSalary || staff.basicSalary || staff.salary || 25000;
     setSalaryPayForm({
       staffId: staff.id,
       staffName: staff.name,
@@ -99,13 +99,13 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       employeeId: staff.employeeId || staff.id,
       month: 'August 2026',
       baseSalary: base,
-      absentDays: 0,
-      leaveDeduction: 0,
+      deductionAmount: 0,
+      deductionReason: '',
       advanceDeduction: 0,
       bonus: 0,
       netPayable: base,
       paidAmount: base,
-      paymentMode: 'Bank Transfer (NEFT/RTGS)',
+      paymentMode: 'UPI / PhonePe / GPay',
       remarks: 'August 2026 Salary'
     });
     setIsPaySalaryModalOpen(true);
@@ -115,13 +115,11 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     setSalaryPayForm(prev => {
       const updated = { ...prev, [field]: value };
       const base = Number(updated.baseSalary) || 0;
-      const absent = Number(updated.absentDays) || 0;
-      const leaveDed = Math.round((base / 30) * absent);
+      const deduction = Number(updated.deductionAmount) || 0;
       const advDed = Number(updated.advanceDeduction) || 0;
       const bon = Number(updated.bonus) || 0;
-      const net = Math.max(0, base - leaveDed - advDed + bon);
+      const net = Math.max(0, base - deduction - advDed + bon);
 
-      updated.leaveDeduction = leaveDed;
       updated.netPayable = net;
       if (field !== 'paidAmount') {
         updated.paidAmount = net;
@@ -2342,57 +2340,67 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 onChange={(e) => handleSalaryFormChange('paymentMode', e.target.value)}
                 className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
               >
-                <option value="Direct Bank Transfer (NEFT/RTGS)">Direct Bank Transfer (NEFT/RTGS)</option>
-                <option value="Cash">Cash (Office Chest)</option>
-                <option value="UPI / QR Code">UPI / QR Code</option>
-                <option value="Bank Cheque">Bank Cheque</option>
+                <option value="UPI / PhonePe / GPay">📱 UPI / PhonePe / GPay (QR Scan)</option>
+                <option value="Cash">💵 Cash (Office Chest)</option>
+                <option value="Direct Bank Transfer (NEFT/RTGS)">🏦 Direct Bank Transfer (NEFT/RTGS)</option>
+                <option value="Bank Cheque">📝 Bank Cheque</option>
               </select>
             </div>
           </div>
 
           {/* Deductions & Additions */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
-            <h4 className="font-black text-slate-900 dark:text-white uppercase text-[11px] tracking-wide">
-              Leave Deductions & Adjustments
-            </h4>
+            <div className="flex items-center justify-between">
+              <h4 className="font-black text-slate-900 dark:text-white uppercase text-[11px] tracking-wide flex items-center gap-1.5">
+                <span>✂️</span> Leave Deductions & Adjustments (वेतन कटौती एवं कारण)
+              </h4>
+              <span className="text-[10px] text-rose-600 dark:text-rose-400 font-bold">कटौती सीधे दर्ज करें</span>
+            </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                  Absent / Unpaid Leaves (Days)
+                <label className="font-bold text-rose-700 dark:text-rose-400 block mb-1">
+                  Leave / Absence Deduction Amount (कटौती राशि ₹)
                 </label>
                 <input
                   type="number"
                   min="0"
-                  max="31"
-                  value={salaryPayForm.absentDays}
-                  onChange={(e) => handleSalaryFormChange('absentDays', e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
-                  placeholder="0"
+                  value={salaryPayForm.deductionAmount}
+                  onChange={(e) => handleSalaryFormChange('deductionAmount', e.target.value)}
+                  className="w-full p-2.5 rounded-xl border-2 border-rose-300 dark:border-rose-800 bg-white dark:bg-slate-900 font-mono font-black text-rose-600 text-sm"
+                  placeholder="₹0 (e.g. 1000 for 2 days leave)"
                 />
-                {salaryPayForm.leaveDeduction > 0 && (
-                  <span className="text-[10px] font-bold text-rose-500 block mt-0.5">
-                    -₹{salaryPayForm.leaveDeduction.toLocaleString('en-IN')} Cut
-                  </span>
-                )}
+              </div>
+
+              <div>
+                <label className="font-bold text-rose-700 dark:text-rose-400 block mb-1">
+                  Deduction Reason / Remark (कटौती का कारण / टिप्पणी)
+                </label>
+                <input
+                  type="text"
+                  value={salaryPayForm.deductionReason}
+                  onChange={(e) => handleSalaryFormChange('deductionReason', e.target.value)}
+                  className="w-full p-2.5 rounded-xl border border-rose-300 dark:border-rose-800 bg-white dark:bg-slate-900 text-xs font-semibold"
+                  placeholder="e.g. 2 दिन छुट्टी / Absent कट, लेट अराइवल"
+                />
               </div>
 
               <div>
                 <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                  Advance Salary EMI / Loan Cut
+                  Advance Salary EMI / Loan Cut (-)
                 </label>
                 <input
                   type="number"
                   min="0"
                   value={salaryPayForm.advanceDeduction}
                   onChange={(e) => handleSalaryFormChange('advanceDeduction', e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-bold"
                   placeholder="₹0"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
+                <label className="font-bold text-emerald-700 dark:text-emerald-400 block mb-1">
                   Bonus / Extra Allowance (+)
                 </label>
                 <input
@@ -2400,7 +2408,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   min="0"
                   value={salaryPayForm.bonus}
                   onChange={(e) => handleSalaryFormChange('bonus', e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
+                  className="w-full p-2 rounded-xl border border-emerald-300 dark:border-emerald-800 bg-white dark:bg-slate-900 font-mono font-bold text-emerald-600"
                   placeholder="₹0"
                 />
               </div>
