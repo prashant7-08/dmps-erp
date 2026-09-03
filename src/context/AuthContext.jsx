@@ -83,13 +83,6 @@ export function AuthProvider({ children }) {
       passwords: ["cashier@123", "cashier123", "cashier", "accountant123"]
     },
     {
-      role: "Parent",
-      name: "Mr. Mukesh Sharma (Parent of Aarav & Aniket)",
-      assignedBranchId: "BR-01",
-      usernames: ["parent", "parent@dmps.edu.in", "9811001122", "mukesh.sharma"],
-      passwords: ["parent@123", "parent123", "parent"]
-    },
-    {
       role: "Student",
       name: "DEEPAK KUMAR (Student - Class 10-A)",
       assignedBranchId: "BR-01",
@@ -237,24 +230,16 @@ export function AuthProvider({ children }) {
         fPhone,
         'student123',
         'student@123',
-        'parent123',
-        'parent@123',
         matchedStudent.admissionNo
       ].filter(Boolean);
-
-      const isParentLogin =
-        userClean === String(matchedStudent.parents?.fatherMobile || '').toLowerCase() ||
-        userClean === String(matchedStudent.parents?.motherMobile || '').toLowerCase();
 
       if (validStudentPass.includes(passClean) || passClean === fPhone || passClean === matchedStudent.dob) {
         const authUserData = {
           id: matchedStudent.id,
           admissionNo: matchedStudent.admissionNo,
           email: `${matchedStudent.admissionNo}@student.dmps.edu.in`,
-          name: isParentLogin
-            ? `${matchedStudent.parents?.fatherName || 'Parent'} (Parent of ${matchedStudent.name})`
-            : matchedStudent.name,
-          role: isParentLogin ? 'Parent' : 'Student',
+          name: matchedStudent.name,
+          role: 'Student',
           assignedBranchId: matchedStudent.branchId || 'BR-01',
           class: matchedStudent.class,
           section: matchedStudent.section,
