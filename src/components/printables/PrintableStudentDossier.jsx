@@ -18,6 +18,18 @@ export const PrintableStudentDossier = ({ student, onClose = null }) => {
 
   return (
     <div className="space-y-3 font-sans print:m-0 print:p-0">
+      <style>{`
+        @media print {
+          @page {
+            size: A4 portrait;
+            margin: 6mm 8mm;
+          }
+          body {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
+        }
+      `}</style>
       {/* Top Action Bar (Hidden on Print) */}
       <div className="flex items-center justify-between p-3 rounded-2xl bg-indigo-50 dark:bg-slate-800 border border-indigo-200 dark:border-slate-700 print:hidden">
         <div>

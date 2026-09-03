@@ -790,7 +790,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
 
 
       {/* 📊 Main Table Container with Export Toolbar */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+      <div className={`bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden ${isIdCardModalOpen || isReceiptModalOpen || isFeeModalOpen || isProfileModalOpen || isEditModalOpen || isDeactivateModalOpen || isBulkDeactivateModalOpen ? 'print:hidden' : ''}`}>
         
         {/* Table Toolbar Header */}
         <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-3 bg-slate-50/50 dark:bg-slate-800/40 print:hidden">
