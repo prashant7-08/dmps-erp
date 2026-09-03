@@ -144,20 +144,64 @@ export const TopNav = ({
   const teachers = schoolService.getTeachers(activeBranchId);
 
   const filteredStudents = searchQuery.trim()
-    ? students.filter(s => {
-        const q = searchQuery.toLowerCase().trim();
-        return (
-          (s.name || '').toLowerCase().includes(q) ||
-          (s.parents?.fatherName || '').toLowerCase().includes(q) ||
-          (s.parents?.motherName || '').toLowerCase().includes(q) ||
-          String(s.parents?.fatherMobile || '').includes(q) ||
-          String(s.parents?.motherMobile || '').includes(q) ||
-          (s.parents?.address || '').toLowerCase().includes(q) ||
-          (s.class || '').toLowerCase().includes(q) ||
-          String(s.rollNo || '').includes(q) ||
-          String(s.admissionNo || '').toLowerCase().includes(q)
-        );
-      }).slice(0, 10)
+    ? students
+        .map(s => {
+          const q = searchQuery.toLowerCase().trim();
+          const name = (s.name || '').toLowerCase();
+          const father = (s.parents?.fatherName || '').toLowerCase();
+          const mother = (s.parents?.motherName || '').toLowerCase();
+          const mobile = String(s.parents?.fatherMobile || '');
+          const altMobile = String(s.parents?.motherMobile || '');
+          const address = (s.parents?.address || '').toLowerCase();
+          const admNo = String(s.admissionNo || '').toLowerCase();
+          const rollNo = String(s.rollNo || '');
+
+          let score = 0;
+          let matchReason = '';
+
+          // 1. Highest Priority: Student Name Exact / Prefix Match
+          if (name.startsWith(q)) {
+            score = 100;
+          } else if (name.includes(q)) {
+            score = 80;
+          }
+          // 2. Admission No / Ledger No match
+          else if (admNo === q || rollNo === q) {
+            score = 95;
+            matchReason = `Adm: ${s.admissionNo}`;
+          } else if (admNo.startsWith(q) || rollNo.startsWith(q)) {
+            score = 75;
+          }
+          // 3. Father Name match
+          else if (father.startsWith(q)) {
+            score = 70;
+          } else if (father.includes(q)) {
+            score = 60;
+          }
+          // 4. Mobile number match
+          else if (mobile.startsWith(q) || altMobile.startsWith(q)) {
+            score = 50;
+            matchReason = `Mobile: ${mobile}`;
+          } else if (mobile.includes(q) || altMobile.includes(q)) {
+            score = 40;
+            matchReason = `Mobile: ${mobile}`;
+          }
+          // 5. Mother Name match
+          else if (mother.includes(q)) {
+            score = 30;
+            matchReason = `Mother: ${s.parents?.motherName}`;
+          }
+          // 6. Village / Address match
+          else if (address.includes(q)) {
+            score = 20;
+            matchReason = `Village: ${s.parents?.address}`;
+          }
+
+          return { ...s, _searchScore: score, _matchReason: matchReason };
+        })
+        .filter(s => s._searchScore > 0)
+        .sort((a, b) => b._searchScore - a._searchScore)
+        .slice(0, 10)
     : [];
 
   const filteredTeachers = searchQuery.trim()
@@ -256,6 +300,13 @@ export const TopNav = ({
                           <p className="text-slate-500 font-mono text-[11px]">
                             Mobile: <span className="font-bold text-slate-700 dark:text-slate-300">{s.parents?.fatherMobile || 'N/A'}</span>
                           </p>
+                          {s._matchReason && (
+                            <p className="pt-0.5">
+                              <span className="inline-block px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-300 text-[10px] font-bold border border-amber-300/80 dark:border-amber-700">
+                                🔍 {s._matchReason}
+                              </span>
+                            </p>
+                          )}
                         </div>
                         <div className="text-right shrink-0">
                           <img
