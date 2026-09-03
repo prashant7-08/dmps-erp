@@ -24,6 +24,7 @@ import {
 import { Badge } from '../components/common/Badge';
 import schoolService from '../services/schoolService';
 import { useToast } from '../components/common/Toast';
+import { CustomListPage } from './CustomListPage';
 
 export const ReportsPage = ({ initialTab = 'students' }) => {
   const { showToast } = useToast();
@@ -61,8 +62,9 @@ export const ReportsPage = ({ initialTab = 'students' }) => {
   const totalBalance = 10527785;
 
   const reportCategories = [
+    { id: 'custom-list', label: '0. CUSTOM LIST BUILDER', icon: FileText, badge: 'Custom', desc: 'Select custom columns, multi-parameter filters & print' },
     { id: 'students', label: '1. STUDENT REPORTS', icon: Users, badge: `${students.length} Students`, desc: 'Demographics, Category, Gender, Roll Register & House distribution' },
-    { id: 'fees', label: '2. FEES REPORTS', icon: DollarSign, badge: '₹1.15 Cr Ledger', desc: 'Tuition & Transport fee collection vs dues defaulters statement' },
+    { id: 'fees', label: '2. FEES REPORTS', icon: DollarSign, badge: '₹1.13 Cr Ledger', desc: 'Tuition & Transport fee collection vs dues defaulters statement' },
     { id: 'financial', label: '3. FINANCIAL REPORTS', icon: TrendingUp, badge: 'Balance Sheet', desc: 'Income vs Expense statements, Accounts vouchers & Profit/Loss' },
     { id: 'attendance', label: '4. ATTENDANCE REPORTS', icon: CheckCircle2, badge: 'Biometric Log', desc: 'Student daily attendance, Staff monthly matrix, <75% defaulters' },
     { id: 'hr', label: '5. HUMAN RESOURCE', icon: Briefcase, badge: '22 Staff', desc: 'Salary disbursals, EPF deductions, Staff advance loans & Leave' },
@@ -160,6 +162,11 @@ export const ReportsPage = ({ initialTab = 'students' }) => {
             </span>
           </div>
         </div>
+
+        {/* 🖨️ 0. CUSTOM LIST BUILDER */}
+        {activeReport === 'custom-list' && (
+          <CustomListPage />
+        )}
 
         {/* 🖨️ 1. STUDENT REPORTS */}
         {activeReport === 'students' && (

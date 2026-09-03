@@ -80,6 +80,7 @@ export const navigationGroups = [
     icon: GraduationCap,
     items: [
       { id: 'students-list', targetTab: 'students', subTab: 'list', label: 'All Active Students', badge: 'Active' },
+      { id: 'students-custom-list', targetTab: 'custom-list', label: 'Custom List Builder', badge: 'Custom' },
       { id: 'students-inactive', targetTab: 'students', subTab: 'inactive', label: 'Inactive / TC List', badge: 'Left' }
     ]
   },
@@ -248,6 +249,7 @@ export const navigationGroups = [
     label: 'REPORTS',
     icon: BarChart3,
     items: [
+      { id: 'reports-custom-list', targetTab: 'custom-list', label: '📋 CUSTOM LIST BUILDER', badge: 'Custom' },
       { id: 'reports-student', targetTab: 'reports', subTab: 'students', label: 'STUDENT REPORTS', badge: 'Student' },
       { id: 'reports-fees', targetTab: 'reports', subTab: 'fees', label: 'FEES REPORTS', badge: 'Fees' },
       { id: 'reports-financial', targetTab: 'reports', subTab: 'financial', label: 'FINANCIAL REPORTS', badge: 'Accounts' },

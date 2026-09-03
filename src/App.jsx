@@ -31,6 +31,7 @@ import { AccountsInventoryPage } from './pages/AccountsInventoryPage';
 import { InventoryStorePage } from './pages/InventoryStorePage';
 import { HelpdeskVisitorsPage } from './pages/HelpdeskVisitorsPage';
 import { ReportsPage } from './pages/ReportsPage';
+import { CustomListPage } from './pages/CustomListPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { StudentAdmissionPage } from './pages/StudentAdmissionPage';
 import { BiometricPage } from './pages/BiometricPage';
@@ -381,6 +382,10 @@ function AppContent() {
       case 'reports-exam':
       case 'reports-inventory':
         return <ReportsPage initialTab={activeTab} />;
+      case 'custom-list':
+      case 'customlist':
+      case 'custom-reports':
+        return <CustomListPage />;
       case 'frontend':
       case 'fe-setting':
       case 'fe-menu':
