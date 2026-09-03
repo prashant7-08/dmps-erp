@@ -22,17 +22,11 @@ export const PrintableStudentDossier = ({ student, onClose = null }) => {
         @media print {
           @page {
             size: A4 portrait;
-            margin: 4mm 6mm;
+            margin: 5mm 7mm;
           }
           body {
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
-            background: #ffffff !important;
-          }
-          /* Hide anything that is not the printable dossier */
-          body > *:not(#root),
-          #root > *:not(.fixed) {
-            display: none !important;
           }
         }
       `}</style>
