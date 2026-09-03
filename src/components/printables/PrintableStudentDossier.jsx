@@ -276,9 +276,20 @@ export const PrintableStudentDossier = ({ student, onClose = null }) => {
           </p>
         </div>
 
-        {/* 6. Clean Blank Space for Physical Signatures & Rubber Stamps (No columns/boxes) */}
-        <div className="pt-8 print:pt-10">
-          {/* Spacious open blank area for custom signatures, seals & stamps */}
+        {/* 6. Signatures Footer (Clean Text Titles with Open Signing Space Above) */}
+        <div className="pt-7 sm:pt-8 grid grid-cols-4 gap-2 text-center text-[8.5px] font-bold text-slate-800">
+          <div>
+            Class Teacher Sign
+          </div>
+          <div>
+            Accountant / Cashier
+          </div>
+          <div>
+            Parent / Guardian Sign
+          </div>
+          <div>
+            Principal Signature & Seal
+          </div>
         </div>
 
       </div>
