@@ -600,8 +600,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 25075,
-        "balance": 4425
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GOKULPUR",
@@ -652,8 +653,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 13275,
-        "balance": 16225
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -706,8 +708,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 4425,
-        "balance": 25075
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KANAKPUR",
@@ -758,8 +761,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 25075,
-        "balance": 4425
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -810,8 +814,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 13275,
-        "balance": 16225
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -862,8 +867,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 4425,
-        "balance": 25075
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA KOTHI",
@@ -914,8 +920,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 25075,
-        "balance": 4425
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA Urf RAMVAS",
@@ -923,10 +930,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-076",
-        "STU-2026-156"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0007"
 },
 {
@@ -969,8 +973,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 13275,
-        "balance": 16225
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUDAKHERA",
@@ -1021,8 +1026,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 3975,
-        "balance": 22525
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHAIRA",
@@ -1073,8 +1079,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 22525,
-        "balance": 3975
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -1128,8 +1135,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 11925,
-        "balance": 14575
+        "totalPaid": 10000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR",
@@ -1180,8 +1188,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 3975,
-        "balance": 22525
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGA GARH",
@@ -1234,8 +1243,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 22525,
-        "balance": 3975
+        "totalPaid": 5500,
+        "balance": 21000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -1286,8 +1296,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 11925,
-        "balance": 14575
+        "totalPaid": 3000,
+        "balance": 23500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -1340,8 +1351,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 3975,
-        "balance": 22525
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "HARVANSHPUR JIROULI DHOOM SINGH ALIGARH",
@@ -1394,8 +1406,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 22525,
-        "balance": 3975
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA RAMGHAT",
@@ -1446,8 +1459,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 11925,
-        "balance": 14575
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -1498,8 +1512,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 3975,
-        "balance": 22525
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -1550,8 +1565,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 22525,
-        "balance": 3975
+        "totalPaid": 10000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "CHIROURI",
@@ -1604,8 +1620,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 11925,
-        "balance": 14575
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -1656,8 +1673,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 3975,
-        "balance": 22525
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -1708,8 +1726,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 22525,
-        "balance": 3975
+        "totalPaid": 19000,
+        "balance": 7500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA SHUMALI BULANDSHAHR",
@@ -1760,8 +1779,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 11250,
-        "balance": 13750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -1812,8 +1832,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 3750,
-        "balance": 21250
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -1867,8 +1888,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 21250,
-        "balance": 3750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGAWAN",
@@ -1921,8 +1943,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 11250,
-        "balance": 13750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -1973,8 +1996,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 3975,
-        "balance": 22525
+        "totalPaid": 15000,
+        "balance": 11500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -2025,8 +2049,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 21250,
-        "balance": 3750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "VILL+POST- JARGWAN",
@@ -2077,8 +2102,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 11250,
-        "balance": 13750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -2132,8 +2158,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 3750,
-        "balance": 21250
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -2186,8 +2213,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 21250,
-        "balance": 3750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -2238,8 +2266,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 11250,
-        "balance": 13750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -2290,8 +2319,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 3750,
-        "balance": 21250
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -2344,8 +2374,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 21250,
-        "balance": 3750
+        "totalPaid": 2500,
+        "balance": 22500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -2398,8 +2429,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 11250,
-        "balance": 13750
+        "totalPaid": 2500,
+        "balance": 22500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -2454,8 +2486,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 3750,
-        "balance": 21250
+        "totalPaid": 7500,
+        "balance": 17500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KHEDIYA BAHADURGARI",
@@ -2508,8 +2541,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 21250,
-        "balance": 3750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -2560,8 +2594,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 10125,
-        "balance": 12375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "DHARAKPUR",
@@ -2614,8 +2649,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 3375,
-        "balance": 19125
+        "totalPaid": 10000,
+        "balance": 12500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "CHIROURI",
@@ -2668,8 +2704,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 19125,
-        "balance": 3375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -2720,8 +2757,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 10125,
-        "balance": 12375
+        "totalPaid": 7500,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAGI NAGLA",
@@ -2774,8 +2812,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 3375,
-        "balance": 19125
+        "totalPaid": 2500,
+        "balance": 20000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -2828,8 +2867,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 19125,
-        "balance": 3375
+        "totalPaid": 10000,
+        "balance": 12500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MAHARAJPUR",
@@ -2880,8 +2920,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 10125,
-        "balance": 12375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -2935,8 +2976,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 3375,
-        "balance": 19125
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KANAKPUR",
@@ -2987,8 +3029,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 19125,
-        "balance": 3375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NOJALPUR BANGAR",
@@ -3039,8 +3082,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 10125,
-        "balance": 12375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -3094,8 +3138,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 3375,
-        "balance": 19125
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -3148,8 +3193,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 19125,
-        "balance": 3375
+        "totalPaid": 5000,
+        "balance": 17500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -3203,8 +3249,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 10125,
-        "balance": 12375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA KOTHI ALIGARH",
@@ -3255,8 +3302,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 3375,
-        "balance": 19125
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MAHARAJPUR",
@@ -3307,8 +3355,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 19125,
-        "balance": 3375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHIPUR",
@@ -3362,8 +3411,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 10125,
-        "balance": 12375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA URF RAMBAS",
@@ -3372,8 +3422,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-156",
-        "STU-2026-007"
+        "STU-2026-156"
     ],
     "familyId": "FAM-0007"
 },
@@ -3417,8 +3466,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 3375,
-        "balance": 19125
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA CHIRAURI",
@@ -3471,8 +3521,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 19125,
-        "balance": 3375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -3525,8 +3576,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 9900,
-        "balance": 12100
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GOKULPUR",
@@ -3579,8 +3631,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 3300,
-        "balance": 18700
+        "totalPaid": 10000,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "CHIROURI (BULANDSHAHR)",
@@ -3633,8 +3686,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 18700,
-        "balance": 3300
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GOKULPUR",
@@ -3688,8 +3742,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 9900,
-        "balance": 12100
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADSPUR BADHERA",
@@ -3742,8 +3797,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 3300,
-        "balance": 18700
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -3796,8 +3852,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 18700,
-        "balance": 3300
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA KOTHI",
@@ -3850,8 +3907,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 9900,
-        "balance": 12100
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUDAKHERA",
@@ -3904,8 +3962,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 3300,
-        "balance": 18700
+        "totalPaid": 2500,
+        "balance": 19500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -3914,8 +3973,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-046",
-        "STU-2026-235"
+        "STU-2026-046"
     ],
     "familyId": "FAM-0231"
 },
@@ -3959,8 +4017,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 18700,
-        "balance": 3300
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -4011,8 +4070,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 9900,
-        "balance": 12100
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NATHPUR POST-NAHAL",
@@ -4065,8 +4125,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 3300,
-        "balance": 18700
+        "totalPaid": 5000,
+        "balance": 17000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -4121,8 +4182,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 18700,
-        "balance": 3300
+        "totalPaid": 5000,
+        "balance": 17000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -4175,8 +4237,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 9900,
-        "balance": 12100
+        "totalPaid": 4000,
+        "balance": 18000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH",
@@ -4230,8 +4293,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 3300,
-        "balance": 18700
+        "totalPaid": 2500,
+        "balance": 19500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -4284,8 +4348,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 18700,
-        "balance": 3300
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -4336,8 +4401,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 9900,
-        "balance": 12100
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHIPUR",
@@ -4390,8 +4456,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 3300,
-        "balance": 18700
+        "totalPaid": 5000,
+        "balance": 17000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI",
@@ -4442,8 +4509,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 18700,
-        "balance": 3300
+        "totalPaid": 4000,
+        "balance": 18000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "HARVANSHPUR",
@@ -4496,8 +4564,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 9900,
-        "balance": 12100
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -4548,8 +4617,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 3300,
-        "balance": 18700
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGAARH",
@@ -4602,8 +4672,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 3000,
+        "balance": 18500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -4612,8 +4683,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-095",
-        "STU-2026-259"
+        "STU-2026-095"
     ],
     "familyId": "FAM-0093"
 },
@@ -4657,8 +4727,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -4709,8 +4780,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "DHARAKPUR",
@@ -4763,8 +4835,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 15500,
+        "balance": 6000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -4818,8 +4891,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 5000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -4872,8 +4946,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIROURI BULANDSHAHR",
@@ -4924,8 +4999,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 3500,
+        "balance": 18000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA SHUMALI",
@@ -4978,8 +5054,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 7000,
+        "balance": 14500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -5032,8 +5109,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -5086,8 +5164,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 5000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -5141,8 +5220,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI RAMPUR DISTT BULANDSHAHR",
@@ -5195,8 +5275,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 5000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ALIGARH",
@@ -5249,8 +5330,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA CHIROURI",
@@ -5304,8 +5386,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 10000,
+        "balance": 11500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KUNJALPUR GAHTOLI NIRMAL ATRAULI",
@@ -5356,8 +5439,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 9000,
+        "balance": 12500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -5410,8 +5494,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 5000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -5464,8 +5549,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 5000,
+        "balance": 16000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -5518,8 +5604,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MALAHPUR ATRAULI",
@@ -5572,8 +5659,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA ALIGARH",
@@ -5624,8 +5712,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -5678,8 +5767,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI RAMPUR DISTT BULANDSHAHR",
@@ -5733,8 +5823,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -5743,8 +5834,7 @@ export const initialSchoolData = {
         "route": "Route 1"
     },
     "linkedSiblingIds": [
-        "STU-2026-010",
-        "STU-2026-164"
+        "STU-2026-010"
     ],
     "familyId": "FAM-0010"
 },
@@ -5788,8 +5878,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAGI NAGLA",
@@ -5840,8 +5931,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 5000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "LOHGARAH ATRAULI ALG.",
@@ -5894,8 +5986,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI",
@@ -5948,8 +6041,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI POSTJARGWAN",
@@ -6002,8 +6096,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 10000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -6054,8 +6149,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ALIGARH",
@@ -6108,8 +6204,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 12000,
+        "balance": 9000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "DADHAR ALUPURA POST- NARUPURA ATRAULI",
@@ -6160,8 +6257,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 5000,
+        "balance": 16000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -6214,8 +6312,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -6268,8 +6367,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 2000,
+        "balance": 19500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -6320,8 +6420,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 2500,
+        "balance": 18500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI JARGWAN BULAND SHAHR",
@@ -6374,8 +6475,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GOKULPUR",
@@ -6428,8 +6530,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 10000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -6438,8 +6541,7 @@ export const initialSchoolData = {
         "route": "Route 2"
     },
     "linkedSiblingIds": [
-        "STU-2026-199",
-        "STU-2026-208"
+        "STU-2026-199"
     ],
     "familyId": "FAM-0146"
 },
@@ -6483,8 +6585,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 3000,
+        "balance": 18000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "CHIROURI",
@@ -6537,8 +6640,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 10000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KUDHAINI",
@@ -6589,8 +6693,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 12900,
+        "balance": 8600,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "SILHARI (BULANDSHAHR)",
@@ -6643,8 +6748,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 5000,
+        "balance": 16000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -6697,8 +6803,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 9000,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI BULAND SHAHR",
@@ -6749,8 +6856,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -6803,8 +6911,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIROURI",
@@ -6855,8 +6964,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA",
@@ -6865,8 +6975,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-076",
-        "STU-2026-007"
+        "STU-2026-076"
     ],
     "familyId": "FAM-0007"
 },
@@ -6910,8 +7019,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT BULAND SHAHR",
@@ -6962,8 +7072,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHAINDAULA",
@@ -7016,8 +7127,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT PO RAMGHAT BSR",
@@ -7070,8 +7182,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -7124,8 +7237,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 4000,
+        "balance": 17500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "UNCHA GAONDIBAI BUANDSHAHR",
@@ -7179,8 +7293,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 10000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "DHARAKPUR BULAND SHAHR",
@@ -7233,8 +7348,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -7243,8 +7359,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-010",
-        "STU-2026-134"
+        "STU-2026-010"
     ],
     "familyId": "FAM-0010"
 },
@@ -7288,8 +7403,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 2500,
+        "balance": 18500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -7342,8 +7458,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 10000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "CHIROURI BSR",
@@ -7396,8 +7513,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI DIBAI BULANDSHAHR",
@@ -7448,8 +7566,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "VILL.- GOKULPUR",
@@ -7502,8 +7621,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI DIBAI BULANDSHAHR",
@@ -7556,8 +7676,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUDAKHERA / NAGLA ACHALA",
@@ -7608,8 +7729,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 10000,
+        "balance": 10500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -7662,8 +7784,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 5000,
+        "balance": 15500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -7716,8 +7839,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR GOVINDPUR",
@@ -7770,8 +7894,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MAHRAJPUR BANJARA NAGLA",
@@ -7822,8 +7947,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 5000,
+        "balance": 15500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -7876,8 +8002,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -7930,8 +8057,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 6000,
+        "balance": 14500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -7982,8 +8110,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 4000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "HARVANSHPUR ATRAULI",
@@ -8036,8 +8165,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN BULAND SHAHR",
@@ -8090,8 +8220,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 20150,
+        "balance": 350,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -8144,8 +8275,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "VILL-POST JARGWAN",
@@ -8198,8 +8330,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -8252,8 +8385,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 10000,
+        "balance": 10500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -8306,8 +8440,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KUDHAINI",
@@ -8360,8 +8495,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -8414,8 +8550,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -8468,8 +8605,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 5000,
+        "balance": 15500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -8477,9 +8615,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 1"
     },
-    "linkedSiblingIds": [
-        "STU-2026-673"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0644"
 },
 {
@@ -8522,8 +8658,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NATHPUR NAHAL ATRAULI ALIGARH",
@@ -8576,8 +8713,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -8628,8 +8766,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJLA KOTHI",
@@ -8680,8 +8819,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA CHIRAURI",
@@ -8734,8 +8874,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 10000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "UNCHA GAWN BANGARBULANDSHAHR",
@@ -8788,8 +8929,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -8798,8 +8940,7 @@ export const initialSchoolData = {
         "route": "Route 2"
     },
     "linkedSiblingIds": [
-        "STU-2026-148",
-        "STU-2026-208"
+        "STU-2026-148"
     ],
     "familyId": "FAM-0146"
 },
@@ -8843,8 +8984,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 10000,
+        "balance": 10500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "DADHAR ALIPURA",
@@ -8897,8 +9039,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 14000,
+        "balance": 7000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -8951,8 +9094,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON DIBAI BULANDSHAHR",
@@ -9005,8 +9149,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 4000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN (BULANDSHAHR)",
@@ -9059,8 +9204,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 8000,
+        "balance": 12500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAGI NAGLA CHIRURI BULANDSHAHR",
@@ -9114,8 +9260,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 3000,
+        "balance": 17500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "CHIROURI",
@@ -9166,8 +9313,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 6000,
+        "balance": 14500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT BULANDSHAHR",
@@ -9218,8 +9366,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI RAMPUR",
@@ -9228,9 +9377,7 @@ export const initialSchoolData = {
         "route": "Route 3"
     },
     "linkedSiblingIds": [
-        "STU-2026-133",
-        "STU-2026-148",
-        "STU-2026-199"
+        "STU-2026-133"
     ],
     "familyId": "FAM-0146"
 },
@@ -9274,8 +9421,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 3500,
+        "balance": 17000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MAHARAJPUR",
@@ -9326,8 +9474,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KUDHAINI",
@@ -9381,8 +9530,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 6500,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT DEBAI",
@@ -9433,8 +9583,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -9442,9 +9593,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 2"
     },
-    "linkedSiblingIds": [
-        "STU-2026-246"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0208"
 },
 {
@@ -9487,8 +9636,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -9539,8 +9689,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 5000,
+        "balance": 15500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GANGA GARH",
@@ -9593,8 +9744,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 7000,
+        "balance": 13500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -9645,8 +9797,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI JARGWAN BULANDSHAHR",
@@ -9699,8 +9852,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MAHARAJPUR URF RATUA NAGLA",
@@ -9751,8 +9905,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 5000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KUDHAINI CHIRAURI",
@@ -9803,8 +9958,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA URF RAMVAS BULANDSHAHR",
@@ -9855,8 +10011,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 5000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -9909,8 +10066,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 10300,
+        "balance": 9700,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAJHERA",
@@ -9963,8 +10121,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -10017,8 +10176,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -10071,8 +10231,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI (BULANDSHAHR)",
@@ -10123,8 +10284,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR RAMGHAT",
@@ -10177,8 +10339,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 10000,
+        "balance": 10000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GANESHPUR GOVINDPUR",
@@ -10229,8 +10392,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI (BULANDSHAHR)",
@@ -10281,8 +10445,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 2500,
+        "balance": 17500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -10335,8 +10500,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -10387,8 +10553,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI (BULANDSHAHR)",
@@ -10441,8 +10608,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "VILLAGE BAJHERA POST DHARAKPUR DISTRCT BULANDSHAHR",
@@ -10493,8 +10661,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 10000,
+        "balance": 10000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -10502,9 +10671,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-089"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0231"
 },
 {
@@ -10547,8 +10714,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KANAKPUR",
@@ -10601,8 +10769,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KANAKPUR",
@@ -10655,8 +10824,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 6000,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "UNCHA GAON BULADSHAHR)",
@@ -10707,8 +10877,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA CHIRAURI",
@@ -10761,8 +10932,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHAGAWN BANGAR (BULANDSHAHR)",
@@ -10813,8 +10985,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -10865,8 +11038,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 5000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -10919,8 +11093,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GADAIPUR",
@@ -10929,8 +11104,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-308",
-        "STU-2026-343"
+        "STU-2026-308"
     ],
     "familyId": "FAM-0240"
 },
@@ -10974,8 +11148,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -11028,8 +11203,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -11037,9 +11213,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 2"
     },
-    "linkedSiblingIds": [
-        "STU-2026-212"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0208"
 },
 {
@@ -11082,8 +11256,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -11136,8 +11311,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGAGARH",
@@ -11188,8 +11364,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA URF RAMVAS BULANDSHAHR",
@@ -11240,8 +11417,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAWN BANGAR BULANDSHAHR",
@@ -11294,8 +11472,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 9000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -11348,8 +11527,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAINI NAGLA UNCHAGAON DIBAI BULANDSHAHR",
@@ -11402,8 +11582,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA RAMVAS(BULANDSHAHR)",
@@ -11454,8 +11635,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGA GARH",
@@ -11509,8 +11691,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 10000,
+        "balance": 10000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GAHTAULI NIRMAL",
@@ -11561,8 +11744,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 3000,
+        "balance": 17000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH",
@@ -11571,8 +11755,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-095",
-        "STU-2026-107"
+        "STU-2026-095"
     ],
     "familyId": "FAM-0093"
 },
@@ -11616,8 +11799,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 7500,
+        "balance": 12500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAGI NAGLA",
@@ -11670,8 +11854,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KUDHAINI",
@@ -11724,8 +11909,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 6000,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAGI NAGLA",
@@ -11734,8 +11920,7 @@ export const initialSchoolData = {
         "route": "Route 4"
     },
     "linkedSiblingIds": [
-        "STU-2026-204",
-        "STU-2026-306"
+        "STU-2026-204"
     ],
     "familyId": "FAM-0200"
 },
@@ -11779,8 +11964,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 5000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -11833,8 +12019,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 6000,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -11887,8 +12074,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHAINDAULA",
@@ -11941,8 +12129,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA KOTHI",
@@ -11995,8 +12184,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGAGARH BANGAR",
@@ -12047,8 +12237,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA LOHGARH",
@@ -12099,8 +12290,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 5000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GANGAGARH",
@@ -12151,8 +12343,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON",
@@ -12205,8 +12398,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA KOTHI",
@@ -12259,8 +12453,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -12311,8 +12506,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR DIBAI BULANDSHAHR",
@@ -12363,8 +12559,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GOAN DIBAI BULANDSHAHR",
@@ -12417,8 +12614,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -12471,8 +12669,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN (BULANDSHAHR)",
@@ -12523,8 +12722,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 7500,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KHEDIYA BAHADURGARHI",
@@ -12577,8 +12777,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA BULANDSHAHR",
@@ -12631,8 +12832,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI ALIGARH",
@@ -12685,8 +12887,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -12739,8 +12942,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "LOHGARH ATRAULI",
@@ -12793,8 +12997,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAINI NAGLA UNCHAGAON DIBAI BULANDSHAHR",
@@ -12847,8 +13052,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAJHERA",
@@ -12901,8 +13107,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -12955,8 +13162,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPURE BHAGIRATHPUR",
@@ -13009,8 +13217,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 5000,
+        "balance": 14500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA GARVI JARGWAN",
@@ -13063,8 +13272,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -13117,8 +13327,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GURVI",
@@ -13169,8 +13380,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 18650,
+        "balance": 850,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA DHARKPUR",
@@ -13223,8 +13435,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -13275,8 +13488,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "V+P RAMGHAT DIST BULANDSHAHR",
@@ -13327,8 +13541,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 5000,
+        "balance": 14500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -13379,8 +13594,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -13431,8 +13647,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 5000,
+        "balance": 14500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GANGAGARH DEBAI",
@@ -13485,8 +13702,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 10000,
+        "balance": 9500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAIJALA KOTHI",
@@ -13537,8 +13755,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT DIBAI BULANDSHAHR",
@@ -13589,8 +13808,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -13643,8 +13863,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GOKULPUR KHADAR",
@@ -13697,8 +13918,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -13707,8 +13929,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-026",
-        "STU-2026-430"
+        "STU-2026-026"
     ],
     "familyId": "FAM-0408"
 },
@@ -13752,8 +13973,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 6000,
+        "balance": 13000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAGI NAGLA",
@@ -13762,8 +13984,7 @@ export const initialSchoolData = {
         "route": "Route 4"
     },
     "linkedSiblingIds": [
-        "STU-2026-204",
-        "STU-2026-262"
+        "STU-2026-204"
     ],
     "familyId": "FAM-0200"
 },
@@ -13807,8 +14028,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 10000,
+        "balance": 9000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -13861,8 +14083,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GADAIPUR",
@@ -13871,8 +14094,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-244",
-        "STU-2026-343"
+        "STU-2026-244"
     ],
     "familyId": "FAM-0240"
 },
@@ -13916,8 +14138,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -13970,8 +14193,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 5000,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN DIBAI",
@@ -13979,9 +14203,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-595"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0300"
 },
 {
@@ -14024,8 +14246,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR",
@@ -14076,8 +14299,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA ATRAULI ALIGARH",
@@ -14128,8 +14352,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA SHUMALI JARGWAN",
@@ -14182,8 +14407,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 5000,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAIJALA KOTHI",
@@ -14236,8 +14462,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA KOTHI",
@@ -14290,8 +14517,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 10000,
+        "balance": 9000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -14344,8 +14572,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 10000,
+        "balance": 9000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN DIBAI BULANDSHAHR",
@@ -14396,8 +14625,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA URF RAMVAS POST DIST+BULANDSHAHR",
@@ -14450,8 +14680,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 5000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MOUNIPURA",
@@ -14502,8 +14733,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JIRAULI DHOOM SINGH",
@@ -14512,8 +14744,7 @@ export const initialSchoolData = {
         "route": "Route 2"
     },
     "linkedSiblingIds": [
-        "STU-2026-354",
-        "STU-2026-572"
+        "STU-2026-354"
     ],
     "familyId": "FAM-0314"
 },
@@ -14557,8 +14788,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 3000,
+        "balance": 16000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "DADHAR ALUPURA ATRULI ALIGRAH",
@@ -14611,8 +14843,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI JARGWAN",
@@ -14663,8 +14896,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -14717,8 +14951,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 10000,
+        "balance": 9000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "DHARAKPUR DIBAI BULANDSHAHR",
@@ -14771,8 +15006,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA POST RAMGHAT",
@@ -14825,8 +15061,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR",
@@ -14877,8 +15114,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI (BULANDSHAHR)",
@@ -14931,8 +15169,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -14983,8 +15222,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 10000,
+        "balance": 9500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "PESARI",
@@ -15037,8 +15277,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KUHERA",
@@ -15089,8 +15330,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GADAIPUR",
@@ -15098,10 +15340,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-244",
-        "STU-2026-308"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0240"
 },
 {
@@ -15144,8 +15383,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAJHERA DHARAKPUR DIBAI BSR",
@@ -15198,8 +15438,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAJHERA",
@@ -15252,8 +15493,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 3000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -15304,8 +15546,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAGI NAGLA",
@@ -15356,8 +15599,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 5000,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KHEDIYA RAFATPUR",
@@ -15408,8 +15652,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR GOVINDPUR",
@@ -15462,8 +15707,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 10000,
+        "balance": 8000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -15516,8 +15762,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 10000,
+        "balance": 8000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "PESARI",
@@ -15570,8 +15817,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JIRAULI DHOOM SINGH",
@@ -15580,8 +15828,7 @@ export const initialSchoolData = {
         "route": "Route 2"
     },
     "linkedSiblingIds": [
-        "STU-2026-325",
-        "STU-2026-572"
+        "STU-2026-325"
     ],
     "familyId": "FAM-0314"
 },
@@ -15625,8 +15872,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -15679,8 +15927,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -15733,8 +15982,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -15787,8 +16037,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -15841,8 +16092,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MONIPURA URF RAMVAS",
@@ -15895,8 +16147,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "Muhammadpur",
@@ -15947,8 +16200,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -16001,8 +16255,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 25075,
-        "balance": 4425
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GAHTOLI NIRMAL",
@@ -16053,8 +16308,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 13275,
-        "balance": 16225
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GOKULPUR KHADAR",
@@ -16105,8 +16361,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 4425,
-        "balance": 25075
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -16157,8 +16414,9 @@ export const initialSchoolData = {
         "tuitionDue": 24000,
         "transportDue11Months": 5500,
         "totalDue": 29500,
-        "totalPaid": 25075,
-        "balance": 4425
+        "totalPaid": 0,
+        "balance": 29500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN BULANDSHAHR",
@@ -16166,9 +16424,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-644"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0354"
 },
 {
@@ -16211,8 +16467,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 11250,
-        "balance": 13750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "HARVANSHPUR JIROLI",
@@ -16265,8 +16522,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 3750,
-        "balance": 21250
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -16317,8 +16575,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 19125,
-        "balance": 3375
+        "totalPaid": 2000,
+        "balance": 20500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -16369,8 +16628,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 10125,
-        "balance": 12375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "VIJAY NAGALIYA",
@@ -16421,8 +16681,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA",
@@ -16475,8 +16736,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 5000,
+        "balance": 14500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -16529,8 +16791,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 9900,
-        "balance": 12100
+        "totalPaid": 2000,
+        "balance": 20000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GANESHPUR",
@@ -16581,8 +16844,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -16635,8 +16899,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -16687,8 +16952,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 5000,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "PESARI",
@@ -16741,8 +17007,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 2000,
+        "balance": 19000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN DIBAI BULANDSHAHR",
@@ -16793,8 +17060,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 8000,
+        "balance": 11500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -16847,8 +17115,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -16901,8 +17170,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 5000,
+        "balance": 14500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -16955,8 +17225,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -17009,8 +17280,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA CHIRAURI",
@@ -17063,8 +17335,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -17117,8 +17390,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA",
@@ -17169,8 +17443,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -17221,8 +17496,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -17275,8 +17551,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 19125,
-        "balance": 3375
+        "totalPaid": 5000,
+        "balance": 17500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA DHARKPUR",
@@ -17329,8 +17606,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 5000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA DHARKPUR",
@@ -17383,8 +17661,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 3000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "CPS HOSPITAL",
@@ -17435,8 +17714,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 600,
+        "balance": 19400,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -17489,8 +17769,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 2000,
+        "balance": 17000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MOUNIPURA",
@@ -17499,8 +17780,7 @@ export const initialSchoolData = {
         "route": "Route 3"
     },
     "linkedSiblingIds": [
-        "STU-2026-121",
-        "STU-2026-401"
+        "STU-2026-121"
     ],
     "familyId": "FAM-0384"
 },
@@ -17544,8 +17824,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA",
@@ -17553,9 +17834,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 3"
     },
-    "linkedSiblingIds": [
-        "STU-2026-400"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0384"
 },
 {
@@ -17598,8 +17877,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -17652,8 +17932,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 10000,
+        "balance": 9000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MONIPURA",
@@ -17704,8 +17985,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -17756,8 +18038,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 5000,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -17808,8 +18091,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -17862,8 +18146,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -17914,8 +18199,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -17924,8 +18210,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-074",
-        "STU-2026-413"
+        "STU-2026-074"
     ],
     "familyId": "FAM-0072"
 },
@@ -17969,8 +18254,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -17979,8 +18265,7 @@ export const initialSchoolData = {
         "route": "Route 2"
     },
     "linkedSiblingIds": [
-        "STU-2026-074",
-        "STU-2026-412"
+        "STU-2026-074"
     ],
     "familyId": "FAM-0072"
 },
@@ -18024,8 +18309,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -18076,8 +18362,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "DADHAR ALUPURA",
@@ -18130,8 +18417,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR GOVINDPUR",
@@ -18139,9 +18427,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 2"
     },
-    "linkedSiblingIds": [
-        "STU-2026-418"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0397"
 },
 {
@@ -18184,8 +18470,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR GOVINDPUR",
@@ -18193,9 +18480,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 2"
     },
-    "linkedSiblingIds": [
-        "STU-2026-417"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0397"
 },
 {
@@ -18238,8 +18523,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 12000,
+        "balance": 6000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -18290,8 +18576,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 11925,
-        "balance": 14575
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -18342,8 +18629,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -18396,8 +18684,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 9000,
+        "balance": 11500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GOKULPUR KHADAR",
@@ -18448,8 +18737,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 11250,
-        "balance": 13750
+        "totalPaid": 5000,
+        "balance": 20000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -18502,8 +18792,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGAR",
@@ -18556,8 +18847,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -18610,8 +18902,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -18662,8 +18955,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT BANGAR DEBAI [BSR]",
@@ -18714,8 +19008,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI JARGWAN BULANDSHAHR",
@@ -18766,8 +19061,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -18776,8 +19072,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-026",
-        "STU-2026-305"
+        "STU-2026-026"
     ],
     "familyId": "FAM-0408"
 },
@@ -18821,8 +19116,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 6000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR",
@@ -18875,8 +19171,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -18927,8 +19224,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -18981,8 +19279,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 10000,
+        "balance": 7000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -19035,8 +19334,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 2000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GANGAGARH",
@@ -19087,8 +19387,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGAGARH",
@@ -19141,8 +19442,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGAGARH",
@@ -19193,8 +19495,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA",
@@ -19245,8 +19548,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA",
@@ -19297,8 +19601,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -19349,8 +19654,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 2500,
+        "balance": 14500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GANGAGARH",
@@ -19401,8 +19707,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -19410,9 +19717,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-446"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0423"
 },
 {
@@ -19455,8 +19760,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -19464,9 +19770,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-445"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0423"
 },
 {
@@ -19509,8 +19813,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGAGARH",
@@ -19563,8 +19868,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -19615,8 +19921,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGAGARH",
@@ -19624,9 +19931,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-451"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0428"
 },
 {
@@ -19669,8 +19974,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGAGARH",
@@ -19678,9 +19984,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-450"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0428"
 },
 {
@@ -19723,8 +20027,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 5000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -19775,8 +20080,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -19827,8 +20133,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 2000,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGALA SUMALI",
@@ -19879,8 +20186,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 8500,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "AURANGABA KASER",
@@ -19933,8 +20241,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 11500,
+        "balance": 7500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "AURANGABAD KASER DIBAI BULANDSHAHR",
@@ -19987,8 +20296,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -20041,8 +20351,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOUNIPURA RAMGHAT",
@@ -20093,8 +20404,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 7500,
+        "balance": 12500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "GANGAPUR DEBAI",
@@ -20145,8 +20457,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -20199,8 +20512,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 5000,
+        "balance": 16500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -20251,8 +20565,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR",
@@ -20303,8 +20618,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 5000,
+        "balance": 13000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -20357,8 +20673,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 10125,
-        "balance": 12375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -20409,8 +20726,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -20461,8 +20779,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -20513,8 +20832,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 10000,
+        "balance": 7000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -20522,9 +20842,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 2"
     },
-    "linkedSiblingIds": [
-        "STU-2026-645"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0449"
 },
 {
@@ -20567,8 +20885,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "DADHAR",
@@ -20619,8 +20938,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHAKATHAL",
@@ -20673,8 +20993,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHAKATHAL",
@@ -20727,8 +21048,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 6500,
+        "balance": 9500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "PESARI",
@@ -20779,8 +21101,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 5000,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -20831,8 +21154,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 5000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "DHARAKPUR",
@@ -20883,8 +21207,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 3975,
-        "balance": 22525
+        "totalPaid": 11000,
+        "balance": 15500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAJHERA",
@@ -20935,8 +21260,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 10500,
+        "balance": 9000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "DADHAR ALUPURA ATRAULI ALIGARH",
@@ -20990,8 +21316,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 7000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "DADHAR ALUPURA",
@@ -21000,8 +21327,7 @@ export const initialSchoolData = {
         "route": "Route 2"
     },
     "linkedSiblingIds": [
-        "STU-2026-481",
-        "STU-2026-483"
+        "STU-2026-481"
     ],
     "familyId": "FAM-0457"
 },
@@ -21045,8 +21371,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 7000,
+        "balance": 10000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "DADHAR",
@@ -21055,8 +21382,7 @@ export const initialSchoolData = {
         "route": "Route 2"
     },
     "linkedSiblingIds": [
-        "STU-2026-481",
-        "STU-2026-482"
+        "STU-2026-481"
     ],
     "familyId": "FAM-0457"
 },
@@ -21100,8 +21426,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -21152,8 +21479,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 7500,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -21204,8 +21532,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MALAHPUR",
@@ -21258,8 +21587,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGER RAMGHAT",
@@ -21312,8 +21642,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON BANGER RAMGHAT",
@@ -21366,8 +21697,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR KHERA",
@@ -21418,8 +21750,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 2000,
+        "balance": 17000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -21470,8 +21803,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -21522,8 +21856,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 5000,
+        "balance": 16000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -21577,8 +21912,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 4000,
+        "balance": 16000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -21631,8 +21967,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 5000,
+        "balance": 13000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -21683,8 +22020,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 2500,
+        "balance": 18000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -21693,8 +22031,7 @@ export const initialSchoolData = {
         "route": "Route 0"
     },
     "linkedSiblingIds": [
-        "STU-2026-071",
-        "STU-2026-504"
+        "STU-2026-071"
     ],
     "familyId": "FAM-0069"
 },
@@ -21738,8 +22075,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 2500,
+        "balance": 15500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT",
@@ -21748,8 +22086,7 @@ export const initialSchoolData = {
         "route": "Route 3"
     },
     "linkedSiblingIds": [
-        "STU-2026-071",
-        "STU-2026-503"
+        "STU-2026-071"
     ],
     "familyId": "FAM-0069"
 },
@@ -21793,8 +22130,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 5000,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -21848,8 +22186,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -21902,8 +22241,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 2000,
+        "balance": 17000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR",
@@ -21954,8 +22294,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -22006,8 +22347,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -22060,8 +22402,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -22112,8 +22455,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MOHAMMADPUR",
@@ -22164,8 +22508,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MAHAJPUR",
@@ -22216,8 +22561,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 4000,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUDAKHERA",
@@ -22268,8 +22614,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 4000,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -22322,8 +22669,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 3975,
-        "balance": 22525
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "PESARI",
@@ -22374,8 +22722,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 10000,
+        "balance": 10000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "Uncha gown",
@@ -22426,8 +22775,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -22480,8 +22830,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -22534,8 +22885,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -22588,8 +22940,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "Jargwan (Bulandshahr)",
@@ -22642,8 +22995,9 @@ export const initialSchoolData = {
         "tuitionDue": 21000,
         "transportDue11Months": 5500,
         "totalDue": 26500,
-        "totalPaid": 3975,
-        "balance": 22525
+        "totalPaid": 0,
+        "balance": 26500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR",
@@ -22694,8 +23048,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 3000,
+        "balance": 13000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -22748,8 +23103,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -22802,8 +23158,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -22856,8 +23213,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR GOVINDPUR",
@@ -22908,8 +23266,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 6750,
-        "balance": 8250
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -22960,8 +23319,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 3300,
-        "balance": 18700
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATROLI ALIGARH",
@@ -23012,8 +23372,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUTR  BHAGIRATHPUR",
@@ -23064,8 +23425,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -23116,8 +23478,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -23168,8 +23531,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -23220,8 +23584,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI JARGWAN ALIGARH",
@@ -23272,8 +23637,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -23324,8 +23690,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 12750,
-        "balance": 2250
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -23376,8 +23743,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI TALUKA",
@@ -23385,9 +23753,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-549"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0326"
 },
 {
@@ -23430,8 +23796,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI TALUKA",
@@ -23439,9 +23806,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-548"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0326"
 },
 {
@@ -23484,8 +23849,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN DEBAI BULANDSHAHR",
@@ -23536,8 +23902,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -23545,9 +23912,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-554"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0670"
 },
 {
@@ -23590,8 +23955,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KANAKPUR LOHGARH",
@@ -23642,8 +24008,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -23651,9 +24018,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-552"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0670"
 },
 {
@@ -23696,8 +24061,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 6750,
-        "balance": 8250
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -23748,8 +24114,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -23800,8 +24167,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR  ATROLI ALIGARH",
@@ -23852,8 +24220,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 5000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "PESARI",
@@ -23906,8 +24275,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA ATRAULI ALIGARH",
@@ -23958,8 +24328,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -24010,8 +24381,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KUDHANI CHIRAURI DIBAI",
@@ -24019,9 +24391,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-648"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0534"
 },
 {
@@ -24064,8 +24434,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MAHARAJPUR",
@@ -24073,9 +24444,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 5"
     },
-    "linkedSiblingIds": [
-        "STU-2026-564"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0535"
 },
 {
@@ -24118,8 +24487,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MAHARAJPUR",
@@ -24127,9 +24497,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 5"
     },
-    "linkedSiblingIds": [
-        "STU-2026-563"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0535"
 },
 {
@@ -24172,8 +24540,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -24224,8 +24593,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GOKULPUR KHADAR",
@@ -24233,9 +24603,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-567"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0539"
 },
 {
@@ -24278,8 +24646,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GOKULPUR KHADAR",
@@ -24287,9 +24656,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-566"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0539"
 },
 {
@@ -24332,8 +24699,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARKPUR",
@@ -24384,8 +24752,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARKPUR",
@@ -24436,8 +24805,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -24488,8 +24858,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 6750,
-        "balance": 8250
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "DADHAR ALUPURA",
@@ -24540,8 +24911,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JIRAULI DHOOM SINGH",
@@ -24549,10 +24921,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 2"
     },
-    "linkedSiblingIds": [
-        "STU-2026-325",
-        "STU-2026-354"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0314"
 },
 {
@@ -24595,8 +24964,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MONIPURA RAMGHAT",
@@ -24647,8 +25017,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN DIBAI",
@@ -24656,9 +25027,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-576"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0546"
 },
 {
@@ -24701,8 +25070,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MONIPURA RAMGHAT",
@@ -24753,8 +25123,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -24762,9 +25133,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-574"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0546"
 },
 {
@@ -24807,8 +25176,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MONIPURA RAMGHAT",
@@ -24859,8 +25229,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT DIBAI",
@@ -24911,8 +25282,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -24920,9 +25292,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 1"
     },
-    "linkedSiblingIds": [
-        "STU-2026-580"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0551"
 },
 {
@@ -24965,8 +25335,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA",
@@ -24974,9 +25345,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 1"
     },
-    "linkedSiblingIds": [
-        "STU-2026-579"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0551"
 },
 {
@@ -25019,8 +25388,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -25071,8 +25441,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 18700,
-        "balance": 3300
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -25080,9 +25451,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 5"
     },
-    "linkedSiblingIds": [
-        "STU-2026-584"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0554"
 },
 {
@@ -25125,8 +25494,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 3000,
+        "balance": 13000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "RAMVAS MONIPURA",
@@ -25179,8 +25549,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 2700,
-        "balance": 15300
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT",
@@ -25188,9 +25559,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 5"
     },
-    "linkedSiblingIds": [
-        "STU-2026-582"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0554"
 },
 {
@@ -25233,8 +25602,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -25285,8 +25655,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -25337,8 +25708,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 3750,
-        "balance": 21250
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RETUKA NAGLA / MAHARAJPUR",
@@ -25389,8 +25761,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 12750,
-        "balance": 2250
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAGINAGLA",
@@ -25441,8 +25814,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR  ATRAULI  ALIGARH",
@@ -25493,8 +25867,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR",
@@ -25545,8 +25920,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT BULANDSHAHR",
@@ -25554,9 +25930,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 5"
     },
-    "linkedSiblingIds": [
-        "STU-2026-592"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0564"
 },
 {
@@ -25599,8 +25973,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT BULANDSHAHR",
@@ -25608,9 +25983,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 5"
     },
-    "linkedSiblingIds": [
-        "STU-2026-591"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0564"
 },
 {
@@ -25653,8 +26026,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 2250,
-        "balance": 12750
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MONIPURA RAMGHAT",
@@ -25705,8 +26079,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MAHAKA PANHERA",
@@ -25757,8 +26132,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MAHAKA PANHERA",
@@ -25766,9 +26142,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 2"
     },
-    "linkedSiblingIds": [
-        "STU-2026-311"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0300"
 },
 {
@@ -25811,8 +26185,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAJHERA DHARAKPUR",
@@ -25820,9 +26195,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-597"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0568"
 },
 {
@@ -25865,8 +26238,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAJHERA DHARAKPUR",
@@ -25874,9 +26248,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-596"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0568"
 },
 {
@@ -25919,8 +26291,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR ATRAULI",
@@ -25971,8 +26344,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "POOTHRI KHURD SHIKARPUR",
@@ -26023,8 +26397,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA ATRAULI ALIGARH",
@@ -26075,8 +26450,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT BANGER",
@@ -26127,8 +26503,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "HARVANSHPUR JIRAULI DHOOM SINGH",
@@ -26179,8 +26556,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 17000,
-        "balance": 3000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA AJMERI GUNNOR SAMBHAL",
@@ -26231,8 +26609,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA AJMERI GUNNOR SAMBHAL",
@@ -26283,8 +26662,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI JARGWAN BULANDSHAHR",
@@ -26335,8 +26715,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR GOVINDPUR",
@@ -26387,8 +26768,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI JARGWAN",
@@ -26439,8 +26821,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI JARGWAN",
@@ -26491,8 +26874,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT BANGER",
@@ -26543,8 +26927,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT BULANDSHAHR",
@@ -26595,8 +26980,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAJHERA POST DHARAKPUR",
@@ -26647,8 +27033,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 14450,
-        "balance": 2550
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA   SHUMALI",
@@ -26699,8 +27086,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI RAMGHAT BULANDSHAR",
@@ -26751,8 +27139,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 3750,
-        "balance": 21250
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KUNJALPUR  GAHTOLI",
@@ -26803,8 +27192,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 12750,
-        "balance": 2250
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "PESARI RAMGHAT",
@@ -26855,8 +27245,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -26907,8 +27298,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SAME",
@@ -26959,8 +27351,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR GOVINDPUR",
@@ -27011,8 +27404,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANESHPUR GOVINDPUR",
@@ -27063,8 +27457,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 3750,
-        "balance": 21250
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHAKATHAL ATRAULI",
@@ -27115,8 +27510,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHAKATHAL ATRAULI",
@@ -27167,8 +27563,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI JARGWAN BULANDSHAHR",
@@ -27219,8 +27616,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMVVAS URF MONIPURA RAMGHAT BULANDSHSHR",
@@ -27271,8 +27669,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 21250,
-        "balance": 3750
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA AJMERI DANDA SAMBHAL",
@@ -27280,9 +27679,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-628"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0597"
 },
 {
@@ -27325,8 +27722,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 9450,
-        "balance": 11550
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA AJMERI DANDA SAMBHAL",
@@ -27334,9 +27732,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-626"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0597"
 },
 {
@@ -27379,8 +27775,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA AJMERI DANDA SAMBHAL",
@@ -27431,8 +27828,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAMGHAT BANGER DEBAI BULANDSHAHR",
@@ -27483,8 +27881,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR DEBAI BULANDSHAHR",
@@ -27535,8 +27934,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 2250,
-        "balance": 12750
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN BULANDSHAHR",
@@ -27587,8 +27987,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA JATNI RAMGHAT BULANDSHAHR",
@@ -27639,8 +28040,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA ATRAULI ALIGARH",
@@ -27691,8 +28093,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 3150,
-        "balance": 17850
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN BULANDSHAHR",
@@ -27743,8 +28146,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAJHERA",
@@ -27795,8 +28199,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JIRAULI DHOOM SINGH",
@@ -27847,8 +28252,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 2250,
-        "balance": 12750
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN BULANDSHAHR",
@@ -27901,8 +28307,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 16575,
-        "balance": 2925
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA VIDHI JARGWAN",
@@ -27953,8 +28360,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 1000,
+        "balance": 15000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -28005,8 +28413,9 @@ export const initialSchoolData = {
         "tuitionDue": 19500,
         "transportDue11Months": 5500,
         "totalDue": 25000,
-        "totalPaid": 3750,
-        "balance": 21250
+        "totalPaid": 0,
+        "balance": 25000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -28014,9 +28423,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-367"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0354"
 },
 {
@@ -28059,8 +28466,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 12750,
-        "balance": 2250
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "LOHGARH",
@@ -28068,9 +28476,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-473"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0449"
 },
 {
@@ -28113,8 +28519,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KUDHAINI CHIROURI",
@@ -28122,9 +28529,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-562"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0534"
 },
 {
@@ -28167,8 +28572,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 3075,
-        "balance": 17425
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NOJALPUR KHADAR",
@@ -28219,8 +28625,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -28271,8 +28678,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 9225,
-        "balance": 11275
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NOJALPUR KHADAR",
@@ -28323,8 +28731,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 3000,
-        "balance": 17000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "VIJAY NAGLIYA",
@@ -28375,8 +28784,9 @@ export const initialSchoolData = {
         "tuitionDue": 17000,
         "transportDue11Months": 5500,
         "totalDue": 22500,
-        "totalPaid": 19125,
-        "balance": 3375
+        "totalPaid": 0,
+        "balance": 22500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUDHAKHERA",
@@ -28427,8 +28837,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA JATNI RAMGHAT BULANDSHAHR",
@@ -28479,8 +28890,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA TODI",
@@ -28531,8 +28943,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KUDHAINI",
@@ -28583,8 +28996,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 9675,
-        "balance": 11825
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA JATANI RAMGHAT BULANDSHAHR",
@@ -28635,8 +29049,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -28687,8 +29102,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA KOTHI ATRAULI ALIGARH",
@@ -28739,8 +29155,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAIJALA ATRAULI ALIGARH",
@@ -28791,8 +29208,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -28843,8 +29261,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "PESARI",
@@ -28895,8 +29314,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 6750,
-        "balance": 8250
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "GANGAGARH RAMGHAT BULANDSHAR",
@@ -28947,8 +29367,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA JATANI",
@@ -28999,8 +29420,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "CHIRAURI",
@@ -29051,8 +29473,9 @@ export const initialSchoolData = {
         "tuitionDue": 16500,
         "transportDue11Months": 5500,
         "totalDue": 22000,
-        "totalPaid": 9900,
-        "balance": 12100
+        "totalPaid": 0,
+        "balance": 22000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "RAIPUR KHAS ATRAULI ALLIGARH",
@@ -29103,8 +29526,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -29155,8 +29579,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 9500,
+        "balance": 6500,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -29209,8 +29634,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 7200,
-        "balance": 8800
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MUHAMMADPUR BADHERAATRAULI  ALIGARH",
@@ -29261,8 +29687,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 2250,
-        "balance": 12750
+        "totalPaid": 0,
+        "balance": 15000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAGI NAGLA CHIRAURI",
@@ -29313,8 +29740,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -29365,8 +29793,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 5000,
+        "balance": 12000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "NAGLA GARVI",
@@ -29374,9 +29803,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-190"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0644"
 },
 {
@@ -29419,8 +29846,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHAGAWN RAMGHAT",
@@ -29471,8 +29899,9 @@ export const initialSchoolData = {
         "tuitionDue": 9500,
         "transportDue11Months": 5500,
         "totalDue": 15000,
-        "totalPaid": 12750,
-        "balance": 2250
+        "totalPaid": 4000,
+        "balance": 11000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "BAIJALA ATRAULI ALIGARH",
@@ -29523,8 +29952,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -29575,8 +30005,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "DADAR ALUPURA",
@@ -29584,9 +30015,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-678"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0648"
 },
 {
@@ -29629,8 +30058,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "DADAR ALUPURA",
@@ -29638,9 +30068,7 @@ export const initialSchoolData = {
         "annualFare11M": 5500,
         "route": "Route 0"
     },
-    "linkedSiblingIds": [
-        "STU-2026-677"
-    ],
+    "linkedSiblingIds": [],
     "familyId": "FAM-0648"
 },
 {
@@ -29683,8 +30111,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -29735,8 +30164,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 3225,
-        "balance": 18275
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "PESARI",
@@ -29787,8 +30217,9 @@ export const initialSchoolData = {
         "tuitionDue": 15500,
         "transportDue11Months": 5500,
         "totalDue": 21000,
-        "totalPaid": 17850,
-        "balance": 3150
+        "totalPaid": 0,
+        "balance": 21000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA KOTHI",
@@ -29839,8 +30270,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "DADHAR ALUPURA NARUPURA ATRAULI ALIGARH",
@@ -29891,8 +30323,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "DADHAR ALUPURA",
@@ -29943,8 +30376,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 16150,
-        "balance": 2850
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "BAJHERA  DHARAKPUR",
@@ -29995,8 +30429,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 7650,
-        "balance": 9350
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NEAR CD INTER COLLEGE JARGWAN BULANDSHAHR",
@@ -30047,8 +30482,9 @@ export const initialSchoolData = {
         "tuitionDue": 11500,
         "transportDue11Months": 5500,
         "totalDue": 17000,
-        "totalPaid": 2550,
-        "balance": 14450
+        "totalPaid": 0,
+        "balance": 17000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -30099,8 +30535,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 15300,
-        "balance": 2700
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MONIPURA",
@@ -30151,8 +30588,9 @@ export const initialSchoolData = {
         "tuitionDue": 12500,
         "transportDue11Months": 5500,
         "totalDue": 18000,
-        "totalPaid": 8100,
-        "balance": 9900
+        "totalPaid": 0,
+        "balance": 18000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -30203,8 +30641,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "ATARASI  BAMASHA",
@@ -30255,8 +30694,9 @@ export const initialSchoolData = {
         "tuitionDue": 15000,
         "transportDue11Months": 5500,
         "totalDue": 20500,
-        "totalPaid": 17425,
-        "balance": 3075
+        "totalPaid": 0,
+        "balance": 20500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KALIYANPUR",
@@ -30307,8 +30747,9 @@ export const initialSchoolData = {
         "tuitionDue": 14500,
         "transportDue11Months": 5500,
         "totalDue": 20000,
-        "totalPaid": 9000,
-        "balance": 11000
+        "totalPaid": 0,
+        "balance": 20000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -30359,8 +30800,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 2400,
-        "balance": 13600
+        "totalPaid": 2000,
+        "balance": 14000,
+        "status": "Partial"
     },
     "transport": {
         "stoppage": "JARGWAN",
@@ -30411,8 +30853,9 @@ export const initialSchoolData = {
         "tuitionDue": 10500,
         "transportDue11Months": 5500,
         "totalDue": 16000,
-        "totalPaid": 13600,
-        "balance": 2400
+        "totalPaid": 0,
+        "balance": 16000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "UNCHA GAON",
@@ -30463,8 +30906,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 8550,
-        "balance": 10450
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "SILHARI",
@@ -30515,8 +30959,9 @@ export const initialSchoolData = {
         "tuitionDue": 13500,
         "transportDue11Months": 5500,
         "totalDue": 19000,
-        "totalPaid": 2850,
-        "balance": 16150
+        "totalPaid": 0,
+        "balance": 19000,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "MONIPURA",
@@ -30567,8 +31012,9 @@ export const initialSchoolData = {
         "tuitionDue": 16000,
         "transportDue11Months": 5500,
         "totalDue": 21500,
-        "totalPaid": 18275,
-        "balance": 3225
+        "totalPaid": 0,
+        "balance": 21500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "KATAK NARUPURA",
@@ -30619,8 +31065,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 8775,
-        "balance": 10725
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR DEBAI BULANDSHAHR",
@@ -30671,8 +31118,9 @@ export const initialSchoolData = {
         "tuitionDue": 14000,
         "transportDue11Months": 5500,
         "totalDue": 19500,
-        "totalPaid": 2925,
-        "balance": 16575
+        "totalPaid": 0,
+        "balance": 19500,
+        "status": "Pending"
     },
     "transport": {
         "stoppage": "NAGLA DHARAKPUR DEBAI BULANDSHAHR",

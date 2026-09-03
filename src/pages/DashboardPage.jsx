@@ -1129,24 +1129,24 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             <div className="flex justify-between items-baseline text-xs font-bold">
               <span className="text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                Fee Recovered: ₹54,58,975 (48.2%)
+                Fee Recovered: ₹10,33,100 (9.1%)
               </span>
               <span className="text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-                Balance Due: ₹58,58,525 (51.8%)
+                Balance Due: ₹1,02,84,400 (90.9%)
               </span>
             </div>
 
             <div className="w-full h-4 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden flex shadow-inner">
               <div
                 className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-700"
-                style={{ width: '48.2%' }}
-                title="Recovered: 48.2%"
+                style={{ width: '9.1%' }}
+                title="Recovered: 9.1%"
               />
               <div
                 className="h-full bg-gradient-to-r from-rose-500 to-rose-600 transition-all duration-700"
-                style={{ width: '51.8%' }}
-                title="Balance Due: 51.8%"
+                style={{ width: '90.9%' }}
+                title="Balance Due: 90.9%"
               />
             </div>
           </div>
@@ -1161,14 +1161,14 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
 
             <div className="p-3.5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40">
               <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wider block">Total Collected</span>
-              <span className="text-lg font-black font-mono text-emerald-600 dark:text-emerald-400 block mt-0.5">₹54,58,975</span>
-              <span className="text-[10px] text-emerald-700/80 dark:text-emerald-400/80 font-medium">48.2% Realized</span>
+              <span className="text-lg font-black font-mono text-emerald-600 dark:text-emerald-400 block mt-0.5">₹10,33,100</span>
+              <span className="text-[10px] text-emerald-700/80 dark:text-emerald-400/80 font-medium">9.1% Realized (404 Receipts)</span>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-rose-50/60 dark:bg-rose-950/30 border border-rose-100 dark:border-rose-900/40">
               <span className="text-[10px] font-bold text-rose-700 dark:text-rose-300 uppercase tracking-wider block">Total Remaining</span>
-              <span className="text-lg font-black font-mono text-rose-600 dark:text-rose-400 block mt-0.5">₹58,58,525</span>
-              <span className="text-[10px] text-rose-700/80 dark:text-rose-400/80 font-medium">51.8% Outstanding</span>
+              <span className="text-lg font-black font-mono text-rose-600 dark:text-rose-400 block mt-0.5">₹1,02,84,400</span>
+              <span className="text-[10px] text-rose-700/80 dark:text-rose-400/80 font-medium">90.9% Outstanding</span>
             </div>
           </div>
         </div>
