@@ -1186,30 +1186,6 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </div>
           </section>
 
-          {/* 📑 Prospectus Flip-Booklet Showcase */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="p-8 rounded-3xl bg-[#0b1e38] text-white border border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="space-y-2">
-                <span className="px-3 py-1 rounded-full bg-white/10 text-amber-300 font-bold text-xs border border-white/20">
-                  Official Publication
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black text-white font-serif">
-                  Download or Browse the DMPS Prospectus Booklet
-                </h3>
-                <p className="text-xs text-slate-300 max-w-xl">
-                  Read complete messages from Founder Late Mr. Dauli Singh, Managing Director Mr. Pramod Kumar Rajput, Principal Mrs. Kavita Rani, rules & fee guidelines.
-                </p>
-              </div>
-
-              <button
-                onClick={() => setProspectusModalOpen(true)}
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-[#0b1e38] font-black text-xs uppercase tracking-wider shadow-xl flex items-center gap-2 shrink-0"
-              >
-                <Eye className="w-4 h-4" />
-                <span>Open Interactive Prospectus</span>
-              </button>
-            </div>
-          </section>
 
         </main>
       )}
@@ -2351,7 +2327,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       <footer className="bg-[#0b1e38] text-slate-300 pt-12 pb-6 text-xs border-t border-slate-800 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           
-          <div className="space-y-3">
+          <div className="space-y-4">
             <div className="flex items-center gap-2.5">
               <div className="w-10 h-10 rounded-full bg-white p-0.5 shadow-md border-2 border-amber-400 shrink-0">
                 <img src="/logo.png" alt="Dadheech Crest" className="w-full h-full object-contain rounded-full" />
@@ -2365,18 +2341,106 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
               Dadheech Memorial Public School • Dadheech Educational Society (Regd. No - 1131, Estd. 2002). Affiliated to Bhartiya Shiksha Board (BSB).
             </p>
             <p className="text-[10px] text-amber-400 font-bold">Affiliation: UP0F25070073 | School Code: 00065</p>
+
+            {/* 🌟 Official Channels Icon Row (Photo 4 Minimalist Aesthetic) */}
+            <div className="flex items-center gap-2.5 pt-2 flex-wrap">
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/dadheechschool/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Instagram (@dadheechschool)"
+                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-pink-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+              >
+                <InstagramIcon className="w-4.5 h-4.5" />
+              </a>
+
+              {/* Facebook (Schools) */}
+              <a
+                href="https://www.facebook.com/dadheech.dadheech.37/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Facebook (Schools Channel)"
+                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-blue-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+              >
+                <FacebookIcon className="w-4.5 h-4.5" />
+              </a>
+
+              {/* YouTube (Activities) */}
+              <a
+                href="https://www.youtube.com/@dadheechactivities1379"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="YouTube (Activities Channel)"
+                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-red-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+              >
+                <YouTubeIcon className="w-4.5 h-4.5" />
+              </a>
+
+              {/* Facebook (Education) */}
+              <a
+                href="https://www.facebook.com/people/Dadheech-Education/100048106256592/?sk=about"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Facebook (Education Channel)"
+                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-blue-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+              >
+                <FacebookIcon className="w-4.5 h-4.5" />
+              </a>
+
+              {/* YouTube (Training) */}
+              <a
+                href="https://www.youtube.com/@dadheecheducationtrainingi24"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="YouTube (Education & Training Channel)"
+                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-red-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+              >
+                <YouTubeIcon className="w-4.5 h-4.5" />
+              </a>
+
+              {/* Google Play Store App */}
+              <a
+                href="https://play.google.com/store/apps/details?id=co.thanos.iymus&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Dadheech Classes Mobile App (Play Store)"
+                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-emerald-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+              >
+                <PlayStoreIcon className="w-4.5 h-4.5" />
+              </a>
+
+              {/* Phone Helpline */}
+              <a
+                href="tel:+919758975880"
+                title="Call Campus Helpline (+91 97589 75880)"
+                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-amber-400/80 flex items-center justify-center text-amber-400 hover:text-amber-300 transition-all shadow-sm hover:scale-110"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+
+              {/* Email */}
+              <a
+                href="mailto:dmpsbarheti@gmail.com"
+                title="Email School Office"
+                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-amber-400/80 flex items-center justify-center text-amber-400 hover:text-amber-300 transition-all shadow-sm hover:scale-110"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
           <div>
             <h4 className="font-bold text-white mb-3 text-sm">Quick Navigation</h4>
             <ul className="space-y-1.5 text-[11px]">
               <li><button onClick={() => navigateTo('home')} className="hover:text-amber-400 transition-colors">Home</button></li>
-              <li><button onClick={() => navigateTo('founder')} className="hover:text-amber-400 transition-colors">Late Mr. Dauli Singh (Founder)</button></li>
-              <li><button onClick={() => navigateTo('md')} className="hover:text-amber-400 transition-colors">Mr. Pramod Kumar Rajput (MD)</button></li>
-              <li><button onClick={() => navigateTo('principal')} className="hover:text-amber-400 transition-colors">Mrs. Kavita Rani (Principal)</button></li>
               <li><button onClick={() => navigateTo('campuses')} className="hover:text-amber-400 transition-colors">Our 3 Campuses</button></li>
+              <li><button onClick={() => navigateTo('academic')} className="hover:text-amber-400 transition-colors">Academic Curriculum (BSB)</button></li>
+              <li><button onClick={() => navigateTo('facilities')} className="hover:text-amber-400 transition-colors">Infrastructure & Facilities</button></li>
               <li><button onClick={() => navigateTo('selections')} className="hover:text-amber-400 transition-colors">Hall of Fame (44+)</button></li>
+              <li><button onClick={() => navigateTo('gallery')} className="hover:text-amber-400 transition-colors">Photo & Event Gallery</button></li>
               <li><button onClick={() => navigateTo('admissions')} className="hover:text-amber-400 transition-colors">Admissions 2026-27</button></li>
+              <li><button onClick={() => navigateTo('contact')} className="hover:text-amber-400 transition-colors">Contact & Helplines</button></li>
             </ul>
           </div>
 
@@ -2410,54 +2474,16 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
         </div>
 
-        {/* 🌟 Social & Official Channels Bar */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 bg-slate-900 rounded-2xl border border-slate-800 flex flex-wrap items-center justify-between gap-4 text-[11px] text-slate-300 shadow-xl">
-          <div className="flex items-center gap-3.5 flex-wrap font-semibold">
-            <span className="text-amber-400 font-black tracking-wide uppercase text-[10px] bg-slate-800 px-2.5 py-1 rounded border border-slate-700">
-              Official Channels:
-            </span>
-            
-            <a href="https://www.facebook.com/dadheech.dadheech.37/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
-              <FacebookIcon className="w-4 h-4 shrink-0" />
-              <span className="group-hover:underline">Facebook (Schools)</span>
-            </a>
-
-            <a href="https://www.facebook.com/people/Dadheech-Education/100048106256592/?sk=about" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
-              <FacebookIcon className="w-4 h-4 shrink-0" />
-              <span className="group-hover:underline">Facebook (Education)</span>
-            </a>
-
-            <a href="https://www.instagram.com/dadheechschool/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
-              <InstagramIcon className="w-4 h-4 shrink-0" />
-              <span className="group-hover:underline">@dadheechschool</span>
-            </a>
-
-            <a href="https://play.google.com/store/apps/details?id=co.thanos.iymus&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
-              <PlayStoreIcon className="w-4 h-4 shrink-0" />
-              <span className="group-hover:underline">Dadheech Classes App</span>
-            </a>
-
-            <a href="https://www.youtube.com/@dadheecheducationtrainingi24" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
-              <YouTubeIcon className="w-4 h-4 shrink-0" />
-              <span className="group-hover:underline">YouTube (Training)</span>
-            </a>
-
-            <a href="https://www.youtube.com/@dadheechactivities1379" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-sky-500 hover:text-white hover:scale-105 transition-all shadow-sm group">
-              <YouTubeIcon className="w-4 h-4 shrink-0" />
-              <span className="group-hover:underline">YouTube (Activities)</span>
-            </a>
-          </div>
-
-          <div className="flex items-center gap-3 text-[11px] font-bold text-slate-200 font-mono bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
-            <a href="tel:+919758975880" className="hover:underline hover:text-white">📞 9758975880</a>
-            <span>•</span>
-            <a href="tel:+919627032626" className="hover:underline hover:text-white">9627032626</a>
-          </div>
-        </div>
-
         {/* 👑 Developer Credit & Copyright Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© 2002 - 2026 Dadheech Memorial Public School (DMPS). All Rights Reserved.</p>
+          <div className="flex items-center gap-4 flex-wrap">
+            <p>© 2002 - 2026 Dadheech Memorial Public School (DMPS). All Rights Reserved.</p>
+            <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-amber-300">
+              <a href="tel:+919758975880" className="hover:underline">📞 +91 97589 75880</a>
+              <span>•</span>
+              <a href="tel:+919627032626" className="hover:underline">9627032626</a>
+            </div>
+          </div>
           
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900 border border-sky-500/40 text-slate-200 font-bold shadow-md">
