@@ -244,10 +244,21 @@ class SchoolService {
       
       // If RTE status changed or transport updated, recompute feeSummary
       const monthlyFare = Number(updatedStudent.transport?.monthlyFare || 0);
-      const transport11m = monthlyFare * 11;
+      const transportMonths = updatedStudent.transport?.months !== undefined ? Number(updatedStudent.transport?.months) : 11;
+      
+      // If customAnnualTransport is specified, use that; otherwise calculate monthlyFare * transportMonths
+      let transportDue = 0;
+      if (updatedStudent.transport?.isEnrolled !== false && monthlyFare > 0) {
+        if (updatedStudent.transport?.customAnnualTransport !== undefined && updatedStudent.transport?.customAnnualTransport !== '' && !isNaN(Number(updatedStudent.transport?.customAnnualTransport))) {
+          transportDue = Number(updatedStudent.transport?.customAnnualTransport);
+        } else {
+          transportDue = monthlyFare * (transportMonths > 0 ? transportMonths : 11);
+        }
+      }
+
       const tuitionDue = isRte ? 0 : (existing.feeSummary?.tuitionDue || 13500);
       const otherChargesDue = isRte ? (updates.otherChargesDue !== undefined ? Number(updates.otherChargesDue) : (existing.feeSummary?.otherChargesDue || 4500)) : 0;
-      const totalDue = tuitionDue + otherChargesDue + transport11m;
+      const totalDue = tuitionDue + otherChargesDue + transportDue;
       const paid = existing.feeSummary?.totalPaid || 0;
       const balance = Math.max(0, totalDue - paid);
 
@@ -260,8 +271,9 @@ class SchoolService {
           smartClassFee: 1500,
           examFee: 1000
         } : null,
-        transportDue11Months: transport11m,
-        parentVisibleDue: isRte ? transport11m : totalDue,
+        transportDue11Months: transportDue,
+        transportMonths: transportMonths,
+        parentVisibleDue: isRte ? transportDue : totalDue,
         totalDue: totalDue,
         totalPaid: paid,
         balance: balance,

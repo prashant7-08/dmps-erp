@@ -143,6 +143,8 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
     transportStop: '',
     transportVehicle: '',
     transportFare: 0,
+    transportMonths: 11,
+    customAnnualTransport: '',
 
     // Previous School Details
     previousSchoolName: '',
@@ -352,11 +354,13 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
       permanentAddress: student.parents?.permanentAddress || student.parents?.address || '',
 
       // Transport Details
-      facilityType: student.transport?.isEnrolled ? 'Transport' : 'None',
+      facilityType: (student.transport?.isEnrolled || student.transport?.monthlyFare > 0) ? 'Transport' : 'None',
       transportRoute: student.transport?.route || '',
-      transportStop: student.transport?.stop || '',
+      transportStop: student.transport?.stop || student.transport?.stoppage || '',
       transportVehicle: student.transport?.vehicle || '',
       transportFare: student.transport?.monthlyFare || 0,
+      transportMonths: student.transport?.months !== undefined ? student.transport.months : 11,
+      customAnnualTransport: student.transport?.customAnnualTransport !== undefined ? student.transport.customAnnualTransport : '',
 
       // Previous School Details
       previousSchoolName: student.previousSchoolName || '',
@@ -422,7 +426,9 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
         route: editFormData.transportRoute,
         stop: editFormData.transportStop,
         vehicle: editFormData.transportVehicle,
-        monthlyFare: Number(editFormData.transportFare) || 0
+        monthlyFare: Number(editFormData.transportFare) || 0,
+        months: Number(editFormData.transportMonths) || 11,
+        customAnnualTransport: editFormData.customAnnualTransport !== '' ? Number(editFormData.customAnnualTransport) : undefined
       },
 
       previousSchoolName: editFormData.previousSchoolName,
@@ -1298,16 +1304,21 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
 
           {/* ═══ SECTION 4: Transport & Conveyance ═══ */}
           <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-            <div className="bg-gradient-to-r from-orange-500 to-amber-500 px-4 py-2.5 flex items-center gap-2">
-              <Bus className="w-4 h-4 text-white" />
-              <span className="text-white font-black text-xs uppercase tracking-wide">4. Transport & Conveyance</span>
+            <div className="bg-gradient-to-r from-orange-500 to-amber-500 px-4 py-2.5 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Bus className="w-4 h-4 text-white" />
+                <span className="text-white font-black text-xs uppercase tracking-wide">4. Transport & Conveyance (11 Months / Custom)</span>
+              </div>
+              <span className="text-[10px] font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full">
+                {editFormData.transportMonths || 11} Months
+              </span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Facility Required</label>
                 <select value={editFormData.facilityType} onChange={(e) => setEditFormData(prev => ({ ...prev, facilityType: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold">
-                  <option value="None">None (Self Conveyance)</option>
-                  <option value="Transport">School Bus / Transport</option>
+                  <option value="None">None (Self Conveyance / Walker)</option>
+                  <option value="Transport">School Bus / Transport Fleet</option>
                 </select>
               </div>
               <div>
@@ -1318,9 +1329,56 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Stoppage / Village Name</label>
                 <input type="text" value={editFormData.transportStop} onChange={(e) => setEditFormData(prev => ({ ...prev, transportStop: e.target.value }))} placeholder="e.g. Baijala, Dharakpur, Kaliyanpur..." className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
+
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Transport Fare (₹)</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Bus Fare (₹)</label>
                 <input type="number" value={editFormData.transportFare} onChange={(e) => setEditFormData(prev => ({ ...prev, transportFare: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold" />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Enrolled Duration (Months)</label>
+                <select
+                  value={editFormData.transportMonths}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, transportMonths: Number(e.target.value) }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                >
+                  <option value={11}>11 Months (Full Academic Session)</option>
+                  <option value={10}>10 Months</option>
+                  <option value={9}>9 Months</option>
+                  <option value={8}>8 Months</option>
+                  <option value={7}>7 Months</option>
+                  <option value={6}>6 Months (Half Session)</option>
+                  <option value={5}>5 Months</option>
+                  <option value={4}>4 Months</option>
+                  <option value={3}>3 Months (Quarterly)</option>
+                  <option value={2}>2 Months</option>
+                  <option value={1}>1 Month (Monthly Trial)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  Custom Annual Override (₹) <span className="text-[10px] text-slate-400 font-normal">(Optional Concession)</span>
+                </label>
+                <input
+                  type="number"
+                  placeholder={`Auto: ₹${(Number(editFormData.transportFare || 0) * Number(editFormData.transportMonths || 11)).toLocaleString('en-IN')}`}
+                  value={editFormData.customAnnualTransport}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, customAnnualTransport: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              <div className="md:col-span-3 p-3 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800 flex items-center justify-between">
+                <span className="text-xs font-bold text-orange-950 dark:text-orange-200">
+                  🎯 Final Annual Transport Due for this Student:
+                </span>
+                <strong className="text-sm font-black font-mono text-orange-700 dark:text-orange-300">
+                  ₹{editFormData.customAnnualTransport !== '' && !isNaN(Number(editFormData.customAnnualTransport))
+                    ? Number(editFormData.customAnnualTransport).toLocaleString('en-IN')
+                    : (Number(editFormData.transportFare || 0) * Number(editFormData.transportMonths || 11)).toLocaleString('en-IN')
+                  } ({editFormData.transportMonths || 11} Months)
+                </strong>
               </div>
             </div>
           </div>
@@ -1573,26 +1631,33 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
 
             {/* ═══ SECTION 4: Transport & Route ═══ */}
             <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-              <div className="bg-gradient-to-r from-sky-500 to-cyan-500 px-4 py-2.5 flex items-center gap-2">
-                <Bus className="w-4 h-4 text-white" />
-                <span className="text-white font-black text-xs uppercase tracking-wide">🚌 Transport & Route</span>
+              <div className="bg-gradient-to-r from-sky-500 to-cyan-500 px-4 py-2.5 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Bus className="w-4 h-4 text-white" />
+                  <span className="text-white font-black text-xs uppercase tracking-wide">🚌 Transport & Conveyance (11 Months / Custom)</span>
+                </div>
+                <span className="text-[10px] font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full">
+                  {selectedStudent.transport?.months || 11} Months Enrolled
+                </span>
               </div>
-              <div className="grid grid-cols-2 gap-3 p-4 bg-slate-50 dark:bg-slate-800/40">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 bg-slate-50 dark:bg-slate-800/40">
                 <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Transport Status</span>
-                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.isEnrolled ? 'Enrolled in School Bus' : 'Self Conveyance / Walk-in'}</p>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.isEnrolled || (Number(selectedStudent.transport?.monthlyFare || 0) > 0) ? 'Enrolled in School Bus' : 'Self Conveyance / Walk-in'}</p>
                 </div>
                 <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-bold text-slate-400 uppercase">Village / Stop</span>
-                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.stop || 'N/A'}</p>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.stop || selectedStudent.transport?.stoppage || 'N/A'}</p>
                 </div>
                 <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase">Route Name</span>
-                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">{selectedStudent.transport?.route || 'N/A'}</p>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">Monthly Rate</span>
+                  <p className="font-bold text-slate-900 dark:text-white font-mono mt-0.5">₹{selectedStudent.transport?.monthlyFare || 0} / mo</p>
                 </div>
-                <div className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase">Monthly Bus Fare</span>
-                  <p className="font-bold text-slate-900 dark:text-white font-mono mt-0.5">₹{selectedStudent.transport?.monthlyFare || 0}</p>
+                <div className="p-3 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-800">
+                  <span className="text-[10px] font-bold text-cyan-700 dark:text-cyan-300 uppercase">Annual Transport Due ({selectedStudent.transport?.months || 11}M)</span>
+                  <p className="font-black text-cyan-900 dark:text-cyan-100 font-mono mt-0.5 text-sm">
+                    ₹{(selectedStudent.feeSummary?.transportDue11Months || (Number(selectedStudent.transport?.monthlyFare || 0) * (selectedStudent.transport?.months || 11))).toLocaleString('en-IN')}
+                  </p>
                 </div>
               </div>
             </div>
