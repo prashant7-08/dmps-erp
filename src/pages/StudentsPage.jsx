@@ -915,10 +915,10 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 DADHEECH MEMORIAL PUBLIC SCHOOL
               </h1>
               <p className="text-xs font-bold text-slate-800">
-                Affiliated to Central Board of Secondary Education (CBSE), New Delhi • Affiliation No: 2133481 | School Code: 61348
+                Affiliated to Bhartiya Shiksha Board (BSB) • Recognized Up to 12th | Affiliation No: UP0F25070073 | Code: 00065
               </p>
               <p className="text-[11px] text-slate-600">
-                Ramghat Road, Jargwan, Bulandshahr, Uttar Pradesh - 202395 | Helpline: +91 97588 82443, +91 98371 00000
+                Ramghat Road Border, Jargwan, Bulandshahr (U.P.) | Helpline: +91 97589 75880, +91 96270 32626 | www.dmpsjargawan.com
               </p>
             </div>
             <div className="text-right text-[10px] font-mono font-bold text-slate-700 shrink-0">

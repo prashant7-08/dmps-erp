@@ -65,7 +65,7 @@ export const PrintableStudentDossier = ({ student, onClose = null }) => {
         {/* 1. Official School Header */}
         <div className="border-b-2 border-slate-900 pb-1.5 text-center">
           <div className="flex items-center justify-between gap-2">
-            <div className="w-11 h-11 rounded-lg bg-amber-400 text-slate-950 font-black text-xs flex items-center justify-center border-2 border-slate-950 shrink-0">
+            <div className="w-12 h-12 rounded-lg bg-amber-400 text-slate-950 font-black text-xs flex items-center justify-center border-2 border-slate-950 shrink-0">
               DMPS
             </div>
             <div className="flex-1 px-1">
@@ -73,10 +73,10 @@ export const PrintableStudentDossier = ({ student, onClose = null }) => {
                 DADHEECH MEMORIAL PUBLIC SCHOOL
               </h1>
               <p className="text-[9px] font-bold text-slate-800 mt-0.5">
-                Affiliated to CBSE, New Delhi • Affiliation No: 2133481 | School Code: 61348
+                Affiliated to Bhartiya Shiksha Board (BSB) • Recognized Up to 12th | Affiliation No: UP0F25070073 | Code: 00065
               </p>
-              <p className="text-[8.5px] text-slate-600">
-                Ramghat Road, Jargwan, Bulandshahr, UP - 202395 | Helpline: +91 97588 82443, +91 98371 00000
+              <p className="text-[8px] text-slate-600">
+                Ramghat Road Border, Jargwan, Bulandshahr (U.P.) | Helpline: +91 97589 75880, +91 96270 32626 | www.dmpsjargawan.com
               </p>
             </div>
             <div className="text-right text-[8.5px] font-mono font-bold text-slate-700 shrink-0">
@@ -281,19 +281,34 @@ export const PrintableStudentDossier = ({ student, onClose = null }) => {
           </p>
         </div>
 
-        {/* 6. Signatures & Official Stamp Footer */}
-        <div className="pt-3 grid grid-cols-4 gap-2 text-center text-[8.5px] text-slate-800 font-bold">
-          <div className="border-t border-slate-400 pt-0.5">
-            Class Teacher Sign
+        {/* 6. Signatures & Official Stamp Footer with dedicated Signing Height */}
+        <div className="pt-2 grid grid-cols-4 gap-2 text-center text-[9px] text-slate-900 font-bold">
+          <div className="border border-slate-300 rounded-lg p-1.5 flex flex-col justify-between h-14 bg-slate-50/40">
+            <span className="text-[7.5px] text-slate-400 font-normal">Sign Here:</span>
+            <div className="border-t border-slate-400 pt-0.5 font-bold">
+              Class Teacher Sign
+            </div>
           </div>
-          <div className="border-t border-slate-400 pt-0.5">
-            Accountant / Cashier
+
+          <div className="border border-slate-300 rounded-lg p-1.5 flex flex-col justify-between h-14 bg-slate-50/40">
+            <span className="text-[7.5px] text-slate-400 font-normal">Sign Here:</span>
+            <div className="border-t border-slate-400 pt-0.5 font-bold">
+              Accountant / Cashier
+            </div>
           </div>
-          <div className="border-t border-slate-400 pt-0.5">
-            Parent / Guardian Sign
+
+          <div className="border border-slate-300 rounded-lg p-1.5 flex flex-col justify-between h-14 bg-slate-50/40">
+            <span className="text-[7.5px] text-slate-400 font-normal">Sign Here:</span>
+            <div className="border-t border-slate-400 pt-0.5 font-bold">
+              Parent / Guardian Sign
+            </div>
           </div>
-          <div className="border-t border-slate-400 pt-0.5">
-            Principal Sign & Seal
+
+          <div className="border border-slate-300 rounded-lg p-1.5 flex flex-col justify-between h-14 bg-slate-50/40">
+            <span className="text-[7.5px] text-slate-400 font-normal">Seal & Signature:</span>
+            <div className="border-t border-slate-400 pt-0.5 font-black text-slate-950">
+              Principal Sign & Seal
+            </div>
           </div>
         </div>
 
