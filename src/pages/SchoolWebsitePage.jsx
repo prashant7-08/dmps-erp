@@ -514,17 +514,7 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
       <div className="bg-[#0b1e38] text-slate-200 py-2.5 px-4 sm:px-8 text-xs border-b border-slate-800 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           
-          <div className="flex items-center gap-4 text-slate-300 text-[11px]">
-            <a href="tel:+919758975880" className="flex items-center gap-1.5 font-semibold hover:text-white transition-colors">
-              <Phone className="w-3.5 h-3.5 text-amber-400" />
-              <span>Campus Helpline: +91 97589 75880</span>
-            </a>
-            <span className="hidden md:inline text-slate-600">•</span>
-            <a href="mailto:dmpsbarheti@gmail.com" className="hidden md:flex items-center gap-1.5 font-semibold hover:text-white transition-colors">
-              <Mail className="w-3.5 h-3.5 text-amber-400" />
-              <span>dmpsbarheti@gmail.com</span>
-            </a>
-          </div>
+          <div className="hidden sm:block"></div>
 
           <div className="flex items-center gap-3 ml-auto flex-wrap">
             <div className="hidden lg:flex items-center gap-1.5 border-r border-slate-700 pr-3 mr-1">
@@ -2317,17 +2307,17 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
             </p>
             <p className="text-[10px] text-amber-400 font-bold">Affiliation: UP0F25070073 | School Code: 00065</p>
 
-            {/* 🌟 Official Channels Icon Row (Photo 4 Minimalist Aesthetic) */}
-            <div className="flex items-center gap-2.5 pt-2 flex-wrap">
+            {/* 🌟 Compact Social Channels (6 Icons in 1 single row) */}
+            <div className="flex items-center gap-2 pt-1.5 flex-wrap">
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/dadheechschool/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Instagram (@dadheechschool)"
-                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-pink-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+                className="w-7 h-7 rounded-lg border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-pink-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
               >
-                <InstagramIcon className="w-4.5 h-4.5" />
+                <InstagramIcon className="w-3.5 h-3.5" />
               </a>
 
               {/* Facebook (Schools) */}
@@ -2336,9 +2326,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Facebook (Schools Channel)"
-                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-blue-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+                className="w-7 h-7 rounded-lg border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-blue-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
               >
-                <FacebookIcon className="w-4.5 h-4.5" />
+                <FacebookIcon className="w-3.5 h-3.5" />
               </a>
 
               {/* YouTube (Activities) */}
@@ -2347,9 +2337,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="YouTube (Activities Channel)"
-                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-red-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+                className="w-7 h-7 rounded-lg border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-red-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
               >
-                <YouTubeIcon className="w-4.5 h-4.5" />
+                <YouTubeIcon className="w-3.5 h-3.5" />
               </a>
 
               {/* Facebook (Education) */}
@@ -2358,9 +2348,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Facebook (Education Channel)"
-                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-blue-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+                className="w-7 h-7 rounded-lg border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-blue-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
               >
-                <FacebookIcon className="w-4.5 h-4.5" />
+                <FacebookIcon className="w-3.5 h-3.5" />
               </a>
 
               {/* YouTube (Training) */}
@@ -2369,9 +2359,9 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="YouTube (Education & Training Channel)"
-                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-red-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+                className="w-7 h-7 rounded-lg border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-red-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
               >
-                <YouTubeIcon className="w-4.5 h-4.5" />
+                <YouTubeIcon className="w-3.5 h-3.5" />
               </a>
 
               {/* Google Play Store App */}
@@ -2380,40 +2370,18 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Dadheech Classes Mobile App (Play Store)"
-                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-emerald-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
+                className="w-7 h-7 rounded-lg border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-emerald-500/80 flex items-center justify-center transition-all shadow-sm hover:scale-110"
               >
-                <PlayStoreIcon className="w-4.5 h-4.5" />
-              </a>
-
-              {/* Phone Helpline */}
-              <a
-                href="tel:+919758975880"
-                title="Call Campus Helpline (+91 97589 75880)"
-                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-amber-400/80 flex items-center justify-center text-amber-400 hover:text-amber-300 transition-all shadow-sm hover:scale-110"
-              >
-                <Phone className="w-4 h-4" />
-              </a>
-
-              {/* Email */}
-              <a
-                href="mailto:dmpsbarheti@gmail.com"
-                title="Email School Office"
-                className="w-9 h-9 rounded-xl border border-slate-700/80 bg-slate-800/70 hover:bg-slate-700 hover:border-amber-400/80 flex items-center justify-center text-amber-400 hover:text-amber-300 transition-all shadow-sm hover:scale-110"
-              >
-                <Mail className="w-4 h-4" />
+                <PlayStoreIcon className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
 
           <div>
             <h4 className="font-bold text-white mb-3 text-sm">Quick Navigation</h4>
-            <ul className="space-y-1.5 text-[11px]">
+            <ul className="space-y-2 text-[11px]">
               <li><button onClick={() => navigateTo('home')} className="hover:text-amber-400 transition-colors">Home</button></li>
               <li><button onClick={() => navigateTo('campuses')} className="hover:text-amber-400 transition-colors">Our 3 Campuses</button></li>
-              <li><button onClick={() => navigateTo('academic')} className="hover:text-amber-400 transition-colors">Academic Curriculum (BSB)</button></li>
-              <li><button onClick={() => navigateTo('facilities')} className="hover:text-amber-400 transition-colors">Infrastructure & Facilities</button></li>
-              <li><button onClick={() => navigateTo('selections')} className="hover:text-amber-400 transition-colors">Hall of Fame (44+)</button></li>
-              <li><button onClick={() => navigateTo('gallery')} className="hover:text-amber-400 transition-colors">Photo & Event Gallery</button></li>
               <li><button onClick={() => navigateTo('admissions')} className="hover:text-amber-400 transition-colors">Admissions 2026-27</button></li>
               <li><button onClick={() => navigateTo('contact')} className="hover:text-amber-400 transition-colors">Contact & Helplines</button></li>
             </ul>
@@ -2449,15 +2417,12 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
         </div>
 
-        {/* 👑 Developer Credit & Copyright Bar */}
+        {/* 👑 Developer Credit Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
-          <div className="flex items-center gap-4 flex-wrap">
-            <p>© 2002 - 2026 Dadheech Memorial Public School (DMPS). All Rights Reserved.</p>
-            <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-amber-300">
-              <a href="tel:+919758975880" className="hover:underline">📞 +91 97589 75880</a>
-              <span>•</span>
-              <a href="tel:+919627032626" className="hover:underline">9627032626</a>
-            </div>
+          <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-amber-300">
+            <a href="tel:+919758975880" className="hover:underline">📞 +91 97589 75880</a>
+            <span>•</span>
+            <a href="tel:+919627032626" className="hover:underline">9627032626</a>
           </div>
           
           <div className="flex items-center gap-2">
