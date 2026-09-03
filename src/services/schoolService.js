@@ -1,6 +1,6 @@
 import { initialSchoolData } from './mockData';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V17_ELDER_CHILD_SIBLINGS';
+const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V18_CLEAN_NO_DUMMY';
 
 class SchoolService {
   constructor() {
@@ -280,32 +280,10 @@ class SchoolService {
 
   getOfficeTransactions() {
     try {
-      const saved = localStorage.getItem('DMPS_OFFICE_TRANSACTIONS_V2');
+      const saved = localStorage.getItem('DMPS_OFFICE_TRANSACTIONS_V3');
       if (saved) return JSON.parse(saved);
     } catch (e) {}
-    return [
-      {
-        id: 'EXP-2026-081',
-        date: '2026-08-30',
-        type: 'Expense',
-        head: 'School Bus Diesel & Fleet Fuel',
-        amount: 19800
-      },
-      {
-        id: 'EXP-2026-082',
-        date: '2026-08-28',
-        type: 'Expense',
-        head: 'Electricity Bills & Campus Utility',
-        amount: 28450
-      },
-      {
-        id: 'EXP-2026-083',
-        date: '2026-08-25',
-        type: 'Expense',
-        head: 'Examination Papers & Stationery',
-        amount: 14200
-      }
-    ];
+    return [];
   }
 
   getTransactions() {
@@ -3053,19 +3031,7 @@ class SchoolService {
   // Admission Inquiries (From Public Website & Front Desk)
   getAdmissionInquiries() {
     if (!Array.isArray(this.data?.admissionInquiries)) {
-      this.data.admissionInquiries = [
-        {
-          id: 'INQ-2026-1042',
-          date: '31/08/2026',
-          time: '10:30 AM',
-          parentName: 'Mr. Rajesh Kumar Rajput',
-          phone: '9758975880',
-          studentName: 'Aman Rajput',
-          classSeeking: 'Class 6',
-          branch: 'Dadheech Memorial Public School, Jargwan - Main Campus',
-          status: 'New Inquiry'
-        }
-      ];
+      this.data.admissionInquiries = [];
       this.saveData();
     }
     return this.data.admissionInquiries;
@@ -3102,34 +3068,7 @@ class SchoolService {
   // ==========================================
   getCallLogs() {
     if (!Array.isArray(this.data?.callLogs)) {
-      this.data.callLogs = [
-        {
-          id: 'CALL-101',
-          date: '02/09/2026',
-          time: '10:15 AM',
-          callerName: 'Sunil Sharma (Father)',
-          phone: '9897123456',
-          callType: 'Incoming',
-          purpose: 'Fee Inquiry & Term 2 Due Balance',
-          duration: '3m 20s',
-          response: 'Informed about online portal login and due amount ₹4,200',
-          followUpDate: '05/09/2026',
-          status: 'Resolved'
-        },
-        {
-          id: 'CALL-102',
-          date: '02/09/2026',
-          time: '11:40 AM',
-          callerName: 'Mrs. Rekha Devi (Mother)',
-          phone: '9412987654',
-          callType: 'Incoming',
-          purpose: 'Transport Route #3 Timing & Stoppage',
-          duration: '2m 10s',
-          response: 'Shared driver contact and scheduled morning pickup time 7:25 AM',
-          followUpDate: null,
-          status: 'Resolved'
-        }
-      ];
+      this.data.callLogs = [];
       this.saveData();
     }
     return this.data.callLogs;
@@ -3161,32 +3100,7 @@ class SchoolService {
   // ==========================================
   getPostalRecords() {
     if (!Array.isArray(this.data?.postalRecords)) {
-      this.data.postalRecords = [
-        {
-          id: 'POST-101',
-          type: 'Received',
-          trackingNo: 'ED829374921IN',
-          title: 'CBSE Board Circular & Exam Guidelines 2026',
-          sender: 'CBSE Regional Office, Noida',
-          receiver: 'Principal / Exam Cell, DMPS',
-          courierAgency: 'India Post Speed Post',
-          date: '01/09/2026',
-          confidential: false,
-          notes: 'Received by Front Desk, handed over to Principal Office'
-        },
-        {
-          id: 'POST-102',
-          type: 'Dispatched',
-          trackingNo: 'DTDC9823412',
-          title: 'Student Transfer Certificate (TC) & Marksheets',
-          sender: 'DMPS Reception Desk',
-          receiver: 'St. Paul School, Aligarh',
-          courierAgency: 'DTDC Express',
-          date: '02/09/2026',
-          confidential: true,
-          notes: 'Speed delivery requested by parent'
-        }
-      ];
+      this.data.postalRecords = [];
       this.saveData();
     }
     return this.data.postalRecords;

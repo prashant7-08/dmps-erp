@@ -76,104 +76,19 @@ export const AccountsInventoryPage = ({ initialTab = 'account' }) => {
     if (initialTab) setActiveTab(resolveTab(initialTab));
   }, [initialTab]);
 
-  // Initial Custom Transactions for Office Accounting (School Operational Inflow/Outflows)
+  // Clean Office Transactions (School Operational Inflow/Outflows)
   const [customTransactions, setCustomTransactions] = useState(() => {
-    const saved = localStorage.getItem('DMPS_OFFICE_TRANSACTIONS_V2');
+    const saved = localStorage.getItem('DMPS_OFFICE_TRANSACTIONS_V3');
     if (saved) {
       try { return JSON.parse(saved); } catch (e) {}
     }
-    return [
-      {
-        id: 'EXP-2026-081',
-        date: '2026-08-30',
-        type: 'Expense',
-        head: 'School Bus Diesel & Fleet Fuel',
-        account: 'School Central Cash Counter (Fee POS)',
-        party: 'Kisan Petroleum Agency, Jargwan',
-        paymentMode: 'Cash',
-        ref: 'BILL-DS-8891',
-        remarks: 'Diesel refill for Bus #1 & Bus #2 (220 Liters)',
-        amount: 19800
-      },
-      {
-        id: 'EXP-2026-082',
-        date: '2026-08-28',
-        type: 'Expense',
-        head: 'Electricity Bills & Campus Utility',
-        account: 'Punjab National Bank (Main Account)',
-        party: 'UPPCL Electricity Dept, Debai',
-        paymentMode: 'NEFT / Net Banking',
-        ref: 'UPPCL-AUG-2026',
-        remarks: 'Monthly electricity tariff bill for Academic Block',
-        amount: 28450
-      },
-      {
-        id: 'EXP-2026-083',
-        date: '2026-08-25',
-        type: 'Expense',
-        head: 'Examination Papers & Stationery',
-        account: 'School Central Cash Counter (Fee POS)',
-        party: 'Agarwal Paper & Printing Mart',
-        paymentMode: 'Cash',
-        ref: 'INV-PP-1049',
-        remarks: 'Pre-Midterm question papers, answer booklets & registers',
-        amount: 14200
-      },
-      {
-        id: 'EXP-2026-084',
-        date: '2026-08-22',
-        type: 'Expense',
-        head: 'Campus Maintenance & White-Wash',
-        account: 'Principal Petty Cash Reserve',
-        party: 'Ramji Painter & Plumber',
-        paymentMode: 'Cash',
-        ref: 'VCH-MAINT-09',
-        remarks: 'Playground water cooler repair & boundary whitewash',
-        amount: 6800
-      },
-      {
-        id: 'EXP-2026-085',
-        date: '2026-08-18',
-        type: 'Expense',
-        head: 'Staff Tea, Refreshment & Welfare',
-        account: 'Principal Petty Cash Reserve',
-        party: 'Sharma Tea Stall & Canteen',
-        paymentMode: 'Cash',
-        ref: 'VCH-TEA-08',
-        remarks: 'Monthly faculty tea, guest refreshments and staff meetings',
-        amount: 3200
-      },
-      {
-        id: 'DEP-2026-041',
-        date: '2026-08-26',
-        type: 'Income',
-        head: 'Government RTE Reimbursements & Grants',
-        account: 'Punjab National Bank (Main Account)',
-        party: 'Basic Shiksha Adhikari (BSA Bulandshahr)',
-        paymentMode: 'Bank Transfer (RTGS)',
-        ref: 'GOV-RTE-2026/04',
-        remarks: 'State Govt RTE reimbursement for Q1 session 2026-27',
-        amount: 145000
-      },
-      {
-        id: 'DEP-2026-042',
-        date: '2026-08-20',
-        type: 'Income',
-        head: 'School Canteen & Uniform Stall Rent',
-        account: 'School Central Cash Counter (Fee POS)',
-        party: 'Gupta School Uniforms & Canteen',
-        paymentMode: 'Cash',
-        ref: 'RENT-AUG-2026',
-        remarks: 'Monthly stall rental and electricity sharing',
-        amount: 12000
-      }
-    ];
+    return [];
   });
 
   // Save custom transactions
   useEffect(() => {
     try {
-      localStorage.setItem('DMPS_OFFICE_TRANSACTIONS_V2', JSON.stringify(customTransactions));
+      localStorage.setItem('DMPS_OFFICE_TRANSACTIONS_V3', JSON.stringify(customTransactions));
     } catch (e) {}
   }, [customTransactions]);
 
