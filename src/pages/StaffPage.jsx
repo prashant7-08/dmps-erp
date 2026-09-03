@@ -2594,40 +2594,44 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
           </div>
         </div>
       </Modal>
+
       {/* ========================================================== */}
       {/* 💰 MODAL: INDIVIDUAL STAFF SALARY PAYMENT & DEDUCTIONS     */}
       {/* ========================================================== */}
       <Modal
         isOpen={isPaySalaryModalOpen}
         onClose={() => setIsPaySalaryModalOpen(false)}
-        title={`Pay Salary: ${salaryPayForm.staffName} (${salaryPayForm.employeeId})`}
+        title={`💰 Disburse Salary: ${salaryPayForm.staffName} (${salaryPayForm.employeeId})`}
         maxWidth="max-w-2xl"
       >
-        <form onSubmit={handleConfirmSalaryPayment} className="space-y-4 text-xs">
-          {/* Staff Info Banner */}
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white flex items-center justify-between shadow-md">
+        <form onSubmit={handleConfirmSalaryPayment} className="space-y-3 text-xs">
+          {/* Staff Info Banner (Compact & Sleek) */}
+          <div className="p-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white flex items-center justify-between shadow-sm">
             <div>
-              <span className="text-[10px] font-black uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded-md">
-                {salaryPayForm.designation}
-              </span>
-              <h3 className="text-lg font-black uppercase mt-1">{salaryPayForm.staffName}</h3>
-              <p className="text-xs text-emerald-100 font-mono">Emp ID: {salaryPayForm.employeeId}</p>
+              <div className="flex items-center gap-2">
+                <h3 className="text-base font-black uppercase text-white tracking-tight">{salaryPayForm.staffName}</h3>
+                <span className="text-[9px] font-black uppercase bg-white/20 px-2 py-0.2 rounded-full border border-white/30">
+                  {salaryPayForm.designation}
+                </span>
+              </div>
+              <p className="text-[10.5px] text-emerald-100 font-mono mt-0.5">Emp ID: {salaryPayForm.employeeId}</p>
             </div>
             <div className="text-right">
-              <span className="text-[10px] uppercase font-bold text-emerald-100">Base Monthly Salary</span>
-              <p className="text-xl font-black font-mono">₹{salaryPayForm.baseSalary.toLocaleString('en-IN')}</p>
+              <span className="text-[9.5px] uppercase font-bold text-emerald-200 block">Base Salary</span>
+              <p className="text-lg font-black font-mono">₹{salaryPayForm.baseSalary.toLocaleString('en-IN')}</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* Row 1: Month & Payment Mode */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-0.5 text-[11px]">
                 Salary Month
               </label>
               <select
                 value={salaryPayForm.month}
                 onChange={(e) => handleSalaryFormChange('month', e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
               >
                 <option value="August 2026">August 2026</option>
                 <option value="September 2026">September 2026</option>
@@ -2637,135 +2641,112 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-0.5 text-[11px]">
                 Payment Mode
               </label>
               <select
                 value={salaryPayForm.paymentMode}
                 onChange={(e) => handleSalaryFormChange('paymentMode', e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
               >
                 <option value="UPI / PhonePe / GPay">📱 UPI / PhonePe / GPay (QR Scan)</option>
-                <option value="Cash">💵 Cash (Office Chest)</option>
+                <option value="Cash">💵 Cash (Counter)</option>
                 <option value="Direct Bank Transfer (NEFT/RTGS)">🏦 Direct Bank Transfer (NEFT/RTGS)</option>
                 <option value="Bank Cheque">📝 Bank Cheque</option>
               </select>
             </div>
           </div>
 
-          {/* Deductions & Additions */}
-          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
-            <div className="flex items-center justify-between">
-              <h4 className="font-black text-slate-900 dark:text-white uppercase text-[11px] tracking-wide flex items-center gap-1.5">
-                <span>✂️</span> Leave Deductions & Adjustments (वेतन कटौती एवं कारण)
-              </h4>
-              <span className="text-[10px] text-rose-600 dark:text-rose-400 font-bold">कटौती सीधे दर्ज करें</span>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* Row 2: Deductions & Adjustments (Compact 3-Column Grid) */}
+          <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
+              {/* Leave Cut */}
               <div>
-                <label className="font-bold text-rose-700 dark:text-rose-400 block mb-1">
-                  Leave / Absence Deduction Amount (कटौती राशि ₹)
+                <label className="font-bold text-rose-700 dark:text-rose-400 block mb-0.5">
+                  ✂️ Leave Deduction (-)
                 </label>
                 <input
                   type="number"
                   min="0"
                   value={salaryPayForm.deductionAmount}
                   onChange={(e) => handleSalaryFormChange('deductionAmount', e.target.value)}
-                  className="w-full p-2.5 rounded-xl border-2 border-rose-300 dark:border-rose-800 bg-white dark:bg-slate-900 font-mono font-black text-rose-600 text-sm"
-                  placeholder="₹0 (e.g. 1000 for 2 days leave)"
+                  className="w-full p-1.5 rounded-lg border border-rose-300 dark:border-rose-800 bg-white dark:bg-slate-900 font-mono font-black text-rose-600 text-xs shadow-xs"
+                  placeholder="₹0"
                 />
               </div>
 
+              {/* Advance Cut */}
               <div>
-                <label className="font-bold text-rose-700 dark:text-rose-400 block mb-1">
-                  Deduction Reason / Remark (कटौती का कारण / टिप्पणी)
-                </label>
-                <input
-                  type="text"
-                  value={salaryPayForm.deductionReason}
-                  onChange={(e) => handleSalaryFormChange('deductionReason', e.target.value)}
-                  className="w-full p-2.5 rounded-xl border border-rose-300 dark:border-rose-800 bg-white dark:bg-slate-900 text-xs font-semibold"
-                  placeholder="e.g. 2 दिन छुट्टी / Absent कट, लेट अराइवल"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
-                  Advance Salary EMI / Loan Cut (-)
+                <label className="font-bold text-slate-600 dark:text-slate-300 block mb-0.5">
+                  💳 Advance EMI Cut (-)
                 </label>
                 <input
                   type="number"
                   min="0"
                   value={salaryPayForm.advanceDeduction}
                   onChange={(e) => handleSalaryFormChange('advanceDeduction', e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-bold"
+                  className="w-full p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-bold text-xs"
                   placeholder="₹0"
                 />
               </div>
 
+              {/* Bonus */}
               <div>
-                <label className="font-bold text-emerald-700 dark:text-emerald-400 block mb-1">
-                  Bonus / Extra Allowance (+)
+                <label className="font-bold text-emerald-700 dark:text-emerald-400 block mb-0.5">
+                  🎁 Bonus / Allowance (+)
                 </label>
                 <input
                   type="number"
                   min="0"
                   value={salaryPayForm.bonus}
                   onChange={(e) => handleSalaryFormChange('bonus', e.target.value)}
-                  className="w-full p-2 rounded-xl border border-emerald-300 dark:border-emerald-800 bg-white dark:bg-slate-900 font-mono font-bold text-emerald-600"
+                  className="w-full p-1.5 rounded-lg border border-emerald-300 dark:border-emerald-800 bg-white dark:bg-slate-900 font-mono font-bold text-emerald-600 text-xs"
                   placeholder="₹0"
+                />
+              </div>
+            </div>
+
+            <div>
+              <input
+                type="text"
+                value={salaryPayForm.deductionReason}
+                onChange={(e) => handleSalaryFormChange('deductionReason', e.target.value)}
+                className="w-full p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-[10.5px]"
+                placeholder="Reason/Note (e.g. 2 days absence cut / festival bonus)..."
+              />
+            </div>
+          </div>
+
+          {/* Row 3: Net Payable & Amount Being Paid Now (Side-by-Side Highlight) */}
+          <div className="p-3 rounded-2xl bg-indigo-50/80 dark:bg-indigo-950/40 border-2 border-indigo-200 dark:border-indigo-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <span className="text-[10px] font-black text-indigo-900 dark:text-indigo-200 uppercase block">
+                Net Salary Payable This Month:
+              </span>
+              <span className="text-base font-black font-mono text-indigo-700 dark:text-indigo-300">
+                ₹{salaryPayForm.netPayable.toLocaleString('en-IN')}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <div>
+                <label className="text-[10px] font-black text-slate-700 dark:text-slate-300 block mb-0.5 uppercase">
+                  Paying Now (₹) *
+                </label>
+                <input
+                  type="number"
+                  min="0"
+                  value={salaryPayForm.paidAmount}
+                  onChange={(e) => handleSalaryFormChange('paidAmount', e.target.value)}
+                  className="w-36 p-1.5 rounded-lg border-2 border-emerald-500 bg-white dark:bg-slate-900 text-base font-black text-emerald-700 dark:text-emerald-400 font-mono text-right"
                 />
               </div>
             </div>
           </div>
 
-          {/* Net Payable & Payment Input */}
-          <div className="p-4 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/40 border-2 border-indigo-200 dark:border-indigo-800 space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="font-black text-indigo-950 dark:text-indigo-200 uppercase">
-                Net Salary Payable This Month:
-              </span>
-              <span className="text-lg font-black font-mono text-indigo-700 dark:text-indigo-300">
-                ₹{salaryPayForm.netPayable.toLocaleString('en-IN')}
-              </span>
-            </div>
-
-            <div>
-              <label className="font-black text-slate-800 dark:text-slate-200 block mb-1">
-                Amount Being Paid Now (₹) <span className="text-rose-500">*</span>
-              </label>
-              <input
-                type="number"
-                min="0"
-                value={salaryPayForm.paidAmount}
-                onChange={(e) => handleSalaryFormChange('paidAmount', e.target.value)}
-                className="w-full p-3 rounded-xl border-2 border-emerald-500 bg-white dark:bg-slate-900 text-lg font-black text-slate-900 dark:text-white font-mono"
-              />
-            </div>
-
-            {/* Advance Carry-Forward or Pending Dues Alert */}
-            {salaryPayForm.paidAmount > salaryPayForm.netPayable && (
-              <div className="p-2.5 rounded-xl bg-purple-100 dark:bg-purple-950/60 border border-purple-300 dark:border-purple-800 text-purple-900 dark:text-purple-200 font-bold flex items-center gap-2">
-                <span>👑</span>
-                <span>
-                  Extra ₹{(salaryPayForm.paidAmount - salaryPayForm.netPayable).toLocaleString('en-IN')} Paid! This excess amount will be added to Advance Salary and automatically deducted next month.
-                </span>
-              </div>
-            )}
-
-            {salaryPayForm.paidAmount < salaryPayForm.netPayable && (
-              <div className="p-2.5 rounded-xl bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200 font-bold flex items-center gap-2">
-                <span>⚠️</span>
-                <span>
-                  Partial Payment: ₹{(salaryPayForm.netPayable - salaryPayForm.paidAmount).toLocaleString('en-IN')} will remain as balance salary due for this staff.
-                </span>
-              </div>
-            )}
-          </div>
-
+          {/* Remarks input */}
           <div>
-            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-0.5 text-[11px]">
               Remarks / Transaction Reference
             </label>
             <input
@@ -2773,23 +2754,24 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
               value={salaryPayForm.remarks}
               onChange={(e) => handleSalaryFormChange('remarks', e.target.value)}
               placeholder="e.g. UTR / Cheque No / Monthly Cash Payment"
-              className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs"
+              className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-medium"
             />
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
+          {/* Action Buttons (Zero-Scroll!) */}
+          <div className="flex items-center justify-between gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
             <button
               type="button"
               onClick={() => setIsPaySalaryModalOpen(false)}
-              className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-300"
+              className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-300 cursor-pointer text-xs"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black shadow-lg shadow-emerald-500/25 flex items-center gap-2"
+              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black shadow-lg shadow-emerald-500/25 flex items-center gap-1.5 cursor-pointer text-xs transition-all hover:scale-105 active:scale-95"
             >
-              <CheckCircle2 className="w-4 h-4" /> Confirm & Disburse Salary
+              <CheckCircle2 className="w-4 h-4" /> Confirm & Disburse ₹{Number(salaryPayForm.paidAmount || 0).toLocaleString('en-IN')}
             </button>
           </div>
         </form>
