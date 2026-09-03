@@ -323,6 +323,8 @@ function AppContent() {
         return <CalendarPage />;
       case 'leave':
       case 'hr-leave':
+      case 'hr-leave-manage':
+      case 'leave-manage':
         return <LeaveManagementPage />;
       case 'card-management':
       case 'card-id-template':
@@ -344,10 +346,6 @@ function AppContent() {
       case 'hr-advance':
       case 'hr-advance-my':
       case 'hr-advance-manage':
-      case 'hr-leave':
-      case 'hr-leave-category':
-      case 'hr-leave-my':
-      case 'hr-leave-manage':
       case 'hr-award':
         return <HRPayrollPage initialTab={activeTab} />;
       case 'office-account':

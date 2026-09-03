@@ -67,9 +67,19 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   const [isProfileDossierOpen, setIsProfileDossierOpen] = useState(false);
   const [isPaySlipModalOpen, setIsPaySlipModalOpen] = useState(false);
   const [isIdCardModalOpen, setIsIdCardModalOpen] = useState(false);
-  const [isAddStaffModalOpen, setIsAddStaffModalOpen] = useState(false);
+  const [isAddStaffModalOpen, setIsAddStaffModalOpen] = useState(() => initialSubTab === 'staff-add' || initialSubTab === 'employee-add');
   const [isEditStaffModalOpen, setIsEditStaffModalOpen] = useState(false);
-  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
+  const [isImportModalOpen, setIsImportModalOpen] = useState(() => initialSubTab === 'staff-import');
+
+  useEffect(() => {
+    if (initialSubTab === 'staff-add' || initialSubTab === 'employee-add') {
+      setIsAddStaffModalOpen(true);
+    } else if (initialSubTab === 'staff-import') {
+      setIsImportModalOpen(true);
+    } else if (initialSubTab) {
+      setActiveTab(resolveTab(initialSubTab));
+    }
+  }, [initialSubTab]);
 
   // Individual Staff Salary Payment Modal State
   const [isPaySalaryModalOpen, setIsPaySalaryModalOpen] = useState(false);

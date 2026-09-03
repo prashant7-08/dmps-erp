@@ -92,10 +92,8 @@ export const navigationGroups = [
     items: [
       { id: 'staff', label: 'Employee Directory', badge: 'Active' },
       { id: 'staff-add', label: 'Add Employee', badge: 'New' },
-      { id: 'hr-payment', targetTab: 'payroll', subTab: 'payment', label: 'Salary Payment & Payslips', badge: 'Pay' },
-      { id: 'hr-advance-manage', targetTab: 'payroll', subTab: 'advance-manage', label: 'Advance Salary Loans', badge: 'Advance' },
-      { id: 'hr-leave-manage', targetTab: 'payroll', subTab: 'leave-manage', label: 'Leave Management', badge: 'Leave' },
-      { id: 'hr-award', targetTab: 'payroll', subTab: 'award', label: 'Faculty Awards & Honors', badge: 'Award' }
+      { id: 'payroll', targetTab: 'payroll', label: 'Salary Payment & Payslips', badge: 'Pay' },
+      { id: 'leave', targetTab: 'leave', label: 'Leave Management', badge: 'Leave' }
     ]
   },
   {
