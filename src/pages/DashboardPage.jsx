@@ -173,7 +173,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       let dayExpense = 0;
 
       if (transactions && transactions.length > 0) {
-        const yyyyMmDd = d.toISOString().split('T')[0];
+        const yyyyMmDd = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
         transactions.forEach(t => {
           if (t.date && (t.date.startsWith(yyyyMmDd) || t.date.includes(dateLabel))) {
             if (t.type === 'Income' || t.type === 'CR' || t.category === 'Fee Collection' || (t.amount > 0 && t.type !== 'Expense')) {
@@ -183,18 +183,6 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             }
           }
         });
-      }
-
-      if (dayIncome === 0 && dayExpense === 0) {
-        if (isSunday) {
-          dayIncome = 0;
-          dayExpense = 0;
-        } else {
-          const seed = (dayNum * 17 + i * 11);
-          dayIncome = i === 0 ? 19800 : (14000 + (seed % 14) * 1200);
-          dayExpense = i === 0 ? 3200 : (1800 + (seed % 8) * 700);
-          if (dayNum === 27 || dayNum === 1) dayExpense = 142800; // Payroll cycle
-        }
       }
 
       days.push({

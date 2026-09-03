@@ -268,9 +268,56 @@ class SchoolService {
 
       this.data.students[idx] = updatedStudent;
       this.saveData();
-      return this.data.students[idx];
+      return updatedStudent;
     }
     return null;
+  }
+
+  getFeeInvoices() {
+    if (!this.data.feeInvoices) this.data.feeInvoices = [];
+    return this.data.feeInvoices;
+  }
+
+  getOfficeTransactions() {
+    try {
+      const saved = localStorage.getItem('DMPS_OFFICE_TRANSACTIONS_V2');
+      if (saved) return JSON.parse(saved);
+    } catch (e) {}
+    return [
+      {
+        id: 'EXP-2026-081',
+        date: '2026-08-30',
+        type: 'Expense',
+        head: 'School Bus Diesel & Fleet Fuel',
+        amount: 19800
+      },
+      {
+        id: 'EXP-2026-082',
+        date: '2026-08-28',
+        type: 'Expense',
+        head: 'Electricity Bills & Campus Utility',
+        amount: 28450
+      },
+      {
+        id: 'EXP-2026-083',
+        date: '2026-08-25',
+        type: 'Expense',
+        head: 'Examination Papers & Stationery',
+        amount: 14200
+      }
+    ];
+  }
+
+  getTransactions() {
+    const expenses = this.getOfficeTransactions();
+    const invoices = this.getFeeInvoices().map(inv => ({
+      id: inv.id || inv.invoiceNo,
+      date: inv.paymentDate || inv.date,
+      type: 'Income',
+      head: 'Student Fee POS Collection',
+      amount: Number(inv.paidAmount || inv.amount || 0)
+    }));
+    return [...expenses, ...invoices];
   }
 
   deleteStudent(id) {
