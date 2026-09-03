@@ -1048,162 +1048,127 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       </div>
 
       {/* ========================================================================= */}
-      {/* 💰 SECTION 5: FINANCIAL DONUT & ANNUAL FEE SPLINE WAVE GRAPH */}
+      {/* 💰 SECTION 5: FINANCIAL REVENUE & FEE COLLECTION ANALYTICS */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-        {/* 1. Income Vs Expense Of August (Donut Chart) */}
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+        {/* 1. Annual Revenue Allocation (Tuition vs Transport Matrix) */}
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5 flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-            <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
-              Income Vs Expense Of August
+            <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+              <CreditCard className="w-4 h-4 text-indigo-600" /> Revenue Allocation
             </h3>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-200">
-              August 2026
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+              Session 2026-27
             </span>
           </div>
 
-          <div className="flex flex-col items-center justify-center py-4 space-y-4">
-            {/* Donut Ring with Center Piggybank Icon */}
-            <div className="relative w-44 h-44 flex items-center justify-center">
-              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                {/* Expense (Pink/Magenta 35%) */}
-                <path
-                  className="text-pink-600"
-                  strokeWidth="5.5"
-                  strokeDasharray="35, 100"
-                  stroke="currentColor"
-                  fill="none"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-                {/* Income (Teal/Emerald 65%) */}
-                <path
-                  className="text-teal-600"
-                  strokeWidth="5.5"
-                  strokeDasharray="65, 100"
-                  strokeDashoffset="-35"
-                  stroke="currentColor"
-                  fill="none"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-              </svg>
-
-              {/* Center Cash Icon */}
-              <div className="absolute flex flex-col items-center justify-center text-center">
-                <DollarSign className="w-8 h-8 text-teal-600 dark:text-teal-400" />
-                <span className="text-[10px] font-black text-slate-500 uppercase mt-0.5">Surplus</span>
-                <span className="text-sm font-black text-teal-600 font-mono">64.6%</span>
+          <div className="space-y-4">
+            {/* Tuition Revenue Card */}
+            <div className="p-4 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/60 space-y-2">
+              <div className="flex justify-between items-center text-xs">
+                <span className="font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                  <GraduationCap className="w-4 h-4 text-indigo-600" /> Tuition Fee (PG-10th)
+                </span>
+                <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400">72.4%</span>
+              </div>
+              <div className="flex justify-between items-baseline">
+                <span className="text-xl font-black font-mono text-slate-900 dark:text-white">₹81,99,000</span>
+                <span className="text-[11px] text-slate-500 font-medium">567 Students</span>
+              </div>
+              <div className="w-full h-2 rounded-full bg-indigo-200/60 dark:bg-indigo-900/80 overflow-hidden">
+                <div className="h-full bg-indigo-600 rounded-full" style={{ width: '72.4%' }} />
               </div>
             </div>
 
-            {/* Bottom Legend */}
-            <div className="flex items-center justify-center gap-6 text-xs font-bold pt-2">
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-teal-600"></span>
-                <span className="text-slate-700 dark:text-slate-300">Income: ₹3,81,300</span>
+            {/* Transport Revenue Card */}
+            <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-900/60 space-y-2">
+              <div className="flex justify-between items-center text-xs">
+                <span className="font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                  <Bus className="w-4 h-4 text-amber-600" /> Transport Fleet (11-M)
+                </span>
+                <span className="font-mono font-bold text-amber-600 dark:text-amber-400">27.6%</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-pink-600"></span>
-                <span className="text-slate-700 dark:text-slate-300">Expense: ₹2,09,078</span>
+              <div className="flex justify-between items-baseline">
+                <span className="text-xl font-black font-mono text-slate-900 dark:text-white">₹31,18,500</span>
+                <span className="text-[11px] text-slate-500 font-medium">41 Village Stoppages</span>
+              </div>
+              <div className="w-full h-2 rounded-full bg-amber-200/60 dark:bg-amber-900/80 overflow-hidden">
+                <div className="h-full bg-amber-500 rounded-full" style={{ width: '27.6%' }} />
               </div>
             </div>
+          </div>
+
+          <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-xs">
+            <span className="font-bold text-slate-500">Gross Budget Demand:</span>
+            <span className="font-mono font-black text-slate-900 dark:text-white text-sm">₹1,13,17,500</span>
           </div>
         </div>
 
-        {/* 2. Annual Fee Summary (Spline Area Wave Chart with Exact Y-Axis) */}
-        <div className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+        {/* 2. Real-Time Annual Fee Collection & Recovery Bar */}
+        <div className="lg:col-span-8 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5 flex flex-col justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
-              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
-                Annual Fee Summary
+              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-emerald-600" /> Annual Fee Collection & Recovery Status
               </h3>
-              <p className="text-xs text-slate-500 font-mono mt-0.5">
-                Total Dues: <strong className="text-slate-900 dark:text-white">₹1,19,23,985</strong> | Total Collected: <strong className="text-emerald-600">₹10,34,800</strong> | Total Remaining: <strong className="text-rose-600">₹1,08,89,185</strong>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Real-time synchronized student fee ledger recovery across all campuses
               </p>
             </div>
-            <div className="flex items-center gap-3 text-[11px] font-bold">
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-sm bg-amber-500"></span>
-                <span>Total</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-sm bg-emerald-600"></span>
-                <span>Collected</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-sm bg-rose-600"></span>
-                <span>Remaining</span>
-              </div>
+            <button
+              onClick={() => setActiveTab('fees')}
+              className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm flex items-center gap-1.5 transition-all self-start sm:self-auto hover:scale-105 active:scale-95"
+            >
+              <CreditCard className="w-3.5 h-3.5" /> Open Fee Counter
+            </button>
+          </div>
+
+          {/* Large Main Progress Bar */}
+          <div className="space-y-2 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700">
+            <div className="flex justify-between items-baseline text-xs font-bold">
+              <span className="text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                Fee Recovered: ₹54,58,975 (48.2%)
+              </span>
+              <span className="text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                Balance Due: ₹58,58,525 (51.8%)
+              </span>
+            </div>
+
+            <div className="w-full h-4 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden flex shadow-inner">
+              <div
+                className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-700"
+                style={{ width: '48.2%' }}
+                title="Recovered: 48.2%"
+              />
+              <div
+                className="h-full bg-gradient-to-r from-rose-500 to-rose-600 transition-all duration-700"
+                style={{ width: '51.8%' }}
+                title="Balance Due: 51.8%"
+              />
             </div>
           </div>
 
-          {/* Spline Bell Curves SVG Graphic with Left Y-Axis Scale */}
-          <div className="relative flex">
-            {/* Y-Axis numbers */}
-            <div className="flex flex-col justify-between text-[9px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-14 select-none">
-              <span>14000000</span>
-              <span>12000000</span>
-              <span>10000000</span>
-              <span>8000000</span>
-              <span>6000000</span>
-              <span>4000000</span>
-              <span>2000000</span>
-              <span>0</span>
+          {/* 3 Metric Summary Pillars */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="p-3.5 rounded-2xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/40">
+              <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 uppercase tracking-wider block">Total Demand</span>
+              <span className="text-lg font-black font-mono text-slate-900 dark:text-white block mt-0.5">₹1,13,17,500</span>
+              <span className="text-[10px] text-slate-400 font-medium">Session 2026-27</span>
             </div>
 
-            <div className="flex-1 h-56 relative pt-2 border-l border-b border-slate-300 dark:border-slate-700">
-              <svg className="w-full h-full" viewBox="0 0 700 200" preserveAspectRatio="none">
-                {/* Horizontal Grid lines */}
-                <line x1="0" y1="20" x2="700" y2="20" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
-                <line x1="0" y1="50" x2="700" y2="50" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
-                <line x1="0" y1="80" x2="700" y2="80" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
-                <line x1="0" y1="110" x2="700" y2="110" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
-                <line x1="0" y1="140" x2="700" y2="140" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
-                <line x1="0" y1="170" x2="700" y2="170" stroke="#94a3b8" strokeDasharray="3 3" opacity="0.2" />
+            <div className="p-3.5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40">
+              <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wider block">Total Collected</span>
+              <span className="text-lg font-black font-mono text-emerald-600 dark:text-emerald-400 block mt-0.5">₹54,58,975</span>
+              <span className="text-[10px] text-emerald-700/80 dark:text-emerald-400/80 font-medium">48.2% Realized</span>
+            </div>
 
-                {/* Area 1: Remaining Fee (Red Wave) */}
-                <path
-                  d="M 50 170 Q 150 10, 250 170 L 250 170 L 50 170 Z"
-                  fill="rgba(225, 29, 72, 0.45)"
-                />
-                <path
-                  d="M 50 170 Q 150 10, 250 170"
-                  fill="none"
-                  stroke="#e11d48"
-                  strokeWidth="3"
-                />
-
-                {/* Area 2: Collected Fee (Green Wave) */}
-                <path
-                  d="M 50 170 Q 150 80, 250 170 L 250 170 L 50 170 Z"
-                  fill="rgba(16, 185, 129, 0.55)"
-                />
-                <path
-                  d="M 50 170 Q 150 80, 250 170"
-                  fill="none"
-                  stroke="#10b981"
-                  strokeWidth="3"
-                />
-
-                {/* Area 3: Total Dues (Amber Wave) */}
-                <path
-                  d="M 50 170 Q 150 100, 250 170 L 250 170 L 50 170 Z"
-                  fill="rgba(245, 158, 11, 0.65)"
-                />
-                <path
-                  d="M 50 170 Q 150 100, 250 170"
-                  fill="none"
-                  stroke="#f59e0b"
-                  strokeWidth="3"
-                />
-              </svg>
-
-              {/* Months Axis Labels */}
-              <div className="flex justify-between text-[10px] font-bold text-slate-600 dark:text-slate-400 px-4 -mt-1">
-                {['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'].map(m => (
-                  <span key={m}>{m}</span>
-                ))}
-              </div>
+            <div className="p-3.5 rounded-2xl bg-rose-50/60 dark:bg-rose-950/30 border border-rose-100 dark:border-rose-900/40">
+              <span className="text-[10px] font-bold text-rose-700 dark:text-rose-300 uppercase tracking-wider block">Total Remaining</span>
+              <span className="text-lg font-black font-mono text-rose-600 dark:text-rose-400 block mt-0.5">₹58,58,525</span>
+              <span className="text-[10px] text-rose-700/80 dark:text-rose-400/80 font-medium">51.8% Outstanding</span>
             </div>
           </div>
         </div>
