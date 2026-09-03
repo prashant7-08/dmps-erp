@@ -201,6 +201,12 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
     transportMonths: 11,
     customAnnualTransport: '',
 
+    // Fee Structure Heads
+    tuitionDue: 13500,
+    hostelDue: 0,
+    oldSessionDues: 0,
+    miscellaneousDue: 0,
+
     // Previous School Details
     previousSchoolName: '',
     previousClass: '',
@@ -417,6 +423,12 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
       transportMonths: student.transport?.months !== undefined ? student.transport.months : 11,
       customAnnualTransport: student.transport?.customAnnualTransport !== undefined ? student.transport.customAnnualTransport : '',
 
+      // Fee Heads
+      tuitionDue: student.feeSummary?.tuitionDue !== undefined ? student.feeSummary.tuitionDue : 13500,
+      hostelDue: student.feeSummary?.hostelDue || 0,
+      oldSessionDues: student.feeSummary?.oldSessionDues || 0,
+      miscellaneousDue: student.feeSummary?.miscellaneousDue || 0,
+
       // Previous School Details
       previousSchoolName: student.previousSchoolName || '',
       previousClass: student.previousClass || '',
@@ -485,6 +497,11 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
         months: Number(editFormData.transportMonths) || 11,
         customAnnualTransport: editFormData.customAnnualTransport !== '' ? Number(editFormData.customAnnualTransport) : undefined
       },
+
+      tuitionDue: Number(editFormData.tuitionDue) || 0,
+      hostelDue: Number(editFormData.hostelDue) || 0,
+      oldSessionDues: Number(editFormData.oldSessionDues) || 0,
+      miscellaneousDue: Number(editFormData.miscellaneousDue) || 0,
 
       previousSchoolName: editFormData.previousSchoolName,
       previousClass: editFormData.previousClass,
@@ -1369,39 +1386,102 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
             </div>
           </div>
 
-          {/* ═══ SECTION 4: Transport & Conveyance ═══ */}
+          {/* ═══ SECTION 4: Fee Structure, Transport, Hostel & Old Session Dues ═══ */}
           <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
             <div className="bg-gradient-to-r from-orange-500 to-amber-500 px-4 py-2.5 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Bus className="w-4 h-4 text-white" />
-                <span className="text-white font-black text-xs uppercase tracking-wide">4. Transport & Conveyance (11 Months / Custom)</span>
+                <span className="text-white font-black text-xs uppercase tracking-wide">4. Fee Structure, Transport, Hostel & Old Session Dues</span>
               </div>
               <span className="text-[10px] font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full">
-                {editFormData.transportMonths || 11} Months
+                Full Year Ledger
               </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-800/40 p-4">
+              
+              {/* Tuition Fee */}
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Facility Required</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  🎓 Annual Tuition Fee (₹)
+                </label>
+                <input
+                  type="number"
+                  value={editFormData.tuitionDue}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, tuitionDue: e.target.value }))}
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              {/* Hostel Fee */}
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  🏢 Hostel / Boarding Fee (₹)
+                </label>
+                <input
+                  type="number"
+                  value={editFormData.hostelDue}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, hostelDue: e.target.value }))}
+                  placeholder="0"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              {/* 📜 Old Session Fees (Dedicated Box as requested!) */}
+              <div className="p-2.5 rounded-xl bg-amber-50/80 dark:bg-amber-950/40 border-2 border-amber-400 dark:border-amber-700">
+                <label className="font-black text-amber-950 dark:text-amber-200 block mb-1">
+                  📜 Old Session Fees (पिछला सत्र बकाया) (₹)
+                </label>
+                <input
+                  type="number"
+                  value={editFormData.oldSessionDues}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, oldSessionDues: e.target.value }))}
+                  placeholder="0"
+                  className="w-full p-1.5 rounded-lg border border-amber-300 dark:border-amber-800 bg-white dark:bg-slate-900 font-mono font-black text-amber-900 dark:text-amber-200"
+                />
+              </div>
+
+              {/* Miscellaneous Charges */}
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  📦 Miscellaneous Charges (विविध शुल्क) (₹)
+                </label>
+                <input
+                  type="number"
+                  value={editFormData.miscellaneousDue}
+                  onChange={(e) => setEditFormData(prev => ({ ...prev, miscellaneousDue: e.target.value }))}
+                  placeholder="0"
+                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
+                />
+              </div>
+
+              {/* Transport Facility */}
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Transport Facility</label>
                 <select value={editFormData.facilityType} onChange={(e) => setEditFormData(prev => ({ ...prev, facilityType: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold">
                   <option value="None">None (Self Conveyance / Walker)</option>
                   <option value="Transport">School Bus / Transport Fleet</option>
                 </select>
               </div>
+
+              {/* Route Name */}
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Route Name</label>
                 <input type="text" value={editFormData.transportRoute} onChange={(e) => setEditFormData(prev => ({ ...prev, transportRoute: e.target.value }))} placeholder="e.g. Route 1 - Nagla Dharakpur Side" className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
+
+              {/* Stoppage / Village */}
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Stoppage / Village Name</label>
                 <input type="text" value={editFormData.transportStop} onChange={(e) => setEditFormData(prev => ({ ...prev, transportStop: e.target.value }))} placeholder="e.g. Baijala, Dharakpur, Kaliyanpur..." className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold" />
               </div>
 
+              {/* Monthly Bus Fare */}
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Bus Fare (₹)</label>
                 <input type="number" value={editFormData.transportFare} onChange={(e) => setEditFormData(prev => ({ ...prev, transportFare: e.target.value }))} className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold" />
               </div>
 
+              {/* Transport Duration Months */}
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Enrolled Duration (Months)</label>
                 <select
@@ -1423,9 +1503,10 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 </select>
               </div>
 
+              {/* Custom Annual Transport Override */}
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Custom Annual Override (₹) <span className="text-[10px] text-slate-400 font-normal">(Optional Concession)</span>
+                  Custom Transport Override (₹) <span className="text-[10px] text-slate-400 font-normal">(Optional Concession)</span>
                 </label>
                 <input
                   type="number"
@@ -1436,15 +1517,28 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 />
               </div>
 
-              <div className="md:col-span-3 p-3 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800 flex items-center justify-between">
-                <span className="text-xs font-bold text-orange-950 dark:text-orange-200">
-                  🎯 Final Annual Transport Due for this Student:
-                </span>
-                <strong className="text-sm font-black font-mono text-orange-700 dark:text-orange-300">
-                  ₹{editFormData.customAnnualTransport !== '' && !isNaN(Number(editFormData.customAnnualTransport))
-                    ? Number(editFormData.customAnnualTransport).toLocaleString('en-IN')
-                    : (Number(editFormData.transportFare || 0) * Number(editFormData.transportMonths || 11)).toLocaleString('en-IN')
-                  } ({editFormData.transportMonths || 11} Months)
+              {/* Live Summary Calculation Box */}
+              <div className="md:col-span-3 p-3.5 rounded-2xl bg-gradient-to-r from-orange-50 to-amber-50 dark:from-slate-800 dark:to-slate-800/80 border border-orange-200 dark:border-orange-900 flex flex-wrap items-center justify-between gap-2">
+                <div className="text-xs space-y-0.5">
+                  <span className="font-bold text-slate-700 dark:text-slate-300">
+                    Gross Annual Due (Tuition + Transport + Hostel + Old Session + Misc):
+                  </span>
+                  <p className="text-[11px] text-slate-500 font-mono">
+                    Tuition: ₹{Number(editFormData.tuitionDue || 0).toLocaleString()} | 
+                    Transport: ₹{(editFormData.customAnnualTransport !== '' && !isNaN(Number(editFormData.customAnnualTransport)) ? Number(editFormData.customAnnualTransport) : (Number(editFormData.transportFare || 0) * Number(editFormData.transportMonths || 11))).toLocaleString()} | 
+                    Hostel: ₹{Number(editFormData.hostelDue || 0).toLocaleString()} | 
+                    Old Session: ₹{Number(editFormData.oldSessionDues || 0).toLocaleString()} | 
+                    Misc: ₹{Number(editFormData.miscellaneousDue || 0).toLocaleString()}
+                  </p>
+                </div>
+                <strong className="text-base font-black font-mono text-orange-700 dark:text-orange-400">
+                  Total Due: ₹{(
+                    Number(editFormData.tuitionDue || 0) +
+                    (editFormData.customAnnualTransport !== '' && !isNaN(Number(editFormData.customAnnualTransport)) ? Number(editFormData.customAnnualTransport) : (Number(editFormData.transportFare || 0) * Number(editFormData.transportMonths || 11))) +
+                    Number(editFormData.hostelDue || 0) +
+                    Number(editFormData.oldSessionDues || 0) +
+                    Number(editFormData.miscellaneousDue || 0)
+                  ).toLocaleString('en-IN')}
                 </strong>
               </div>
             </div>
@@ -1667,6 +1761,40 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                     </div>
                   </div>
                 )}
+                {/* 🏷️ Itemized Fee Head Breakdown Pills */}
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1 pb-1">
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center">
+                    <span className="text-[10px] font-bold text-slate-400 block">🎓 Tuition Fee</span>
+                    <strong className="text-xs font-mono font-bold text-slate-900 dark:text-white">
+                      ₹{(selectedStudent.feeSummary?.tuitionDue !== undefined ? selectedStudent.feeSummary.tuitionDue : 13500).toLocaleString()}
+                    </strong>
+                  </div>
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center">
+                    <span className="text-[10px] font-bold text-slate-400 block">🚌 Transport (11M)</span>
+                    <strong className="text-xs font-mono font-bold text-slate-900 dark:text-white">
+                      ₹{(selectedStudent.feeSummary?.transportDue11Months !== undefined ? selectedStudent.feeSummary.transportDue11Months : (Number(selectedStudent.transport?.monthlyFare || 0) * (selectedStudent.transport?.months || 11))).toLocaleString()}
+                    </strong>
+                  </div>
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center">
+                    <span className="text-[10px] font-bold text-slate-400 block">🏢 Hostel Fee</span>
+                    <strong className="text-xs font-mono font-bold text-slate-900 dark:text-white">
+                      ₹{Number(selectedStudent.feeSummary?.hostelDue || 0).toLocaleString()}
+                    </strong>
+                  </div>
+                  <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-700 text-center">
+                    <span className="text-[10px] font-black text-amber-800 dark:text-amber-300 block">📜 Old Session Fees</span>
+                    <strong className="text-xs font-mono font-black text-amber-900 dark:text-amber-100">
+                      ₹{Number(selectedStudent.feeSummary?.oldSessionDues || 0).toLocaleString()}
+                    </strong>
+                  </div>
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center">
+                    <span className="text-[10px] font-bold text-slate-400 block">📦 Misc Charges</span>
+                    <strong className="text-xs font-mono font-bold text-slate-900 dark:text-white">
+                      ₹{Number(selectedStudent.feeSummary?.miscellaneousDue || 0).toLocaleString()}
+                    </strong>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-3 gap-3 text-center">
                   <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800">
                     <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase">{selectedStudent.isRteStudent ? 'Admin Total Dues' : 'Annual Fee Due'}</span>
@@ -1904,11 +2032,70 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
               </div>
             </div>
 
+            {/* 🏷️ Itemized Head Due Breakdown Table */}
+            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                Applicable Fee Structure Breakdown:
+              </span>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px]">
+                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] text-slate-400 block">🎓 Tuition Fee</span>
+                  <strong className="font-mono text-slate-900 dark:text-white">
+                    ₹{(studentForFee.feeSummary?.tuitionDue !== undefined ? studentForFee.feeSummary.tuitionDue : 13500).toLocaleString('en-IN')}
+                  </strong>
+                </div>
+
+                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] text-slate-400 block">🚌 Transport (11M)</span>
+                  <strong className="font-mono text-slate-900 dark:text-white">
+                    ₹{(studentForFee.feeSummary?.transportDue11Months !== undefined ? studentForFee.feeSummary.transportDue11Months : (Number(studentForFee.transport?.monthlyFare || 0) * (studentForFee.transport?.months || 11))).toLocaleString('en-IN')}
+                  </strong>
+                </div>
+
+                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] text-slate-400 block">🏢 Hostel Fee</span>
+                  <strong className="font-mono text-slate-900 dark:text-white">
+                    ₹{Number(studentForFee.feeSummary?.hostelDue || 0).toLocaleString('en-IN')}
+                  </strong>
+                </div>
+
+                <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-700">
+                  <span className="text-[10px] font-black text-amber-800 dark:text-amber-300 block">📜 Old Session Fees</span>
+                  <strong className="font-mono font-black text-amber-900 dark:text-amber-100">
+                    ₹{Number(studentForFee.feeSummary?.oldSessionDues || 0).toLocaleString('en-IN')}
+                  </strong>
+                </div>
+
+                <div className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] text-slate-400 block">📦 Misc Charges</span>
+                  <strong className="font-mono text-slate-900 dark:text-white">
+                    ₹{Number(studentForFee.feeSummary?.miscellaneousDue || 0).toLocaleString('en-IN')}
+                  </strong>
+                </div>
+
+                <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800">
+                  <span className="text-[10px] text-indigo-600 dark:text-indigo-400 block">💰 Total Gross Due</span>
+                  <strong className="font-mono text-indigo-950 dark:text-indigo-200 font-black">
+                    ₹{(studentForFee.feeSummary?.totalDue || 0).toLocaleString('en-IN')}
+                  </strong>
+                </div>
+              </div>
+            </div>
+
             {/* Amount to Collect */}
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                Amount to Collect (₹) <span className="text-rose-500">*</span>
-              </label>
+              <div className="flex justify-between items-center mb-1">
+                <label className="font-bold text-slate-700 dark:text-slate-300">
+                  Amount to Collect (₹) <span className="text-rose-500">*</span>
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setFeeForm(prev => ({ ...prev, amount: studentForFee.feeSummary?.balance || 0 }))}
+                  className="text-[10px] font-bold text-indigo-600 hover:underline"
+                >
+                  Pay Full Balance (₹{(studentForFee.feeSummary?.balance || 0).toLocaleString('en-IN')})
+                </button>
+              </div>
               <input
                 type="number"
                 required
@@ -1966,7 +2153,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   type="text"
                   value={feeForm.remarks}
                   onChange={(e) => setFeeForm(prev => ({ ...prev, remarks: e.target.value }))}
-                  placeholder="e.g. Installment 1, Bus fee..."
+                  placeholder="e.g. Installment 1, Bus fee, Old Session clear..."
                   className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-medium"
                 />
               </div>
@@ -2037,6 +2224,16 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   <span className="text-slate-400 block">Amount Paid:</span>
                   <strong className="text-base font-black text-emerald-600 font-mono">₹{Number(recentReceipt.amountPaid || recentReceipt.amount || 0).toLocaleString('en-IN')}</strong>
                 </div>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-[10px] space-y-1">
+                <span className="font-bold text-slate-500 block">Fee Head Settlements Included:</span>
+                <p className="text-slate-600 dark:text-slate-300">
+                  Tuition, Transport Bus, Hostel, Old Session & Misc Account Settlement.
+                </p>
+                {recentReceipt.remarks && (
+                  <p className="font-medium text-slate-500 italic">Note: {recentReceipt.remarks}</p>
+                )}
               </div>
 
               <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex justify-between text-[10px] text-slate-400">

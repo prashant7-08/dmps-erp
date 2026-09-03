@@ -256,15 +256,22 @@ class SchoolService {
         }
       }
 
-      const tuitionDue = isRte ? 0 : (existing.feeSummary?.tuitionDue || 13500);
+      const tuitionDue = isRte ? 0 : (updates.tuitionDue !== undefined ? Number(updates.tuitionDue) : (existing.feeSummary?.tuitionDue !== undefined ? existing.feeSummary.tuitionDue : 13500));
+      const hostelDue = Number(updates.hostelDue !== undefined ? updates.hostelDue : (existing.feeSummary?.hostelDue || 0));
+      const oldSessionDues = Number(updates.oldSessionDues !== undefined ? updates.oldSessionDues : (existing.feeSummary?.oldSessionDues || 0));
+      const miscellaneousDue = Number(updates.miscellaneousDue !== undefined ? updates.miscellaneousDue : (existing.feeSummary?.miscellaneousDue || 0));
       const otherChargesDue = isRte ? (updates.otherChargesDue !== undefined ? Number(updates.otherChargesDue) : (existing.feeSummary?.otherChargesDue || 4500)) : 0;
-      const totalDue = tuitionDue + otherChargesDue + transportDue;
+      
+      const totalDue = tuitionDue + otherChargesDue + transportDue + hostelDue + oldSessionDues + miscellaneousDue;
       const paid = existing.feeSummary?.totalPaid || 0;
       const balance = Math.max(0, totalDue - paid);
 
       updatedStudent.feeSummary = {
         ...(existing.feeSummary || {}),
         tuitionDue: tuitionDue,
+        hostelDue: hostelDue,
+        oldSessionDues: oldSessionDues,
+        miscellaneousDue: miscellaneousDue,
         otherChargesDue: otherChargesDue,
         otherChargesBreakdown: isRte ? {
           annualCharges: 2000,
