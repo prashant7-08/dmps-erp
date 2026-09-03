@@ -303,5 +303,25 @@
   animation-play-state: paused;
 }
 
+/* 🌟 Top Header Continuous Scrolling News Ticker */
+@keyframes headerTickerLoop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-header-ticker {
+  display: flex;
+  width: max-content;
+  animation: headerTickerLoop 26s linear infinite;
+}
+
+.animate-header-ticker:hover {
+  animation-play-state: paused;
+}
+
 
 
