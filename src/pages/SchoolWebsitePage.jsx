@@ -2417,15 +2417,19 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
 
         </div>
 
-        {/* 👑 Developer Credit Bar */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex items-center justify-center sm:justify-end text-xs text-slate-400">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900 border border-sky-500/40 text-slate-200 font-bold shadow-md">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>Designed & Developed by</span>
-            <span className="text-amber-400 font-black tracking-wide underline underline-offset-4">
-              Prashant Rajput
+        {/* 👑 Developer Credit & Copyright Bar */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+          <p>© Dadheech Memorial Public School (DMPS). All Rights Reserved.</p>
+          
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900 border border-sky-500/40 text-slate-200 font-bold shadow-md">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Designed & Developed by</span>
+              <span className="text-amber-400 font-black tracking-wide underline underline-offset-4">
+                Prashant Rajput
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </footer>
 
