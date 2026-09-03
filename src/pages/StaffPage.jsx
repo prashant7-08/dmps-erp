@@ -1678,16 +1678,16 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
             </div>
           </div>
 
-          {/* Section 4: Bank Account & Monthly Salary */}
+          {/* Section 4: Monthly Salary Structure */}
           <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-2xs">
             <div className="bg-emerald-50 dark:bg-emerald-950/40 px-3.5 py-2 border-b border-emerald-200 dark:border-emerald-800 flex items-center gap-2">
-              <CreditCard className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <DollarSign className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span className="font-black text-emerald-950 dark:text-emerald-200 uppercase text-[11px]">
-                4. Bank Account & Monthly Salary Structure
+                4. Monthly Salary (मासिक वेतन)
               </span>
             </div>
 
-            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Basic Salary (₹) *</label>
                 <input
@@ -1695,40 +1695,19 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   required
                   value={editFormData.basicSalary}
                   onChange={(e) => setEditFormData({ ...editFormData, basicSalary: e.target.value })}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold text-emerald-700 dark:text-emerald-300"
+                  placeholder="e.g. 25000"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold text-emerald-700 dark:text-emerald-300"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Bank Name</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">UPI ID / PhonePe / GPay Number (Optional)</label>
                 <input
                   type="text"
-                  value={editFormData.bankName}
-                  onChange={(e) => setEditFormData({ ...editFormData, bankName: e.target.value })}
-                  placeholder="e.g. State Bank of India (SBI)"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Account Number</label>
-                <input
-                  type="text"
-                  value={editFormData.accountNo}
-                  onChange={(e) => setEditFormData({ ...editFormData, accountNo: e.target.value })}
-                  placeholder="Bank A/C Number"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">IFSC Code & Branch</label>
-                <input
-                  type="text"
-                  value={editFormData.ifscCode}
-                  onChange={(e) => setEditFormData({ ...editFormData, ifscCode: e.target.value })}
-                  placeholder="e.g. SBIN0001234"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                  value={editFormData.upiId || ''}
+                  onChange={(e) => setEditFormData({ ...editFormData, upiId: e.target.value })}
+                  placeholder="e.g. 9719476606@upi / PhonePe No."
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
                 />
               </div>
             </div>
@@ -2164,16 +2143,16 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
             </div>
           </div>
 
-          {/* Section 4: Bank Account & Monthly Salary */}
+          {/* Section 4: Monthly Salary Structure */}
           <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-2xs">
             <div className="bg-emerald-50 dark:bg-emerald-950/40 px-3.5 py-2 border-b border-emerald-200 dark:border-emerald-800 flex items-center gap-2">
-              <CreditCard className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <DollarSign className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span className="font-black text-emerald-950 dark:text-emerald-200 uppercase text-[11px]">
-                4. Bank Account & Monthly Salary Structure
+                4. Monthly Salary (मासिक वेतन)
               </span>
             </div>
 
-            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Monthly Basic Salary (₹) *</label>
                 <input
@@ -2181,40 +2160,19 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   required
                   value={formData.basicSalary}
                   onChange={(e) => setFormData({ ...formData, basicSalary: e.target.value })}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold text-emerald-700 dark:text-emerald-300"
+                  placeholder="e.g. 25000"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold text-emerald-700 dark:text-emerald-300"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Bank Name</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">UPI ID / PhonePe / GPay Number (Optional)</label>
                 <input
                   type="text"
-                  value={formData.bankName}
-                  onChange={(e) => setFormData({ ...formData, bankName: e.target.value })}
-                  placeholder="e.g. State Bank of India (SBI)"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Account Number</label>
-                <input
-                  type="text"
-                  value={formData.accountNo}
-                  onChange={(e) => setFormData({ ...formData, accountNo: e.target.value })}
-                  placeholder="Bank A/C Number"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono font-bold"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">IFSC Code & Branch</label>
-                <input
-                  type="text"
-                  value={formData.ifscCode}
-                  onChange={(e) => setFormData({ ...formData, ifscCode: e.target.value })}
-                  placeholder="e.g. SBIN0001234"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
+                  value={formData.upiId || ''}
+                  onChange={(e) => setFormData({ ...formData, upiId: e.target.value })}
+                  placeholder="e.g. 9719476606@upi / PhonePe No."
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-mono"
                 />
               </div>
             </div>

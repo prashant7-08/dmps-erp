@@ -396,46 +396,32 @@ export const EmployeeProfileDossierModal = ({
             )}
           </div>
 
-          {/* 🌟 5. SECTION 4: SALARY STRUCTURE & BANK ACCOUNT */}
+          {/* 🌟 5. SECTION 4: SALARY STRUCTURE & UPI PAYMENT */}
           <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xs space-y-3">
             <div className="flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-2">
               <div className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
-                <CreditCard className="w-4 h-4" />
+                <DollarSign className="w-4 h-4" />
               </div>
               <div>
                 <h4 className="font-black text-slate-900 dark:text-white uppercase text-[11px] tracking-wide">
-                  4. Bank Account Details & Monthly Salary Structure
+                  4. Monthly Salary & Payment Info (मासिक वेतन)
                 </h4>
-                <p className="text-[10px] text-slate-400">Direct disbursement account, IFSC and pay breakdown</p>
+                <p className="text-[10px] text-slate-400">Monthly remuneration & payment mobile/UPI reference</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="p-3 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
                 <span className="text-[10px] text-emerald-800 dark:text-emerald-300 font-bold block">Monthly Basic Salary</span>
                 <span className="text-base font-black text-emerald-700 dark:text-emerald-300 font-mono">
-                  ₹{(employee.salary?.basic || employee.salary?.netSalary || employee.basicSalary || employee.salary || 25000).toLocaleString('en-IN')}
+                  ₹{(employee.salary?.basic || employee.salary?.netSalary || employee.basicSalary || employee.salary || 25000).toLocaleString('en-IN')} / Month
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
-                <span className="text-[10px] text-slate-400 font-bold block">Bank Name</span>
-                <span className="font-bold text-slate-900 dark:text-white">
-                  {employee.bankName || employee.bankDetails?.bankName || 'State Bank of India (SBI)'}
-                </span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
-                <span className="text-[10px] text-slate-400 font-bold block">Bank Account No.</span>
+                <span className="text-[10px] text-slate-400 font-bold block">UPI / PhonePe / GPay Payment Number</span>
                 <span className="font-bold text-slate-900 dark:text-white font-mono">
-                  {employee.accountNo || employee.bankDetails?.accountNo || '382910482910'}
-                </span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
-                <span className="text-[10px] text-slate-400 font-bold block">IFSC Code & Branch</span>
-                <span className="font-bold text-slate-900 dark:text-white font-mono">
-                  {employee.ifscCode || employee.bankDetails?.ifsc || 'SBIN0001234'} ({employee.bankBranch || 'Jargwan'})
+                  {employee.upiId || employee.phone || employee.mobile || 'Registered Mobile Number'}
                 </span>
               </div>
             </div>

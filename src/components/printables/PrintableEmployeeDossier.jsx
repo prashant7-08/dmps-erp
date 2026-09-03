@@ -156,10 +156,10 @@ export const PrintableEmployeeDossier = ({ employee, schoolInfo, onClose }) => {
           </div>
         </div>
 
-        {/* 3. Statutory, Multi-Duty & Bank Account Structure */}
+        {/* 3. Statutory, Salary & Multi-Duty Assignment */}
         <div className="border border-slate-400 rounded overflow-hidden">
           <div className="bg-slate-900 text-white font-bold px-2 py-0.5 text-[8px] flex justify-between items-center">
-            <span>BANK ACCOUNT, STATUTORY & MULTI-DUTY ASSIGNMENT</span>
+            <span>SALARY STRUCTURE, STATUTORY & MULTI-DUTY ASSIGNMENT</span>
             <span>CONFIDENTIAL SERVICE RECORD</span>
           </div>
 
@@ -171,23 +171,19 @@ export const PrintableEmployeeDossier = ({ employee, schoolInfo, onClose }) => {
                 <td className="p-1 w-24 text-slate-600 border-r border-slate-300">Driving License (DL)</td>
                 <td className="p-1 font-mono font-bold">{employee.drivingLicenseNo || 'N/A (Non-Driver)'}</td>
               </tr>
-              <tr>
-                <td className="p-1 text-slate-600 border-r border-slate-300">Bank Name & A/C</td>
-                <td className="p-1 font-bold border-r border-slate-300">
-                  {employee.bankName || employee.bankDetails?.bankName || 'State Bank of India (SBI)'} • A/C: {employee.accountNo || employee.bankDetails?.accountNo || '382910482910'}
-                </td>
-                <td className="p-1 text-slate-600 border-r border-slate-300">IFSC & Branch</td>
-                <td className="p-1 font-mono font-bold">
-                  {employee.ifscCode || employee.bankDetails?.ifsc || 'SBIN0001234'} ({employee.bankBranch || 'Jargwan Branch'})
-                </td>
-              </tr>
               <tr className="bg-slate-50">
                 <td className="p-1 text-slate-600 border-r border-slate-300">Monthly Basic Salary</td>
                 <td className="p-1 font-bold text-emerald-900 border-r border-slate-300">
                   ₹{(employee.salary?.basic || employee.salary?.netSalary || employee.basicSalary || employee.salary || 25000).toLocaleString('en-IN')} / Month
                 </td>
+                <td className="p-1 text-slate-600 border-r border-slate-300">UPI / Mobile Payment</td>
+                <td className="p-1 font-mono font-bold">
+                  {employee.upiId || employee.phone || employee.mobile || 'Cash / PhonePe / GPay'}
+                </td>
+              </tr>
+              <tr>
                 <td className="p-1 text-slate-600 border-r border-slate-300">Multi-Duty Status</td>
-                <td className="p-1 font-bold text-indigo-900">
+                <td colSpan={3} className="p-1 font-bold text-indigo-900">
                   {employee.additionalDuties && employee.additionalDuties.length > 0
                     ? `⚡ Assigned: ${employee.additionalDuties.join(', ')} ${employee.assignedBus ? `(${employee.assignedBus})` : ''}`
                     : 'Standard Single Duty Role'}
