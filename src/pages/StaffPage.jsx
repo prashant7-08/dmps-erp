@@ -416,6 +416,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
 
     const newTeacher = schoolService.addTeacher({
       name: formData.name,
+      role: formData.role || 'Teacher',
       department: formData.department,
       designation: formData.designation,
       qualification: formData.qualification,
@@ -424,6 +425,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       subjectTaught: formData.subjectTaught || 'General',
       previousSchool: formData.previousSchool || 'Fresh Appointment',
       mobile: formData.mobile,
+      phone: formData.mobile,
       email: formData.email || `${formData.name.toLowerCase().replace(/\s+/g, '')}@dmps-school.edu.in`,
       gender: formData.gender,
       religion: formData.religion || 'Hindu',
@@ -441,22 +443,14 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       licenseExpiry: formData.licenseExpiry,
       additionalDuties: formData.additionalDuties || [],
       assignedBus: formData.assignedBus || 'Bus 01',
-      assignedRoute: formData.assignedRoute || 'Route 1 - Main City / Ramghat',
+      assignedRoute: formData.assignedRoute || 'Route 1 - Ramghat Line',
       classTeacherOf: formData.classTeacherOf === 'None' ? '' : formData.classTeacherOf,
-      photo: `https://images.unsplash.com/photo-${formData.gender === 'Female' ? '1573496359142-b8d87734a5a2' : '1534528741775-53994a69daeb'}?w=150&auto=format&fit=crop&q=80`,
+      basicSalary: Number(formData.basicSalary) || 25000,
       salary: {
         basic: Number(formData.basicSalary) || 25000,
-        hra: (Number(formData.basicSalary) || 25000) * 0.25,
-        da: (Number(formData.basicSalary) || 25000) * 0.18,
-        specialAllowance: 4500,
-        pfDeduction: (Number(formData.basicSalary) || 25000) * 0.12,
-        taxDeduction: 1500,
-        netSalary: Math.round((Number(formData.basicSalary) || 25000) * 1.31 - 1500)
+        netSalary: Number(formData.basicSalary) || 25000
       },
-      bankName: formData.bankName || 'State Bank of India (SBI)',
-      accountNo: formData.accountNo || '382910482910',
-      ifscCode: formData.ifscCode || 'SBIN0001234',
-      bankBranch: formData.bankBranch || 'Jargwan Branch'
+      upiId: formData.upiId || formData.mobile || ''
     });
 
     refreshData();
@@ -469,39 +463,36 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       id: teacher.id,
       staffId: teacher.staffId || teacher.employeeId || teacher.id,
       name: teacher.name || '',
-      role: teacher.role || 'Teacher',
-      department: teacher.department || 'Junior',
+      role: teacher.role || (teacher.designation?.toLowerCase().includes('principal') ? 'Principal' : teacher.designation?.toLowerCase().includes('director') || teacher.designation?.toLowerCase().includes('manager') ? 'Manager' : teacher.designation?.toLowerCase().includes('driver') ? 'Driver' : 'Teacher'),
+      department: teacher.department || 'Secondary',
       designation: teacher.designation || 'Teacher',
-      qualification: teacher.qualification || 'B.Sc.',
-      experienceDetails: teacher.experienceDetails || '1 month',
-      totalExperience: teacher.totalExperience || '1 month',
-      subjectTaught: teacher.subjectTaught || teacher.subject || 'English',
-      previousSchool: teacher.previousSchool || 'John Howard Convent School, Jargwan (BSR)',
+      qualification: teacher.qualification || '',
+      experienceDetails: teacher.experienceDetails || teacher.totalExperience || '',
+      totalExperience: teacher.totalExperience || teacher.experienceDetails || '',
+      subjectTaught: teacher.subjectTaught || teacher.subject || '',
+      previousSchool: teacher.previousSchool || '',
       mobile: teacher.phone || teacher.mobile || '',
       email: teacher.email || '',
-      gender: teacher.gender || 'Female',
+      gender: teacher.gender || 'Male',
       religion: teacher.religion || 'Hindu',
-      caste: teacher.caste || 'OBC',
+      caste: teacher.caste || 'General',
       bloodGroup: teacher.bloodGroup || 'O+',
-      dob: teacher.dob || '2007-08-01',
-      fatherName: teacher.fatherName || 'Jitendra Singh',
-      motherName: teacher.motherName || 'Bijnesh Devi',
+      dob: teacher.dob || '',
+      fatherName: teacher.fatherName || '',
+      motherName: teacher.motherName || '',
       spouseName: teacher.spouseName || '',
       maritalStatus: teacher.maritalStatus || 'Unmarried',
-      presentAddress: teacher.presentAddress || 'Baijala Kothi Jirauli Dhoom Singh, Aligarh',
-      permanentAddress: teacher.permanentAddress || 'Baijala Kothi Jirauli Dhoom Singh, Aligarh',
-      aadhaarNo: teacher.aadhaarNo || '857490433971',
+      presentAddress: teacher.presentAddress || teacher.address || '',
+      permanentAddress: teacher.permanentAddress || teacher.address || '',
+      aadhaarNo: teacher.aadhaarNo || '',
       drivingLicenseNo: teacher.drivingLicenseNo || '',
       licenseExpiry: teacher.licenseExpiry || '',
       additionalDuties: Array.isArray(teacher.additionalDuties) ? teacher.additionalDuties : [],
       assignedBus: teacher.assignedBus || 'Bus 01',
-      assignedRoute: teacher.assignedRoute || 'Route 1 - Main City / Ramghat',
+      assignedRoute: teacher.assignedRoute || 'Route 1 - Ramghat Line',
       classTeacherOf: teacher.classTeacherOf || 'None',
       basicSalary: teacher.salary?.basic || teacher.salary?.netSalary || teacher.basicSalary || teacher.salary || 25000,
-      bankName: teacher.bankName || teacher.bankDetails?.bankName || 'State Bank of India (SBI)',
-      accountNo: teacher.accountNo || teacher.bankDetails?.accountNo || '382910482910',
-      ifscCode: teacher.ifscCode || teacher.bankDetails?.ifsc || 'SBIN0001234',
-      bankBranch: teacher.bankBranch || 'Jargwan Branch'
+      upiId: teacher.upiId || teacher.phone || teacher.mobile || ''
     });
     setIsEditStaffModalOpen(true);
   };
@@ -539,19 +530,12 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       assignedBus: editFormData.assignedBus,
       assignedRoute: editFormData.assignedRoute,
       classTeacherOf: editFormData.classTeacherOf === 'None' ? '' : editFormData.classTeacherOf,
+      basicSalary: Number(editFormData.basicSalary) || 25000,
       salary: {
-        basic: Number(editFormData.basicSalary),
-        hra: Number(editFormData.basicSalary) * 0.25,
-        da: Number(editFormData.basicSalary) * 0.18,
-        specialAllowance: 4500,
-        pfDeduction: Number(editFormData.basicSalary) * 0.12,
-        taxDeduction: 1500,
-        netSalary: Math.round(Number(editFormData.basicSalary) * 1.31 - 1500)
+        basic: Number(editFormData.basicSalary) || 25000,
+        netSalary: Number(editFormData.basicSalary) || 25000
       },
-      bankName: editFormData.bankName,
-      accountNo: editFormData.accountNo,
-      ifscCode: editFormData.ifscCode,
-      bankBranch: editFormData.bankBranch
+      upiId: editFormData.upiId || ''
     });
 
     refreshData();
@@ -559,7 +543,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     if (selectedStaff && selectedStaff.id === editFormData.id) {
       setSelectedStaff(updated);
     }
-    showToast(`Staff profile for ${editFormData.name} successfully updated! ✏️`, 'success');
+    showToast(`✅ Profile for ${editFormData.name} successfully updated!`, 'success');
   };
 
   const handleDelete = (id, name) => {
@@ -1290,45 +1274,103 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
             
             <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Role *</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Role (भूमिका) *</label>
                 <select
                   value={editFormData.role}
                   onChange={(e) => setEditFormData({ ...editFormData, role: e.target.value })}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
                 >
                   <option value="Teacher">🎓 Teaching Faculty / Teacher</option>
+                  <option value="Principal">🏛️ Principal / Head of School (Teaches & Manages)</option>
+                  <option value="Manager">👑 Managing Director (Teaches & Manages)</option>
                   <option value="Driver">🚌 Transport Bus Driver</option>
                   <option value="Receptionist">🏢 Reception & Front Desk</option>
                   <option value="Accountant">💵 Cashier / Accountant</option>
                   <option value="Housekeeping">🧹 Housekeeping / Maid / Ayah</option>
                   <option value="Security">🛡️ Security Guard</option>
-                  <option value="Principal">🏛️ Principal / Head of Branch</option>
-                  <option value="Manager">👑 Manager / Administrator</option>
                 </select>
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department *</label>
-                <select
-                  value={editFormData.department}
-                  onChange={(e) => setEditFormData({ ...editFormData, department: e.target.value })}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
-                >
-                  {departments.map(d => (
-                    <option key={d.id} value={d.name}>{d.name}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Designation *</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department (विभाग - टाइप या चुनें) *</label>
                 <input
                   type="text"
+                  list="edit-dept-options"
+                  required
+                  value={editFormData.department}
+                  onChange={(e) => setEditFormData({ ...editFormData, department: e.target.value })}
+                  placeholder="e.g. Administration, Secondary, Primary"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+                <datalist id="edit-dept-options">
+                  {departments.map(d => (
+                    <option key={d.id} value={d.name} />
+                  ))}
+                  <option value="Administration" />
+                  <option value="Secondary" />
+                  <option value="Junior" />
+                  <option value="Primary" />
+                  <option value="Pre-Primary" />
+                  <option value="Transport" />
+                  <option value="Accounts & Finance" />
+                  <option value="Sports & Physical Education" />
+                  <option value="Housekeeping & Support" />
+                </datalist>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Designation (पद - टाइप या चुनें) *</label>
+                <input
+                  type="text"
+                  list="edit-desig-options"
                   required
                   value={editFormData.designation}
                   onChange={(e) => setEditFormData({ ...editFormData, designation: e.target.value })}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                  placeholder="e.g. Principal, Managing Director, PGT Physics, Driver"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-indigo-700 dark:text-indigo-300"
                 />
+                <datalist id="edit-desig-options">
+                  <option value="Super Admin & Principal" />
+                  <option value="Managing Director" />
+                  <option value="Vice Principal" />
+                  <option value="Senior PGT Teacher" />
+                  <option value="TGT Teacher" />
+                  <option value="Primary Teacher" />
+                  <option value="Mother Teacher (LKG/UKG)" />
+                  <option value="Senior Transport Bus Driver" />
+                  <option value="Receptionist & Cashier" />
+                  <option value="Accountant" />
+                  <option value="Librarian" />
+                  <option value="Sports Coach" />
+                  <option value="Security Guard" />
+                  <option value="Ayah / Support Staff" />
+                </datalist>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Class Teacher Of (कक्षा अध्यापक)</label>
+                <select
+                  value={editFormData.classTeacherOf || 'None'}
+                  onChange={(e) => setEditFormData({ ...editFormData, classTeacherOf: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                >
+                  <option value="None">None / Not Assigned</option>
+                  <option value="Class Nursery">Class Nursery</option>
+                  <option value="Class LKG">Class LKG</option>
+                  <option value="Class UKG">Class UKG</option>
+                  <option value="Class 1st">Class 1st</option>
+                  <option value="Class 2nd">Class 2nd</option>
+                  <option value="Class 3rd">Class 3rd</option>
+                  <option value="Class 4th">Class 4th</option>
+                  <option value="Class 5th">Class 5th</option>
+                  <option value="Class 6th">Class 6th</option>
+                  <option value="Class 7th">Class 7th</option>
+                  <option value="Class 8th">Class 8th</option>
+                  <option value="Class 9th">Class 9th</option>
+                  <option value="Class 10th">Class 10th</option>
+                  <option value="Class 11th">Class 11th</option>
+                  <option value="Class 12th">Class 12th</option>
+                </select>
               </div>
 
               <div>
@@ -1337,18 +1379,18 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   type="text"
                   value={editFormData.qualification}
                   onChange={(e) => setEditFormData({ ...editFormData, qualification: e.target.value })}
-                  placeholder="e.g. B.Sc., B.Ed., M.A."
+                  placeholder="e.g. M.Sc., B.Ed., M.A."
                   className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Subject Taught</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Subject Taught (पढ़ाए जाने वाले विषय)</label>
                 <input
                   type="text"
                   value={editFormData.subjectTaught}
                   onChange={(e) => setEditFormData({ ...editFormData, subjectTaught: e.target.value })}
-                  placeholder="e.g. English, Science, Mathematics"
+                  placeholder="e.g. Mathematics, Physics, English"
                   className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
                 />
               </div>
@@ -1359,18 +1401,18 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   type="text"
                   value={editFormData.totalExperience}
                   onChange={(e) => setEditFormData({ ...editFormData, totalExperience: e.target.value })}
-                  placeholder="e.g. 1 Month, 3 Years"
+                  placeholder="e.g. 5 Years, 8 Years"
                   className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
                 />
               </div>
 
-              <div className="sm:col-span-2">
+              <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Previous School / Organization</label>
                 <input
                   type="text"
                   value={editFormData.previousSchool}
                   onChange={(e) => setEditFormData({ ...editFormData, previousSchool: e.target.value })}
-                  placeholder="e.g. John Howard Convent School, Jargwan (BSR)"
+                  placeholder="e.g. Saraswati Vidya Mandir"
                   className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
                 />
               </div>
@@ -1751,46 +1793,103 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
             
             <div className="p-3.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Role *</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Role (भूमिका) *</label>
                 <select
                   value={formData.role}
                   onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
                 >
                   <option value="Teacher">🎓 Teaching Faculty / Teacher</option>
+                  <option value="Principal">🏛️ Principal / Head of School (Teaches & Manages)</option>
+                  <option value="Manager">👑 Managing Director (Teaches & Manages)</option>
                   <option value="Driver">🚌 Transport Bus Driver</option>
                   <option value="Receptionist">🏢 Reception & Front Desk</option>
                   <option value="Accountant">💵 Cashier / Accountant</option>
                   <option value="Housekeeping">🧹 Housekeeping / Maid / Ayah</option>
                   <option value="Security">🛡️ Security Guard</option>
-                  <option value="Principal">🏛️ Principal / Head of Branch</option>
-                  <option value="Manager">👑 Manager / Administrator</option>
                 </select>
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department *</label>
-                <select
-                  value={formData.department}
-                  onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
-                >
-                  {departments.map(d => (
-                    <option key={d.id} value={d.name}>{d.name}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Designation *</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Department (विभाग - टाइप या चुनें) *</label>
                 <input
                   type="text"
+                  list="add-dept-options"
+                  required
+                  value={formData.department}
+                  onChange={(e) => setFormData({ ...formData, department: e.target.value })}
+                  placeholder="e.g. Administration, Secondary, Primary"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                />
+                <datalist id="add-dept-options">
+                  {departments.map(d => (
+                    <option key={d.id} value={d.name} />
+                  ))}
+                  <option value="Administration" />
+                  <option value="Secondary" />
+                  <option value="Junior" />
+                  <option value="Primary" />
+                  <option value="Pre-Primary" />
+                  <option value="Transport" />
+                  <option value="Accounts & Finance" />
+                  <option value="Sports & Physical Education" />
+                  <option value="Housekeeping & Support" />
+                </datalist>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Designation (पद - टाइप या चुनें) *</label>
+                <input
+                  type="text"
+                  list="add-desig-options"
                   required
                   value={formData.designation}
                   onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
-                  placeholder="e.g. Teacher, Bus Driver"
-                  className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold"
+                  placeholder="e.g. Principal, Managing Director, PGT Physics, Driver"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-indigo-700 dark:text-indigo-300"
                 />
+                <datalist id="add-desig-options">
+                  <option value="Super Admin & Principal" />
+                  <option value="Managing Director" />
+                  <option value="Vice Principal" />
+                  <option value="Senior PGT Teacher" />
+                  <option value="TGT Teacher" />
+                  <option value="Primary Teacher" />
+                  <option value="Mother Teacher (LKG/UKG)" />
+                  <option value="Senior Transport Bus Driver" />
+                  <option value="Receptionist & Cashier" />
+                  <option value="Accountant" />
+                  <option value="Librarian" />
+                  <option value="Sports Coach" />
+                  <option value="Security Guard" />
+                  <option value="Ayah / Support Staff" />
+                </datalist>
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Class Teacher Of (कक्षा अध्यापक)</label>
+                <select
+                  value={formData.classTeacherOf || 'None'}
+                  onChange={(e) => setFormData({ ...formData, classTeacherOf: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
+                >
+                  <option value="None">None / Not Assigned</option>
+                  <option value="Class Nursery">Class Nursery</option>
+                  <option value="Class LKG">Class LKG</option>
+                  <option value="Class UKG">Class UKG</option>
+                  <option value="Class 1st">Class 1st</option>
+                  <option value="Class 2nd">Class 2nd</option>
+                  <option value="Class 3rd">Class 3rd</option>
+                  <option value="Class 4th">Class 4th</option>
+                  <option value="Class 5th">Class 5th</option>
+                  <option value="Class 6th">Class 6th</option>
+                  <option value="Class 7th">Class 7th</option>
+                  <option value="Class 8th">Class 8th</option>
+                  <option value="Class 9th">Class 9th</option>
+                  <option value="Class 10th">Class 10th</option>
+                  <option value="Class 11th">Class 11th</option>
+                  <option value="Class 12th">Class 12th</option>
+                </select>
               </div>
 
               <div>
@@ -1799,18 +1898,18 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   type="text"
                   value={formData.qualification}
                   onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
-                  placeholder="e.g. B.Sc., B.Ed., M.A."
+                  placeholder="e.g. M.Sc., B.Ed., M.A."
                   className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Subject Taught</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Subject Taught (पढ़ाए जाने वाले विषय)</label>
                 <input
                   type="text"
                   value={formData.subjectTaught}
                   onChange={(e) => setFormData({ ...formData, subjectTaught: e.target.value })}
-                  placeholder="e.g. English, Science, Mathematics"
+                  placeholder="e.g. Mathematics, Physics, English"
                   className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
                 />
               </div>
@@ -1821,18 +1920,18 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                   type="text"
                   value={formData.totalExperience}
                   onChange={(e) => setFormData({ ...formData, totalExperience: e.target.value })}
-                  placeholder="e.g. 1 Month, 3 Years"
+                  placeholder="e.g. 5 Years, 8 Years"
                   className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
                 />
               </div>
 
-              <div className="sm:col-span-2">
+              <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Previous School / Organization</label>
                 <input
                   type="text"
                   value={formData.previousSchool}
                   onChange={(e) => setFormData({ ...formData, previousSchool: e.target.value })}
-                  placeholder="e.g. John Howard Convent School, Jargwan (BSR)"
+                  placeholder="e.g. Saraswati Vidya Mandir"
                   className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800"
                 />
               </div>
