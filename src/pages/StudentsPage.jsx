@@ -87,6 +87,7 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   
   const [isIdCardModalOpen, setIsIdCardModalOpen] = useState(false);
   const [isDeactivateModalOpen, setIsDeactivateModalOpen] = useState(false);
+  const [isBulkDeactivateModalOpen, setIsBulkDeactivateModalOpen] = useState(false);
   const [studentToDeactivate, setStudentToDeactivate] = useState(null);
 
   // 1-Click Fee Collection Modal States
@@ -636,10 +637,26 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
     );
   };
 
-  // Export functions
+  const handleConfirmBulkDeactivate = () => {
+    if (selectedStudentIds.length === 0) return;
+    const count = selectedStudentIds.length;
+    selectedStudentIds.forEach(id => {
+      schoolService.deactivateStudent(id, deactivateReason, deactivateNote, deactivateDate);
+    });
+    refreshStudents();
+    setSelectedStudentIds([]);
+    setIsBulkDeactivateModalOpen(false);
+    showToast(`${count} students marked as Inactive (${deactivateReason}) successfully! 🚫`, 'info');
+  };
+
+  // Export functions (Supports both full list and selected checkboxes)
   const handleExportCSV = () => {
+    const listToExport = selectedStudentIds.length > 0
+      ? filteredStudents.filter(s => selectedStudentIds.includes(s.id))
+      : filteredStudents;
+
     const headers = ['Register No', 'Student Name', 'Father Name', 'Mother Name', 'DOB', 'Mobile', 'Address', 'Class', 'Section', 'Gender', 'Ledger No (खाता संख्या)', 'Aadhaar', 'Status'];
-    const rows = filteredStudents.map(s => [
+    const rows = listToExport.map(s => [
       s.admissionNo,
       `"${s.name}"`,
       `"${s.parents?.fatherName || ''}"`,
@@ -658,17 +675,20 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `DMPS_Student_List_${selectedClass}_${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute('download', `DMPS_Student_List_${selectedClass}_${selectedStudentIds.length > 0 ? 'Selected_' + selectedStudentIds.length : 'All'}_${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    showToast('Student List exported to CSV successfully! 📄', 'success');
+    showToast(`${listToExport.length} student records exported to CSV successfully! 📄`, 'success');
   };
 
   const handleCopyTable = () => {
-    const text = filteredStudents.map(s => `${s.admissionNo}\t${s.name}\t${s.parents?.fatherName || ''}\t${s.class}-${s.section}\t${s.rollNo}\t${s.parents?.fatherMobile || ''}`).join('\n');
+    const listToCopy = selectedStudentIds.length > 0
+      ? filteredStudents.filter(s => selectedStudentIds.includes(s.id))
+      : filteredStudents;
+    const text = listToCopy.map(s => `${s.admissionNo}\t${s.name}\t${s.parents?.fatherName || ''}\t${s.class}-${s.section}\t${s.rollNo}\t${s.parents?.fatherMobile || ''}`).join('\n');
     navigator.clipboard.writeText(text);
-    showToast('Student summary copied to clipboard! 📋', 'success');
+    showToast(`${listToCopy.length} student records copied to clipboard! 📋`, 'success');
   };
 
   return (
@@ -833,6 +853,55 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
           </div>
         </div>
 
+        {/* ⚡ High-Visibility Bulk Action Bar (When 1 or more students checked) */}
+        {selectedStudentIds.length > 0 && (
+          <div className="p-3 mx-4 my-3 bg-gradient-to-r from-indigo-700 via-sky-700 to-blue-800 text-white rounded-2xl flex flex-wrap items-center justify-between gap-3 shadow-lg shadow-indigo-500/20 print:hidden animate-in fade-in slide-in-from-top-2">
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center font-black text-xs">
+                ✓
+              </span>
+              <div>
+                <strong className="text-xs font-black">
+                  {selectedStudentIds.length} Student{selectedStudentIds.length > 1 ? 's' : ''} Selected
+                </strong>
+                <p className="text-[10px] text-sky-200">
+                  Print, Export, or Inactivate actions will ONLY apply to these {selectedStudentIds.length} students.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 flex-wrap text-xs">
+              <button
+                onClick={() => window.print()}
+                className="px-3.5 py-1.5 bg-white text-indigo-950 font-black rounded-xl hover:bg-slate-100 flex items-center gap-1.5 shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <Printer className="w-3.5 h-3.5 text-blue-600" /> 🖨️ Print Selected ({selectedStudentIds.length})
+              </button>
+
+              <button
+                onClick={handleExportCSV}
+                className="px-3.5 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white font-black rounded-xl flex items-center gap-1.5 shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <FileSpreadsheet className="w-3.5 h-3.5" /> 📊 Export CSV ({selectedStudentIds.length})
+              </button>
+
+              <button
+                onClick={() => setIsBulkDeactivateModalOpen(true)}
+                className="px-3.5 py-1.5 bg-rose-500 hover:bg-rose-600 text-white font-black rounded-xl flex items-center gap-1.5 shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <UserX className="w-3.5 h-3.5" /> 🗑️ Delete / Inactivate ({selectedStudentIds.length})
+              </button>
+
+              <button
+                onClick={() => setSelectedStudentIds([])}
+                className="px-2.5 py-1.5 bg-black/20 hover:bg-black/40 text-white/90 hover:text-white rounded-xl text-xs font-bold transition-all cursor-pointer"
+              >
+                ✕ Deselect
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* 🏫 OFFICIAL SCHOOL PRINT HEADER (Visible ONLY on Printouts) */}
         <div className="hidden print:block p-4 bg-white text-slate-950 border-b-2 border-slate-950 mb-3">
           <div className="flex items-center justify-between gap-4 pb-2 border-b border-slate-300">
@@ -859,7 +928,11 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
           <div className="mt-2 flex items-center justify-between text-xs font-black uppercase text-slate-900">
             <span>📋 OFFICIAL STUDENT ENROLMENT & ROLL REGISTER</span>
             <span>Class: {selectedClass === 'all' ? 'All Classes' : selectedClass} | Section: {selectedSection === 'all' ? 'All' : selectedSection}</span>
-            <span>Total Enrolled: {filteredStudents.length} Students</span>
+            <span>
+              {selectedStudentIds.length > 0
+                ? `Total Selected for Print: ${selectedStudentIds.length} Students`
+                : `Total Enrolled: ${filteredStudents.length} Students`}
+            </span>
           </div>
         </div>
 
@@ -1010,6 +1083,8 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                       }}
                       className={`hover:bg-indigo-50/70 dark:hover:bg-slate-800/80 transition-all cursor-pointer select-none ${
                         isInactive ? 'bg-rose-50/30 dark:bg-rose-950/10' : ''
+                      } ${isSelected ? 'bg-indigo-50/50 dark:bg-slate-800/60 font-semibold' : ''} ${
+                        selectedStudentIds.length > 0 && !isSelected ? 'print:hidden' : ''
                       }`}
                     >
                       {/* Checkbox */}
@@ -1022,9 +1097,12 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                         />
                       </td>
 
-                      {/* Sr. No (Print Only) */}
+                      {/* Sr. No (Print Only - Dynamic for selected students) */}
                       <td className="p-3 hidden print:table-cell text-center font-bold">
-                        {index + 1}
+                        {selectedStudentIds.length > 0
+                          ? selectedStudentIds.indexOf(student.id) + 1
+                          : index + 1
+                        }
                       </td>
 
                       {/* Photo Thumbnail */}
@@ -2452,6 +2530,84 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
             </div>
           </div>
         )}
+      </Modal>
+
+      {/* ========================================================== */}
+      {/* 🗑️ MODAL: BULK INACTIVATE / DELETE STUDENTS               */}
+      {/* ========================================================== */}
+      <Modal
+        isOpen={isBulkDeactivateModalOpen}
+        onClose={() => setIsBulkDeactivateModalOpen(false)}
+        title={`Inactivate / Delete ${selectedStudentIds.length} Selected Students`}
+        maxWidth="max-w-md"
+      >
+        <div className="space-y-4 text-xs">
+          <div className="p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 rounded-xl text-rose-900 dark:text-rose-200">
+            <p className="font-bold">
+              ⚠️ You have selected <strong>{selectedStudentIds.length} student{selectedStudentIds.length > 1 ? 's' : ''}</strong> to mark as Inactive / Delete.
+            </p>
+            <p className="text-[11px] text-rose-700 dark:text-rose-300 mt-1">
+              Their records will be archived from the active student list and moved to the TC / Inactive Archive.
+            </p>
+          </div>
+
+          <div>
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              Inactivation Reason <span className="text-rose-500">*</span>
+            </label>
+            <select
+              value={deactivateReason}
+              onChange={(e) => setDeactivateReason(e.target.value)}
+              className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
+            >
+              {deactivateReasonsList.map(r => (
+                <option key={r} value={r}>{r}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              Date of Leaving / Inactivation
+            </label>
+            <input
+              type="date"
+              value={deactivateDate}
+              onChange={(e) => setDeactivateDate(e.target.value)}
+              className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
+            />
+          </div>
+
+          <div>
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              Remarks (Optional)
+            </label>
+            <textarea
+              value={deactivateNote}
+              onChange={(e) => setDeactivateNote(e.target.value)}
+              placeholder="Enter TC / bulk exit note..."
+              rows={2}
+              className="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs"
+            />
+          </div>
+
+          <div className="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <button
+              type="button"
+              onClick={() => setIsBulkDeactivateModalOpen(false)}
+              className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 font-bold"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={handleConfirmBulkDeactivate}
+              className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold shadow-md"
+            >
+              Confirm Inactivate ({selectedStudentIds.length})
+            </button>
+          </div>
+        </div>
       </Modal>
 
     </div>
