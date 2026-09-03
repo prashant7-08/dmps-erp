@@ -1,5 +1,5 @@
 import React from 'react';
-import { Printer, CheckCircle2 } from 'lucide-react';
+import { Printer, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
 import schoolService from '../../services/schoolService';
 
 export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, onPrint }) => {
@@ -13,6 +13,7 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
   // Retrieve saved payment record if available
   const salaryRecords = schoolService.getStaffSalaryRecords ? schoolService.getStaffSalaryRecords(teacher.id) : [];
   const recordedPayment = salaryRecords.find(r => r.month === month) || null;
+  const isPaid = Boolean(recordedPayment);
 
   const basicAmt = recordedPayment?.baseSalary || teacher.basicSalary || teacher.salary?.basic || teacher.salary || 25000;
   const arrearsAmt = Number(recordedPayment?.arrearsAdded || 0);
@@ -24,19 +25,31 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
   const totalDeductions = leaveDed + advDed;
 
   const netPayable = recordedPayment ? recordedPayment.netPayable : (totalEarnings - totalDeductions);
-  const realPaid = recordedPayment ? recordedPayment.paidAmount : netPayable;
+  const realPaid = recordedPayment ? recordedPayment.paidAmount : 0;
   const excessAdvance = Number(recordedPayment?.excessPaidAsAdvance || 0);
   const unpaidArrears = Number(recordedPayment?.unpaidArrearsRemaining || 0);
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between bg-slate-100 dark:bg-slate-800 p-3 rounded-xl print:hidden">
-        <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-          Monthly Staff Salary Slip ({month})
-        </span>
+      {/* Print Top Bar & Unpaid Notice */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-slate-100 dark:bg-slate-800 p-3 rounded-xl print:hidden">
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            Monthly Staff Salary Slip ({month})
+          </span>
+          {isPaid ? (
+            <span className="px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-black text-xs">
+              ✓ PAID & DISBURSED
+            </span>
+          ) : (
+            <span className="px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 font-black text-xs flex items-center gap-1">
+              <Clock className="w-3 h-3" /> UNPAID / PENDING DISBURSAL
+            </span>
+          )}
+        </div>
         <button
           onClick={handlePrint}
-          className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-semibold flex items-center gap-2 shadow-sm transition-all"
+          className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-semibold flex items-center gap-2 shadow-sm transition-all cursor-pointer self-end sm:self-auto"
         >
           <Printer className="w-4 h-4" /> Print Pay Slip
         </button>
@@ -54,8 +67,10 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
           <p className="text-xs text-slate-600 font-medium">
             {schoolInfo?.address || "Ramghat Road Border, Jargwan, Bulandshahr (U.P.)"} | Affiliation No: {schoolInfo?.affiliationNo || "UP-CBSE-83921"}
           </p>
-          <div className="inline-block bg-slate-100 text-slate-900 text-xs font-bold uppercase px-4 py-1 rounded-full mt-2">
-            Official Salary Slip • {month}
+          <div className={`inline-block text-xs font-bold uppercase px-4 py-1 rounded-full mt-2 ${
+            isPaid ? 'bg-emerald-100 text-emerald-900' : 'bg-amber-100 text-amber-900'
+          }`}>
+            {isPaid ? `Official Salary Slip • ${month} (PAID)` : `Salary Statement / Slip • ${month} (PENDING PAYMENT)`}
           </div>
         </div>
 
@@ -83,7 +98,9 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
           </div>
           <div>
             <span className="text-slate-500 block font-semibold">Payment Mode:</span>
-            <span className="font-bold text-slate-900">{recordedPayment?.paymentMode || teacher.upiId || "UPI / PhonePe / Cash"}</span>
+            <span className="font-bold text-slate-900">
+              {isPaid ? (recordedPayment?.paymentMode || teacher.upiId || "UPI / PhonePe / Cash") : "Pending Disbursal (देय)"}
+            </span>
           </div>
           <div>
             <span className="text-slate-500 block font-semibold">Salary Month:</span>
@@ -91,7 +108,13 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
           </div>
           <div>
             <span className="text-slate-500 block font-semibold">Disbursement Date:</span>
-            <span className="font-bold text-slate-900">{recordedPayment?.timestamp || new Date().toLocaleDateString('en-GB')}</span>
+            <span className="font-bold">
+              {isPaid ? (
+                <span className="text-slate-900">{recordedPayment?.paymentDate || recordedPayment?.timestamp || new Date().toLocaleDateString('en-GB')}</span>
+              ) : (
+                <span className="text-amber-700 font-semibold italic">Pending (Not Disbursed)</span>
+              )}
+            </span>
           </div>
         </div>
 
@@ -177,18 +200,32 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
           )}
         </div>
 
-        {/* Net Real Amount Banner */}
-        <div className="flex items-center justify-between bg-indigo-950 text-white p-4 rounded-xl mb-6">
-          <div>
-            <span className="text-xs uppercase text-indigo-300 font-semibold block">Total Real Amount Disbursed (कुल भुगतान)</span>
-            <span className="text-2xl font-black font-mono text-emerald-400">₹{realPaid.toLocaleString('en-IN')}</span>
+        {/* Net Real Amount / Payment Status Banner */}
+        {isPaid ? (
+          <div className="flex items-center justify-between bg-indigo-950 text-white p-4 rounded-xl mb-6">
+            <div>
+              <span className="text-xs uppercase text-indigo-300 font-semibold block">Total Real Amount Disbursed (कुल भुगतान किया गया)</span>
+              <span className="text-2xl font-black font-mono text-emerald-400">₹{realPaid.toLocaleString('en-IN')}</span>
+            </div>
+            <div className="text-right">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-950/60 px-3.5 py-1.5 rounded-full border border-emerald-800">
+                <CheckCircle2 className="w-3.5 h-3.5" /> Disbursed & Accounted (भुगतान पूर्ण)
+              </span>
+            </div>
           </div>
-          <div className="text-right">
-            <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800">
-              <CheckCircle2 className="w-3.5 h-3.5" /> Disbursed & Accounted
-            </span>
+        ) : (
+          <div className="flex items-center justify-between bg-slate-900 text-white p-4 rounded-xl mb-6 border-2 border-amber-500/40">
+            <div>
+              <span className="text-xs uppercase text-amber-300 font-semibold block">Net Payable Salary for {month} (कुल देय वेतन)</span>
+              <span className="text-2xl font-black font-mono text-white">₹{netPayable.toLocaleString('en-IN')}</span>
+            </div>
+            <div className="text-right">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 bg-amber-950/80 px-3.5 py-1.5 rounded-full border border-amber-600/70">
+                <Clock className="w-3.5 h-3.5" /> ⏳ Unpaid / Pending Payment (अदत्त)
+              </span>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Signatures */}
         <div className="flex justify-between items-end border-t border-slate-300 pt-6 text-xs text-slate-700">
