@@ -2390,10 +2390,40 @@ export const SchoolWebsitePage = ({ onGoToLogin }) => {
           <div>
             <h4 className="font-bold text-white mb-3 text-sm">Campus Helplines</h4>
             <ul className="space-y-2 text-[11px]">
-              <li>Main Campus: <strong className="text-white font-mono">+91 97589 75880</strong></li>
-              <li>Barheti Campus: <strong className="text-white font-mono">+91 86300 08371</strong></li>
-              <li>Kids School: <strong className="text-white font-mono">+91 96270 32626</strong></li>
-              <li className="text-slate-400 pt-1">Office Hours: 07:30 AM - 01:30 PM</li>
+              <li className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <button
+                  onClick={() => navigateTo('campuses')}
+                  className="font-bold text-amber-300 hover:text-amber-200 hover:underline transition-colors text-left cursor-pointer"
+                >
+                  Main Campus:
+                </button>
+                <a href="tel:+919758975880" className="text-slate-400 text-[10.5px] font-mono hover:text-slate-200">
+                  +91 97589 75880
+                </a>
+              </li>
+              <li className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <button
+                  onClick={() => navigateTo('campuses')}
+                  className="font-bold text-amber-300 hover:text-amber-200 hover:underline transition-colors text-left cursor-pointer"
+                >
+                  Barheti Campus:
+                </button>
+                <a href="tel:+918630008371" className="text-slate-400 text-[10.5px] font-mono hover:text-slate-200">
+                  +91 86300 08371
+                </a>
+              </li>
+              <li className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <button
+                  onClick={() => navigateTo('campuses')}
+                  className="font-bold text-amber-300 hover:text-amber-200 hover:underline transition-colors text-left cursor-pointer"
+                >
+                  Kids School:
+                </button>
+                <a href="tel:+919627032626" className="text-slate-400 text-[10.5px] font-mono hover:text-slate-200">
+                  +91 96270 32626
+                </a>
+              </li>
+              <li className="text-slate-500 pt-1 text-[10px]">Office Hours: 07:30 AM - 01:30 PM</li>
             </ul>
           </div>
 
