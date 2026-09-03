@@ -95,6 +95,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     designation: '',
     employeeId: '',
     month: 'August 2026',
+    paymentDate: new Date().toISOString().split('T')[0],
     baseSalary: 25000,
     deductionAmount: 0,
     deductionReason: '',
@@ -102,8 +103,8 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     bonus: 0,
     netPayable: 25000,
     paidAmount: 25000,
-    paymentMode: 'UPI / PhonePe / GPay',
-    remarks: 'August 2026 Salary Disbursed'
+    paymentMode: 'Cash',
+    remarks: 'Monthly Salary Disbursed'
   });
 
   const handleOpenPaySalary = (staff) => {
@@ -114,6 +115,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       designation: staff.designation || 'Faculty',
       employeeId: staff.employeeId || staff.id,
       month: 'August 2026',
+      paymentDate: new Date().toISOString().split('T')[0],
       baseSalary: base,
       deductionAmount: 0,
       deductionReason: '',
@@ -121,8 +123,8 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       bonus: 0,
       netPayable: base,
       paidAmount: base,
-      paymentMode: 'UPI / PhonePe / GPay',
-      remarks: 'August 2026 Salary'
+      paymentMode: 'Cash',
+      remarks: `${staff.name} August 2026 Salary`
     });
     setIsPaySalaryModalOpen(true);
   };
@@ -2622,8 +2624,21 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
             </div>
           </div>
 
-          {/* Row 1: Month & Payment Mode */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          {/* Row 1: Disbursement Date, Salary Month & Payment Mode (Only Cash & UPI) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-0.5 text-[11px]">
+                Disbursement Date *
+              </label>
+              <input
+                type="date"
+                required
+                value={salaryPayForm.paymentDate}
+                onChange={(e) => handleSalaryFormChange('paymentDate', e.target.value)}
+                className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-slate-900 dark:text-white text-xs"
+              />
+            </div>
+
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-0.5 text-[11px]">
                 Salary Month
@@ -2649,10 +2664,8 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 onChange={(e) => handleSalaryFormChange('paymentMode', e.target.value)}
                 className="w-full p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 font-bold text-xs"
               >
-                <option value="UPI / PhonePe / GPay">📱 UPI / PhonePe / GPay (QR Scan)</option>
-                <option value="Cash">💵 Cash (Counter)</option>
-                <option value="Direct Bank Transfer (NEFT/RTGS)">🏦 Direct Bank Transfer (NEFT/RTGS)</option>
-                <option value="Bank Cheque">📝 Bank Cheque</option>
+                <option value="Cash">💵 Cash (नकद / Counter)</option>
+                <option value="UPI / PhonePe / GPay">📱 UPI / QR Scan (PhonePe/GPay)</option>
               </select>
             </div>
           </div>
