@@ -714,16 +714,17 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                   {filtered.map((t) => (
-                    <tr key={t.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                    <tr
+                      key={t.id}
+                      onClick={() => {
+                        setSelectedStaff(t);
+                        setIsProfileDossierOpen(true);
+                      }}
+                      className="cursor-pointer hover:bg-indigo-50/70 dark:hover:bg-slate-800/70 transition-colors group"
+                      title="Click anywhere to view full 360° employee dossier"
+                    >
                       <td className="p-4">
-                        <div
-                          onClick={() => {
-                            setSelectedStaff(t);
-                            setIsProfileDossierOpen(true);
-                          }}
-                          className="flex items-center gap-3 cursor-pointer group"
-                          title="Click to view 360° Employee Dossier"
-                        >
+                        <div className="flex items-center gap-3">
                           <img
                             src={t.photo || `https://ui-avatars.com/api/?name=${t.name.replace(/\s+/g, '+')}&background=4F46E5&color=fff&size=128&bold=true`}
                             alt={t.name}
@@ -773,14 +774,14 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                         </Badge>
                       </td>
                       <td className="p-4 text-right">
-                        <div className="flex items-center justify-end gap-1.5">
+                        <div className="flex items-center justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
                           <button
                             onClick={() => {
                               setSelectedStaff(t);
                               setIsProfileDossierOpen(true);
                             }}
                             title="View 360° Complete Employee Profile"
-                            className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                            className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors cursor-pointer"
                           >
                             <Eye className="w-3.5 h-3.5" />
                           </button>
