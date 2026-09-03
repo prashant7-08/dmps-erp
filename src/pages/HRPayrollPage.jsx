@@ -119,12 +119,21 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
     { id: 'LV-2026-03', staffName: 'CHOKHELAL', role: 'Bus Driver', category: 'Casual Leave (CL)', fromDate: '2026-09-04', toDate: '2026-09-05', totalDays: 2, reason: 'Village agricultural harvest work', status: 'Pending', balanceLeft: 11 }
   ]);
 
-  // 6. Staff Awards State
-  const [awards, setAwards] = useState([
-    { id: 'AWD-01', title: 'Teacher of the Year 2026', recipient: 'POORAN SINGH (Secondary Teacher)', date: '15-Aug-2026', prize: '₹10,000 Cash + Trophy & Certificate', category: 'Academic Excellence' },
-    { id: 'AWD-02', title: '100% Punctuality & Attendance Award', recipient: 'SWATI RAGHAV (Primary Teacher)', date: '15-Aug-2026', prize: 'Gold Medal + Certificate', category: 'Punctuality' },
-    { id: 'AWD-03', title: 'Best Bus Route Safety & Zero Incident Award', recipient: 'CHOKHELAL (Driver - Bus UP-81-BT-1841)', date: '15-Aug-2026', prize: '₹5,000 + Safety Shield', category: 'Transport Operations' }
-  ]);
+  // 6. Staff Awards State (Clean - Starts Fresh with 0 records)
+  const [awards, setAwards] = useState(() => {
+    try {
+      const saved = localStorage.getItem('DMPS_STAFF_AWARDS');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('DMPS_STAFF_AWARDS', JSON.stringify(awards));
+    } catch (e) {}
+  }, [awards]);
 
   // Modals
   const [isAddTemplateModalOpen, setIsAddTemplateModalOpen] = useState(false);
