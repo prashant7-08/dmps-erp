@@ -30,7 +30,15 @@ import {
   Tag,
   Users,
   FileText,
-  ArrowLeft
+  ArrowLeft,
+  Eye,
+  EyeOff,
+  Camera,
+  Phone,
+  Lock,
+  Save,
+  Check,
+  Shield
 } from 'lucide-react';
 import schoolService from '../services/schoolService';
 import { useAuth } from '../context/AuthContext';
@@ -58,6 +66,55 @@ export const TopNav = ({
   const [showNotifications, setShowNotifications] = useState(false);
   const [showQuickActions, setShowQuickActions] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+
+  // 👤 User Profile & Reset Password Modals State
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [isResetPasswordModalOpen, setIsResetPasswordModalOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const [profileForm, setProfileForm] = useState({
+    name: user?.name || (currentRole === 'Super Admin' ? 'Mr. Pramod Kumar Rajput (Managing Director)' : currentRole),
+    role: user?.role || currentRole || 'Super Admin',
+    email: user?.email || 'admin@dadheechschool.edu.in',
+    phone: user?.phone || '+91 97589 75880',
+    campus: activeBranch?.name || 'All Campuses (Central Headquarters)'
+  });
+
+  const [passwordForm, setPasswordForm] = useState({
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: ''
+  });
+
+  const handleSaveProfile = (e) => {
+    e.preventDefault();
+    if (!profileForm.name.trim()) {
+      if (showToast) showToast('Name cannot be empty!', 'error');
+      return;
+    }
+    if (showToast) showToast('Admin Profile details updated successfully! ✅', 'success');
+    setIsProfileModalOpen(false);
+  };
+
+  const handleUpdatePassword = (e) => {
+    e.preventDefault();
+    if (!passwordForm.newPassword) {
+      if (showToast) showToast('Please enter a new password!', 'error');
+      return;
+    }
+    if (passwordForm.newPassword.length < 6) {
+      if (showToast) showToast('Password must be at least 6 characters long!', 'error');
+      return;
+    }
+    if (passwordForm.newPassword !== passwordForm.confirmPassword) {
+      if (showToast) showToast('Passwords do not match! Please re-check.', 'error');
+      return;
+    }
+    if (showToast) showToast('Password reset and updated successfully! 🔐', 'success');
+    setPasswordForm({ currentPassword: '', newPassword: '', confirmPassword: '' });
+    setIsResetPasswordModalOpen(false);
+  };
 
   // 📢 State for Header Notice & Broadcast Drawer
   const [noticesList, setNoticesList] = useState(schoolService.getNotices());
@@ -832,49 +889,48 @@ export const TopNav = ({
               <div className="space-y-1 text-xs">
                 <button
                   onClick={() => {
-                    if (setActiveTab) setActiveTab('settings');
-                    else if (onQuickAction) onQuickAction('profile');
                     setShowProfileMenu(false);
+                    setIsProfileModalOpen(true);
                   }}
-                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left"
+                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-indigo-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left group"
                 >
-                  <User className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                  <span>Profile</span>
+                  <User className="w-4 h-4 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
+                  <span>My Profile Details</span>
                 </button>
 
                 <button
                   onClick={() => {
-                    if (setActiveTab) setActiveTab('settings');
-                    else if (onQuickAction) onQuickAction('password');
                     setShowProfileMenu(false);
+                    setIsResetPasswordModalOpen(true);
                   }}
-                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left"
+                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left group"
                 >
-                  <KeyRound className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                  <KeyRound className="w-4 h-4 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" />
                   <span>Reset Password</span>
                 </button>
 
                 <button
                   onClick={() => {
-                    setShowNotifications(true);
                     setShowProfileMenu(false);
+                    if (setActiveTab) setActiveTab('communication');
+                    else if (onQuickAction) onQuickAction('communication');
                   }}
-                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left"
+                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-emerald-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left group"
                 >
-                  <Mail className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>Mailbox</span>
+                  <Mail className="w-4 h-4 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform" />
+                  <span>Mailbox & Notices</span>
                 </button>
 
                 <button
                   onClick={() => {
+                    setShowProfileMenu(false);
                     if (setActiveTab) setActiveTab('settings');
                     else if (onQuickAction) onQuickAction('settings');
-                    setShowProfileMenu(false);
                   }}
-                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left"
+                  className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-purple-50 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-200 font-bold transition-colors text-left group"
                 >
-                  <Briefcase className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                  <span>Global Settings</span>
+                  <Briefcase className="w-4 h-4 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform" />
+                  <span>Global System Settings</span>
                 </button>
 
                 <div className="pt-1 border-t border-slate-100 dark:border-slate-800">
@@ -883,7 +939,7 @@ export const TopNav = ({
                     className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-950/40 text-rose-600 dark:text-rose-400 font-bold transition-colors text-left"
                   >
                     <LogOut className="w-4 h-4 text-rose-600 dark:text-rose-400" />
-                    <span>Logout</span>
+                    <span>Logout Session</span>
                   </button>
                 </div>
               </div>
@@ -891,6 +947,222 @@ export const TopNav = ({
           )}
         </div>
       </div>
+
+      {/* 👤 1. Interactive Admin Profile Modal */}
+      {isProfileModalOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 select-none animate-in fade-in duration-200">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-lg overflow-hidden">
+            {/* Header */}
+            <div className="px-6 py-4 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <User className="w-5 h-5 text-indigo-200" />
+                <h3 className="font-bold text-base">User Profile & Account Info</h3>
+              </div>
+              <button
+                onClick={() => setIsProfileModalOpen(false)}
+                className="p-1 rounded-full hover:bg-white/20 text-white transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Body */}
+            <form onSubmit={handleSaveProfile} className="p-6 space-y-4">
+              {/* Photo & Role Header */}
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                <div className="w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-950/80 border-2 border-indigo-400 flex items-center justify-center text-indigo-700 dark:text-indigo-300 font-bold text-xl relative shrink-0">
+                  {currentUser.photo ? (
+                    <img src={currentUser.photo} alt={currentUser.name} className="w-full h-full object-cover rounded-2xl" />
+                  ) : (
+                    <User className="w-8 h-8" />
+                  )}
+                  <span className="absolute -bottom-1 -right-1 p-1 bg-indigo-600 text-white rounded-full shadow cursor-pointer hover:bg-indigo-500">
+                    <Camera className="w-3 h-3" />
+                  </span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-bold text-sm text-slate-900 dark:text-white truncate">
+                    {profileForm.name}
+                  </h4>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/60 text-indigo-800 dark:text-indigo-200 text-[10px] font-black uppercase tracking-wider">
+                      {profileForm.role}
+                    </span>
+                    <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Active Session
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Form Fields */}
+              <div className="space-y-3 text-xs">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Full Name / Display Name</label>
+                  <input
+                    type="text"
+                    value={profileForm.name}
+                    onChange={(e) => setProfileForm({ ...profileForm, name: e.target.value })}
+                    className="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Enter full name"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Email Address</label>
+                    <input
+                      type="email"
+                      value={profileForm.email}
+                      onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="admin@school.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Contact Phone</label>
+                    <input
+                      type="text"
+                      value={profileForm.phone}
+                      onChange={(e) => setProfileForm({ ...profileForm, phone: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="+91 97589..."
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Assigned Campus / Scope</label>
+                  <input
+                    type="text"
+                    disabled
+                    value={profileForm.campus}
+                    className="w-full px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 text-slate-500 font-medium cursor-not-allowed"
+                  />
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => setIsProfileModalOpen(false)}
+                  className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                >
+                  <Save className="w-3.5 h-3.5" />
+                  <span>Save Profile</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* 🔐 2. Interactive Reset Password Modal */}
+      {isResetPasswordModalOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 select-none animate-in fade-in duration-200">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-md overflow-hidden">
+            {/* Header */}
+            <div className="px-6 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <KeyRound className="w-5 h-5 text-amber-100" />
+                <h3 className="font-bold text-base">Reset Account Password</h3>
+              </div>
+              <button
+                onClick={() => setIsResetPasswordModalOpen(false)}
+                className="p-1 rounded-full hover:bg-white/20 text-white transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Body */}
+            <form onSubmit={handleUpdatePassword} className="p-6 space-y-4">
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Update your login credentials to keep your ERP administrative account secure.
+              </p>
+
+              <div className="space-y-3 text-xs">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Current Password</label>
+                  <input
+                    type="password"
+                    value={passwordForm.currentPassword}
+                    onChange={(e) => setPasswordForm({ ...passwordForm, currentPassword: e.target.value })}
+                    className="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    placeholder="••••••••"
+                  />
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">New Password</label>
+                  <div className="relative">
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      value={passwordForm.newPassword}
+                      onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
+                      className="w-full px-3.5 py-2 pr-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      placeholder="Minimum 6 characters"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer"
+                    >
+                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Confirm New Password</label>
+                  <div className="relative">
+                    <input
+                      type={showConfirmPassword ? 'text' : 'password'}
+                      value={passwordForm.confirmPassword}
+                      onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
+                      className="w-full px-3.5 py-2 pr-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      placeholder="Repeat new password"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer"
+                    >
+                      {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => setIsResetPasswordModalOpen(false)}
+                  className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-[#0b1e38] font-black text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                >
+                  <KeyRound className="w-3.5 h-3.5" />
+                  <span>Update Password</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

@@ -416,7 +416,7 @@ export const Sidebar = ({
                 </span>
                 <div className="flex items-center gap-1.5 mt-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[9px] font-mono text-emerald-300 font-bold">BSB Board (Up to 12th) • PG-10th Active</span>
+                  <span className="text-[9px] font-mono text-emerald-300 font-bold">BSB Board (Up to 12th)</span>
                 </div>
               </div>
             )}
