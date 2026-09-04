@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Printer, X, Download, DollarSign, Wallet } from 'lucide-react';
+import { getStaffSalary } from '../../utils/salaryUtils';
 
 export const PrintableEmployeeDossier = ({ employee, schoolInfo, onClose, onPaySalary }) => {
   const printRef = useRef(null);
@@ -185,7 +186,7 @@ export const PrintableEmployeeDossier = ({ employee, schoolInfo, onClose, onPayS
               <tr className="bg-slate-50">
                 <td className="p-1 text-slate-600 border-r border-slate-300">Monthly Basic Salary</td>
                 <td className="p-1 font-bold text-emerald-900 border-r border-slate-300">
-                  ₹{(employee.salary?.basic || employee.salary?.netSalary || employee.basicSalary || employee.salary || 25000).toLocaleString('en-IN')} / Month
+                  ₹{getStaffSalary(employee).toLocaleString('en-IN')} / Month
                 </td>
                 <td className="p-1 text-slate-600 border-r border-slate-300">UPI / Mobile Payment</td>
                 <td className="p-1 font-mono font-bold">

@@ -32,6 +32,7 @@ import {
 import { Badge } from '../common/Badge';
 import { Modal } from '../common/Modal';
 import { PrintableEmployeeDossier } from '../printables/PrintableEmployeeDossier';
+import { getStaffSalary } from '../../utils/salaryUtils';
 import schoolService from '../../services/schoolService';
 
 export const EmployeeProfileDossierModal = ({
@@ -425,7 +426,7 @@ export const EmployeeProfileDossierModal = ({
               <div className="p-3 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
                 <span className="text-[10px] text-emerald-800 dark:text-emerald-300 font-bold block">Monthly Basic Salary</span>
                 <span className="text-base font-black text-emerald-700 dark:text-emerald-300 font-mono">
-                  ₹{(employee.salary?.basic || employee.salary?.netSalary || employee.basicSalary || employee.salary || 25000).toLocaleString('en-IN')} / Month
+                  ₹{getStaffSalary(employee).toLocaleString('en-IN')} / Month
                 </span>
               </div>
 

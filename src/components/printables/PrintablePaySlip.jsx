@@ -1,5 +1,6 @@
 import React from 'react';
 import { Printer, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
+import { getStaffSalary } from '../../utils/salaryUtils';
 import schoolService from '../../services/schoolService';
 
 export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, onPrint }) => {
@@ -15,7 +16,9 @@ export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, o
   const recordedPayment = salaryRecords.find(r => r.month === month) || null;
   const isPaid = Boolean(recordedPayment);
 
-  const basicAmt = recordedPayment?.baseSalary || teacher.basicSalary || teacher.salary?.basic || teacher.salary || 25000;
+  const basicAmt = (recordedPayment?.baseSalary !== undefined && recordedPayment?.baseSalary !== null)
+    ? Number(recordedPayment.baseSalary)
+    : getStaffSalary(teacher);
   const arrearsAmt = Number(recordedPayment?.arrearsAdded || 0);
   const bonusAmt = Number(recordedPayment?.bonus || 0);
   const totalEarnings = basicAmt + arrearsAmt + bonusAmt;

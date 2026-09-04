@@ -30,6 +30,7 @@ import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import { PrintablePaySlip } from '../components/printables/PrintablePaySlip';
+import { getStaffSalary, getSavedSalaryTemplates, saveSalaryTemplates, defaultSalaryTemplates } from '../utils/salaryUtils';
 import schoolService from '../services/schoolService';
 
 export const HRPayrollPage = ({ initialTab = 'payment' }) => {
@@ -62,24 +63,14 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
   const [selectedMonth, setSelectedMonth] = useState('August 2026');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // 1. School Salary Grades (Exact match to DMPS Grades)
-  const [templates, setTemplates] = useState([
-    { id: 'GRD-3000', name: '3000', basic: 3000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-3250', name: '3250', basic: 3250, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-3500', name: '3500', basic: 3500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-4000', name: '4000', basic: 4000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-4500', name: '4500', basic: 4500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-4800', name: '4800', basic: 4800, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-5000', name: '5000', basic: 5000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-5500', name: '5500', basic: 5500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-6500', name: '6500', basic: 6500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-7000', name: '7000', basic: 7000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-9400', name: '9400', basic: 9400, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-10000', name: '10000', basic: 10000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-10500', name: '10500', basic: 10500, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-15000', name: '15000', basic: 15000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' },
-    { id: 'GRD-25000', name: '25000', basic: 25000, overtimeRate: 0, branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL NEW BUILDING (SMART)' }
-  ]);
+  // 1. School Salary Grades (Exact match to DMPS Grades + Grade 0 for honorary)
+  const [templates, setTemplates] = useState(() => getSavedSalaryTemplates());
+  const [editingTemplate, setEditingTemplate] = useState(null);
+
+  const saveTemplates = (newTemplates) => {
+    setTemplates(newTemplates);
+    saveSalaryTemplates(newTemplates);
+  };
 
   // 2. Staff Salary Assignment Roster
   const [staffAssignments, setStaffAssignments] = useState(() => {
@@ -89,7 +80,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       employeeId: t.employeeId || `EMP-2026-${String(idx + 1).padStart(3, '0')}`,
       designation: t.designation || 'Teacher',
       department: t.department || 'Academics',
-      assignedSalary: t.basicSalary || t.salary?.basic || t.salary || 4000,
+      assignedSalary: getStaffSalary(t),
       paymentMode: 'UPI / PhonePe / GPay',
       mobile: t.phone || t.mobile || '9719476606',
       upiId: t.upiId || t.phone || t.mobile || '9719476606@upi'
@@ -216,7 +207,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
 
   // Total Payroll Calculation (Sum of active staff salaries only)
   const totalPayrollExpenditure = useMemo(() => {
-    return activeTeachers.reduce((acc, t) => acc + (t.basicSalary || t.salary?.basic || t.salary || 4000), 0);
+    return activeTeachers.reduce((acc, t) => acc + getStaffSalary(t), 0);
   }, [activeTeachers]);
 
   // Individual Salary Payment Modal State
@@ -241,7 +232,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
   const handleOpenPaySalary = (staff) => {
     // 1. Check if month is prior to July (April, May, June) vs July onwards
     const isPreJuly = selectedMonth.includes('April') || selectedMonth.includes('May') || selectedMonth.includes('June');
-    const base = staff.basicSalary || staff.salary?.basic || staff.salary || 25000;
+    const base = getStaffSalary(staff);
     const effectiveBase = (isPreJuly && staff.preJulySalary) ? staff.preJulySalary : base;
 
     const proRated = calcProRatedSalary(staff, effectiveBase, selectedMonth);
@@ -539,7 +530,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                           <FileText className="w-3.5 h-3.5" />
                         </button>
                         <button
-                          onClick={() => showToast(`Edit Grade ${tpl.name}`, 'info')}
+                          onClick={() => setEditingTemplate(tpl)}
                           className="p-1.5 rounded-lg bg-amber-50 dark:bg-amber-950 text-amber-600 hover:bg-amber-100 dark:hover:bg-amber-900 transition-colors"
                           title="Edit Grade"
                         >
@@ -548,7 +539,8 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                         <button
                           onClick={() => {
                             if (window.confirm(`Delete Grade ${tpl.name}?`)) {
-                              setTemplates(templates.filter(t => t.id !== tpl.id));
+                              const filtered = templates.filter(t => t.id !== tpl.id);
+                              saveTemplates(filtered);
                               showToast(`Grade ${tpl.name} removed`, 'warning');
                             }
                           }}
@@ -739,7 +731,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 {activeTeachers.map(t => {
-                  const base = t.basicSalary || t.salary?.basic || t.salary || 4000;
+                  const base = getStaffSalary(t);
                   const eligible = isSalaryEligible(t, selectedMonth);
                   const proRated = eligible ? calcProRatedSalary(t, base, selectedMonth) : 0;
                   const isPartial = proRated > 0 && proRated < base;
@@ -845,7 +837,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                 </thead>
                 <tbody className="divide-y divide-rose-50 dark:divide-rose-900/20">
                   {formerTeachers.map(t => {
-                    const base = t.basicSalary || t.salary?.basic || t.salary || 4000;
+                    const base = getStaffSalary(t);
                     const eligible = isSalaryEligible(t, selectedMonth);
                     const proRated = eligible ? calcProRatedSalary(t, base, selectedMonth) : 0;
                     return (
@@ -1268,24 +1260,23 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
             onSubmit={(e) => {
               e.preventDefault();
               if (!templateForm.name.trim()) return;
-              const basic = Number(templateForm.basic) || 0;
-              const da = Number(templateForm.da) || 0;
-              const hra = Number(templateForm.hra) || 0;
-              const medical = Number(templateForm.medical) || 0;
-              const pf = Number(templateForm.pf) || 0;
-              const tax = Number(templateForm.tax) || 0;
-              const net = (basic + da + hra + medical) - (pf + tax);
+              const basic = (templateForm.basic !== undefined && templateForm.basic !== null && templateForm.basic !== '')
+                ? Number(templateForm.basic)
+                : 0;
+              const cleanBasic = isNaN(basic) ? 0 : basic;
 
               const newTpl = {
-                id: `TPL-${String(templates.length + 1).padStart(2, '0')}`,
+                id: `GRD-${cleanBasic}-${Date.now().toString().slice(-4)}`,
                 name: templateForm.name,
-                basic, da, hra, medical, pf, tax, net
+                basic: cleanBasic,
+                overtimeRate: 0,
+                branch: 'DADHEECH MEMORIAL PUBLIC SCHOOL'
               };
 
-              setTemplates([...templates, newTpl]);
+              saveTemplates([...templates, newTpl]);
               setIsAddTemplateModalOpen(false);
               setTemplateForm({ name: '', basic: '', da: '', hra: '', medical: '', pf: '', tax: '' });
-              showToast(`Salary Template "${newTpl.name}" created! 💳`, 'success');
+              showToast(`Salary Grade "${newTpl.name}" (₹${cleanBasic}) created! 💳`, 'success');
             }}
             className="space-y-4 text-xs"
           >
@@ -1294,84 +1285,25 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
               <input
                 type="text"
                 required
-                placeholder="e.g. Senior Faculty Grade A"
+                placeholder="e.g. 0 (Honorary / ₹0) or 12000"
                 value={templateForm.name}
                 onChange={(e) => setTemplateForm({ ...templateForm, name: e.target.value })}
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold"
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Basic Pay (₹) *</label>
-                <input
-                  type="number"
-                  required
-                  placeholder="30000"
-                  value={templateForm.basic}
-                  onChange={(e) => setTemplateForm({ ...templateForm, basic: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-mono font-bold"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">DA Allowance (₹)</label>
-                <input
-                  type="number"
-                  placeholder="6000"
-                  value={templateForm.da}
-                  onChange={(e) => setTemplateForm({ ...templateForm, da: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-mono font-bold text-emerald-600"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">HRA Allowance (₹)</label>
-                <input
-                  type="number"
-                  placeholder="4000"
-                  value={templateForm.hra}
-                  onChange={(e) => setTemplateForm({ ...templateForm, hra: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-mono font-bold text-emerald-600"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Medical Allowance (₹)</label>
-                <input
-                  type="number"
-                  placeholder="1200"
-                  value={templateForm.medical}
-                  onChange={(e) => setTemplateForm({ ...templateForm, medical: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-mono font-bold text-emerald-600"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">EPF Deduction (12%)</label>
-                <input
-                  type="number"
-                  placeholder="3600"
-                  value={templateForm.pf}
-                  onChange={(e) => setTemplateForm({ ...templateForm, pf: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-mono font-bold text-rose-500"
-                />
-              </div>
-
-              <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">TDS / Tax Deduction</label>
-                <input
-                  type="number"
-                  placeholder="1000"
-                  value={templateForm.tax}
-                  onChange={(e) => setTemplateForm({ ...templateForm, tax: e.target.value })}
-                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-mono font-bold text-rose-500"
-                />
-              </div>
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Basic Monthly Pay (₹) *</label>
+              <input
+                type="number"
+                required
+                min="0"
+                placeholder="0 for Honorary or amount in ₹"
+                value={templateForm.basic}
+                onChange={(e) => setTemplateForm({ ...templateForm, basic: e.target.value })}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-mono font-bold"
+              />
+              <p className="text-[10px] text-slate-400 mt-1">Enter 0 for honorary, voluntary, or unpaid designations.</p>
             </div>
 
             <div className="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
@@ -1387,6 +1319,75 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
                 className="px-5 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow"
               >
                 Create Template
+              </button>
+            </div>
+          </form>
+        </Modal>
+      )}
+
+      {/* Edit Salary Template Modal */}
+      {editingTemplate && (
+        <Modal
+          isOpen={Boolean(editingTemplate)}
+          onClose={() => setEditingTemplate(null)}
+          title={`✏️ Edit Salary Grade: ${editingTemplate.name}`}
+          maxWidth="max-w-md"
+        >
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const basic = (editingTemplate.basic !== undefined && editingTemplate.basic !== null && editingTemplate.basic !== '')
+                ? Number(editingTemplate.basic)
+                : 0;
+              const cleanBasic = isNaN(basic) ? 0 : basic;
+              const updated = templates.map(t => t.id === editingTemplate.id ? {
+                ...editingTemplate,
+                name: editingTemplate.name || `${cleanBasic}`,
+                basic: cleanBasic
+              } : t);
+              saveTemplates(updated);
+              setEditingTemplate(null);
+              showToast(`Salary Grade updated to ₹${cleanBasic.toLocaleString('en-IN')}! 💳`, 'success');
+            }}
+            className="space-y-4 text-xs"
+          >
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Grade / Template Name *</label>
+              <input
+                type="text"
+                required
+                value={editingTemplate.name}
+                onChange={(e) => setEditingTemplate({ ...editingTemplate, name: e.target.value })}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold"
+              />
+            </div>
+
+            <div>
+              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Basic Monthly Pay (₹) *</label>
+              <input
+                type="number"
+                required
+                min="0"
+                value={editingTemplate.basic}
+                onChange={(e) => setEditingTemplate({ ...editingTemplate, basic: e.target.value })}
+                className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-mono font-bold"
+              />
+              <p className="text-[10px] text-slate-400 mt-1">Set to 0 for honorary, voluntary, or zero-salary roles.</p>
+            </div>
+
+            <div className="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <button
+                type="button"
+                onClick={() => setEditingTemplate(null)}
+                className="px-4 py-2 rounded-xl text-xs font-bold text-slate-500 hover:bg-slate-100"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-5 py-2 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white shadow"
+              >
+                Save Changes
               </button>
             </div>
           </form>

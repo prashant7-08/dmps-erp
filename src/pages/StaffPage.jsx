@@ -45,6 +45,7 @@ import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import { PrintablePaySlip } from '../components/printables/PrintablePaySlip';
 import { PrintableEmployeeDossier } from '../components/printables/PrintableEmployeeDossier';
 import { EmployeeProfileDossierModal } from '../components/staff/EmployeeProfileDossierModal';
+import { getStaffSalary } from '../utils/salaryUtils';
 import schoolService from '../services/schoolService';
 
 export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
@@ -109,7 +110,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
 
   const handleOpenPaySalary = (staff) => {
     setSelectedStaff(staff);
-    const base = staff.salary?.basic || staff.salary?.netSalary || staff.basicSalary || staff.salary || 25000;
+    const base = getStaffSalary(staff);
     setSalaryPayForm({
       staffId: staff.id,
       staffName: staff.name,
@@ -535,10 +536,10 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       assignedBus: formData.assignedBus || 'Bus 01',
       assignedRoute: formData.assignedRoute || 'Route 1 - Ramghat Line',
       classTeacherOf: formData.classTeacherOf === 'None' ? '' : formData.classTeacherOf,
-      basicSalary: Number(formData.basicSalary) || 25000,
+      basicSalary: isNaN(Number(formData.basicSalary)) ? 0 : Number(formData.basicSalary),
       salary: {
-        basic: Number(formData.basicSalary) || 25000,
-        netSalary: Number(formData.basicSalary) || 25000
+        basic: isNaN(Number(formData.basicSalary)) ? 0 : Number(formData.basicSalary),
+        netSalary: isNaN(Number(formData.basicSalary)) ? 0 : Number(formData.basicSalary)
       },
       upiId: formData.upiId || formData.mobile || ''
     });
@@ -581,7 +582,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       assignedBus: teacher.assignedBus || 'Bus 01',
       assignedRoute: teacher.assignedRoute || 'Route 1 - Ramghat Line',
       classTeacherOf: teacher.classTeacherOf || 'None',
-      basicSalary: teacher.salary?.basic || teacher.salary?.netSalary || teacher.basicSalary || teacher.salary || 25000,
+      basicSalary: getStaffSalary(teacher),
       upiId: teacher.upiId || teacher.phone || teacher.mobile || '',
       status: teacher.status || (teacher.loginDeactivated ? 'Resigned' : 'Active'),
       loginDeactivated: Boolean(teacher.loginDeactivated)
@@ -592,6 +593,11 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   const handleEditSubmit = (e) => {
     e.preventDefault();
     const isDeactivated = ['Resigned', 'Left', 'Inactive', 'Terminated'].includes(editFormData.status) || Boolean(editFormData.loginDeactivated);
+    const parsedSalary = (editFormData.basicSalary !== undefined && editFormData.basicSalary !== null && editFormData.basicSalary !== '')
+      ? Number(editFormData.basicSalary)
+      : 0;
+    const cleanSalary = isNaN(parsedSalary) ? 0 : parsedSalary;
+
     const updated = schoolService.updateTeacher(editFormData.id, {
       name: editFormData.name,
       role: editFormData.role,
@@ -623,10 +629,10 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
       assignedBus: editFormData.assignedBus,
       assignedRoute: editFormData.assignedRoute,
       classTeacherOf: editFormData.classTeacherOf === 'None' ? '' : editFormData.classTeacherOf,
-      basicSalary: Number(editFormData.basicSalary) || 25000,
+      basicSalary: cleanSalary,
       salary: {
-        basic: Number(editFormData.basicSalary) || 25000,
-        netSalary: Number(editFormData.basicSalary) || 25000
+        basic: cleanSalary,
+        netSalary: cleanSalary
       },
       upiId: editFormData.upiId || '',
       status: editFormData.status || 'Active',
@@ -3078,7 +3084,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
             });
 
             const totalMonthlySalary = printFilteredTeachers.reduce((sum, t) => {
-              const base = t.salary?.basic || t.salary?.netSalary || t.basicSalary || t.salary || 25000;
+              const base = getStaffSalary(t);
               return sum + (Number(base) || 0);
             }, 0);
 
@@ -3146,7 +3152,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                     <tbody className="divide-y divide-slate-300">
                       {printFilteredTeachers.map((t, idx) => {
                         const isResigned = ['Resigned', 'Left', 'Inactive', 'Terminated'].includes(t.status) || Boolean(t.loginDeactivated);
-                        const base = t.salary?.basic || t.salary?.netSalary || t.basicSalary || t.salary || 25000;
+                        const base = getStaffSalary(t);
                         const salaryRecords = schoolService.getStaffSalaryRecords ? schoolService.getStaffSalaryRecords(t.id) : [];
                         const lastPayment = salaryRecords && salaryRecords.length > 0 ? salaryRecords[0] : null;
 
