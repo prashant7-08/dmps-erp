@@ -19,7 +19,9 @@ class SchoolService {
             ...JSON.parse(JSON.stringify(initialSchoolData)),
             ...parsed,
             branches: Array.isArray(parsed.branches) && parsed.branches.length > 0 ? parsed.branches : initialSchoolData.branches,
-            teachers: initialSchoolData.teachers, // Always sync official 22 staff roster
+            teachers: Array.isArray(parsed.teachers) && parsed.teachers.length > 0 ? parsed.teachers : initialSchoolData.teachers,
+            departments: Array.isArray(parsed.departments) && parsed.departments.length > 0 ? parsed.departments : (initialSchoolData.departments || []),
+            designations: Array.isArray(parsed.designations) && parsed.designations.length > 0 ? parsed.designations : (initialSchoolData.designations || []),
             classes: Array.isArray(parsed.classes) && parsed.classes.length > 0 ? parsed.classes : initialSchoolData.classes,
             biometricLogs: Array.isArray(parsed.biometricLogs) && parsed.biometricLogs.length > 0 ? parsed.biometricLogs : initialSchoolData.biometricLogs,
             staffAttendance: Array.isArray(parsed.staffAttendance) && parsed.staffAttendance.length > 0 ? parsed.staffAttendance : initialSchoolData.staffAttendance
