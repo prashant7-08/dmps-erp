@@ -321,11 +321,25 @@ export const Sidebar = ({
   const effectiveRole = authRole || currentRole || 'Super Admin';
 
   const findParentGroupId = (tab) => {
+    if (!tab) return null;
     for (const group of navigationGroups) {
-      if (group.isSingle && group.targetTab === tab) return group.id;
+      if (group.isSingle && (group.targetTab === tab || group.id === tab)) return group.id;
       if (group.items) {
         for (const item of group.items) {
-          if (item.targetTab === tab || item.id === tab) {
+          if (
+            item.targetTab === tab ||
+            item.id === tab ||
+            (item.subTab && tab === `${item.targetTab}-${item.subTab}`) ||
+            (tab.startsWith('fees-') && group.id === 'student-accounting-group') ||
+            (tab.startsWith('office-') && group.id === 'office-accounting-group') ||
+            (tab.startsWith('acad-') && group.id === 'academic-group') ||
+            (tab.startsWith('exam-') && group.id === 'exam-master-group') ||
+            (tab.startsWith('card-') && group.id === 'card-certificate-group') ||
+            (tab.startsWith('cert-') && group.id === 'card-certificate-group') ||
+            (tab.startsWith('sms-') && group.id === 'bulk-sms-group') ||
+            (tab.startsWith('fe-') && group.id === 'frontend-group') ||
+            (tab.startsWith('setting-') && group.id === 'settings-group')
+          ) {
             return group.id;
           }
         }
@@ -369,7 +383,7 @@ export const Sidebar = ({
       return;
     }
 
-    const tabToSet = item.targetTab || item.id;
+    const tabToSet = item.id || item.targetTab;
     setActiveTab(tabToSet);
     if (onClose) onClose();
     if (setIsOpen) setIsOpen(false);
@@ -379,7 +393,16 @@ export const Sidebar = ({
     if (item.isSingle) {
       return activeTab === item.targetTab || activeTab === item.id;
     }
-    return activeTab === item.id || (item.targetTab && activeTab === item.targetTab);
+    if (activeTab === item.id) return true;
+    if (item.subTab && activeTab === `${item.targetTab}-${item.subTab}`) return true;
+    if (item.targetTab && activeTab === item.targetTab && !item.subTab) return true;
+    // Map 'fees' to 'fees-pos' if activeTab is 'fees' or 'pos'
+    if (item.id === 'fees-pos' && (activeTab === 'pos' || activeTab === 'fees' || activeTab === 'fees-pos')) return true;
+    if (item.id === 'fees-dues' && (activeTab === 'dues' || activeTab === 'fees-dues')) return true;
+    if (item.id === 'fees-allocation' && (activeTab === 'allocation' || activeTab === 'fees-allocation')) return true;
+    if (item.id === 'fees-types' && (activeTab === 'types' || activeTab === 'fees-types')) return true;
+    if (item.id === 'fees-siblings' && (activeTab === 'siblings' || activeTab === 'sibling-list' || activeTab === 'fees-siblings')) return true;
+    return false;
   };
 
   const handleClose = () => {

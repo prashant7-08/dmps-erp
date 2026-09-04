@@ -45,6 +45,7 @@ import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
 import { PrintableFeeReceipt } from '../components/printables/PrintableFeeReceipt';
 import schoolService from '../services/schoolService';
+import { isClassMatch, STANDARD_CLASS_OPTIONS } from '../utils/classUtils';
 
 export const FeesPage = ({ initialTab = 'pos' }) => {
   const { showToast } = useToast();
@@ -53,7 +54,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   // Normalize initialTab from sidebar routes
   const resolveTab = (tab) => {
     if (!tab) return 'pos';
-    if (tab === 'fees' || tab === 'fees-collect' || tab === 'pos') return 'pos';
+    if (tab === 'fees' || tab === 'fees-collect' || tab === 'pos' || tab === 'fees-pos') return 'pos';
     if (tab === 'fees-payment-types' || tab === 'payment-types') return 'payment-types';
     if (tab === 'fees-types' || tab === 'types') return 'types';
     if (tab === 'fees-groups' || tab === 'groups') return 'groups';
@@ -63,8 +64,8 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
     if (tab === 'fees-siblings' || tab === 'siblings') return 'siblings';
     if (tab === 'fees-sibling-list' || tab === 'sibling-list') return 'sibling-list';
     if (tab === 'fees-offline' || tab === 'offline') return 'offline';
-    if (tab === 'invoices') return 'invoices';
-    return tab;
+    if (tab === 'invoices' || tab === 'fees-invoices' || tab === 'receipts') return 'invoices';
+    return 'pos';
   };
 
   const [activeTab, setActiveTab] = useState(() => resolveTab(initialTab));
@@ -206,7 +207,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
   // 🔍 POS Filtered Students Engine (Fast Real-Time Search)
   const posFilteredStudents = useMemo(() => {
     return (students || []).filter(s => {
-      if (posClassFilter !== 'All' && String(s.class) !== String(posClassFilter)) return false;
+      if (posClassFilter !== 'All' && !isClassMatch(s.class, posClassFilter)) return false;
       if (posDueFilter === 'due' && (s.feeSummary?.balance || 0) <= 0) return false;
       if (posDueFilter === 'transport' && !s.transport?.isEnrolled && (s.feeSummary?.transportDue11Months || 0) <= 0 && !s.route) return false;
       if (posSearchQuery.trim()) {
@@ -894,9 +895,8 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                   onChange={(e) => setPosClassFilter(e.target.value)}
                   className="w-full py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-900 dark:text-white"
                 >
-                  <option value="All">All Classes (सभी कक्षाएं)</option>
-                  {['Nursery', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'].map(c => (
-                    <option key={c} value={c}>Class {c}</option>
+                  {STANDARD_CLASS_OPTIONS.map(c => (
+                    <option key={c.value} value={c.value}>{c.label}</option>
                   ))}
                 </select>
               </div>
@@ -1361,9 +1361,8 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                   }}
                   className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
                 >
-                  <option value="All">All Classes (School-Wide)</option>
-                  {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'].map(c => (
-                    <option key={c} value={c}>Class {c}</option>
+                  {STANDARD_CLASS_OPTIONS.map(c => (
+                    <option key={c.value} value={c.value}>{c.label}</option>
                   ))}
                 </select>
               </div>
@@ -1474,7 +1473,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                   type="button"
                   onClick={() => {
                     const filtered = students.filter(s => {
-                      const matchClass = allocTargetClass === 'All' || s.class === allocTargetClass || s.class?.includes(allocTargetClass);
+                      const matchClass = allocTargetClass === 'All' || isClassMatch(s.class, allocTargetClass);
                       const matchSearch = !allocSearch.trim() ||
                         s.name.toLowerCase().includes(allocSearch.toLowerCase()) ||
                         (s.parents?.fatherName || s.fatherName || '').toLowerCase().includes(allocSearch.toLowerCase()) ||
@@ -1523,7 +1522,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                         checked={
                           selectedStudentIdsForAlloc.length > 0 &&
                           selectedStudentIdsForAlloc.length === students.filter(s => {
-                            const matchClass = allocTargetClass === 'All' || s.class === allocTargetClass || s.class?.includes(allocTargetClass);
+                            const matchClass = allocTargetClass === 'All' || isClassMatch(s.class, allocTargetClass);
                             const matchSearch = !allocSearch.trim() ||
                               s.name.toLowerCase().includes(allocSearch.toLowerCase()) ||
                               (s.parents?.fatherName || s.fatherName || '').toLowerCase().includes(allocSearch.toLowerCase()) ||
@@ -1533,7 +1532,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                         }
                         onChange={(e) => {
                           const filtered = students.filter(s => {
-                            const matchClass = allocTargetClass === 'All' || s.class === allocTargetClass || s.class?.includes(allocTargetClass);
+                            const matchClass = allocTargetClass === 'All' || isClassMatch(s.class, allocTargetClass);
                             const matchSearch = !allocSearch.trim() ||
                               s.name.toLowerCase().includes(allocSearch.toLowerCase()) ||
                               (s.parents?.fatherName || s.fatherName || '').toLowerCase().includes(allocSearch.toLowerCase()) ||
@@ -1565,7 +1564,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                   {students
                     .filter(s => {
-                      const matchClass = allocTargetClass === 'All' || s.class === allocTargetClass || s.class?.includes(allocTargetClass);
+                      const matchClass = allocTargetClass === 'All' || isClassMatch(s.class, allocTargetClass);
                       const matchSearch = !allocSearch.trim() ||
                         s.name.toLowerCase().includes(allocSearch.toLowerCase()) ||
                         (s.parents?.fatherName || s.fatherName || '').toLowerCase().includes(allocSearch.toLowerCase()) ||
@@ -1695,9 +1694,8 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                 onChange={(e) => setClassFilter(e.target.value)}
                 className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold"
               >
-                <option value="All">All Classes</option>
-                {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'].map(c => (
-                  <option key={c} value={c}>Class {c}</option>
+                {STANDARD_CLASS_OPTIONS.map(c => (
+                  <option key={c.value} value={c.value}>{c.label}</option>
                 ))}
               </select>
             </div>
@@ -1721,7 +1719,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 {students
-                  .filter(s => classFilter === 'All' || s.class === classFilter || s.class?.includes(classFilter))
+                  .filter(s => classFilter === 'All' || isClassMatch(s.class, classFilter))
                   .filter(s => (s.feeSummary?.balance || 0) > 0)
                   .map((s) => {
                     const dueAmt = s.feeSummary?.balance || 0;

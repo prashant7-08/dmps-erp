@@ -22,6 +22,7 @@ import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import schoolService from '../services/schoolService';
+import { isClassMatch, STANDARD_CLASS_OPTIONS } from '../utils/classUtils';
 
 export const HomeworkPage = ({ initialTab = 'homework' }) => {
   const { showToast } = useToast();
@@ -77,7 +78,7 @@ export const HomeworkPage = ({ initialTab = 'homework' }) => {
     showToast(`Homework assignment "${newHw.title}" published!`, 'success');
   };
 
-  const filteredHw = homeworkList.filter(hw => selectedClassFilter === 'All' || hw.class === selectedClassFilter || hw.class?.includes(selectedClassFilter));
+  const filteredHw = homeworkList.filter(hw => isClassMatch(hw.class, selectedClassFilter));
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
@@ -88,47 +89,47 @@ export const HomeworkPage = ({ initialTab = 'homework' }) => {
             <span className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400">
               <FileSpreadsheet className="w-5 h-5" />
             </span>
-            <h1 className="text-xl font-black text-slate-900 dark:text-white">
-              Daily Homework & Evaluation Suite
-            </h1>
+            <div>
+              <h2 className="text-xl font-black text-slate-900 dark:text-white">
+                Daily Homework & Study Material
+              </h2>
+              <p className="text-xs text-slate-500">
+                Create and monitor class-wise homework, upload worksheets and track student submissions
+              </p>
+            </div>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Teacher assignment publishing, PDF study worksheets, and student submission evaluation tracking.
-          </p>
         </div>
 
         <button
           onClick={() => setIsAddModalOpen(true)}
-          className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2 hover:scale-105 active:scale-95 transition-all"
+          className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl text-xs font-bold shadow-lg flex items-center gap-2 transition-all hover:scale-105 active:scale-95 cursor-pointer"
         >
-          <Plus className="w-4 h-4" /> Assign Daily Homework
+          <Plus className="w-4 h-4" /> Add Homework
         </button>
       </div>
 
-      {/* Navigation Sub-Tabs */}
-      <div className="bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-x-auto">
-        <div className="flex items-center gap-1.5 min-w-max text-xs font-bold">
-          <button
-            onClick={() => setActiveTab('homework')}
-            className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 ${
-              activeTab === 'homework'
-                ? 'bg-blue-600 text-white shadow-md font-black'
-                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-            }`}
-          >
-            <BookOpen className="w-4 h-4" /> Daily Homework Assignments ({homeworkList.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('evaluation')}
-            className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 ${
-              activeTab === 'evaluation'
-                ? 'bg-blue-600 text-white shadow-md font-black'
-                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-            }`}
-          >
-            <CheckSquare className="w-4 h-4" /> Homework Evaluation Report
-          </button>
-        </div>
+      {/* Tabs */}
+      <div className="flex gap-2 border-b border-slate-200 dark:border-slate-800 pb-2">
+        <button
+          onClick={() => setActiveTab('homework')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            activeTab === 'homework'
+              ? 'bg-indigo-600 text-white shadow-md'
+              : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800'
+          }`}
+        >
+          Homework Directory
+        </button>
+        <button
+          onClick={() => setActiveTab('evaluation')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            activeTab === 'evaluation'
+              ? 'bg-indigo-600 text-white shadow-md'
+              : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800'
+          }`}
+        >
+          Evaluation Report
+        </button>
       </div>
 
       {/* ========================================================================= */}
@@ -144,9 +145,8 @@ export const HomeworkPage = ({ initialTab = 'homework' }) => {
                 onChange={(e) => setSelectedClassFilter(e.target.value)}
                 className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"
               >
-                <option value="All">All Classes</option>
-                {['PG', 'NUR', 'LKG', 'UKG', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'].map(c => (
-                  <option key={c} value={c}>Class {c}</option>
+                {STANDARD_CLASS_OPTIONS.map(c => (
+                  <option key={c.value} value={c.value}>{c.label}</option>
                 ))}
               </select>
             </div>

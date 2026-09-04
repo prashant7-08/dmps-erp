@@ -42,9 +42,38 @@ class SchoolService {
           const persistentDepts = getPersistentDepartments(parsed.departments);
           const persistentDesigs = getPersistentDesignations(parsed.designations);
 
+          // Ensure Class 11 & 12 students have ₹0 tuition fee this year
+          const loadedStudents = Array.isArray(parsed.students) && parsed.students.length >= 100 ? parsed.students : initialSchoolData.students;
+          const sanitizedStudents = loadedStudents.map(s => {
+            if (s.class === 'XI' || s.class === '11' || s.class === '11th' || s.class === 'XII' || s.class === '12' || s.class === '12th') {
+              if (s.feeSummary && s.feeSummary.tuitionDue > 0) {
+                const trDue = s.feeSummary.transportDue11Months || (s.transport?.annualFare11M || 0);
+                const oldDues = s.feeSummary.oldSessionDues || 0;
+                const miscDues = s.feeSummary.miscellaneousDue || 0;
+                const totalDue = trDue + oldDues + miscDues;
+                const totalPaid = s.feeSummary.totalPaid || 0;
+                const balance = Math.max(0, totalDue - totalPaid);
+                return {
+                  ...s,
+                  feeSummary: {
+                    ...s.feeSummary,
+                    tuitionDue: 0,
+                    transportDue11Months: trDue,
+                    totalDue: totalDue,
+                    totalPaid: totalPaid,
+                    balance: balance,
+                    status: balance <= 0 ? 'Paid' : 'Pending'
+                  }
+                };
+              }
+            }
+            return s;
+          });
+
           return {
             ...JSON.parse(JSON.stringify(initialSchoolData)),
             ...parsed,
+            students: sanitizedStudents,
             branches: Array.isArray(parsed.branches) && parsed.branches.length > 0 ? parsed.branches : initialSchoolData.branches,
             teachers: enrichedTeachers,
             departments: persistentDepts,

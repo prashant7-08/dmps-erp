@@ -44,6 +44,7 @@ import { useAuth } from '../context/AuthContext';
 import { PrintableIDCard } from '../components/printables/PrintableIDCard';
 import { PrintableStudentDossier } from '../components/printables/PrintableStudentDossier';
 import schoolService from '../services/schoolService';
+import { isClassMatch } from '../utils/classUtils';
 
 export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = null, onOpenNewAdmission = null }) => {
   const { showToast } = useToast();
@@ -497,26 +498,9 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
       }
 
       // Class Filter (Normalize: e.g. "NURSERY", "I", "Class 1")
-      if (selectedClass !== 'all') {
-        const stuCls = (stu.class || '').toUpperCase().trim();
-        const selCls = selectedClass.toUpperCase().trim();
-        
-        const isMatch = stuCls === selCls || 
-          stuCls.replace('CLASS', '').trim() === selCls ||
-          (selCls === 'I' && (stuCls === 'I' || stuCls === '1' || stuCls === 'CLASS 1')) ||
-          (selCls === 'II' && (stuCls === 'II' || stuCls === '2' || stuCls === 'CLASS 2')) ||
-          (selCls === 'III' && (stuCls === 'III' || stuCls === '3' || stuCls === 'CLASS 3')) ||
-          (selCls === 'IV' && (stuCls === 'IV' || stuCls === '4' || stuCls === 'CLASS 4')) ||
-          (selCls === 'V' && (stuCls === 'V' || stuCls === '5' || stuCls === 'CLASS 5')) ||
-          (selCls === 'VI' && (stuCls === 'VI' || stuCls === '6' || stuCls === 'CLASS 6')) ||
-          (selCls === 'VII' && (stuCls === 'VII' || stuCls === '7' || stuCls === 'CLASS 7')) ||
-          (selCls === 'VIII' && (stuCls === 'VIII' || stuCls === '8' || stuCls === 'CLASS 8')) ||
-          (selCls === 'IX' && (stuCls === 'IX' || stuCls === '9' || stuCls === 'CLASS 9')) ||
-          (selCls === 'X' && (stuCls === 'X' || stuCls === '10' || stuCls === 'CLASS 10')) ||
-          (selCls === 'XI' && (stuCls === 'XI' || stuCls === '11' || stuCls === 'CLASS 11')) ||
-          (selCls === 'XII' && (stuCls === 'XII' || stuCls === '12' || stuCls === 'CLASS 12'));
-
-        if (!isMatch) return false;
+      // Class Filter
+      if (selectedClass !== 'all' && selectedClass !== 'All Classes') {
+        if (!isClassMatch(stu.class, selectedClass)) return false;
       }
 
       // Section Filter

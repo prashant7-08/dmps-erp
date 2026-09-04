@@ -18,6 +18,7 @@ import {
   UserCheck
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
+import { isClassMatch } from '../utils/classUtils';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import schoolService from '../services/schoolService';
@@ -170,7 +171,7 @@ export const LeaveManagementPage = () => {
           l.class?.toLowerCase().includes(searchQuery.toLowerCase()) ||
           l.reason?.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesStatus = statusFilter === 'ALL' || l.status === statusFilter;
-        const matchesClass = classFilter === 'ALL' || l.class === classFilter;
+        const matchesClass = classFilter === 'ALL' || isClassMatch(l.class, classFilter);
         return matchesQuery && matchesStatus && matchesClass;
       });
   }, [leaveRequests, searchQuery, statusFilter, classFilter]);
