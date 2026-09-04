@@ -113,18 +113,14 @@ function AppContent() {
   const handleRoleChange = (newRole) => {
     setCurrentRole(newRole);
     setIsViewingWebsite(false);
-    if (newRole === 'Parent') {
-      setActiveTab('parent-portal');
-    } else if (newRole === 'Student') {
+    if (newRole === 'Student') {
       setActiveTab('student-portal');
-    } else if (newRole === 'Accountant') {
-      setActiveTab('fees');
-    } else if (newRole === 'Librarian') {
-      setActiveTab('library');
-    } else if (newRole === 'Transport Manager') {
+    } else if (newRole === 'Driver' || newRole === 'Transport Manager') {
       setActiveTab('transport');
     } else if (newRole === 'Teacher') {
       setActiveTab('timetable');
+    } else if (newRole === 'Receptionist') {
+      setActiveTab('reception');
     } else {
       setActiveTab('dashboard');
     }

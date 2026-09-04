@@ -291,14 +291,8 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
   if (currentRole === 'Teacher') {
     return <TeacherDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
   }
-  if (currentRole === 'Transport Manager') {
+  if (currentRole === 'Driver' || currentRole === 'Transport Manager') {
     return <TransportDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
-  }
-  if (currentRole === 'Librarian') {
-    return <LibrarianDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
-  }
-  if (currentRole === 'Parent') {
-    return <ParentDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;
   }
   if (currentRole === 'Student') {
     return <StudentDashboardView stats={stats} setActiveTab={setActiveTab} onOpenAI={onOpenAI} currentTime={currentTime} schoolInfo={schoolInfo} />;

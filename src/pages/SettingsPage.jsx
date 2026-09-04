@@ -108,13 +108,25 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
   });
 
   // 3. Role Permissions & Role Management State
-  const defaultRoles = ['Super Admin', 'Principal', 'Vice Principal', 'Accountant', 'Teacher', 'Librarian', 'Transport Manager', 'Receptionist', 'Parent', 'Student'];
+  const defaultRoles = ['Super Admin', 'Principal', 'Teacher', 'Driver', 'Receptionist', 'Student'];
   const [rolesList, setRolesList] = useState(() => {
+    const sanitizeRoles = (list) => {
+      const banned = ['Vice Principal', 'Accountant', 'Librarian', 'Parent'];
+      const mapped = list.map(r => (r === 'Transport Manager' ? 'Driver' : r));
+      const filtered = mapped.filter(r => !banned.includes(r));
+      const unique = Array.from(new Set(filtered));
+      return unique.length > 0 ? unique : defaultRoles;
+    };
+
     try {
       const stored = localStorage.getItem('DMPS_CUSTOM_ROLES_V1');
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const sanitized = sanitizeRoles(parsed);
+          localStorage.setItem('DMPS_CUSTOM_ROLES_V1', JSON.stringify(sanitized));
+          return sanitized;
+        }
       }
     } catch (e) {}
     return defaultRoles;
@@ -761,7 +773,7 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
                       onClick={() => setSelectedRole(roleName)}
                       className="cursor-pointer font-bold flex items-center gap-1.5"
                     >
-                      <span>{roleName === 'Super Admin' ? '👑' : roleName === 'Principal' ? '🏛️' : roleName === 'Teacher' ? '🎓' : roleName === 'Accountant' ? '💵' : roleName === 'Parent' ? '👨‍👩‍👦' : roleName === 'Student' ? '🎒' : roleName === 'Librarian' ? '📚' : roleName === 'Transport Manager' ? '🚌' : roleName === 'Receptionist' ? '🏢' : '🛡️'}</span>
+                      <span>{roleName === 'Super Admin' ? '👑' : roleName === 'Principal' ? '🏛️' : roleName === 'Teacher' ? '🎓' : roleName === 'Driver' ? '🚌' : roleName === 'Receptionist' ? '🏢' : roleName === 'Student' ? '🎒' : '🛡️'}</span>
                       <span>{roleName}</span>
                     </button>
 

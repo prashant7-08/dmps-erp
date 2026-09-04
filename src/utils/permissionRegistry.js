@@ -388,38 +388,6 @@ export const createDefaultRolePermissions = () => {
       role_permissions: { view: true, create: false, edit: false, delete: false, role_manage: false, role_matrix: true, role_presets: false },
       settings: { view: true, create: false, edit: true, delete: false, export: true, setting_global: true, setting_school: true, setting_session: true, setting_cron: true, setting_backup: true }
     }),
-    "Vice Principal": makeRolePreset({
-      dashboard: { view: true, export: true, stats_overview: true, quick_actions: true, fee_charts: false, attendance_charts: true, recent_activity: true },
-      reception: { view: true, create: true, edit: true, delete: false, export: true, helpdesk_inquiries: true, helpdesk_grievance: true, visitor_pass: true, postal_dispatch: true, call_logs: true },
-      admission: { view: true, create: true, edit: true, delete: false, export: true, admission_create: true, admission_online: true, students_import: false, admission_letter: true, admission_documents: true },
-      students: { view: true, create: false, edit: true, delete: false, export: true, students_list: true, students_custom_list: true, students_inactive: true, student_profile_edit: true, student_guardian_info: true },
-      staff: { view: true, create: false, edit: false, delete: false, export: true, staff_directory: true, staff_add: false, payroll: false, leave_management: true, staff_advance: false, staff_awards: true },
-      student_accounting: { view: true, create: false, edit: false, delete: false, export: true, fees_pos: false, fees_dues: true, fees_allocation: false, fees_types: false, fees_siblings: false, fees_receipt_reprint: false },
-      supervision: { view: true, create: true, edit: true, delete: false, export: true, transport_routes: true, transport_stoppage: true, transport_assign: true, hostel_allocation: true, transport_maintenance: true },
-      attendance: { view: true, create: true, edit: true, delete: false, export: true, attendance_students: true, attendance_staff: true, attendance_monthly_register: true, automatic_bell: true },
-      academic: { view: true, create: true, edit: true, delete: false, export: true, acad_classes: true, acad_assign_teacher: true, acad_subjects: true, acad_timetable: true, acad_promotion: true },
-      homework: { view: true, create: true, edit: true, delete: false, export: true, hw_daily: true, hw_evaluation: true },
-      exam_master: { view: true, create: true, edit: true, delete: false, export: true, exam_term: true, exam_hall: true, exam_trait: true, exam_distribution: true, exam_schedule: true, exam_marks: true, exam_attendance: true, exam_generate_position: true, exam_grades_range: true },
-      card_management: { view: true, create: true, edit: true, delete: false, export: true, card_student_id: true, card_employee_id: true, card_admit: true, cert_tc: true, cert_employee: true },
-      library: { view: true, create: true, edit: true, delete: false, export: true, lib_books: true, lib_category: true, lib_my_issued: true, lib_issue_return: true },
-      sms_notices: { view: true, create: true, edit: true, delete: false, export: true, sms_send: true, sms_report: true, sms_birthday_student: true, sms_birthday_staff: true },
-      mailbox: { view: true, create: true, edit: true, delete: true, message_inbox: true, message_compose: true },
-      reports: { view: true, export: true, reports_custom: true, reports_student: true, reports_fees: false, reports_financial: false, reports_attendance: true, reports_hr: false, reports_exam: true }
-    }),
-    "Accountant": makeRolePreset({
-      dashboard: { view: true, export: true, stats_overview: true, quick_actions: true, fee_charts: true, attendance_charts: false, recent_activity: true },
-      reception: { view: true, create: false, edit: false, delete: false, export: false, helpdesk_inquiries: true, helpdesk_grievance: false, visitor_pass: false, postal_dispatch: false, call_logs: false },
-      admission: { view: true, create: false, edit: false, delete: false, export: false, admission_create: false, admission_online: true, students_import: false, admission_letter: false, admission_documents: false },
-      students: { view: true, create: false, edit: false, delete: false, export: true, students_list: true, students_custom_list: true, students_inactive: true, student_profile_edit: false, student_guardian_info: true },
-      staff: { view: true, create: false, edit: false, delete: false, export: true, staff_directory: true, staff_add: false, payroll: true, leave_management: false, staff_advance: true, staff_awards: false },
-      student_accounting: { view: true, create: true, edit: true, delete: false, export: true, fees_pos: true, fees_dues: true, fees_allocation: true, fees_types: true, fees_siblings: true, fees_receipt_reprint: true },
-      office_accounting: { view: true, create: true, edit: true, delete: false, export: true, office_deposit: true, office_expense: true, office_transactions: true, office_heads: true },
-      supervision: { view: true, create: false, edit: false, delete: false, export: true, transport_routes: true, transport_stoppage: true, transport_assign: true, hostel_allocation: false, transport_maintenance: true },
-      inventory: { view: true, create: true, edit: true, delete: false, export: true, inventory_product: true, inventory_sales: true, inventory_category: true },
-      sms_notices: { view: true, create: true, edit: true, delete: false, export: true, sms_send: true, sms_report: true, sms_birthday_student: false, sms_birthday_staff: false },
-      mailbox: { view: true, create: true, edit: true, delete: true, message_inbox: true, message_compose: true },
-      reports: { view: true, export: true, reports_custom: true, reports_student: true, reports_fees: true, reports_financial: true, reports_attendance: false, reports_hr: true, reports_exam: false }
-    }),
     "Teacher": makeRolePreset({
       dashboard: { view: true, export: false, stats_overview: true, quick_actions: false, fee_charts: false, attendance_charts: true, recent_activity: false },
       students: { view: true, create: false, edit: false, delete: false, export: false, students_list: true, students_custom_list: false, students_inactive: false, student_profile_edit: false, student_guardian_info: false },
@@ -432,23 +400,14 @@ export const createDefaultRolePermissions = () => {
       library: { view: true, create: false, edit: false, delete: false, export: false, lib_books: true, lib_category: false, lib_my_issued: true, lib_issue_return: false },
       mailbox: { view: true, create: true, edit: true, delete: true, message_inbox: true, message_compose: true }
     }),
-    "Librarian": makeRolePreset({
-      dashboard: { view: true, export: false, stats_overview: true, quick_actions: false, fee_charts: false, attendance_charts: false, recent_activity: false },
-      students: { view: true, create: false, edit: false, delete: false, export: false, students_list: true, students_custom_list: false, students_inactive: false, student_profile_edit: false, student_guardian_info: false },
-      staff: { view: true, create: false, edit: false, delete: false, export: false, staff_directory: true, staff_add: false, payroll: false, leave_management: true, staff_advance: false, staff_awards: false },
-      library: { view: true, create: true, edit: true, delete: true, export: true, lib_books: true, lib_category: true, lib_my_issued: true, lib_issue_return: true },
-      inventory: { view: true, create: true, edit: true, delete: false, export: true, inventory_product: true, inventory_sales: false, inventory_category: true },
-      mailbox: { view: true, create: true, edit: true, delete: true, message_inbox: true, message_compose: true }
-    }),
-    "Transport Manager": makeRolePreset({
-      dashboard: { view: true, export: false, stats_overview: true, quick_actions: false, fee_charts: false, attendance_charts: false, recent_activity: false },
+    "Driver": makeRolePreset({
+      dashboard: { view: true, export: false, stats_overview: false, quick_actions: false, fee_charts: false, attendance_charts: false, recent_activity: false },
       students: { view: true, create: false, edit: false, delete: false, export: true, students_list: true, students_custom_list: false, students_inactive: false, student_profile_edit: false, student_guardian_info: true },
       staff: { view: true, create: false, edit: false, delete: false, export: false, staff_directory: true, staff_add: false, payroll: false, leave_management: true, staff_advance: false, staff_awards: false },
-      supervision: { view: true, create: true, edit: true, delete: true, export: true, transport_routes: true, transport_stoppage: true, transport_assign: true, hostel_allocation: false, transport_maintenance: true },
-      student_accounting: { view: true, create: false, edit: false, delete: false, export: true, fees_pos: false, fees_dues: true, fees_allocation: false, fees_types: false, fees_siblings: false, fees_receipt_reprint: false },
+      supervision: { view: true, create: false, edit: true, delete: false, export: true, transport_routes: true, transport_stoppage: true, transport_assign: true, hostel_allocation: false, transport_maintenance: true },
+      attendance: { view: true, create: false, edit: false, delete: false, export: false, attendance_students: false, attendance_staff: true, attendance_monthly_register: false, automatic_bell: false },
       sms_notices: { view: true, create: true, edit: true, delete: false, export: true, sms_send: true, sms_report: true, sms_birthday_student: false, sms_birthday_staff: false },
-      mailbox: { view: true, create: true, edit: true, delete: true, message_inbox: true, message_compose: true },
-      reports: { view: true, export: true, reports_custom: false, reports_student: true, reports_fees: true, reports_financial: false, reports_attendance: false, reports_hr: false, reports_exam: false }
+      mailbox: { view: true, create: true, edit: true, delete: true, message_inbox: true, message_compose: true }
     }),
     "Receptionist": makeRolePreset({
       dashboard: { view: true, export: false, stats_overview: true, quick_actions: true, fee_charts: false, attendance_charts: false, recent_activity: false },
@@ -457,18 +416,6 @@ export const createDefaultRolePermissions = () => {
       students: { view: true, create: false, edit: false, delete: false, export: false, students_list: true, students_custom_list: false, students_inactive: false, student_profile_edit: false, student_guardian_info: true },
       sms_notices: { view: true, create: true, edit: true, delete: false, export: true, sms_send: true, sms_report: true, sms_birthday_student: true, sms_birthday_staff: true },
       mailbox: { view: true, create: true, edit: true, delete: true, message_inbox: true, message_compose: true }
-    }),
-    "Parent": makeRolePreset({
-      dashboard: { view: true, export: false, stats_overview: false, quick_actions: false, fee_charts: false, attendance_charts: false, recent_activity: false },
-      students: { view: true, create: false, edit: false, delete: false, export: false, students_list: true, students_custom_list: false, students_inactive: false, student_profile_edit: false, student_guardian_info: true },
-      student_accounting: { view: true, create: false, edit: false, delete: false, export: false, fees_pos: false, fees_dues: true, fees_allocation: false, fees_types: false, fees_siblings: false, fees_receipt_reprint: true },
-      attendance: { view: true, create: false, edit: false, delete: false, export: false, attendance_students: true, attendance_staff: false, attendance_monthly_register: true, automatic_bell: false },
-      academic: { view: true, create: false, edit: false, delete: false, export: false, acad_classes: false, acad_assign_teacher: false, acad_subjects: true, acad_timetable: true, acad_promotion: false },
-      homework: { view: true, create: false, edit: false, delete: false, export: false, hw_daily: true, hw_evaluation: true },
-      exam_master: { view: true, create: false, edit: false, delete: false, export: true, exam_term: false, exam_hall: false, exam_trait: false, exam_distribution: false, exam_schedule: true, exam_marks: true, exam_attendance: false, exam_generate_position: false, exam_grades_range: false },
-      card_management: { view: true, create: false, edit: false, delete: false, export: true, card_student_id: true, card_employee_id: false, card_admit: true, cert_tc: false, cert_employee: false },
-      library: { view: true, create: false, edit: false, delete: false, export: false, lib_books: true, lib_category: false, lib_my_issued: true, lib_issue_return: false },
-      mailbox: { view: true, create: true, edit: false, delete: false, message_inbox: true, message_compose: true }
     }),
     "Student": makeRolePreset({
       dashboard: { view: true, export: false, stats_overview: false, quick_actions: false, fee_charts: false, attendance_charts: false, recent_activity: false },
