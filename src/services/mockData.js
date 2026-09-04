@@ -255,8 +255,8 @@ export const initialSchoolData = {
     "aadhaarNo": "781298341928",
     "drivingLicenseNo": "UP13 20170008819",
     "joiningDate": "2024-03-19",
-    "salary": 25000,
-    "basicSalary": 25000,
+    "salary": 0,
+    "basicSalary": 0,
     "upiId": "9719476606@upi",
     "branchId": "BR-01",
     "status": "Active"
@@ -291,8 +291,8 @@ export const initialSchoolData = {
     "aadhaarNo": "849102938475",
     "drivingLicenseNo": "UP13 20050001234",
     "joiningDate": "2002-04-01",
-    "salary": 15000,
-    "basicSalary": 15000,
+    "salary": 0,
+    "basicSalary": 0,
     "upiId": "9758882443@paytm",
     "branchId": "BR-01",
     "status": "Active"
