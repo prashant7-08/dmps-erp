@@ -174,7 +174,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   const [editDeptFormData, setEditDeptFormData] = useState({ id: '', name: '', code: '', head: '', color: 'indigo' });
 
   const [isAddDesigModalOpen, setIsAddDesigModalOpen] = useState(false);
-  const [desigFormData, setDesigFormData] = useState({ title: '', department: 'Science & Biology', rank: 3 });
+  const [desigFormData, setDesigFormData] = useState({ title: '', department: 'Administration', rank: 3 });
   const [isEditDesigModalOpen, setIsEditDesigModalOpen] = useState(false);
   const [editingDesig, setEditingDesig] = useState(null);
   const [editDesigFormData, setEditDesigFormData] = useState({ id: '', title: '', department: '', rank: 3 });
@@ -341,7 +341,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
     schoolService.addDesignation(desigFormData);
     setDesignations([...schoolService.getDesignations()]);
     setIsAddDesigModalOpen(false);
-    setDesigFormData({ title: '', department: 'Science & Biology', rank: 3 });
+    setDesigFormData({ title: '', department: 'Administration', rank: 3 });
     showToast(`🎖️ Designation "${desigFormData.title}" added!`, 'success');
   };
 
@@ -403,9 +403,9 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
   const handleDownloadSampleCsv = () => {
     const sampleHeader = 'Name,Department,Designation,Qualification,Mobile,Email,Gender,ClassTeacherOf,BasicSalary\n';
     const sampleRows = [
-      'Dr. Vivek Agnihotri,Science & Biology,PGT Physics,"M.Sc., Ph.D.",9811200001,vivek.a@dpga.edu.in,Male,Class 12 - A,65000',
-      'Meenakshi Sundaram,Mathematics,TGT Maths,"M.Sc., B.Ed.",9811200002,meenakshi.s@dpga.edu.in,Female,Class 9 - B,52000',
-      'Sunil Gavaskar,Physical Education & Sports,PET Director,B.P.Ed.,9811200003,sunil.g@dpga.edu.in,Male,None,45000'
+      'Pooja Rajput,Pre-Primary,Mother Teacher (LKG),"B.A., B.Ed.",9719476606,pooja.r@dmps.edu.in,Female,LKG - A,25000',
+      'Pooran Singh,Secondary,Senior Mathematics Teacher,"M.Sc., B.Ed.",9758975881,pooran.s@dmps.edu.in,Male,Class 10 - A,25000',
+      'Chokhelal,Transport,Senior Transport Bus Driver,High School,9758975885,chokhelal@dmps.edu.in,Male,None,25000'
     ].join('\n');
 
     const blob = new Blob([sampleHeader + sampleRows], { type: 'text/csv;charset=utf-8;' });
@@ -1230,7 +1230,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 rows="5"
                 value={csvText}
                 onChange={(e) => handleParseCsv(e.target.value)}
-                placeholder={`Name,Department,Designation,Qualification,Mobile,Email,Gender,ClassTeacherOf,BasicSalary\nDr. Vivek Agnihotri,Science & Biology,PGT Physics,"M.Sc., Ph.D.",9811200001,vivek.a@dpga.edu.in,Male,Class 12 - A,65000`}
+                placeholder={`Name,Department,Designation,Qualification,Mobile,Email,Gender,ClassTeacherOf,BasicSalary\nPooja Rajput,Pre-Primary,Mother Teacher (LKG),"B.A., B.Ed.",9719476606,pooja.r@dmps.edu.in,Female,LKG - A,25000`}
                 className="w-full p-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono text-[11px] resize-none"
               ></textarea>
             </div>
@@ -1307,7 +1307,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
               required
               value={deptFormData.name}
               onChange={(e) => setDeptFormData({ ...deptFormData, name: e.target.value })}
-              placeholder="e.g. Science & Biology"
+              placeholder="e.g. Administration, Secondary, Primary"
               className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
             />
           </div>
@@ -1319,7 +1319,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 type="text"
                 value={deptFormData.code}
                 onChange={(e) => setDeptFormData({ ...deptFormData, code: e.target.value.toUpperCase() })}
-                placeholder="e.g. SCI"
+                placeholder="e.g. ADMIN"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono"
               />
             </div>
@@ -1330,7 +1330,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 type="text"
                 value={deptFormData.head}
                 onChange={(e) => setDeptFormData({ ...deptFormData, head: e.target.value })}
-                placeholder="e.g. Dr. Vivek Agnihotri"
+                placeholder="e.g. Mr. Pramod Kumar Rajput"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
               />
             </div>
@@ -2883,7 +2883,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
               required
               value={editDeptFormData.name}
               onChange={(e) => setEditDeptFormData({ ...editDeptFormData, name: e.target.value })}
-              placeholder="e.g. Science & Biology"
+              placeholder="e.g. Administration, Secondary, Primary"
               className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
             />
           </div>
@@ -2895,7 +2895,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 type="text"
                 value={editDeptFormData.code}
                 onChange={(e) => setEditDeptFormData({ ...editDeptFormData, code: e.target.value.toUpperCase() })}
-                placeholder="e.g. SCI"
+                placeholder="e.g. ADMIN"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono"
               />
             </div>
@@ -2906,7 +2906,7 @@ export const StaffPage = ({ initialSubTab = 'staff', onOpenIDCards }) => {
                 type="text"
                 value={editDeptFormData.head}
                 onChange={(e) => setEditDeptFormData({ ...editDeptFormData, head: e.target.value })}
-                placeholder="e.g. Dr. Vivek Agnihotri"
+                placeholder="e.g. Mr. Pramod Kumar Rajput"
                 className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
               />
             </div>

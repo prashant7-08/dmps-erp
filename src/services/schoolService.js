@@ -1,6 +1,12 @@
 import { initialSchoolData } from './mockData';
 import { createDefaultRolePermissions, ALL_MODULE_PERMISSIONS } from '../utils/permissionRegistry';
 import { getManualSalaryAssignments, saveManualSalaryAssignment } from '../utils/salaryUtils';
+import { 
+  getPersistentDepartments, 
+  savePersistentDepartments, 
+  getPersistentDesignations, 
+  savePersistentDesignations 
+} from '../utils/organizationUtils';
 
 const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V19_EXACT_SQL_COLLECTIONS';
 
@@ -33,13 +39,16 @@ class SchoolService {
             return t;
           });
 
+          const persistentDepts = getPersistentDepartments(parsed.departments);
+          const persistentDesigs = getPersistentDesignations(parsed.designations);
+
           return {
             ...JSON.parse(JSON.stringify(initialSchoolData)),
             ...parsed,
             branches: Array.isArray(parsed.branches) && parsed.branches.length > 0 ? parsed.branches : initialSchoolData.branches,
             teachers: enrichedTeachers,
-            departments: Array.isArray(parsed.departments) && parsed.departments.length > 0 ? parsed.departments : (initialSchoolData.departments || []),
-            designations: Array.isArray(parsed.designations) && parsed.designations.length > 0 ? parsed.designations : (initialSchoolData.designations || []),
+            departments: persistentDepts,
+            designations: persistentDesigs,
             classes: Array.isArray(parsed.classes) && parsed.classes.length > 0 ? parsed.classes : initialSchoolData.classes,
             biometricLogs: Array.isArray(parsed.biometricLogs) && parsed.biometricLogs.length > 0 ? parsed.biometricLogs : initialSchoolData.biometricLogs,
             staffAttendance: Array.isArray(parsed.staffAttendance) && parsed.staffAttendance.length > 0 ? parsed.staffAttendance : initialSchoolData.staffAttendance
@@ -50,6 +59,8 @@ class SchoolService {
       console.error('Error loading data from localStorage', e);
     }
     const fresh = JSON.parse(JSON.stringify(initialSchoolData));
+    fresh.departments = getPersistentDepartments();
+    fresh.designations = getPersistentDesignations();
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
     } catch (e) {}
@@ -467,18 +478,7 @@ class SchoolService {
   // Departments Master
   getDepartments() {
     if (!this.data.departments || !Array.isArray(this.data.departments) || this.data.departments.length === 0) {
-      this.data.departments = [
-        { id: 'DEP-01', name: 'Science & Biology', code: 'SCI', head: 'Dr. Vivek Agnihotri', memberCount: 5, color: 'emerald' },
-        { id: 'DEP-02', name: 'Mathematics', code: 'MATH', head: 'Mrs. Meenakshi Sundaram', memberCount: 4, color: 'blue' },
-        { id: 'DEP-03', name: 'English & Literature', code: 'ENG', head: 'Mrs. Shweta Rastogi', memberCount: 3, color: 'purple' },
-        { id: 'DEP-04', name: 'Hindi & Sanskrit', code: 'HIN', head: 'Pt. Ramakant Sharma', memberCount: 3, color: 'amber' },
-        { id: 'DEP-05', name: 'Social Studies & Commerce', code: 'SST', head: 'Mr. Alok Mishra', memberCount: 3, color: 'rose' },
-        { id: 'DEP-06', name: 'Computer Science & IT', code: 'IT', head: 'Er. Prashant Singh', memberCount: 2, color: 'indigo' },
-        { id: 'DEP-07', name: 'Primary Wing & Kindergarten', code: 'PRI', head: 'Mrs. Anjali Gupta', memberCount: 4, color: 'teal' },
-        { id: 'DEP-08', name: 'Physical Education & Sports', code: 'SPORTS', head: 'Mr. Sunil Gavaskar', memberCount: 2, color: 'orange' },
-        { id: 'DEP-09', name: 'Administration & Accounts', code: 'ADMIN', head: 'Mr. Rajesh Saxena', memberCount: 3, color: 'cyan' }
-      ];
-      this.saveData();
+      this.data.departments = getPersistentDepartments();
     }
     return this.data.departments;
   }
@@ -492,6 +492,7 @@ class SchoolService {
       ...deptData
     };
     this.data.departments.unshift(newDept);
+    savePersistentDepartments(this.data.departments);
     this.saveData();
     return newDept;
   }
@@ -501,6 +502,7 @@ class SchoolService {
     const idx = deps.findIndex(d => d.id === id);
     if (idx !== -1) {
       this.data.departments[idx] = { ...this.data.departments[idx], ...updates };
+      savePersistentDepartments(this.data.departments);
       this.saveData();
       return this.data.departments[idx];
     }
@@ -509,25 +511,14 @@ class SchoolService {
 
   deleteDepartment(id) {
     this.data.departments = this.getDepartments().filter(d => d.id !== id);
+    savePersistentDepartments(this.data.departments);
     this.saveData();
   }
 
   // Designations Master
   getDesignations() {
     if (!this.data.designations || !Array.isArray(this.data.designations) || this.data.designations.length === 0) {
-      this.data.designations = [
-        { id: 'DES-01', title: 'Principal', department: 'Administration & Accounts', rank: 1 },
-        { id: 'DES-02', title: 'Vice Principal', department: 'Administration & Accounts', rank: 2 },
-        { id: 'DES-03', title: 'PGT Faculty (Post Graduate Teacher)', department: 'Science & Biology', rank: 3 },
-        { id: 'DES-04', title: 'TGT Faculty (Trained Graduate Teacher)', department: 'Mathematics', rank: 4 },
-        { id: 'DES-05', title: 'PRT Faculty (Primary Teacher)', department: 'Primary Wing & Kindergarten', rank: 5 },
-        { id: 'DES-06', title: 'Headmaster / Headmistress', department: 'Primary Wing & Kindergarten', rank: 3 },
-        { id: 'DES-07', title: 'Librarian & Documentation Head', department: 'Administration & Accounts', rank: 6 },
-        { id: 'DES-08', title: 'Sports Director / PET Incharge', department: 'Physical Education & Sports', rank: 4 },
-        { id: 'DES-09', title: 'Senior Accountant / Fee Head', department: 'Administration & Accounts', rank: 5 },
-        { id: 'DES-10', title: 'IT Administrator & Lab Assistant', department: 'Computer Science & IT', rank: 5 }
-      ];
-      this.saveData();
+      this.data.designations = getPersistentDesignations();
     }
     return this.data.designations;
   }
@@ -540,6 +531,7 @@ class SchoolService {
       ...desigData
     };
     this.data.designations.unshift(newDesig);
+    savePersistentDesignations(this.data.designations);
     this.saveData();
     return newDesig;
   }
@@ -549,6 +541,7 @@ class SchoolService {
     const idx = des.findIndex(d => d.id === id);
     if (idx !== -1) {
       this.data.designations[idx] = { ...this.data.designations[idx], ...updates };
+      savePersistentDesignations(this.data.designations);
       this.saveData();
       return this.data.designations[idx];
     }
@@ -557,6 +550,7 @@ class SchoolService {
 
   deleteDesignation(id) {
     this.data.designations = this.getDesignations().filter(d => d.id !== id);
+    savePersistentDesignations(this.data.designations);
     this.saveData();
   }
 

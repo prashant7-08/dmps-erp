@@ -694,7 +694,7 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       {/* 📋 2. PAYROLL - SALARY ASSIGN */}
       {/* ========================================================================= */}
       {activeTab === 'assign' && (() => {
-        const departmentsList = ['All', 'Administration', 'Secondary', 'Junior', 'Primary', 'Pre-Primary', 'Transport'];
+        const departmentsList = ['All', ...schoolService.getDepartments().map(d => d.name)];
         
         const filteredList = staffAssignments.filter(st => {
           const q = (assignSearchQuery || '').toLowerCase().trim();

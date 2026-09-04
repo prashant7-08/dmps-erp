@@ -209,7 +209,7 @@ export const initialSchoolData = {
         "capacity": 50,
         "roomNo": "TF-02"
     }
-],
+  ],
 
   sections: [
     {
@@ -222,7 +222,34 @@ export const initialSchoolData = {
         "name": "Section B",
         "code": "B"
     }
-],
+  ],
+
+  departments: [
+    { "id": "DEP-01", "name": "Administration", "code": "ADMIN", "head": "PRAMOD KUMAR", "memberCount": 2, "color": "blue" },
+    { "id": "DEP-02", "name": "Secondary", "code": "SEC", "head": "POORAN SINGH", "memberCount": 5, "color": "rose" },
+    { "id": "DEP-03", "name": "Junior", "code": "JUN", "head": "NEETU SHARMA", "memberCount": 3, "color": "amber" },
+    { "id": "DEP-04", "name": "Primary", "code": "PRI", "head": "RAJENDRA SINGH", "memberCount": 4, "color": "emerald" },
+    { "id": "DEP-05", "name": "Pre-Primary", "code": "PRE-PRI", "head": "AKHILESH AGRAWAL", "memberCount": 5, "color": "purple" },
+    { "id": "DEP-06", "name": "Transport", "code": "TRANS", "head": "CHOKHELAL", "memberCount": 2, "color": "orange" }
+  ],
+
+  designations: [
+    { "id": "DES-01", "title": "Super Admin & Principal", "department": "Administration", "rank": 1 },
+    { "id": "DES-02", "title": "Managing Director", "department": "Administration", "rank": 2 },
+    { "id": "DES-03", "title": "Head Teacher - Primary Wing", "department": "Primary", "rank": 3 },
+    { "id": "DES-04", "title": "Senior Mathematics Teacher", "department": "Secondary", "rank": 4 },
+    { "id": "DES-05", "title": "Senior English Lecturer", "department": "Secondary", "rank": 4 },
+    { "id": "DES-06", "title": "Science Teacher & Bus Incharge", "department": "Secondary", "rank": 4 },
+    { "id": "DES-07", "title": "Teacher & Reception Incharge", "department": "Secondary", "rank": 5 },
+    { "id": "DES-08", "title": "Junior Faculty", "department": "Junior", "rank": 5 },
+    { "id": "DES-09", "title": "Primary Teacher", "department": "Primary", "rank": 6 },
+    { "id": "DES-10", "title": "Primary Assistant Teacher", "department": "Primary", "rank": 6 },
+    { "id": "DES-11", "title": "Mother Teacher (LKG)", "department": "Pre-Primary", "rank": 7 },
+    { "id": "DES-12", "title": "Pre-Primary Faculty", "department": "Pre-Primary", "rank": 7 },
+    { "id": "DES-13", "title": "Primary Activity Teacher", "department": "Pre-Primary", "rank": 7 },
+    { "id": "DES-14", "title": "Senior Transport Bus Driver", "department": "Transport", "rank": 8 },
+    { "id": "DES-15", "title": "Transport Driver", "department": "Transport", "rank": 8 }
+  ],
 
   teachers: [
   {

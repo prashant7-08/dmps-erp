@@ -303,7 +303,7 @@ export const AttendancePage = ({ initialType = 'student' }) => {
   // Defaulters list (<75% attendance)
   const defaulters = students.filter(s => (s.attendanceSummary?.percentage || 95) < 75);
 
-  const departments = ['All', 'Academics', 'Science', 'Mathematics', 'Languages', 'Humanities', 'Sports & Physical', 'Administration', 'Transport'];
+  const departments = useMemo(() => ['All', ...schoolService.getDepartments().map(d => d.name)], []);
   const classesList = ['All', 'Play Group', 'Nursery', 'LKG', 'UKG', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10'];
 
   // Monthly Biometric Matrix Data Calculation
