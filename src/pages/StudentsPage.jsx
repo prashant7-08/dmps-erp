@@ -133,79 +133,85 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
   const [siblingTransportPay, setSiblingTransportPay] = useState('');
 
   const handleOpenFeeModal = (student) => {
-    setStudentForFee(student);
-    setEditingTuition(false);
-    setEditingTransport(false);
-    setEditingOldDues(false);
-    setEditingMisc(false);
-    
-    const tDue = student.feeSummary?.tuitionDue !== undefined ? student.feeSummary.tuitionDue : 13500;
-    const trDue = student.feeSummary?.transportDue11Months !== undefined ? student.feeSummary.transportDue11Months : (Number(student.transport?.monthlyFare || 0) * (student.transport?.months || 11));
-    const oDue = student.feeSummary?.oldSessionDues || 0;
-    const mDue = student.feeSummary?.miscellaneousDue || 0;
+    if (!student) return;
+    try {
+      setStudentForFee(student);
+      setEditingTuition(false);
+      setEditingTransport(false);
+      setEditingOldDues(false);
+      setEditingMisc(false);
+      
+      const tDue = student.feeSummary?.tuitionDue !== undefined ? student.feeSummary.tuitionDue : 13500;
+      const trDue = student.feeSummary?.transportDue11Months !== undefined ? student.feeSummary.transportDue11Months : (Number(student.transport?.monthlyFare || 0) * (student.transport?.months || 11));
+      const oDue = student.feeSummary?.oldSessionDues || 0;
+      const mDue = student.feeSummary?.miscellaneousDue || 0;
 
-    setTempTuition(tDue);
-    setTempTransport(trDue);
-    setTempOldDues(oDue);
-    setShowOldDuesRow(Number(oDue) > 0);
-    setShowMiscRow(Number(mDue) > 0);
+      setTempTuition(tDue);
+      setTempTransport(trDue);
+      setTempOldDues(oDue);
+      setShowOldDuesRow(Number(oDue) > 0);
+      setShowMiscRow(Number(mDue) > 0);
 
-    // Sibling detection
-    const fatherMobile = student.parents?.fatherMobile || student.parents?.mobile || student.phone;
-    const fatherName = (student.parents?.fatherName || '').trim().toLowerCase();
-    const studentsList = allStudents || schoolService.getStudents('all') || [];
-    const sibs = (student.feeSummary?.familySiblings?.length > 0)
-      ? student.feeSummary.familySiblings.map(s => studentsList.find(st => st.id === s.id || st.name === s.name) || s)
-      : studentsList.filter(s => {
-          if (s.id === student.id) return false;
-          if (fatherMobile && (s.parents?.fatherMobile === fatherMobile || s.parents?.mobile === fatherMobile || s.phone === fatherMobile)) return true;
-          if (fatherName && fatherName.length > 2 && (s.parents?.fatherName || '').trim().toLowerCase() === fatherName) return true;
-          return false;
-        });
+      // Sibling detection
+      const fatherMobile = student.parents?.fatherMobile || student.parents?.mobile || student.phone;
+      const fatherName = (student.parents?.fatherName || '').trim().toLowerCase();
+      const studentsList = allStudents || schoolService.getStudents('all') || [];
+      const sibs = (student.feeSummary?.familySiblings?.length > 0)
+        ? student.feeSummary.familySiblings.map(s => studentsList.find(st => st.id === s.id || st.name === s.name) || s)
+        : studentsList.filter(s => {
+            if (s.id === student.id) return false;
+            if (fatherMobile && (s.parents?.fatherMobile === fatherMobile || s.parents?.mobile === fatherMobile || s.phone === fatherMobile)) return true;
+            if (fatherName && fatherName.length > 2 && (s.parents?.fatherName || '').trim().toLowerCase() === fatherName) return true;
+            return false;
+          });
 
-    if (sibs.length > 0) {
-      setSelectedSibling(sibs[0]);
-    } else {
-      setSelectedSibling(null);
+      if (sibs.length > 0) {
+        setSelectedSibling(sibs[0]);
+      } else {
+        setSelectedSibling(null);
+      }
+      setIsSiblingPayActive(false);
+      setSiblingTuitionPay('');
+      setSiblingTransportPay('');
+
+      // Initialize itemized misc list
+      const existingBreakdown = student.feeSummary?.miscellaneousBreakdown;
+      if (Array.isArray(existingBreakdown) && existingBreakdown.length > 0) {
+        setMiscItemsList(existingBreakdown);
+      } else if (Number(student.feeSummary?.miscellaneousDue || 0) > 0) {
+        setMiscItemsList([{ id: 'misc_1', title: 'General Misc Fee', amount: Number(student.feeSummary.miscellaneousDue) }]);
+      } else {
+        setMiscItemsList([]);
+      }
+      setNewMiscTitle('');
+      setNewMiscAmount('');
+
+      const tuitionRem = Math.max(0, tDue - (student.feeSummary?.tuitionPaid || 0));
+      const transportRem = Math.max(0, trDue - (student.feeSummary?.transportPaid || 0));
+      const hostelRem = Math.max(0, (student.feeSummary?.hostelDue || 0) - (student.feeSummary?.hostelPaid || 0));
+      const oldSessionRem = Math.max(0, oDue - (student.feeSummary?.oldSessionPaid || 0));
+      const miscRem = Math.max(0, mDue - (student.feeSummary?.miscPaid || 0));
+
+      const totalDue = tuitionRem + transportRem + hostelRem + oldSessionRem + miscRem;
+
+      setFeeForm({
+        tuitionPay: tuitionRem > 0 ? tuitionRem : '',
+        transportPay: transportRem > 0 ? transportRem : '',
+        hostelPay: hostelRem > 0 ? hostelRem : '',
+        oldSessionPay: oldSessionRem > 0 ? oldSessionRem : '',
+        miscPay: miscRem > 0 ? miscRem : '',
+        discount: 0,
+        amount: totalDue > 0 ? totalDue : 0,
+        paymentMode: 'Cash',
+        paymentDate: new Date().toISOString().split('T')[0],
+        remarks: 'School Fee Installment',
+        receiptNo: `DMPS-REC-${Date.now().toString().slice(-5)}`
+      });
+      setIsFeeModalOpen(true);
+    } catch (err) {
+      console.error('Error opening fee modal:', err);
+      showToast('Error opening fee collection window', 'error');
     }
-    setIsSiblingPayActive(false);
-    setSiblingTuitionPay('');
-    setSiblingTransportPay('');
-
-    // Initialize itemized misc list
-    const existingBreakdown = student.feeSummary?.miscellaneousBreakdown;
-    if (Array.isArray(existingBreakdown) && existingBreakdown.length > 0) {
-      setMiscItemsList(existingBreakdown);
-    } else if (Number(student.feeSummary?.miscellaneousDue || 0) > 0) {
-      setMiscItemsList([{ id: 'misc_1', title: 'General Misc Fee', amount: Number(student.feeSummary.miscellaneousDue) }]);
-    } else {
-      setMiscItemsList([]);
-    }
-    setNewMiscTitle('');
-    setNewMiscAmount('');
-
-    const tuitionRem = Math.max(0, tDue - (student.feeSummary?.tuitionPaid || 0));
-    const transportRem = Math.max(0, trDue - (student.feeSummary?.transportPaid || 0));
-    const hostelRem = Math.max(0, (student.feeSummary?.hostelDue || 0) - (student.feeSummary?.hostelPaid || 0));
-    const oldSessionRem = Math.max(0, oDue - (student.feeSummary?.oldSessionPaid || 0));
-    const miscRem = Math.max(0, mDue - (student.feeSummary?.miscPaid || 0));
-
-    const totalDue = tuitionRem + transportRem + hostelRem + oldSessionRem + miscRem;
-
-    setFeeForm({
-      tuitionPay: tuitionRem > 0 ? tuitionRem : '',
-      transportPay: transportRem > 0 ? transportRem : '',
-      hostelPay: hostelRem > 0 ? hostelRem : '',
-      oldSessionPay: oldSessionRem > 0 ? oldSessionRem : '',
-      miscPay: miscRem > 0 ? miscRem : '',
-      discount: 0,
-      amount: totalDue > 0 ? totalDue : 0,
-      paymentMode: 'Cash',
-      paymentDate: new Date().toISOString().split('T')[0],
-      remarks: 'School Fee Installment',
-      receiptNo: `DMPS-REC-${Date.now().toString().slice(-5)}`
-    });
-    setIsFeeModalOpen(true);
   };
 
   const handleSaveTuitionInline = (studentId) => {
@@ -1936,8 +1942,8 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                   Ledger No. (खाता नं.): <span className="text-emerald-300 font-mono font-black">#{selectedStudent.rollNo}</span>
                 </p>
 
-                <p className="text-[11px] text-slate-300 whitespace-nowrap overflow-hidden text-ellipsis">
-                  Campus: {selectedStudent.branchName || 'Dadheech Memorial Public School (Main Campus)'}
+                <p className="text-[11px] text-slate-300 whitespace-nowrap overflow-hidden text-ellipsis max-w-sm">
+                  Campus: {selectedStudent.branchName?.replace(/\r?\n|\r/g, ' ') || 'Dadheech Memorial Public School (Main Campus)'}
                 </p>
               </div>
 
@@ -1946,8 +1952,11 @@ export const StudentsPage = ({ initialTab = 'active', initialSelectedStudent = n
                 <button
                   type="button"
                   onClick={() => {
+                    const st = selectedStudent;
                     setIsProfileModalOpen(false);
-                    handleOpenFeeModal(selectedStudent);
+                    setTimeout(() => {
+                      handleOpenFeeModal(st);
+                    }, 50);
                   }}
                   className="px-3.5 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 >
