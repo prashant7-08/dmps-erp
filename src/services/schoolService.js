@@ -19,12 +19,16 @@ class SchoolService {
         const parsed = JSON.parse(stored);
         if (parsed && Array.isArray(parsed.students) && parsed.students.length >= 100) {
           const loadedTeachers = Array.isArray(parsed.teachers) && parsed.teachers.length > 0 ? parsed.teachers : initialSchoolData.teachers;
-          // Apply any persistent manual salary overrides
+          // Apply persistent manual salary overrides and enforce 0 for management
           const enrichedTeachers = loadedTeachers.map(t => {
             const assigned = manualSalaries[t.id] ?? manualSalaries[t.employeeId] ?? manualSalaries[t.name];
             if (assigned !== undefined && !isNaN(Number(assigned))) {
               const num = Number(assigned);
               return { ...t, basicSalary: num, salary: typeof t.salary === 'object' ? { ...t.salary, basic: num, netSalary: num } : num };
+            }
+            // If management (Prashant / Pramod Kumar), enforce 0
+            if (t.id === 'TCH-1001' || t.id === 'TCH-1002' || (t.name && (t.name.toLowerCase().includes('prashant') || t.name.toLowerCase().includes('pramod kumar')))) {
+              return { ...t, basicSalary: 0, salary: 0 };
             }
             return t;
           });

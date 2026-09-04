@@ -128,14 +128,27 @@ export const getStaffSalary = (staff) => {
     if (!isNaN(n)) return n;
   }
 
-  // 2. Check direct basicSalary property
+  // 2. School Management & Founders are strictly Grade 0 (Honorary / Voluntary ₹0)
+  const isManagement = 
+    staff.id === 'TCH-1001' || 
+    staff.id === 'TCH-1002' || 
+    (staff.name && (
+      staff.name.toLowerCase().includes('prashant') || 
+      staff.name.toLowerCase().includes('pramod kumar')
+    ));
+
+  if (isManagement) {
+    return 0;
+  }
+
+  // 3. Check direct basicSalary property
   if (typeof staff.basicSalary === 'number') return staff.basicSalary;
   if (staff.basicSalary !== undefined && staff.basicSalary !== null && staff.basicSalary !== '') {
     const n = Number(staff.basicSalary);
     if (!isNaN(n)) return n;
   }
 
-  // 3. Check nested salary object
+  // 4. Check nested salary object
   if (staff.salary && typeof staff.salary === 'object') {
     if (typeof staff.salary.basic === 'number') return staff.salary.basic;
     if (typeof staff.salary.netSalary === 'number') return staff.salary.netSalary;
