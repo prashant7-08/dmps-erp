@@ -406,6 +406,9 @@ function AppContent() {
       case 'setting-global':
       case 'setting-school':
       case 'setting-role-permission':
+      case 'role-permissions-single':
+      case 'role-permission':
+      case 'roles':
       case 'setting-session':
       case 'setting-translations':
       case 'setting-cron':
