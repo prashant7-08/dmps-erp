@@ -271,6 +271,19 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
     return `${activeCount} / ${totalCount} Active`;
   };
 
+  const filteredModules = React.useMemo(() => {
+    return ALL_MODULE_PERMISSIONS.filter(mod => {
+      if (selectedPermCategory !== 'All Modules' && mod.category !== selectedPermCategory) {
+        return false;
+      }
+      if (!permSearchQuery.trim()) return true;
+      const q = permSearchQuery.toLowerCase();
+      const matchName = mod.name.toLowerCase().includes(q) || mod.id.toLowerCase().includes(q) || mod.category.toLowerCase().includes(q);
+      const matchSub = mod.subFeatures?.some(sub => sub.label.toLowerCase().includes(q) || sub.id.toLowerCase().includes(q));
+      return matchName || matchSub;
+    });
+  }, [selectedPermCategory, permSearchQuery]);
+
   const handleDeleteRole = (roleToDelete) => {
     if (roleToDelete === 'Super Admin') {
       showToast('Super Admin is the core system owner and cannot be deleted!', 'error');
