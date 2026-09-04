@@ -23,6 +23,7 @@ export const defaultSalaryTemplates = [
 ];
 
 export const SALARY_TEMPLATES_STORAGE_KEY = 'DMPS_SALARY_TEMPLATES_V1';
+export const MANUAL_SALARY_STORAGE_KEY = 'DMPS_MANUAL_SALARY_ASSIGNMENTS_V1';
 
 export const getSavedSalaryTemplates = () => {
   try {
@@ -53,17 +54,88 @@ export const saveSalaryTemplates = (templates) => {
 };
 
 /**
+ * Retrieves all manual staff salary assignments from persistent localStorage.
+ * Format: { "TCH-1001": 25000, "EMP-2026-001": 25000, "Prashant Kumar Rajput": 25000, ... }
+ */
+export const getManualSalaryAssignments = () => {
+  try {
+    const stored = localStorage.getItem(MANUAL_SALARY_STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (parsed && typeof parsed === 'object') {
+        return parsed;
+      }
+    }
+  } catch (e) {
+    console.warn('Failed to load manual salary assignments:', e);
+  }
+  return {};
+};
+
+/**
+ * Saves a manual salary assignment for a staff member (by ID, employeeId, and Name).
+ */
+export const saveManualSalaryAssignment = (staffIdentifier, amount) => {
+  if (!staffIdentifier) return;
+  const num = Number(amount);
+  if (isNaN(num) || num < 0) return;
+  try {
+    const current = getManualSalaryAssignments();
+    current[staffIdentifier] = num;
+    localStorage.setItem(MANUAL_SALARY_STORAGE_KEY, JSON.stringify(current));
+  } catch (e) {
+    console.warn('Failed to save manual salary assignment:', e);
+  }
+};
+
+/**
+ * Saves all manual salary assignments in bulk to persistent localStorage.
+ */
+export const saveAllManualSalaryAssignments = (assignmentsMap) => {
+  try {
+    const current = getManualSalaryAssignments();
+    const updated = { ...current, ...assignmentsMap };
+    localStorage.setItem(MANUAL_SALARY_STORAGE_KEY, JSON.stringify(updated));
+  } catch (e) {
+    console.warn('Failed to save bulk salary assignments:', e);
+  }
+};
+
+/**
  * Safely extracts numerical salary from any teacher / employee / staff object.
- * Guarantee: ALWAYS returns a number (never an object `{...}` or NaN).
- * Handles 0 (honorary), basicSalary, salary.basic, salary.netSalary, numeric strings.
+ * Priority:
+ * 1. Explicit user manual assignment from DMPS_MANUAL_SALARY_ASSIGNMENTS_V1 (Highest Priority)
+ * 2. staff.basicSalary
+ * 3. staff.salary.basic or staff.salary.netSalary
+ * 4. staff.salary (number or string)
+ * Guarantee: ALWAYS returns a valid non-NaN number.
  */
 export const getStaffSalary = (staff) => {
   if (!staff) return 0;
+
+  // 1. Check persistent manual assignments map first
+  const manualMap = getManualSalaryAssignments();
+  if (staff.id && manualMap[staff.id] !== undefined) {
+    const n = Number(manualMap[staff.id]);
+    if (!isNaN(n)) return n;
+  }
+  if (staff.employeeId && manualMap[staff.employeeId] !== undefined) {
+    const n = Number(manualMap[staff.employeeId]);
+    if (!isNaN(n)) return n;
+  }
+  if (staff.name && manualMap[staff.name] !== undefined) {
+    const n = Number(manualMap[staff.name]);
+    if (!isNaN(n)) return n;
+  }
+
+  // 2. Check direct basicSalary property
   if (typeof staff.basicSalary === 'number') return staff.basicSalary;
   if (staff.basicSalary !== undefined && staff.basicSalary !== null && staff.basicSalary !== '') {
     const n = Number(staff.basicSalary);
     if (!isNaN(n)) return n;
   }
+
+  // 3. Check nested salary object
   if (staff.salary && typeof staff.salary === 'object') {
     if (typeof staff.salary.basic === 'number') return staff.salary.basic;
     if (typeof staff.salary.netSalary === 'number') return staff.salary.netSalary;
@@ -72,7 +144,10 @@ export const getStaffSalary = (staff) => {
       if (!isNaN(n)) return n;
     }
   }
+
+  // 4. Check salary primitive
   if (typeof staff.salary === 'number') return staff.salary;
   if (typeof staff.salary === 'string' && !isNaN(Number(staff.salary))) return Number(staff.salary);
+
   return 0;
 };

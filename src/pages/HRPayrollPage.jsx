@@ -30,7 +30,15 @@ import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import { PrintablePaySlip } from '../components/printables/PrintablePaySlip';
-import { getStaffSalary, getSavedSalaryTemplates, saveSalaryTemplates, defaultSalaryTemplates } from '../utils/salaryUtils';
+import { 
+  getStaffSalary, 
+  getSavedSalaryTemplates, 
+  saveSalaryTemplates, 
+  defaultSalaryTemplates,
+  getManualSalaryAssignments,
+  saveManualSalaryAssignment,
+  saveAllManualSalaryAssignments 
+} from '../utils/salaryUtils';
 import schoolService from '../services/schoolService';
 
 export const HRPayrollPage = ({ initialTab = 'payment' }) => {
@@ -63,6 +71,9 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
   const [selectedMonth, setSelectedMonth] = useState('August 2026');
   const [searchQuery, setSearchQuery] = useState('');
   const [payrollRefresh, setPayrollRefresh] = useState(0);
+  const [assignSearchQuery, setAssignSearchQuery] = useState('');
+  const [assignDeptFilter, setAssignDeptFilter] = useState('All');
+  const [savedRowsMap, setSavedRowsMap] = useState({});
 
   // Canonical standard month options for DMPS Session 2026-27
   const monthOptions = [
@@ -103,9 +114,10 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
     saveSalaryTemplates(newTemplates);
   };
 
-  // 2. Staff Salary Assignment Roster
-  const [staffAssignments, setStaffAssignments] = useState(() => {
-    return teachers.map((t, idx) => ({
+  // 2. Staff Salary Assignment Roster Builder
+  const buildStaffAssignments = () => {
+    const list = schoolService.getTeachers() || [];
+    return list.map((t, idx) => ({
       staffId: t.id,
       name: t.name,
       employeeId: t.employeeId || `EMP-2026-${String(idx + 1).padStart(3, '0')}`,
@@ -114,9 +126,49 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       assignedSalary: getStaffSalary(t),
       paymentMode: 'UPI / PhonePe / GPay',
       mobile: t.phone || t.mobile || '9719476606',
-      upiId: t.upiId || t.phone || t.mobile || '9719476606@upi'
+      upiId: t.upiId || t.phone || t.mobile || '9719476606@upi',
+      status: t.status || 'Active',
+      photo: t.photo || ''
     }));
-  });
+  };
+
+  const [staffAssignments, setStaffAssignments] = useState(buildStaffAssignments);
+
+  useEffect(() => {
+    setStaffAssignments(buildStaffAssignments());
+  }, [payrollRefresh]);
+
+  const handleUpdateSingleSalary = (st, newSalary) => {
+    const val = Math.max(0, Number(newSalary) || 0);
+    setStaffAssignments(prev => prev.map(item => item.staffId === st.staffId ? { ...item, assignedSalary: val } : item));
+    saveManualSalaryAssignment(st.staffId, val);
+    saveManualSalaryAssignment(st.name, val);
+    saveManualSalaryAssignment(st.employeeId, val);
+    schoolService.updateTeacher(st.staffId, { basicSalary: val, salary: { basic: val, netSalary: val } });
+    
+    // Trigger visual green save pulse
+    setSavedRowsMap(prev => ({ ...prev, [st.staffId]: true }));
+    setTimeout(() => {
+      setSavedRowsMap(prev => ({ ...prev, [st.staffId]: false }));
+    }, 2500);
+
+    setPayrollRefresh(prev => prev + 1);
+    showToast(`✅ Salary ₹${val.toLocaleString('en-IN')}/mo permanently assigned to ${st.name}!`, 'success');
+  };
+
+  const handleBulkSaveAssignments = () => {
+    const map = {};
+    staffAssignments.forEach(st => {
+      const val = Number(st.assignedSalary) || 0;
+      map[st.staffId] = val;
+      map[st.name] = val;
+      map[st.employeeId] = val;
+      schoolService.updateTeacher(st.staffId, { basicSalary: val, salary: { basic: val, netSalary: val } });
+    });
+    saveAllManualSalaryAssignments(map);
+    setPayrollRefresh(prev => prev + 1);
+    showToast(`🎉 All ${staffAssignments.length} Staff Salary Assignments permanently saved & secured!`, 'success');
+  };
 
   // 3. Advance Salary Applications State
   const [advanceRequests, setAdvanceRequests] = useState([
@@ -641,76 +693,241 @@ export const HRPayrollPage = ({ initialTab = 'payment' }) => {
       {/* ========================================================================= */}
       {/* 📋 2. PAYROLL - SALARY ASSIGN */}
       {/* ========================================================================= */}
-      {activeTab === 'assign' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
-            <div>
-              <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-                <Users className="w-5 h-5 text-indigo-600" /> Staff Salary Grade Allocation (कर्मचारी वेतन आवंटन)
-              </h3>
-              <p className="text-xs text-slate-500 mt-0.5">
-                Individual assigned monthly salary grades & payment phone numbers
-              </p>
-            </div>
-            <span className="text-xs font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl">
-              {teachers.length} Assigned Staff
-            </span>
-          </div>
+      {activeTab === 'assign' && (() => {
+        const departmentsList = ['All', 'Administration', 'Secondary', 'Junior', 'Primary', 'Pre-Primary', 'Transport'];
+        
+        const filteredList = staffAssignments.filter(st => {
+          const q = (assignSearchQuery || '').toLowerCase().trim();
+          const matchesSearch = !q ||
+            st.name?.toLowerCase().includes(q) ||
+            st.employeeId?.toLowerCase().includes(q) ||
+            st.designation?.toLowerCase().includes(q) ||
+            st.department?.toLowerCase().includes(q) ||
+            st.mobile?.includes(q);
 
-          <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-x-auto shadow-2xs">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black uppercase text-[10px]">
-                <tr>
-                  <th className="p-3.5">Employee</th>
-                  <th className="p-3.5">Department</th>
-                  <th className="p-3.5">Assigned Salary Grade (वेतन)</th>
-                  <th className="p-3.5">Payment Mode / UPI Mobile</th>
-                  <th className="p-3.5 text-right">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {staffAssignments.map(st => (
-                  <tr key={st.staffId} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                    <td className="p-3.5">
-                      <div className="font-bold text-slate-900 dark:text-white">{st.name}</div>
-                      <div className="text-[10px] text-slate-400 font-mono">{st.employeeId} • {st.designation}</div>
-                    </td>
-                    <td className="p-3.5 font-semibold text-slate-600 dark:text-slate-400">{st.department}</td>
-                    <td className="p-3.5">
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono font-black text-emerald-600 dark:text-emerald-400 text-sm">
-                          ₹{st.assignedSalary.toLocaleString('en-IN')}/mo
-                        </span>
-                        <select
-                          value={st.assignedSalary}
-                          onChange={(e) => {
-                            const val = Number(e.target.value);
-                            setStaffAssignments(prev => prev.map(item => item.staffId === st.staffId ? { ...item, assignedSalary: val } : item));
-                            schoolService.updateTeacher(st.staffId, { basicSalary: val, salary: { basic: val, netSalary: val } });
-                            showToast(`Updated salary to ₹${val.toLocaleString('en-IN')} for ${st.name}`, 'info');
-                          }}
-                          className="p-1 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold text-xs text-indigo-700 dark:text-indigo-300"
-                        >
-                          {templates.map(tpl => (
-                            <option key={tpl.id} value={tpl.basic}>Grade ₹{tpl.basic}</option>
-                          ))}
-                        </select>
-                      </div>
-                    </td>
-                    <td className="p-3.5 text-xs text-slate-600 dark:text-slate-300 font-mono">
-                      <div className="font-bold text-slate-800 dark:text-slate-200">📱 {st.mobile}</div>
-                      <div className="text-[10px] text-indigo-600 dark:text-indigo-400">UPI: {st.upiId}</div>
-                    </td>
-                    <td className="p-3.5 text-right">
-                      <Badge variant="success">Assigned & Active</Badge>
-                    </td>
-                  </tr>
+          const matchesDept = assignDeptFilter === 'All' ||
+            (st.department && st.department.toLowerCase().includes(assignDeptFilter.toLowerCase()));
+
+          return matchesSearch && matchesDept;
+        });
+
+        const totalAssignedPayroll = staffAssignments
+          .filter(st => st.status !== 'Left')
+          .reduce((sum, st) => sum + (Number(st.assignedSalary) || 0), 0);
+
+        return (
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+            
+            {/* 🏷️ Header Bar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
+              <div>
+                <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                  <Users className="w-5 h-5 text-indigo-600" /> Staff Salary Grade Allocation (कर्मचारी वेतन आवंटन)
+                </h3>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Individual assigned monthly salary grades & payment UPI/phone numbers • Changes permanently saved across ERP
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleBulkSaveAssignments}
+                  className="px-4 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/20 flex items-center gap-2 transition-all active:scale-95"
+                >
+                  <FileCheck className="w-4 h-4" /> 💾 Save All Salary Assignments
+                </button>
+              </div>
+            </div>
+
+            {/* 📊 Summary Stats Ribbon */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total Staff Roster</span>
+                <p className="text-xl font-black font-mono text-slate-900 dark:text-white mt-1">{staffAssignments.length} Employees</p>
+                <span className="text-[10px] text-slate-500 font-semibold">{staffAssignments.filter(s => s.status !== 'Left').length} Active • {staffAssignments.filter(s => s.status === 'Left').length} Former</span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900/60">
+                <span className="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Total Active Assigned Payroll</span>
+                <p className="text-xl font-black font-mono text-indigo-700 dark:text-indigo-300 mt-1">₹{totalAssignedPayroll.toLocaleString('en-IN')}<span className="text-xs font-normal">/mo</span></p>
+                <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-semibold">Monthly Salary Outflow</span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/60">
+                <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Payment Norm</span>
+                <p className="text-xl font-black text-emerald-700 dark:text-emerald-300 mt-1">100% Direct</p>
+                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">No TDS / No Unauthorized Deductions</span>
+              </div>
+            </div>
+
+            {/* 🔍 Search & Department Filter Ribbon */}
+            <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search staff by name, employee ID, role or mobile..."
+                  value={assignSearchQuery}
+                  onChange={(e) => setAssignSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </div>
+
+              <div className="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1 md:pb-0">
+                {departmentsList.map(dept => (
+                  <button
+                    key={dept}
+                    onClick={() => setAssignDeptFilter(dept)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                      assignDeptFilter === dept
+                        ? 'bg-indigo-600 text-white shadow-sm'
+                        : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-indigo-300'
+                    }`}
+                  >
+                    {dept}
+                  </button>
                 ))}
-              </tbody>
-            </table>
+              </div>
+            </div>
+
+            {/* 📋 Table of Staff Salary Allocations */}
+            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-x-auto shadow-2xs">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black uppercase text-[10px]">
+                  <tr>
+                    <th className="p-3.5 w-12 text-center">Sl</th>
+                    <th className="p-3.5">Employee Details</th>
+                    <th className="p-3.5">Department</th>
+                    <th className="p-3.5">Assigned Salary (Custom Amount & Preset Grade)</th>
+                    <th className="p-3.5">Payment Mode / UPI Mobile</th>
+                    <th className="p-3.5 text-right">Actions & Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {filteredList.map((st, idx) => {
+                    const isRowSaved = Boolean(savedRowsMap[st.staffId]);
+                    const isFormer = st.status === 'Left';
+
+                    return (
+                      <tr 
+                        key={st.staffId} 
+                        className={`hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors ${
+                          isRowSaved ? 'bg-emerald-50/30 dark:bg-emerald-950/20' : ''
+                        } ${isFormer ? 'opacity-60 bg-slate-50/40 dark:bg-slate-900/40' : ''}`}
+                      >
+                        <td className="p-3.5 text-center font-mono font-bold text-slate-400">
+                          {idx + 1}
+                        </td>
+
+                        <td className="p-3.5">
+                          <div className="flex items-center gap-3">
+                            <img
+                              src={st.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=16a34a&color=fff&size=64&bold=true`}
+                              alt={st.name}
+                              className="w-9 h-9 rounded-xl object-cover shrink-0 border border-slate-200 dark:border-slate-700"
+                              onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(st.name)}&background=16a34a&color=fff&size=64&bold=true`; }}
+                            />
+                            <div>
+                              <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                                <span>{st.name}</span>
+                                {isFormer && (
+                                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                                    Former
+                                  </span>
+                                )}
+                              </div>
+                              <div className="text-[10px] text-slate-400 font-mono">
+                                {st.employeeId} • <span className="text-slate-600 dark:text-slate-300 font-semibold">{st.designation}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+
+                        <td className="p-3.5">
+                          <span className="px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-bold text-[11px] border border-indigo-100 dark:border-indigo-900/50">
+                            {st.department || 'General'}
+                          </span>
+                        </td>
+
+                        <td className="p-3.5">
+                          <div className="flex flex-wrap items-center gap-2">
+                            {/* Direct Editable Numeric Input */}
+                            <div className="relative">
+                              <span className="absolute left-2.5 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-xs">₹</span>
+                              <input
+                                type="number"
+                                min="0"
+                                step="100"
+                                value={st.assignedSalary}
+                                onChange={(e) => {
+                                  const val = e.target.value === '' ? '' : Number(e.target.value);
+                                  setStaffAssignments(prev => prev.map(item => item.staffId === st.staffId ? { ...item, assignedSalary: val } : item));
+                                }}
+                                className="w-28 pl-6 pr-2 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 font-mono font-black text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-2xs"
+                                placeholder="0"
+                              />
+                            </div>
+
+                            {/* Quick Preset Dropdown */}
+                            <select
+                              value={st.assignedSalary}
+                              onChange={(e) => {
+                                const val = Number(e.target.value);
+                                handleUpdateSingleSalary(st, val);
+                              }}
+                              className="p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold text-xs text-indigo-700 dark:text-indigo-300 focus:ring-2 focus:ring-indigo-500"
+                            >
+                              <option value="" disabled>Presets...</option>
+                              {templates.map(tpl => (
+                                <option key={tpl.id} value={tpl.basic}>Grade ₹{tpl.basic}</option>
+                              ))}
+                            </select>
+
+                            {/* Instant Row Save Button */}
+                            <button
+                              onClick={() => handleUpdateSingleSalary(st, st.assignedSalary)}
+                              className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 transition-all ${
+                                isRowSaved
+                                  ? 'bg-emerald-600 text-white shadow-sm'
+                                  : 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900'
+                              }`}
+                              title="Save this staff member's salary"
+                            >
+                              {isRowSaved ? <Check className="w-3.5 h-3.5" /> : <Sparkles className="w-3.5 h-3.5" />}
+                              <span>{isRowSaved ? 'Saved!' : 'Save'}</span>
+                            </button>
+                          </div>
+                        </td>
+
+                        <td className="p-3.5 text-xs text-slate-600 dark:text-slate-300 font-mono">
+                          <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1">
+                            <span>📱</span> {st.mobile || '9719476606'}
+                          </div>
+                          <div className="text-[10px] text-indigo-600 dark:text-indigo-400 font-sans mt-0.5">
+                            UPI: {st.upiId || `${st.mobile || '9719476606'}@upi`}
+                          </div>
+                        </td>
+
+                        <td className="p-3.5 text-right">
+                          <Badge variant={isFormer ? 'neutral' : 'success'}>
+                            {isFormer ? 'Former Employee' : 'Assigned & Active'}
+                          </Badge>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+
+              {filteredList.length === 0 && (
+                <div className="p-8 text-center text-slate-500 text-xs font-semibold">
+                  No staff members match the current filter "{assignSearchQuery || assignDeptFilter}".
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* ========================================================================= */}
       {/* 💰 3. PAYROLL - SALARY PAYMENT */}

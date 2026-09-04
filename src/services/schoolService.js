@@ -1,5 +1,6 @@
 import { initialSchoolData } from './mockData';
 import { createDefaultRolePermissions, ALL_MODULE_PERMISSIONS } from '../utils/permissionRegistry';
+import { getManualSalaryAssignments, saveManualSalaryAssignment } from '../utils/salaryUtils';
 
 const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V19_EXACT_SQL_COLLECTIONS';
 
@@ -13,14 +14,26 @@ class SchoolService {
   loadData() {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
+      const manualSalaries = getManualSalaryAssignments();
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed && Array.isArray(parsed.students) && parsed.students.length >= 100) {
+          const loadedTeachers = Array.isArray(parsed.teachers) && parsed.teachers.length > 0 ? parsed.teachers : initialSchoolData.teachers;
+          // Apply any persistent manual salary overrides
+          const enrichedTeachers = loadedTeachers.map(t => {
+            const assigned = manualSalaries[t.id] ?? manualSalaries[t.employeeId] ?? manualSalaries[t.name];
+            if (assigned !== undefined && !isNaN(Number(assigned))) {
+              const num = Number(assigned);
+              return { ...t, basicSalary: num, salary: typeof t.salary === 'object' ? { ...t.salary, basic: num, netSalary: num } : num };
+            }
+            return t;
+          });
+
           return {
             ...JSON.parse(JSON.stringify(initialSchoolData)),
             ...parsed,
             branches: Array.isArray(parsed.branches) && parsed.branches.length > 0 ? parsed.branches : initialSchoolData.branches,
-            teachers: Array.isArray(parsed.teachers) && parsed.teachers.length > 0 ? parsed.teachers : initialSchoolData.teachers,
+            teachers: enrichedTeachers,
             departments: Array.isArray(parsed.departments) && parsed.departments.length > 0 ? parsed.departments : (initialSchoolData.departments || []),
             designations: Array.isArray(parsed.designations) && parsed.designations.length > 0 ? parsed.designations : (initialSchoolData.designations || []),
             classes: Array.isArray(parsed.classes) && parsed.classes.length > 0 ? parsed.classes : initialSchoolData.classes,
@@ -415,6 +428,17 @@ class SchoolService {
     const idx = this.data.teachers.findIndex(t => t.id === id);
     if (idx !== -1) {
       this.data.teachers[idx] = { ...this.data.teachers[idx], ...updates };
+      
+      // If basicSalary or salary is being updated, persist to manual salary storage
+      const parsedSal = updates.basicSalary !== undefined ? Number(updates.basicSalary) :
+                        (updates.salary && typeof updates.salary === 'object' ? Number(updates.salary.basic || updates.salary.netSalary) :
+                        (typeof updates.salary === 'number' ? updates.salary : null));
+      if (parsedSal !== null && !isNaN(parsedSal)) {
+        saveManualSalaryAssignment(id, parsedSal);
+        if (this.data.teachers[idx].employeeId) saveManualSalaryAssignment(this.data.teachers[idx].employeeId, parsedSal);
+        if (this.data.teachers[idx].name) saveManualSalaryAssignment(this.data.teachers[idx].name, parsedSal);
+      }
+
       this.saveData();
       return this.data.teachers[idx];
     }
