@@ -35,13 +35,21 @@ import {
   ListPlus,
   Cpu,
   ToggleLeft,
-  ToggleRight
+  ToggleRight,
+  Search,
+  ChevronDown,
+  ChevronUp,
+  CheckSquare,
+  Square,
+  Eye,
+  Filter
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
 import schoolService from '../services/schoolService';
+import { ALL_MODULE_PERMISSIONS, MODULE_CATEGORIES, createDefaultRolePermissions } from '../utils/permissionRegistry';
 
 export const SettingsPage = ({ initialTab = 'global' }) => {
   const { showToast } = useToast();
@@ -115,6 +123,153 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
   const [selectedRole, setSelectedRole] = useState('Principal');
   const [newRoleName, setNewRoleName] = useState('');
   const [isAddRoleModalOpen, setIsAddRoleModalOpen] = useState(false);
+  const [permSearchQuery, setPermSearchQuery] = useState('');
+  const [selectedPermCategory, setSelectedPermCategory] = useState('All Modules');
+  const [expandedModules, setExpandedModules] = useState(() => {
+    const init = {};
+    ALL_MODULE_PERMISSIONS.forEach(m => { init[m.id] = false; });
+    return init;
+  });
+
+  const toggleModuleExpand = (modId) => {
+    setExpandedModules(prev => ({ ...prev, [modId]: !prev[modId] }));
+  };
+
+  const expandAllModules = () => {
+    const next = {};
+    ALL_MODULE_PERMISSIONS.forEach(m => { next[m.id] = true; });
+    setExpandedModules(next);
+  };
+
+  const collapseAllModules = () => {
+    const next = {};
+    ALL_MODULE_PERMISSIONS.forEach(m => { next[m.id] = false; });
+    setExpandedModules(next);
+  };
+
+  const handleTogglePermission = (role, moduleId, key) => {
+    if (role === 'Super Admin') {
+      showToast('Super Admin always has full unconditional permissions across all modules!', 'info');
+      return;
+    }
+    setPermissions(prev => {
+      const currentRoleObj = prev[role] ? { ...prev[role] } : {};
+      const currentModObj = currentRoleObj[moduleId] ? { ...currentRoleObj[moduleId] } : {};
+      const currentVal = Boolean(currentModObj[key]);
+      const nextVal = !currentVal;
+
+      currentModObj[key] = nextVal;
+      // If any sub-feature or action is enabled, ensure view is also enabled
+      if (nextVal && key !== 'view') {
+        currentModObj.view = true;
+      }
+      currentRoleObj[moduleId] = currentModObj;
+      const updated = { ...prev, [role]: currentRoleObj };
+      schoolService.saveRolePermissions(updated);
+      return updated;
+    });
+  };
+
+  const handleToggleAllForModule = (role, moduleId, enable) => {
+    if (role === 'Super Admin') {
+      showToast('Super Admin has full permanent access!', 'info');
+      return;
+    }
+    const modDef = ALL_MODULE_PERMISSIONS.find(m => m.id === moduleId);
+    if (!modDef) return;
+
+    setPermissions(prev => {
+      const currentRoleObj = prev[role] ? { ...prev[role] } : {};
+      const currentModObj = {};
+      modDef.actions.forEach(a => { currentModObj[a] = enable; });
+      if (modDef.subFeatures) {
+        modDef.subFeatures.forEach(s => { currentModObj[s.id] = enable; });
+      }
+      currentRoleObj[moduleId] = currentModObj;
+      const updated = { ...prev, [role]: currentRoleObj };
+      schoolService.saveRolePermissions(updated);
+      return updated;
+    });
+    showToast(`${enable ? 'Granted' : 'Revoked'} all permissions for "${modDef.name}" (${role})`, 'info');
+  };
+
+  const handleGrantAllForRole = (role) => {
+    if (role === 'Super Admin') {
+      showToast('Super Admin already has full permanent access!', 'info');
+      return;
+    }
+    const masterPreset = createDefaultRolePermissions()["Super Admin"];
+    setPermissions(prev => {
+      const updated = { ...prev, [role]: JSON.parse(JSON.stringify(masterPreset)) };
+      schoolService.saveRolePermissions(updated);
+      return updated;
+    });
+    showToast(`⚡ Granted 100% full software permissions to role "${role}"!`, 'success');
+  };
+
+  const handleRevokeAllForRole = (role) => {
+    if (role === 'Super Admin') {
+      showToast('Cannot revoke permissions from Super Admin!', 'error');
+      return;
+    }
+    const emptyPerms = {};
+    ALL_MODULE_PERMISSIONS.forEach(mod => {
+      emptyPerms[mod.id] = {};
+      mod.actions.forEach(a => { emptyPerms[mod.id][a] = false; });
+      if (mod.subFeatures) {
+        mod.subFeatures.forEach(s => { emptyPerms[mod.id][s.id] = false; });
+      }
+    });
+    setPermissions(prev => {
+      const updated = { ...prev, [role]: emptyPerms };
+      schoolService.saveRolePermissions(updated);
+      return updated;
+    });
+    showToast(`🚫 Revoked all permissions from role "${role}"!`, 'warning');
+  };
+
+  const handleSetViewOnlyForRole = (role) => {
+    if (role === 'Super Admin') return;
+    const viewOnlyPerms = {};
+    ALL_MODULE_PERMISSIONS.forEach(mod => {
+      viewOnlyPerms[mod.id] = {};
+      mod.actions.forEach(a => { viewOnlyPerms[mod.id][a] = (a === 'view'); });
+      if (mod.subFeatures) {
+        mod.subFeatures.forEach(s => { viewOnlyPerms[mod.id][s.id] = true; });
+      }
+    });
+    setPermissions(prev => {
+      const updated = { ...prev, [role]: viewOnlyPerms };
+      schoolService.saveRolePermissions(updated);
+      return updated;
+    });
+    showToast(`👁️ Configured "${role}" with View-Only permissions across all modules!`, 'info');
+  };
+
+  const handleSavePermissions = (role) => {
+    schoolService.saveRolePermissions(permissions);
+    showToast(`✅ All granular permissions for role "${role}" saved and synced successfully!`, 'success');
+  };
+
+  const getActivePermCountForRole = (role) => {
+    if (role === 'Super Admin') return '100% Master Access';
+    const rObj = permissions[role] || {};
+    let activeCount = 0;
+    let totalCount = 0;
+    ALL_MODULE_PERMISSIONS.forEach(mod => {
+      mod.actions.forEach(a => {
+        totalCount++;
+        if (rObj[mod.id]?.[a]) activeCount++;
+      });
+      if (mod.subFeatures) {
+        mod.subFeatures.forEach(s => {
+          totalCount++;
+          if (rObj[mod.id]?.[s.id]) activeCount++;
+        });
+      }
+    });
+    return `${activeCount} / ${totalCount} Active`;
+  };
 
   const handleDeleteRole = (roleToDelete) => {
     if (roleToDelete === 'Super Admin') {
@@ -538,25 +693,30 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
       )}
 
       {/* ========================================================================= */}
-      {/* 👑 3. ROLE PERMISSION & ROLE ACCESS CONTROL (RBAC) */}
+      {/* 👑 3. ROLE PERMISSION & ROLE ACCESS CONTROL (RBAC) - 100% GRANULAR        */}
       {/* ========================================================================= */}
       {activeTab === 'role-permission' && (
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+          {/* Header */}
           <div className="border-b border-slate-100 dark:border-slate-800 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-indigo-600" /> Portal & Role-Based Access Control (RBAC)
+                <ShieldCheck className="w-5 h-5 text-indigo-600" /> Portal & Role-Based Access Control (RBAC) • Full System Coverage
               </h3>
-              <p className="text-xs text-slate-500">Manage all portal user roles, delete unwanted roles, add custom roles, and configure module permissions</p>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Manage all portal user roles and configure fine-grained permissions for all 22 modules, all tabs, sub-tabs, and navigation bar items across the entire ERP.
+              </p>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setIsAddRoleModalOpen(true)}
-              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md self-start md:self-auto cursor-pointer"
-            >
-              <Plus className="w-4 h-4" /> + Add New Role
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setIsAddRoleModalOpen(true)}
+                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md cursor-pointer transition-all hover:scale-105 active:scale-95"
+              >
+                <Plus className="w-4 h-4" /> + Add New Role
+              </button>
+            </div>
           </div>
 
           {/* 🏷️ Role Selection & Delete Chips Bar */}
@@ -579,7 +739,7 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
                     key={roleName}
                     className={`flex items-center gap-1.5 px-3.5 py-2 rounded-2xl text-xs font-bold transition-all border shadow-xs ${
                       isSelected
-                        ? 'bg-indigo-600 text-white border-indigo-700 shadow-indigo-500/25 scale-105'
+                        ? 'bg-indigo-600 text-white border-indigo-700 shadow-indigo-500/25 scale-105 ring-2 ring-indigo-400/40'
                         : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
                     }`}
                   >
@@ -588,7 +748,7 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
                       onClick={() => setSelectedRole(roleName)}
                       className="cursor-pointer font-bold flex items-center gap-1.5"
                     >
-                      <span>{roleName === 'Super Admin' ? '👑' : roleName === 'Principal' ? '🏛️' : roleName === 'Teacher' ? '🎓' : roleName === 'Accountant' ? '💵' : roleName === 'Parent' ? '👨‍👩‍👦' : roleName === 'Student' ? '🎒' : '🛡️'}</span>
+                      <span>{roleName === 'Super Admin' ? '👑' : roleName === 'Principal' ? '🏛️' : roleName === 'Teacher' ? '🎓' : roleName === 'Accountant' ? '💵' : roleName === 'Parent' ? '👨‍👩‍👦' : roleName === 'Student' ? '🎒' : roleName === 'Librarian' ? '📚' : roleName === 'Transport Manager' ? '🚌' : roleName === 'Receptionist' ? '🏢' : '🛡️'}</span>
                       <span>{roleName}</span>
                     </button>
 
@@ -613,71 +773,278 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
             </div>
           </div>
 
-          {/* 📋 Permissions Matrix Table for Selected Role */}
-          <div className="space-y-3 pt-2">
-            <div className="flex items-center justify-between">
-              <h4 className="text-xs font-black uppercase text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                <span>Permissions Matrix for:</span>
-                <span className="px-2.5 py-0.5 rounded-lg bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-black">
+          {/* ⚡ Selected Role Action & Fast Preset Launcher */}
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-indigo-900/90 via-slate-900 to-indigo-950 text-white flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-md border border-indigo-500/30">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-black uppercase text-amber-300">
                   {selectedRole}
                 </span>
-              </h4>
+                <span className="px-2 py-0.5 rounded-md bg-white/10 text-slate-200 text-[10.5px] font-mono font-bold">
+                  {getActivePermCountForRole(selectedRole)}
+                </span>
+              </div>
+              <p className="text-xs text-slate-300">
+                {selectedRole === 'Super Admin'
+                  ? 'Super Admin possesses unconditional permanent permissions across all 22 modules and sub-tabs.'
+                  : `Configuring fine-grained read/write/delete permissions and individual sub-tab access for "${selectedRole}".`}
+              </p>
             </div>
 
-            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-xs">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold uppercase text-[10px]">
-                  <tr>
-                    <th className="p-3.5">Module Name</th>
-                    <th className="p-3.5 text-center">View (Read)</th>
-                    <th className="p-3.5 text-center">Create (Add)</th>
-                    <th className="p-3.5 text-center">Edit (Update)</th>
-                    <th className="p-3.5 text-center">Delete (Purge)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                  {[
-                    { name: 'Student Information & Admissions', key: 'students' },
-                    { name: 'Fee Collection & Invoicing', key: 'fees' },
-                    { name: 'Attendance & Biometrics', key: 'attendance' },
-                    { name: 'CBSE Examination & Marks', key: 'exams' },
-                    { name: 'Library Circulation', key: 'library' },
-                    { name: 'Transport & Route Management', key: 'transport' },
-                    { name: 'Staff HR & Payroll', key: 'payroll' },
-                    { name: 'Bulk SMS & Notice Communication', key: 'communication' },
-                    { name: 'System Settings & Backups', key: 'settings' }
-                  ].map(mod => {
-                    const isSuperAdmin = selectedRole === 'Super Admin';
-                    return (
-                      <tr key={mod.key} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                        <td className="p-3.5 font-bold text-slate-900 dark:text-white">{mod.name}</td>
-                        {['view', 'create', 'edit', 'delete'].map(action => (
-                          <td key={action} className="p-3.5 text-center">
-                            <input
-                              type="checkbox"
-                              checked={isSuperAdmin ? true : selectedRole === 'Principal' || action === 'view'}
-                              onChange={() => showToast(`Updated ${selectedRole} permission for ${mod.name} (${action.toUpperCase()})`, 'info')}
-                              className="w-4 h-4 rounded text-indigo-600 cursor-pointer"
-                            />
-                          </td>
-                        ))}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+            {selectedRole !== 'Super Admin' && (
+              <div className="flex items-center gap-2 flex-wrap shrink-0">
+                <button
+                  type="button"
+                  onClick={() => handleGrantAllForRole(selectedRole)}
+                  className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1 transition-all cursor-pointer"
+                  title="Grant 100% permissions to all modules and sub-tabs"
+                >
+                  ⚡ Grant Full Access
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSetViewOnlyForRole(selectedRole)}
+                  className="px-3 py-1.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1 transition-all cursor-pointer"
+                  title="Set Read-Only access for all modules"
+                >
+                  👁️ View-Only Mode
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleRevokeAllForRole(selectedRole)}
+                  className="px-3 py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow flex items-center gap-1 transition-all cursor-pointer"
+                  title="Revoke all permissions"
+                >
+                  🚫 Revoke All
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSavePermissions(selectedRole)}
+                  className="px-4 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl text-xs font-black shadow-lg flex items-center gap-1.5 transition-all cursor-pointer"
+                >
+                  <Save className="w-3.5 h-3.5" /> Save Permissions
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* 🔍 Search & Category Filters Bar */}
+          <div className="space-y-3 pt-1">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="relative flex-1 max-w-md">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={permSearchQuery}
+                  onChange={(e) => setPermSearchQuery(e.target.value)}
+                  placeholder="Search any module, tab or sub-feature (उदा. Fee POS, TC, Bell, Salary...)"
+                  className="w-full pl-9 pr-8 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-medium focus:ring-2 focus:ring-indigo-500"
+                />
+                {permSearchQuery && (
+                  <button
+                    onClick={() => setPermSearchQuery('')}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={expandAllModules}
+                  className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer"
+                >
+                  Expand All Sub-tabs
+                </button>
+                <button
+                  type="button"
+                  onClick={collapseAllModules}
+                  className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer"
+                >
+                  Collapse All
+                </button>
+              </div>
             </div>
 
-            <div className="pt-2 flex justify-end">
-              <button
-                type="button"
-                onClick={() => showToast(`✅ Permissions matrix for ${selectedRole} saved successfully!`, 'success')}
-                className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold shadow flex items-center gap-2 hover:scale-105 active:scale-95 transition-all cursor-pointer"
-              >
-                <Save className="w-4 h-4" /> Save Permissions for {selectedRole}
-              </button>
+            {/* Category Filter Pills */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 custom-scrollbar">
+              {MODULE_CATEGORIES.map(cat => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setSelectedPermCategory(cat)}
+                  className={`px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                    selectedPermCategory === cat
+                      ? 'bg-indigo-600 text-white shadow-xs'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
             </div>
           </div>
+
+          {/* 📋 22 Modules & Granular Sub-tabs Cards */}
+          <div className="space-y-4 pt-1">
+            {filteredModules.map(mod => {
+              const isSuperAdmin = selectedRole === 'Super Admin';
+              const roleObj = permissions[selectedRole] || {};
+              const modPerms = roleObj[mod.id] || {};
+              const isExpanded = expandedModules[mod.id] || Boolean(permSearchQuery.trim());
+
+              const isModAllActive = mod.actions.every(a => Boolean(modPerms[a])) &&
+                (!mod.subFeatures || mod.subFeatures.every(s => Boolean(modPerms[s.id])));
+
+              const activeSubCount = mod.subFeatures
+                ? mod.subFeatures.filter(s => Boolean(modPerms[s.id])).length
+                : 0;
+
+              return (
+                <div
+                  key={mod.id}
+                  className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xs bg-white dark:bg-slate-900/60 transition-all"
+                >
+                  {/* Module Header Bar */}
+                  <div className="p-3.5 bg-slate-50 dark:bg-slate-800/80 border-b border-slate-100 dark:border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <button
+                        type="button"
+                        onClick={() => toggleModuleExpand(mod.id)}
+                        className="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 cursor-pointer"
+                      >
+                        {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      </button>
+
+                      <div>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-black text-slate-900 dark:text-white text-xs">
+                            {mod.name}
+                          </span>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-indigo-100 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300">
+                            {mod.category}
+                          </span>
+                          {mod.subFeatures && (
+                            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                              {isSuperAdmin ? `${mod.subFeatures.length} / ${mod.subFeatures.length} Sub-tabs` : `${activeSubCount} / ${mod.subFeatures.length} Sub-tabs Active`}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Master Action Toggles for this Module */}
+                    <div className="flex items-center gap-4 flex-wrap self-end lg:self-auto text-xs">
+                      {mod.actions.map(action => {
+                        const isChecked = isSuperAdmin ? true : Boolean(modPerms[action]);
+                        const actionLabels = {
+                          view: '👁️ View',
+                          create: '➕ Create',
+                          edit: '✏️ Edit',
+                          delete: '🗑️ Delete',
+                          export: '🖨️ Export'
+                        };
+                        return (
+                          <label
+                            key={action}
+                            className={`flex items-center gap-1.5 cursor-pointer font-bold select-none ${
+                              isChecked ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400 dark:text-slate-500'
+                            }`}
+                          >
+                            <input
+                              type="checkbox"
+                              disabled={isSuperAdmin}
+                              checked={isChecked}
+                              onChange={() => handleTogglePermission(selectedRole, mod.id, action)}
+                              className="w-4 h-4 rounded text-indigo-600 cursor-pointer disabled:opacity-50"
+                            />
+                            <span className="text-[11px]">{actionLabels[action] || action}</span>
+                          </label>
+                        );
+                      })}
+
+                      {!isSuperAdmin && (
+                        <div className="flex items-center gap-1 pl-2 border-l border-slate-200 dark:border-slate-700">
+                          <button
+                            type="button"
+                            onClick={() => handleToggleAllForModule(selectedRole, mod.id, !isModAllActive)}
+                            className={`px-2 py-1 rounded-lg text-[10.5px] font-bold cursor-pointer transition-all ${
+                              isModAllActive
+                                ? 'bg-rose-100 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300'
+                                : 'bg-indigo-100 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300'
+                            }`}
+                          >
+                            {isModAllActive ? 'Uncheck All' : 'Check All'}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Expanded Sub-Features & Navigation Tabs List */}
+                  {isExpanded && mod.subFeatures && mod.subFeatures.length > 0 && (
+                    <div className="p-4 bg-slate-50/50 dark:bg-slate-900/30 border-t border-slate-100 dark:border-slate-800 space-y-2">
+                      <div className="flex items-center justify-between pb-1">
+                        <span className="text-[11px] font-black uppercase text-slate-400 tracking-wider">
+                          Granular Sub-tabs & Operational Features under "{mod.name}":
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                        {mod.subFeatures.map(sub => {
+                          const isSubChecked = isSuperAdmin ? true : Boolean(modPerms[sub.id]);
+                          return (
+                            <label
+                              key={sub.id}
+                              className={`flex items-start gap-2.5 p-2.5 rounded-xl border transition-all cursor-pointer select-none ${
+                                isSubChecked
+                                  ? 'bg-indigo-50/70 dark:bg-indigo-950/40 border-indigo-200 dark:border-indigo-800/80 shadow-xs'
+                                  : 'bg-white dark:bg-slate-800/40 border-slate-200 dark:border-slate-700/60 opacity-75 hover:opacity-100'
+                              }`}
+                            >
+                              <input
+                                type="checkbox"
+                                disabled={isSuperAdmin}
+                                checked={isSubChecked}
+                                onChange={() => handleTogglePermission(selectedRole, mod.id, sub.id)}
+                                className="w-4 h-4 rounded text-indigo-600 mt-0.5 cursor-pointer shrink-0 disabled:opacity-50"
+                              />
+                              <div className="text-xs">
+                                <span className={`font-bold block leading-snug ${isSubChecked ? 'text-indigo-950 dark:text-indigo-200' : 'text-slate-600 dark:text-slate-400'}`}>
+                                  {sub.label}
+                                </span>
+                                <span className="text-[10px] text-slate-400 font-mono">
+                                  Tab Key: {sub.id}
+                                </span>
+                              </div>
+                            </label>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Save Bar */}
+          {selectedRole !== 'Super Admin' && (
+            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <span className="text-xs text-slate-500 font-medium">
+                Changes take effect immediately across all client sessions and navigation guards.
+              </span>
+              <button
+                type="button"
+                onClick={() => handleSavePermissions(selectedRole)}
+                className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black text-xs shadow-lg flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+              >
+                <Save className="w-4 h-4" /> Save & Apply Permissions for {selectedRole}
+              </button>
+            </div>
+          )}
         </div>
       )}
 

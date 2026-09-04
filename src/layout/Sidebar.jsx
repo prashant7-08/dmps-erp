@@ -42,6 +42,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../components/common/Toast';
+import schoolService from '../services/schoolService';
 
 export const navigationGroups = [
   {
@@ -433,7 +434,23 @@ export const Sidebar = ({
 
         {/* Navigation List */}
         <div className="flex-1 overflow-y-auto px-2 sm:px-3 py-4 space-y-1.5 custom-scrollbar">
-          {navigationGroups.map(group => {
+          {navigationGroups.filter(group => {
+            if (effectiveRole === 'Super Admin') return true;
+            if (group.isSingle) {
+              return schoolService.hasPermission(effectiveRole, group.permissionKey || group.targetTab, 'view');
+            }
+            const hasGroupView = schoolService.hasPermission(effectiveRole, group.permissionKey, 'view');
+            if (!hasGroupView) return false;
+            if (group.items && group.items.length > 0) {
+              const visibleSubItems = group.items.filter(item => {
+                const cleanKey = (item.id || '').replace(/-/g, '_');
+                return schoolService.hasPermission(effectiveRole, cleanKey, 'view') ||
+                       schoolService.hasPermission(effectiveRole, group.permissionKey, 'view');
+              });
+              return visibleSubItems.length > 0;
+            }
+            return true;
+          }).map(group => {
             const Icon = group.icon;
             const isExpanded = expandedGroupId === group.id;
 
@@ -458,6 +475,13 @@ export const Sidebar = ({
               );
             }
 
+            const itemsToShow = (group.items || []).filter(item => {
+              if (effectiveRole === 'Super Admin') return true;
+              const cleanKey = (item.id || '').replace(/-/g, '_');
+              return schoolService.hasPermission(effectiveRole, cleanKey, 'view') ||
+                     schoolService.hasPermission(effectiveRole, group.permissionKey, 'view');
+            });
+
             return (
               <div key={group.id} className="space-y-1">
                 <button
@@ -481,9 +505,9 @@ export const Sidebar = ({
                 </button>
 
                 {/* Sub-Items */}
-                {isExpanded && group.items && !isCollapsed && (
+                {isExpanded && itemsToShow.length > 0 && !isCollapsed && (
                   <div className="pl-3 pr-1 py-1 space-y-0.5 bg-[#091730]/70 rounded-xl border border-slate-800/50 animate-in fade-in duration-200">
-                    {group.items.map(item => {
+                    {itemsToShow.map(item => {
                       const isActive = isItemActive(item);
                       return (
                         <button

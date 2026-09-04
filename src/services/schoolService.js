@@ -1,4 +1,5 @@
 import { initialSchoolData } from './mockData';
+import { createDefaultRolePermissions, ALL_MODULE_PERMISSIONS } from '../utils/permissionRegistry';
 
 const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V19_EXACT_SQL_COLLECTIONS';
 
@@ -3395,165 +3396,11 @@ class SchoolService {
   }
 
   // =========================================================================
-  // 👑 SUPER ADMIN ROLE & PERMISSIONS (RBAC) - 100% SIDEBAR ALIGNED (20 MODULES)
+  // 👑 SUPER ADMIN ROLE & PERMISSIONS (RBAC) - 100% GRANULAR (22 MODULES)
   // =========================================================================
   getRolePermissions() {
-    if (!this.data.rolePermissions || Object.keys(this.data.rolePermissions).length < 8) {
-      const defaultModules = {
-        dashboard: { view: true, export: true },
-        reception: { view: true, inquiries: true, passes: true, grievance: true },
-        admission: { view: true, create: true, edit: true, delete: true },
-        students: { view: true, edit: true, delete: true, import: true, idCards: true },
-        staff: { view: true, create: true, edit: true, delete: true, payroll: true, leave: true, awards: true },
-        student_accounting: { view: true, collect: true, dues: true, discount: true, refund: true, structure: true },
-        office_accounting: { view: true, deposit: true, expense: true, transactions: true, vouchers: true },
-        supervision: { view: true, routes: true, vehicles: true, stoppage: true, assign: true, hostel: true, medical: true },
-        attendance: { view: true, markStudents: true, markStaff: true, biometricSync: true, monthlyRegister: true },
-        inventory: { view: true, addItem: true, issueItem: true, stockAlerts: true },
-        card_management: { view: true, studentId: true, employeeId: true, admitCards: true },
-        certificate: { view: true, generateTC: true, characterCert: true, sportsCert: true },
-        academic: { view: true, classes: true, subjects: true, assignTeacher: true, timetable: true, promotion: true },
-        homework: { view: true, assignHomework: true, evaluate: true },
-        exam_master: { view: true, examSetup: true, schedule: true, enterMarks: true, reportCards: true },
-        library: { view: true, catalog: true, issueBook: true, returnBook: true },
-        events_sports: { view: true, manageSports: true, academicCalendar: true },
-        sms_notices: { view: true, publishNotice: true, sendSMS: true },
-        reports: { view: true, exportReports: true },
-        settings: { view: true, backup: true, restore: true, permissions: true, schoolProfile: true }
-      };
-
-      // Helper for creating role presets
-      const makeRole = (overrides = {}) => {
-        const res = JSON.parse(JSON.stringify(defaultModules));
-        Object.keys(res).forEach(mod => {
-          Object.keys(res[mod]).forEach(act => {
-            res[mod][act] = false;
-          });
-        });
-        Object.keys(overrides).forEach(mod => {
-          if (res[mod]) {
-            Object.keys(overrides[mod]).forEach(act => {
-              res[mod][act] = overrides[mod][act];
-            });
-          }
-        });
-        return res;
-      };
-
-      this.data.rolePermissions = {
-        "Super Admin": defaultModules, // Master Access
-        "Principal": makeRole({
-          dashboard: { view: true, export: true },
-          reception: { view: true, inquiries: true, passes: true, grievance: true },
-          admission: { view: true, create: true, edit: true, delete: false },
-          students: { view: true, edit: true, delete: false, import: true, idCards: true },
-          staff: { view: true, create: true, edit: true, delete: false, payroll: true, leave: true, awards: true },
-          student_accounting: { view: true, collect: true, dues: true, discount: true, refund: false, structure: false },
-          office_accounting: { view: true, deposit: false, expense: false, transactions: true, vouchers: false },
-          supervision: { view: true, routes: true, vehicles: true, stoppage: true, assign: true, hostel: true, medical: true },
-          attendance: { view: true, markStudents: true, markStaff: true, biometricSync: true, monthlyRegister: true },
-          inventory: { view: true, addItem: false, issueItem: true, stockAlerts: true },
-          card_management: { view: true, studentId: true, employeeId: true, admitCards: true },
-          certificate: { view: true, generateTC: true, characterCert: true, sportsCert: true },
-          academic: { view: true, classes: true, subjects: true, assignTeacher: true, timetable: true, promotion: true },
-          homework: { view: true, assignHomework: true, evaluate: true },
-          exam_master: { view: true, examSetup: true, schedule: true, enterMarks: true, reportCards: true },
-          library: { view: true, catalog: true, issueBook: true, returnBook: true },
-          events_sports: { view: true, manageSports: true, academicCalendar: true },
-          sms_notices: { view: true, publishNotice: true, sendSMS: true },
-          reports: { view: true, exportReports: true },
-          settings: { view: true, backup: true, restore: false, permissions: false, schoolProfile: true }
-        }),
-        "Accountant": makeRole({
-          dashboard: { view: true, export: true },
-          reception: { view: true, inquiries: true, passes: false, grievance: false },
-          admission: { view: true, create: false, edit: false, delete: false },
-          students: { view: true, edit: false, delete: false, import: false, idCards: false },
-          staff: { view: true, create: false, edit: false, delete: false, payroll: true, leave: false, awards: false },
-          student_accounting: { view: true, collect: true, dues: true, discount: true, refund: true, structure: true },
-          office_accounting: { view: true, deposit: true, expense: true, transactions: true, vouchers: true },
-          supervision: { view: true, routes: false, vehicles: false, stoppage: false, assign: false, hostel: false, medical: false },
-          attendance: { view: true, markStudents: false, markStaff: false, biometricSync: false, monthlyRegister: true },
-          inventory: { view: true, addItem: true, issueItem: false, stockAlerts: true },
-          card_management: { view: false, studentId: false, employeeId: false, admitCards: false },
-          certificate: { view: false, generateTC: false, characterCert: false, sportsCert: false },
-          academic: { view: false, classes: false, subjects: false, assignTeacher: false, timetable: false, promotion: false },
-          homework: { view: false, assignHomework: false, evaluate: false },
-          exam_master: { view: false, examSetup: false, schedule: false, enterMarks: false, reportCards: false },
-          library: { view: false, catalog: false, issueBook: false, returnBook: false },
-          events_sports: { view: false, manageSports: false, academicCalendar: true },
-          sms_notices: { view: true, publishNotice: false, sendSMS: true },
-          reports: { view: true, exportReports: true },
-          settings: { view: false, backup: true, restore: false, permissions: false, schoolProfile: false }
-        }),
-        "Teacher": makeRole({
-          dashboard: { view: true, export: false },
-          reception: { view: false, inquiries: false, passes: false, grievance: false },
-          admission: { view: false, create: false, edit: false, delete: false },
-          students: { view: true, edit: false, delete: false, import: false, idCards: false },
-          staff: { view: true, create: false, edit: false, delete: false, payroll: false, leave: true, awards: true },
-          student_accounting: { view: false, collect: false, dues: false, discount: false, refund: false, structure: false },
-          office_accounting: { view: false, deposit: false, expense: false, transactions: false, vouchers: false },
-          supervision: { view: false, routes: false, vehicles: false, stoppage: false, assign: false, hostel: false, medical: false },
-          attendance: { view: true, markStudents: true, markStaff: false, biometricSync: false, monthlyRegister: true },
-          inventory: { view: false, addItem: false, issueItem: false, stockAlerts: false },
-          card_management: { view: true, studentId: false, employeeId: false, admitCards: true },
-          certificate: { view: false, generateTC: false, characterCert: false, sportsCert: false },
-          academic: { view: true, classes: true, subjects: true, assignTeacher: false, timetable: true, promotion: false },
-          homework: { view: true, assignHomework: true, evaluate: true },
-          exam_master: { view: true, examSetup: false, schedule: true, enterMarks: true, reportCards: true },
-          library: { view: true, catalog: true, issueBook: false, returnBook: false },
-          events_sports: { view: true, manageSports: true, academicCalendar: true },
-          sms_notices: { view: true, publishNotice: false, sendSMS: false },
-          reports: { view: false, exportReports: false },
-          settings: { view: false, backup: false, restore: false, permissions: false, schoolProfile: false }
-        }),
-        "Librarian": makeRole({
-          dashboard: { view: true, export: false },
-          students: { view: true, edit: false, delete: false, import: false, idCards: false },
-          staff: { view: true, create: false, edit: false, delete: false, payroll: false, leave: true, awards: false },
-          inventory: { view: true, addItem: true, issueItem: true, stockAlerts: true },
-          library: { view: true, catalog: true, issueBook: true, returnBook: true },
-          events_sports: { view: true, manageSports: false, academicCalendar: true },
-          sms_notices: { view: true, publishNotice: false, sendSMS: false },
-          reports: { view: true, exportReports: false }
-        }),
-        "Transport Manager": makeRole({
-          dashboard: { view: true, export: false },
-          students: { view: true, edit: false, delete: false, import: false, idCards: false },
-          staff: { view: true, create: false, edit: false, delete: false, payroll: false, leave: true, awards: false },
-          supervision: { view: true, routes: true, vehicles: true, stoppage: true, assign: true, hostel: false, medical: false },
-          student_accounting: { view: true, collect: false, dues: true, discount: false, refund: false, structure: false },
-          events_sports: { view: true, manageSports: false, academicCalendar: true },
-          sms_notices: { view: true, publishNotice: false, sendSMS: true },
-          reports: { view: true, exportReports: true }
-        }),
-        "Parent": makeRole({
-          dashboard: { view: true, export: false },
-          students: { view: true, edit: false, delete: false, import: false, idCards: true },
-          student_accounting: { view: true, collect: false, dues: true, discount: false, refund: false, structure: false },
-          attendance: { view: true, markStudents: false, markStaff: false, biometricSync: false, monthlyRegister: false },
-          card_management: { view: true, studentId: true, employeeId: false, admitCards: true },
-          academic: { view: true, classes: false, subjects: true, assignTeacher: false, timetable: true, promotion: false },
-          homework: { view: true, assignHomework: false, evaluate: true },
-          exam_master: { view: true, examSetup: false, schedule: true, enterMarks: false, reportCards: true },
-          library: { view: true, catalog: true, issueBook: false, returnBook: false },
-          events_sports: { view: true, manageSports: true, academicCalendar: true },
-          sms_notices: { view: true, publishNotice: false, sendSMS: false }
-        }),
-        "Student": makeRole({
-          dashboard: { view: true, export: false },
-          students: { view: true, edit: false, delete: false, import: false, idCards: true },
-          attendance: { view: true, markStudents: false, markStaff: false, biometricSync: false, monthlyRegister: false },
-          card_management: { view: true, studentId: true, employeeId: false, admitCards: true },
-          academic: { view: true, classes: false, subjects: true, assignTeacher: false, timetable: true, promotion: false },
-          homework: { view: true, assignHomework: false, evaluate: true },
-          exam_master: { view: true, examSetup: false, schedule: true, enterMarks: false, reportCards: true },
-          library: { view: true, catalog: true, issueBook: false, returnBook: false },
-          events_sports: { view: true, manageSports: true, academicCalendar: true },
-          sms_notices: { view: true, publishNotice: false, sendSMS: false }
-        })
-      };
+    if (!this.data.rolePermissions || Object.keys(this.data.rolePermissions).length < 5 || !this.data.rolePermissions['Super Admin']?.['role_permissions']) {
+      this.data.rolePermissions = createDefaultRolePermissions();
       this.saveData();
     }
     return this.data.rolePermissions;
@@ -3562,15 +3409,35 @@ class SchoolService {
   saveRolePermissions(permissions) {
     this.data.rolePermissions = permissions;
     this.saveData();
+    try {
+      localStorage.setItem('DMPS_ROLE_PERMISSIONS_V2', JSON.stringify(permissions));
+    } catch (e) {}
     return this.data.rolePermissions;
   }
 
   hasPermission(role = 'Super Admin', moduleKey, actionKey = 'view') {
     if (role === 'Super Admin' || role === 'Admin') return true;
     const perms = this.getRolePermissions();
-    if (!perms || !perms[role]) return false;
-    if (!perms[role][moduleKey]) return false;
-    return Boolean(perms[role][moduleKey][actionKey]);
+    if (!perms) return false;
+    const rolePerms = perms[role];
+    if (!rolePerms) return false;
+
+    // 1. Direct module lookup (e.g., student_accounting, staff, etc.)
+    if (rolePerms[moduleKey]) {
+      if (typeof rolePerms[moduleKey][actionKey] !== 'undefined') {
+        return Boolean(rolePerms[moduleKey][actionKey]);
+      }
+      return Boolean(rolePerms[moduleKey].view);
+    }
+
+    // 2. Sub-feature key lookup across all modules (e.g., fees_pos, payroll, automatic_bell)
+    for (const modId of Object.keys(rolePerms)) {
+      if (typeof rolePerms[modId][moduleKey] !== 'undefined') {
+        return Boolean(rolePerms[modId][moduleKey]);
+      }
+    }
+
+    return true; // Default fallback permissive
   }
 
   // Other entities getters
