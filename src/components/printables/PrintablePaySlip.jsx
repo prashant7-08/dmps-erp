@@ -3,22 +3,28 @@ import { Printer, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
 import { getStaffSalary } from '../../utils/salaryUtils';
 import schoolService from '../../services/schoolService';
 
-export const PrintablePaySlip = ({ teacher, month = 'August 2026', schoolInfo, onPrint }) => {
+export const PrintablePaySlip = ({ teacher, staff, month = 'August 2026', schoolInfo, onPrint }) => {
+  const targetStaff = teacher || staff;
   const handlePrint = () => {
     if (onPrint) onPrint();
     else window.print();
   };
 
-  if (!teacher) return null;
+  if (!targetStaff) return null;
 
-  // Retrieve saved payment record if available
-  const salaryRecords = schoolService.getStaffSalaryRecords ? schoolService.getStaffSalaryRecords(teacher.id) : [];
-  const recordedPayment = salaryRecords.find(r => r.month === month) || null;
+  // Retrieve saved payment record if available (lenient month match)
+  const salaryRecords = schoolService.getStaffSalaryRecords ? schoolService.getStaffSalaryRecords(targetStaff.id) : [];
+  const cleanTargetMonth = (month || '').replace(/\s*\(.*\)/, '').trim().toLowerCase();
+  const recordedPayment = salaryRecords.find(r => {
+    if (r.month === month) return true;
+    const cleanRec = (r.month || '').replace(/\s*\(.*\)/, '').trim().toLowerCase();
+    return cleanRec === cleanTargetMonth;
+  }) || null;
   const isPaid = Boolean(recordedPayment);
 
   const basicAmt = (recordedPayment?.baseSalary !== undefined && recordedPayment?.baseSalary !== null)
     ? Number(recordedPayment.baseSalary)
-    : getStaffSalary(teacher);
+    : getStaffSalary(targetStaff);
   const arrearsAmt = Number(recordedPayment?.arrearsAdded || 0);
   const bonusAmt = Number(recordedPayment?.bonus || 0);
   const totalEarnings = basicAmt + arrearsAmt + bonusAmt;

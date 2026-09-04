@@ -574,6 +574,9 @@ class SchoolService {
       this.data.staffSalaryPayments = [];
     }
 
+    const cleanMonth = (m) => (m || '').toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+    const targetClean = cleanMonth(record.month);
+
     const newRecord = {
       id: `PAY-${Date.now()}`,
       disbursementDate: new Date().toISOString(),
@@ -582,9 +585,13 @@ class SchoolService {
     };
 
     // Remove existing record for same staff & month if re-disbursing/updating
-    this.data.staffSalaryPayments = this.data.staffSalaryPayments.filter(
-      p => !(p.staffId === record.staffId && p.month === record.month)
-    );
+    this.data.staffSalaryPayments = this.data.staffSalaryPayments.filter(p => {
+      const isSameStaff = (p.staffId && p.staffId === record.staffId) ||
+                          (p.employeeId && (p.employeeId === record.employeeId || p.employeeId === record.staffId)) ||
+                          (p.staffName && record.staffName && p.staffName.toLowerCase() === record.staffName.toLowerCase());
+      const isSameMonth = cleanMonth(p.month) === targetClean || p.month === record.month;
+      return !(isSameStaff && isSameMonth);
+    });
 
     this.data.staffSalaryPayments.unshift(newRecord);
     this.saveData();
