@@ -1231,7 +1231,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "Sh. Guardian",
         "motherName": "Smt. Mother",
@@ -1257,10 +1257,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "GOKULPUR",
@@ -1269,7 +1269,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0001"
+      "familyId": "FAM-0001",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-002",
@@ -1284,7 +1285,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "HITESH KUMAR",
         "motherName": "SUMAN DEVI",
@@ -1310,10 +1311,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "NAGLA VIDHI",
@@ -1324,7 +1325,8 @@ export const initialSchoolData = {
       "linkedSiblingIds": [
         "STU-2026-065"
       ],
-      "familyId": "FAM-0002"
+      "familyId": "FAM-0002",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-003",
@@ -1339,7 +1341,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "MANOJ KUMAR",
         "motherName": "LAXMI",
@@ -1365,10 +1367,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "KANAKPUR",
@@ -1377,7 +1379,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0003"
+      "familyId": "FAM-0003",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-004",
@@ -1392,7 +1395,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "SURENDRA SINGH",
         "motherName": "KAMLESH",
@@ -1418,10 +1421,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "JARGWAN",
@@ -1430,7 +1433,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0004"
+      "familyId": "FAM-0004",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-005",
@@ -1445,7 +1449,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "BHURE KHAN",
         "motherName": "NAZMA BEGAM",
@@ -1471,10 +1475,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "KALIYANPUR BHAGIRATHPUR",
@@ -1483,7 +1487,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0005"
+      "familyId": "FAM-0005",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-006",
@@ -1498,7 +1503,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "DINESH KUMAR",
         "motherName": "JHHANKA DEVI",
@@ -1524,10 +1529,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "BAIJALA KOTHI",
@@ -1536,7 +1541,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0006"
+      "familyId": "FAM-0006",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-007",
@@ -1551,7 +1557,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "SANJAY KUMAR",
         "motherName": "VEENA",
@@ -1577,10 +1583,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "MOUNIPURA Urf RAMVAS",
@@ -1589,7 +1595,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0007"
+      "familyId": "FAM-0007",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-008",
@@ -1604,7 +1611,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "RAJESH KUMAR",
         "motherName": "MITHLESH DEVI",
@@ -1630,10 +1637,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "MUDAKHERA",
@@ -1642,7 +1649,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0008"
+      "familyId": "FAM-0008",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-009",
@@ -16886,7 +16894,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "JAY KISHOR KAUSHK",
         "motherName": "PREETI KAUSHIK",
@@ -16912,10 +16920,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "GAHTOLI NIRMAL",
@@ -16924,7 +16932,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0351"
+      "familyId": "FAM-0351",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-365",
@@ -16939,7 +16948,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "ATAR SINGH",
         "motherName": "SATYAVATI",
@@ -16965,10 +16974,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "GOKULPUR KHADAR",
@@ -16977,7 +16986,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0352"
+      "familyId": "FAM-0352",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-366",
@@ -16992,7 +17002,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "SAMMU SINGH",
         "motherName": "RAJANI DEVI",
@@ -17018,10 +17028,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "MUHAMMADPUR BADHERA",
@@ -17030,7 +17040,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0353"
+      "familyId": "FAM-0353",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-367",
@@ -17045,7 +17056,7 @@ export const initialSchoolData = {
       "section": "A",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
+      "status": "Inactive",
       "parents": {
         "fatherName": "AMIT KUMAR SHARMA",
         "motherName": "DURGESH SHARMA",
@@ -17071,10 +17082,10 @@ export const initialSchoolData = {
       "feeSummary": {
         "tuitionDue": 0,
         "transportDue11Months": 5500,
-        "totalDue": 5500,
+        "totalDue": 0,
         "totalPaid": 0,
-        "balance": 5500,
-        "status": "Pending"
+        "balance": 0,
+        "status": "Paid"
       },
       "transport": {
         "stoppage": "JARGWAN BULANDSHAHR",
@@ -17083,7 +17094,8 @@ export const initialSchoolData = {
         "route": "Route 1: Jargwan - Baraura"
       },
       "linkedSiblingIds": [],
-      "familyId": "FAM-0354"
+      "familyId": "FAM-0354",
+      "inactiveReason": "Course not offered in current 2026-27 session"
     },
     {
       "id": "STU-2026-368",

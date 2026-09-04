@@ -7,6 +7,11 @@ import {
   getPersistentDesignations, 
   savePersistentDesignations 
 } from '../utils/organizationUtils';
+import { 
+  getManualStudentFeeOverrides, 
+  saveManualStudentFeeOverride, 
+  applyFeeOverridesToStudent 
+} from '../utils/feeProtectionUtils';
 
 const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V19_EXACT_SQL_COLLECTIONS';
 
@@ -42,32 +47,17 @@ class SchoolService {
           const persistentDepts = getPersistentDepartments(parsed.departments);
           const persistentDesigs = getPersistentDesignations(parsed.designations);
 
-          // Ensure Class 11 & 12 students have ₹0 tuition fee this year
+          // Ensure Class 11 & 12 students are Inactive with ₹0 tuition fee, and apply manual fee overrides
+          const manualFeeOverrides = getManualStudentFeeOverrides();
           const loadedStudents = Array.isArray(parsed.students) && parsed.students.length >= 100 ? parsed.students : initialSchoolData.students;
           const sanitizedStudents = loadedStudents.map(s => {
-            if (s.class === 'XI' || s.class === '11' || s.class === '11th' || s.class === 'XII' || s.class === '12' || s.class === '12th') {
-              if (s.feeSummary && s.feeSummary.tuitionDue > 0) {
-                const trDue = s.feeSummary.transportDue11Months || (s.transport?.annualFare11M || 0);
-                const oldDues = s.feeSummary.oldSessionDues || 0;
-                const miscDues = s.feeSummary.miscellaneousDue || 0;
-                const totalDue = trDue + oldDues + miscDues;
-                const totalPaid = s.feeSummary.totalPaid || 0;
-                const balance = Math.max(0, totalDue - totalPaid);
-                return {
-                  ...s,
-                  feeSummary: {
-                    ...s.feeSummary,
-                    tuitionDue: 0,
-                    transportDue11Months: trDue,
-                    totalDue: totalDue,
-                    totalPaid: totalPaid,
-                    balance: balance,
-                    status: balance <= 0 ? 'Paid' : 'Pending'
-                  }
-                };
-              }
+            const is11Or12 = s.class === 'XI' || s.class === '11' || s.class === '11th' || s.class === 'XII' || s.class === '12' || s.class === '12th';
+            let studentObj = { ...s };
+            if (is11Or12) {
+              studentObj.status = 'Inactive';
+              studentObj.inactiveReason = 'Course not offered in current 2026-27 session';
             }
-            return s;
+            return applyFeeOverridesToStudent(studentObj, manualFeeOverrides);
           });
 
           return {
@@ -357,6 +347,11 @@ class SchoolService {
       };
 
       this.data.students[idx] = updatedStudent;
+      if (updatedStudent.feeSummary) {
+        saveManualStudentFeeOverride(updatedStudent.id, updatedStudent.feeSummary);
+        if (updatedStudent.admissionNo) saveManualStudentFeeOverride(updatedStudent.admissionNo, updatedStudent.feeSummary);
+        if (updatedStudent.rollNo) saveManualStudentFeeOverride(updatedStudent.rollNo, updatedStudent.feeSummary);
+      }
       this.saveData();
       return updatedStudent;
     }
@@ -2003,6 +1998,10 @@ class SchoolService {
     return { linkedFamilyCount, linkedStudentCount };
   }
 
+  autoLinkAllSiblings() {
+    return this.autoLinkSiblingsByPhoneAndFather();
+  }
+
   // Payments Type Master (Only Official Cash & UPI QR Modes)
   getPaymentTypes() {
     if (!this.data.paymentTypes || !Array.isArray(this.data.paymentTypes) || this.data.paymentTypes.length === 0) {
@@ -2582,6 +2581,9 @@ class SchoolService {
           allocatedFeeGroupId: feeGroupId || s.feeSummary?.allocatedFeeGroupId || 'CUSTOM',
           allocatedFeeGroupName: groupName || s.feeSummary?.allocatedFeeGroupName
         };
+        saveManualStudentFeeOverride(s.id, s.feeSummary);
+        if (s.admissionNo) saveManualStudentFeeOverride(s.admissionNo, s.feeSummary);
+        if (s.rollNo) saveManualStudentFeeOverride(s.rollNo, s.feeSummary);
         allocatedCount++;
       }
     });
@@ -2614,6 +2616,10 @@ class SchoolService {
       balance,
       status
     };
+
+    saveManualStudentFeeOverride(s.id, s.feeSummary);
+    if (s.admissionNo) saveManualStudentFeeOverride(s.admissionNo, s.feeSummary);
+    if (s.rollNo) saveManualStudentFeeOverride(s.rollNo, s.feeSummary);
 
     this.saveData();
     return s;
@@ -2651,6 +2657,9 @@ class SchoolService {
           allocatedFeeGroupId: feeGroupId,
           allocatedFeeGroupName: selectedGroup.name
         };
+        saveManualStudentFeeOverride(s.id, s.feeSummary);
+        if (s.admissionNo) saveManualStudentFeeOverride(s.admissionNo, s.feeSummary);
+        if (s.rollNo) saveManualStudentFeeOverride(s.rollNo, s.feeSummary);
         allocatedCount++;
       }
     });

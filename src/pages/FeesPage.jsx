@@ -468,6 +468,7 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
       'success'
     );
   };
+  const handleAutoLinkSiblings = handleAutoLinkAllSiblings;
 
   // 1-Click Payment Type Creation
   const handleAddPaymentType = (e) => {
