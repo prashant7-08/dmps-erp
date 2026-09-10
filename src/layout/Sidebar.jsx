@@ -54,24 +54,6 @@ export const navigationGroups = [
     targetTab: 'dashboard'
   },
   {
-    id: 'family-portal-single',
-    permissionKey: 'dashboard',
-    label: 'UNIFIED FAMILY PORTAL',
-    icon: Users,
-    isSingle: true,
-    targetTab: 'family-portal',
-    badge: '1-Click'
-  },
-  {
-    id: 'online-quiz-single',
-    permissionKey: 'dashboard',
-    label: 'ONLINE MCQ EXAM / QUIZ',
-    icon: Award,
-    isSingle: true,
-    targetTab: 'online-quiz',
-    badge: 'MCQ'
-  },
-  {
     id: 'reception-group',
     permissionKey: 'reception',
     label: 'RECEPTION / FRONT DESK',
@@ -99,6 +81,7 @@ export const navigationGroups = [
     icon: GraduationCap,
     items: [
       { id: 'students-list', targetTab: 'students', subTab: 'list', label: 'All Active Students', badge: 'Active' },
+      { id: 'family-portal', targetTab: 'family-portal', label: 'Unified Family Portal (Parent)', badge: 'Family' },
       { id: 'students-custom-list', targetTab: 'custom-list', label: 'Custom List Builder', badge: 'Custom' },
       { id: 'students-inactive', targetTab: 'students', subTab: 'inactive', label: 'Inactive / TC List', badge: 'Left' }
     ]
@@ -191,6 +174,7 @@ export const navigationGroups = [
     label: 'EXAM MASTER',
     icon: Award,
     items: [
+      { id: 'online-quiz', targetTab: 'online-quiz', label: 'Online MCQ Exam / Quiz 📝', badge: 'MCQ' },
       { id: 'exam-term', targetTab: 'examination', subTab: 'exam-term', label: 'Exam Term', badge: 'Term' },
       { id: 'exam-hall', targetTab: 'examination', subTab: 'exam-hall', label: 'Exam Hall', badge: null },
       { id: 'exam-trait', targetTab: 'examination', subTab: 'trait', label: 'Trait Type (Co-Scholastic)', badge: null },
@@ -401,7 +385,7 @@ export const Sidebar = ({
       return;
     }
 
-    const tabToSet = item.id || item.targetTab;
+    const tabToSet = item.targetTab || item.id;
     setActiveTab(tabToSet);
     if (onClose) onClose();
     if (setIsOpen) setIsOpen(false);
@@ -409,9 +393,11 @@ export const Sidebar = ({
 
   const isItemActive = (item) => {
     if (item.isSingle) {
-      return activeTab === item.targetTab || activeTab === item.id;
+      if (activeTab === item.targetTab || activeTab === item.id) return true;
+      if (item.id === 'role-permissions-single' && (activeTab === 'setting-role-permission' || activeTab === 'roles' || activeTab === 'role-permission' || activeTab === 'role-permissions-single')) return true;
+      return false;
     }
-    if (activeTab === item.id) return true;
+    if (activeTab === item.id || activeTab === item.targetTab) return true;
     if (item.subTab && activeTab === `${item.targetTab}-${item.subTab}`) return true;
     if (item.targetTab && activeTab === item.targetTab && !item.subTab) return true;
     // Map 'fees' to 'fees-pos' if activeTab is 'fees' or 'pos'

@@ -59,7 +59,7 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
     if (!tab) return 'global';
     if (tab === 'setting-global' || tab === 'global') return 'global';
     if (tab === 'setting-school' || tab === 'school') return 'school';
-    if (tab === 'setting-role-permission' || tab === 'role-permission' || tab === 'roles') return 'role-permission';
+    if (tab === 'setting-role-permission' || tab === 'role-permission' || tab === 'roles' || tab === 'role-permissions-single' || tab === 'permissions') return 'role-permission';
     if (tab === 'setting-session' || tab === 'session' || tab === 'sessions') return 'session';
     if (tab === 'setting-translations' || tab === 'translations' || tab === 'lang') return 'translations';
     if (tab === 'setting-cron' || tab === 'cron' || tab === 'cron-job') return 'cron';
