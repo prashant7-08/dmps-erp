@@ -54,6 +54,24 @@ export const navigationGroups = [
     targetTab: 'dashboard'
   },
   {
+    id: 'family-portal-single',
+    permissionKey: 'dashboard',
+    label: 'UNIFIED FAMILY PORTAL',
+    icon: Users,
+    isSingle: true,
+    targetTab: 'family-portal',
+    badge: '1-Click'
+  },
+  {
+    id: 'online-quiz-single',
+    permissionKey: 'dashboard',
+    label: 'ONLINE MCQ EXAM / QUIZ',
+    icon: Award,
+    isSingle: true,
+    targetTab: 'online-quiz',
+    badge: 'MCQ'
+  },
+  {
     id: 'reception-group',
     permissionKey: 'reception',
     label: 'RECEPTION / FRONT DESK',

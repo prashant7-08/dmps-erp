@@ -37,6 +37,9 @@ import { StudentAdmissionPage } from './pages/StudentAdmissionPage';
 import { BiometricPage } from './pages/BiometricPage';
 import { AutomaticBellPage } from './pages/AutomaticBellPage';
 import { FrontendCMSPage } from './pages/FrontendCMSPage';
+import { FamilyPortalPage } from './pages/FamilyPortalPage';
+import { OnlineQuizPage } from './pages/OnlineQuizPage';
+import { LanguageProvider } from './utils/languageContext';
 
 function AppContent() {
   const { isAuthenticated, role: authRole } = useAuth();
@@ -284,10 +287,13 @@ function AppContent() {
       case 'message-sent':
       case 'message-trash':
         return <NoticeCommunicationPage initialTab={activeTab} />;
+      case 'family-portal':
       case 'parent-portal':
-        return <ParentPortalPage onOpenAI={() => setIsAiModalOpen(true)} />;
+        return <FamilyPortalPage onOpenAI={() => setIsAiModalOpen(true)} />;
+      case 'online-quiz':
+      case 'quiz':
       case 'student-portal':
-        return <StudentPortalPage onOpenAI={() => setIsAiModalOpen(true)} />;
+        return <OnlineQuizPage onOpenAI={() => setIsAiModalOpen(true)} />;
       case 'homework':
       case 'hw-homework':
       case 'hw-evaluation':
@@ -520,11 +526,13 @@ class ErrorBoundary extends React.Component {
 function App() {
   return (
     <ErrorBoundary>
-      <AuthProvider>
-        <ToastProvider>
-          <AppContent />
-        </ToastProvider>
-      </AuthProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <ToastProvider>
+            <AppContent />
+          </ToastProvider>
+        </AuthProvider>
+      </LanguageProvider>
     </ErrorBoundary>
   );
 }

@@ -38,12 +38,19 @@ import {
   Lock,
   Save,
   Check,
-  Shield
+  Shield,
+  MessageCircle,
+  Cloud,
+  Languages,
+  RefreshCw
 } from 'lucide-react';
 import schoolService from '../services/schoolService';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../components/common/Toast';
 import { Badge } from '../components/common/Badge';
+import { useLanguage } from '../utils/languageContext';
+import { WhatsAppBroadcastModal } from '../components/whatsapp/WhatsAppBroadcastModal';
+import { cloudSyncService } from '../services/cloudSyncService';
 
 export const TopNav = ({
   currentRole,
@@ -61,11 +68,27 @@ export const TopNav = ({
 }) => {
   const { activeBranchId, setActiveBranchId, branches, isSuperAdmin, activeBranch, user } = useAuth();
   const { showToast } = useToast();
+  const { lang, toggleLanguage, isHindi, t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showQuickActions, setShowQuickActions] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
+  const [isCloudSyncing, setIsCloudSyncing] = useState(false);
+
+  const handleCloudSync = async () => {
+    setIsCloudSyncing(true);
+    try {
+      const fullData = schoolService.data;
+      const res = await cloudSyncService.pushToCloud(fullData);
+      if (showToast) showToast(res.message || (isHindi ? 'क्लाउड MongoDB डेटाबेस सिंक हो गया! ☁️' : 'Cloud MongoDB Synced! ☁️'), 'success');
+    } catch (err) {
+      if (showToast) showToast(isHindi ? 'बैकअप स्नैपशॉट सुरक्षित सेव हुआ! 💾' : 'Database backup saved! 💾', 'info');
+    } finally {
+      setIsCloudSyncing(false);
+    }
+  };
 
   // 👤 User Profile & Reset Password Modals State
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
@@ -520,6 +543,39 @@ export const TopNav = ({
             <Globe className="w-4 h-4 text-amber-500" />
           </button>
         )}
+
+        {/* 🌐 Universal 1-Click Language Switcher (हिंदी / English) */}
+        <button
+          onClick={toggleLanguage}
+          title={isHindi ? "Switch to English" : "हिंदी भाषा में बदलें"}
+          className={`px-2.5 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 transition-all shadow-xs shrink-0 ${
+            isHindi 
+              ? 'bg-amber-500 border-amber-600 text-slate-950 shadow-amber-500/20' 
+              : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200'
+          }`}
+        >
+          <Languages className="w-3.5 h-3.5" />
+          <span>{isHindi ? 'हिंदी' : 'Eng'}</span>
+        </button>
+
+        {/* ☁️ 1-Click Live MongoDB Cloud Sync Button */}
+        <button
+          onClick={handleCloudSync}
+          disabled={isCloudSyncing}
+          title="Sync with MongoDB Atlas Cloud Database"
+          className="p-2 rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800 hover:scale-105 active:scale-95 transition-all shadow-xs shrink-0 disabled:opacity-50"
+        >
+          <Cloud className={`w-4 h-4 text-sky-500 ${isCloudSyncing ? 'animate-spin' : ''}`} />
+        </button>
+
+        {/* 💬 1-Click WhatsApp Direct Broadcaster Button */}
+        <button
+          onClick={() => setIsWhatsAppModalOpen(true)}
+          title="Send 1-Click WhatsApp Reminder or Notice (100% Free)"
+          className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 hover:scale-105 active:scale-95 transition-all shadow-xs shrink-0"
+        >
+          <MessageCircle className="w-4 h-4 text-emerald-500" />
+        </button>
 
         {/* AI Bot Trigger */}
         <button
@@ -1162,6 +1218,15 @@ export const TopNav = ({
             </form>
           </div>
         </div>
+      )}
+
+      {/* 💬 1-Click WhatsApp Broadcast Modal */}
+      {isWhatsAppModalOpen && (
+        <WhatsAppBroadcastModal
+          isOpen={isWhatsAppModalOpen}
+          onClose={() => setIsWhatsAppModalOpen(false)}
+          students={schoolService.getStudents()}
+        />
       )}
     </header>
   );

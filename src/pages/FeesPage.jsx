@@ -37,13 +37,17 @@ import {
   Edit2,
   Calendar,
   AlertTriangle,
-  Tag
+  Tag,
+  QrCode,
+  MessageCircle
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { useToast } from '../components/common/Toast';
 import { useAuth } from '../context/AuthContext';
 import { PrintableFeeReceipt } from '../components/printables/PrintableFeeReceipt';
+import { UpiDynamicQrModal } from '../components/payment/UpiDynamicQrModal';
+import { WhatsAppBroadcastModal } from '../components/whatsapp/WhatsAppBroadcastModal';
 import schoolService from '../services/schoolService';
 import { isClassMatch, STANDARD_CLASS_OPTIONS } from '../utils/classUtils';
 
@@ -114,6 +118,8 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
 
   // Comprehensive Zero-Scroll Fee Collection Modal States
   const [isFeeModalOpen, setIsFeeModalOpen] = useState(false);
+  const [selectedStudentForQr, setSelectedStudentForQr] = useState(null);
+  const [selectedStudentForWhatsApp, setSelectedStudentForWhatsApp] = useState(null);
   const [studentForFee, setStudentForFee] = useState(null);
   const [feeForm, setFeeForm] = useState({
     tuitionPay: '',
@@ -980,13 +986,33 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-3 self-end sm:self-center shrink-0">
-                          <div className="text-right">
+                        <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+                          <div className="text-right mr-1">
                             <span className="text-[9.5px] uppercase font-bold text-slate-400 block">Balance Due</span>
                             <span className={`font-mono font-black text-sm ${isDue ? 'text-rose-600' : 'text-emerald-600'}`}>
                               ₹{balance.toLocaleString('en-IN')}
                             </span>
                           </div>
+
+                          {/* 💬 WhatsApp Due Reminder */}
+                          <button
+                            type="button"
+                            onClick={() => setSelectedStudentForWhatsApp(student)}
+                            title="Send WhatsApp Fee Due Reminder"
+                            className="p-2 bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 rounded-xl hover:bg-emerald-100 transition-all cursor-pointer"
+                          >
+                            <MessageCircle className="w-3.5 h-3.5" />
+                          </button>
+
+                          {/* 📱 0% Fee UPI QR Modal */}
+                          <button
+                            type="button"
+                            onClick={() => setSelectedStudentForQr(student)}
+                            title="Generate Instant UPI QR Code (0% Charge)"
+                            className="p-2 bg-sky-50 dark:bg-sky-950 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800 rounded-xl hover:bg-sky-100 transition-all cursor-pointer"
+                          >
+                            <QrCode className="w-3.5 h-3.5" />
+                          </button>
 
                           <button
                             type="button"
@@ -3119,6 +3145,29 @@ export const FeesPage = ({ initialTab = 'pos' }) => {
           );
         })()}
       </Modal>
+
+      {/* 📱 0% Fee Dynamic UPI QR Payment Modal */}
+      {selectedStudentForQr && (
+        <UpiDynamicQrModal
+          isOpen={Boolean(selectedStudentForQr)}
+          onClose={() => setSelectedStudentForQr(null)}
+          student={selectedStudentForQr}
+          onPaymentSuccess={(amt) => {
+            handleQuickPay(selectedStudentForQr, amt);
+            setSelectedStudentForQr(null);
+          }}
+        />
+      )}
+
+      {/* 💬 1-Click Direct WhatsApp Broadcaster Modal */}
+      {selectedStudentForWhatsApp && (
+        <WhatsAppBroadcastModal
+          isOpen={Boolean(selectedStudentForWhatsApp)}
+          onClose={() => setSelectedStudentForWhatsApp(null)}
+          defaultStudent={selectedStudentForWhatsApp}
+          students={students}
+        />
+      )}
 
     </div>
   );
