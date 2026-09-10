@@ -81,7 +81,6 @@ export const navigationGroups = [
     icon: GraduationCap,
     items: [
       { id: 'students-list', label: 'All Active Students', badge: 'Active' },
-      { id: 'family-portal', label: 'Unified Family Portal (Parent)', badge: 'Family' },
       { id: 'students-custom-list', label: 'Custom List Builder', badge: 'Custom' },
       { id: 'students-inactive', label: 'Inactive / TC List', badge: 'Left' }
     ]
@@ -174,7 +173,6 @@ export const navigationGroups = [
     label: 'EXAM MASTER',
     icon: Award,
     items: [
-      { id: 'online-quiz', label: 'Online MCQ Exam / Quiz 📝', badge: 'MCQ' },
       { id: 'exam-term', label: 'Exam Term', badge: 'Term' },
       { id: 'exam-hall', label: 'Exam Hall', badge: null },
       { id: 'exam-trait', label: 'Trait Type (Co-Scholastic)', badge: null },
