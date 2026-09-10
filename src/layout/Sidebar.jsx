@@ -59,8 +59,8 @@ export const navigationGroups = [
     label: 'RECEPTION / FRONT DESK',
     icon: Building2,
     items: [
-      { id: 'helpdesk-inquiries', targetTab: 'helpdesk-visitors', subTab: 'inquiries', label: 'Admission Inquiries & Visitors', badge: 'Live' },
-      { id: 'helpdesk-grievance', targetTab: 'helpdesk-visitors', subTab: 'grievance', label: 'Grievance & Complaints', badge: null }
+      { id: 'helpdesk-inquiries', label: 'Admission Inquiries & Visitors', badge: 'Live' },
+      { id: 'helpdesk-grievance', label: 'Grievance & Complaints', badge: null }
     ]
   },
   {
@@ -80,10 +80,10 @@ export const navigationGroups = [
     label: 'STUDENT DETAILS',
     icon: GraduationCap,
     items: [
-      { id: 'students-list', targetTab: 'students', subTab: 'list', label: 'All Active Students', badge: 'Active' },
-      { id: 'family-portal', targetTab: 'family-portal', label: 'Unified Family Portal (Parent)', badge: 'Family' },
-      { id: 'students-custom-list', targetTab: 'custom-list', label: 'Custom List Builder', badge: 'Custom' },
-      { id: 'students-inactive', targetTab: 'students', subTab: 'inactive', label: 'Inactive / TC List', badge: 'Left' }
+      { id: 'students-list', label: 'All Active Students', badge: 'Active' },
+      { id: 'family-portal', label: 'Unified Family Portal (Parent)', badge: 'Family' },
+      { id: 'students-custom-list', label: 'Custom List Builder', badge: 'Custom' },
+      { id: 'students-inactive', label: 'Inactive / TC List', badge: 'Left' }
     ]
   },
   {
@@ -94,8 +94,8 @@ export const navigationGroups = [
     items: [
       { id: 'staff', label: 'Employee Directory', badge: 'Active' },
       { id: 'staff-add', label: 'Add Employee', badge: 'New' },
-      { id: 'payroll', targetTab: 'payroll', label: 'Salary Payment & Payslips', badge: 'Pay' },
-      { id: 'leave', targetTab: 'leave', label: 'Leave Management', badge: 'Leave' }
+      { id: 'payroll', label: 'Salary Payment & Payslips', badge: 'Pay' },
+      { id: 'leave', label: 'Leave Management', badge: 'Leave' }
     ]
   },
   {
@@ -117,9 +117,9 @@ export const navigationGroups = [
     label: 'OFFICE CASH BOOK',
     icon: DollarSign,
     items: [
-      { id: 'office-deposit', targetTab: 'office-cash-book', subTab: 'deposit', label: 'Cash In (Income / Fees)', badge: '+' },
-      { id: 'office-expense', targetTab: 'office-cash-book', subTab: 'expense', label: 'Cash Out (Expenses / Diesel)', badge: '-' },
-      { id: 'office-transactions', targetTab: 'office-cash-book', subTab: 'transactions', label: 'All Transactions Ledger', badge: 'Ledger' }
+      { id: 'office-deposit', label: 'Cash In (Income / Fees)', badge: '+' },
+      { id: 'office-expense', label: 'Cash Out (Expenses / Diesel)', badge: '-' },
+      { id: 'office-transactions', label: 'All Transactions Ledger', badge: 'Ledger' }
     ]
   },
   {
@@ -128,10 +128,10 @@ export const navigationGroups = [
     label: 'SUPERVISION & FLEET',
     icon: Bus,
     items: [
-      { id: 'transport-routes', targetTab: 'transport', subTab: 'routes', label: 'Bus Fleet & Route Master', badge: '6 Buses' },
-      { id: 'transport-stoppage', targetTab: 'transport', subTab: 'stoppage', label: 'Stoppage & Stop Fees', badge: '45+ Stops' },
-      { id: 'transport-assign', targetTab: 'transport', subTab: 'assign', label: 'Assign Student Bus Stoppage', badge: null },
-      { id: 'hostel-allocation', targetTab: 'hostel', subTab: 'allocation', label: 'Hostel Bed Allocation (5-6 Students)', badge: 'Hostel' }
+      { id: 'transport-routes', label: 'Bus Fleet & Route Master', badge: '6 Buses' },
+      { id: 'transport-stoppage', label: 'Stoppage & Stop Fees', badge: '45+ Stops' },
+      { id: 'transport-assign', label: 'Assign Student Bus Stoppage', badge: null },
+      { id: 'hostel-allocation', label: 'Hostel Bed Allocation (5-6 Students)', badge: 'Hostel' }
     ]
   },
   {
@@ -140,9 +140,9 @@ export const navigationGroups = [
     label: 'ATTENDANCE',
     icon: CheckSquare,
     items: [
-      { id: 'attendance', targetTab: 'attendance', label: 'Student Daily Attendance', badge: 'Daily' },
-      { id: 'staff-attendance', targetTab: 'staff-attendance', label: 'Staff Biometric Attendance', badge: 'Staff' },
-      { id: 'automatic-bell', targetTab: 'automatic-bell', label: 'Automatic School Bell 🔔', badge: 'Auto' }
+      { id: 'attendance', label: 'Student Daily Attendance', badge: 'Daily' },
+      { id: 'staff-attendance', label: 'Staff Biometric Attendance', badge: 'Staff' },
+      { id: 'automatic-bell', label: 'Automatic School Bell 🔔', badge: 'Auto' }
     ]
   },
   {
@@ -151,11 +151,11 @@ export const navigationGroups = [
     label: 'ACADEMIC & TIMETABLE',
     icon: BookOpen,
     items: [
-      { id: 'acad-classes', targetTab: 'academics', subTab: 'classes', label: 'Control Classes & Sections', badge: null },
-      { id: 'acad-assign-teacher', targetTab: 'academics', subTab: 'assign-teacher', label: 'Assign Class Teacher', badge: null },
-      { id: 'acad-subjects', targetTab: 'academics', subTab: 'subjects', label: 'Subject Master', badge: null },
-      { id: 'acad-class-schedule', targetTab: 'timetable', subTab: 'class-schedule', label: 'Class Timetable Schedule', badge: 'Routine' },
-      { id: 'acad-promotion', targetTab: 'academics', subTab: 'promotion', label: 'Student Annual Promotion', badge: 'Roll' }
+      { id: 'acad-classes', label: 'Control Classes & Sections', badge: null },
+      { id: 'acad-assign-teacher', label: 'Assign Class Teacher', badge: null },
+      { id: 'acad-subjects', label: 'Subject Master', badge: null },
+      { id: 'acad-class-schedule', label: 'Class Timetable Schedule', badge: 'Routine' },
+      { id: 'acad-promotion', label: 'Student Annual Promotion', badge: 'Roll' }
     ]
   },
   {
@@ -164,8 +164,8 @@ export const navigationGroups = [
     label: 'HOMEWORK',
     icon: FileSpreadsheet,
     items: [
-      { id: 'hw-homework', targetTab: 'homework', subTab: 'homework', label: 'Daily Homework', badge: 'Daily' },
-      { id: 'hw-evaluation', targetTab: 'homework', subTab: 'evaluation', label: 'Evaluation Report', badge: null }
+      { id: 'hw-homework', label: 'Daily Homework', badge: 'Daily' },
+      { id: 'hw-evaluation', label: 'Evaluation Report', badge: null }
     ]
   },
   {
@@ -174,16 +174,16 @@ export const navigationGroups = [
     label: 'EXAM MASTER',
     icon: Award,
     items: [
-      { id: 'online-quiz', targetTab: 'online-quiz', label: 'Online MCQ Exam / Quiz 📝', badge: 'MCQ' },
-      { id: 'exam-term', targetTab: 'examination', subTab: 'exam-term', label: 'Exam Term', badge: 'Term' },
-      { id: 'exam-hall', targetTab: 'examination', subTab: 'exam-hall', label: 'Exam Hall', badge: null },
-      { id: 'exam-trait', targetTab: 'examination', subTab: 'trait', label: 'Trait Type (Co-Scholastic)', badge: null },
-      { id: 'exam-distribution', targetTab: 'examination', subTab: 'distribution', label: 'Marks Distribution (80:20)', badge: null },
-      { id: 'exam-schedule', targetTab: 'examination', subTab: 'schedule', label: 'Exam Schedule Date Sheet', badge: 'Date' },
-      { id: 'exam-marks', targetTab: 'examination', subTab: 'marks', label: 'Mark Entries & Report Cards 🖨️', badge: 'Marks' },
-      { id: 'exam-marks-attendance', targetTab: 'examination', subTab: 'marks-attendance', label: 'Attendance Entries', badge: null },
-      { id: 'exam-generate-position', targetTab: 'examination', subTab: 'generate-position', label: 'Generate Position (1st, 2nd, 3rd)', badge: 'Rank' },
-      { id: 'exam-grades-range', targetTab: 'examination', subTab: 'grades-range', label: 'CBSE 9-Point Grades Range', badge: 'CBSE' }
+      { id: 'online-quiz', label: 'Online MCQ Exam / Quiz 📝', badge: 'MCQ' },
+      { id: 'exam-term', label: 'Exam Term', badge: 'Term' },
+      { id: 'exam-hall', label: 'Exam Hall', badge: null },
+      { id: 'exam-trait', label: 'Trait Type (Co-Scholastic)', badge: null },
+      { id: 'exam-distribution', label: 'Marks Distribution (80:20)', badge: null },
+      { id: 'exam-schedule', label: 'Exam Schedule Date Sheet', badge: 'Date' },
+      { id: 'exam-marks', label: 'Mark Entries & Report Cards 🖨️', badge: 'Marks' },
+      { id: 'exam-marks-attendance', label: 'Attendance Entries', badge: null },
+      { id: 'exam-generate-position', label: 'Generate Position (1st, 2nd, 3rd)', badge: 'Rank' },
+      { id: 'exam-grades-range', label: 'CBSE 9-Point Grades Range', badge: 'CBSE' }
     ]
   },
   {
@@ -192,11 +192,11 @@ export const navigationGroups = [
     label: 'ID CARDS & CERTIFICATES',
     icon: Contact,
     items: [
-      { id: 'card-student-id', targetTab: 'card-management', subTab: 'student-id', label: 'Student ID Card Print', badge: 'ID' },
-      { id: 'card-employee-id', targetTab: 'card-management', subTab: 'employee-id', label: 'Employee ID Card Print', badge: null },
-      { id: 'card-generate-admit', targetTab: 'card-management', subTab: 'generate-admit', label: 'Generate Exam Admit Card', badge: 'Exam' },
-      { id: 'cert-generate-student', targetTab: 'certificates', subTab: 'generate-student', label: 'Student Transfer Certificate (TC)', badge: 'TC' },
-      { id: 'cert-generate-employee', targetTab: 'certificates', subTab: 'generate-employee', label: 'Employee Service Certificate', badge: null }
+      { id: 'card-student-id', label: 'Student ID Card Print', badge: 'ID' },
+      { id: 'card-employee-id', label: 'Employee ID Card Print', badge: null },
+      { id: 'card-generate-admit', label: 'Generate Exam Admit Card', badge: 'Exam' },
+      { id: 'cert-generate-student', label: 'Student Transfer Certificate (TC)', badge: 'TC' },
+      { id: 'cert-generate-employee', label: 'Employee Service Certificate', badge: null }
     ]
   },
   {
@@ -205,8 +205,8 @@ export const navigationGroups = [
     label: 'INVENTORY & STORE',
     icon: Package,
     items: [
-      { id: 'inventory-product', targetTab: 'inventory-store', subTab: 'product', label: 'Store Stock Balances', badge: 'Stock' },
-      { id: 'inventory-sales', targetTab: 'inventory-store', subTab: 'sales', label: 'Uniform, Books & Stationery Issue / Sales', badge: 'POS' }
+      { id: 'inventory-product', label: 'Store Stock Balances', badge: 'Stock' },
+      { id: 'inventory-sales', label: 'Uniform, Books & Stationery Issue / Sales', badge: 'POS' }
     ]
   },
   {
@@ -215,10 +215,10 @@ export const navigationGroups = [
     label: 'LIBRARY',
     icon: BookMarked,
     items: [
-      { id: 'lib-books', targetTab: 'library', subTab: 'books', label: 'Books Catalog', badge: 'Catalog' },
-      { id: 'lib-category', targetTab: 'library', subTab: 'category', label: 'Books Category', badge: null },
-      { id: 'lib-my-issued', targetTab: 'library', subTab: 'my-issued', label: 'My Issued Book', badge: null },
-      { id: 'lib-issue-return', targetTab: 'library', subTab: 'issue-return', label: 'Book Issue/return Desk', badge: 'Counter' }
+      { id: 'lib-books', label: 'Books Catalog', badge: 'Catalog' },
+      { id: 'lib-category', label: 'Books Category', badge: null },
+      { id: 'lib-my-issued', label: 'My Issued Book', badge: null },
+      { id: 'lib-issue-return', label: 'Book Issue/return Desk', badge: 'Counter' }
     ]
   },
   {
@@ -227,10 +227,10 @@ export const navigationGroups = [
     label: 'BULK SMS AND EMAIL',
     icon: Bell,
     items: [
-      { id: 'sms-send', targetTab: 'notices', subTab: 'send', label: 'Send Sms / WhatsApp Broadcast', badge: 'Broadcast' },
-      { id: 'sms-report', targetTab: 'notices', subTab: 'report', label: 'Sms / Email Report Logs', badge: 'Logs' },
-      { id: 'sms-birthday-student', targetTab: 'notices', subTab: 'birthday-student', label: 'Student Birthday Wishes', badge: '🎂' },
-      { id: 'sms-birthday-staff', targetTab: 'notices', subTab: 'birthday-staff', label: 'Staff Birthday Wishes', badge: '🎉' }
+      { id: 'sms-send', label: 'Send Sms / WhatsApp Broadcast', badge: 'Broadcast' },
+      { id: 'sms-report', label: 'Sms / Email Report Logs', badge: 'Logs' },
+      { id: 'sms-birthday-student', label: 'Student Birthday Wishes', badge: '🎂' },
+      { id: 'sms-birthday-staff', label: 'Staff Birthday Wishes', badge: '🎉' }
     ]
   },
   {
@@ -239,8 +239,8 @@ export const navigationGroups = [
     label: 'MESSAGE (MAILBOX)',
     icon: Mail,
     items: [
-      { id: 'message-inbox', targetTab: 'notices', subTab: 'mailbox-inbox', label: 'Inbox & Mailbox', badge: '0' },
-      { id: 'message-compose', targetTab: 'notices', subTab: 'mailbox-compose', label: 'Compose Message', badge: 'New' }
+      { id: 'message-inbox', label: 'Inbox & Mailbox', badge: '0' },
+      { id: 'message-compose', label: 'Compose Message', badge: 'New' }
     ]
   },
   {
@@ -249,13 +249,13 @@ export const navigationGroups = [
     label: 'REPORTS',
     icon: BarChart3,
     items: [
-      { id: 'reports-custom-list', targetTab: 'custom-list', label: '📋 CUSTOM LIST BUILDER', badge: 'Custom' },
-      { id: 'reports-student', targetTab: 'reports', subTab: 'students', label: 'STUDENT REPORTS', badge: 'Student' },
-      { id: 'reports-fees', targetTab: 'reports', subTab: 'fees', label: 'FEES REPORTS', badge: 'Fees' },
-      { id: 'reports-financial', targetTab: 'reports', subTab: 'financial', label: 'FINANCIAL REPORTS', badge: 'Accounts' },
-      { id: 'reports-attendance', targetTab: 'reports', subTab: 'attendance', label: 'ATTENDANCE REPORTS (<75%)', badge: 'Biometric' },
-      { id: 'reports-hr', targetTab: 'reports', subTab: 'hr', label: 'HUMAN RESOURCE', badge: 'HR' },
-      { id: 'reports-exam', targetTab: 'reports', subTab: 'exam', label: 'EXAMINATION', badge: 'Marks' }
+      { id: 'reports-custom-list', label: '📋 CUSTOM LIST BUILDER', badge: 'Custom' },
+      { id: 'reports-student', label: 'STUDENT REPORTS', badge: 'Student' },
+      { id: 'reports-fees', label: 'FEES REPORTS', badge: 'Fees' },
+      { id: 'reports-financial', label: 'FINANCIAL REPORTS', badge: 'Accounts' },
+      { id: 'reports-attendance', label: 'ATTENDANCE REPORTS (<75%)', badge: 'Biometric' },
+      { id: 'reports-hr', label: 'HUMAN RESOURCE', badge: 'HR' },
+      { id: 'reports-exam', label: 'EXAMINATION', badge: 'Marks' }
     ]
   },
   {
@@ -275,11 +275,11 @@ export const navigationGroups = [
     label: 'FRONTEND',
     icon: Globe,
     items: [
-      { id: 'fe-setting', targetTab: 'frontend', subTab: 'setting', label: 'Website Settings', badge: 'CMS' },
-      { id: 'fe-menu', targetTab: 'frontend', subTab: 'menu', label: 'Navigation Menu', badge: null },
-      { id: 'fe-slider', targetTab: 'frontend', subTab: 'slider', label: 'Homepage Sliders', badge: 'Banner' },
-      { id: 'fe-testimonial', targetTab: 'frontend', subTab: 'testimonial', label: 'Parent Testimonials', badge: null },
-      { id: 'fe-gallery', targetTab: 'frontend', subTab: 'gallery', label: 'Photo Gallery', badge: 'Media' },
+      { id: 'fe-setting', label: 'Website Settings', badge: 'CMS' },
+      { id: 'fe-menu', label: 'Navigation Menu', badge: null },
+      { id: 'fe-slider', label: 'Homepage Sliders', badge: 'Banner' },
+      { id: 'fe-testimonial', label: 'Parent Testimonials', badge: null },
+      { id: 'fe-gallery', label: 'Photo Gallery', badge: 'Media' },
       { id: 'website-view', label: 'Public Live Website ↗', badge: 'Live', isExternalWebsite: true }
     ]
   },
@@ -298,12 +298,12 @@ export const navigationGroups = [
     label: 'SETTINGS',
     icon: Settings,
     items: [
-      { id: 'setting-global', targetTab: 'settings', subTab: 'global', label: 'Global Settings', badge: 'App' },
-      { id: 'setting-school', targetTab: 'settings', subTab: 'school', label: 'School Profile & CBSE Info', badge: 'CBSE' },
-      { id: 'setting-role-permission', targetTab: 'settings', subTab: 'role-permission', label: 'Role Permissions (RBAC)', badge: 'RBAC' },
-      { id: 'setting-session', targetTab: 'settings', subTab: 'session', label: 'Academic Sessions (2026-27)', badge: '2026-27' },
-      { id: 'setting-cron', targetTab: 'settings', subTab: 'cron', label: 'Automated SMS & Bell Cron', badge: 'Auto' },
-      { id: 'setting-backup', targetTab: 'settings', subTab: 'backup', label: 'Database Backup & Restore', badge: 'SQL' }
+      { id: 'setting-global', label: 'Global Settings', badge: 'App' },
+      { id: 'setting-school', label: 'School Profile & CBSE Info', badge: 'CBSE' },
+      { id: 'setting-role-permission', label: 'Role Permissions (RBAC)', badge: 'RBAC' },
+      { id: 'setting-session', label: 'Academic Sessions (2026-27)', badge: '2026-27' },
+      { id: 'setting-cron', label: 'Automated SMS & Bell Cron', badge: 'Auto' },
+      { id: 'setting-backup', label: 'Database Backup & Restore', badge: 'SQL' }
     ]
   }
 ];
@@ -323,40 +323,45 @@ export const Sidebar = ({
   const effectiveRole = authRole || currentRole || 'Super Admin';
 
   const findParentGroupId = (tab) => {
-    if (!tab) return null;
+    if (!tab || tab === 'dashboard' || tab === 'dashboard-group') return null;
+
+    if (tab.startsWith('helpdesk-') || tab === 'reception' || tab === 'inquiries' || tab === 'complaints') return 'reception-group';
+    if (tab === 'admission' || tab === 'admission-create' || tab === 'admission-online' || tab === 'students-import' || tab === 'admission-import') return 'admission-group';
+    if (tab === 'students' || tab === 'students-list' || tab === 'students-inactive' || tab === 'family-portal' || tab === 'parent-portal' || tab === 'students-custom-list') return 'students-group';
+    if (tab === 'staff' || tab === 'staff-add' || tab === 'employee-add' || tab === 'payroll' || tab === 'leave' || tab === 'employee-list' || tab === 'employees' || tab === 'human-resource' || tab === 'hr-leave') return 'employee-group';
+    if (tab.startsWith('fees-') || tab === 'fees' || tab === 'pos' || tab === 'dues' || tab === 'allocation' || tab === 'siblings' || tab === 'sibling-list' || tab === 'payment-types') return 'student-accounting-group';
+    if (tab.startsWith('office-') || tab === 'office-cash-book' || tab === 'account' || tab === 'deposit' || tab === 'expense' || tab === 'transactions' || tab === 'voucher') return 'office-accounting-group';
+    if (tab.startsWith('transport-') || tab === 'transport' || tab.startsWith('hostel-') || tab === 'hostel') return 'supervision-group';
+    if (tab === 'attendance' || tab === 'staff-attendance' || tab === 'student-attendance' || tab === 'employee-attendance' || tab === 'automatic-bell' || tab === 'bell' || tab === 'biometric' || tab === 'staff-monthly-matrix') return 'attendance-group';
+    if (tab.startsWith('acad-') || tab === 'academics' || tab === 'timetable') return 'academic-group';
+    if (tab.startsWith('hw-') || tab === 'homework') return 'homework-group';
+    if (tab.startsWith('exam-') || tab === 'examination' || tab === 'online-quiz' || tab === 'quiz' || tab === 'student-portal') return 'exam-master-group';
+    if (tab.startsWith('card-') || tab.startsWith('cert-') || tab === 'card-management' || tab === 'certificates' || tab === 'admit-cards') return 'card-certificate-group';
+    if (tab.startsWith('inventory-') || tab === 'inventory' || tab === 'inventory-store') return 'inventory-group';
+    if (tab.startsWith('lib-') || tab === 'library') return 'library-group';
+    if (tab.startsWith('sms-') || tab === 'notices' || tab === 'bulk-sms') return 'bulk-sms-group';
+    if (tab.startsWith('message-') || tab === 'message') return 'message-group';
+    if (tab.startsWith('reports-') || tab === 'reports' || tab === 'custom-list' || tab === 'customlist') return 'reports-group';
+    if (tab.startsWith('fe-') || tab === 'frontend') return 'frontend-group';
+    if (tab.startsWith('setting-') || tab === 'settings' || tab === 'role-permissions-single' || tab === 'roles' || tab === 'role-permission') return 'settings-group';
+
     for (const group of navigationGroups) {
-      if (group.isSingle && (group.targetTab === tab || group.id === tab)) return group.id;
       if (group.items) {
         for (const item of group.items) {
-          if (
-            item.targetTab === tab ||
-            item.id === tab ||
-            (item.subTab && tab === `${item.targetTab}-${item.subTab}`) ||
-            (tab.startsWith('fees-') && group.id === 'student-accounting-group') ||
-            (tab.startsWith('office-') && group.id === 'office-accounting-group') ||
-            (tab.startsWith('acad-') && group.id === 'academic-group') ||
-            (tab.startsWith('exam-') && group.id === 'exam-master-group') ||
-            (tab.startsWith('card-') && group.id === 'card-certificate-group') ||
-            (tab.startsWith('cert-') && group.id === 'card-certificate-group') ||
-            (tab.startsWith('sms-') && group.id === 'bulk-sms-group') ||
-            (tab.startsWith('fe-') && group.id === 'frontend-group') ||
-            (tab.startsWith('setting-') && group.id === 'settings-group')
-          ) {
-            return group.id;
-          }
+          if (item.id === tab || item.targetTab === tab) return group.id;
         }
       }
     }
     return null;
   };
 
-  // Only ONE group is open at a time (Accordion mode)
-  const [expandedGroupId, setExpandedGroupId] = useState(() => findParentGroupId(activeTab) || 'student-accounting-group');
+  // Only ONE group is open at a time (Strict Accordion mode)
+  const [expandedGroupId, setExpandedGroupId] = useState(() => findParentGroupId(activeTab));
 
   // Auto-expand active group when activeTab changes
   useEffect(() => {
     const parentId = findParentGroupId(activeTab);
-    if (parentId) {
+    if (parentId !== undefined) {
       setExpandedGroupId(parentId);
     }
   }, [activeTab]);
@@ -385,7 +390,16 @@ export const Sidebar = ({
       return;
     }
 
-    const tabToSet = item.targetTab || item.id;
+    if (item.isSingle) {
+      setExpandedGroupId(null);
+      const tabToSet = item.targetTab || item.id;
+      setActiveTab(tabToSet);
+      if (onClose) onClose();
+      if (setIsOpen) setIsOpen(false);
+      return;
+    }
+
+    const tabToSet = item.id;
     setActiveTab(tabToSet);
     if (onClose) onClose();
     if (setIsOpen) setIsOpen(false);
@@ -393,19 +407,34 @@ export const Sidebar = ({
 
   const isItemActive = (item) => {
     if (item.isSingle) {
-      if (activeTab === item.targetTab || activeTab === item.id) return true;
-      if (item.id === 'role-permissions-single' && (activeTab === 'setting-role-permission' || activeTab === 'roles' || activeTab === 'role-permission' || activeTab === 'role-permissions-single')) return true;
-      return false;
+      if (item.id === 'role-permissions-single') {
+        return activeTab === 'setting-role-permission' || activeTab === 'role-permissions-single' || activeTab === 'role-permission' || activeTab === 'roles';
+      }
+      return activeTab === item.targetTab || activeTab === item.id;
     }
-    if (activeTab === item.id || activeTab === item.targetTab) return true;
-    if (item.subTab && activeTab === `${item.targetTab}-${item.subTab}`) return true;
-    if (item.targetTab && activeTab === item.targetTab && !item.subTab) return true;
-    // Map 'fees' to 'fees-pos' if activeTab is 'fees' or 'pos'
-    if (item.id === 'fees-pos' && (activeTab === 'pos' || activeTab === 'fees' || activeTab === 'fees-pos')) return true;
-    if (item.id === 'fees-dues' && (activeTab === 'dues' || activeTab === 'fees-dues')) return true;
-    if (item.id === 'fees-allocation' && (activeTab === 'allocation' || activeTab === 'fees-allocation')) return true;
-    if (item.id === 'fees-types' && (activeTab === 'types' || activeTab === 'fees-types')) return true;
-    if (item.id === 'fees-siblings' && (activeTab === 'siblings' || activeTab === 'sibling-list' || activeTab === 'fees-siblings')) return true;
+
+    if (activeTab === item.id) return true;
+    if (item.id === 'family-portal' && (activeTab === 'family-portal' || activeTab === 'parent-portal')) return true;
+    if (item.id === 'online-quiz' && (activeTab === 'online-quiz' || activeTab === 'quiz' || activeTab === 'student-portal')) return true;
+    if ((item.id === 'students-custom-list' || item.id === 'reports-custom-list') && (activeTab === 'custom-list' || activeTab === 'customlist' || activeTab === 'custom-reports')) return true;
+    if (item.id === 'students-list' && (activeTab === 'students' || activeTab === 'students-list')) return true;
+    if (item.id === 'students-inactive' && activeTab === 'students-inactive') return true;
+    if (item.id === 'admission' && (activeTab === 'admission' || activeTab === 'admission-create')) return true;
+    if (item.id === 'admission-online' && activeTab === 'admission-online') return true;
+    if (item.id === 'students-import' && (activeTab === 'students-import' || activeTab === 'admission-import')) return true;
+    if (item.id === 'staff' && (activeTab === 'staff' || activeTab === 'employee-list' || activeTab === 'employees')) return true;
+    if (item.id === 'payroll' && (activeTab === 'payroll' || activeTab === 'human-resource')) return true;
+    if (item.id === 'leave' && (activeTab === 'leave' || activeTab === 'hr-leave' || activeTab === 'leave-manage')) return true;
+    if (item.id === 'fees-pos' && (activeTab === 'fees' || activeTab === 'pos' || activeTab === 'fees-pos' || activeTab === 'fees-collect')) return true;
+    if (item.id === 'fees-dues' && (activeTab === 'fees-dues' || activeTab === 'dues')) return true;
+    if (item.id === 'fees-allocation' && (activeTab === 'fees-allocation' || activeTab === 'allocation')) return true;
+    if (item.id === 'fees-types' && (activeTab === 'fees-types' || activeTab === 'types' || activeTab === 'fees-groups')) return true;
+    if (item.id === 'fees-siblings' && (activeTab === 'fees-siblings' || activeTab === 'siblings' || activeTab === 'sibling-list' || activeTab === 'fees-sibling-list')) return true;
+    if (item.id === 'attendance' && (activeTab === 'attendance' || activeTab === 'student-attendance')) return true;
+    if (item.id === 'staff-attendance' && (activeTab === 'staff-attendance' || activeTab === 'employee-attendance')) return true;
+    if (item.id === 'automatic-bell' && (activeTab === 'automatic-bell' || activeTab === 'bell')) return true;
+    if (item.id === 'setting-role-permission' && (activeTab === 'setting-role-permission' || activeTab === 'role-permission' || activeTab === 'roles')) return true;
+
     return false;
   };
 

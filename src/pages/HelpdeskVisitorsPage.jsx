@@ -39,7 +39,8 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
     if (tab === 'helpdesk-passes' || tab === 'passes' || tab === 'visitors') return 'visitors';
     if (tab === 'helpdesk-calls' || tab === 'calls') return 'calls';
     if (tab === 'helpdesk-postal' || tab === 'postal') return 'postal';
-    if (tab === 'helpdesk-grievance' || tab === 'complaints') return 'complaints';
+    if (tab === 'helpdesk-grievance' || tab === 'grievance' || tab === 'complaints') return 'complaints';
+    if (tab === 'helpdesk-inquiries' || tab === 'inquiries' || tab === 'helpdesk-visitors') return 'inquiries';
     return 'inquiries';
   };
 
