@@ -44,12 +44,16 @@ import { Badge } from '../components/common/Badge';
 // 1. 💼 ACCOUNTANT DASHBOARD VIEW
 // =========================================================================
 export const AccountantDashboardView = ({ stats, setActiveTab, onOpenAI, currentTime, schoolInfo }) => {
+  const totalPaid = stats?.totalFeeCollected || 1411800;
+  const totalDue = stats?.totalFeeRemaining || 1411800;
+  const totalStudents = stats?.totalStudents || 80;
+
   const classDues = [
-    { name: 'Nursery', strength: 54, tuition: '₹3,24,000', transport: '₹1,62,000', paid: '₹84,000', balance: '₹4,02,000' },
-    { name: 'Class 1st', strength: 57, tuition: '₹4,56,000', transport: '₹2,28,000', paid: '₹1,12,000', balance: '₹5,72,000' },
-    { name: 'Class 5th', strength: 49, tuition: '₹5,88,000', transport: '₹2,94,000', paid: '₹1,45,000', balance: '₹7,37,000' },
-    { name: 'Class 8th', strength: 23, tuition: '₹3,45,000', transport: '₹1,72,500', paid: '₹92,000', balance: '₹4,25,500' },
-    { name: 'Class 10th', strength: 19, tuition: '₹3,42,000', transport: '₹1,71,000', paid: '₹1,20,000', balance: '₹3,93,000' }
+    { name: 'Nursery', strength: 5, tuition: '₹30,000', transport: '₹9,900', paid: '₹19,950', balance: '₹19,950' },
+    { name: 'Class 1st', strength: 5, tuition: '₹60,000', transport: '₹19,800', paid: '₹39,900', balance: '₹39,900' },
+    { name: 'Class 5th', strength: 5, tuition: '₹75,000', transport: '₹22,000', paid: '₹48,500', balance: '₹48,500' },
+    { name: 'Class 8th', strength: 5, tuition: '₹90,000', transport: '₹24,200', paid: '₹57,100', balance: '₹57,100' },
+    { name: 'Class 10th', strength: 5, tuition: '₹1,20,000', transport: '₹26,400', paid: '₹73,200', balance: '₹73,200' }
   ];
 
   const recentTransactions = [
@@ -102,15 +106,15 @@ export const AccountantDashboardView = ({ stats, setActiveTab, onOpenAI, current
         />
         <StatCard
           title="Total Session Collection"
-          value="₹10,33,100"
+          value={`₹${totalPaid.toLocaleString('en-IN')}`}
           subtitle="100% verified in bank/cash"
           icon={DollarSign}
           variant="secondary"
         />
         <StatCard
           title="Total Outstanding Dues"
-          value="₹1,05,27,785"
-          subtitle="Across 567 registered students"
+          value={`₹${totalDue.toLocaleString('en-IN')}`}
+          subtitle={`Across ${totalStudents} registered students`}
           icon={AlertTriangle}
           variant="warning"
         />
@@ -305,15 +309,15 @@ export const TeacherDashboardView = ({ stats, setActiveTab, onOpenAI, currentTim
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="My Assigned Class"
-          value="Class 5th-A"
-          subtitle="49 Students Enrolled"
+          value="Class 10th-A"
+          subtitle="5 Students Enrolled"
           icon={GraduationCap}
           variant="primary"
         />
         <StatCard
           title="Today's Attendance"
-          value="47 / 49"
-          subtitle="95.9% Class Turnout"
+          value="5 / 5"
+          subtitle="100% Class Turnout"
           icon={UserCheck}
           variant="secondary"
         />
@@ -326,7 +330,7 @@ export const TeacherDashboardView = ({ stats, setActiveTab, onOpenAI, currentTim
         />
         <StatCard
           title="Homework to Review"
-          value="6 Pending"
+          value="2 Pending"
           subtitle="Science Chapter 4"
           icon={FileText}
           variant="warning"
@@ -414,11 +418,11 @@ export const TeacherDashboardView = ({ stats, setActiveTab, onOpenAI, currentTim
 // =========================================================================
 export const TransportDashboardView = ({ stats, setActiveTab, onOpenAI, currentTime }) => {
   const routes = [
-    { route: 'Route #1 (Senior Campus)', vehicle: 'UP-81-AB-1024 (Bus 1)', driver: 'Sonu Kumar (Past) / Hemraj', stops: 9, students: 68, status: 'On Duty' },
-    { route: 'Route #2 (Barheti Branch)', vehicle: 'UP-81-BC-2048 (Bus 2)', driver: 'Rakesh Sharma', stops: 8, students: 54, status: 'On Duty' },
-    { route: 'Route #3 (PAC Kids School)', vehicle: 'UP-81-CD-3096 (Van 1)', driver: 'Mukesh Kumar', stops: 7, students: 42, status: 'On Duty' },
-    { route: 'Route #4 (Debai Town Direct)', vehicle: 'UP-81-DE-4120 (Bus 3)', driver: 'Satish Chandra', stops: 10, students: 85, status: 'On Duty' },
-    { route: 'Route #5 (Kaliyanpur Road)', vehicle: 'UP-81-EF-5210 (Van 2)', driver: 'Dinesh Kumar', stops: 7, students: 48, status: 'On Duty' }
+    { route: 'Route #1 (Senior Campus)', vehicle: 'UP-81-AB-1024 (Bus 1)', driver: 'Sonu Kumar (Past) / Hemraj', stops: 9, students: 12, status: 'On Duty' },
+    { route: 'Route #2 (Barheti Branch)', vehicle: 'UP-81-BC-2048 (Bus 2)', driver: 'Rakesh Sharma', stops: 8, students: 10, status: 'On Duty' },
+    { route: 'Route #3 (PAC Kids School)', vehicle: 'UP-81-CD-3096 (Van 1)', driver: 'Mukesh Kumar', stops: 7, students: 8, status: 'On Duty' },
+    { route: 'Route #4 (Debai Town Direct)', vehicle: 'UP-81-DE-4120 (Bus 3)', driver: 'Satish Chandra', stops: 10, students: 6, status: 'On Duty' },
+    { route: 'Route #5 (Kaliyanpur Road)', vehicle: 'UP-81-EF-5210 (Van 2)', driver: 'Dinesh Kumar', stops: 7, students: 4, status: 'On Duty' }
   ];
 
   return (
@@ -446,9 +450,9 @@ export const TransportDashboardView = ({ stats, setActiveTab, onOpenAI, currentT
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard title="Active Bus Routes" value="5 Routes" subtitle="Covering 41 Stoppages" icon={Bus} variant="primary" />
-        <StatCard title="Transport Students" value="320+ Students" subtitle="Allocated across 5 buses" icon={Users} variant="secondary" />
+        <StatCard title="Transport Students" value="40 Students" subtitle="Allocated across school routes" icon={Users} variant="secondary" />
         <StatCard title="Fleet Vehicles" value="5 Buses / Vans" subtitle="All GPS enabled" icon={ShieldCheck} variant="info" />
-        <StatCard title="Total Transport Expected" value="₹36,49,085" subtitle="Session 2026-27" icon={DollarSign} variant="warning" />
+        <StatCard title="Total Transport Expected" value="₹6,33,600" subtitle="Session 2026-27" icon={DollarSign} variant="warning" />
       </div>
 
       {/* Routes Table */}

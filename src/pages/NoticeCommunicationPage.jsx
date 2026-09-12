@@ -75,10 +75,10 @@ export const NoticeCommunicationPage = ({ initialTab = 'send' }) => {
 
   // 2. SMS/Email Dispatch History Log
   const [dispatchLogs, setDispatchLogs] = useState([
-    { id: 'LOG-104', type: 'SMS & WhatsApp', recipientGroup: 'All Parents (Classes PG - 12)', count: 567, status: 'Delivered (100%)', timestamp: '02-Sep-2026, 09:30 AM', message: 'Dear Parent, Monthly fee dues for August are now payable online.' },
-    { id: 'LOG-103', type: 'Email Circular', recipientGroup: 'All Teaching Faculty', count: 22, status: 'Delivered (100%)', timestamp: '01-Sep-2026, 04:15 PM', message: 'Staff Meeting scheduled in the Conference Hall on Saturday at 2:00 PM.' },
-    { id: 'LOG-102', type: 'SMS Alert', recipientGroup: 'Bus Route 3 Parents (Barheti)', count: 48, status: 'Delivered (98%)', timestamp: '30-Aug-2026, 07:45 AM', message: 'Bus UP-81-BT-1841 is running 10 mins late due to road construction.' },
-    { id: 'LOG-101', type: 'WhatsApp Broadcast', recipientGroup: 'Class 10 Parents', count: 42, status: 'Delivered (100%)', timestamp: '28-Aug-2026, 02:00 PM', message: 'CBSE Board Examination Pre-Board schedule published on portal.' }
+    { id: 'LOG-104', type: 'SMS & WhatsApp', recipientGroup: 'All Parents (Classes Nursery - 10th)', count: 80, status: 'Delivered (100%)', timestamp: '02-Sep-2026, 09:30 AM', message: 'Dear Parent, Monthly fee dues for August are now payable online.' },
+    { id: 'LOG-103', type: 'Email Circular', recipientGroup: 'All Teaching Faculty', count: 7, status: 'Delivered (100%)', timestamp: '01-Sep-2026, 04:15 PM', message: 'Staff Meeting scheduled in the Conference Hall on Saturday at 2:00 PM.' },
+    { id: 'LOG-102', type: 'SMS Alert', recipientGroup: 'Bus Route 3 Parents (Barheti)', count: 12, status: 'Delivered (98%)', timestamp: '30-Aug-2026, 07:45 AM', message: 'Bus UP-81-BT-1841 is running 10 mins late due to road construction.' },
+    { id: 'LOG-101', type: 'WhatsApp Broadcast', recipientGroup: 'Class 10 Parents', count: 5, status: 'Delivered (100%)', timestamp: '28-Aug-2026, 02:00 PM', message: 'CBSE Board Examination Pre-Board schedule published on portal.' }
   ]);
 
   // 3. SMS Templates State
@@ -129,7 +129,7 @@ export const NoticeCommunicationPage = ({ initialTab = 'send' }) => {
       id: `LOG-${Date.now().toString().slice(-3)}`,
       type: sendForm.channel,
       recipientGroup: `${sendForm.recipientType} (${sendForm.selectedClass})`,
-      count: sendForm.recipientType === 'All Parents' ? 567 : sendForm.recipientType === 'All Teaching Faculty' ? 22 : 45,
+      count: sendForm.recipientType === 'All Parents' ? 80 : sendForm.recipientType === 'All Teaching Faculty' ? 7 : 15,
       status: 'Delivered (100%)',
       timestamp: new Date().toLocaleString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
       message: sendForm.message
@@ -257,9 +257,9 @@ export const NoticeCommunicationPage = ({ initialTab = 'send' }) => {
                     onChange={(e) => setSendForm({ ...sendForm, recipientType: e.target.value })}
                     className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold"
                   >
-                    <option value="All Parents">All Parents (Entire School 567 Students)</option>
+                    <option value="All Parents">All Parents (Entire School 80 Students)</option>
                     <option value="Specific Class Parents">Specific Class Parents</option>
-                    <option value="All Teaching Faculty">All Teaching Faculty & Staff (22 Members)</option>
+                    <option value="All Teaching Faculty">All Teaching Faculty & Staff (7 Members)</option>
                     <option value="Bus Transport Parents">Bus Transport Commuters</option>
                   </select>
                 </div>

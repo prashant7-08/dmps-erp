@@ -114,7 +114,7 @@ export const AccountsInventoryPage = ({ initialTab = 'account' }) => {
 
   // Real Totals from Database
   const totalCollectedFromFees = useMemo(() => {
-    return feeInvoices.reduce((acc, inv) => acc + Number(inv.amountPaid || inv.paidAmount || inv.totalAmount || 0), 0) || 1033100;
+    return feeInvoices.reduce((acc, inv) => acc + Number(inv.amountPaid || inv.paidAmount || inv.totalAmount || 0), 0);
   }, [feeInvoices]);
 
   const totalCashCollected = useMemo(() => {

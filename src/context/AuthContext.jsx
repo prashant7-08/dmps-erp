@@ -231,7 +231,7 @@ export function AuthProvider({ children }) {
       }
     }
 
-    // 3. Check All 567 Real Students & Parents Database
+    // 3. Check All Real Students & Parents Database
     const students = schoolService.getStudents ? schoolService.getStudents() : [];
     const matchedStudent = students.find(s => {
       if (!s) return false;

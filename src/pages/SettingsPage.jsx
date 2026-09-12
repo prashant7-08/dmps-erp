@@ -362,8 +362,8 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
 
   // 6. Cron Jobs State
   const [cronJobs, setCronJobs] = useState([
-    { id: 'CRON-01', name: 'Daily Student Absence SMS Alert', schedule: 'At 10:00 AM Daily (Mon-Sat)', command: 'php artisan notify:absent-sms', lastRun: 'Today 10:00 AM', status: 'Success (Delivered 42 SMS)', isEnabled: true },
-    { id: 'CRON-02', name: 'Monthly Fee Due Reminder SMS', schedule: '1st of Every Month at 09:00 AM', command: 'php artisan fees:send-reminders', lastRun: '01-Sep-2026, 09:00 AM', status: 'Success (567 Sent)', isEnabled: true },
+    { id: 'CRON-01', name: 'Daily Student Absence SMS Alert', schedule: 'At 10:00 AM Daily (Mon-Sat)', command: 'php artisan notify:absent-sms', lastRun: 'Today 10:00 AM', status: 'Success (Delivered 4 SMS)', isEnabled: true },
+    { id: 'CRON-02', name: 'Monthly Fee Due Reminder SMS', schedule: '1st of Every Month at 09:00 AM', command: 'php artisan fees:send-reminders', lastRun: '01-Sep-2026, 09:00 AM', status: 'Success (Active Reminders)', isEnabled: true },
     { id: 'CRON-03', name: 'Automatic Periodic Bell Ringer', schedule: 'Every 40 Mins according to Timetable', command: 'php artisan bell:ring-hardware', lastRun: '2 mins ago', status: 'Running Active', isEnabled: true },
     { id: 'CRON-04', name: 'Nightly Database JSON & SQL Auto-Snapshot', schedule: 'At 11:59 PM Every Night', command: 'php artisan db:auto-backup', lastRun: 'Yesterday 11:59 PM', status: 'Completed (Saved 4.8 MB)', isEnabled: true },
     { id: 'CRON-05', name: 'Birthday Automated Greetings Dispatch', schedule: 'At 08:00 AM Every Morning', command: 'php artisan birthday:send-wishes', lastRun: 'Today 08:00 AM', status: 'Success (3 Wished)', isEnabled: true }
@@ -429,7 +429,7 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
       a.download = snapshot.fileName;
       a.click();
 
-      showToast(`🎉 Backup Created & Downloaded: ${snapshot.fileName} (567 Students, 22 Teachers, Full ERP)! 💾`, 'success');
+      showToast(`🎉 Backup Created & Downloaded: ${snapshot.fileName} (Full ERP)! 💾`, 'success');
     }, 800);
   };
 
@@ -1363,7 +1363,7 @@ export const SettingsPage = ({ initialTab = 'global' }) => {
                 <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
                   <Database className="w-5 h-5 text-rose-600" /> Complete School Database Snapshot & Restore
                 </h3>
-                <p className="text-xs text-slate-500">1-click JSON/SQL full backup of 567 Students, 22 Teachers, Fees Ledger, Marks, and Attendance</p>
+                <p className="text-xs text-slate-500">1-click JSON/SQL full backup of Student Records, Staff, Fees Ledger, Marks, and Attendance</p>
               </div>
 
               <div className="flex gap-2">

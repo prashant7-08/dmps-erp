@@ -70,7 +70,7 @@ export const translations = {
     dashboard: "डैशबोर्ड (मुख्य पृष्ठ)",
     posCounter: "फीस जमा काउंटर (POS)",
     dueList: "बकाया फीस सूची व तकादा",
-    students: "छात्र रजिस्टर (567 बच्चे)",
+    students: "छात्र रजिस्टर",
     teachers: "अध्यापक व स्टाफ",
     biometric: "बायोमेट्रिक हाजिरी",
     timetable: "ऑटो घंटी व समय-सारणी",
