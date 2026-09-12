@@ -408,6 +408,7 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
               >
                 <option value="ALL">All Status</option>
                 <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
                 <option value="Trial">Trial</option>
                 <option value="Expired">Expired</option>
               </select>
@@ -544,15 +545,21 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
                         <Receipt className="w-4 h-4" />
                       </button>
 
-                      {!tenant.isPrimary && (
-                        <button
-                          onClick={() => handleDeleteSchool(tenant)}
-                          className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/50 rounded-lg transition-colors"
-                          title="Delete School"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      )}
+                      <button
+                        onClick={() => {
+                          const newStatus = saasService.toggleTenantStatus(tenant.id);
+                          showToast(`School '${tenant.name}' is now ${newStatus.toUpperCase()}!`, newStatus === 'Active' ? 'success' : 'info');
+                        }}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 border ${
+                          tenant.status === 'Active'
+                            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20'
+                            : 'bg-rose-500/10 text-rose-400 border-rose-500/30 hover:bg-rose-500/20'
+                        }`}
+                        title={tenant.status === 'Active' ? 'Click to mark as Inactive' : 'Click to mark as Active'}
+                      >
+                        <span className={`w-2 h-2 rounded-full ${tenant.status === 'Active' ? 'bg-emerald-400 animate-pulse' : 'bg-rose-400'}`} />
+                        <span>{tenant.status === 'Active' ? 'Active' : 'Inactive'}</span>
+                      </button>
                     </div>
 
                     <div className="flex items-center gap-2">

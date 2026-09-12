@@ -1,4 +1,5 @@
 import { initialSchoolData } from './mockData';
+import saasService from './saasService';
 import { createDefaultRolePermissions, ALL_MODULE_PERMISSIONS } from '../utils/permissionRegistry';
 import { getManualSalaryAssignments, saveManualSalaryAssignment } from '../utils/salaryUtils';
 import { 
@@ -131,7 +132,28 @@ class SchoolService {
 
   // School Setup / Info
   getSchoolInfo() {
-    return this.data.schoolInfo;
+    try {
+      const activeTenant = saasService.getActiveTenant();
+      if (activeTenant && !activeTenant.isPrimary) {
+        return {
+          ...(this.data.schoolInfo || {}),
+          id: activeTenant.id,
+          name: activeTenant.name,
+          shortName: activeTenant.shortName,
+          city: activeTenant.city,
+          state: activeTenant.state,
+          address: `${activeTenant.city}, ${activeTenant.state}`,
+          phone: activeTenant.contactPhone || '+91 97589 75880',
+          email: activeTenant.contactEmail || `contact@${activeTenant.slug}.edu`,
+          website: `https://${activeTenant.customDomain || `${activeTenant.slug}.schoolportal.in`}`,
+          affiliation: activeTenant.affiliation,
+          affiliationNo: activeTenant.licenseKey,
+          principalName: activeTenant.principalName || 'Principal',
+          academicSession: '2026-2027'
+        };
+      }
+    } catch (e) {}
+    return this.data.schoolInfo || initialSchoolData.schoolInfo;
   }
 
   updateSchoolInfo(updates) {
@@ -142,6 +164,30 @@ class SchoolService {
 
   // Branch Management (Multi-Branch ERP)
   getBranches() {
+    try {
+      const activeTenant = saasService.getActiveTenant();
+      if (activeTenant && !activeTenant.isPrimary) {
+        return [
+          {
+            id: 'BR-01',
+            code: 'BR-01',
+            shortCode: activeTenant.shortName || 'MAIN',
+            name: `${activeTenant.name} (${activeTenant.city} Main Campus)`,
+            address: `${activeTenant.city}, ${activeTenant.state}`,
+            city: activeTenant.city,
+            state: activeTenant.state,
+            phone: activeTenant.contactPhone || '+91 98765 43210',
+            email: activeTenant.contactEmail || `admin@${activeTenant.slug}.edu`,
+            principal: activeTenant.principalName || 'Principal',
+            headMaster: activeTenant.principalName || 'Academic Head',
+            totalStudents: this.data.students?.length || 37,
+            totalStaff: this.data.teachers?.length || 18,
+            isMain: true,
+            status: 'Active'
+          }
+        ];
+      }
+    } catch (e) {}
     return this.data.branches || initialSchoolData.branches || [];
   }
 
@@ -184,6 +230,16 @@ class SchoolService {
   // Students Module
   getStudents(branchId = null) {
     let list = this.data.students || [];
+    try {
+      const activeTenant = saasService.getActiveTenant();
+      if (activeTenant && !activeTenant.isPrimary) {
+        list = list.map(s => ({
+          ...s,
+          branchName: `${activeTenant.name} (${activeTenant.city} Campus)`
+        }));
+      }
+    } catch (e) {}
+
     if (branchId && branchId !== 'all') {
       list = list.filter(s => s.branchId === branchId);
     }
@@ -437,7 +493,17 @@ class SchoolService {
 
   // Teachers & Staff
   getTeachers(branchId = null) {
-    const list = this.data.teachers || [];
+    let list = this.data.teachers || [];
+    try {
+      const activeTenant = saasService.getActiveTenant();
+      if (activeTenant && !activeTenant.isPrimary) {
+        list = list.map(t => ({
+          ...t,
+          branchName: `${activeTenant.name} (${activeTenant.city} Campus)`
+        }));
+      }
+    } catch (e) {}
+
     if (!branchId || branchId === 'all') return list;
     return list.filter(t => t.branchId === branchId);
   }

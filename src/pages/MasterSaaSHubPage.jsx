@@ -408,6 +408,7 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
               >
                 <option value="ALL">All Status</option>
                 <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
                 <option value="Trial">Trial</option>
                 <option value="Expired">Expired</option>
               </select>
@@ -475,6 +476,13 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
                             {tenant.customDomain}
                           </code>
                           <button
+                            onClick={() => window.open(`https://dadheech.vercel.app/?tenant=${tenant.slug}#login`, '_blank')}
+                            className="p-1 text-indigo-500 hover:text-indigo-400 rounded"
+                            title="Launch Live Demo School"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </button>
+                          <button
                             onClick={() => copyToClipboard(`https://${tenant.customDomain}`, 'URL')}
                             className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded"
                             title="Copy Link"
@@ -537,28 +545,37 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
                         <Receipt className="w-4 h-4" />
                       </button>
 
-                      {!tenant.isPrimary && (
-                        <button
-                          onClick={() => handleDeleteSchool(tenant)}
-                          className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/50 rounded-lg transition-colors"
-                          title="Delete School"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      )}
+                      <button
+                        onClick={() => {
+                          const newStatus = saasService.toggleTenantStatus(tenant.id);
+                          showToast(`School '${tenant.name}' is now ${newStatus.toUpperCase()}!`, newStatus === 'Active' ? 'success' : 'info');
+                        }}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 border ${
+                          tenant.status === 'Active'
+                            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20'
+                            : 'bg-rose-500/10 text-rose-400 border-rose-500/30 hover:bg-rose-500/20'
+                        }`}
+                        title={tenant.status === 'Active' ? 'Click to mark as Inactive' : 'Click to mark as Active'}
+                      >
+                        <span className={`w-2 h-2 rounded-full ${tenant.status === 'Active' ? 'bg-emerald-400 animate-pulse' : 'bg-rose-400'}`} />
+                        <span>{tenant.status === 'Active' ? 'Active' : 'Inactive'}</span>
+                      </button>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <button
-                        onClick={() => handleSwitchTenant(tenant)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 ${
+                        onClick={() => {
+                          handleSwitchTenant(tenant);
+                          window.open(`https://dadheech.vercel.app/?tenant=${tenant.slug}#login`, '_blank');
+                        }}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                           isSelected
-                            ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 font-semibold'
-                            : 'bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 text-slate-700 dark:text-slate-300'
+                            ? 'bg-indigo-600 text-white shadow-md'
+                            : 'bg-indigo-500/20 text-indigo-300 hover:bg-indigo-600 hover:text-white border border-indigo-500/30'
                         }`}
                       >
-                        {isSelected ? <Check className="w-3.5 h-3.5" /> : <RefreshCw className="w-3.5 h-3.5" />}
-                        {isSelected ? 'Active Context' : 'Manage ERP'}
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>Launch School ERP ↗</span>
                       </button>
                     </div>
                   </div>
@@ -1016,20 +1033,21 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
 
             <div>
               <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                SaaS Subscription Plan
+                SaaS Subscription Plan *
               </label>
               <select
                 value={formData.plan}
                 onChange={(e) => {
                   const plan = e.target.value;
-                  const price = plan === 'Enterprise Pro' ? 25000 : plan === 'Basic ERP' ? 15000 : 8000;
+                  const price = plan === 'Enterprise' ? 30000 : plan === 'PRO' ? 22000 : plan === 'Basic' ? 15000 : 8000;
                   setFormData({ ...formData, plan, planPrice: price });
                 }}
                 className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-indigo-500 dark:text-white"
               >
-                <option value="Enterprise Pro">Enterprise Pro (Website + ERP + Bell + Biometric)</option>
-                <option value="Basic ERP">Basic ERP Only (Fees + Attendance + Cards)</option>
-                <option value="Website Only">Website Only (School Homepage + Enquiries)</option>
+                <option value="Enterprise">Enterprise (₹30,000/yr) - All 423 Modules + Biometric & Auto Bell</option>
+                <option value="PRO">PRO (₹22,000/yr) - Transport + Hostel + Payroll + Advanced Exams</option>
+                <option value="Basic">Basic (₹15,000/yr) - Core ERP + Full Fees POS + School Website</option>
+                <option value="Startup">Startup (₹8,000/yr) - Admissions, Attendance & Notices</option>
               </select>
             </div>
 
@@ -1136,9 +1154,10 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
                   onChange={(e) => setSelectedTenantForEdit({ ...selectedTenantForEdit, plan: e.target.value })}
                   className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg dark:text-white"
                 >
-                  <option value="Enterprise Pro">Enterprise Pro</option>
-                  <option value="Basic ERP">Basic ERP</option>
-                  <option value="Website Only">Website Only</option>
+                  <option value="Enterprise">Enterprise (₹30,000/yr)</option>
+                  <option value="PRO">PRO (₹22,000/yr)</option>
+                  <option value="Basic">Basic (₹15,000/yr)</option>
+                  <option value="Startup">Startup (₹8,000/yr)</option>
                 </select>
               </div>
 
@@ -1186,9 +1205,9 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
             {/* Invoice Printable Header */}
             <div className="flex justify-between items-start border-b pb-4">
               <div>
-                <h2 className="text-xl font-black text-indigo-700 tracking-tight">GLOBAL EDUTECH SOLUTIONS</h2>
-                <p className="text-xs text-slate-500">School ERP & Digital Campus SaaS Provider</p>
-                <p className="text-xs text-slate-500">Agra / NCR, India • support@edutechglobal.in</p>
+                <h2 className="text-xl font-black text-indigo-700 tracking-tight">PKR EDUTECH GLOBAL IT SERVICES</h2>
+                <p className="text-xs text-slate-500">Official Enterprise School ERP & Smart Campus SaaS Provider • ISO 9001:2015</p>
+                <p className="text-xs text-slate-500">Agra / NCR, India • support@pkredutech.vercel.app</p>
               </div>
               <div className="text-right">
                 <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 font-bold text-xs rounded-full uppercase">

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import schoolService from '../services/schoolService';
+import saasService from '../services/saasService';
 
 const AuthContext = createContext(null);
 
@@ -130,10 +131,20 @@ export function AuthProvider({ children }) {
     });
 
     if (matchedAccount) {
+      const activeTenant = saasService.getActiveTenant();
+      let displayName = matchedAccount.name;
+      if (activeTenant && !activeTenant.isPrimary) {
+        if (matchedAccount.role === 'Super Admin') {
+          displayName = `Super Admin (${activeTenant.shortName || activeTenant.name})`;
+        } else if (matchedAccount.role === 'Principal') {
+          displayName = `${activeTenant.principalName || 'Principal'} (${activeTenant.shortName})`;
+        }
+      }
+
       const authUserData = {
         id: `USR-${matchedAccount.role.replace(/\s+/g, '').toUpperCase()}-${Date.now().toString().slice(-4)}`,
         email: inputUser,
-        name: matchedAccount.name,
+        name: displayName,
         role: matchedAccount.role,
         assignedBranchId: matchedAccount.assignedBranchId
       };

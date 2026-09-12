@@ -44,6 +44,7 @@ import {
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../components/common/Toast';
 import schoolService from '../services/schoolService';
+import saasService from '../services/saasService';
 
 export const navigationGroups = [
   {
@@ -464,26 +465,31 @@ export const Sidebar = ({
         <div className={`p-3.5 border-b border-slate-800/80 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} bg-[#08152c]`}>
           <div className="flex items-center gap-3">
             <div className="relative w-11 h-11 rounded-full bg-white p-0.5 shadow-md border-2 border-amber-400 shrink-0 flex items-center justify-center">
-              <img src="/logo.png" alt="Dadheech Emblem" className="w-full h-full object-contain rounded-full" />
+              <img src="/logo.png" alt="School Emblem" className="w-full h-full object-contain rounded-full" />
               <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border border-white"></span>
               </span>
             </div>
-            {!isCollapsed && (
-              <div className="animate-in fade-in duration-200">
-                <h2 className="font-serif font-black text-lg text-white tracking-tight uppercase leading-none">
-                  DADHEECH
-                </h2>
-                <span className="text-[8.5px] font-black text-amber-300 tracking-[0.16em] uppercase mt-1 block">
-                  A GROUP OF EDUCATION
-                </span>
-                <div className="flex items-center gap-1.5 mt-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[9px] font-mono text-emerald-300 font-bold">BSB Board (Up to 12th)</span>
+            {!isCollapsed && (() => {
+              const activeTenant = saasService.getActiveTenant();
+              return (
+                <div className="animate-in fade-in duration-200 min-w-0">
+                  <h2 className="font-serif font-black text-base text-white tracking-tight uppercase leading-none truncate max-w-[170px]">
+                    {activeTenant?.shortName || activeTenant?.name || 'DADHEECH'}
+                  </h2>
+                  <span className="text-[8.5px] font-black text-amber-300 tracking-[0.12em] uppercase mt-1 block truncate max-w-[170px]">
+                    {activeTenant?.name || 'A GROUP OF EDUCATION'}
+                  </span>
+                  <div className="flex items-center gap-1.5 mt-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                    <span className="text-[9px] font-mono text-emerald-300 font-bold truncate max-w-[160px]">
+                      {activeTenant?.affiliation || 'CBSE Affiliated'}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
           </div>
         </div>
 

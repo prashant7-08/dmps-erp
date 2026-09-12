@@ -3,8 +3,8 @@
  * Manages all client school instances, modular licensing, subdomains, and tenant data isolation.
  */
 
-const SAAS_STORAGE_KEY = 'DMPS_MASTER_SAAS_TENANTS_V1';
-const ACTIVE_TENANT_KEY = 'DMPS_ACTIVE_TENANT_SLUG_V1';
+const SAAS_STORAGE_KEY = 'DMPS_MASTER_SAAS_TENANTS_V2';
+const ACTIVE_TENANT_KEY = 'DMPS_ACTIVE_TENANT_SLUG_V2';
 
 export const DEFAULT_TENANTS = [
   {
@@ -15,13 +15,13 @@ export const DEFAULT_TENANTS = [
     customDomain: 'dadheech.vercel.app',
     city: 'Agra',
     state: 'Uttar Pradesh',
-    affiliation: 'CBSE Affiliated (10+2)',
+    affiliation: 'CBSE & BSB Affiliated (10+2)',
     principalName: 'Mr. P. K. Sharma',
-    contactPhone: '+91 98765 43210',
+    contactPhone: '+91 97589 75880',
     contactEmail: 'contact@dmps.edu.in',
     isPrimary: true,
     plan: 'Enterprise Pro',
-    planPrice: 25000,
+    planPrice: 30000,
     billingCycle: 'Annual',
     status: 'Active',
     licenseKey: 'DMPS-ENT-2027-LIVE-A99X',
@@ -72,9 +72,9 @@ export const DEFAULT_TENANTS = [
     registeredDate: '2026-04-10',
     expiryDate: '2027-04-09',
     stats: {
-      studentsCount: 420,
-      staffCount: 28,
-      branchesCount: 1
+      studentsCount: 37,
+      staffCount: 18,
+      branchesCount: 2
     },
     modules: {
       website: true,
@@ -116,9 +116,9 @@ export const DEFAULT_TENANTS = [
     registeredDate: '2026-06-01',
     expiryDate: '2027-05-31',
     stats: {
-      studentsCount: 260,
-      staffCount: 16,
-      branchesCount: 1
+      studentsCount: 37,
+      staffCount: 18,
+      branchesCount: 2
     },
     modules: {
       website: false,
@@ -155,13 +155,13 @@ export const DEFAULT_TENANTS = [
     plan: 'Website Only',
     planPrice: 8000,
     billingCycle: 'Annual',
-    status: 'Trial',
+    status: 'Active',
     licenseKey: 'APEX-WEB-2026-TRL-990Q',
     registeredDate: '2026-08-15',
-    expiryDate: '2026-11-15',
+    expiryDate: '2027-08-14',
     stats: {
-      studentsCount: 150,
-      staffCount: 12,
+      studentsCount: 37,
+      staffCount: 18,
       branchesCount: 1
     },
     modules: {
@@ -304,6 +304,26 @@ class SaasService {
     return null;
   }
 
+  toggleTenantStatus(tenantId) {
+    const tenant = this.tenants.find(t => t.id === tenantId);
+    if (tenant) {
+      tenant.status = tenant.status === 'Active' ? 'Inactive' : 'Active';
+      this.saveTenants();
+      return tenant.status;
+    }
+    return 'Active';
+  }
+
+  updateTenantStatus(tenantId, newStatus) {
+    const tenant = this.tenants.find(t => t.id === tenantId);
+    if (tenant) {
+      tenant.status = newStatus;
+      this.saveTenants();
+      return tenant.status;
+    }
+    return null;
+  }
+
   addTenant(newTenantData) {
     const slug = (newTenantData.slug || newTenantData.name.toLowerCase().replace(/[^a-z0-9]/g, '')).toLowerCase();
     const id = `TENANT-${String(this.tenants.length + 1).padStart(3, '0')}`;
@@ -353,8 +373,8 @@ class SaasService {
       registeredDate: new Date().toISOString().split('T')[0],
       expiryDate: newTenantData.expiryDate || new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
       stats: {
-        studentsCount: Number(newTenantData.initialStudents) || 0,
-        staffCount: Number(newTenantData.initialStaff) || 0,
+        studentsCount: 37,
+        staffCount: 18,
         branchesCount: 1
       },
       modules: {

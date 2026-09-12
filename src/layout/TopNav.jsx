@@ -45,6 +45,7 @@ import {
   RefreshCw
 } from 'lucide-react';
 import schoolService from '../services/schoolService';
+import saasService from '../services/saasService';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../components/common/Toast';
 import { Badge } from '../components/common/Badge';
@@ -880,6 +881,19 @@ export const TopNav = ({
             <Moon className="w-4 h-4 text-indigo-600 transition-transform rotate-0" />
           )}
         </button>
+
+        {/* Active School Indicator */}
+        {(() => {
+          const activeTenant = saasService.getActiveTenant();
+          if (activeTenant && !activeTenant.isPrimary) {
+            return (
+              <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 hidden md:inline truncate max-w-[150px]" title={activeTenant.name}>
+                🏫 {activeTenant.shortName || activeTenant.name}
+              </span>
+            );
+          }
+          return null;
+        })()}
 
         {/* Academic Session Badge */}
         <span className="text-xs font-black text-rose-600 dark:text-rose-400 font-mono tracking-wide hidden sm:inline ml-1">
