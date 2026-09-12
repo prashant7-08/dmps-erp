@@ -26,6 +26,9 @@ import { PricingPage } from './saas/PricingPage';
 import { ModulesDirectoryPage } from './saas/ModulesDirectoryPage';
 import { AboutUsPage } from './saas/AboutUsPage';
 import { ContactPage } from './saas/ContactPage';
+import { PharmacyChemistBillingApp } from './saas/apps/PharmacyChemistBillingApp';
+import { RetailSupermarketPOSApp } from './saas/apps/RetailSupermarketPOSApp';
+import { StandaloneIdCardStudio } from './saas/apps/StandaloneIdCardStudio';
 import { PlanComparisonModal } from '../components/saas/PlanComparisonModal';
 import { useToast } from '../components/common/Toast';
 
@@ -150,6 +153,27 @@ export const CommercialSaaSProductLandingPage = ({
       case 'contact':
         return (
           <ContactPage
+            onNavigate={navigateTo}
+          />
+        );
+      case 'apps/pharmacy-pos':
+      case 'pharmacy':
+        return (
+          <PharmacyChemistBillingApp
+            onNavigate={navigateTo}
+          />
+        );
+      case 'apps/retail-pos':
+      case 'retail-pos':
+        return (
+          <RetailSupermarketPOSApp
+            onNavigate={navigateTo}
+          />
+        );
+      case 'apps/id-card-studio':
+      case 'id-card-studio':
+        return (
+          <StandaloneIdCardStudio
             onNavigate={navigateTo}
           />
         );

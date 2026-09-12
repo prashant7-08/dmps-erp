@@ -76,6 +76,14 @@ export const IdCardsPage = ({ onNavigate, onOpenContactModal }) => {
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <button
+              onClick={() => onNavigate('apps/id-card-studio')}
+              className="px-6 py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-purple-600/20 transition-all text-xs flex items-center gap-2"
+            >
+              <Sparkles className="w-4 h-4 text-amber-300" />
+              <span>⚡ Test Smart ID Card Studio Live</span>
+            </button>
+
+            <button
               onClick={() => handleWhatsAppBooking()}
               className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all text-xs flex items-center gap-2"
             >
@@ -85,7 +93,7 @@ export const IdCardsPage = ({ onNavigate, onOpenContactModal }) => {
 
             <button
               onClick={onOpenContactModal}
-              className="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl shadow-md transition-all text-xs flex items-center gap-2"
+              className="px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-800 font-bold rounded-xl border border-slate-300 transition-all text-xs flex items-center gap-2"
             >
               <span>Request Free Sample Kit</span>
               <ArrowRight className="w-4 h-4" />

@@ -27,6 +27,9 @@ import { ModulesDirectoryPage } from './pages/ModulesDirectoryPage';
 import { AboutUsPage } from './pages/AboutUsPage';
 import { ContactPage } from './pages/ContactPage';
 import { MasterSaaSHubPage } from './pages/MasterSaaSHubPage';
+import { PharmacyChemistBillingApp } from './pages/apps/PharmacyChemistBillingApp';
+import { RetailSupermarketPOSApp } from './pages/apps/RetailSupermarketPOSApp';
+import { StandaloneIdCardStudio } from './pages/apps/StandaloneIdCardStudio';
 import { PlanComparisonModal } from './components/saas/PlanComparisonModal';
 import { ToastProvider, useToast } from './components/common/Toast';
 
@@ -297,6 +300,27 @@ function AppContent() {
       case 'contact':
         return (
           <ContactPage
+            onNavigate={navigateTo}
+          />
+        );
+      case 'apps/pharmacy-pos':
+      case 'pharmacy':
+        return (
+          <PharmacyChemistBillingApp
+            onNavigate={navigateTo}
+          />
+        );
+      case 'apps/retail-pos':
+      case 'retail-pos':
+        return (
+          <RetailSupermarketPOSApp
+            onNavigate={navigateTo}
+          />
+        );
+      case 'apps/id-card-studio':
+      case 'id-card-studio':
+        return (
+          <StandaloneIdCardStudio
             onNavigate={navigateTo}
           />
         );

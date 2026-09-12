@@ -84,19 +84,27 @@ export const RetailBillingPage = ({ onNavigate, onOpenContactModal }) => {
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <button
-              onClick={() => handleWhatsAppBooking()}
-              className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all text-xs flex items-center gap-2"
+              onClick={() => onNavigate('apps/pharmacy-pos')}
+              className="px-6 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/20 transition-all text-xs flex items-center gap-2"
             >
-              <Phone className="w-4 h-4" />
-              <span>Book Free Live POS Demonstration</span>
+              <Zap className="w-4 h-4 text-amber-300" />
+              <span>⚡ Test Chemist / Pharmacy POS Live</span>
             </button>
 
             <button
-              onClick={onOpenContactModal}
-              className="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl shadow-md transition-all text-xs flex items-center gap-2"
+              onClick={() => onNavigate('apps/retail-pos')}
+              className="px-6 py-3.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold rounded-xl shadow-lg shadow-orange-600/20 transition-all text-xs flex items-center gap-2"
             >
-              <span>Request Hardware Bundle Quote</span>
-              <ArrowRight className="w-4 h-4" />
+              <ShoppingBag className="w-4 h-4 text-white" />
+              <span>⚡ Test Supermarket POS Live</span>
+            </button>
+
+            <button
+              onClick={() => handleWhatsAppBooking()}
+              className="px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-800 font-bold rounded-xl border border-slate-300 transition-all text-xs flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4" />
+              <span>Get POS Quote on WhatsApp</span>
             </button>
           </div>
         </div>
