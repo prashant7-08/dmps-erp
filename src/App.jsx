@@ -177,7 +177,7 @@ function AppContent() {
   // 0. If currently in standalone Master SaaS Multi-School Console mode
   if (activeTab === 'master-saas' || activeTab === 'saas' || activeTab === 'master' || activeTab === 'saas-console') {
     return (
-      <div className="min-h-screen bg-slate-950 p-4 md:p-8 text-slate-100">
+      <div className="min-h-screen bg-slate-50 p-4 md:p-8 text-slate-900">
         <div className="max-w-7xl mx-auto">
           <MasterSaaSHubPage
             onReturnToSchool={() => {

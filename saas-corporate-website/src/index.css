@@ -5,24 +5,24 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    background-color: #070b14;
-    color: #f1f5f9;
+    background-color: #f8fafc;
+    color: #0f172a;
   }
 }
 
 /* Glassmorphism & Custom Glow Effects */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 .glow-indigo {
-  box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.18);
 }
 
 .glow-purple {
-  box-shadow: 0 0 50px -10px rgba(168, 85, 247, 0.3);
+  box-shadow: 0 10px 40px -10px rgba(168, 85, 247, 0.18);
 }
 
 /* Custom Scrollbar */
@@ -31,12 +31,12 @@
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070b14;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #94a3b8;
 }

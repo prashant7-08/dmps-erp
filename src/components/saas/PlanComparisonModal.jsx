@@ -135,8 +135,8 @@ export const PLAN_TIERS = [
     id: 'startup',
     name: 'Startup',
     badge: 'Entry Tier',
-    badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
-    titleColor: 'text-blue-400',
+    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
+    titleColor: 'text-blue-700',
     subtitle: 'Admissions, Attendance & Notices',
     description: 'Digital transformation for emerging schools. Student dossiers, section builder, daily period registers, notices and parent view portal.',
     featuresCount: '145+ Core Features',
@@ -147,8 +147,8 @@ export const PLAN_TIERS = [
     id: 'basic',
     name: 'Basic',
     badge: 'Standard ERP',
-    badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
-    titleColor: 'text-amber-400',
+    badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
+    titleColor: 'text-amber-700',
     subtitle: 'Fees POS, Exams & Public Website',
     description: 'Daily commercial & academic workflows. Sibling auto-discovery, thermal/A4 fee POS, CBSE report cards, library & website CMS.',
     featuresCount: '280+ Enabled Features',
@@ -159,8 +159,8 @@ export const PLAN_TIERS = [
     id: 'pro',
     name: 'PRO',
     badge: 'Operations',
-    badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
-    titleColor: 'text-purple-400',
+    badgeColor: 'bg-purple-100 text-purple-800 border-purple-200',
+    titleColor: 'text-purple-700',
     subtitle: 'Transport, Hostel, Payroll & LMS',
     description: 'For growing campuses. GPS bus transport, hostel mess, staff HR & monthly payroll slips, lesson tracker and online quizzes.',
     featuresCount: '410+ Advanced Features',
@@ -171,8 +171,8 @@ export const PLAN_TIERS = [
     id: 'enterprise',
     name: 'Enterprise',
     badge: 'Flagship All-in-One',
-    badgeColor: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
-    titleColor: 'text-rose-400',
+    badgeColor: 'bg-rose-100 text-rose-800 border-rose-200',
+    titleColor: 'text-rose-700',
     subtitle: 'Smart Campus, IoT Biometrics & Bell',
     description: 'The complete enterprise operating system. IoT ZKTeco biometric sync, automated MP3 school bell runner, PWA mobile app, multi-branch POS & 24/7 SLA.',
     featuresCount: '520+ Full Features',
@@ -470,42 +470,42 @@ export const PlanComparisonModal = ({
   };
 
   return (
-    <div className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-slate-900 text-slate-100 rounded-3xl shadow-2xl border border-slate-800 w-full max-w-6xl max-h-[94vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-white text-slate-800 rounded-3xl shadow-2xl border border-slate-200 w-full max-w-6xl max-h-[94vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
         
         {/* Modal Top Header */}
-        <div className="p-5 pb-3 border-b border-slate-800 flex items-start justify-between gap-4 bg-slate-900/90">
+        <div className="p-5 pb-4 border-b border-slate-200 flex items-start justify-between gap-4 bg-gradient-to-r from-slate-50 via-indigo-50/50 to-slate-50">
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <h2 className="text-lg sm:text-xl font-black text-white">
+              <h2 className="text-lg sm:text-xl font-black text-slate-900">
                 PKR EDUTECH Complete Pricing & Capability Matrix
               </h2>
-              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1">
-                <Crown className="w-3 h-3 text-amber-400" />
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1">
+                <Crown className="w-3.5 h-3.5 text-amber-600" />
                 Guaranteed Best Market Pricing
               </span>
             </div>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-600 mt-1">
               Transparent student strength tiers, offline one-time options, retail billing & 31 comprehensive feature domains.
             </p>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors shrink-0"
+            className="p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-200/70 transition-colors shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Modal Nav Tabs */}
-        <div className="flex items-center gap-2 px-5 py-2.5 bg-slate-950/60 border-b border-slate-800 overflow-x-auto text-xs font-semibold">
+        <div className="flex items-center gap-2 px-5 py-2.5 bg-slate-100/80 border-b border-slate-200 overflow-x-auto text-xs font-semibold">
           <button
             onClick={() => setModalTab('strength_matrix')}
             className={`px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 whitespace-nowrap ${
               modalTab === 'strength_matrix'
-                ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-white'
             }`}
           >
             <Sparkles className="w-3.5 h-3.5" />
@@ -516,8 +516,8 @@ export const PlanComparisonModal = ({
             onClick={() => setModalTab('tier_cards')}
             className={`px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 whitespace-nowrap ${
               modalTab === 'tier_cards'
-                ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-white'
             }`}
           >
             <Crown className="w-3.5 h-3.5" />
@@ -528,8 +528,8 @@ export const PlanComparisonModal = ({
             onClick={() => setModalTab('feature_matrix')}
             className={`px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 whitespace-nowrap ${
               modalTab === 'feature_matrix'
-                ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-white'
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
@@ -540,8 +540,8 @@ export const PlanComparisonModal = ({
             onClick={() => setModalTab('billing_software')}
             className={`px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 whitespace-nowrap ${
               modalTab === 'billing_software'
-                ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-white'
             }`}
           >
             <Receipt className="w-3.5 h-3.5" />
@@ -550,74 +550,74 @@ export const PlanComparisonModal = ({
         </div>
 
         {/* Scrollable Content Area */}
-        <div className="p-5 sm:p-6 overflow-y-auto space-y-6 flex-1">
+        <div className="p-5 sm:p-6 overflow-y-auto space-y-6 flex-1 bg-white">
           
           {/* TAB 1: STUDENT STRENGTH MATRIX */}
           {modalTab === 'strength_matrix' && (
             <div className="space-y-6">
-              <div className="bg-slate-900/90 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
-                <div className="p-4 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900">
+              <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                <div className="p-4 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-gradient-to-r from-slate-50 to-indigo-50/40">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">Online Cloud School ERP</span>
-                    <h3 className="text-base font-bold text-white">Pricing by Student Strength (Setup / Annual Renewal)</h3>
+                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-700">Online Cloud School ERP</span>
+                    <h3 className="text-base font-bold text-slate-900">Pricing by Student Strength (Setup / Annual Renewal)</h3>
                   </div>
-                  <div className="text-xs text-emerald-400 font-medium flex items-center gap-1.5">
-                    <Check className="w-4 h-4" /> All prices are GST Inclusive
+                  <div className="text-xs text-emerald-700 font-semibold flex items-center gap-1.5 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                    <Check className="w-4 h-4 text-emerald-600" /> All prices are GST Inclusive
                   </div>
                 </div>
 
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <thead>
-                      <tr className="bg-slate-800/90 border-b border-slate-700 text-slate-300 font-bold">
+                      <tr className="bg-slate-100 border-b border-slate-200 text-slate-700 font-bold">
                         <th className="p-3.5 pl-4">Student Strength</th>
-                        <th className="p-3.5 text-center text-blue-300">
+                        <th className="p-3.5 text-center text-blue-800">
                           Startup ERP
-                          <span className="block text-[10px] font-normal text-slate-400">Setup / Renewal</span>
+                          <span className="block text-[10px] font-normal text-slate-500">Setup / Renewal</span>
                         </th>
-                        <th className="p-3.5 text-center text-amber-300">
+                        <th className="p-3.5 text-center text-amber-800">
                           Basic Smart ERP
-                          <span className="block text-[10px] font-normal text-slate-400">Setup / Renewal</span>
+                          <span className="block text-[10px] font-normal text-slate-500">Setup / Renewal</span>
                         </th>
-                        <th className="p-3.5 text-center text-purple-300">
+                        <th className="p-3.5 text-center text-purple-800">
                           PRO Operations
-                          <span className="block text-[10px] font-normal text-slate-400">Setup / Renewal</span>
+                          <span className="block text-[10px] font-normal text-slate-500">Setup / Renewal</span>
                         </th>
-                        <th className="p-3.5 text-center text-rose-300 bg-rose-950/30">
+                        <th className="p-3.5 text-center text-rose-800 bg-rose-50/70 border-x border-rose-200">
                           Enterprise Flagship
-                          <span className="block text-[10px] font-normal text-rose-400">Setup / Renewal</span>
+                          <span className="block text-[10px] font-bold text-rose-700">Setup / Renewal</span>
                         </th>
-                        <th className="p-3.5 text-center text-emerald-300 bg-slate-950/60">
+                        <th className="p-3.5 text-center text-emerald-800 bg-emerald-50/50">
                           Offline One-Time
-                          <span className="block text-[10px] font-normal text-slate-400">Lifetime License</span>
+                          <span className="block text-[10px] font-normal text-slate-500">Lifetime License</span>
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-800 text-slate-200">
+                    <tbody className="divide-y divide-slate-100 text-slate-700">
                       {STUDENT_STRENGTH_MATRIX.map((row, idx) => (
-                        <tr key={idx} className="hover:bg-slate-800/50 transition-colors">
-                          <td className="p-3.5 pl-4 font-bold text-white">
+                        <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
+                          <td className="p-3.5 pl-4 font-bold text-slate-900">
                             {row.range} Students
                           </td>
                           <td className="p-3 text-center">
-                            <strong className="text-white text-sm">{row.startup.setup}</strong>
-                            <span className="block text-[10px] text-slate-400">Renewal {row.startup.renewal}</span>
+                            <strong className="text-slate-900 text-sm">{row.startup.setup}</strong>
+                            <span className="block text-[10px] text-slate-500">Renewal {row.startup.renewal}</span>
                           </td>
                           <td className="p-3 text-center">
-                            <strong className="text-white text-sm">{row.basic.setup}</strong>
-                            <span className="block text-[10px] text-slate-400">Renewal {row.basic.renewal}</span>
+                            <strong className="text-slate-900 text-sm">{row.basic.setup}</strong>
+                            <span className="block text-[10px] text-slate-500">Renewal {row.basic.renewal}</span>
                           </td>
                           <td className="p-3 text-center">
-                            <strong className="text-white text-sm">{row.pro.setup}</strong>
-                            <span className="block text-[10px] text-slate-400">Renewal {row.pro.renewal}</span>
+                            <strong className="text-slate-900 text-sm">{row.pro.setup}</strong>
+                            <span className="block text-[10px] text-slate-500">Renewal {row.pro.renewal}</span>
                           </td>
-                          <td className="p-3 text-center bg-rose-950/20">
-                            <strong className="text-rose-300 text-sm">{row.enterprise.setup}</strong>
-                            <span className="block text-[10px] text-rose-400">Renewal {row.enterprise.renewal}</span>
+                          <td className="p-3 text-center bg-rose-50/40 border-x border-rose-100">
+                            <strong className="text-rose-700 text-sm font-bold">{row.enterprise.setup}</strong>
+                            <span className="block text-[10px] text-rose-600 font-medium">Renewal {row.enterprise.renewal}</span>
                           </td>
-                          <td className="p-3 text-center bg-slate-950/40">
-                            <strong className="text-emerald-400 text-sm">{row.offline}</strong>
-                            <span className="block text-[10px] text-slate-400">1-Time Cost</span>
+                          <td className="p-3 text-center bg-emerald-50/30">
+                            <strong className="text-emerald-700 text-sm font-bold">{row.offline}</strong>
+                            <span className="block text-[10px] text-slate-500">1-Time Cost</span>
                           </td>
                         </tr>
                       ))}
@@ -628,16 +628,16 @@ export const PlanComparisonModal = ({
 
               {/* Notes Grid */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                <div className="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/60">
-                  <strong className="text-amber-400 block mb-1">Basic Smart ERP:</strong>
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong className="text-amber-800 block mb-1">Basic Smart ERP:</strong>
                   Full fees POS, thermal/A4 vouchers, sibling auto-discovery, CBSE grade cards & website CMS.
                 </div>
-                <div className="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/60">
-                  <strong className="text-purple-400 block mb-1">PRO Operations:</strong>
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong className="text-purple-800 block mb-1">PRO Operations:</strong>
                   Adds GPS bus transport, hostel mess, staff HR & monthly payroll slips, homework diary & LMS quiz.
                 </div>
-                <div className="p-3.5 rounded-xl bg-rose-950/40 border border-rose-900/60">
-                  <strong className="text-rose-400 block mb-1">Enterprise Ultra:</strong>
+                <div className="p-3.5 rounded-xl bg-rose-50/80 border border-rose-200">
+                  <strong className="text-rose-800 block mb-1">Enterprise Ultra:</strong>
                   Includes real-time IoT ZKTeco biometric clock sync, automated MP3 school bell runner & PWA app.
                 </div>
               </div>
@@ -645,7 +645,7 @@ export const PlanComparisonModal = ({
               <div className="text-center pt-2">
                 <button
                   onClick={() => handleBookDemoWhatsApp('Enterprise Ultra')}
-                  className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-xl text-xs shadow-lg shadow-emerald-600/20 inline-flex items-center gap-2"
+                  className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-xl text-xs shadow-md shadow-emerald-600/20 inline-flex items-center gap-2"
                 >
                   <Phone className="w-4 h-4" />
                   <span>Book Free Custom Demo on WhatsApp</span>
@@ -665,12 +665,12 @@ export const PlanComparisonModal = ({
                       key={tier.id}
                       className={`rounded-2xl p-5 border flex flex-col justify-between transition-all relative ${
                         isEnterprise
-                          ? 'bg-gradient-to-b from-rose-950/40 via-slate-900 to-indigo-950/40 border-rose-500/60 shadow-xl ring-1 ring-rose-500/30'
-                          : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'
+                          ? 'bg-gradient-to-b from-rose-50/80 via-white to-indigo-50/60 border-rose-300 shadow-md ring-1 ring-rose-300'
+                          : 'bg-white border-slate-200 hover:border-slate-300 shadow-sm'
                       }`}
                     >
                       {isEnterprise && (
-                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-rose-600 to-pink-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-md">
+                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-rose-600 to-pink-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-sm">
                           Flagship Tier
                         </div>
                       )}
@@ -686,24 +686,24 @@ export const PlanComparisonModal = ({
                           </span>
                         </div>
 
-                        <div className="text-xl font-black text-white mb-2">
+                        <div className="text-xl font-black text-slate-900 mb-2">
                           {tier.startingPrice}
                         </div>
 
                         {/* Subtitle in Bold */}
-                        <div className="text-xs font-bold text-slate-200 mb-1.5 leading-snug">
+                        <div className="text-xs font-bold text-slate-800 mb-1.5 leading-snug">
                           {tier.subtitle}
                         </div>
 
                         {/* Description */}
-                        <p className="text-[11px] text-slate-400 leading-relaxed mb-3">
+                        <p className="text-[11px] text-slate-600 leading-relaxed mb-3">
                           {tier.description}
                         </p>
                       </div>
 
                       <div>
-                        <div className="pt-3 border-t border-slate-800 space-y-2">
-                          <div className="w-full py-1.5 px-2.5 rounded-xl bg-slate-800/80 text-indigo-300 text-center font-bold text-xs border border-slate-700/60">
+                        <div className="pt-3 border-t border-slate-200 space-y-2">
+                          <div className="w-full py-1.5 px-2.5 rounded-xl bg-slate-100 text-indigo-700 text-center font-bold text-xs border border-slate-200">
                             {tier.featuresCount}
                           </div>
 
@@ -711,8 +711,8 @@ export const PlanComparisonModal = ({
                             onClick={() => handleBookDemoWhatsApp(tier.name)}
                             className={`w-full py-2 rounded-xl text-xs font-bold transition-all ${
                               isEnterprise
-                                ? 'bg-gradient-to-r from-rose-600 to-indigo-600 hover:from-rose-500 hover:to-indigo-500 text-white shadow-md'
-                                : 'bg-slate-800 text-slate-200 hover:bg-slate-700'
+                                ? 'bg-gradient-to-r from-rose-600 to-indigo-600 hover:from-rose-700 hover:to-indigo-700 text-white shadow-md'
+                                : 'bg-slate-900 text-white hover:bg-slate-800'
                             }`}
                           >
                             Get Quote for {tier.name}
@@ -728,13 +728,13 @@ export const PlanComparisonModal = ({
 
           {/* TAB 3: 31-CAPABILITY MATRIX */}
           {modalTab === 'feature_matrix' && (
-            <div className="bg-slate-900/90 rounded-2xl border border-slate-800 overflow-hidden">
-              <div className="p-4 border-b border-slate-800 flex items-center justify-between">
-                <h4 className="font-bold text-sm text-white flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-indigo-400" />
+            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+              <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+                <h4 className="font-bold text-sm text-slate-900 flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-indigo-600" />
                   Comprehensive 31-Capability Matrix (11 Operational Domains)
                 </h4>
-                <span className="text-[11px] text-slate-400">
+                <span className="text-[11px] text-slate-500">
                   Full Feature Availability
                 </span>
               </div>
@@ -742,63 +742,63 @@ export const PlanComparisonModal = ({
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
-                    <tr className="bg-slate-800/90 border-b border-slate-700 text-slate-300 font-bold">
+                    <tr className="bg-slate-100 border-b border-slate-200 text-slate-700 font-bold">
                       <th className="p-3 pl-4">Module & Feature Capability</th>
                       <th className="p-3 text-center">
                         Startup
-                        <span className="block text-[10px] font-normal text-slate-400">145+ features</span>
+                        <span className="block text-[10px] font-normal text-slate-500">145+ features</span>
                       </th>
                       <th className="p-3 text-center">
                         Basic
-                        <span className="block text-[10px] font-normal text-slate-400">280+ features</span>
+                        <span className="block text-[10px] font-normal text-slate-500">280+ features</span>
                       </th>
                       <th className="p-3 text-center">
                         PRO
-                        <span className="block text-[10px] font-normal text-slate-400">410+ features</span>
+                        <span className="block text-[10px] font-normal text-slate-500">410+ features</span>
                       </th>
-                      <th className="p-3 text-center bg-rose-950/40 text-rose-300">
+                      <th className="p-3 text-center bg-rose-50 text-rose-800 border-x border-rose-200">
                         Enterprise
-                        <span className="block text-[10px] font-bold text-rose-400">520+ features</span>
+                        <span className="block text-[10px] font-bold text-rose-700">520+ features</span>
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800 text-slate-300">
+                  <tbody className="divide-y divide-slate-100 text-slate-700">
                     {FEATURE_AREAS.map((item, idx) => (
-                      <tr key={idx} className="hover:bg-slate-800/50 transition-colors">
+                      <tr key={idx} className="hover:bg-slate-50 transition-colors">
                         <td className="p-3 pl-4 font-medium">
-                          <div className="text-white">{item.name}</div>
+                          <div className="text-slate-900 font-semibold">{item.name}</div>
                           <div className="text-[10px] text-slate-500">{item.category}</div>
                         </td>
                         
                         <td className="p-3 text-center">
                           {item.startup ? (
-                            <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" />
+                            <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                           ) : (
-                            <Minus className="w-4 h-4 text-slate-600 mx-auto" />
+                            <Minus className="w-4 h-4 text-slate-300 mx-auto" />
                           )}
                         </td>
 
                         <td className="p-3 text-center">
                           {item.basic ? (
-                            <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" />
+                            <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                           ) : (
-                            <Minus className="w-4 h-4 text-slate-600 mx-auto" />
+                            <Minus className="w-4 h-4 text-slate-300 mx-auto" />
                           )}
                         </td>
 
                         <td className="p-3 text-center">
                           {item.pro ? (
-                            <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" />
+                            <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                           ) : (
-                            <Minus className="w-4 h-4 text-slate-600 mx-auto" />
+                            <Minus className="w-4 h-4 text-slate-300 mx-auto" />
                           )}
                         </td>
 
-                        <td className="p-3 text-center bg-rose-950/20">
+                        <td className="p-3 text-center bg-rose-50/50 border-x border-rose-100">
                           {item.enterprise ? (
-                            <Check className="w-4 h-4 text-emerald-400 mx-auto font-black" />
+                            <Check className="w-4 h-4 text-emerald-600 mx-auto font-black" />
                           ) : (
-                            <Minus className="w-4 h-4 text-slate-600 mx-auto" />
+                            <Minus className="w-4 h-4 text-slate-300 mx-auto" />
                           )}
                         </td>
                       </tr>
@@ -818,27 +818,27 @@ export const PlanComparisonModal = ({
                     key={plan.id}
                     className={`rounded-2xl p-5 border flex flex-col justify-between ${
                       plan.popular
-                        ? 'bg-gradient-to-b from-indigo-950/40 via-slate-900 to-purple-950/40 border-indigo-500/60 shadow-xl'
-                        : 'bg-slate-900/80 border-slate-800'
+                        ? 'bg-gradient-to-b from-indigo-50/70 via-white to-purple-50/70 border-indigo-300 shadow-md ring-1 ring-indigo-200'
+                        : 'bg-white border-slate-200 shadow-sm'
                     }`}
                   >
                     <div>
                       {plan.popular && (
-                        <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 text-[10px] font-bold uppercase tracking-wider mb-2 inline-block">
+                        <span className="px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 border border-indigo-200 text-[10px] font-bold uppercase tracking-wider mb-2 inline-block">
                           Most Popular
                         </span>
                       )}
-                      <h3 className="text-base font-bold text-white">{plan.name}</h3>
+                      <h3 className="text-base font-bold text-slate-900">{plan.name}</h3>
                       <div className="mt-2">
-                        <span className="text-2xl font-black text-white">{plan.price}</span>
-                        <span className="text-[11px] text-slate-400 block">{plan.renewal}</span>
+                        <span className="text-2xl font-black text-slate-900">{plan.price}</span>
+                        <span className="text-[11px] text-slate-500 block">{plan.renewal}</span>
                       </div>
-                      <p className="text-xs text-slate-400 mt-2 leading-relaxed">{plan.desc}</p>
+                      <p className="text-xs text-slate-600 mt-2 leading-relaxed">{plan.desc}</p>
                       
-                      <div className="mt-4 pt-3 border-t border-slate-800 space-y-2">
+                      <div className="mt-4 pt-3 border-t border-slate-200 space-y-2">
                         {plan.features.map((feat, i) => (
-                          <div key={i} className="flex items-start gap-2 text-xs text-slate-300">
-                            <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                          <div key={i} className="flex items-start gap-2 text-xs text-slate-700">
+                            <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -847,7 +847,7 @@ export const PlanComparisonModal = ({
 
                     <button
                       onClick={() => handleBookDemoWhatsApp(plan.name)}
-                      className="w-full mt-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-bold rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                      className="w-full mt-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition-colors flex items-center justify-center gap-2 shadow-sm"
                     >
                       <Phone className="w-3.5 h-3.5 text-emerald-400" />
                       <span>Get Instant Quote</span>
@@ -858,19 +858,19 @@ export const PlanComparisonModal = ({
             </div>
           )}
 
-          <p className="text-[11px] text-slate-400 text-center pt-2">
+          <p className="text-[11px] text-slate-500 text-center pt-2">
             All plans include 99.99% Cloud Uptime SLA, Automated Daily Database Backups, SSL Encryption, and 1-Click Excel Data Migration.
           </p>
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 px-6 border-t border-slate-800 bg-slate-900/90 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="text-xs text-slate-400 text-center sm:text-left">
-            Engineered by <strong className="text-white">PKR EDUTECH GLOBAL IT SERVICES</strong> • ISO 9001:2015 Certified
+        <div className="p-4 px-6 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="text-xs text-slate-600 text-center sm:text-left">
+            Engineered by <strong className="text-slate-900">PKR EDUTECH GLOBAL IT SERVICES</strong> • ISO 9001:2015 Certified
           </div>
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold rounded-xl text-xs transition-colors shadow-md w-full sm:w-auto"
+            className="px-5 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl text-xs transition-colors shadow-sm w-full sm:w-auto"
           >
             Close Matrix
           </button>
