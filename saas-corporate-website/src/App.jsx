@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Sparkles,
   ShieldCheck,
@@ -106,11 +106,57 @@ const FEATURE_AREAS = [
   { name: 'Advanced Security, Role-Based Access (RBAC) & Enterprise UI', startup: false, basic: false, pro: false, enterprise: true }
 ];
 
+import { MasterSaaSHubPage } from './pages/MasterSaaSHubPage';
+import { ToastProvider, useToast } from './components/common/Toast';
+
 export function App() {
+  return (
+    <ToastProvider>
+      <AppContent />
+    </ToastProvider>
+  );
+}
+
+function AppContent() {
+  const { showToast } = useToast();
+  const getInitialView = () => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes('master') || hash.includes('console') || hash.includes('admin-saas')) {
+        return 'master-console';
+      }
+    }
+    return 'landing';
+  };
+
+  const [currentView, setCurrentView] = useState(getInitialView);
   const [isPlanModalOpen, setIsPlanModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [studentsCount, setStudentsCount] = useState(500);
   const [avgFee, setAvgFee] = useState(1600);
+
+  // Sync hash
+  useEffect(() => {
+    const handlePopState = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes('master') || hash.includes('console')) {
+        setCurrentView('master-console');
+      } else {
+        setCurrentView('landing');
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const switchView = (view) => {
+    setCurrentView(view);
+    if (view === 'master-console') {
+      window.history.pushState(null, '', '#master');
+    } else {
+      window.history.pushState(null, '', ' ');
+    }
+  };
 
   // ROI Calculations
   const annualFeeVolume = studentsCount * avgFee * 12;
@@ -120,6 +166,7 @@ export function App() {
   const demoPortalUrl = 'https://dadheech.vercel.app';
 
   const handleOpenDemo = (role = 'admin') => {
+    showToast(`Opening ${role.toUpperCase()} live environment...`, 'info');
     window.open(`${demoPortalUrl}/#login`, '_blank');
   };
 
@@ -127,6 +174,42 @@ export function App() {
     const text = encodeURIComponent("Hello PKR EDUTECH Team! I would like to schedule a free demonstration of your Enterprise School ERP for our institution.");
     window.open(`https://wa.me/919876543210?text=${text}`, '_blank');
   };
+
+  // RENDER MASTER SAAS CONSOLE VIEW
+  if (currentView === 'master-console') {
+    return (
+      <div className="min-h-screen bg-[#070b14] text-slate-100 font-sans p-4 sm:p-8">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center">
+                <Crown className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="font-bold text-lg text-white">PKR EDUTECH Master Console</h2>
+                <p className="text-xs text-slate-400">Multi-School SaaS License & Tenant Hub</p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => switchView('landing')}
+              className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl border border-slate-700 flex items-center gap-2 transition-all"
+            >
+              <ArrowRight className="w-3.5 h-3.5 rotate-180 text-indigo-400" />
+              <span>Back to PKR EduTech Sales Site</span>
+            </button>
+          </div>
+
+          <MasterSaaSHubPage
+            onReturnToSchool={() => switchView('landing')}
+            onSwitchTenant={(tenant) => {
+              window.open(`${demoPortalUrl}/`, '_blank');
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#070b14] text-slate-100 font-sans selection:bg-indigo-500 selection:text-white pb-16">
@@ -166,6 +249,14 @@ export function App() {
 
           {/* Action CTAs */}
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => switchView('master-console')}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/40 transition-all shadow-md shadow-amber-500/10 active:scale-95"
+            >
+              <Crown className="w-3.5 h-3.5 text-amber-400" />
+              <span>👑 Master SaaS Console</span>
+            </button>
+
             <button
               onClick={() => setIsContactModalOpen(true)}
               className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 transition-all"
@@ -212,19 +303,27 @@ export function App() {
           {/* Primary Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button
-              onClick={() => handleOpenDemo('admin')}
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-bold rounded-2xl shadow-xl shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-3 text-sm"
+              onClick={() => switchView('master-console')}
+              className="px-7 py-4 bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 hover:from-amber-400 hover:to-purple-500 text-white font-black rounded-2xl shadow-xl shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-3 text-sm border border-amber-400/40"
             >
-              <Zap className="w-5 h-5" />
-              <span>Launch Super Admin Demo ↗</span>
+              <Crown className="w-5 h-5 text-amber-200" />
+              <span>👑 Master SaaS Console (Add / Manage Schools)</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
             <button
-              onClick={() => setIsPlanModalOpen(true)}
-              className="px-8 py-4 bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold rounded-2xl border border-slate-700 transition-all flex items-center gap-3 text-sm shadow-md"
+              onClick={() => handleOpenDemo('admin')}
+              className="px-6 py-4 bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold rounded-2xl border border-slate-700 transition-all flex items-center gap-2.5 text-sm shadow-md"
             >
-              <Crown className="w-5 h-5 text-amber-400" />
+              <Zap className="w-4 h-4 text-indigo-400" />
+              <span>Live Demo Sandbox (Client Preview) ↗</span>
+            </button>
+
+            <button
+              onClick={() => setIsPlanModalOpen(true)}
+              className="px-6 py-4 bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold rounded-2xl border border-slate-700 transition-all flex items-center gap-2 text-sm shadow-md"
+            >
+              <Crown className="w-4 h-4 text-amber-400" />
               <span>Compare 4-Tier Packages</span>
             </button>
 
@@ -662,6 +761,14 @@ export function App() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-400">
+            <button
+              onClick={() => switchView('master-console')}
+              className="px-3 py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 font-bold transition-colors flex items-center gap-1.5 shadow-sm"
+            >
+              <Crown className="w-3.5 h-3.5 text-amber-400" />
+              <span>👑 Master SaaS Console</span>
+            </button>
+
             <button
               onClick={() => handleOpenDemo('admin')}
               className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:text-indigo-400 transition-colors flex items-center gap-1.5"
