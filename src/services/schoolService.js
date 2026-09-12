@@ -14,7 +14,7 @@ import {
   applyFeeOverridesToStudent 
 } from '../utils/feeProtectionUtils';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_ERP_PRODUCTION_CLEAN_2027_V2';
+const STORAGE_KEY = 'DMPS_SCHOOL_ERP_2027_DEMO_80_STUDENTS_V4';
 
 class SchoolService {
   constructor() {
