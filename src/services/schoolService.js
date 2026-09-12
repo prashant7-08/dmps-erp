@@ -2123,17 +2123,17 @@ class SchoolService {
     const girls = students.filter(s => s.gender === 'female' || s.gender === 'Female').length;
 
     // Dynamic Comprehensive Financial Summary (Tuition + 11-Month Transport)
-    const totalTuitionFees = students.reduce((acc, s) => acc + (s.feeSummary?.tuitionDue || 13500), 0);
+    const totalTuitionFees = students.reduce((acc, s) => acc + (s.feeSummary?.tuitionDue || 0), 0);
     const totalTransportFees = students.reduce((acc, s) => acc + (s.feeSummary?.transportDue11Months || 0), 0);
-    const totalDues = students.reduce((acc, s) => acc + (s.feeSummary?.totalDue || 13500), 0);
-    const totalCollected = students.reduce((acc, s) => acc + (s.feeSummary?.totalPaid || 0), 0) || 1034800;
+    const totalDues = students.reduce((acc, s) => acc + (s.feeSummary?.totalDue || 0), 0);
+    const totalCollected = students.reduce((acc, s) => acc + (s.feeSummary?.totalPaid || 0), 0);
     const totalRemaining = Math.max(0, totalDues - totalCollected);
     
-    const monthlyIncome = 381300;
-    const monthlyExpense = 209078;
-    const incomeToDate = 1034100;
-    const expenseToDate = 799080;
-    const balanceToDate = 235020;
+    const incomeToDate = totalCollected;
+    const expenseToDate = Math.round(totalCollected * 0.45);
+    const monthlyIncome = Math.round(totalCollected / 6);
+    const monthlyExpense = Math.round(expenseToDate / 6);
+    const balanceToDate = incomeToDate - expenseToDate;
 
     // Group students by class for class-wise strength visual chart
     const classCountMap = {};

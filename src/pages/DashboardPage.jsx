@@ -89,21 +89,24 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
 
   // 12-Month Academic Session Fee Lifecycle (Apr to Mar)
   const academicMonthsData = useMemo(() => {
+    const total = stats.totalFeeDemand || 2823600;
+    const collected = stats.totalFeeCollected || 1411800;
+    const remaining = stats.totalFeeRemaining || (total - collected);
     return [
-      { name: 'Apr', fullName: 'April 2026', total: 11317500, collected: 185000, remaining: 11132500, x: 45, y: 150, status: 'Past (Q1 Session Start)' },
-      { name: 'May', fullName: 'May 2026', total: 11317500, collected: 420000, remaining: 10897500, x: 105, y: 125, status: 'Past (Q1 Admissions)' },
-      { name: 'Jun', fullName: 'June 2026', total: 11317500, collected: 650000, remaining: 10667500, x: 165, y: 105, status: 'Past (Summer Session)' },
-      { name: 'Jul', fullName: 'July 2026', total: 11317500, collected: 890000, remaining: 10427500, x: 225, y: 85, status: 'Past (Term 1 Installment)' },
-      { name: 'Aug', fullName: 'August 2026', total: 11317500, collected: 1033100, remaining: 10284400, x: 285, y: 65, status: 'Past (Pre-Midterm Collections)' },
-      { name: 'Sep', fullName: 'September 2026', total: 11317500, collected: 1033100, remaining: 10284400, x: 345, y: 65, status: 'Current Active Month (Today: 03 Sep)' },
-      { name: 'Oct', fullName: 'October 2026', total: 11317500, collected: 0, remaining: 10284400, x: 405, y: 170, status: 'Upcoming (Term 2 Target)' },
-      { name: 'Nov', fullName: 'November 2026', total: 11317500, collected: 0, remaining: 10284400, x: 465, y: 170, status: 'Upcoming (Term 2 Target)' },
-      { name: 'Dec', fullName: 'December 2026', total: 11317500, collected: 0, remaining: 10284400, x: 525, y: 170, status: 'Upcoming (Term 2 Target)' },
-      { name: 'Jan', fullName: 'January 2027', total: 11317500, collected: 0, remaining: 10284400, x: 585, y: 170, status: 'Upcoming (Term 3 Finals)' },
-      { name: 'Feb', fullName: 'February 2027', total: 11317500, collected: 0, remaining: 10284400, x: 640, y: 170, status: 'Upcoming (Board Prep)' },
-      { name: 'Mar', fullName: 'March 2027', total: 11317500, collected: 0, remaining: 10284400, x: 685, y: 170, status: 'Upcoming (Session Closing)' },
+      { name: 'Apr', fullName: 'April 2026', total, collected: Math.round(collected * 0.15), remaining: total - Math.round(collected * 0.15), x: 45, y: 150, status: 'Past (Q1 Session Start)' },
+      { name: 'May', fullName: 'May 2026', total, collected: Math.round(collected * 0.35), remaining: total - Math.round(collected * 0.35), x: 105, y: 125, status: 'Past (Q1 Admissions)' },
+      { name: 'Jun', fullName: 'June 2026', total, collected: Math.round(collected * 0.55), remaining: total - Math.round(collected * 0.55), x: 165, y: 105, status: 'Past (Summer Session)' },
+      { name: 'Jul', fullName: 'July 2026', total, collected: Math.round(collected * 0.75), remaining: total - Math.round(collected * 0.75), x: 225, y: 85, status: 'Past (Term 1 Installment)' },
+      { name: 'Aug', fullName: 'August 2026', total, collected: Math.round(collected * 0.90), remaining: total - Math.round(collected * 0.90), x: 285, y: 65, status: 'Past (Pre-Midterm Collections)' },
+      { name: 'Sep', fullName: 'September 2026', total, collected: collected, remaining: remaining, x: 345, y: 65, status: 'Current Active Month (Session Midterm)' },
+      { name: 'Oct', fullName: 'October 2026', total, collected: 0, remaining: remaining, x: 405, y: 170, status: 'Upcoming (Term 2 Target)' },
+      { name: 'Nov', fullName: 'November 2026', total, collected: 0, remaining: remaining, x: 465, y: 170, status: 'Upcoming (Term 2 Target)' },
+      { name: 'Dec', fullName: 'December 2026', total, collected: 0, remaining: remaining, x: 525, y: 170, status: 'Upcoming (Term 2 Target)' },
+      { name: 'Jan', fullName: 'January 2027', total, collected: 0, remaining: remaining, x: 585, y: 170, status: 'Upcoming (Term 3 Finals)' },
+      { name: 'Feb', fullName: 'February 2027', total, collected: 0, remaining: remaining, x: 640, y: 170, status: 'Upcoming (Board Prep)' },
+      { name: 'Mar', fullName: 'March 2027', total, collected: 0, remaining: remaining, x: 685, y: 170, status: 'Upcoming (Session Closing)' },
     ];
-  }, []);
+  }, [stats]);
 
   useEffect(() => {
     const timer = setInterval(() => {
