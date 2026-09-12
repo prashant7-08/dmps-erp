@@ -38,56 +38,63 @@ export function AuthProvider({ children }) {
 
   const [loading, setLoading] = useState(false);
 
-  // Authorized Multi-Branch School Role Directory
+  // Authorized Multi-Branch School Role Directory with flexible login PINs
   const AUTHORIZED_ACCOUNTS = [
     {
       role: "Super Admin",
       name: "Mr. Pramod Kumar Rajput (Managing Director)",
       assignedBranchId: "all",
-      usernames: ["admin", "manager", "superadmin", "pramod", "admin@dmps.edu.in", "admin@test.com"],
-      passwords: ["admin@123", "admin123", "admin", "dmps@admin"]
+      usernames: ["admin", "demo", "manager", "superadmin", "pramod", "admin@dmps.edu.in", "admin@test.com", "director"],
+      passwords: ["admin@123", "admin123", "admin", "dmps@admin", "1234", "12345", "123456", "demo", "123"]
     },
     {
       role: "Principal",
       name: "Mrs. Kavita Rani (Principal - Senior Campus)",
       assignedBranchId: "BR-01",
       usernames: ["principal", "principal_main", "kavita", "principal@dmps.edu.in"],
-      passwords: ["principal@123", "principal123", "principal"]
+      passwords: ["principal@123", "principal123", "principal", "1234", "12345", "123456"]
     },
     {
       role: "Principal",
       name: "Mr. LALIT KUMAR (Head In-Charge - Barheti)",
       assignedBranchId: "BR-02",
       usernames: ["barheti", "principal_barheti", "anil", "barheti@dmps.edu.in"],
-      passwords: ["barheti@123", "barheti123", "barheti"]
+      passwords: ["barheti@123", "barheti123", "barheti", "1234", "12345", "123456"]
     },
     {
       role: "Head In-Charge",
       name: "Mrs. Pooja Rajput (Head - Kids School)",
       assignedBranchId: "BR-03",
       usernames: ["kids", "head_kids", "pooja", "kids@dmps.edu.in"],
-      passwords: ["kids@123", "kids123", "kids"]
+      passwords: ["kids@123", "kids123", "kids", "1234", "12345", "123456"]
     },
     {
       role: "Teacher",
       name: "Prashant Kumar Rajput (Faculty - Senior Campus)",
       assignedBranchId: "BR-01",
-      usernames: ["teacher", "teacher@dmps.edu.in", "rajesh.teacher", "faculty"],
-      passwords: ["teacher@123", "teacher123", "teacher"]
+      usernames: ["teacher", "teacher1", "teacher@dmps.edu.in", "rajesh.teacher", "faculty"],
+      passwords: ["teacher@123", "teacher123", "teacher", "1234", "12345", "123456"]
     },
     {
       role: "Accountant",
       name: "Mr. Ramesh Gupta (Accounts In-Charge)",
       assignedBranchId: "BR-01",
       usernames: ["cashier", "accountant", "cashier@dmps.edu.in", "accounts"],
-      passwords: ["cashier@123", "cashier123", "cashier", "accountant123"]
+      passwords: ["cashier@123", "cashier123", "cashier", "accountant123", "accountant", "1234", "12345", "123456"]
+    },
+    {
+      role: "Parent",
+      name: "Mr. Sanjay Sharma (Parent of Class 10-A)",
+      assignedBranchId: "BR-01",
+      usernames: ["parent", "parent@dmps.edu.in", "father", "guardian"],
+      passwords: ["parent@123", "parent123", "parent", "1234", "12345", "123456"]
     },
     {
       role: "Student",
       name: "DEEPAK KUMAR (Student - Class 10-A)",
       assignedBranchId: "BR-01",
       usernames: ["student", "student@dmps.edu.in", "aarav.student", "101"],
-      passwords: ["student@123", "student123", "student"]
+      passwords: ["student@123", "student123", "student", "1234", "12345", "123456"]
     }
   ];
 

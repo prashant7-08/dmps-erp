@@ -35,7 +35,8 @@ import {
   MapPin,
   ArrowRight,
   TrendingUp,
-  Receipt
+  Receipt,
+  Crown
 } from 'lucide-react';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';

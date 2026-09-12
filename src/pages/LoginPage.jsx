@@ -136,6 +136,66 @@ export const LoginPage = ({ onLoginSuccess, onBackToWebsite, onOpenMasterSaaS })
             </button>
           </form>
 
+          {/* Quick Demo Login 1-Click Buttons */}
+          <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
+            <div className="flex items-center justify-between text-[11px] font-bold text-slate-500 dark:text-slate-400">
+              <span>⚡ Quick Demo Login (1-Click):</span>
+              <span className="text-[10px] text-amber-500 font-normal">PIN: 1234 / 123456</span>
+            </div>
+            <div className="grid grid-cols-3 gap-1.5 text-[11px]">
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('admin');
+                  setPassword('123456');
+                }}
+                className="py-1.5 px-2 bg-slate-100 hover:bg-amber-100 dark:bg-slate-800 dark:hover:bg-amber-950/60 text-slate-700 dark:text-slate-200 hover:text-amber-800 rounded-lg font-semibold transition-colors flex items-center justify-center gap-1 border border-slate-200 dark:border-slate-700"
+              >
+                👑 Admin
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('teacher');
+                  setPassword('12345');
+                }}
+                className="py-1.5 px-2 bg-slate-100 hover:bg-indigo-100 dark:bg-slate-800 dark:hover:bg-indigo-950/60 text-slate-700 dark:text-slate-200 hover:text-indigo-800 rounded-lg font-semibold transition-colors flex items-center justify-center gap-1 border border-slate-200 dark:border-slate-700"
+              >
+                👨‍🏫 Teacher
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('accountant');
+                  setPassword('12345');
+                }}
+                className="py-1.5 px-2 bg-slate-100 hover:bg-emerald-100 dark:bg-slate-800 dark:hover:bg-emerald-950/60 text-slate-700 dark:text-slate-200 hover:text-emerald-800 rounded-lg font-semibold transition-colors flex items-center justify-center gap-1 border border-slate-200 dark:border-slate-700"
+              >
+                💰 Accounts
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('student');
+                  setPassword('12345');
+                }}
+                className="py-1.5 px-2 bg-slate-100 hover:bg-blue-100 dark:bg-slate-800 dark:hover:bg-blue-950/60 text-slate-700 dark:text-slate-200 hover:text-blue-800 rounded-lg font-semibold transition-colors flex items-center justify-center gap-1 border border-slate-200 dark:border-slate-700"
+              >
+                👨‍🎓 Student
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('parent');
+                  setPassword('12345');
+                }}
+                className="py-1.5 px-2 bg-slate-100 hover:bg-purple-100 dark:bg-slate-800 dark:hover:bg-purple-950/60 text-slate-700 dark:text-slate-200 hover:text-purple-800 rounded-lg font-semibold transition-colors flex items-center justify-center gap-1 border border-slate-200 dark:border-slate-700 col-span-2"
+              >
+                👨‍👩‍👦 Parent Portal
+              </button>
+            </div>
+          </div>
+
           {/* Secure Login Guarantee */}
           <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-center">
             <div className="flex items-center justify-center gap-1.5 text-[11px] font-bold text-slate-500 dark:text-slate-400">
