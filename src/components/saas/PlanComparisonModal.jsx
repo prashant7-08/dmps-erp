@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Check,
   Minus,
@@ -12,58 +12,172 @@ import {
   X,
   Building2,
   Phone,
-  ArrowRight
+  ArrowRight,
+  HelpCircle,
+  Laptop,
+  Receipt,
+  Server,
+  Fingerprint,
+  Bell,
+  HardDrive
 } from 'lucide-react';
+
+export const STUDENT_STRENGTH_MATRIX = [
+  {
+    range: 'Up to 100',
+    startup: { setup: '₹ 2,499', renewal: '₹ 1,199' },
+    basic: { setup: '₹ 3,999', renewal: '₹ 1,999' },
+    pro: { setup: '₹ 5,499', renewal: '₹ 2,999' },
+    enterprise: { setup: '₹ 6,999', renewal: '₹ 3,799' },
+    offline: '₹ 3,499'
+  },
+  {
+    range: '101 - 300',
+    startup: { setup: '₹ 2,999', renewal: '₹ 1,599' },
+    basic: { setup: '₹ 4,299', renewal: '₹ 2,799' },
+    pro: { setup: '₹ 6,499', renewal: '₹ 3,899' },
+    enterprise: { setup: '₹ 7,999', renewal: '₹ 4,999' },
+    offline: '₹ 4,999'
+  },
+  {
+    range: '301 - 500',
+    startup: { setup: '₹ 3,799', renewal: '₹ 1,999' },
+    basic: { setup: '₹ 5,499', renewal: '₹ 3,799' },
+    pro: { setup: '₹ 7,299', renewal: '₹ 4,299' },
+    enterprise: { setup: '₹ 9,899', renewal: '₹ 5,499' },
+    offline: '₹ 6,499'
+  },
+  {
+    range: '501 - 700',
+    startup: { setup: '₹ 4,999', renewal: '₹ 2,799' },
+    basic: { setup: '₹ 6,499', renewal: '₹ 4,499' },
+    pro: { setup: '₹ 8,499', renewal: '₹ 4,999' },
+    enterprise: { setup: '₹ 11,499', renewal: '₹ 6,299' },
+    offline: '₹ 7,999'
+  },
+  {
+    range: '701 - 1000',
+    startup: { setup: '₹ 5,499', renewal: '₹ 3,199' },
+    basic: { setup: '₹ 7,299', renewal: '₹ 4,499' },
+    pro: { setup: '₹ 9,499', renewal: '₹ 4,999' },
+    enterprise: { setup: '₹ 12,499', renewal: '₹ 6,999' },
+    offline: '₹ 11,999'
+  },
+  {
+    range: '1001 - 1500',
+    startup: { setup: '₹ 5,499', renewal: '₹ 3,199' },
+    basic: { setup: '₹ 7,899', renewal: '₹ 5,499' },
+    pro: { setup: '₹ 10,499', renewal: '₹ 6,199' },
+    enterprise: { setup: '₹ 13,499', renewal: '₹ 7,899' },
+    offline: '₹ 16,999'
+  },
+  {
+    range: '1501 - 2000+',
+    startup: { setup: '₹ 6,499', renewal: '₹ 3,699' },
+    basic: { setup: '₹ 8,999', renewal: '₹ 5,599' },
+    pro: { setup: '₹ 11,999', renewal: '₹ 6,999' },
+    enterprise: { setup: '₹ 16,999', renewal: '₹ 9,999' },
+    offline: '₹ 21,999'
+  }
+];
+
+export const BILLING_PLANS = [
+  {
+    id: 'starter_billing',
+    name: 'Starter Counter Billing',
+    price: '₹ 3,999',
+    renewal: '₹ 999 / yr renewal',
+    desc: 'Perfect for retail shops, counters, service centers & stationery stores.',
+    features: [
+      'Super-fast Sales Billing & Thermal 2"/3" Print',
+      'Item / Product Catalog & Stock Alerts',
+      'Customer Due / Khata Ledger',
+      'Daily & Monthly Sales Cashbook',
+      'Barcode Scanner & Cash Drawer Support',
+      'Automatic Local Database Backup'
+    ]
+  },
+  {
+    id: 'gst_billing',
+    name: 'GST Business Enterprise Billing',
+    price: '₹ 6,499',
+    renewal: '₹ 1,799 / yr renewal',
+    popular: true,
+    desc: 'Comprehensive GST invoicing for wholesalers, distributors, agencies & multi-counter shops.',
+    features: [
+      'All Starter Billing Features Included',
+      'GSTR-1, GSTR-3B & HSN Tax Reports',
+      'Party & Supplier Ledger with Outstanding',
+      'Daily Expense & Profit/Loss Tracking',
+      'WhatsApp & SMS Invoice Sharing',
+      'Multi-User Counter Terminal Setup'
+    ]
+  },
+  {
+    id: 'pharmacy_billing',
+    name: 'Pharmacy & Chemist ERP',
+    price: '₹ 6,999',
+    renewal: '₹ 1,899 / yr renewal',
+    desc: 'Tailored specifically for medical stores, chemist shops, clinics & pharma distributors.',
+    features: [
+      'Medicine & Salt/Substitute Search Engine',
+      'Batch Number, Expiry Date & MRP Tracking',
+      'Doctor Prescription & Schedule H Drug Register',
+      'Near-Expiry & Low-Stock Auto Alerts',
+      'GST Purchase & Sales Tax Records',
+      'Online Cloud Backup & Multi-counter Support'
+    ]
+  }
+];
 
 export const PLAN_TIERS = [
   {
     id: 'startup',
     name: 'Startup',
     badge: 'Entry Tier',
-    badgeColor: 'bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border-blue-200',
-    titleColor: 'text-blue-600 dark:text-blue-400',
+    badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+    titleColor: 'text-blue-400',
     subtitle: 'Admissions, Attendance & Notices',
-    description: 'Complete digital transformation for new & growing schools. Student dossiers, section builder, daily period registers, notices and parent view portal.',
+    description: 'Digital transformation for emerging schools. Student dossiers, section builder, daily period registers, notices and parent view portal.',
     featuresCount: '145+ Core Features',
-    price: '₹8,000 / yr',
+    startingPrice: 'From ₹2,499 / yr',
     highlight: false
   },
   {
     id: 'basic',
     name: 'Basic',
-    badge: 'Most Popular',
-    badgeColor: 'bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300 border-amber-200',
-    titleColor: 'text-amber-600 dark:text-amber-400',
+    badge: 'Standard ERP',
+    badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+    titleColor: 'text-amber-400',
     subtitle: 'Fees POS, Exams & Public Website',
-    description: 'Everything schools need for daily commercial & academic workflows. Sibling auto-discovery, thermal/A4 fee POS, CBSE report cards, library & website CMS.',
+    description: 'Daily commercial & academic workflows. Sibling auto-discovery, thermal/A4 fee POS, CBSE report cards, library & website CMS.',
     featuresCount: '280+ Enabled Features',
-    price: '₹15,000 / yr',
+    startingPrice: 'From ₹3,999 / yr',
     highlight: false
   },
   {
     id: 'pro',
     name: 'PRO',
     badge: 'Operations',
-    badgeColor: 'bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-300 border-purple-200',
-    titleColor: 'text-purple-600 dark:text-purple-400',
+    badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
+    titleColor: 'text-purple-400',
     subtitle: 'Transport, Hostel, Payroll & LMS',
-    description: 'For institutions with comprehensive operational teams. GPS bus transport, hostel mess, staff HR & monthly payroll slips, lesson tracker and online quizzes.',
+    description: 'For growing campuses. GPS bus transport, hostel mess, staff HR & monthly payroll slips, lesson tracker and online quizzes.',
     featuresCount: '410+ Advanced Features',
-    price: '₹22,000 / yr',
+    startingPrice: 'From ₹5,499 / yr',
     highlight: false
   },
   {
     id: 'enterprise',
     name: 'Enterprise',
     badge: 'Flagship All-in-One',
-    badgeColor: 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300 border-rose-200',
-    titleColor: 'text-rose-600 dark:text-rose-400',
+    badgeColor: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+    titleColor: 'text-rose-400',
     subtitle: 'Smart Campus, IoT Biometrics & Bell',
     description: 'The complete enterprise operating system. IoT ZKTeco biometric sync, automated MP3 school bell runner, PWA mobile app, multi-branch POS & 24/7 SLA.',
     featuresCount: '520+ Full Features',
-    price: '₹30,000 / yr',
-    highlight: true,
-    isCurrentForSchool: true
+    startingPrice: 'From ₹6,999 / yr',
+    highlight: true
   }
 ];
 
@@ -346,207 +460,424 @@ export const PlanComparisonModal = ({
   currentPlan = '',
   onSelectPlan
 }) => {
+  const [modalTab, setModalTab] = useState('strength_matrix');
+
   if (!isOpen) return null;
 
+  const handleBookDemoWhatsApp = (tierName) => {
+    const text = encodeURIComponent(`Hello PKR EDUTECH Team! I am interested in ${tierName} School ERP Package. Please provide a demo and consultation.`);
+    window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+  };
+
   return (
-    <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-slate-900 text-slate-100 rounded-3xl shadow-2xl border border-slate-800 w-full max-w-6xl max-h-[94vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
         
         {/* Modal Top Header */}
-        <div className="p-6 pb-4 border-b border-slate-200 dark:border-slate-800 flex items-start justify-between gap-4">
+        <div className="p-5 pb-3 border-b border-slate-800 flex items-start justify-between gap-4 bg-slate-900/90">
           <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white">
-                PKR EDUTECH Enterprise Plan Comparison Matrix
+            <div className="flex flex-wrap items-center gap-2">
+              <h2 className="text-lg sm:text-xl font-black text-white">
+                PKR EDUTECH Complete Pricing & Capability Matrix
               </h2>
-              <span className="px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-400 border border-rose-300 dark:border-rose-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
-                <Crown className="w-3 h-3 text-rose-500" />
-                4 Transparent Tiers
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1">
+                <Crown className="w-3 h-3 text-amber-400" />
+                Guaranteed Best Market Pricing
               </span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Comprehensive 31-module capability matrix for smart schools and multi-branch campuses.
+            <p className="text-xs text-slate-400 mt-1">
+              Transparent student strength tiers, offline one-time options, retail billing & 31 comprehensive feature domains.
             </p>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Scrollable Content */}
-        <div className="p-6 overflow-y-auto space-y-6">
-          {/* 4 Plan Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {PLAN_TIERS.map((tier) => {
-              const isEnterprise = tier.id === 'enterprise';
-              return (
-                <div
-                  key={tier.id}
-                  className={`rounded-2xl p-4 border flex flex-col justify-between transition-all relative ${
-                    isEnterprise
-                      ? 'bg-gradient-to-b from-rose-50/50 via-white to-rose-50/30 dark:from-rose-950/20 dark:via-slate-900 dark:to-rose-950/10 border-rose-400 dark:border-rose-700 shadow-md ring-2 ring-rose-400/30'
-                      : 'bg-white dark:bg-slate-800/60 border-slate-200 dark:border-slate-700/80 hover:border-slate-300'
-                  }`}
-                >
-                  {isEnterprise && (
-                    <div className="absolute -top-2.5 right-3 bg-rose-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-full shadow-sm">
-                      Flagship Tier
-                    </div>
-                  )}
+        {/* Modal Nav Tabs */}
+        <div className="flex items-center gap-2 px-5 py-2.5 bg-slate-950/60 border-b border-slate-800 overflow-x-auto text-xs font-semibold">
+          <button
+            onClick={() => setModalTab('strength_matrix')}
+            className={`px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              modalTab === 'strength_matrix'
+                ? 'bg-indigo-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Student Strength Pricing Matrix</span>
+          </button>
 
+          <button
+            onClick={() => setModalTab('tier_cards')}
+            className={`px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              modalTab === 'tier_cards'
+                ? 'bg-indigo-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <Crown className="w-3.5 h-3.5" />
+            <span>4-Tier Package Summary</span>
+          </button>
+
+          <button
+            onClick={() => setModalTab('feature_matrix')}
+            className={`px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              modalTab === 'feature_matrix'
+                ? 'bg-indigo-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>31-Capability Checklist</span>
+          </button>
+
+          <button
+            onClick={() => setModalTab('billing_software')}
+            className={`px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              modalTab === 'billing_software'
+                ? 'bg-indigo-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <Receipt className="w-3.5 h-3.5" />
+            <span>Retail & GST Billing Plans</span>
+          </button>
+        </div>
+
+        {/* Scrollable Content Area */}
+        <div className="p-5 sm:p-6 overflow-y-auto space-y-6 flex-1">
+          
+          {/* TAB 1: STUDENT STRENGTH MATRIX */}
+          {modalTab === 'strength_matrix' && (
+            <div className="space-y-6">
+              <div className="bg-slate-900/90 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+                <div className="p-4 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900">
                   <div>
-                    {/* Header with Title & Badge */}
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className={`font-bold text-base ${tier.titleColor}`}>
-                        {tier.name}
-                      </h3>
-                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${tier.badgeColor}`}>
-                        {tier.badge}
-                      </span>
-                    </div>
-
-                    <div className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                      {tier.price}
-                    </div>
-
-                    {/* Subtitle in Bold */}
-                    <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mb-1.5 leading-snug">
-                      {tier.subtitle}
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed mb-3">
-                      {tier.description}
-                    </p>
+                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">Online Cloud School ERP</span>
+                    <h3 className="text-base font-bold text-white">Pricing by Student Strength (Setup / Annual Renewal)</h3>
                   </div>
-
-                  <div>
-                    {/* Price & Features count pill */}
-                    <div className="pt-3 border-t border-slate-100 dark:border-slate-700/60">
-                      <div className="w-full py-1.5 px-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-center font-bold text-xs">
-                        {tier.featuresCount}
-                      </div>
-
-                      {onSelectPlan && (
-                        <button
-                          onClick={() => onSelectPlan(tier)}
-                          className={`w-full mt-2 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                            isEnterprise
-                              ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-sm'
-                              : 'bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:bg-indigo-600 hover:text-white'
-                          }`}
-                        >
-                          Select {tier.name}
-                        </button>
-                      )}
-                    </div>
+                  <div className="text-xs text-emerald-400 font-medium flex items-center gap-1.5">
+                    <Check className="w-4 h-4" /> All prices are GST Inclusive
                   </div>
                 </div>
-              );
-            })}
-          </div>
 
-          {/* Feature Area Availability Table */}
-          <div className="bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-            <div className="p-4 border-b border-slate-200 dark:border-slate-700">
-              <h4 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                Comprehensive 31-Capability Matrix (11 Operational Domains)
-              </h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <thead>
+                      <tr className="bg-slate-800/90 border-b border-slate-700 text-slate-300 font-bold">
+                        <th className="p-3.5 pl-4">Student Strength</th>
+                        <th className="p-3.5 text-center text-blue-300">
+                          Startup ERP
+                          <span className="block text-[10px] font-normal text-slate-400">Setup / Renewal</span>
+                        </th>
+                        <th className="p-3.5 text-center text-amber-300">
+                          Basic Smart ERP
+                          <span className="block text-[10px] font-normal text-slate-400">Setup / Renewal</span>
+                        </th>
+                        <th className="p-3.5 text-center text-purple-300">
+                          PRO Operations
+                          <span className="block text-[10px] font-normal text-slate-400">Setup / Renewal</span>
+                        </th>
+                        <th className="p-3.5 text-center text-rose-300 bg-rose-950/30">
+                          Enterprise Flagship
+                          <span className="block text-[10px] font-normal text-rose-400">Setup / Renewal</span>
+                        </th>
+                        <th className="p-3.5 text-center text-emerald-300 bg-slate-950/60">
+                          Offline One-Time
+                          <span className="block text-[10px] font-normal text-slate-400">Lifetime License</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800 text-slate-200">
+                      {STUDENT_STRENGTH_MATRIX.map((row, idx) => (
+                        <tr key={idx} className="hover:bg-slate-800/50 transition-colors">
+                          <td className="p-3.5 pl-4 font-bold text-white">
+                            {row.range} Students
+                          </td>
+                          <td className="p-3 text-center">
+                            <strong className="text-white text-sm">{row.startup.setup}</strong>
+                            <span className="block text-[10px] text-slate-400">Renewal {row.startup.renewal}</span>
+                          </td>
+                          <td className="p-3 text-center">
+                            <strong className="text-white text-sm">{row.basic.setup}</strong>
+                            <span className="block text-[10px] text-slate-400">Renewal {row.basic.renewal}</span>
+                          </td>
+                          <td className="p-3 text-center">
+                            <strong className="text-white text-sm">{row.pro.setup}</strong>
+                            <span className="block text-[10px] text-slate-400">Renewal {row.pro.renewal}</span>
+                          </td>
+                          <td className="p-3 text-center bg-rose-950/20">
+                            <strong className="text-rose-300 text-sm">{row.enterprise.setup}</strong>
+                            <span className="block text-[10px] text-rose-400">Renewal {row.enterprise.renewal}</span>
+                          </td>
+                          <td className="p-3 text-center bg-slate-950/40">
+                            <strong className="text-emerald-400 text-sm">{row.offline}</strong>
+                            <span className="block text-[10px] text-slate-400">1-Time Cost</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Notes Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                <div className="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/60">
+                  <strong className="text-amber-400 block mb-1">Basic Smart ERP:</strong>
+                  Full fees POS, thermal/A4 vouchers, sibling auto-discovery, CBSE grade cards & website CMS.
+                </div>
+                <div className="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/60">
+                  <strong className="text-purple-400 block mb-1">PRO Operations:</strong>
+                  Adds GPS bus transport, hostel mess, staff HR & monthly payroll slips, homework diary & LMS quiz.
+                </div>
+                <div className="p-3.5 rounded-xl bg-rose-950/40 border border-rose-900/60">
+                  <strong className="text-rose-400 block mb-1">Enterprise Ultra:</strong>
+                  Includes real-time IoT ZKTeco biometric clock sync, automated MP3 school bell runner & PWA app.
+                </div>
+              </div>
+
+              <div className="text-center pt-2">
+                <button
+                  onClick={() => handleBookDemoWhatsApp('Enterprise Ultra')}
+                  className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-xl text-xs shadow-lg shadow-emerald-600/20 inline-flex items-center gap-2"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>Book Free Custom Demo on WhatsApp</span>
+                </button>
+              </div>
             </div>
+          )}
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
-                  <tr className="bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold">
-                    <th className="p-3 pl-4">Feature Module</th>
-                    <th className="p-3 text-center">
-                      Startup
-                      <span className="block text-[10px] font-normal text-slate-400">145+ features</span>
-                    </th>
-                    <th className="p-3 text-center">
-                      Basic
-                      <span className="block text-[10px] font-normal text-slate-400">280+ features</span>
-                    </th>
-                    <th className="p-3 text-center">
-                      PRO
-                      <span className="block text-[10px] font-normal text-slate-400">410+ features</span>
-                    </th>
-                    <th className="p-3 text-center bg-rose-50/50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300">
-                      Enterprise
-                      <span className="block text-[10px] font-bold text-rose-500">520+ features</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 dark:divide-slate-700 text-slate-700 dark:text-slate-300">
-                  {FEATURE_AREAS.map((item, idx) => (
-                    <tr key={idx} className="hover:bg-slate-100/50 dark:hover:bg-slate-800/60 transition-colors">
-                      <td className="p-3 pl-4 font-medium">
-                        <div className="font-semibold text-slate-900 dark:text-white">{item.name}</div>
-                        <div className="text-[10px] text-slate-400">{item.category}</div>
-                      </td>
-                      
-                      <td className="p-3 text-center">
-                        {item.startup ? (
-                          <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mx-auto font-bold" />
-                        ) : (
-                          <Minus className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
-                        )}
-                      </td>
+          {/* TAB 2: 4-TIER PACKAGE CARDS */}
+          {modalTab === 'tier_cards' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {PLAN_TIERS.map((tier) => {
+                  const isEnterprise = tier.id === 'enterprise';
+                  return (
+                    <div
+                      key={tier.id}
+                      className={`rounded-2xl p-5 border flex flex-col justify-between transition-all relative ${
+                        isEnterprise
+                          ? 'bg-gradient-to-b from-rose-950/40 via-slate-900 to-indigo-950/40 border-rose-500/60 shadow-xl ring-1 ring-rose-500/30'
+                          : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'
+                      }`}
+                    >
+                      {isEnterprise && (
+                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-rose-600 to-pink-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-md">
+                          Flagship Tier
+                        </div>
+                      )}
 
-                      <td className="p-3 text-center">
-                        {item.basic ? (
-                          <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mx-auto font-bold" />
-                        ) : (
-                          <Minus className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
-                        )}
-                      </td>
+                      <div>
+                        {/* Header with Title & Badge */}
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className={`font-bold text-base ${tier.titleColor}`}>
+                            {tier.name}
+                          </h3>
+                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${tier.badgeColor}`}>
+                            {tier.badge}
+                          </span>
+                        </div>
 
-                      <td className="p-3 text-center">
-                        {item.pro ? (
-                          <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mx-auto font-bold" />
-                        ) : (
-                          <Minus className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
-                        )}
-                      </td>
+                        <div className="text-xl font-black text-white mb-2">
+                          {tier.startingPrice}
+                        </div>
 
-                      <td className="p-3 text-center bg-rose-50/30 dark:bg-rose-950/20">
-                        {item.enterprise ? (
-                          <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mx-auto font-black" />
-                        ) : (
-                          <Minus className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
-                        )}
-                      </td>
+                        {/* Subtitle in Bold */}
+                        <div className="text-xs font-bold text-slate-200 mb-1.5 leading-snug">
+                          {tier.subtitle}
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-[11px] text-slate-400 leading-relaxed mb-3">
+                          {tier.description}
+                        </p>
+                      </div>
+
+                      <div>
+                        <div className="pt-3 border-t border-slate-800 space-y-2">
+                          <div className="w-full py-1.5 px-2.5 rounded-xl bg-slate-800/80 text-indigo-300 text-center font-bold text-xs border border-slate-700/60">
+                            {tier.featuresCount}
+                          </div>
+
+                          <button
+                            onClick={() => handleBookDemoWhatsApp(tier.name)}
+                            className={`w-full py-2 rounded-xl text-xs font-bold transition-all ${
+                              isEnterprise
+                                ? 'bg-gradient-to-r from-rose-600 to-indigo-600 hover:from-rose-500 hover:to-indigo-500 text-white shadow-md'
+                                : 'bg-slate-800 text-slate-200 hover:bg-slate-700'
+                            }`}
+                          >
+                            Get Quote for {tier.name}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: 31-CAPABILITY MATRIX */}
+          {modalTab === 'feature_matrix' && (
+            <div className="bg-slate-900/90 rounded-2xl border border-slate-800 overflow-hidden">
+              <div className="p-4 border-b border-slate-800 flex items-center justify-between">
+                <h4 className="font-bold text-sm text-white flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-indigo-400" />
+                  Comprehensive 31-Capability Matrix (11 Operational Domains)
+                </h4>
+                <span className="text-[11px] text-slate-400">
+                  Full Feature Availability
+                </span>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr className="bg-slate-800/90 border-b border-slate-700 text-slate-300 font-bold">
+                      <th className="p-3 pl-4">Module & Feature Capability</th>
+                      <th className="p-3 text-center">
+                        Startup
+                        <span className="block text-[10px] font-normal text-slate-400">145+ features</span>
+                      </th>
+                      <th className="p-3 text-center">
+                        Basic
+                        <span className="block text-[10px] font-normal text-slate-400">280+ features</span>
+                      </th>
+                      <th className="p-3 text-center">
+                        PRO
+                        <span className="block text-[10px] font-normal text-slate-400">410+ features</span>
+                      </th>
+                      <th className="p-3 text-center bg-rose-950/40 text-rose-300">
+                        Enterprise
+                        <span className="block text-[10px] font-bold text-rose-400">520+ features</span>
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800 text-slate-300">
+                    {FEATURE_AREAS.map((item, idx) => (
+                      <tr key={idx} className="hover:bg-slate-800/50 transition-colors">
+                        <td className="p-3 pl-4 font-medium">
+                          <div className="text-white">{item.name}</div>
+                          <div className="text-[10px] text-slate-500">{item.category}</div>
+                        </td>
+                        
+                        <td className="p-3 text-center">
+                          {item.startup ? (
+                            <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" />
+                          ) : (
+                            <Minus className="w-4 h-4 text-slate-600 mx-auto" />
+                          )}
+                        </td>
 
-          <p className="text-[11px] text-slate-400 text-center">
-            All plans include SSL Security, Daily Automatic Backups, and 1-Click Excel Migration.
+                        <td className="p-3 text-center">
+                          {item.basic ? (
+                            <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" />
+                          ) : (
+                            <Minus className="w-4 h-4 text-slate-600 mx-auto" />
+                          )}
+                        </td>
+
+                        <td className="p-3 text-center">
+                          {item.pro ? (
+                            <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" />
+                          ) : (
+                            <Minus className="w-4 h-4 text-slate-600 mx-auto" />
+                          )}
+                        </td>
+
+                        <td className="p-3 text-center bg-rose-950/20">
+                          {item.enterprise ? (
+                            <Check className="w-4 h-4 text-emerald-400 mx-auto font-black" />
+                          ) : (
+                            <Minus className="w-4 h-4 text-slate-600 mx-auto" />
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4: RETAIL & GST BILLING SOFTWARE */}
+          {modalTab === 'billing_software' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {BILLING_PLANS.map((plan) => (
+                  <div
+                    key={plan.id}
+                    className={`rounded-2xl p-5 border flex flex-col justify-between ${
+                      plan.popular
+                        ? 'bg-gradient-to-b from-indigo-950/40 via-slate-900 to-purple-950/40 border-indigo-500/60 shadow-xl'
+                        : 'bg-slate-900/80 border-slate-800'
+                    }`}
+                  >
+                    <div>
+                      {plan.popular && (
+                        <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 text-[10px] font-bold uppercase tracking-wider mb-2 inline-block">
+                          Most Popular
+                        </span>
+                      )}
+                      <h3 className="text-base font-bold text-white">{plan.name}</h3>
+                      <div className="mt-2">
+                        <span className="text-2xl font-black text-white">{plan.price}</span>
+                        <span className="text-[11px] text-slate-400 block">{plan.renewal}</span>
+                      </div>
+                      <p className="text-xs text-slate-400 mt-2 leading-relaxed">{plan.desc}</p>
+                      
+                      <div className="mt-4 pt-3 border-t border-slate-800 space-y-2">
+                        {plan.features.map((feat, i) => (
+                          <div key={i} className="flex items-start gap-2 text-xs text-slate-300">
+                            <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                            <span>{feat}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleBookDemoWhatsApp(plan.name)}
+                      className="w-full mt-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-bold rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Get Instant Quote</span>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <p className="text-[11px] text-slate-400 text-center pt-2">
+            All plans include 99.99% Cloud Uptime SLA, Automated Daily Database Backups, SSL Encryption, and 1-Click Excel Data Migration.
           </p>
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 px-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 flex items-center justify-between">
-          <div className="text-xs text-slate-500">
-            Enterprise Cloud Operating System • <strong className="text-slate-800 dark:text-slate-200">PKR EDUTECH</strong>
+        <div className="p-4 px-6 border-t border-slate-800 bg-slate-900/90 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="text-xs text-slate-400 text-center sm:text-left">
+            Engineered by <strong className="text-white">PKR EDUTECH GLOBAL IT SERVICES</strong> • ISO 9001:2015 Certified
           </div>
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 font-bold rounded-xl text-xs transition-colors"
+            className="px-5 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold rounded-xl text-xs transition-colors shadow-md w-full sm:w-auto"
           >
-            Close Comparison
+            Close Matrix
           </button>
         </div>
       </div>
     </div>
   );
 };
+
 export default PlanComparisonModal;

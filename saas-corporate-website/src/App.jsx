@@ -43,10 +43,21 @@ import {
   CheckSquare,
   Eye,
   EyeOff,
-  AlertTriangle
+  AlertTriangle,
+  Printer,
+  Wifi,
+  Send,
+  Sliders,
+  Database
 } from 'lucide-react';
 
-import { PLAN_TIERS, FEATURE_AREAS, PlanComparisonModal } from './components/saas/PlanComparisonModal';
+import {
+  PLAN_TIERS,
+  STUDENT_STRENGTH_MATRIX,
+  BILLING_PLANS,
+  FEATURE_AREAS,
+  PlanComparisonModal
+} from './components/saas/PlanComparisonModal';
 import { MasterSaaSHubPage } from './pages/MasterSaaSHubPage';
 import { ToastProvider, useToast } from './components/common/Toast';
 
@@ -87,8 +98,19 @@ function AppContent() {
   const [currentView, setCurrentView] = useState(getInitialView);
   const [isPlanModalOpen, setIsPlanModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [selectedPricingTab, setSelectedPricingTab] = useState('online'); // 'online' | 'offline' | 'billing'
   const [studentsCount, setStudentsCount] = useState(500);
   const [avgFee, setAvgFee] = useState(1600);
+
+  // WhatsApp Contact Form State
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    phone: '',
+    service: 'School ERP - Basic / Pro / Enterprise',
+    studentStrength: '301 - 500 Students',
+    location: '',
+    message: ''
+  });
 
   // Sync URL hash with security check
   useEffect(() => {
@@ -126,7 +148,6 @@ function AppContent() {
   const handleVerifyMasterPin = (e) => {
     if (e) e.preventDefault();
     const cleanPin = masterPinInput.trim();
-    // Valid master passwords / PINs: '123456', 'pkr2027', 'admin@pkr', '708090'
     if (cleanPin === '123456' || cleanPin === 'pkr2027' || cleanPin === 'admin@pkr' || cleanPin === '708090') {
       setIsMasterAuthenticated(true);
       sessionStorage.setItem('PKR_MASTER_AUTH', 'true');
@@ -162,9 +183,31 @@ function AppContent() {
     window.open(`${demoPortalUrl}/#login`, '_blank');
   };
 
-  const handleWhatsAppBooking = () => {
-    const text = encodeURIComponent("Hello PKR EDUTECH Team! I would like to schedule a free demonstration of your Enterprise School ERP for our institution.");
-    window.open(`https://wa.me/919876543210?text=${text}`, '_blank');
+  const handleWhatsAppBooking = (customMsg = '') => {
+    const defaultText = "Hello PKR EDUTECH Team! I would like to get a quote and schedule a free live demonstration of your School ERP & IT Solutions.";
+    const text = encodeURIComponent(customMsg || defaultText);
+    window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+  };
+
+  const handleContactFormSubmit = (e) => {
+    e.preventDefault();
+    if (!contactForm.name || !contactForm.phone) {
+      showToast('Please enter your Name and Mobile Number.', 'error');
+      return;
+    }
+    const lines = [
+      '👋 Hello PKR EDUTECH Global IT Services! I have a website enquiry:',
+      `• Name: ${contactForm.name}`,
+      `• Mobile: ${contactForm.phone}`,
+      `• Service Required: ${contactForm.service}`,
+      `• Student / Institution Strength: ${contactForm.studentStrength}`,
+      `• City / Location: ${contactForm.location || 'Not Specified'}`,
+      `• Details: ${contactForm.message || 'Kindly share full demo details, pricing quotation and setup process.'}`
+    ];
+    const text = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+    setIsContactModalOpen(false);
+    showToast('Enquiry transferred to WhatsApp! Our architect will respond promptly.', 'success');
   };
 
   // RENDER MASTER SAAS CONSOLE VIEW (SECURITY GUARDED)
@@ -228,7 +271,7 @@ function AppContent() {
     <div className="min-h-screen bg-[#070b14] text-slate-100 font-sans selection:bg-indigo-500 selection:text-white pb-16">
       
       {/* 1. Global Navigation Bar */}
-      <header className="sticky top-0 z-50 bg-[#070b14]/80 backdrop-blur-xl border-b border-slate-800/80">
+      <header className="sticky top-0 z-50 bg-[#070b14]/85 backdrop-blur-xl border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Brand Logo */}
@@ -241,350 +284,694 @@ function AppContent() {
                 <span className="text-xl font-black tracking-tight text-white">
                   PKR<span className="text-indigo-400"> EDUTECH</span>
                 </span>
-                <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-300 border border-indigo-500/30 text-[10px] font-bold uppercase tracking-wider">
-                  Enterprise Cloud
+                <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold uppercase tracking-wider">
+                  GLOBAL IT SERVICES
                 </span>
               </div>
               <p className="text-[10px] text-slate-400 font-medium">
-                By PKR EduTech Global IT Services • ISO 9001:2015 Certified
+                Software • Server • Biometrics • Bell • Printing • Hardware
               </p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-7 text-xs font-semibold text-slate-300">
-            <a href="#features" className="hover:text-white transition-colors">Core Modules</a>
-            <a href="#demo" className="hover:text-white transition-colors">Live Sandbox Demos</a>
-            <a href="#pricing" className="hover:text-white transition-colors">Pricing Matrix</a>
-            <a href="#hardware" className="hover:text-white transition-colors">IoT Biometrics & Bell</a>
+          <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-300">
+            <a href="#services" className="hover:text-white transition-colors">Services</a>
+            <a href="#pricing" className="hover:text-white transition-colors">School ERP Pricing</a>
+            <a href="#billing" className="hover:text-white transition-colors">Retail Billing</a>
+            <a href="#features" className="hover:text-white transition-colors">ERP Modules</a>
+            <a href="#demo" className="hover:text-white transition-colors">Live Sandboxes</a>
             <a href="#roi" className="hover:text-white transition-colors">ROI Calculator</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </nav>
 
           {/* Action CTAs */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <button
               onClick={() => setIsContactModalOpen(true)}
               className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 transition-all"
             >
               <Phone className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Request Callback</span>
+              <span>Get Quote</span>
             </button>
 
             <button
               onClick={() => handleOpenDemo('admin')}
               className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-indigo-600/30 transition-all transform active:scale-95 border border-indigo-400/30"
             >
-              <Zap className="w-3.5 h-3.5" />
-              <span>Launch Live Demo ↗</span>
+              <Zap className="w-3.5 h-3.5 text-amber-300" />
+              <span>Live Demo ↗</span>
             </button>
           </div>
         </div>
       </header>
 
       {/* 2. Hero Section */}
-      <section className="relative pt-16 pb-24 overflow-hidden">
+      <section className="relative pt-16 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(99,102,241,0.18),transparent_60%)]" />
         <div className="absolute right-10 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute left-10 bottom-10 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-7">
           
           {/* Release Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-indigo-500/30 text-xs font-semibold text-indigo-300 shadow-xl backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>Next-Gen Enterprise School ERP 2027-2028 Edition • 210+ Functional Modules Active</span>
+            <span>PKR EDUTECH 2027 Edition • 210+ ERP Modules Active • Genuine & Competitive Pricing</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white max-w-5xl mx-auto leading-[1.12]">
-            The Complete Operating System for <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Smart Schools & Campuses</span>
+            Complete IT & ERP Solutions for <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Schools, Institutes & Businesses</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-slate-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-normal">
-            Eliminate paperwork, stop fee leakages, sync biometric staff clocks, trigger automated MP3 school bells, and deliver a stunning 5-star mobile portal for parents & teachers.
+            Next-Gen School ERP, Dedicated Cloud VPS Hosting, IoT Biometric Attendance, Automated MP3 School Bells, PVC ID Card Printing, Hardware Support & WhatsApp Marketing.
           </p>
 
           {/* Primary Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-3.5 pt-3">
             <button
               onClick={() => handleOpenDemo('admin')}
-              className="px-7 py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-black rounded-2xl shadow-xl shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-3 text-sm border border-indigo-400/30"
+              className="px-7 py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-black rounded-2xl shadow-xl shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-2.5 text-sm border border-indigo-400/30"
             >
               <Zap className="w-5 h-5 text-amber-300" />
               <span>⚡ Launch Live Demo Sandbox ↗</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
-            <button
-              onClick={() => setIsPlanModalOpen(true)}
+            <a
+              href="#pricing"
               className="px-6 py-4 bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold rounded-2xl border border-slate-700 transition-all flex items-center gap-2 text-sm shadow-md"
             >
               <Crown className="w-4 h-4 text-amber-400" />
-              <span>Compare 4-Tier Packages</span>
-            </button>
+              <span>View School Pricing Matrix</span>
+            </a>
 
             <button
-              onClick={handleWhatsAppBooking}
+              onClick={() => handleWhatsAppBooking()}
               className="px-6 py-4 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 font-bold rounded-2xl border border-emerald-500/40 transition-all flex items-center gap-2.5 text-sm"
             >
               <Phone className="w-4 h-4 text-emerald-400" />
-              <span>Book Demo on WhatsApp</span>
-            </button>
-
-            <button
-              onClick={() => setIsContactModalOpen(true)}
-              className="px-5 py-4 bg-slate-900/60 hover:bg-slate-800 text-slate-300 font-semibold rounded-2xl border border-slate-800 transition-all flex items-center gap-2 text-sm"
-            >
-              <span>Request Callback</span>
+              <span>Get WhatsApp Quote</span>
             </button>
           </div>
 
           {/* Metric KPI Counters */}
-          <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
               <div className="text-3xl font-black text-white">210+</div>
-              <div className="text-xs text-slate-400 mt-1 font-medium">Enterprise Features</div>
+              <div className="text-xs text-slate-400 mt-1 font-medium">Functional ERP Modules</div>
             </div>
             <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
               <div className="text-3xl font-black text-indigo-400">99.99%</div>
               <div className="text-xs text-slate-400 mt-1 font-medium">Cloud Uptime SLA</div>
             </div>
             <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
-              <div className="text-3xl font-black text-purple-400">15 Mins</div>
-              <div className="text-xs text-slate-400 mt-1 font-medium">1-Click Excel Migration</div>
+              <div className="text-3xl font-black text-purple-400">₹ 2,499</div>
+              <div className="text-xs text-slate-400 mt-1 font-medium">Starter ERP From Only</div>
             </div>
             <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
               <div className="text-3xl font-black text-emerald-400">₹0 Fee</div>
-              <div className="text-xs text-slate-400 mt-1 font-medium">No Setup Charges</div>
+              <div className="text-xs text-slate-400 mt-1 font-medium">Zero Setup Charges</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Interactive Role-Based Demo Portals */}
-      <section id="demo" className="py-20 bg-slate-900/40 border-y border-slate-800/80 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-3 mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
-              Interactive Sandbox
+      {/* 3. Comprehensive Service Pillars (Surpassing SKK Developers) */}
+      <section id="services" className="py-20 bg-slate-950/60 border-y border-slate-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+              Complete Global IT Ecosystem
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-white">
-              Try Interactive Role Demos Right Now
+              End-to-End IT Services & Infrastructure
             </h2>
             <p className="text-slate-400 text-sm max-w-2xl mx-auto">
-              Click any role to test live dashboard features with 1-click demo login credentials.
+              Everything your school, institute, or enterprise needs under one roof. Expert installation, transparent pricing & local engineering support.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {/* 1. Super Admin */}
-            <div
-              onClick={() => handleOpenDemo('admin')}
-              className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-indigo-500/10"
-            >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* Service 1: Server & Cloud Hosting */}
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Server className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-lg text-white mb-2">Dedicated Server & Cloud VPS</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  High-speed enterprise hosting, VPS, MySQL databases, SSL certificates, daily encrypted cloud backup, and online payment gateway integration.
+                </p>
+              </div>
+              <button
+                onClick={() => handleWhatsAppBooking("Hello, I need Cloud Server / Hosting & Database support for my institution.")}
+                className="mt-5 pt-3 border-t border-slate-800 text-xs font-bold text-pink-400 flex items-center justify-between hover:text-pink-300"
+              >
+                <span>Request Server Quote</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            {/* Service 2: Software & School ERP */}
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Crown className="w-6 h-6" />
+                  <Laptop className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-base text-white">Super Admin</h3>
-                <p className="text-xs text-slate-400 mt-1">Full control over Multi-branch, fees, staff & CBSE compliance.</p>
+                <h3 className="font-bold text-lg text-white mb-2">School ERP & Custom Software</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Next-Gen School ERP (210+ modules), Pharmacy billing, retail point-of-sale, CBSE report card generators, multi-branch portals, and custom apps.
+                </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-amber-400">
-                <span>Launch Desk ↗</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <button
+                onClick={() => handleOpenDemo('admin')}
+                className="mt-5 pt-3 border-t border-slate-800 text-xs font-bold text-amber-400 flex items-center justify-between hover:text-amber-300"
+              >
+                <span>Launch Live ERP Demo</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
 
-            {/* 2. Teacher */}
-            <div
-              onClick={() => handleOpenDemo('teacher')}
-              className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-indigo-500/10"
-            >
+            {/* Service 3: Biometric Attendance & Access Control */}
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <GraduationCap className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Fingerprint className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-base text-white">Teacher Desk</h3>
-                <p className="text-xs text-slate-400 mt-1">Daily diary, lesson plan tracker, marks entry, timetable.</p>
+                <h3 className="font-bold text-lg text-white mb-2">Biometric Attendance & Locks</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Direct hardware sync with ZKTeco, eSSL & Secureye fingerprint, face recognition, RFID card access, and smart door security systems.
+                </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-indigo-400">
-                <span>Launch Desk ↗</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <button
+                onClick={() => handleWhatsAppBooking("Hello, I need Biometric Attendance & Smart Door Lock setup for our campus.")}
+                className="mt-5 pt-3 border-t border-slate-800 text-xs font-bold text-teal-400 flex items-center justify-between hover:text-teal-300"
+              >
+                <span>Explore Biometrics</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
 
-            {/* 3. Accountant */}
-            <div
-              onClick={() => handleOpenDemo('accountant')}
-              className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-emerald-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-emerald-500/10"
-            >
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <CreditCard className="w-6 h-6" />
-                </div>
-                <h3 className="font-bold text-base text-white">Accounts & POS</h3>
-                <p className="text-xs text-slate-400 mt-1">Instant fee receipts, sibling discounts, cash book & dues.</p>
-              </div>
-              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-emerald-400">
-                <span>Launch Desk ↗</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
-
-            {/* 4. Parent Portal */}
-            <div
-              onClick={() => handleOpenDemo('parent')}
-              className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-purple-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-purple-500/10"
-            >
+            {/* Service 4: Automated MP3 School Bell */}
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Users className="w-6 h-6" />
+                  <Bell className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-base text-white">Parent Portal</h3>
-                <p className="text-xs text-slate-400 mt-1">Live child attendance, fee receipts download, report cards.</p>
+                <h3 className="font-bold text-lg text-white mb-2">Automated MP3 School Bell</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Python-based automatic period bell runner with customizable voice chimes, prayer, lunch, and warning chimes. Zero manual intervention.
+                </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-purple-400">
-                <span>Launch Desk ↗</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <button
+                onClick={() => handleWhatsAppBooking("Hello, I want details about the Automated MP3 School Bell System.")}
+                className="mt-5 pt-3 border-t border-slate-800 text-xs font-bold text-purple-400 flex items-center justify-between hover:text-purple-300"
+              >
+                <span>Automated Bell Details</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
 
-            {/* 5. Student Portal */}
-            <div
-              onClick={() => handleOpenDemo('student')}
-              className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-blue-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-blue-500/10"
-            >
+            {/* Service 5: Hardware & Printer Support */}
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <BookOpen className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Printer className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-base text-white">Student Portal</h3>
-                <p className="text-xs text-slate-400 mt-1">Digital homework, online quizzes, issued library books & timetable.</p>
+                <h3 className="font-bold text-lg text-white mb-2">Hardware & Printer AMC Support</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Sales, setup, and annual maintenance for desktop computers, laptops, thermal POS printers, laser receipt printers, and barcode scanners.
+                </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-blue-400">
-                <span>Launch Desk ↗</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <button
+                onClick={() => handleWhatsAppBooking("Hello, I need Desktop / Laptop / Thermal Printer hardware support.")}
+                className="mt-5 pt-3 border-t border-slate-800 text-xs font-bold text-emerald-400 flex items-center justify-between hover:text-emerald-300"
+              >
+                <span>Hardware Consultation</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
+
+            {/* Service 6: ID Card & Printing Service */}
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <CreditCard className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-lg text-white mb-2">PVC ID Cards & Offset Printing</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Premium laminated PVC Student & Staff ID cards, custom printed lanyards, report card jackets, fee books, school diaries, and certificates.
+                </p>
+              </div>
+              <button
+                onClick={() => handleWhatsAppBooking("Hello, I need PVC Student ID Card and School Printing samples and quotation.")}
+                className="mt-5 pt-3 border-t border-slate-800 text-xs font-bold text-indigo-400 flex items-center justify-between hover:text-indigo-300"
+              >
+                <span>Order ID Cards</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            {/* Service 7: Networking & Wi-Fi */}
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Wifi className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-lg text-white mb-2">Campus Networking & Wi-Fi</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  LAN cabling, enterprise Wi-Fi routers, network printer sharing, P2P point-to-point wireless links, and firewall configuration for campus labs.
+                </p>
+              </div>
+              <button
+                onClick={() => handleWhatsAppBooking("Hello, I need Campus Networking / LAN / Wi-Fi installation support.")}
+                className="mt-5 pt-3 border-t border-slate-800 text-xs font-bold text-orange-400 flex items-center justify-between hover:text-orange-300"
+              >
+                <span>Networking Setup</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            {/* Service 8: Bulk WhatsApp & SMS */}
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <MessageSquare className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-lg text-white mb-2">Bulk WhatsApp & SMS Alerts</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Automated fee due reminder messages, daily student absent alerts, exam result cards, and promotional broadcasts directly to parents' WhatsApp.
+                </p>
+              </div>
+              <button
+                onClick={() => handleWhatsAppBooking("Hello, I need WhatsApp API & Bulk SMS service for my school.")}
+                className="mt-5 pt-3 border-t border-slate-800 text-xs font-bold text-cyan-400 flex items-center justify-between hover:text-cyan-300"
+              >
+                <span>WhatsApp API Setup</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 4. Core Features Showcase */}
-      <section id="features" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-bold uppercase tracking-wider text-pink-400 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
-            Engineered For Modern Schools
+      {/* 4. Complete School ERP Pricing Section */}
+      <section id="pricing" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-3 mb-12">
+          <span className="text-xs font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
+            Transparent, Student-Strength Based Pricing
           </span>
           <h2 className="text-3xl sm:text-5xl font-black text-white">
-            6 Advanced Architectural Pillars
+            School ERP Pricing Packages
           </h2>
           <p className="text-slate-400 text-sm max-w-2xl mx-auto">
-            Everything your school needs to achieve 100% digital excellence.
+            Choose online cloud SaaS or offline lifetime software. All prices are genuine, competitive, and include GST with free data onboarding.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1: Fees POS & Sibling Automation */}
-          <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-              <CreditCard className="w-6 h-6" />
+        {/* Pricing Matrix Table */}
+        <div className="bg-slate-900/90 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl space-y-4">
+          <div className="p-6 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900">
+            <div>
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">Online Cloud School ERP</span>
+              <h3 className="text-lg font-bold text-white">Setup & Annual Renewal Breakdown by Student Strength</h3>
             </div>
-            <h3 className="text-xl font-bold text-white">Smart Fees & Sibling POS</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Auto-link siblings across classes for unified fee receipting. Generate multi-copy thermal/A4 vouchers with flexible fine rules and WhatsApp due alerts.
-            </p>
-            <ul className="text-xs text-slate-300 space-y-2 pt-2">
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Sibling Auto-Discovery by Phone</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Multi-Branch POS Cash Registers</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Instant Due WhatsApp Reminders</li>
-            </ul>
+            <button
+              onClick={() => handleWhatsAppBooking("Hello, I want to book a live demo and discuss School ERP pricing for my school.")}
+              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-emerald-600/20 transition-all self-start sm:self-auto"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>Book Demo & Quote</span>
+            </button>
           </div>
 
-          {/* Card 2: IoT Biometric Clocks & Automatic Bell */}
-          <div id="hardware" className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
-              <Fingerprint className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white">Biometric & Automatic Bell</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Hardware-ready Python station that connects directly to ZKTeco / Secureye biometric machines and rings MP3 period bells over school PA speakers.
-            </p>
-            <ul className="text-xs text-slate-300 space-y-2 pt-2">
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-amber-400" /> Real-time Fingerprint Staff Clocks</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-amber-400" /> Custom Voice / MP3 Chimes per Period</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-amber-400" /> Dedicated 1-Click PenDrive Runner</li>
-            </ul>
+          <div className="overflow-x-auto px-4 pb-4">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="bg-slate-800/90 border-b border-slate-700 text-slate-300 font-bold">
+                  <th className="p-4 pl-6">Student Strength</th>
+                  <th className="p-4 text-center text-blue-300">
+                    Startup Plan
+                    <span className="block text-[10px] font-normal text-slate-400">Setup / Renewal</span>
+                  </th>
+                  <th className="p-4 text-center text-amber-300">
+                    Basic Smart ERP
+                    <span className="block text-[10px] font-normal text-slate-400">Setup / Renewal</span>
+                  </th>
+                  <th className="p-4 text-center text-purple-300">
+                    PRO Operations
+                    <span className="block text-[10px] font-normal text-slate-400">Setup / Renewal</span>
+                  </th>
+                  <th className="p-4 text-center text-rose-300 bg-rose-950/30">
+                    Enterprise Flagship
+                    <span className="block text-[10px] font-normal text-rose-400">Setup / Renewal</span>
+                  </th>
+                  <th className="p-4 text-center text-emerald-300 bg-slate-950/60">
+                    Offline One-Time
+                    <span className="block text-[10px] font-normal text-slate-400">Lifetime License</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800 text-slate-200">
+                {STUDENT_STRENGTH_MATRIX.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-slate-800/50 transition-colors">
+                    <td className="p-4 pl-6 font-bold text-white text-sm">
+                      {row.range} Students
+                    </td>
+                    <td className="p-4 text-center">
+                      <strong className="text-white text-sm">{row.startup.setup}</strong>
+                      <span className="block text-[10px] text-slate-400">Renewal {row.startup.renewal}</span>
+                    </td>
+                    <td className="p-4 text-center">
+                      <strong className="text-white text-sm">{row.basic.setup}</strong>
+                      <span className="block text-[10px] text-slate-400">Renewal {row.basic.renewal}</span>
+                    </td>
+                    <td className="p-4 text-center">
+                      <strong className="text-white text-sm">{row.pro.setup}</strong>
+                      <span className="block text-[10px] text-slate-400">Renewal {row.pro.renewal}</span>
+                    </td>
+                    <td className="p-4 text-center bg-rose-950/20">
+                      <strong className="text-rose-300 text-sm">{row.enterprise.setup}</strong>
+                      <span className="block text-[10px] text-rose-400">Renewal {row.enterprise.renewal}</span>
+                    </td>
+                    <td className="p-4 text-center bg-slate-950/40">
+                      <strong className="text-emerald-400 text-sm">{row.offline}</strong>
+                      <span className="block text-[10px] text-slate-400">1-Time Cost</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
-          {/* Card 3: Academics & Lesson Tracker */}
-          <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
-              <BookOpen className="w-6 h-6" />
+          <div className="p-6 pt-2 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+            <div>
+              <strong className="text-slate-200">All prices inclusive of GST.</strong> Free data migration & setup assistance included in all tiers.
             </div>
-            <h3 className="text-xl font-bold text-white">Lesson Planning & Daily Diary</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Track chapter completion progress across all subjects. Teachers submit daily classwork diaries with lab practicals and homework notes.
-            </p>
-            <ul className="text-xs text-slate-300 space-y-2 pt-2">
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-indigo-400" /> Syllabus Progress Bars (%)</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-indigo-400" /> Classwork & Homework Sync</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-indigo-400" /> Examination Marks & Rank Gen</li>
-            </ul>
-          </div>
-
-          {/* Card 4: House Master & Sports Trophy */}
-          <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center">
-              <Award className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white">House Master & Trophy Board</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Award points to Red, Blue, Green, and Yellow houses for academics, sports, discipline, and cultural events with live standings.
-            </p>
-            <ul className="text-xs text-slate-300 space-y-2 pt-2">
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-rose-400" /> 4 School Houses Points Tally</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-rose-400" /> Cock House Trophy Rankings</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-rose-400" /> House Master Audit History</li>
-            </ul>
-          </div>
-
-          {/* Card 5: Certificates & Admit Cards */}
-          <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
-              <Layers className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white">ID Cards, TC & Admit Cards</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Bulk 1-click printable student ID cards, employee badges, examination admit cards with roll number slips, and official Transfer Certificates.
-            </p>
-            <ul className="text-xs text-slate-300 space-y-2 pt-2">
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Bulk 8-up ID Card Sheet Printing</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Automated Serial Number TC</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Examination Hall Roll Slips</li>
-            </ul>
-          </div>
-
-          {/* Card 6: Front Desk & Gate Pass */}
-          <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
-              <Building2 className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white">Front Office & Gate Pass</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Complete reception management: visitor book, student gate pass with photo, admission enquiry follow-ups, and call logs.
-            </p>
-            <ul className="text-xs text-slate-300 space-y-2 pt-2">
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-blue-400" /> Visitor ID Badges & Passes</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-blue-400" /> Admission Enquiry Funnel</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-blue-400" /> Postal Dispatch / Receive Logs</li>
-            </ul>
+            <button
+              onClick={() => setIsPlanModalOpen(true)}
+              className="px-4 py-2 bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 font-bold rounded-xl border border-indigo-500/40 flex items-center gap-1.5 transition-all"
+            >
+              <Layers className="w-3.5 h-3.5 text-indigo-400" />
+              <span>View Full 31-Feature Checklist</span>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* 5. ROI Cost Saving Calculator */}
+      {/* 5. Retail & Pharmacy Billing Software Section */}
+      <section id="billing" className="py-20 bg-slate-950/60 border-t border-slate-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+              Retail, Shop & Healthcare Solutions
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-white">
+              Billing & Pharmacy Software Pricing
+            </h2>
+            <p className="text-slate-400 text-sm max-w-2xl mx-auto">
+              Super-fast counter billing software for shops, stationery stores, wholesalers, distributors, and pharmacy chemists.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {BILLING_PLANS.map((plan) => (
+              <div
+                key={plan.id}
+                className={`rounded-3xl p-7 border flex flex-col justify-between ${
+                  plan.popular
+                    ? 'bg-gradient-to-b from-indigo-950/40 via-slate-900 to-purple-950/40 border-2 border-indigo-500/60 shadow-2xl relative'
+                    : 'bg-slate-900/80 border-slate-800'
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-3 right-6 bg-indigo-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">
+                    Recommended for Business
+                  </div>
+                )}
+
+                <div>
+                  <h3 className="text-lg font-bold text-white">{plan.name}</h3>
+                  <div className="mt-3">
+                    <span className="text-3xl font-black text-white">{plan.price}</span>
+                    <span className="text-xs text-slate-400 block mt-0.5">{plan.renewal}</span>
+                  </div>
+                  <p className="text-xs text-slate-400 mt-3 leading-relaxed">{plan.desc}</p>
+                  
+                  <div className="mt-6 pt-4 border-t border-slate-800 space-y-2.5">
+                    {plan.features.map((feat, i) => (
+                      <div key={i} className="flex items-start gap-2 text-xs text-slate-300">
+                        <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => handleWhatsAppBooking(`Hello, I am interested in ${plan.name} Software. Please provide a demo.`)}
+                  className="w-full mt-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-bold rounded-xl text-xs transition-colors flex items-center justify-center gap-2 border border-slate-700"
+                >
+                  <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Get Instant Quote on WhatsApp</span>
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Interactive Role-Based Demo Sandboxes */}
+      <section id="demo" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-3 mb-12">
+          <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+            Instant Hands-On Testing
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-white">
+            Try Interactive Role Demos Right Now
+          </h2>
+          <p className="text-slate-400 text-sm max-w-2xl mx-auto">
+            Click any role to test live dashboard features with 1-click pre-filled sandbox credentials.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {/* 1. Super Admin */}
+          <div
+            onClick={() => handleOpenDemo('admin')}
+            className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-indigo-500/10"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Crown className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-base text-white">Super Admin</h3>
+              <p className="text-xs text-slate-400 mt-1">Full control over Multi-branch, fees, staff & CBSE compliance.</p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-amber-400">
+              <span>Launch Desk ↗</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* 2. Teacher */}
+          <div
+            onClick={() => handleOpenDemo('teacher')}
+            className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-indigo-500/10"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <GraduationCap className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-base text-white">Teacher Desk</h3>
+              <p className="text-xs text-slate-400 mt-1">Daily diary, lesson plan tracker, marks entry, timetable.</p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-indigo-400">
+              <span>Launch Desk ↗</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* 3. Accountant */}
+          <div
+            onClick={() => handleOpenDemo('accountant')}
+            className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-emerald-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-emerald-500/10"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <CreditCard className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-base text-white">Accounts & POS</h3>
+              <p className="text-xs text-slate-400 mt-1">Instant fee receipts, sibling discounts, cash book & dues.</p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-emerald-400">
+              <span>Launch Desk ↗</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* 4. Parent Portal */}
+          <div
+            onClick={() => handleOpenDemo('parent')}
+            className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-purple-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-purple-500/10"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Users className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-base text-white">Parent Portal</h3>
+              <p className="text-xs text-slate-400 mt-1">Live child attendance, fee receipts download, report cards.</p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-purple-400">
+              <span>Launch Desk ↗</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* 5. Student Portal */}
+          <div
+            onClick={() => handleOpenDemo('student')}
+            className="group cursor-pointer bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 border border-slate-800 hover:border-blue-500/50 transition-all flex flex-col justify-between shadow-lg hover:shadow-blue-500/10"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-base text-white">Student Portal</h3>
+              <p className="text-xs text-slate-400 mt-1">Digital homework, online quizzes, issued library books & timetable.</p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-blue-400">
+              <span>Launch Desk ↗</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Core Architectural Pillars */}
+      <section id="features" className="py-20 bg-slate-950/60 border-t border-slate-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-pink-400 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
+              Engineered For Modern Campuses
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-white">
+              6 Advanced Core Pillars
+            </h2>
+            <p className="text-slate-400 text-sm max-w-2xl mx-auto">
+              Everything your school needs to achieve 100% digital excellence.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                <CreditCard className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Smart Fees & Sibling POS</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Auto-link siblings across classes for unified fee receipting. Generate multi-copy thermal/A4 vouchers with flexible fine rules and WhatsApp due alerts.
+              </p>
+              <ul className="text-xs text-slate-300 space-y-2 pt-2">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Sibling Auto-Discovery by Phone</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Multi-Branch POS Cash Registers</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Instant Due WhatsApp Reminders</li>
+              </ul>
+            </div>
+
+            {/* Card 2 */}
+            <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                <Fingerprint className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Biometric & Automatic Bell</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Hardware-ready Python station that connects directly to ZKTeco / Secureye biometric machines and rings MP3 period bells over school PA speakers.
+              </p>
+              <ul className="text-xs text-slate-300 space-y-2 pt-2">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-amber-400" /> Real-time Fingerprint Staff Clocks</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-amber-400" /> Custom Voice / MP3 Chimes per Period</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-amber-400" /> Dedicated 1-Click PenDrive Runner</li>
+              </ul>
+            </div>
+
+            {/* Card 3 */}
+            <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Lesson Planning & Daily Diary</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Track chapter completion progress across all subjects. Teachers submit daily classwork diaries with lab practicals and homework notes.
+              </p>
+              <ul className="text-xs text-slate-300 space-y-2 pt-2">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-indigo-400" /> Syllabus Progress Bars (%)</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-indigo-400" /> Classwork & Homework Sync</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-indigo-400" /> Examination Marks & Rank Gen</li>
+              </ul>
+            </div>
+
+            {/* Card 4 */}
+            <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center">
+                <Award className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white">House Master & Trophy Board</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Award points to Red, Blue, Green, and Yellow houses for academics, sports, discipline, and cultural events with live standings.
+              </p>
+              <ul className="text-xs text-slate-300 space-y-2 pt-2">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-rose-400" /> 4 School Houses Points Tally</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-rose-400" /> Cock House Trophy Rankings</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-rose-400" /> House Master Audit History</li>
+              </ul>
+            </div>
+
+            {/* Card 5 */}
+            <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                <Layers className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white">ID Cards, TC & Admit Cards</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Bulk 1-click printable student ID cards, employee badges, examination admit cards with roll number slips, and official Transfer Certificates.
+              </p>
+              <ul className="text-xs text-slate-300 space-y-2 pt-2">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Bulk 8-up ID Card Sheet Printing</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Automated Serial Number TC</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Examination Hall Roll Slips</li>
+              </ul>
+            </div>
+
+            {/* Card 6 */}
+            <div className="p-7 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                <Building2 className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Front Office & Gate Pass</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Complete reception management: visitor book, student gate pass with photo, admission enquiry follow-ups, and call logs.
+              </p>
+              <ul className="text-xs text-slate-300 space-y-2 pt-2">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-blue-400" /> Visitor ID Badges & Passes</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-blue-400" /> Admission Enquiry Funnel</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-blue-400" /> Postal Dispatch / Receive Logs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. ROI Cost Saving Calculator */}
       <section id="roi" className="py-20 bg-gradient-to-b from-slate-950 via-indigo-950/20 to-slate-950 border-t border-slate-800/80">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="p-8 sm:p-12 rounded-3xl bg-slate-900/90 border border-indigo-900/40 shadow-2xl space-y-8">
@@ -665,101 +1052,179 @@ function AppContent() {
         </div>
       </section>
 
-      {/* 6. Pricing Packages */}
-      <section id="pricing" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
-            Simple, Transparent Pricing
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-white">
-            Choose the Perfect Package for Your Campus
-          </h2>
-          <p className="text-slate-400 text-sm max-w-2xl mx-auto">
-            Zero setup fees. Includes free data migration, SSL security, and WhatsApp priority support.
-          </p>
-        </div>
+      {/* 9. Direct Contact & WhatsApp Consultation Section */}
+      <section id="contact" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="p-8 sm:p-12 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl space-y-8">
+          
+          <div className="text-center space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+              Quick Quotation & Demo
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-white">
+              Connect With Solution Architects
+            </h2>
+            <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto">
+              Share your requirements for School ERP, Server, Biometrics, Bell runner or Printing services. We respond immediately on WhatsApp!
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PLAN_TIERS.map(tier => {
-            const isEnterprise = tier.id === 'enterprise';
-            return (
-              <div
-                key={tier.id}
-                className={`rounded-3xl p-6 flex flex-col justify-between space-y-6 transition-all ${
-                  isEnterprise
-                    ? 'bg-gradient-to-b from-rose-950/40 via-slate-900 to-indigo-950/40 border-2 border-rose-500/60 shadow-2xl relative'
-                    : 'bg-slate-900/60 border border-slate-800'
-                }`}
-              >
-                {isEnterprise && (
-                  <div className="absolute -top-3 right-4 bg-rose-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">
-                    Most Popular
-                  </div>
-                )}
-
-                <div>
-                  <span className={`px-2.5 py-1 rounded-full border text-xs font-bold ${tier.badgeColor}`}>
-                    {tier.name} ({tier.badge})
-                  </span>
-                  <div className="mt-4">
-                    <span className="text-3xl font-black text-white">{tier.price}</span>
-                  </div>
-                  <div className="text-xs font-bold text-slate-200 mt-2">{tier.subtitle}</div>
-                  <p className="text-xs text-slate-400 mt-1 leading-relaxed">{tier.description}</p>
-                  
-                  <div className="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs text-slate-300">
-                    <div className="font-semibold text-indigo-300">{tier.featuresCount}</div>
-                    {tier.id === 'startup' && (
-                      <>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Student Admissions & Digital Dossier</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Daily Attendance & Period Register</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Notice Board & Parent View Portal</div>
-                      </>
-                    )}
-                    {tier.id === 'basic' && (
-                      <>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Full Fees POS & Thermal Receipts</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Sibling Auto-Link & Discounts</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> CBSE Marks & Report Card PDF</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> School Public Website CMS</div>
-                      </>
-                    )}
-                    {tier.id === 'pro' && (
-                      <>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Bus Transport & GPS Routes</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Hostel Rooms & Mess Management</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Staff HR & Monthly Payroll Slips</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Online Quiz & MCQ Test Engine</div>
-                      </>
-                    )}
-                    {tier.id === 'enterprise' && (
-                      <>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400 font-bold" /> <strong>All 210+ ERP Modules Active</strong></div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Biometric Sync (ZKTeco/Secureye)</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Automated MP3 School Bell Runner</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Installable PWA Mobile & Desktop App</div>
-                      </>
-                    )}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-4">
+            
+            {/* Contact Details Card */}
+            <div className="space-y-4 p-6 rounded-2xl bg-slate-950/80 border border-slate-800">
+              <h3 className="font-bold text-base text-white border-b border-slate-800 pb-3">
+                PKR EDUTECH Global IT Services
+              </h3>
+              
+              <div className="space-y-4 text-xs text-slate-300">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white block">Corporate Office:</strong>
+                    <span>Tech Zone IT Hub, Agra - 282001 (UP)</span>
                   </div>
                 </div>
 
+                <div className="flex items-start gap-3">
+                  <Phone className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white block">Direct Helpline / WhatsApp:</strong>
+                    <span>+91 82924 64812</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Mail className="w-4 h-4 text-pink-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white block">Email Support:</strong>
+                    <span>services@pkredutech.com</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Clock className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white block">Support Hours:</strong>
+                    <span>Mon - Sat: 8:00 AM - 8:00 PM</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-800">
                 <button
-                  onClick={() => setIsPlanModalOpen(true)}
-                  className={`w-full py-2.5 rounded-xl text-xs font-bold transition-all ${
-                    isEnterprise
-                      ? 'bg-gradient-to-r from-rose-600 to-indigo-600 hover:from-rose-500 hover:to-indigo-500 text-white shadow-lg shadow-rose-600/20'
-                      : 'bg-slate-800 hover:bg-slate-700 text-white'
-                  }`}
+                  onClick={() => handleWhatsAppBooking()}
+                  className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20"
                 >
-                  View Feature Matrix (31 Capabilities)
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Direct WhatsApp Chat</span>
                 </button>
               </div>
-            );
-          })}
+            </div>
+
+            {/* Direct Requirement Form */}
+            <form onSubmit={handleContactFormSubmit} className="lg:col-span-2 space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-300">Your Full Name *</label>
+                  <input
+                    type="text"
+                    required
+                    value={contactForm.name}
+                    onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                    placeholder="e.g. Principal Rajesh Kumar"
+                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl text-xs text-white focus:outline-none"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-300">Mobile / WhatsApp Number *</label>
+                  <input
+                    type="tel"
+                    required
+                    value={contactForm.phone}
+                    onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
+                    placeholder="e.g. +91 98765 43210"
+                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl text-xs text-white focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-300">Service Category *</label>
+                  <select
+                    value={contactForm.service}
+                    onChange={(e) => setContactForm({ ...contactForm, service: e.target.value })}
+                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl text-xs text-white focus:outline-none"
+                  >
+                    <option>School ERP - Basic / Pro / Enterprise</option>
+                    <option>Offline One-Time School ERP</option>
+                    <option>Starter / GST Business Billing Software</option>
+                    <option>Pharmacy & Chemist ERP</option>
+                    <option>IoT Biometric Attendance & Access Control</option>
+                    <option>Automated MP3 School Bell Station</option>
+                    <option>Dedicated Server / Cloud VPS & Database</option>
+                    <option>PVC Student ID Cards & Printing</option>
+                    <option>Campus Networking / Wi-Fi Setup</option>
+                  </select>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-300">Student Strength / Counter Size</label>
+                  <select
+                    value={contactForm.studentStrength}
+                    onChange={(e) => setContactForm({ ...contactForm, studentStrength: e.target.value })}
+                    className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl text-xs text-white focus:outline-none"
+                  >
+                    <option>Up to 100 Students / Single Counter</option>
+                    <option>101 - 300 Students</option>
+                    <option>301 - 500 Students</option>
+                    <option>501 - 700 Students</option>
+                    <option>701 - 1000 Students</option>
+                    <option>1001 - 1500 Students</option>
+                    <option>1501 - 2000+ Students / Multi-Branch</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-slate-300">City & State</label>
+                <input
+                  type="text"
+                  value={contactForm.location}
+                  onChange={(e) => setContactForm({ ...contactForm, location: e.target.value })}
+                  placeholder="e.g. Gopalganj, Bihar / Agra, UP"
+                  className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl text-xs text-white focus:outline-none"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-slate-300">Requirements & Additional Notes</label>
+                <textarea
+                  rows="3"
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                  placeholder="Tell us about specific features, timeline, or devices needed..."
+                  className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl text-xs text-white focus:outline-none"
+                ></textarea>
+              </div>
+
+              <div className="text-end pt-2">
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 text-white font-bold rounded-xl text-xs shadow-xl shadow-emerald-600/20 inline-flex items-center gap-2"
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  <span>Send Requirement on WhatsApp</span>
+                </button>
+              </div>
+            </form>
+
+          </div>
         </div>
       </section>
 
-      {/* 7. Corporate Footer */}
+      {/* 10. Corporate Footer */}
       <footer className="border-t border-slate-800 bg-[#070b14] pt-12 pb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
@@ -781,7 +1246,7 @@ function AppContent() {
             </button>
 
             <button
-              onClick={handleWhatsAppBooking}
+              onClick={() => handleWhatsAppBooking()}
               className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:text-emerald-400 transition-colors flex items-center gap-1.5"
             >
               <Phone className="w-3.5 h-3.5 text-emerald-400" />
@@ -813,8 +1278,8 @@ function AppContent() {
           <div className="bg-slate-900 rounded-3xl shadow-2xl border border-slate-800 w-full max-w-md p-6 space-y-4 animate-in zoom-in-95">
             <div className="flex justify-between items-start">
               <div>
-                <h3 className="text-lg font-bold text-white">Book Free School Demo</h3>
-                <p className="text-xs text-slate-400">Our technical team will give you a full live demonstration.</p>
+                <h3 className="text-lg font-bold text-white">Book Free Consultation & Demo</h3>
+                <p className="text-xs text-slate-400">Our solution architect will provide full live software demonstration.</p>
               </div>
               <button onClick={() => setIsContactModalOpen(false)} className="p-1 text-slate-400 hover:text-white">
                 <X className="w-5 h-5" />
@@ -823,7 +1288,7 @@ function AppContent() {
 
             <div className="space-y-3 pt-2">
               <button
-                onClick={handleWhatsAppBooking}
+                onClick={() => handleWhatsAppBooking()}
                 className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20"
               >
                 <Phone className="w-4 h-4" />
