@@ -11,7 +11,7 @@ import {
   Calendar
 } from 'lucide-react';
 import { Breadcrumb } from '../../components/saas/layout/Breadcrumb';
-import { useToast } from '../../components/common/Toast';
+import { useToast } from "../../components/common/Toast";
 
 export const ContactPage = ({ onNavigate }) => {
   const { showToast } = useToast();

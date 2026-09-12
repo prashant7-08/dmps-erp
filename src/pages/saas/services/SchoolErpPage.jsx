@@ -22,7 +22,7 @@ import {
   Layers
 } from 'lucide-react';
 import { Breadcrumb } from '../../../components/saas/layout/Breadcrumb';
-import { STUDENT_STRENGTH_MATRIX } from '../../../components/saas/PlanComparisonModal';
+import { STUDENT_STRENGTH_MATRIX } from "../../../components/saas/PlanComparisonModal";
 
 export const SchoolErpPage = ({ onNavigate, onLaunchDemo, onOpenContactModal }) => {
   const handleWhatsAppBooking = (msg = '') => {

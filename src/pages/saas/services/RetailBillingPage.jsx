@@ -15,7 +15,7 @@ import {
   Check
 } from 'lucide-react';
 import { Breadcrumb } from '../../../components/saas/layout/Breadcrumb';
-import { BILLING_PLANS } from '../../../components/saas/PlanComparisonModal';
+import { BILLING_PLANS } from "../../../components/saas/PlanComparisonModal";
 
 export const RetailBillingPage = ({ onNavigate, onOpenContactModal }) => {
   const handleWhatsAppBooking = (msg = '') => {

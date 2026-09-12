@@ -100,44 +100,45 @@ export const PricingPage = ({ onNavigate, onLaunchDemo, onOpenContactModal }) =>
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider border-b border-slate-200">
-                    <th className="py-4 px-6">Student Strength</th>
-                    <th className="py-4 px-6">Recommended Edition</th>
-                    <th className="py-4 px-6">Cloud SaaS (Per Year)</th>
-                    <th className="py-4 px-6">Offline ERP (Per Year)</th>
-                    <th className="py-4 px-6">Included Feature Set</th>
-                    <th className="py-4 px-6 text-end">Action</th>
+                    <th className="py-4 px-4">Student Strength</th>
+                    <th className="py-4 px-3 text-center">Startup Cloud</th>
+                    <th className="py-4 px-3 text-center">Standard Basic</th>
+                    <th className="py-4 px-3 text-center">Professional</th>
+                    <th className="py-4 px-3 text-center bg-rose-50 text-rose-900">Enterprise Pro</th>
+                    <th className="py-4 px-3 text-center">Offline Desktop</th>
+                    <th className="py-4 px-4 text-end">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-200 text-sm">
+                <tbody className="divide-y divide-slate-200 text-xs">
                   {STUDENT_STRENGTH_MATRIX.map((tier, idx) => (
                     <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                      <td className="py-4 px-6 font-bold text-slate-900 flex items-center gap-2">
-                        <Users className="w-4 h-4 text-indigo-600" />
-                        <span>{tier.strength} Students</span>
-                        {tier.gstExtra && (
-                          <span className="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded border border-slate-200">
-                            +18% GST
-                          </span>
-                        )}
+                      <td className="py-3.5 px-4 font-bold text-slate-900 flex items-center gap-2">
+                        <Users className="w-4 h-4 text-indigo-600 shrink-0" />
+                        <span>{tier.range} Students</span>
                       </td>
-                      <td className="py-4 px-6">
-                        <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800 border border-indigo-200">
-                          {tier.recommendedPlan}
-                        </span>
+                      <td className="py-3.5 px-3 text-center">
+                        <div className="font-bold text-slate-900">{tier.startup.setup}</div>
+                        <div className="text-[10px] text-slate-500">ren: {tier.startup.renewal}</div>
                       </td>
-                      <td className="py-4 px-6 font-black text-indigo-600 text-base">
-                        {tier.cloudSaaSPrice}
+                      <td className="py-3.5 px-3 text-center">
+                        <div className="font-bold text-indigo-700">{tier.basic.setup}</div>
+                        <div className="text-[10px] text-slate-500">ren: {tier.basic.renewal}</div>
                       </td>
-                      <td className="py-4 px-6 font-bold text-slate-700">
-                        {tier.offlinePrice}
+                      <td className="py-3.5 px-3 text-center">
+                        <div className="font-bold text-purple-700">{tier.pro.setup}</div>
+                        <div className="text-[10px] text-slate-500">ren: {tier.pro.renewal}</div>
                       </td>
-                      <td className="py-4 px-6 text-xs text-slate-600 max-w-xs">
-                        {tier.features}
+                      <td className="py-3.5 px-3 text-center bg-rose-50/50">
+                        <div className="font-black text-rose-700">{tier.enterprise.setup}</div>
+                        <div className="text-[10px] text-slate-500">ren: {tier.enterprise.renewal}</div>
                       </td>
-                      <td className="py-4 px-6 text-end">
+                      <td className="py-3.5 px-3 text-center font-bold text-slate-700">
+                        {tier.offline}
+                      </td>
+                      <td className="py-3.5 px-4 text-end">
                         <button
-                          onClick={() => handleWhatsAppBooking(`Hello, I want to book School ERP for ${tier.strength} Students at ${tier.cloudSaaSPrice}/yr.`)}
-                          className="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition-colors shadow-sm"
+                          onClick={() => handleWhatsAppBooking(`Hello, I want to book School ERP for ${tier.range} Students (Enterprise: ${tier.enterprise.setup} / Startup: ${tier.startup.setup}).`)}
+                          className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition-colors shadow-sm"
                         >
                           Book Now
                         </button>

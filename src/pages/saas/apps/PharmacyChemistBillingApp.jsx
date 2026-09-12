@@ -22,7 +22,7 @@ import {
   Clock
 } from 'lucide-react';
 import { Breadcrumb } from '../../../components/saas/layout/Breadcrumb';
-import { useToast } from '../../../components/common/Toast';
+import { useToast } from "../../../components/common/Toast";
 
 const INITIAL_MEDICINES = [
   { id: 'MED01', name: 'Paracetamol 650mg (Dolo 650)', salt: 'Paracetamol IP', manufacturer: 'Micro Labs', batch: 'DL-9042', expiry: '2027-08', mrp: 30.50, rate: 26.00, gst: 12, stock: 180, schedule: 'OTC' },

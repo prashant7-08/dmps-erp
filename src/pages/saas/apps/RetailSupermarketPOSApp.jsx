@@ -20,7 +20,7 @@ import {
   Utensils
 } from 'lucide-react';
 import { Breadcrumb } from '../../../components/saas/layout/Breadcrumb';
-import { useToast } from '../../../components/common/Toast';
+import { useToast } from "../../../components/common/Toast";
 
 const RETAIL_PRODUCTS = [
   { id: '8901030001', name: 'Tata Tea Gold 500g', category: 'Grocery', mrp: 340, rate: 310, barcode: '8901030001', stock: 65, tax: 5 },

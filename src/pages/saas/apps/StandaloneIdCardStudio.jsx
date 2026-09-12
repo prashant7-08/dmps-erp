@@ -19,7 +19,7 @@ import {
   User
 } from 'lucide-react';
 import { Breadcrumb } from '../../../components/saas/layout/Breadcrumb';
-import { useToast } from '../../../components/common/Toast';
+import { useToast } from "../../../components/common/Toast";
 
 const SAMPLE_RECORDS = [
   { id: '1', name: 'Aarav Sharma', role: 'Student', classGrade: 'X - A', rollNo: '101', dob: '14-08-2010', blood: 'B+', phone: '9876543210', address: 'Gorakhpur, UP', photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80' },
