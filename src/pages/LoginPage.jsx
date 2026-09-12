@@ -3,7 +3,7 @@ import { Shield, Mail, Lock, Eye, EyeOff, ArrowRight, AlertCircle, CheckCircle2,
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../components/common/Toast';
 
-export const LoginPage = ({ onLoginSuccess, onBackToWebsite }) => {
+export const LoginPage = ({ onLoginSuccess, onBackToWebsite, onOpenMasterSaaS }) => {
   const { login, loading } = useAuth();
   const { showToast } = useToast();
 
@@ -153,6 +153,18 @@ export const LoginPage = ({ onLoginSuccess, onBackToWebsite }) => {
               <span>Designed & Developed by</span>
               <span className="text-amber-600 dark:text-amber-400 font-black">Prashant Rajput</span>
             </div>
+
+            {onOpenMasterSaaS && (
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={onOpenMasterSaaS}
+                  className="text-[11px] font-semibold text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center justify-center gap-1.5 mx-auto transition-colors px-3 py-1 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800"
+                >
+                  <span>👑 Master SaaS Multi-School Console</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

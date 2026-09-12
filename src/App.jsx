@@ -39,6 +39,7 @@ import { AutomaticBellPage } from './pages/AutomaticBellPage';
 import { FrontendCMSPage } from './pages/FrontendCMSPage';
 import { FamilyPortalPage } from './pages/FamilyPortalPage';
 import { OnlineQuizPage } from './pages/OnlineQuizPage';
+import { MasterSaaSHubPage } from './pages/MasterSaaSHubPage';
 import { LanguageProvider } from './utils/languageContext';
 
 function AppContent() {
@@ -148,6 +149,26 @@ function AppContent() {
     }
   };
 
+  // 0. If currently in standalone Master SaaS Multi-School Console mode
+  if (activeTab === 'master-saas' || activeTab === 'saas' || activeTab === 'master' || activeTab === 'saas-console') {
+    return (
+      <div className="min-h-screen bg-slate-950 p-4 md:p-8 text-slate-100">
+        <div className="max-w-7xl mx-auto">
+          <MasterSaaSHubPage
+            onReturnToSchool={() => {
+              setIsViewingWebsite(false);
+              setActiveTab('dashboard');
+            }}
+            onSwitchTenant={(tenant) => {
+              setIsViewingWebsite(false);
+              setActiveTab('dashboard');
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+
   // 1. If currently on Public Website mode, render official DMPS School Website
   if (isViewingWebsite) {
     return <SchoolWebsitePage onGoToLogin={() => setIsViewingWebsite(false)} />;
@@ -159,6 +180,10 @@ function AppContent() {
       <LoginPage
         onLoginSuccess={(u) => handleRoleChange(u.role || 'Super Admin')}
         onBackToWebsite={() => setIsViewingWebsite(true)}
+        onOpenMasterSaaS={() => {
+          setIsViewingWebsite(false);
+          setActiveTab('master-saas');
+        }}
       />
     );
   }
@@ -418,6 +443,13 @@ function AppContent() {
       case 'setting-custom-field':
       case 'setting-backup':
         return <SettingsPage initialTab={activeTab} />;
+      case 'master-saas':
+      case 'saas-hub':
+      case 'saas-console':
+      case 'saas-schools':
+        return <MasterSaaSHubPage onSwitchTenant={(tenant) => {
+          setActiveTab('dashboard');
+        }} />;
       default:
         return <DashboardPage currentRole={currentRole} setActiveTab={setActiveTab} onOpenAI={() => setIsAiModalOpen(true)} />;
     }

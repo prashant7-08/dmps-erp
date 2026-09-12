@@ -13,7 +13,7 @@ import {
   applyFeeOverridesToStudent 
 } from '../utils/feeProtectionUtils';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_MANAGEMENT_DB_V19_EXACT_SQL_COLLECTIONS';
+const STORAGE_KEY = 'DMPS_SCHOOL_ERP_ENTERPRISE_DEMO_2027_V1';
 
 class SchoolService {
   constructor() {
@@ -28,7 +28,7 @@ class SchoolService {
       const manualSalaries = getManualSalaryAssignments();
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (parsed && Array.isArray(parsed.students) && parsed.students.length >= 100) {
+        if (parsed && Array.isArray(parsed.students) && parsed.students.length > 0) {
           const loadedTeachers = Array.isArray(parsed.teachers) && parsed.teachers.length > 0 ? parsed.teachers : initialSchoolData.teachers;
           // Apply persistent manual salary overrides and enforce 0 for management
           const enrichedTeachers = loadedTeachers.map(t => {
@@ -38,7 +38,7 @@ class SchoolService {
               return { ...t, basicSalary: num, salary: typeof t.salary === 'object' ? { ...t.salary, basic: num, netSalary: num } : num };
             }
             // If management (Prashant / Pramod Kumar), enforce 0
-            if (t.id === 'TCH-1001' || t.id === 'TCH-1002' || (t.name && (t.name.toLowerCase().includes('prashant') || t.name.toLowerCase().includes('pramod kumar')))) {
+            if (t.id === 'TCH-1001' || (t.name && (t.name.toLowerCase().includes('prashant') || t.name.toLowerCase().includes('pramod kumar')))) {
               return { ...t, basicSalary: 0, salary: 0 };
             }
             return t;
@@ -47,16 +47,10 @@ class SchoolService {
           const persistentDepts = getPersistentDepartments(parsed.departments);
           const persistentDesigs = getPersistentDesignations(parsed.designations);
 
-          // Ensure Class 11 & 12 students are Inactive with ₹0 tuition fee, and apply manual fee overrides
           const manualFeeOverrides = getManualStudentFeeOverrides();
-          const loadedStudents = Array.isArray(parsed.students) && parsed.students.length >= 100 ? parsed.students : initialSchoolData.students;
+          const loadedStudents = Array.isArray(parsed.students) && parsed.students.length > 0 ? parsed.students : initialSchoolData.students;
           const sanitizedStudents = loadedStudents.map(s => {
-            const is11Or12 = s.class === 'XI' || s.class === '11' || s.class === '11th' || s.class === 'XII' || s.class === '12' || s.class === '12th';
             let studentObj = { ...s };
-            if (is11Or12) {
-              studentObj.status = 'Inactive';
-              studentObj.inactiveReason = 'Course not offered in current 2026-27 session';
-            }
             return applyFeeOverridesToStudent(studentObj, manualFeeOverrides);
           });
 
@@ -3500,13 +3494,49 @@ class SchoolService {
     return true; // Default fallback permissive
   }
 
-  // Other entities getters
-  getTransport() { return this.data.transport || []; }
-  getHostels() { return this.data.hostels || []; }
+  // Other entities getters & mutators
+  getHomework() {
+    return this.data.homework || initialSchoolData.homework || [];
+  }
+  addHomework(hw) {
+    if (!this.data.homework) this.data.homework = JSON.parse(JSON.stringify(initialSchoolData.homework || []));
+    const newHw = { id: `HW-${Date.now()}`, ...hw };
+    this.data.homework.unshift(newHw);
+    this.saveData();
+    return newHw;
+  }
+  getNotices() {
+    return this.data.notices || initialSchoolData.notices || [];
+  }
+  addNotice(notice) {
+    if (!this.data.notices) this.data.notices = JSON.parse(JSON.stringify(initialSchoolData.notices || []));
+    const newN = { id: `NOT-${Date.now()}`, ...notice };
+    this.data.notices.unshift(newN);
+    this.saveData();
+    return newN;
+  }
+  getFrontOffice() {
+    return this.data.frontOffice || initialSchoolData.frontOffice || { enquiries: [], visitors: [], callLogs: [] };
+  }
+  getLibrary() {
+    return this.data.library || initialSchoolData.library || { books: [], issuedBooks: [] };
+  }
+  getLeaves() {
+    return this.data.leaves || initialSchoolData.leaves || [];
+  }
+  getHostel() {
+    return this.data.hostel || initialSchoolData.hostel || { buildings: [], rooms: [] };
+  }
+  getTransport() {
+    return this.data.transport || initialSchoolData.transport || { vehicles: [], routes: [] };
+  }
+  getInventory() {
+    return this.data.inventory || initialSchoolData.inventory || { categories: [], items: [] };
+  }
+  getHostels() { return this.getHostel().buildings || []; }
   getMedicalRecords() { return this.data.medicalRecords || []; }
   getSports() { return this.data.sports || []; }
   getEvents() { return this.data.events || []; }
-  getInventory() { return this.data.inventory || []; }
   getAccounting() { return this.data.accounting || {}; }
 }
 

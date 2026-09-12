@@ -48,6 +48,8 @@ export const AcademicsPage = ({ initialTab = 'classes' }) => {
     if (tab === 'acad-assign-teacher' || tab === 'assign-teacher') return 'assign-teacher';
     if (tab === 'acad-subjects' || tab === 'subjects') return 'subjects';
     if (tab === 'acad-class-assign' || tab === 'class-assign') return 'class-assign';
+    if (tab === 'acad-lesson-plan' || tab === 'lesson-plan' || tab === 'syllabus') return 'lesson-plan';
+    if (tab === 'acad-diary' || tab === 'digital-diary' || tab === 'classwork') return 'digital-diary';
     if (tab === 'acad-promotion' || tab === 'promotion') return 'promotion';
     return tab;
   };
@@ -57,6 +59,49 @@ export const AcademicsPage = ({ initialTab = 'classes' }) => {
   React.useEffect(() => {
     if (initialTab) setActiveTab(resolveTab(initialTab));
   }, [initialTab]);
+
+  // Lesson Plans State (ERPMANTRA Style)
+  const [selectedLessonClass, setSelectedLessonClass] = useState('Class 10');
+  const [selectedLessonSubject, setSelectedLessonSubject] = useState('Mathematics');
+  const [lessonPlans, setLessonPlans] = useState([
+    { id: 'LP-01', class: 'Class 10', subject: 'Mathematics', unit: 'Unit 1: Number Systems', chapter: 'Real Numbers (Euclid Lemma & Irrationality)', plannedLectures: 6, completedLectures: 6, progress: 100, status: 'Completed', teacher: 'Mrs. Sunita Verma' },
+    { id: 'LP-02', class: 'Class 10', subject: 'Mathematics', unit: 'Unit 2: Algebra', chapter: 'Polynomials (Geometrical Meaning of Zeroes)', plannedLectures: 8, completedLectures: 8, progress: 100, status: 'Completed', teacher: 'Mrs. Sunita Verma' },
+    { id: 'LP-03', class: 'Class 10', subject: 'Mathematics', unit: 'Unit 2: Algebra', chapter: 'Pair of Linear Equations in Two Variables', plannedLectures: 10, completedLectures: 8, progress: 80, status: 'In Progress', teacher: 'Mrs. Sunita Verma' },
+    { id: 'LP-04', class: 'Class 10', subject: 'Mathematics', unit: 'Unit 2: Algebra', chapter: 'Quadratic Equations (Discriminant & Nature of Roots)', plannedLectures: 10, completedLectures: 4, progress: 40, status: 'In Progress', teacher: 'Mrs. Sunita Verma' },
+    { id: 'LP-05', class: 'Class 10', subject: 'Mathematics', unit: 'Unit 3: Coordinate Geometry', chapter: 'Coordinate Geometry (Distance & Section Formula)', plannedLectures: 8, completedLectures: 0, progress: 0, status: 'Upcoming', teacher: 'Mrs. Sunita Verma' },
+    { id: 'LP-06', class: 'Class 10', subject: 'Science', unit: 'Unit 1: Natural Phenomena', chapter: 'Light: Reflection & Refraction (Ray Diagrams)', plannedLectures: 12, completedLectures: 10, progress: 83, status: 'In Progress', teacher: 'Dr. Rajesh Sharma' },
+    { id: 'LP-07', class: 'Class 10', subject: 'Science', unit: 'Unit 1: Chemical Substances', chapter: 'Chemical Reactions & Equations (Balancing & Types)', plannedLectures: 8, completedLectures: 8, progress: 100, status: 'Completed', teacher: 'Mr. Amitabh Sen' }
+  ]);
+
+  // Digital Class Diary State
+  const [diaryEntries, setDiaryEntries] = useState([
+    { id: 'DIA-01', date: '2026-09-12', class: 'Class 10-A', subject: 'Mathematics', teacher: 'Mrs. Sunita Verma', period: 'Period 2', topic: 'Quadratic Equations Ex 4.3 Word Problems', homework: 'Solve Q5 to Q8 in notebook', activity: 'Graph sketching on blackboard', remarks: 'Good student participation' },
+    { id: 'DIA-02', date: '2026-09-12', class: 'Class 10-A', subject: 'Physics', teacher: 'Dr. Rajesh Sharma', period: 'Period 1', topic: 'Refraction through Glass Prism & Dispersion', homework: 'Draw Spectrum diagram', activity: 'Prism laser ray demonstration', remarks: 'All students observed rainbow dispersion' },
+    { id: 'DIA-03', date: '2026-09-11', class: 'Class 9-A', subject: 'Chemistry', teacher: 'Mr. Amitabh Sen', period: 'Period 3', topic: 'Law of Conservation of Mass in Chemical Reaction', homework: 'Read NCERT page 32', activity: 'Barium chloride precipitation demo', remarks: 'Practical completed in lab' }
+  ]);
+
+  const [isAddLessonModalOpen, setIsAddLessonModalOpen] = useState(false);
+  const [newLessonForm, setNewLessonForm] = useState({
+    class: 'Class 10',
+    subject: 'Mathematics',
+    unit: 'Unit 4: Geometry',
+    chapter: 'Triangles (Similarity Criteria & BPT Theorem)',
+    plannedLectures: 12,
+    teacher: 'Mrs. Sunita Verma'
+  });
+
+  const [isAddDiaryModalOpen, setIsAddDiaryModalOpen] = useState(false);
+  const [newDiaryForm, setNewDiaryForm] = useState({
+    date: new Date().toISOString().split('T')[0],
+    class: 'Class 10-A',
+    subject: 'Mathematics',
+    teacher: 'Mrs. Sunita Verma',
+    period: 'Period 3',
+    topic: '',
+    homework: '',
+    activity: '',
+    remarks: 'Lesson completed successfully'
+  });
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedWingFilter, setSelectedWingFilter] = useState('All');
@@ -250,6 +295,22 @@ export const AcademicsPage = ({ initialTab = 'classes' }) => {
             }`}
           >
             <Layers className="w-4 h-4" /> Class Subject Assign
+          </button>
+          <button
+            onClick={() => setActiveTab('lesson-plan')}
+            className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 ${
+              activeTab === 'lesson-plan' ? 'bg-blue-600 text-white shadow-md font-black' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            <CheckCircle2 className="w-4 h-4 text-emerald-300" /> Lesson Plan & Syllabus ({lessonPlans.length})
+          </button>
+          <button
+            onClick={() => setActiveTab('digital-diary')}
+            className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 ${
+              activeTab === 'digital-diary' ? 'bg-blue-600 text-white shadow-md font-black' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            <Calendar className="w-4 h-4 text-amber-300" /> Daily Classwork & Diary ({diaryEntries.length})
           </button>
           <button
             onClick={() => setIsPromotionModalOpen(true)}
@@ -920,6 +981,190 @@ export const AcademicsPage = ({ initialTab = 'classes' }) => {
                 </div>
               );
             })}
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 📚 SECTION 5: LESSON PLAN & SYLLABUS COVERAGE (ERPMANTRA ENTERPRISE)      */}
+      {/* ========================================================================= */}
+      {activeTab === 'lesson-plan' && (
+        <div className="space-y-6 animate-in fade-in">
+          {/* Top Control Bar */}
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <div>
+                <label className="text-[11px] font-bold text-slate-500 block mb-1">Select Class</label>
+                <select
+                  value={selectedLessonClass}
+                  onChange={(e) => setSelectedLessonClass(e.target.value)}
+                  className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold text-xs"
+                >
+                  {classes.map(c => (
+                    <option key={c.id} value={c.name}>{c.name}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="text-[11px] font-bold text-slate-500 block mb-1">Subject</label>
+                <select
+                  value={selectedLessonSubject}
+                  onChange={(e) => setSelectedLessonSubject(e.target.value)}
+                  className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold text-xs"
+                >
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Science">Science (Physics/Chemistry/Bio)</option>
+                  <option value="English">English Literature</option>
+                  <option value="Hindi">Hindi & Sanskrit</option>
+                  <option value="Social Science">Social Science</option>
+                  <option value="Computer">Computer Applications / AI</option>
+                </select>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setIsAddLessonModalOpen(true)}
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow flex items-center gap-2"
+            >
+              <Plus className="w-4 h-4" /> Add Chapter / Unit
+            </button>
+          </div>
+
+          {/* Syllabus Progress Summary Card */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-xs">
+              <span className="text-[11px] font-bold text-slate-500 block">Total Chapters</span>
+              <span className="text-2xl font-black text-slate-900 dark:text-white mt-1 block">
+                {lessonPlans.filter(lp => lp.class === selectedLessonClass && (selectedLessonSubject === 'All' || lp.subject.includes(selectedLessonSubject))).length} Chapters
+              </span>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-xs">
+              <span className="text-[11px] font-bold text-emerald-600 block">Completed</span>
+              <span className="text-2xl font-black text-emerald-600 mt-1 block">
+                {lessonPlans.filter(lp => lp.class === selectedLessonClass && lp.status === 'Completed').length} Done
+              </span>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-xs">
+              <span className="text-[11px] font-bold text-blue-600 block">In Progress</span>
+              <span className="text-2xl font-black text-blue-600 mt-1 block">
+                {lessonPlans.filter(lp => lp.class === selectedLessonClass && lp.status === 'In Progress').length} Active
+              </span>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-xs">
+              <span className="text-[11px] font-bold text-amber-600 block">Avg Syllabus Coverage</span>
+              <span className="text-2xl font-black text-amber-600 mt-1 block">68.5%</span>
+            </div>
+          </div>
+
+          {/* Lesson Plan Table */}
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+              <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Syllabus Coverage & Lesson Units ({selectedLessonClass} - {selectedLessonSubject})
+              </h3>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
+                    <th className="p-3">#</th>
+                    <th className="p-3">Unit Name</th>
+                    <th className="p-3">Chapter & Topics</th>
+                    <th className="p-3">Faculty Incharge</th>
+                    <th className="p-3 text-center">Lectures (Done/Total)</th>
+                    <th className="p-3">Progress</th>
+                    <th className="p-3 text-center">Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {lessonPlans
+                    .filter(lp => lp.class === selectedLessonClass && (selectedLessonSubject === 'All' || lp.subject.includes(selectedLessonSubject)))
+                    .map((lp, idx) => (
+                      <tr key={lp.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                        <td className="p-3 font-mono font-bold text-slate-400">{idx + 1}</td>
+                        <td className="p-3 font-semibold text-slate-700 dark:text-slate-300">{lp.unit}</td>
+                        <td className="p-3 font-bold text-slate-900 dark:text-white max-w-xs">{lp.chapter}</td>
+                        <td className="p-3 text-slate-600 dark:text-slate-400">{lp.teacher}</td>
+                        <td className="p-3 text-center font-mono font-bold text-slate-800 dark:text-slate-200">
+                          {lp.completedLectures} / {lp.plannedLectures}
+                        </td>
+                        <td className="p-3 min-w-[140px]">
+                          <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden">
+                            <div
+                              className={`h-full rounded-full ${
+                                lp.progress === 100 ? 'bg-emerald-500' : lp.progress >= 50 ? 'bg-blue-500' : 'bg-amber-500'
+                              }`}
+                              style={{ width: `${lp.progress}%` }}
+                            ></div>
+                          </div>
+                          <span className="text-[10px] font-bold text-slate-500 mt-1 block">{lp.progress}% completed</span>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Badge variant={lp.status === 'Completed' ? 'success' : lp.status === 'In Progress' ? 'primary' : 'neutral'}>
+                            {lp.status}
+                          </Badge>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 📝 SECTION 6: DIGITAL DAILY CLASSWORK & SCHOOL DIARY                      */}
+      {/* ========================================================================= */}
+      {activeTab === 'digital-diary' && (
+        <div className="space-y-6 animate-in fade-in">
+          {/* Top Action Bar */}
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-amber-500" /> Digital Daily Classwork & Teacher Diary
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">Real-time daily classroom topic records visible to parents and academic supervisors.</p>
+            </div>
+
+            <button
+              onClick={() => setIsAddDiaryModalOpen(true)}
+              className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs rounded-xl shadow flex items-center gap-2"
+            >
+              <Plus className="w-4 h-4" /> New Classwork Entry
+            </button>
+          </div>
+
+          {/* Diary Entries List */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {diaryEntries.map((d) => (
+              <div key={d.id} className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <Badge variant="primary">{d.class}</Badge>
+                    <Badge variant="purple">{d.subject}</Badge>
+                    <span className="text-[11px] font-mono text-slate-500">{d.period}</span>
+                  </div>
+                  <span className="text-xs font-bold text-slate-700 dark:text-slate-300">📅 {d.date}</span>
+                </div>
+
+                <div>
+                  <h4 className="text-xs font-bold text-slate-500 uppercase">Topic Taught in Class:</h4>
+                  <p className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{d.topic}</p>
+                </div>
+
+                <div className="bg-amber-50 dark:bg-amber-950/30 rounded-2xl p-3 border border-amber-200 dark:border-amber-900/40 text-xs">
+                  <span className="font-bold text-amber-900 dark:text-amber-200 block">📚 Assigned Homework:</span>
+                  <p className="text-amber-800 dark:text-amber-300 mt-0.5 font-medium">{d.homework}</p>
+                </div>
+
+                <div className="text-xs text-slate-600 dark:text-slate-400 flex justify-between items-center pt-1">
+                  <span>🔬 Activity: <strong>{d.activity}</strong></span>
+                  <span>👨‍🏫 Faculty: <strong>{d.teacher}</strong></span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

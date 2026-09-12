@@ -38,7 +38,8 @@ import {
   GitBranch,
   Briefcase,
   Mail,
-  MessageSquare
+  MessageSquare,
+  Server
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../components/common/Toast';
