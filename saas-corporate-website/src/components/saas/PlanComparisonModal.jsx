@@ -466,7 +466,7 @@ export const PlanComparisonModal = ({
 
   const handleBookDemoWhatsApp = (tierName) => {
     const text = encodeURIComponent(`Hello PKR EDUTECH Team! I am interested in ${tierName} School ERP Package. Please provide a demo and consultation.`);
-    window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+    window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 
   return (

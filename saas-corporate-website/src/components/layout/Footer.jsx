@@ -130,7 +130,7 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
             <div className="flex items-start gap-2">
               <Phone className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-slate-900 block">+91 8292464812</strong>
+                <strong className="text-slate-900 block">+91 9719476606</strong>
                 <span className="text-[11px] text-slate-500">Sales & 24/7 WhatsApp Support</span>
               </div>
             </div>
@@ -138,7 +138,7 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
             <div className="flex items-start gap-2">
               <Mail className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-slate-900 block">support@pkredutech.com</strong>
+                <strong className="text-slate-900 block">prashant732009@gmail.com</strong>
                 <span className="text-[11px] text-slate-500">Official Inquiries & Proposals</span>
               </div>
             </div>
@@ -146,7 +146,7 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
             <div className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
               <div>
-                <span className="text-slate-700">PKR EDUTECH Tech Campus, Sector-62, Noida, UP, India</span>
+                <span className="text-slate-700">PKR EDUTECH Tech Campus, Vinay Nagar, Sangwan City Road, PAC Quarsi (Aligarh), UP, India</span>
               </div>
             </div>
           </div>

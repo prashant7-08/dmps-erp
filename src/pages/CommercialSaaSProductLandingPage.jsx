@@ -223,7 +223,7 @@ export const CommercialSaaSProductLandingPage = ({
         onSelectPlan={(plan) => {
           setIsPlanModalOpen(false);
           const text = encodeURIComponent(`Hello, I want to book ${plan.name} (${plan.price}).`);
-          window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+          window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
         }}
       />
 

@@ -18,7 +18,7 @@ import { Breadcrumb } from '../../../components/saas/layout/Breadcrumb';
 export const CampusCctvPage = ({ onNavigate, onOpenContactModal }) => {
   const handleWhatsAppBooking = (msg = '') => {
     const text = encodeURIComponent(msg || "Hello PKR EDUTECH! I would like to get a quotation for Campus CCTV Surveillance, Mesh Wi-Fi & Annual AMC maintenance.");
-    window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+    window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 
   const services = [

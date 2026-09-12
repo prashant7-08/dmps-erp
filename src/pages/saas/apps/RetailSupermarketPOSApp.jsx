@@ -148,7 +148,7 @@ export const RetailSupermarketPOSApp = ({ onNavigate }) => {
           <button
             onClick={() => {
               const text = encodeURIComponent("Hello PKR EDUTECH! I want to purchase the Standalone Supermarket / Retail POS Software.");
-              window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+              window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
             }}
             className="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center gap-1.5"
           >

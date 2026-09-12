@@ -16,7 +16,7 @@ import { Breadcrumb } from '../../components/layout/Breadcrumb';
 export const IdCardsPage = ({ onNavigate, onOpenContactModal }) => {
   const handleWhatsAppBooking = (msg = '') => {
     const text = encodeURIComponent(msg || "Hello PKR EDUTECH! I would like to get a quotation for bulk PVC ID Cards & School Stationery printing.");
-    window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+    window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 
   const products = [

@@ -61,7 +61,7 @@ export const HomePage = ({
   const handleWhatsAppBooking = (msg = '') => {
     const defaultText = "Hello PKR EDUTECH Team! I would like to get a quote and schedule a free live demonstration of your School ERP & IT Solutions.";
     const text = encodeURIComponent(msg || defaultText);
-    window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+    window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 
   return (
@@ -414,7 +414,7 @@ export const HomePage = ({
               className="px-7 py-3.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold rounded-xl shadow-lg transition-all text-xs flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
-              <span>Contact Direct Helpline (+91 8292464812)</span>
+              <span>Contact Direct Helpline (+91 9719476606)</span>
             </button>
 
             <button

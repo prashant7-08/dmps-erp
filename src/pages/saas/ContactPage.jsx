@@ -42,7 +42,7 @@ export const ContactPage = ({ onNavigate }) => {
       `• Details: ${contactForm.message || 'Kindly share full demo details, pricing quotation and setup process.'}`
     ];
     const text = encodeURIComponent(lines.join('\n'));
-    window.open(`https://wa.me/918292464812?text=${text}`, '_blank');
+    window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
     showToast('Enquiry transferred to WhatsApp! Our architect will respond promptly.', 'success');
   };
 
@@ -81,7 +81,7 @@ export const ContactPage = ({ onNavigate }) => {
               </div>
               <div>
                 <div className="text-xs text-slate-500 font-medium">Official Sales & WhatsApp Helpline</div>
-                <div className="font-bold text-slate-900 text-lg">+91 8292464812</div>
+                <div className="font-bold text-slate-900 text-lg">+91 9719476606</div>
                 <div className="text-[11px] text-emerald-600 font-semibold">Available 24/7 on WhatsApp</div>
               </div>
             </div>
@@ -92,7 +92,7 @@ export const ContactPage = ({ onNavigate }) => {
               </div>
               <div>
                 <div className="text-xs text-slate-500 font-medium">Official Proposal & Support Email</div>
-                <div className="font-bold text-slate-900 text-base">support@pkredutech.com</div>
+                <div className="font-bold text-slate-900 text-base">prashant732009@gmail.com</div>
                 <div className="text-[11px] text-slate-500">Response within 2 hours</div>
               </div>
             </div>
@@ -103,7 +103,7 @@ export const ContactPage = ({ onNavigate }) => {
               </div>
               <div>
                 <div className="text-xs text-slate-500 font-medium">Corporate Headquarters</div>
-                <div className="font-bold text-slate-900 text-sm">PKR EDUTECH, Sector-62, Noida, UP, India</div>
+                <div className="font-bold text-slate-900 text-sm">Vinay Nagar, Sangwan City Road, PAC Quarsi (Aligarh), UP, India</div>
                 <div className="text-[11px] text-slate-500">On-site campus visits available across UP & NCR</div>
               </div>
             </div>
