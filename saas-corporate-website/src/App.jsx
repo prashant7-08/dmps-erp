@@ -42,70 +42,7 @@ import {
   CheckSquare
 } from 'lucide-react';
 
-const PLAN_TIERS = [
-  {
-    id: 'startup',
-    name: 'Startup',
-    badge: 'Entry',
-    badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
-    titleColor: 'text-blue-400',
-    subtitle: 'New schools starting ERP',
-    description: 'Admissions, students, classes, attendance and notices. No advanced operations modules.',
-    featuresCount: '169 enabled features',
-    price: '₹8,000 / yr',
-    highlight: false
-  },
-  {
-    id: 'basic',
-    name: 'Basic',
-    badge: 'Popular',
-    badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
-    titleColor: 'text-amber-400',
-    subtitle: 'Schools moving daily work online',
-    description: 'Core ERP, fees, reports and web portals. Mobile app, transport, hostel and HR stay limited.',
-    featuresCount: '175 enabled features',
-    price: '₹15,000 / yr',
-    highlight: false
-  },
-  {
-    id: 'pro',
-    name: 'PRO',
-    badge: 'Advanced',
-    badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
-    titleColor: 'text-purple-400',
-    subtitle: 'Growing schools with operations teams',
-    description: 'Transport, library, hostel, HR, payroll and advanced examination & analytical reports.',
-    featuresCount: '331 enabled features',
-    price: '₹22,000 / yr',
-    highlight: false
-  },
-  {
-    id: 'enterprise',
-    name: 'Enterprise',
-    badge: 'Premium',
-    badgeColor: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
-    titleColor: 'text-rose-400',
-    subtitle: 'Multi-team schools needing premium controls',
-    description: 'Enterprise UI, biometric hardware sync, automatic school bell, security posture and custom workflows.',
-    featuresCount: '423 enabled features',
-    price: '₹30,000 / yr',
-    highlight: true,
-    isCurrentForSchool: true
-  }
-];
-
-const FEATURE_AREAS = [
-  { name: 'Core School Management (Admissions, Classes, Sections)', startup: true, basic: true, pro: true, enterprise: true },
-  { name: 'Student & Parent Portal (Family Portal & Fee Dues View)', startup: true, basic: true, pro: true, enterprise: true },
-  { name: 'Fees Management, Invoicing & Multi-Branch POS', startup: true, basic: true, pro: true, enterprise: true },
-  { name: 'SMS, WhatsApp Broadcast & Parent Circulars', startup: false, basic: false, pro: true, enterprise: true },
-  { name: 'PWA Mobile App & Installable Desktop Station', startup: false, basic: false, pro: false, enterprise: true },
-  { name: 'Transport (Bus Routes & Stops) / Hostel / Library', startup: true, basic: true, pro: true, enterprise: true },
-  { name: 'HR Management, Staff Attendance & Payroll Slip Gen', startup: false, basic: false, pro: true, enterprise: true },
-  { name: 'Biometric Machine Sync (ZKTeco/Secureye) & Auto Bell', startup: false, basic: false, pro: false, enterprise: true },
-  { name: 'Advanced Security, Role-Based Access (RBAC) & Enterprise UI', startup: false, basic: false, pro: false, enterprise: true }
-];
-
+import { PLAN_TIERS, FEATURE_AREAS, PlanComparisonModal } from './components/saas/PlanComparisonModal';
 import { MasterSaaSHubPage } from './pages/MasterSaaSHubPage';
 import { ToastProvider, useToast } from './components/common/Toast';
 
@@ -287,7 +224,7 @@ function AppContent() {
           {/* Release Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-indigo-500/30 text-xs font-semibold text-indigo-300 shadow-xl backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>Next-Gen Enterprise School ERP 2027-2028 Edition • 423+ Modules Active</span>
+            <span>Next-Gen Enterprise School ERP 2027-2028 Edition • 210+ Functional Modules Active</span>
           </div>
 
           {/* Main Headline */}
@@ -339,7 +276,7 @@ function AppContent() {
           {/* Metric KPI Counters */}
           <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
-              <div className="text-3xl font-black text-white">423+</div>
+              <div className="text-3xl font-black text-white">210+</div>
               <div className="text-xs text-slate-400 mt-1 font-medium">Enterprise Features</div>
             </div>
             <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
@@ -707,26 +644,33 @@ function AppContent() {
                     <div className="font-semibold text-indigo-300">{tier.featuresCount}</div>
                     {tier.id === 'startup' && (
                       <>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Student & Parent Records</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Attendance & Notices</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Student Admissions & Digital Dossier</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Daily Attendance & Period Register</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Notice Board & Parent View Portal</div>
                       </>
                     )}
                     {tier.id === 'basic' && (
                       <>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Full Fees & Receipts POS</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> School Public Website</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Full Fees POS & Thermal Receipts</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Sibling Auto-Link & Discounts</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> CBSE Marks & Report Card PDF</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> School Public Website CMS</div>
                       </>
                     )}
                     {tier.id === 'pro' && (
                       <>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Bus Transport & Routes</div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Staff Payroll & Leave System</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Bus Transport & GPS Routes</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Hostel Rooms & Mess Management</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Staff HR & Monthly Payroll Slips</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Online Quiz & MCQ Test Engine</div>
                       </>
                     )}
                     {tier.id === 'enterprise' && (
                       <>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400 font-bold" /> <strong>All 423+ Modules Active</strong></div>
-                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Biometric Sync & Auto Bell</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400 font-bold" /> <strong>All 210+ ERP Modules Active</strong></div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Biometric Sync (ZKTeco/Secureye)</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Automated MP3 School Bell Runner</div>
+                        <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400" /> Installable PWA Mobile & Desktop App</div>
                       </>
                     )}
                   </div>
@@ -740,7 +684,7 @@ function AppContent() {
                       : 'bg-slate-800 hover:bg-slate-700 text-white'
                   }`}
                 >
-                  View Feature Matrix
+                  View Feature Matrix (21 Modules)
                 </button>
               </div>
             );
@@ -788,82 +732,11 @@ function AppContent() {
         </div>
       </footer>
 
-      {/* MODAL 1: 4-Tier Plan Comparison Matrix Modal */}
-      {isPlanModalOpen && (
-        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in">
-          <div className="bg-slate-900 rounded-3xl shadow-2xl border border-slate-800 w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden animate-in zoom-in-95">
-            <div className="p-6 pb-4 border-b border-slate-800 flex items-start justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-2">
-                  <h2 className="text-xl font-bold text-white">Plan Comparison</h2>
-                  <span className="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold uppercase">
-                    4-Tier Matrix
-                  </span>
-                </div>
-                <p className="text-xs text-slate-400 mt-1">
-                  Pick the package that matches the school workflow. Exact modules can be tailored for your campus.
-                </p>
-              </div>
-              <button onClick={() => setIsPlanModalOpen(false)} className="p-2 text-slate-400 hover:text-white rounded-xl">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="p-6 overflow-y-auto space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {PLAN_TIERS.map(t => (
-                  <div key={t.id} className="p-4 rounded-2xl bg-slate-800/60 border border-slate-700 space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className={`font-bold ${t.titleColor}`}>{t.name}</span>
-                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${t.badgeColor}`}>{t.badge}</span>
-                    </div>
-                    <div className="text-xs font-bold text-white">{t.subtitle}</div>
-                    <p className="text-[11px] text-slate-400">{t.description}</p>
-                    <div className="pt-2 border-t border-slate-700 text-center font-bold text-xs text-indigo-300">
-                      {t.featuresCount}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Matrix Table */}
-              <div className="bg-slate-950/60 rounded-2xl border border-slate-800 overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="bg-slate-800/80 border-b border-slate-700 text-slate-300 font-bold">
-                      <th className="p-3 pl-4">Feature Area</th>
-                      <th className="p-3 text-center">Startup (169)</th>
-                      <th className="p-3 text-center">Basic (175)</th>
-                      <th className="p-3 text-center">PRO (331)</th>
-                      <th className="p-3 text-center text-rose-400">Enterprise (423)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800 text-slate-300">
-                    {FEATURE_AREAS.map((item, idx) => (
-                      <tr key={idx} className="hover:bg-slate-800/40">
-                        <td className="p-3 pl-4 font-medium">{item.name}</td>
-                        <td className="p-3 text-center">{item.startup ? <Check className="w-4 h-4 text-emerald-400 mx-auto" /> : <Minus className="w-4 h-4 text-slate-600 mx-auto" />}</td>
-                        <td className="p-3 text-center">{item.basic ? <Check className="w-4 h-4 text-emerald-400 mx-auto" /> : <Minus className="w-4 h-4 text-slate-600 mx-auto" />}</td>
-                        <td className="p-3 text-center">{item.pro ? <Check className="w-4 h-4 text-emerald-400 mx-auto" /> : <Minus className="w-4 h-4 text-slate-600 mx-auto" />}</td>
-                        <td className="p-3 text-center bg-rose-950/20">{item.enterprise ? <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" /> : <Minus className="w-4 h-4 text-slate-600 mx-auto" />}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div className="p-4 px-6 border-t border-slate-800 bg-slate-950/60 flex justify-end">
-              <button
-                onClick={() => setIsPlanModalOpen(false)}
-                className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs"
-              >
-                Close Matrix
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* 4-Tier Plan Comparison Matrix Modal */}
+      <PlanComparisonModal
+        isOpen={isPlanModalOpen}
+        onClose={() => setIsPlanModalOpen(false)}
+      />
 
       {/* MODAL 2: Request On-Site Demo & Callback Modal */}
       {isContactModalOpen && (
