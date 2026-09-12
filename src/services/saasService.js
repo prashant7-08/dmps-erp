@@ -28,7 +28,7 @@ export const DEFAULT_TENANTS = [
     registeredDate: '2025-04-01',
     expiryDate: '2028-03-31',
     stats: {
-      studentsCount: 37,
+      studentsCount: 0,
       staffCount: 18,
       branchesCount: 3
     },

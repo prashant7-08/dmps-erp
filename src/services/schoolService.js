@@ -14,7 +14,7 @@ import {
   applyFeeOverridesToStudent 
 } from '../utils/feeProtectionUtils';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_ERP_ENTERPRISE_DEMO_2027_V1';
+const STORAGE_KEY = 'DMPS_SCHOOL_ERP_PRODUCTION_CLEAN_2027_V2';
 
 class SchoolService {
   constructor() {
@@ -29,7 +29,7 @@ class SchoolService {
       const manualSalaries = getManualSalaryAssignments();
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (parsed && Array.isArray(parsed.students) && parsed.students.length > 0) {
+        if (parsed && Array.isArray(parsed.students)) {
           const loadedTeachers = Array.isArray(parsed.teachers) && parsed.teachers.length > 0 ? parsed.teachers : initialSchoolData.teachers;
           // Apply persistent manual salary overrides and enforce 0 for management
           const enrichedTeachers = loadedTeachers.map(t => {
@@ -49,7 +49,7 @@ class SchoolService {
           const persistentDesigs = getPersistentDesignations(parsed.designations);
 
           const manualFeeOverrides = getManualStudentFeeOverrides();
-          const loadedStudents = Array.isArray(parsed.students) && parsed.students.length > 0 ? parsed.students : initialSchoolData.students;
+          const loadedStudents = Array.isArray(parsed.students) ? parsed.students : initialSchoolData.students;
           const sanitizedStudents = loadedStudents.map(s => {
             let studentObj = { ...s };
             return applyFeeOverridesToStudent(studentObj, manualFeeOverrides);

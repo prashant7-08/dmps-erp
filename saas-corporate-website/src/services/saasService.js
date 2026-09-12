@@ -9,7 +9,7 @@ const ACTIVE_TENANT_KEY = 'DMPS_ACTIVE_TENANT_SLUG_V2';
 export const DEFAULT_TENANTS = [
   {
     id: 'TENANT-001',
-    name: 'Dadheech Memorial Public School',
+    name: 'PKR Global International Academy',
     shortName: 'DMPS',
     slug: 'dmps',
     customDomain: 'dadheech.vercel.app',
@@ -28,7 +28,7 @@ export const DEFAULT_TENANTS = [
     registeredDate: '2025-04-01',
     expiryDate: '2028-03-31',
     stats: {
-      studentsCount: 37,
+      studentsCount: 0,
       staffCount: 18,
       branchesCount: 3
     },
