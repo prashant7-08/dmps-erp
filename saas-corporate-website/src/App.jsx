@@ -30,6 +30,7 @@ import {
   Home,
   MessageSquare,
   Lock,
+  Unlock,
   Headphones,
   Check,
   X,
@@ -39,7 +40,10 @@ import {
   Receipt,
   Clock,
   Laptop,
-  CheckSquare
+  CheckSquare,
+  Eye,
+  EyeOff,
+  AlertTriangle
 } from 'lucide-react';
 
 import { PLAN_TIERS, FEATURE_AREAS, PlanComparisonModal } from './components/saas/PlanComparisonModal';
@@ -56,10 +60,24 @@ export function App() {
 
 function AppContent() {
   const { showToast } = useToast();
+  
+  // Master Admin Authentication State (PIN protected: 123456 / pkr2027)
+  const [isMasterAuthenticated, setIsMasterAuthenticated] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return sessionStorage.getItem('PKR_MASTER_AUTH') === 'true';
+    }
+    return false;
+  });
+  const [isMasterPinModalOpen, setIsMasterPinModalOpen] = useState(false);
+  const [masterPinInput, setMasterPinInput] = useState('');
+  const [showMasterPin, setShowMasterPin] = useState(false);
+  const [masterPinError, setMasterPinError] = useState('');
+
   const getInitialView = () => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes('master') || hash.includes('console') || hash.includes('admin-saas')) {
+      const isAuth = sessionStorage.getItem('PKR_MASTER_AUTH') === 'true';
+      if ((hash.includes('master') || hash.includes('console') || hash.includes('admin-saas')) && isAuth) {
         return 'master-console';
       }
     }
@@ -72,12 +90,20 @@ function AppContent() {
   const [studentsCount, setStudentsCount] = useState(500);
   const [avgFee, setAvgFee] = useState(1600);
 
-  // Sync hash
+  // Sync URL hash with security check
   useEffect(() => {
     const handlePopState = () => {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes('master') || hash.includes('console')) {
-        setCurrentView('master-console');
+      if (hash.includes('master') || hash.includes('console') || hash.includes('admin-saas')) {
+        const isAuth = sessionStorage.getItem('PKR_MASTER_AUTH') === 'true';
+        if (isAuth) {
+          setCurrentView('master-console');
+        } else {
+          setCurrentView('landing');
+          setMasterPinInput('');
+          setMasterPinError('');
+          setIsMasterPinModalOpen(true);
+        }
       } else {
         setCurrentView('landing');
       }
@@ -86,13 +112,42 @@ function AppContent() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const switchView = (view) => {
-    setCurrentView(view);
-    if (view === 'master-console') {
+  const handleOpenMasterConsole = () => {
+    if (isMasterAuthenticated) {
+      setCurrentView('master-console');
       window.history.pushState(null, '', '#master');
     } else {
-      window.history.pushState(null, '', ' ');
+      setMasterPinInput('');
+      setMasterPinError('');
+      setIsMasterPinModalOpen(true);
     }
+  };
+
+  const handleVerifyMasterPin = (e) => {
+    if (e) e.preventDefault();
+    const cleanPin = masterPinInput.trim();
+    // Valid master passwords / PINs: '123456', 'pkr2027', 'admin@pkr', '708090'
+    if (cleanPin === '123456' || cleanPin === 'pkr2027' || cleanPin === 'admin@pkr' || cleanPin === '708090') {
+      setIsMasterAuthenticated(true);
+      sessionStorage.setItem('PKR_MASTER_AUTH', 'true');
+      setIsMasterPinModalOpen(false);
+      setMasterPinInput('');
+      setMasterPinError('');
+      setCurrentView('master-console');
+      window.history.pushState(null, '', '#master');
+      showToast('🔓 Master Admin Access Granted! Welcome to Hub.', 'success');
+    } else {
+      setMasterPinError('Access Denied: Incorrect Master Security PIN.');
+      showToast('❌ Access Denied: Incorrect Master PIN!', 'error');
+    }
+  };
+
+  const handleLockMasterConsole = () => {
+    setIsMasterAuthenticated(false);
+    sessionStorage.removeItem('PKR_MASTER_AUTH');
+    setCurrentView('landing');
+    window.history.pushState(null, '', ' ');
+    showToast('🔒 Master Console Locked & Logged Out.', 'info');
   };
 
   // ROI Calculations
@@ -103,7 +158,7 @@ function AppContent() {
   const demoPortalUrl = 'https://dadheech.vercel.app';
 
   const handleOpenDemo = (role = 'admin') => {
-    showToast(`Opening ${role.toUpperCase()} live environment...`, 'info');
+    showToast(`Opening ${role.toUpperCase()} live demo sandbox...`, 'info');
     window.open(`${demoPortalUrl}/#login`, '_blank');
   };
 
@@ -112,35 +167,56 @@ function AppContent() {
     window.open(`https://wa.me/919876543210?text=${text}`, '_blank');
   };
 
-  // RENDER MASTER SAAS CONSOLE VIEW
-  if (currentView === 'master-console') {
+  // RENDER MASTER SAAS CONSOLE VIEW (SECURITY GUARDED)
+  if (currentView === 'master-console' && isMasterAuthenticated) {
     return (
       <div className="min-h-screen bg-[#070b14] text-slate-100 font-sans p-4 sm:p-8">
         <div className="max-w-7xl mx-auto space-y-6">
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/30">
                 <Crown className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="font-bold text-lg text-white">PKR EDUTECH Master Console</h2>
-                <p className="text-xs text-slate-400">Multi-School SaaS License & Tenant Hub</p>
+                <div className="flex items-center gap-2">
+                  <h2 className="font-bold text-lg text-white">PKR EDUTECH Master Console</h2>
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold">
+                    Authenticated Session
+                  </span>
+                </div>
+                <p className="text-xs text-slate-400">Multi-School SaaS License, Database & Tenant Hub</p>
               </div>
             </div>
 
-            <button
-              onClick={() => switchView('landing')}
-              className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl border border-slate-700 flex items-center gap-2 transition-all"
-            >
-              <ArrowRight className="w-3.5 h-3.5 rotate-180 text-indigo-400" />
-              <span>Back to PKR EduTech Sales Site</span>
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => {
+                  setCurrentView('landing');
+                  window.history.pushState(null, '', ' ');
+                }}
+                className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl border border-slate-700 flex items-center gap-2 transition-all"
+              >
+                <ArrowRight className="w-3.5 h-3.5 rotate-180 text-indigo-400" />
+                <span>Public Sales Site</span>
+              </button>
+
+              <button
+                onClick={handleLockMasterConsole}
+                className="px-3.5 py-2 bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 text-xs font-bold rounded-xl border border-rose-500/40 flex items-center gap-1.5 transition-all shadow-sm"
+              >
+                <Lock className="w-3.5 h-3.5 text-rose-400" />
+                <span>Lock & Logout</span>
+              </button>
+            </div>
           </div>
 
           <MasterSaaSHubPage
-            onReturnToSchool={() => switchView('landing')}
+            onReturnToSchool={() => {
+              setCurrentView('landing');
+              window.history.pushState(null, '', ' ');
+            }}
             onSwitchTenant={(tenant) => {
-              window.open(`${demoPortalUrl}/`, '_blank');
+              window.open(`${demoPortalUrl}/?tenant=${tenant.slug}#login`, '_blank');
             }}
           />
         </div>
@@ -187,14 +263,6 @@ function AppContent() {
           {/* Action CTAs */}
           <div className="flex items-center gap-3">
             <button
-              onClick={() => switchView('master-console')}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/40 transition-all shadow-md shadow-amber-500/10 active:scale-95"
-            >
-              <Crown className="w-3.5 h-3.5 text-amber-400" />
-              <span>👑 Master SaaS Console</span>
-            </button>
-
-            <button
               onClick={() => setIsContactModalOpen(true)}
               className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 transition-all"
             >
@@ -240,20 +308,12 @@ function AppContent() {
           {/* Primary Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button
-              onClick={() => switchView('master-console')}
-              className="px-7 py-4 bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 hover:from-amber-400 hover:to-purple-500 text-white font-black rounded-2xl shadow-xl shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-3 text-sm border border-amber-400/40"
-            >
-              <Crown className="w-5 h-5 text-amber-200" />
-              <span>👑 Master SaaS Console (Add / Manage Schools)</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
               onClick={() => handleOpenDemo('admin')}
-              className="px-6 py-4 bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold rounded-2xl border border-slate-700 transition-all flex items-center gap-2.5 text-sm shadow-md"
+              className="px-7 py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-black rounded-2xl shadow-xl shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-3 text-sm border border-indigo-400/30"
             >
-              <Zap className="w-4 h-4 text-indigo-400" />
-              <span>Live Demo Sandbox (Client Preview) ↗</span>
+              <Zap className="w-5 h-5 text-amber-300" />
+              <span>⚡ Launch Live Demo Sandbox ↗</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
 
             <button
@@ -270,6 +330,13 @@ function AppContent() {
             >
               <Phone className="w-4 h-4 text-emerald-400" />
               <span>Book Demo on WhatsApp</span>
+            </button>
+
+            <button
+              onClick={() => setIsContactModalOpen(true)}
+              className="px-5 py-4 bg-slate-900/60 hover:bg-slate-800 text-slate-300 font-semibold rounded-2xl border border-slate-800 transition-all flex items-center gap-2 text-sm"
+            >
+              <span>Request Callback</span>
             </button>
           </div>
 
@@ -306,7 +373,7 @@ function AppContent() {
               Try Interactive Role Demos Right Now
             </h2>
             <p className="text-slate-400 text-sm max-w-2xl mx-auto">
-              Click any role to test live dashboard features with 1-click demo login PINs.
+              Click any role to test live dashboard features with 1-click demo login credentials.
             </p>
           </div>
 
@@ -684,7 +751,7 @@ function AppContent() {
                       : 'bg-slate-800 hover:bg-slate-700 text-white'
                   }`}
                 >
-                  View Feature Matrix (21 Modules)
+                  View Feature Matrix (31 Capabilities)
                 </button>
               </div>
             );
@@ -693,7 +760,7 @@ function AppContent() {
       </section>
 
       {/* 7. Corporate Footer */}
-      <footer className="border-t border-slate-800 bg-[#070b14] pt-12">
+      <footer className="border-t border-slate-800 bg-[#070b14] pt-12 pb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <div className="text-sm font-black text-white">
@@ -705,14 +772,6 @@ function AppContent() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-400">
-            <button
-              onClick={() => switchView('master-console')}
-              className="px-3 py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 font-bold transition-colors flex items-center gap-1.5 shadow-sm"
-            >
-              <Crown className="w-3.5 h-3.5 text-amber-400" />
-              <span>👑 Master SaaS Console</span>
-            </button>
-
             <button
               onClick={() => handleOpenDemo('admin')}
               className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:text-indigo-400 transition-colors flex items-center gap-1.5"
@@ -727,6 +786,16 @@ function AppContent() {
             >
               <Phone className="w-3.5 h-3.5 text-emerald-400" />
               <span>WhatsApp Support</span>
+            </button>
+
+            {/* Subtle, Secure Master Console Link for Founder / Admin */}
+            <button
+              onClick={handleOpenMasterConsole}
+              className="px-2.5 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-900 border border-slate-800/80 hover:border-slate-700 text-slate-500 hover:text-slate-300 font-medium transition-colors flex items-center gap-1 text-[11px]"
+              title="System Administrator & Founder Master Access"
+            >
+              <Lock className="w-3 h-3 text-slate-500" />
+              <span>Master Admin Access</span>
             </button>
           </div>
         </div>
@@ -768,6 +837,104 @@ function AppContent() {
                 Open Instant Live Browser Demo
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL 3: Master Admin Security PIN Gate Modal */}
+      {isMasterPinModalOpen && (
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in">
+          <div className="bg-slate-900 rounded-3xl shadow-2xl border border-indigo-900/50 w-full max-w-md p-6 sm:p-8 space-y-5 animate-in zoom-in-95 relative overflow-hidden">
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-indigo-600/15 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-600/15 rounded-full blur-2xl pointer-events-none" />
+
+            {/* Header */}
+            <div className="flex items-start justify-between relative z-10">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500/20 to-indigo-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                  <KeyRound className="w-6 h-6 animate-pulse" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-white flex items-center gap-2">
+                    Master Admin Gate
+                  </h3>
+                  <p className="text-xs text-slate-400">PKR EduTech Multi-School Super Hub</p>
+                </div>
+              </div>
+              <button
+                onClick={() => {
+                  setIsMasterPinModalOpen(false);
+                  setMasterPinError('');
+                  setMasterPinInput('');
+                }}
+                className="p-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3 text-xs text-amber-300 flex items-center gap-2.5">
+              <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
+              <span>Restricted Area: Enter Master Security PIN to manage schools, licensing & billing.</span>
+            </div>
+
+            {masterPinError && (
+              <div className="bg-rose-500/10 border border-rose-500/30 rounded-2xl p-3 text-xs text-rose-300 flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
+                <span>{masterPinError}</span>
+              </div>
+            )}
+
+            {/* PIN Input Form */}
+            <form onSubmit={handleVerifyMasterPin} className="space-y-4 relative z-10">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-300 flex items-center justify-between">
+                  <span>Master Security PIN / Password:</span>
+                  <span className="text-[10px] text-slate-500 font-normal">PIN: 123456 / pkr2027</span>
+                </label>
+                <div className="relative">
+                  <input
+                    type={showMasterPin ? "text" : "password"}
+                    value={masterPinInput}
+                    onChange={(e) => {
+                      setMasterPinInput(e.target.value);
+                      setMasterPinError('');
+                    }}
+                    placeholder="Enter Master Security PIN..."
+                    autoFocus
+                    className="w-full px-4 py-3 bg-slate-950 border border-slate-700 focus:border-indigo-500 rounded-xl text-center text-lg font-mono tracking-widest text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder:text-slate-600 placeholder:text-sm placeholder:tracking-normal"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowMasterPin(!showMasterPin)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate-400 hover:text-white"
+                  >
+                    {showMasterPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMasterPinModalOpen(false);
+                    setMasterPinError('');
+                    setMasterPinInput('');
+                  }}
+                  className="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold rounded-xl transition-all"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2 border border-indigo-400/30"
+                >
+                  <Lock className="w-3.5 h-3.5" />
+                  <span>Unlock Console</span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
