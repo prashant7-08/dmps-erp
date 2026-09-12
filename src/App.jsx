@@ -40,6 +40,7 @@ import { FrontendCMSPage } from './pages/FrontendCMSPage';
 import { FamilyPortalPage } from './pages/FamilyPortalPage';
 import { OnlineQuizPage } from './pages/OnlineQuizPage';
 import { MasterSaaSHubPage } from './pages/MasterSaaSHubPage';
+import { CommercialSaaSProductLandingPage } from './pages/CommercialSaaSProductLandingPage';
 import { LanguageProvider } from './utils/languageContext';
 
 function AppContent() {
@@ -148,6 +149,30 @@ function AppContent() {
       setActiveTab('staff');
     }
   };
+
+  // -1. If currently in Commercial SaaS Product Landing Website mode (For selling ERP to schools)
+  if (activeTab === 'product' || activeTab === 'saas-landing' || activeTab === 'commercial' || activeTab === 'edumantra') {
+    return (
+      <CommercialSaaSProductLandingPage
+        onLaunchDemo={(role) => {
+          setIsViewingWebsite(false);
+          if (role === 'superadmin') handleRoleChange('Super Admin');
+          else if (role === 'teacher') handleRoleChange('Teacher');
+          else if (role === 'accountant') handleRoleChange('Accountant');
+          else if (role === 'parent') handleRoleChange('Parent');
+          else if (role === 'student') handleRoleChange('Student');
+        }}
+        onOpenMasterSaaS={() => {
+          setIsViewingWebsite(false);
+          setActiveTab('master-saas');
+        }}
+        onOpenSchoolPortal={() => {
+          setActiveTab('dashboard');
+          setIsViewingWebsite(false);
+        }}
+      />
+    );
+  }
 
   // 0. If currently in standalone Master SaaS Multi-School Console mode
   if (activeTab === 'master-saas' || activeTab === 'saas' || activeTab === 'master' || activeTab === 'saas-console') {
