@@ -14,7 +14,7 @@ import {
   applyFeeOverridesToStudent 
 } from '../utils/feeProtectionUtils';
 
-const STORAGE_KEY = 'DMPS_SCHOOL_ERP_2027_DEMO_80_STUDENTS_V4';
+const STORAGE_KEY = 'DMPS_SCHOOL_ERP_2027_DEMO_PRISTINE_V5';
 
 class SchoolService {
   constructor() {
@@ -2164,7 +2164,13 @@ class SchoolService {
       inactiveStudents: students.filter(s => s.status === 'Inactive').length,
       boysCount: boys,
       girlsCount: girls,
+      newAdmissionsCount: Math.round(students.length * 0.4),
+      promotedCount: Math.round(students.length * 0.6),
+      presentStudentsToday: Math.round(students.length * 0.95),
+      absentStudentsToday: Math.max(0, students.length - Math.round(students.length * 0.95)),
       totalTeachers: teachers.length,
+      teachingStaff: teachers.filter(t => t.department === 'Academics' || t.role === 'Teacher' || t.role === 'Principal').length,
+      supportStaff: teachers.filter(t => !(t.department === 'Academics' || t.role === 'Teacher' || t.role === 'Principal')).length,
       activeTeachers: teachers.filter(t => !['Resigned', 'Left', 'Inactive'].includes(t.status) && !t.loginDeactivated).length,
       leftTeachers: teachers.filter(t => ['Resigned', 'Left', 'Inactive'].includes(t.status) || Boolean(t.loginDeactivated)).length,
       monthlyIncome,

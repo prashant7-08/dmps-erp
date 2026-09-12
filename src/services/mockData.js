@@ -1,6 +1,6 @@
 // =============================================================================
-//   DADHEECH MEMORIAL PUBLIC SCHOOL - DEMO DATABASE (5 STUDENTS PER CLASS)
-//   16 Classes x 5 Students = 80 Total Active Students with 100% Integrity
+//   DADHEECH MEMORIAL PUBLIC SCHOOL - PRISTINE DEMO DATABASE
+//   80 Students (5 per class in 16 classes) | 7 Staff Members | Matched 7-Day POS Cashbook
 // =============================================================================
 
 export const initialSchoolData = {
@@ -425,525 +425,149 @@ export const initialSchoolData = {
   "teachers": [
     {
       "id": "TCH-1001",
-      "employeeId": "EMP-2020-001",
-      "name": "Mr. Pramod Kumar Rajput",
+      "employeeId": "EMP-001",
+      "name": "Dr. Arvind Sharma",
       "gender": "Male",
-      "dob": "1975-04-12",
-      "bloodGroup": "B+",
-      "department": "Administration & Management",
-      "designation": "Managing Director & Manager",
-      "qualification": "M.Sc, B.Ed, M.Phil (Education Leadership)",
-      "experience": "24 Years",
-      "mobile": "+91 97589 75880",
-      "email": "manager@dmpsjargawan.com",
-      "address": "Dadheech Estate, Ramghat Road, Jargwan, Bulandshahr",
-      "joiningDate": "2010-04-01",
+      "designation": "Principal & Director",
+      "department": "Administration",
+      "qualification": "Ph.D., M.Sc. (Physics), B.Ed.",
+      "mobile": "+91 97194 76606",
+      "email": "principal@dmps.edu.in",
       "status": "Active",
-      "basicSalary": 0,
-      "salary": {
-        "basic": 0,
-        "hra": 0,
-        "da": 0,
-        "allowance": 0,
-        "pf": 0,
-        "netSalary": 0
-      },
-      "classTeacherOf": null,
-      "biometricId": "1001",
-      "attendanceStatus": "Present"
+      "joiningDate": "2018-04-01",
+      "branchId": "BR-01",
+      "basicSalary": 45000,
+      "salary": 45000,
+      "role": "Principal",
+      "assignedClass": "Class 12",
+      "subjects": [
+        "Physics"
+      ]
     },
     {
       "id": "TCH-1002",
-      "employeeId": "EMP-2020-002",
+      "employeeId": "EMP-002",
       "name": "Mrs. Kavita Rani",
       "gender": "Female",
-      "dob": "1980-08-25",
-      "bloodGroup": "O+",
-      "department": "Administration & Management",
-      "designation": "Principal & Academic Head",
-      "qualification": "M.A. (English), M.Ed (Gold Medalist)",
-      "experience": "19 Years",
-      "mobile": "+91 96270 32626",
-      "email": "principal@dmpsjargawan.com",
-      "address": "Aligarh Road, Jargwan, Bulandshahr",
-      "joiningDate": "2012-07-01",
+      "designation": "Vice Principal & PGT Mathematics",
+      "department": "Academics",
+      "qualification": "M.Sc. (Maths), B.Ed.",
+      "mobile": "+91 97194 76606",
+      "email": "kavita.maths@dmps.edu.in",
       "status": "Active",
-      "basicSalary": 45000,
-      "salary": {
-        "basic": 45000,
-        "hra": 9000,
-        "da": 4500,
-        "allowance": 3500,
-        "pf": 1800,
-        "netSalary": 60200
-      },
-      "classTeacherOf": null,
-      "biometricId": "1002",
-      "attendanceStatus": "Present"
+      "joiningDate": "2019-07-15",
+      "branchId": "BR-01",
+      "basicSalary": 38000,
+      "salary": 38000,
+      "role": "Teacher",
+      "assignedClass": "Class 10",
+      "subjects": [
+        "Mathematics"
+      ]
     },
     {
       "id": "TCH-1003",
-      "employeeId": "EMP-2021-015",
-      "name": "Dr. Rajesh Sharma",
+      "employeeId": "EMP-003",
+      "name": "Mr. Amit Kumar Verma",
       "gender": "Male",
-      "dob": "1982-11-14",
-      "bloodGroup": "A+",
-      "department": "Science & Technology",
-      "designation": "Vice Principal & HOD Science",
-      "qualification": "Ph.D (Physics), M.Sc, B.Ed",
-      "experience": "16 Years",
-      "mobile": "+91 98110 44221",
-      "email": "rajesh.sharma@dmps-school.edu.in",
-      "address": "Barheti Campus Staff Quarters, Aligarh",
-      "joiningDate": "2015-06-15",
+      "designation": "PGT Chemistry & Science Head",
+      "department": "Academics",
+      "qualification": "M.Sc. (Chemistry), B.Ed.",
+      "mobile": "+91 97194 76606",
+      "email": "amit.science@dmps.edu.in",
       "status": "Active",
-      "basicSalary": 38000,
-      "salary": {
-        "basic": 38000,
-        "hra": 7600,
-        "da": 3800,
-        "allowance": 2600,
-        "pf": 1800,
-        "netSalary": 50200
-      },
-      "classTeacherOf": "Class 10 - A",
-      "biometricId": "1003",
-      "attendanceStatus": "Present"
+      "joiningDate": "2020-04-10",
+      "branchId": "BR-01",
+      "basicSalary": 35000,
+      "salary": 35000,
+      "role": "Teacher",
+      "assignedClass": "Class 9",
+      "subjects": [
+        "Chemistry",
+        "General Science"
+      ]
     },
     {
       "id": "TCH-1004",
-      "employeeId": "EMP-2021-022",
-      "name": "Mrs. Sunita Verma",
+      "employeeId": "EMP-004",
+      "name": "Mrs. Sunita Devi",
       "gender": "Female",
-      "dob": "1985-05-19",
-      "bloodGroup": "B+",
-      "department": "Mathematics",
-      "designation": "Post Graduate Teacher (PGT)",
-      "qualification": "M.Sc (Mathematics), B.Ed",
-      "experience": "12 Years",
-      "mobile": "+91 98220 55332",
-      "email": "sunita.verma@dmps-school.edu.in",
-      "address": "Civil Lines, Aligarh (U.P.)",
-      "joiningDate": "2016-04-01",
+      "designation": "TGT English & Social Studies",
+      "department": "Academics",
+      "qualification": "M.A. (English), B.Ed.",
+      "mobile": "+91 97194 76606",
+      "email": "sunita.eng@dmps.edu.in",
       "status": "Active",
-      "basicSalary": 32000,
-      "salary": {
-        "basic": 32000,
-        "hra": 6400,
-        "da": 3200,
-        "allowance": 2000,
-        "pf": 1800,
-        "netSalary": 41800
-      },
-      "classTeacherOf": "Class 10 - B",
-      "biometricId": "1004",
-      "attendanceStatus": "Present"
+      "joiningDate": "2021-03-01",
+      "branchId": "BR-01",
+      "basicSalary": 28000,
+      "salary": 28000,
+      "role": "Teacher",
+      "assignedClass": "Class 6",
+      "subjects": [
+        "English",
+        "Social Science"
+      ]
     },
     {
       "id": "TCH-1005",
-      "employeeId": "EMP-2022-031",
-      "name": "Mr. Amitabh Sen",
+      "employeeId": "EMP-005",
+      "name": "Mr. Rohit Singh Rajput",
       "gender": "Male",
-      "dob": "1987-03-10",
-      "bloodGroup": "AB+",
-      "department": "Science & Technology",
-      "designation": "Post Graduate Teacher (PGT)",
-      "qualification": "M.Sc (Chemistry), B.Ed",
-      "experience": "10 Years",
-      "mobile": "+91 98330 66443",
-      "email": "amitabh.sen@dmps-school.edu.in",
-      "address": "Near Medical College, Aligarh",
-      "joiningDate": "2018-07-15",
+      "designation": "Computer Science & IT Teacher",
+      "department": "IT & Technology",
+      "qualification": "MCA, B.Tech (CS)",
+      "mobile": "+91 97194 76606",
+      "email": "rohit.it@dmps.edu.in",
       "status": "Active",
-      "basicSalary": 30000,
-      "salary": {
-        "basic": 30000,
-        "hra": 6000,
-        "da": 3000,
-        "allowance": 2000,
-        "pf": 1800,
-        "netSalary": 39200
-      },
-      "classTeacherOf": "Class 9 - A",
-      "biometricId": "1005",
-      "attendanceStatus": "Present"
+      "joiningDate": "2022-08-01",
+      "branchId": "BR-01",
+      "basicSalary": 26000,
+      "salary": 26000,
+      "role": "Teacher",
+      "assignedClass": "Class 8",
+      "subjects": [
+        "Computer Science",
+        "Artificial Intelligence"
+      ]
     },
     {
       "id": "TCH-1006",
-      "employeeId": "EMP-2022-040",
-      "name": "Dr. Meenakshi Sundaram",
-      "gender": "Female",
-      "dob": "1988-09-08",
-      "bloodGroup": "O+",
-      "department": "Science & Technology",
-      "designation": "Post Graduate Teacher (PGT)",
-      "qualification": "Ph.D (Botany), M.Sc, B.Ed",
-      "experience": "9 Years",
-      "mobile": "+91 98440 77554",
-      "email": "meenakshi.s@dmps-school.edu.in",
-      "address": "Swarna Jayanti Nagar, Aligarh",
-      "joiningDate": "2019-04-01",
+      "employeeId": "EMP-006",
+      "name": "Mr. Manoj Yadav",
+      "gender": "Male",
+      "designation": "Senior Accountant & Office In-Charge",
+      "department": "Accounts & Finance",
+      "qualification": "M.Com, Tally ERP",
+      "mobile": "+91 97194 76606",
+      "email": "accounts@dmps.edu.in",
       "status": "Active",
-      "basicSalary": 30000,
-      "salary": {
-        "basic": 30000,
-        "hra": 6000,
-        "da": 3000,
-        "allowance": 2000,
-        "pf": 1800,
-        "netSalary": 39200
-      },
-      "classTeacherOf": "Class 9 - B",
-      "biometricId": "1006",
-      "attendanceStatus": "Present"
+      "joiningDate": "2020-01-15",
+      "branchId": "BR-01",
+      "basicSalary": 24000,
+      "salary": 24000,
+      "role": "Accountant",
+      "assignedClass": null,
+      "subjects": []
     },
     {
       "id": "TCH-1007",
-      "employeeId": "EMP-2023-051",
-      "name": "Mr. Vikramaditya Rathore",
+      "employeeId": "EMP-007",
+      "name": "Mr. Ram Prakash",
       "gender": "Male",
-      "dob": "1986-12-04",
-      "bloodGroup": "O-",
-      "department": "Administration & Management",
-      "designation": "Post Graduate Teacher (PGT)",
-      "qualification": "M.Com, Chartered Financial Analyst (Inter), B.Ed",
-      "experience": "11 Years",
-      "mobile": "+91 98550 88665",
-      "email": "vikram.rathore@dmps-school.edu.in",
-      "address": "GT Road, Bulandshahr",
-      "joiningDate": "2020-08-01",
+      "designation": "Senior Fleet & Transport Supervisor",
+      "department": "Transport",
+      "qualification": "Senior Secondary, HMV License",
+      "mobile": "+91 97194 76606",
+      "email": "transport@dmps.edu.in",
       "status": "Active",
-      "basicSalary": 28000,
-      "salary": {
-        "basic": 28000,
-        "hra": 5600,
-        "da": 2800,
-        "allowance": 1800,
-        "pf": 1800,
-        "netSalary": 36400
-      },
-      "classTeacherOf": "Class 11 - Commerce",
-      "biometricId": "1007",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1008",
-      "employeeId": "EMP-2023-062",
-      "name": "Mrs. Ritu Jain",
-      "gender": "Female",
-      "dob": "1989-02-17",
-      "bloodGroup": "A+",
-      "department": "Languages & Humanities (English, Hindi, Sanskrit)",
-      "designation": "Trained Graduate Teacher (TGT)",
-      "qualification": "M.A. (English Literature), B.Ed",
-      "experience": "8 Years",
-      "mobile": "+91 98660 99776",
-      "email": "ritu.jain@dmps-school.edu.in",
-      "address": "Ramghat Road, Bulandshahr",
-      "joiningDate": "2021-03-01",
-      "status": "Active",
-      "basicSalary": 24000,
-      "salary": {
-        "basic": 24000,
-        "hra": 4800,
-        "da": 2400,
-        "allowance": 1500,
-        "pf": 1800,
-        "netSalary": 30900
-      },
-      "classTeacherOf": "Class 8 - A",
-      "biometricId": "1008",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1009",
-      "employeeId": "EMP-2023-073",
-      "name": "Pt. Ramakant Shastri",
-      "gender": "Male",
-      "dob": "1983-07-29",
-      "bloodGroup": "B+",
-      "department": "Languages & Humanities (English, Hindi, Sanskrit)",
-      "designation": "Trained Graduate Teacher (TGT)",
-      "qualification": "Acharya (Sanskrit), M.A. (Hindi), B.Ed",
-      "experience": "14 Years",
-      "mobile": "+91 98770 11887",
-      "email": "ramakant.shastri@dmps-school.edu.in",
-      "address": "Mandir Marg, Jargwan, Bulandshahr",
-      "joiningDate": "2017-07-01",
-      "status": "Active",
-      "basicSalary": 24000,
-      "salary": {
-        "basic": 24000,
-        "hra": 4800,
-        "da": 2400,
-        "allowance": 1500,
-        "pf": 1800,
-        "netSalary": 30900
-      },
-      "classTeacherOf": "Class 7 - A",
-      "biometricId": "1009",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1010",
-      "employeeId": "EMP-2024-084",
-      "name": "Mr. Amit Kumar",
-      "gender": "Male",
-      "dob": "1991-06-21",
-      "bloodGroup": "O+",
-      "department": "Science & Technology",
-      "designation": "Trained Graduate Teacher (TGT)",
-      "qualification": "MCA, B.Tech (CSE), B.Ed",
-      "experience": "7 Years",
-      "mobile": "+91 98880 22998",
-      "email": "amit.it@dmps-school.edu.in",
-      "address": "Vinay Nagar, Aligarh",
-      "joiningDate": "2022-04-01",
-      "status": "Active",
-      "basicSalary": 26000,
-      "salary": {
-        "basic": 26000,
-        "hra": 5200,
-        "da": 2600,
-        "allowance": 1500,
-        "pf": 1800,
-        "netSalary": 33500
-      },
-      "classTeacherOf": "Class 8 - B",
-      "biometricId": "1010",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1011",
-      "employeeId": "EMP-2024-095",
-      "name": "Mrs. Shalini Mehra",
-      "gender": "Female",
-      "dob": "1990-10-11",
-      "bloodGroup": "AB+",
-      "department": "Primary & Pre-Primary Wing",
-      "designation": "Primary Teacher (PRT)",
-      "qualification": "M.Sc, B.Ed, NTT Diploma",
-      "experience": "8 Years",
-      "mobile": "+91 98990 33009",
-      "email": "shalini.mehra@dmps-school.edu.in",
-      "address": "Center Point, Aligarh",
-      "joiningDate": "2021-08-01",
-      "status": "Active",
-      "basicSalary": 20000,
-      "salary": {
-        "basic": 20000,
-        "hra": 4000,
-        "da": 2000,
-        "allowance": 1200,
-        "pf": 1800,
-        "netSalary": 25400
-      },
-      "classTeacherOf": "Class 5 - A",
-      "biometricId": "1011",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1012",
-      "employeeId": "EMP-2024-106",
-      "name": "Mrs. Deepa Tyagi",
-      "gender": "Female",
-      "dob": "1993-01-15",
-      "bloodGroup": "A+",
-      "department": "Primary & Pre-Primary Wing",
-      "designation": "Primary Teacher (PRT)",
-      "qualification": "B.Sc (Maths), B.Ed, CTET Qualified",
-      "experience": "6 Years",
-      "mobile": "+91 98111 22334",
-      "email": "deepa.tyagi@dmps-school.edu.in",
-      "address": "Jargwan Town, Bulandshahr",
-      "joiningDate": "2023-04-01",
-      "status": "Active",
+      "joiningDate": "2019-11-01",
+      "branchId": "BR-01",
       "basicSalary": 18000,
-      "salary": {
-        "basic": 18000,
-        "hra": 3600,
-        "da": 1800,
-        "allowance": 1000,
-        "pf": 1800,
-        "netSalary": 22600
-      },
-      "classTeacherOf": "Class 3 - A",
-      "biometricId": "1012",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1013",
-      "employeeId": "EMP-2024-117",
-      "name": "Mrs. Anjali Saxena",
-      "gender": "Female",
-      "dob": "1994-08-20",
-      "bloodGroup": "B+",
-      "department": "Primary & Pre-Primary Wing",
-      "designation": "Nursery & Kindergarten Educator",
-      "qualification": "B.A., ECCE Certified, Montessori Trained",
-      "experience": "5 Years",
-      "mobile": "+91 98222 33445",
-      "email": "anjali.saxena@dmps-school.edu.in",
-      "address": "PAC Colony, Vinay Nagar, Aligarh",
-      "joiningDate": "2023-06-15",
-      "status": "Active",
-      "basicSalary": 16000,
-      "salary": {
-        "basic": 16000,
-        "hra": 3200,
-        "da": 1600,
-        "allowance": 1000,
-        "pf": 1800,
-        "netSalary": 20000
-      },
-      "classTeacherOf": "LKG - A",
-      "biometricId": "1013",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1014",
-      "employeeId": "EMP-2024-128",
-      "name": "Coach Devender Singh",
-      "gender": "Male",
-      "dob": "1986-04-05",
-      "bloodGroup": "O+",
-      "department": "Sports, Arts & Physical Education",
-      "designation": "Head of Physical Education & Sports",
-      "qualification": "M.P.Ed, NIS Coach (Athletics & Volleyball)",
-      "experience": "13 Years",
-      "mobile": "+91 98333 44556",
-      "email": "sports@dmps-school.edu.in",
-      "address": "Sports Complex Quarters, Jargwan",
-      "joiningDate": "2019-07-01",
-      "status": "Active",
-      "basicSalary": 22000,
-      "salary": {
-        "basic": 22000,
-        "hra": 4400,
-        "da": 2200,
-        "allowance": 1500,
-        "pf": 1800,
-        "netSalary": 28300
-      },
-      "classTeacherOf": null,
-      "biometricId": "1014",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1015",
-      "employeeId": "EMP-2025-139",
-      "name": "Mr. Suresh Chand",
-      "gender": "Male",
-      "dob": "1981-12-18",
-      "bloodGroup": "AB+",
-      "department": "Accounts, IT & Support Operations",
-      "designation": "Chief Accountant & Cashier",
-      "qualification": "M.Com, Tally ERP 9 Prime Certified",
-      "experience": "15 Years",
-      "mobile": "+91 98444 55667",
-      "email": "accounts@dmps-school.edu.in",
-      "address": "Main Market, Jargwan, Bulandshahr",
-      "joiningDate": "2016-01-10",
-      "status": "Active",
-      "basicSalary": 25000,
-      "salary": {
-        "basic": 25000,
-        "hra": 5000,
-        "da": 2500,
-        "allowance": 1500,
-        "pf": 1800,
-        "netSalary": 32200
-      },
-      "classTeacherOf": null,
-      "biometricId": "1015",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1016",
-      "employeeId": "EMP-2025-140",
-      "name": "Mrs. Monika Rawat",
-      "gender": "Female",
-      "dob": "1992-05-30",
-      "bloodGroup": "O+",
-      "department": "Accounts, IT & Support Operations",
-      "designation": "Front Desk & Admissions Officer",
-      "qualification": "MBA (HR & Operations), B.Com",
-      "experience": "6 Years",
-      "mobile": "+91 98555 66778",
-      "email": "reception@dmps-school.edu.in",
-      "address": "Ramghat Road, Aligarh",
-      "joiningDate": "2022-10-01",
-      "status": "Active",
-      "basicSalary": 18000,
-      "salary": {
-        "basic": 18000,
-        "hra": 3600,
-        "da": 1800,
-        "allowance": 1000,
-        "pf": 1800,
-        "netSalary": 22600
-      },
-      "classTeacherOf": null,
-      "biometricId": "1016",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1017",
-      "employeeId": "EMP-2025-151",
-      "name": "Mr. Mahendra Pal",
-      "gender": "Male",
-      "dob": "1978-03-22",
-      "bloodGroup": "B+",
-      "department": "Accounts, IT & Support Operations",
-      "designation": "Transport & Fleet Supervisor",
-      "qualification": "Senior Secondary, Heavy Vehicle Master",
-      "experience": "18 Years",
-      "mobile": "+91 98666 77889",
-      "email": "transport@dmps-school.edu.in",
-      "address": "Bus Depot Road, Jargwan",
-      "joiningDate": "2015-04-01",
-      "status": "Active",
-      "basicSalary": 19000,
-      "salary": {
-        "basic": 19000,
-        "hra": 3800,
-        "da": 1900,
-        "allowance": 1200,
-        "pf": 1800,
-        "netSalary": 24100
-      },
-      "classTeacherOf": null,
-      "biometricId": "1017",
-      "attendanceStatus": "Present"
-    },
-    {
-      "id": "TCH-1018",
-      "employeeId": "EMP-2025-162",
-      "name": "Mrs. Geeta Devi",
-      "gender": "Female",
-      "dob": "1984-07-14",
-      "bloodGroup": "A+",
-      "department": "Accounts, IT & Support Operations",
-      "designation": "Senior Librarian",
-      "qualification": "M.Lib.Sc (Master of Library Science), B.Ed",
-      "experience": "10 Years",
-      "mobile": "+91 98777 88990",
-      "email": "library@dmps-school.edu.in",
-      "address": "Kishanpur, Aligarh",
-      "joiningDate": "2020-02-01",
-      "status": "Active",
-      "basicSalary": 20000,
-      "salary": {
-        "basic": 20000,
-        "hra": 4000,
-        "da": 2000,
-        "allowance": 1000,
-        "pf": 1800,
-        "netSalary": 25200
-      },
-      "classTeacherOf": null,
-      "biometricId": "1018",
-      "attendanceStatus": "Present"
+      "salary": 18000,
+      "role": "Staff",
+      "assignedClass": null,
+      "subjects": []
     }
   ],
   "students": [
@@ -960,8 +584,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8801",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -969,7 +593,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rajendra Verma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rajendra Rani",
         "motherMobile": "+91 97194 76606",
         "email": "aarav.sharma@dmps-parent.edu.in",
@@ -985,10 +609,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1001,8 +625,8 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5001",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1018,8 +642,8 @@ export const initialSchoolData = {
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8802",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1027,7 +651,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Dharmendra Rajput",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Dharmendra Singh",
         "motherMobile": "+91 97194 76606",
         "email": "ananya.verma@dmps-parent.edu.in",
@@ -1043,10 +667,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1059,8 +683,8 @@ export const initialSchoolData = {
         "balance": 4500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5002",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1076,8 +700,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8803",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1085,7 +709,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sanjay Gupta",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sanjay Gupta",
         "motherMobile": "+91 97194 76606",
         "email": "vihaan.rajput@dmps-parent.edu.in",
@@ -1101,10 +725,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1117,8 +741,8 @@ export const initialSchoolData = {
         "balance": 15600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5003",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1134,8 +758,8 @@ export const initialSchoolData = {
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8804",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1143,7 +767,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Virendra Singh",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Virendra Singh",
         "motherMobile": "+91 97194 76606",
         "email": "saanvi.gupta@dmps-parent.edu.in",
@@ -1175,8 +799,8 @@ export const initialSchoolData = {
         "balance": 13500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5004",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1192,8 +816,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8805",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1201,7 +825,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Amit Chaudhary",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Amit Chaudhary",
         "motherMobile": "+91 97194 76606",
         "email": "reyansh.singh@dmps-parent.edu.in",
@@ -1217,10 +841,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1250,8 +874,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8806",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1259,7 +883,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rakesh Patel",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rakesh Patel",
         "motherMobile": "+91 97194 76606",
         "email": "diya.chaudhary@dmps-parent.edu.in",
@@ -1275,10 +899,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1291,8 +915,8 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5006",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1308,8 +932,8 @@ export const initialSchoolData = {
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8807",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1317,7 +941,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sunil Malik",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sunil Malik",
         "motherMobile": "+91 97194 76606",
         "email": "kabir.patel@dmps-parent.edu.in",
@@ -1333,10 +957,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1349,8 +973,8 @@ export const initialSchoolData = {
         "balance": 4500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5007",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1366,8 +990,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8808",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1375,7 +999,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Manoj Yadav",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Manoj Yadav",
         "motherMobile": "+91 97194 76606",
         "email": "kiara.malik@dmps-parent.edu.in",
@@ -1391,10 +1015,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1407,8 +1031,8 @@ export const initialSchoolData = {
         "balance": 15600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5008",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1424,8 +1048,8 @@ export const initialSchoolData = {
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8809",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1433,7 +1057,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Vikas Agarwal",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Vikas Agarwal",
         "motherMobile": "+91 97194 76606",
         "email": "advik.yadav@dmps-parent.edu.in",
@@ -1465,8 +1089,8 @@ export const initialSchoolData = {
         "balance": 13500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5009",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1482,8 +1106,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8810",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1491,7 +1115,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Anil Mishra",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Anil Mishra",
         "motherMobile": "+91 97194 76606",
         "email": "myra.agarwal@dmps-parent.edu.in",
@@ -1507,10 +1131,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1540,8 +1164,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8811",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1549,7 +1173,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Deepak Saxena",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Deepak Saxena",
         "motherMobile": "+91 97194 76606",
         "email": "shivansh.mishra@dmps-parent.edu.in",
@@ -1565,10 +1189,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1581,8 +1205,8 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5011",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1598,8 +1222,8 @@ export const initialSchoolData = {
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8812",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1607,7 +1231,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Mukesh Sharma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Mukesh Devi",
         "motherMobile": "+91 97194 76606",
         "email": "tanvi.saxena@dmps-parent.edu.in",
@@ -1623,10 +1247,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1639,8 +1263,8 @@ export const initialSchoolData = {
         "balance": 4500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5012",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1656,8 +1280,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8813",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1665,7 +1289,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rajendra Verma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rajendra Rani",
         "motherMobile": "+91 97194 76606",
         "email": "atharv.joshi@dmps-parent.edu.in",
@@ -1681,10 +1305,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1697,8 +1321,8 @@ export const initialSchoolData = {
         "balance": 15600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5013",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1714,8 +1338,8 @@ export const initialSchoolData = {
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8814",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1723,7 +1347,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Dharmendra Rajput",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Dharmendra Singh",
         "motherMobile": "+91 97194 76606",
         "email": "pari.chauhan@dmps-parent.edu.in",
@@ -1755,8 +1379,8 @@ export const initialSchoolData = {
         "balance": 13500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5014",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1772,8 +1396,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8815",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1781,7 +1405,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sanjay Gupta",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sanjay Gupta",
         "motherMobile": "+91 97194 76606",
         "email": "rudra.pratap@dmps-parent.edu.in",
@@ -1797,10 +1421,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1830,8 +1454,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8816",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1839,7 +1463,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Virendra Singh",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Virendra Singh",
         "motherMobile": "+91 97194 76606",
         "email": "navya.garg@dmps-parent.edu.in",
@@ -1855,10 +1479,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1871,8 +1495,8 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5016",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1888,8 +1512,8 @@ export const initialSchoolData = {
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8817",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1897,7 +1521,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Amit Chaudhary",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Amit Chaudhary",
         "motherMobile": "+91 97194 76606",
         "email": "ishan.tomar@dmps-parent.edu.in",
@@ -1913,10 +1537,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1929,8 +1553,8 @@ export const initialSchoolData = {
         "balance": 4500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5017",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -1946,8 +1570,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8818",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -1955,7 +1579,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rakesh Patel",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rakesh Patel",
         "motherMobile": "+91 97194 76606",
         "email": "aditi.mathur@dmps-parent.edu.in",
@@ -1971,10 +1595,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -1987,8 +1611,8 @@ export const initialSchoolData = {
         "balance": 15600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5018",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -2004,8 +1628,8 @@ export const initialSchoolData = {
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8819",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2013,7 +1637,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sunil Malik",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sunil Malik",
         "motherMobile": "+91 97194 76606",
         "email": "dhruv.pandey@dmps-parent.edu.in",
@@ -2045,8 +1669,8 @@ export const initialSchoolData = {
         "balance": 13500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5019",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
@@ -2062,8 +1686,8 @@ export const initialSchoolData = {
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8820",
-      "branchId": "BR-03",
-      "branchName": "Dadheech Kids School (Vinay Nagar PAC Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2071,7 +1695,7 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Manoj Yadav",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Manoj Yadav",
         "motherMobile": "+91 97194 76606",
         "email": "avani.rastogi@dmps-parent.edu.in",
@@ -2087,10 +1711,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 18000,
@@ -2111,17 +1735,17 @@ export const initialSchoolData = {
       "id": "STU-2026-021",
       "admissionNo": "ADM-2026-1021",
       "rollNo": "1",
-      "name": "Vivaan Bhatnagar",
+      "name": "Aarav Sharma",
       "dob": "2016-05-13",
       "gender": "Male",
-      "bloodGroup": "B+",
+      "bloodGroup": "O+",
       "class": "Class 1",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8821",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2129,10 +1753,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Vikas Agarwal",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Vikas Agarwal",
         "motherMobile": "+91 97194 76606",
-        "email": "vivaan.bhatnagar@dmps-parent.edu.in",
+        "email": "aarav.sharma@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2145,10 +1769,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2161,15 +1785,15 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5021",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-022",
       "admissionNo": "ADM-2026-1022",
       "rollNo": "2",
-      "name": "Prisha Kapoor",
+      "name": "Ananya Verma",
       "dob": "2016-05-16",
       "gender": "Female",
       "bloodGroup": "A+",
@@ -2178,8 +1802,8 @@ export const initialSchoolData = {
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8822",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2187,10 +1811,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Anil Mishra",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Anil Mishra",
         "motherMobile": "+91 97194 76606",
-        "email": "prisha.kapoor@dmps-parent.edu.in",
+        "email": "ananya.verma@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2203,10 +1827,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2219,25 +1843,25 @@ export const initialSchoolData = {
         "balance": 6000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5022",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-023",
       "admissionNo": "ADM-2026-1023",
       "rollNo": "3",
-      "name": "Krishna Dubey",
+      "name": "Vihaan Rajput",
       "dob": "2016-05-19",
       "gender": "Male",
-      "bloodGroup": "O+",
+      "bloodGroup": "B+",
       "class": "Class 1",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8823",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2245,10 +1869,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Deepak Saxena",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Deepak Saxena",
         "motherMobile": "+91 97194 76606",
-        "email": "krishna.dubey@dmps-parent.edu.in",
+        "email": "vihaan.rajput@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2261,10 +1885,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2277,25 +1901,25 @@ export const initialSchoolData = {
         "balance": 18600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5023",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-024",
       "admissionNo": "ADM-2026-1024",
       "rollNo": "4",
-      "name": "Riya Gautam",
+      "name": "Saanvi Gupta",
       "dob": "2016-05-22",
       "gender": "Female",
-      "bloodGroup": "B+",
+      "bloodGroup": "AB+",
       "class": "Class 1",
       "section": "A",
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8824",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2303,10 +1927,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Mukesh Sharma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Mukesh Devi",
         "motherMobile": "+91 97194 76606",
-        "email": "riya.gautam@dmps-parent.edu.in",
+        "email": "saanvi.gupta@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2335,25 +1959,25 @@ export const initialSchoolData = {
         "balance": 18000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5024",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-025",
       "admissionNo": "ADM-2026-1025",
       "rollNo": "5",
-      "name": "Samarth Somvanshi",
+      "name": "Reyansh Singh",
       "dob": "2016-05-25",
       "gender": "Male",
-      "bloodGroup": "A+",
+      "bloodGroup": "O+",
       "class": "Class 1",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8825",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2361,10 +1985,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rajendra Verma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rajendra Rani",
         "motherMobile": "+91 97194 76606",
-        "email": "samarth.somvanshi@dmps-parent.edu.in",
+        "email": "reyansh.singh@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2377,10 +2001,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2401,10 +2025,10 @@ export const initialSchoolData = {
       "id": "STU-2026-026",
       "admissionNo": "ADM-2026-1026",
       "rollNo": "1",
-      "name": "Aarav Sharma",
+      "name": "Diya Chaudhary",
       "dob": "2016-05-13",
-      "gender": "Male",
-      "bloodGroup": "O+",
+      "gender": "Female",
+      "bloodGroup": "A+",
       "class": "Class 2",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -2419,10 +2043,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Dharmendra Rajput",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Dharmendra Singh",
         "motherMobile": "+91 97194 76606",
-        "email": "aarav.sharma@dmps-parent.edu.in",
+        "email": "diya.chaudhary@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2435,10 +2059,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2451,18 +2075,18 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5026",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-027",
       "admissionNo": "ADM-2026-1027",
       "rollNo": "2",
-      "name": "Ananya Verma",
+      "name": "Kabir Patel",
       "dob": "2016-05-16",
-      "gender": "Female",
-      "bloodGroup": "A+",
+      "gender": "Male",
+      "bloodGroup": "B+",
       "class": "Class 2",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -2477,10 +2101,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sanjay Gupta",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sanjay Gupta",
         "motherMobile": "+91 97194 76606",
-        "email": "ananya.verma@dmps-parent.edu.in",
+        "email": "kabir.patel@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2493,10 +2117,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2509,18 +2133,18 @@ export const initialSchoolData = {
         "balance": 6000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5027",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-028",
       "admissionNo": "ADM-2026-1028",
       "rollNo": "3",
-      "name": "Vihaan Rajput",
+      "name": "Kiara Malik",
       "dob": "2016-05-19",
-      "gender": "Male",
-      "bloodGroup": "B+",
+      "gender": "Female",
+      "bloodGroup": "O-",
       "class": "Class 2",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -2535,10 +2159,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Virendra Singh",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Virendra Singh",
         "motherMobile": "+91 97194 76606",
-        "email": "vihaan.rajput@dmps-parent.edu.in",
+        "email": "kiara.malik@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2551,10 +2175,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2567,18 +2191,18 @@ export const initialSchoolData = {
         "balance": 18600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5028",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-029",
       "admissionNo": "ADM-2026-1029",
       "rollNo": "4",
-      "name": "Saanvi Gupta",
+      "name": "Advik Yadav",
       "dob": "2016-05-22",
-      "gender": "Female",
-      "bloodGroup": "AB+",
+      "gender": "Male",
+      "bloodGroup": "B+",
       "class": "Class 2",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -2593,10 +2217,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Amit Chaudhary",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Amit Chaudhary",
         "motherMobile": "+91 97194 76606",
-        "email": "saanvi.gupta@dmps-parent.edu.in",
+        "email": "advik.yadav@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2625,18 +2249,18 @@ export const initialSchoolData = {
         "balance": 18000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5029",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-030",
       "admissionNo": "ADM-2026-1030",
       "rollNo": "5",
-      "name": "Reyansh Singh",
+      "name": "Myra Agarwal",
       "dob": "2016-05-25",
-      "gender": "Male",
-      "bloodGroup": "O+",
+      "gender": "Female",
+      "bloodGroup": "A+",
       "class": "Class 2",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -2651,10 +2275,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rakesh Patel",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rakesh Patel",
         "motherMobile": "+91 97194 76606",
-        "email": "reyansh.singh@dmps-parent.edu.in",
+        "email": "myra.agarwal@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2667,10 +2291,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2691,17 +2315,17 @@ export const initialSchoolData = {
       "id": "STU-2026-031",
       "admissionNo": "ADM-2026-1031",
       "rollNo": "1",
-      "name": "Diya Chaudhary",
+      "name": "Shivansh Mishra",
       "dob": "2015-05-13",
-      "gender": "Female",
-      "bloodGroup": "A+",
+      "gender": "Male",
+      "bloodGroup": "O+",
       "class": "Class 3",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8831",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2709,10 +2333,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sunil Malik",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sunil Malik",
         "motherMobile": "+91 97194 76606",
-        "email": "diya.chaudhary@dmps-parent.edu.in",
+        "email": "shivansh.mishra@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2725,10 +2349,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2741,25 +2365,25 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5031",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-032",
       "admissionNo": "ADM-2026-1032",
       "rollNo": "2",
-      "name": "Kabir Patel",
+      "name": "Tanvi Saxena",
       "dob": "2015-05-16",
-      "gender": "Male",
-      "bloodGroup": "B+",
+      "gender": "Female",
+      "bloodGroup": "AB+",
       "class": "Class 3",
       "section": "A",
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8832",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2767,10 +2391,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Manoj Yadav",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Manoj Yadav",
         "motherMobile": "+91 97194 76606",
-        "email": "kabir.patel@dmps-parent.edu.in",
+        "email": "tanvi.saxena@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2783,10 +2407,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2799,25 +2423,25 @@ export const initialSchoolData = {
         "balance": 6000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5032",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-033",
       "admissionNo": "ADM-2026-1033",
       "rollNo": "3",
-      "name": "Kiara Malik",
+      "name": "Atharv Joshi",
       "dob": "2015-05-19",
-      "gender": "Female",
-      "bloodGroup": "O-",
+      "gender": "Male",
+      "bloodGroup": "B+",
       "class": "Class 3",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8833",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2825,10 +2449,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Vikas Agarwal",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Vikas Agarwal",
         "motherMobile": "+91 97194 76606",
-        "email": "kiara.malik@dmps-parent.edu.in",
+        "email": "atharv.joshi@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2841,10 +2465,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2857,25 +2481,25 @@ export const initialSchoolData = {
         "balance": 18600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5033",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-034",
       "admissionNo": "ADM-2026-1034",
       "rollNo": "4",
-      "name": "Advik Yadav",
+      "name": "Pari Chauhan",
       "dob": "2015-05-22",
-      "gender": "Male",
-      "bloodGroup": "B+",
+      "gender": "Female",
+      "bloodGroup": "O+",
       "class": "Class 3",
       "section": "A",
       "house": "Phoenix (Red House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8834",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2883,10 +2507,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Anil Mishra",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Anil Mishra",
         "motherMobile": "+91 97194 76606",
-        "email": "advik.yadav@dmps-parent.edu.in",
+        "email": "pari.chauhan@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2915,25 +2539,25 @@ export const initialSchoolData = {
         "balance": 18000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5034",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-035",
       "admissionNo": "ADM-2026-1035",
       "rollNo": "5",
-      "name": "Myra Agarwal",
+      "name": "Rudra Pratap",
       "dob": "2015-05-25",
-      "gender": "Female",
+      "gender": "Male",
       "bloodGroup": "A+",
       "class": "Class 3",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
       "aadhaarNo": "XXXX-XXXX-8835",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
@@ -2941,10 +2565,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Deepak Saxena",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Deepak Saxena",
         "motherMobile": "+91 97194 76606",
-        "email": "myra.agarwal@dmps-parent.edu.in",
+        "email": "rudra.pratap@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -2957,10 +2581,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -2981,10 +2605,10 @@ export const initialSchoolData = {
       "id": "STU-2026-036",
       "admissionNo": "ADM-2026-1036",
       "rollNo": "1",
-      "name": "Shivansh Mishra",
+      "name": "Navya Garg",
       "dob": "2015-05-13",
-      "gender": "Male",
-      "bloodGroup": "O+",
+      "gender": "Female",
+      "bloodGroup": "B+",
       "class": "Class 4",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -2999,10 +2623,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Mukesh Sharma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Mukesh Devi",
         "motherMobile": "+91 97194 76606",
-        "email": "shivansh.mishra@dmps-parent.edu.in",
+        "email": "navya.garg@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -3015,10 +2639,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -3031,18 +2655,18 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5036",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-037",
       "admissionNo": "ADM-2026-1037",
       "rollNo": "2",
-      "name": "Tanvi Saxena",
+      "name": "Ishan Tomar",
       "dob": "2015-05-16",
-      "gender": "Female",
-      "bloodGroup": "AB+",
+      "gender": "Male",
+      "bloodGroup": "O+",
       "class": "Class 4",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -3057,126 +2681,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rajendra Verma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rajendra Rani",
         "motherMobile": "+91 97194 76606",
-        "email": "tanvi.saxena@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": false,
-        "routeName": "None (Self Commute)",
-        "pickupPoint": "Campus Gate",
-        "monthlyFare": 0,
-        "months": 0
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
-        "leaveDays": 0,
-        "percentage": 92.7
-      },
-      "feeSummary": {
-        "tuitionDue": 24000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 0,
-        "parentVisibleDue": 24000,
-        "totalDue": 24000,
-        "totalPaid": 18000,
-        "balance": 6000,
-        "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5037",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
-      }
-    },
-    {
-      "id": "STU-2026-038",
-      "admissionNo": "ADM-2026-1038",
-      "rollNo": "3",
-      "name": "Atharv Joshi",
-      "dob": "2015-05-19",
-      "gender": "Male",
-      "bloodGroup": "B+",
-      "class": "Class 4",
-      "section": "A",
-      "house": "Garuda (Green House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8838",
-      "branchId": "BR-01",
-      "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Dharmendra Rajput",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
-        "motherName": "Mrs. Dharmendra Singh",
-        "motherMobile": "+91 97194 76606",
-        "email": "atharv.joshi@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": true,
-        "routeName": "Route 1 - City Express (Quarsi / PAC)",
-        "pickupPoint": "Vinay Nagar Main Gate",
-        "monthlyFare": 1200,
-        "months": 11
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
-        "leaveDays": 0,
-        "percentage": 93.6
-      },
-      "feeSummary": {
-        "tuitionDue": 24000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 13200,
-        "parentVisibleDue": 37200,
-        "totalDue": 37200,
-        "totalPaid": 18600,
-        "balance": 18600,
-        "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5038",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
-      }
-    },
-    {
-      "id": "STU-2026-039",
-      "admissionNo": "ADM-2026-1039",
-      "rollNo": "4",
-      "name": "Pari Chauhan",
-      "dob": "2015-05-22",
-      "gender": "Female",
-      "bloodGroup": "O+",
-      "class": "Class 4",
-      "section": "A",
-      "house": "Phoenix (Red House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8839",
-      "branchId": "BR-01",
-      "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Sanjay Gupta",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
-        "motherName": "Mrs. Sanjay Gupta",
-        "motherMobile": "+91 97194 76606",
-        "email": "pari.chauhan@dmps-parent.edu.in",
+        "email": "ishan.tomar@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -3201,27 +2709,27 @@ export const initialSchoolData = {
         "transportDue11Months": 0,
         "parentVisibleDue": 24000,
         "totalDue": 24000,
-        "totalPaid": 6000,
-        "balance": 18000,
+        "totalPaid": 18000,
+        "balance": 6000,
         "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5039",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5037",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-040",
-      "admissionNo": "ADM-2026-1040",
-      "rollNo": "5",
-      "name": "Rudra Pratap",
-      "dob": "2015-05-25",
-      "gender": "Male",
+      "id": "STU-2026-038",
+      "admissionNo": "ADM-2026-1038",
+      "rollNo": "3",
+      "name": "Aditi Mathur",
+      "dob": "2015-05-19",
+      "gender": "Female",
       "bloodGroup": "A+",
       "class": "Class 4",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8840",
+      "aadhaarNo": "XXXX-XXXX-8838",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
@@ -3229,184 +2737,10 @@ export const initialSchoolData = {
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Virendra Singh",
+        "fatherName": "Mr. Dharmendra Rajput",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
-        "motherName": "Mrs. Virendra Singh",
-        "motherMobile": "+91 97194 76606",
-        "email": "rudra.pratap@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": true,
-        "routeName": "Route 1 - City Express (Quarsi / PAC)",
-        "pickupPoint": "Vinay Nagar Main Gate",
-        "monthlyFare": 1200,
-        "months": 11
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
-        "leaveDays": 0,
-        "percentage": 95.5
-      },
-      "feeSummary": {
-        "tuitionDue": 24000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 13200,
-        "parentVisibleDue": 37200,
-        "totalDue": 37200,
-        "totalPaid": 0,
-        "balance": 37200,
-        "feeStatus": "Overdue",
-        "lastReceiptNo": null,
-        "lastPaymentDate": null,
-        "mode": null
-      }
-    },
-    {
-      "id": "STU-2026-041",
-      "admissionNo": "ADM-2026-1041",
-      "rollNo": "1",
-      "name": "Navya Garg",
-      "dob": "2014-05-13",
-      "gender": "Female",
-      "bloodGroup": "B+",
-      "class": "Class 5",
-      "section": "A",
-      "house": "Garuda (Green House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8841",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Amit Chaudhary",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
-        "motherName": "Mrs. Amit Chaudhary",
-        "motherMobile": "+91 97194 76606",
-        "email": "navya.garg@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": true,
-        "routeName": "Route 1 - City Express (Quarsi / PAC)",
-        "pickupPoint": "Vinay Nagar Main Gate",
-        "monthlyFare": 1200,
-        "months": 11
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
-        "leaveDays": 0,
-        "percentage": 91.8
-      },
-      "feeSummary": {
-        "tuitionDue": 24000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 13200,
-        "parentVisibleDue": 37200,
-        "totalDue": 37200,
-        "totalPaid": 37200,
-        "balance": 0,
-        "feeStatus": "Paid",
-        "lastReceiptNo": "RCP-2026-5041",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
-      }
-    },
-    {
-      "id": "STU-2026-042",
-      "admissionNo": "ADM-2026-1042",
-      "rollNo": "2",
-      "name": "Ishan Tomar",
-      "dob": "2014-05-16",
-      "gender": "Male",
-      "bloodGroup": "O+",
-      "class": "Class 5",
-      "section": "A",
-      "house": "Phoenix (Red House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8842",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Rakesh Patel",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
-        "motherName": "Mrs. Rakesh Patel",
-        "motherMobile": "+91 97194 76606",
-        "email": "ishan.tomar@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": false,
-        "routeName": "None (Self Commute)",
-        "pickupPoint": "Campus Gate",
-        "monthlyFare": 0,
-        "months": 0
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
-        "leaveDays": 0,
-        "percentage": 92.7
-      },
-      "feeSummary": {
-        "tuitionDue": 24000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 0,
-        "parentVisibleDue": 24000,
-        "totalDue": 24000,
-        "totalPaid": 18000,
-        "balance": 6000,
-        "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5042",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
-      }
-    },
-    {
-      "id": "STU-2026-043",
-      "admissionNo": "ADM-2026-1043",
-      "rollNo": "3",
-      "name": "Aditi Mathur",
-      "dob": "2014-05-19",
-      "gender": "Female",
-      "bloodGroup": "A+",
-      "class": "Class 5",
-      "section": "A",
-      "house": "Garuda (Green House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8843",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Sunil Malik",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
-        "motherName": "Mrs. Sunil Malik",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Dharmendra Singh",
         "motherMobile": "+91 97194 76606",
         "email": "aditi.mathur@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -3421,10 +2755,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -3436,35 +2770,35 @@ export const initialSchoolData = {
         "totalPaid": 18600,
         "balance": 18600,
         "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5043",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5038",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-044",
-      "admissionNo": "ADM-2026-1044",
+      "id": "STU-2026-039",
+      "admissionNo": "ADM-2026-1039",
       "rollNo": "4",
       "name": "Dhruv Pandey",
-      "dob": "2014-05-22",
+      "dob": "2015-05-22",
       "gender": "Male",
       "bloodGroup": "AB+",
-      "class": "Class 5",
+      "class": "Class 4",
       "section": "A",
       "house": "Phoenix (Red House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8844",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "aadhaarNo": "XXXX-XXXX-8839",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Manoj Yadav",
+        "fatherName": "Mr. Sanjay Gupta",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
-        "motherName": "Mrs. Manoj Yadav",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Sanjay Gupta",
         "motherMobile": "+91 97194 76606",
         "email": "dhruv.pandey@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -3494,35 +2828,35 @@ export const initialSchoolData = {
         "totalPaid": 6000,
         "balance": 18000,
         "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5044",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5039",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-045",
-      "admissionNo": "ADM-2026-1045",
+      "id": "STU-2026-040",
+      "admissionNo": "ADM-2026-1040",
       "rollNo": "5",
       "name": "Avani Rastogi",
-      "dob": "2014-05-25",
+      "dob": "2015-05-25",
       "gender": "Female",
       "bloodGroup": "O+",
-      "class": "Class 5",
+      "class": "Class 4",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8845",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "aadhaarNo": "XXXX-XXXX-8840",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Vikas Agarwal",
+        "fatherName": "Mr. Virendra Singh",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
-        "motherName": "Mrs. Vikas Agarwal",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Virendra Singh",
         "motherMobile": "+91 97194 76606",
         "email": "avani.rastogi@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -3537,10 +2871,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 24000,
@@ -3558,18 +2892,18 @@ export const initialSchoolData = {
       }
     },
     {
-      "id": "STU-2026-046",
-      "admissionNo": "ADM-2026-1046",
+      "id": "STU-2026-041",
+      "admissionNo": "ADM-2026-1041",
       "rollNo": "1",
-      "name": "Vivaan Bhatnagar",
+      "name": "Aarav Sharma",
       "dob": "2014-05-13",
       "gender": "Male",
-      "bloodGroup": "B+",
-      "class": "Class 6",
+      "bloodGroup": "O+",
+      "class": "Class 5",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8846",
+      "aadhaarNo": "XXXX-XXXX-8841",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
@@ -3577,12 +2911,12 @@ export const initialSchoolData = {
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Anil Mishra",
+        "fatherName": "Mr. Amit Chaudhary",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
-        "motherName": "Mrs. Anil Mishra",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Amit Chaudhary",
         "motherMobile": "+91 97194 76606",
-        "email": "vivaan.bhatnagar@dmps-parent.edu.in",
+        "email": "aarav.sharma@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -3595,39 +2929,39 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
-        "tuitionDue": 30000,
+        "tuitionDue": 24000,
         "otherChargesDue": 0,
         "otherChargesBreakdown": null,
         "transportDue11Months": 13200,
-        "parentVisibleDue": 43200,
-        "totalDue": 43200,
-        "totalPaid": 43200,
+        "parentVisibleDue": 37200,
+        "totalDue": 37200,
+        "totalPaid": 37200,
         "balance": 0,
         "feeStatus": "Paid",
-        "lastReceiptNo": "RCP-2026-5046",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5041",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-047",
-      "admissionNo": "ADM-2026-1047",
+      "id": "STU-2026-042",
+      "admissionNo": "ADM-2026-1042",
       "rollNo": "2",
-      "name": "Prisha Kapoor",
+      "name": "Ananya Verma",
       "dob": "2014-05-16",
       "gender": "Female",
       "bloodGroup": "A+",
-      "class": "Class 6",
+      "class": "Class 5",
       "section": "A",
       "house": "Phoenix (Red House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8847",
+      "aadhaarNo": "XXXX-XXXX-8842",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
@@ -3635,128 +2969,12 @@ export const initialSchoolData = {
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Deepak Saxena",
+        "fatherName": "Mr. Rakesh Patel",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
-        "motherName": "Mrs. Deepak Saxena",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Rakesh Patel",
         "motherMobile": "+91 97194 76606",
-        "email": "prisha.kapoor@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": false,
-        "routeName": "None (Self Commute)",
-        "pickupPoint": "Campus Gate",
-        "monthlyFare": 0,
-        "months": 0
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
-        "leaveDays": 0,
-        "percentage": 92.7
-      },
-      "feeSummary": {
-        "tuitionDue": 30000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 0,
-        "parentVisibleDue": 30000,
-        "totalDue": 30000,
-        "totalPaid": 22500,
-        "balance": 7500,
-        "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5047",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
-      }
-    },
-    {
-      "id": "STU-2026-048",
-      "admissionNo": "ADM-2026-1048",
-      "rollNo": "3",
-      "name": "Krishna Dubey",
-      "dob": "2014-05-19",
-      "gender": "Male",
-      "bloodGroup": "O+",
-      "class": "Class 6",
-      "section": "A",
-      "house": "Garuda (Green House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8848",
-      "branchId": "BR-01",
-      "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Mukesh Sharma",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
-        "motherName": "Mrs. Mukesh Devi",
-        "motherMobile": "+91 97194 76606",
-        "email": "krishna.dubey@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": true,
-        "routeName": "Route 1 - City Express (Quarsi / PAC)",
-        "pickupPoint": "Vinay Nagar Main Gate",
-        "monthlyFare": 1200,
-        "months": 11
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
-        "leaveDays": 0,
-        "percentage": 93.6
-      },
-      "feeSummary": {
-        "tuitionDue": 30000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 13200,
-        "parentVisibleDue": 43200,
-        "totalDue": 43200,
-        "totalPaid": 21600,
-        "balance": 21600,
-        "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5048",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
-      }
-    },
-    {
-      "id": "STU-2026-049",
-      "admissionNo": "ADM-2026-1049",
-      "rollNo": "4",
-      "name": "Riya Gautam",
-      "dob": "2014-05-22",
-      "gender": "Female",
-      "bloodGroup": "B+",
-      "class": "Class 6",
-      "section": "A",
-      "house": "Phoenix (Red House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8849",
-      "branchId": "BR-01",
-      "branchName": "Dadheech Memorial Public School (Main Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Rajendra Verma",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
-        "motherName": "Mrs. Rajendra Rani",
-        "motherMobile": "+91 97194 76606",
-        "email": "riya.gautam@dmps-parent.edu.in",
+        "email": "ananya.verma@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -3775,33 +2993,33 @@ export const initialSchoolData = {
         "percentage": 94.5
       },
       "feeSummary": {
-        "tuitionDue": 30000,
+        "tuitionDue": 24000,
         "otherChargesDue": 0,
         "otherChargesBreakdown": null,
         "transportDue11Months": 0,
-        "parentVisibleDue": 30000,
-        "totalDue": 30000,
-        "totalPaid": 7500,
-        "balance": 22500,
+        "parentVisibleDue": 24000,
+        "totalDue": 24000,
+        "totalPaid": 18000,
+        "balance": 6000,
         "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5049",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5042",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-050",
-      "admissionNo": "ADM-2026-1050",
-      "rollNo": "5",
-      "name": "Samarth Somvanshi",
-      "dob": "2014-05-25",
+      "id": "STU-2026-043",
+      "admissionNo": "ADM-2026-1043",
+      "rollNo": "3",
+      "name": "Vihaan Rajput",
+      "dob": "2014-05-19",
       "gender": "Male",
-      "bloodGroup": "A+",
-      "class": "Class 6",
+      "bloodGroup": "B+",
+      "class": "Class 5",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8850",
+      "aadhaarNo": "XXXX-XXXX-8843",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
@@ -3809,184 +3027,10 @@ export const initialSchoolData = {
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Dharmendra Rajput",
+        "fatherName": "Mr. Sunil Malik",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
-        "motherName": "Mrs. Dharmendra Singh",
-        "motherMobile": "+91 97194 76606",
-        "email": "samarth.somvanshi@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": true,
-        "routeName": "Route 1 - City Express (Quarsi / PAC)",
-        "pickupPoint": "Vinay Nagar Main Gate",
-        "monthlyFare": 1200,
-        "months": 11
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
-        "leaveDays": 0,
-        "percentage": 95.5
-      },
-      "feeSummary": {
-        "tuitionDue": 30000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 13200,
-        "parentVisibleDue": 43200,
-        "totalDue": 43200,
-        "totalPaid": 0,
-        "balance": 43200,
-        "feeStatus": "Overdue",
-        "lastReceiptNo": null,
-        "lastPaymentDate": null,
-        "mode": null
-      }
-    },
-    {
-      "id": "STU-2026-051",
-      "admissionNo": "ADM-2026-1051",
-      "rollNo": "1",
-      "name": "Aarav Sharma",
-      "dob": "2013-05-13",
-      "gender": "Male",
-      "bloodGroup": "O+",
-      "class": "Class 7",
-      "section": "A",
-      "house": "Garuda (Green House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8851",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Sanjay Gupta",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
-        "motherName": "Mrs. Sanjay Gupta",
-        "motherMobile": "+91 97194 76606",
-        "email": "aarav.sharma@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": true,
-        "routeName": "Route 1 - City Express (Quarsi / PAC)",
-        "pickupPoint": "Vinay Nagar Main Gate",
-        "monthlyFare": 1200,
-        "months": 11
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
-        "leaveDays": 0,
-        "percentage": 91.8
-      },
-      "feeSummary": {
-        "tuitionDue": 30000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 13200,
-        "parentVisibleDue": 43200,
-        "totalDue": 43200,
-        "totalPaid": 43200,
-        "balance": 0,
-        "feeStatus": "Paid",
-        "lastReceiptNo": "RCP-2026-5051",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
-      }
-    },
-    {
-      "id": "STU-2026-052",
-      "admissionNo": "ADM-2026-1052",
-      "rollNo": "2",
-      "name": "Ananya Verma",
-      "dob": "2013-05-16",
-      "gender": "Female",
-      "bloodGroup": "A+",
-      "class": "Class 7",
-      "section": "A",
-      "house": "Phoenix (Red House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8852",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Virendra Singh",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
-        "motherName": "Mrs. Virendra Singh",
-        "motherMobile": "+91 97194 76606",
-        "email": "ananya.verma@dmps-parent.edu.in",
-        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
-        "emergencyContact": "+91 97194 76606"
-      },
-      "transport": {
-        "isEnrolled": false,
-        "routeName": "None (Self Commute)",
-        "pickupPoint": "Campus Gate",
-        "monthlyFare": 0,
-        "months": 0
-      },
-      "attendanceSummary": {
-        "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
-        "leaveDays": 0,
-        "percentage": 92.7
-      },
-      "feeSummary": {
-        "tuitionDue": 30000,
-        "otherChargesDue": 0,
-        "otherChargesBreakdown": null,
-        "transportDue11Months": 0,
-        "parentVisibleDue": 30000,
-        "totalDue": 30000,
-        "totalPaid": 22500,
-        "balance": 7500,
-        "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5052",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
-      }
-    },
-    {
-      "id": "STU-2026-053",
-      "admissionNo": "ADM-2026-1053",
-      "rollNo": "3",
-      "name": "Vihaan Rajput",
-      "dob": "2013-05-19",
-      "gender": "Male",
-      "bloodGroup": "B+",
-      "class": "Class 7",
-      "section": "A",
-      "house": "Garuda (Green House)",
-      "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8853",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
-      "status": "Active",
-      "isRteStudent": false,
-      "academicSession": "2026-2027",
-      "admissionDate": "2026-04-05",
-      "parents": {
-        "fatherName": "Mr. Amit Chaudhary",
-        "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
-        "motherName": "Mrs. Amit Chaudhary",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Sunil Malik",
         "motherMobile": "+91 97194 76606",
         "email": "vihaan.rajput@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -4001,50 +3045,50 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
-        "tuitionDue": 30000,
+        "tuitionDue": 24000,
         "otherChargesDue": 0,
         "otherChargesBreakdown": null,
         "transportDue11Months": 13200,
-        "parentVisibleDue": 43200,
-        "totalDue": 43200,
-        "totalPaid": 21600,
-        "balance": 21600,
+        "parentVisibleDue": 37200,
+        "totalDue": 37200,
+        "totalPaid": 18600,
+        "balance": 18600,
         "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5053",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5043",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-054",
-      "admissionNo": "ADM-2026-1054",
+      "id": "STU-2026-044",
+      "admissionNo": "ADM-2026-1044",
       "rollNo": "4",
       "name": "Saanvi Gupta",
-      "dob": "2013-05-22",
+      "dob": "2014-05-22",
       "gender": "Female",
       "bloodGroup": "AB+",
-      "class": "Class 7",
+      "class": "Class 5",
       "section": "A",
       "house": "Phoenix (Red House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8854",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "aadhaarNo": "XXXX-XXXX-8844",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Rakesh Patel",
+        "fatherName": "Mr. Manoj Yadav",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
-        "motherName": "Mrs. Rakesh Patel",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Manoj Yadav",
         "motherMobile": "+91 97194 76606",
         "email": "saanvi.gupta@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -4065,44 +3109,44 @@ export const initialSchoolData = {
         "percentage": 94.5
       },
       "feeSummary": {
-        "tuitionDue": 30000,
+        "tuitionDue": 24000,
         "otherChargesDue": 0,
         "otherChargesBreakdown": null,
         "transportDue11Months": 0,
-        "parentVisibleDue": 30000,
-        "totalDue": 30000,
-        "totalPaid": 7500,
-        "balance": 22500,
+        "parentVisibleDue": 24000,
+        "totalDue": 24000,
+        "totalPaid": 6000,
+        "balance": 18000,
         "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5054",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5044",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-055",
-      "admissionNo": "ADM-2026-1055",
+      "id": "STU-2026-045",
+      "admissionNo": "ADM-2026-1045",
       "rollNo": "5",
       "name": "Reyansh Singh",
-      "dob": "2013-05-25",
+      "dob": "2014-05-25",
       "gender": "Male",
       "bloodGroup": "O+",
-      "class": "Class 7",
+      "class": "Class 5",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8855",
-      "branchId": "BR-02",
-      "branchName": "Dadheech Memorial Public School (Barheti Campus)",
+      "aadhaarNo": "XXXX-XXXX-8845",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
       "isRteStudent": false,
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Sunil Malik",
+        "fatherName": "Mr. Vikas Agarwal",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
-        "motherName": "Mrs. Sunil Malik",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Vikas Agarwal",
         "motherMobile": "+91 97194 76606",
         "email": "reyansh.singh@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -4117,20 +3161,20 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
-        "tuitionDue": 30000,
+        "tuitionDue": 24000,
         "otherChargesDue": 0,
         "otherChargesBreakdown": null,
         "transportDue11Months": 13200,
-        "parentVisibleDue": 43200,
-        "totalDue": 43200,
+        "parentVisibleDue": 37200,
+        "totalDue": 37200,
         "totalPaid": 0,
-        "balance": 43200,
+        "balance": 37200,
         "feeStatus": "Overdue",
         "lastReceiptNo": null,
         "lastPaymentDate": null,
@@ -4138,18 +3182,18 @@ export const initialSchoolData = {
       }
     },
     {
-      "id": "STU-2026-056",
-      "admissionNo": "ADM-2026-1056",
+      "id": "STU-2026-046",
+      "admissionNo": "ADM-2026-1046",
       "rollNo": "1",
       "name": "Diya Chaudhary",
-      "dob": "2013-05-13",
+      "dob": "2014-05-13",
       "gender": "Female",
       "bloodGroup": "A+",
-      "class": "Class 8",
+      "class": "Class 6",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8856",
+      "aadhaarNo": "XXXX-XXXX-8846",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
@@ -4157,10 +3201,10 @@ export const initialSchoolData = {
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Manoj Yadav",
+        "fatherName": "Mr. Anil Mishra",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
-        "motherName": "Mrs. Manoj Yadav",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Anil Mishra",
         "motherMobile": "+91 97194 76606",
         "email": "diya.chaudhary@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -4175,10 +3219,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 30000,
@@ -4190,24 +3234,24 @@ export const initialSchoolData = {
         "totalPaid": 43200,
         "balance": 0,
         "feeStatus": "Paid",
-        "lastReceiptNo": "RCP-2026-5056",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5046",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-057",
-      "admissionNo": "ADM-2026-1057",
+      "id": "STU-2026-047",
+      "admissionNo": "ADM-2026-1047",
       "rollNo": "2",
       "name": "Kabir Patel",
-      "dob": "2013-05-16",
+      "dob": "2014-05-16",
       "gender": "Male",
       "bloodGroup": "B+",
-      "class": "Class 8",
+      "class": "Class 6",
       "section": "A",
       "house": "Phoenix (Red House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8857",
+      "aadhaarNo": "XXXX-XXXX-8847",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
@@ -4215,10 +3259,10 @@ export const initialSchoolData = {
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Vikas Agarwal",
+        "fatherName": "Mr. Deepak Saxena",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
-        "motherName": "Mrs. Vikas Agarwal",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Deepak Saxena",
         "motherMobile": "+91 97194 76606",
         "email": "kabir.patel@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -4233,10 +3277,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 30000,
@@ -4248,24 +3292,24 @@ export const initialSchoolData = {
         "totalPaid": 22500,
         "balance": 7500,
         "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5057",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5047",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-058",
-      "admissionNo": "ADM-2026-1058",
+      "id": "STU-2026-048",
+      "admissionNo": "ADM-2026-1048",
       "rollNo": "3",
       "name": "Kiara Malik",
-      "dob": "2013-05-19",
+      "dob": "2014-05-19",
       "gender": "Female",
       "bloodGroup": "O-",
-      "class": "Class 8",
+      "class": "Class 6",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8858",
+      "aadhaarNo": "XXXX-XXXX-8848",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
@@ -4273,10 +3317,10 @@ export const initialSchoolData = {
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Anil Mishra",
+        "fatherName": "Mr. Mukesh Sharma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
-        "motherName": "Mrs. Anil Mishra",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Mukesh Devi",
         "motherMobile": "+91 97194 76606",
         "email": "kiara.malik@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -4291,10 +3335,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 30000,
@@ -4306,24 +3350,24 @@ export const initialSchoolData = {
         "totalPaid": 21600,
         "balance": 21600,
         "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5058",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5048",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-059",
-      "admissionNo": "ADM-2026-1059",
+      "id": "STU-2026-049",
+      "admissionNo": "ADM-2026-1049",
       "rollNo": "4",
       "name": "Advik Yadav",
-      "dob": "2013-05-22",
+      "dob": "2014-05-22",
       "gender": "Male",
       "bloodGroup": "B+",
-      "class": "Class 8",
+      "class": "Class 6",
       "section": "A",
       "house": "Phoenix (Red House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8859",
+      "aadhaarNo": "XXXX-XXXX-8849",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
@@ -4331,10 +3375,10 @@ export const initialSchoolData = {
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Deepak Saxena",
+        "fatherName": "Mr. Rajendra Verma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
-        "motherName": "Mrs. Deepak Saxena",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Rajendra Rani",
         "motherMobile": "+91 97194 76606",
         "email": "advik.yadav@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -4364,24 +3408,24 @@ export const initialSchoolData = {
         "totalPaid": 7500,
         "balance": 22500,
         "feeStatus": "Partial",
-        "lastReceiptNo": "RCP-2026-5059",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastReceiptNo": "RCP-2026-5049",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
-      "id": "STU-2026-060",
-      "admissionNo": "ADM-2026-1060",
+      "id": "STU-2026-050",
+      "admissionNo": "ADM-2026-1050",
       "rollNo": "5",
       "name": "Myra Agarwal",
-      "dob": "2013-05-25",
+      "dob": "2014-05-25",
       "gender": "Female",
       "bloodGroup": "A+",
-      "class": "Class 8",
+      "class": "Class 6",
       "section": "A",
       "house": "Garuda (Green House)",
       "caste": "General",
-      "aadhaarNo": "XXXX-XXXX-8860",
+      "aadhaarNo": "XXXX-XXXX-8850",
       "branchId": "BR-01",
       "branchName": "Dadheech Memorial Public School (Main Campus)",
       "status": "Active",
@@ -4389,10 +3433,10 @@ export const initialSchoolData = {
       "academicSession": "2026-2027",
       "admissionDate": "2026-04-05",
       "parents": {
-        "fatherName": "Mr. Mukesh Sharma",
+        "fatherName": "Mr. Dharmendra Rajput",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
-        "motherName": "Mrs. Mukesh Devi",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Dharmendra Singh",
         "motherMobile": "+91 97194 76606",
         "email": "myra.agarwal@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
@@ -4407,10 +3451,590 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 13200,
+        "parentVisibleDue": 43200,
+        "totalDue": 43200,
+        "totalPaid": 0,
+        "balance": 43200,
+        "feeStatus": "Overdue",
+        "lastReceiptNo": null,
+        "lastPaymentDate": null,
+        "mode": null
+      }
+    },
+    {
+      "id": "STU-2026-051",
+      "admissionNo": "ADM-2026-1051",
+      "rollNo": "1",
+      "name": "Shivansh Mishra",
+      "dob": "2013-05-13",
+      "gender": "Male",
+      "bloodGroup": "O+",
+      "class": "Class 7",
+      "section": "A",
+      "house": "Garuda (Green House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8851",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Sanjay Gupta",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Sanjay Gupta",
+        "motherMobile": "+91 97194 76606",
+        "email": "shivansh.mishra@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": true,
+        "routeName": "Route 1 - City Express (Quarsi / PAC)",
+        "pickupPoint": "Vinay Nagar Main Gate",
+        "monthlyFare": 1200,
+        "months": 11
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 13200,
+        "parentVisibleDue": 43200,
+        "totalDue": 43200,
+        "totalPaid": 43200,
+        "balance": 0,
+        "feeStatus": "Paid",
+        "lastReceiptNo": "RCP-2026-5051",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
+      }
+    },
+    {
+      "id": "STU-2026-052",
+      "admissionNo": "ADM-2026-1052",
+      "rollNo": "2",
+      "name": "Tanvi Saxena",
+      "dob": "2013-05-16",
+      "gender": "Female",
+      "bloodGroup": "AB+",
+      "class": "Class 7",
+      "section": "A",
+      "house": "Phoenix (Red House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8852",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Virendra Singh",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Virendra Singh",
+        "motherMobile": "+91 97194 76606",
+        "email": "tanvi.saxena@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": false,
+        "routeName": "None (Self Commute)",
+        "pickupPoint": "Campus Gate",
+        "monthlyFare": 0,
+        "months": 0
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 0,
+        "parentVisibleDue": 30000,
+        "totalDue": 30000,
+        "totalPaid": 22500,
+        "balance": 7500,
+        "feeStatus": "Partial",
+        "lastReceiptNo": "RCP-2026-5052",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
+      }
+    },
+    {
+      "id": "STU-2026-053",
+      "admissionNo": "ADM-2026-1053",
+      "rollNo": "3",
+      "name": "Atharv Joshi",
+      "dob": "2013-05-19",
+      "gender": "Male",
+      "bloodGroup": "B+",
+      "class": "Class 7",
+      "section": "A",
+      "house": "Garuda (Green House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8853",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Amit Chaudhary",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Amit Chaudhary",
+        "motherMobile": "+91 97194 76606",
+        "email": "atharv.joshi@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": true,
+        "routeName": "Route 1 - City Express (Quarsi / PAC)",
+        "pickupPoint": "Vinay Nagar Main Gate",
+        "monthlyFare": 1200,
+        "months": 11
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 13200,
+        "parentVisibleDue": 43200,
+        "totalDue": 43200,
+        "totalPaid": 21600,
+        "balance": 21600,
+        "feeStatus": "Partial",
+        "lastReceiptNo": "RCP-2026-5053",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
+      }
+    },
+    {
+      "id": "STU-2026-054",
+      "admissionNo": "ADM-2026-1054",
+      "rollNo": "4",
+      "name": "Pari Chauhan",
+      "dob": "2013-05-22",
+      "gender": "Female",
+      "bloodGroup": "O+",
+      "class": "Class 7",
+      "section": "A",
+      "house": "Phoenix (Red House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8854",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Rakesh Patel",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Rakesh Patel",
+        "motherMobile": "+91 97194 76606",
+        "email": "pari.chauhan@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": false,
+        "routeName": "None (Self Commute)",
+        "pickupPoint": "Campus Gate",
+        "monthlyFare": 0,
+        "months": 0
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 0,
+        "parentVisibleDue": 30000,
+        "totalDue": 30000,
+        "totalPaid": 7500,
+        "balance": 22500,
+        "feeStatus": "Partial",
+        "lastReceiptNo": "RCP-2026-5054",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
+      }
+    },
+    {
+      "id": "STU-2026-055",
+      "admissionNo": "ADM-2026-1055",
+      "rollNo": "5",
+      "name": "Rudra Pratap",
+      "dob": "2013-05-25",
+      "gender": "Male",
+      "bloodGroup": "A+",
+      "class": "Class 7",
+      "section": "A",
+      "house": "Garuda (Green House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8855",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Sunil Malik",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Sunil Malik",
+        "motherMobile": "+91 97194 76606",
+        "email": "rudra.pratap@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": true,
+        "routeName": "Route 1 - City Express (Quarsi / PAC)",
+        "pickupPoint": "Vinay Nagar Main Gate",
+        "monthlyFare": 1200,
+        "months": 11
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 13200,
+        "parentVisibleDue": 43200,
+        "totalDue": 43200,
+        "totalPaid": 0,
+        "balance": 43200,
+        "feeStatus": "Overdue",
+        "lastReceiptNo": null,
+        "lastPaymentDate": null,
+        "mode": null
+      }
+    },
+    {
+      "id": "STU-2026-056",
+      "admissionNo": "ADM-2026-1056",
+      "rollNo": "1",
+      "name": "Navya Garg",
+      "dob": "2013-05-13",
+      "gender": "Female",
+      "bloodGroup": "B+",
+      "class": "Class 8",
+      "section": "A",
+      "house": "Garuda (Green House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8856",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Manoj Yadav",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Manoj Yadav",
+        "motherMobile": "+91 97194 76606",
+        "email": "navya.garg@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": true,
+        "routeName": "Route 1 - City Express (Quarsi / PAC)",
+        "pickupPoint": "Vinay Nagar Main Gate",
+        "monthlyFare": 1200,
+        "months": 11
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 13200,
+        "parentVisibleDue": 43200,
+        "totalDue": 43200,
+        "totalPaid": 43200,
+        "balance": 0,
+        "feeStatus": "Paid",
+        "lastReceiptNo": "RCP-2026-5056",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
+      }
+    },
+    {
+      "id": "STU-2026-057",
+      "admissionNo": "ADM-2026-1057",
+      "rollNo": "2",
+      "name": "Ishan Tomar",
+      "dob": "2013-05-16",
+      "gender": "Male",
+      "bloodGroup": "O+",
+      "class": "Class 8",
+      "section": "A",
+      "house": "Phoenix (Red House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8857",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Vikas Agarwal",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Vikas Agarwal",
+        "motherMobile": "+91 97194 76606",
+        "email": "ishan.tomar@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": false,
+        "routeName": "None (Self Commute)",
+        "pickupPoint": "Campus Gate",
+        "monthlyFare": 0,
+        "months": 0
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 0,
+        "parentVisibleDue": 30000,
+        "totalDue": 30000,
+        "totalPaid": 22500,
+        "balance": 7500,
+        "feeStatus": "Partial",
+        "lastReceiptNo": "RCP-2026-5057",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
+      }
+    },
+    {
+      "id": "STU-2026-058",
+      "admissionNo": "ADM-2026-1058",
+      "rollNo": "3",
+      "name": "Aditi Mathur",
+      "dob": "2013-05-19",
+      "gender": "Female",
+      "bloodGroup": "A+",
+      "class": "Class 8",
+      "section": "A",
+      "house": "Garuda (Green House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8858",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Anil Mishra",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Anil Mishra",
+        "motherMobile": "+91 97194 76606",
+        "email": "aditi.mathur@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": true,
+        "routeName": "Route 1 - City Express (Quarsi / PAC)",
+        "pickupPoint": "Vinay Nagar Main Gate",
+        "monthlyFare": 1200,
+        "months": 11
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 13200,
+        "parentVisibleDue": 43200,
+        "totalDue": 43200,
+        "totalPaid": 21600,
+        "balance": 21600,
+        "feeStatus": "Partial",
+        "lastReceiptNo": "RCP-2026-5058",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
+      }
+    },
+    {
+      "id": "STU-2026-059",
+      "admissionNo": "ADM-2026-1059",
+      "rollNo": "4",
+      "name": "Dhruv Pandey",
+      "dob": "2013-05-22",
+      "gender": "Male",
+      "bloodGroup": "AB+",
+      "class": "Class 8",
+      "section": "A",
+      "house": "Phoenix (Red House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8859",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Deepak Saxena",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Deepak Saxena",
+        "motherMobile": "+91 97194 76606",
+        "email": "dhruv.pandey@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": false,
+        "routeName": "None (Self Commute)",
+        "pickupPoint": "Campus Gate",
+        "monthlyFare": 0,
+        "months": 0
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
+      },
+      "feeSummary": {
+        "tuitionDue": 30000,
+        "otherChargesDue": 0,
+        "otherChargesBreakdown": null,
+        "transportDue11Months": 0,
+        "parentVisibleDue": 30000,
+        "totalDue": 30000,
+        "totalPaid": 7500,
+        "balance": 22500,
+        "feeStatus": "Partial",
+        "lastReceiptNo": "RCP-2026-5059",
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
+      }
+    },
+    {
+      "id": "STU-2026-060",
+      "admissionNo": "ADM-2026-1060",
+      "rollNo": "5",
+      "name": "Avani Rastogi",
+      "dob": "2013-05-25",
+      "gender": "Female",
+      "bloodGroup": "O+",
+      "class": "Class 8",
+      "section": "A",
+      "house": "Garuda (Green House)",
+      "caste": "General",
+      "aadhaarNo": "XXXX-XXXX-8860",
+      "branchId": "BR-01",
+      "branchName": "Dadheech Memorial Public School (Main Campus)",
+      "status": "Active",
+      "isRteStudent": false,
+      "academicSession": "2026-2027",
+      "admissionDate": "2026-04-05",
+      "parents": {
+        "fatherName": "Mr. Mukesh Sharma",
+        "fatherMobile": "+91 97194 76606",
+        "fatherOccupation": "Business & Professional",
+        "motherName": "Mrs. Mukesh Devi",
+        "motherMobile": "+91 97194 76606",
+        "email": "avani.rastogi@dmps-parent.edu.in",
+        "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
+        "emergencyContact": "+91 97194 76606"
+      },
+      "transport": {
+        "isEnrolled": true,
+        "routeName": "Route 1 - City Express (Quarsi / PAC)",
+        "pickupPoint": "Vinay Nagar Main Gate",
+        "monthlyFare": 1200,
+        "months": 11
+      },
+      "attendanceSummary": {
+        "totalDays": 110,
+        "presentDays": 104,
+        "absentDays": 6,
+        "leaveDays": 0,
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 30000,
@@ -4431,7 +4055,7 @@ export const initialSchoolData = {
       "id": "STU-2026-061",
       "admissionNo": "ADM-2026-1061",
       "rollNo": "1",
-      "name": "Shivansh Mishra",
+      "name": "Aarav Sharma",
       "dob": "2012-05-13",
       "gender": "Male",
       "bloodGroup": "O+",
@@ -4449,10 +4073,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rajendra Verma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rajendra Rani",
         "motherMobile": "+91 97194 76606",
-        "email": "shivansh.mishra@dmps-parent.edu.in",
+        "email": "aarav.sharma@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4465,10 +4089,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 36000,
@@ -4481,18 +4105,18 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5061",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-062",
       "admissionNo": "ADM-2026-1062",
       "rollNo": "2",
-      "name": "Tanvi Saxena",
+      "name": "Ananya Verma",
       "dob": "2012-05-16",
       "gender": "Female",
-      "bloodGroup": "AB+",
+      "bloodGroup": "A+",
       "class": "Class 9",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -4507,10 +4131,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Dharmendra Rajput",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Dharmendra Singh",
         "motherMobile": "+91 97194 76606",
-        "email": "tanvi.saxena@dmps-parent.edu.in",
+        "email": "ananya.verma@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4523,10 +4147,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 36000,
@@ -4539,15 +4163,15 @@ export const initialSchoolData = {
         "balance": 9000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5062",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-063",
       "admissionNo": "ADM-2026-1063",
       "rollNo": "3",
-      "name": "Atharv Joshi",
+      "name": "Vihaan Rajput",
       "dob": "2012-05-19",
       "gender": "Male",
       "bloodGroup": "B+",
@@ -4565,10 +4189,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sanjay Gupta",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sanjay Gupta",
         "motherMobile": "+91 97194 76606",
-        "email": "atharv.joshi@dmps-parent.edu.in",
+        "email": "vihaan.rajput@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4581,10 +4205,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 36000,
@@ -4597,18 +4221,18 @@ export const initialSchoolData = {
         "balance": 24600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5063",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-064",
       "admissionNo": "ADM-2026-1064",
       "rollNo": "4",
-      "name": "Pari Chauhan",
+      "name": "Saanvi Gupta",
       "dob": "2012-05-22",
       "gender": "Female",
-      "bloodGroup": "O+",
+      "bloodGroup": "AB+",
       "class": "Class 9",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -4623,10 +4247,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Virendra Singh",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Virendra Singh",
         "motherMobile": "+91 97194 76606",
-        "email": "pari.chauhan@dmps-parent.edu.in",
+        "email": "saanvi.gupta@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4655,18 +4279,18 @@ export const initialSchoolData = {
         "balance": 27000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5064",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-065",
       "admissionNo": "ADM-2026-1065",
       "rollNo": "5",
-      "name": "Rudra Pratap",
+      "name": "Reyansh Singh",
       "dob": "2012-05-25",
       "gender": "Male",
-      "bloodGroup": "A+",
+      "bloodGroup": "O+",
       "class": "Class 9",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -4681,10 +4305,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Amit Chaudhary",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Amit Chaudhary",
         "motherMobile": "+91 97194 76606",
-        "email": "rudra.pratap@dmps-parent.edu.in",
+        "email": "reyansh.singh@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4697,10 +4321,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 36000,
@@ -4721,10 +4345,10 @@ export const initialSchoolData = {
       "id": "STU-2026-066",
       "admissionNo": "ADM-2026-1066",
       "rollNo": "1",
-      "name": "Navya Garg",
+      "name": "Diya Chaudhary",
       "dob": "2012-05-13",
       "gender": "Female",
-      "bloodGroup": "B+",
+      "bloodGroup": "A+",
       "class": "Class 10",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -4739,10 +4363,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rakesh Patel",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Senior Software Engineer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rakesh Patel",
         "motherMobile": "+91 97194 76606",
-        "email": "navya.garg@dmps-parent.edu.in",
+        "email": "diya.chaudhary@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4755,10 +4379,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 36000,
@@ -4771,18 +4395,18 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5066",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-067",
       "admissionNo": "ADM-2026-1067",
       "rollNo": "2",
-      "name": "Ishan Tomar",
+      "name": "Kabir Patel",
       "dob": "2012-05-16",
       "gender": "Male",
-      "bloodGroup": "O+",
+      "bloodGroup": "B+",
       "class": "Class 10",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -4797,10 +4421,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sunil Malik",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sunil Malik",
         "motherMobile": "+91 97194 76606",
-        "email": "ishan.tomar@dmps-parent.edu.in",
+        "email": "kabir.patel@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4813,10 +4437,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 36000,
@@ -4829,18 +4453,18 @@ export const initialSchoolData = {
         "balance": 9000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5067",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-068",
       "admissionNo": "ADM-2026-1068",
       "rollNo": "3",
-      "name": "Aditi Mathur",
+      "name": "Kiara Malik",
       "dob": "2012-05-19",
       "gender": "Female",
-      "bloodGroup": "A+",
+      "bloodGroup": "O-",
       "class": "Class 10",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -4855,10 +4479,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Manoj Yadav",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Manoj Yadav",
         "motherMobile": "+91 97194 76606",
-        "email": "aditi.mathur@dmps-parent.edu.in",
+        "email": "kiara.malik@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4871,10 +4495,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 36000,
@@ -4887,18 +4511,18 @@ export const initialSchoolData = {
         "balance": 24600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5068",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-069",
       "admissionNo": "ADM-2026-1069",
       "rollNo": "4",
-      "name": "Dhruv Pandey",
+      "name": "Advik Yadav",
       "dob": "2012-05-22",
       "gender": "Male",
-      "bloodGroup": "AB+",
+      "bloodGroup": "B+",
       "class": "Class 10",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -4913,10 +4537,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Vikas Agarwal",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Vikas Agarwal",
         "motherMobile": "+91 97194 76606",
-        "email": "dhruv.pandey@dmps-parent.edu.in",
+        "email": "advik.yadav@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4945,18 +4569,18 @@ export const initialSchoolData = {
         "balance": 27000,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5069",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-070",
       "admissionNo": "ADM-2026-1070",
       "rollNo": "5",
-      "name": "Avani Rastogi",
+      "name": "Myra Agarwal",
       "dob": "2012-05-25",
       "gender": "Female",
-      "bloodGroup": "O+",
+      "bloodGroup": "A+",
       "class": "Class 10",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -4971,10 +4595,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Anil Mishra",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Anil Mishra",
         "motherMobile": "+91 97194 76606",
-        "email": "avani.rastogi@dmps-parent.edu.in",
+        "email": "myra.agarwal@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -4987,10 +4611,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 36000,
@@ -5011,10 +4635,10 @@ export const initialSchoolData = {
       "id": "STU-2026-071",
       "admissionNo": "ADM-2026-1071",
       "rollNo": "1",
-      "name": "Vivaan Bhatnagar",
+      "name": "Shivansh Mishra",
       "dob": "2011-05-13",
       "gender": "Male",
-      "bloodGroup": "B+",
+      "bloodGroup": "O+",
       "class": "Class 11",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -5029,10 +4653,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Deepak Saxena",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Business Owner / Wholesale",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Deepak Saxena",
         "motherMobile": "+91 97194 76606",
-        "email": "vivaan.bhatnagar@dmps-parent.edu.in",
+        "email": "shivansh.mishra@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5045,10 +4669,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 42000,
@@ -5061,18 +4685,18 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5071",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-072",
       "admissionNo": "ADM-2026-1072",
       "rollNo": "2",
-      "name": "Prisha Kapoor",
+      "name": "Tanvi Saxena",
       "dob": "2011-05-16",
       "gender": "Female",
-      "bloodGroup": "A+",
+      "bloodGroup": "AB+",
       "class": "Class 11",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -5087,10 +4711,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Mukesh Sharma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Mukesh Devi",
         "motherMobile": "+91 97194 76606",
-        "email": "prisha.kapoor@dmps-parent.edu.in",
+        "email": "tanvi.saxena@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5103,10 +4727,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 42000,
@@ -5119,18 +4743,18 @@ export const initialSchoolData = {
         "balance": 10500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5072",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-073",
       "admissionNo": "ADM-2026-1073",
       "rollNo": "3",
-      "name": "Krishna Dubey",
+      "name": "Atharv Joshi",
       "dob": "2011-05-19",
       "gender": "Male",
-      "bloodGroup": "O+",
+      "bloodGroup": "B+",
       "class": "Class 11",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -5145,10 +4769,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rajendra Verma",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rajendra Rani",
         "motherMobile": "+91 97194 76606",
-        "email": "krishna.dubey@dmps-parent.edu.in",
+        "email": "atharv.joshi@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5161,10 +4785,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 42000,
@@ -5177,18 +4801,18 @@ export const initialSchoolData = {
         "balance": 27600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5073",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-074",
       "admissionNo": "ADM-2026-1074",
       "rollNo": "4",
-      "name": "Riya Gautam",
+      "name": "Pari Chauhan",
       "dob": "2011-05-22",
       "gender": "Female",
-      "bloodGroup": "B+",
+      "bloodGroup": "O+",
       "class": "Class 11",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -5203,10 +4827,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Dharmendra Rajput",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Dharmendra Singh",
         "motherMobile": "+91 97194 76606",
-        "email": "riya.gautam@dmps-parent.edu.in",
+        "email": "pari.chauhan@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5235,15 +4859,15 @@ export const initialSchoolData = {
         "balance": 31500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5074",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-075",
       "admissionNo": "ADM-2026-1075",
       "rollNo": "5",
-      "name": "Samarth Somvanshi",
+      "name": "Rudra Pratap",
       "dob": "2011-05-25",
       "gender": "Male",
       "bloodGroup": "A+",
@@ -5261,10 +4885,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sanjay Gupta",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sanjay Gupta",
         "motherMobile": "+91 97194 76606",
-        "email": "samarth.somvanshi@dmps-parent.edu.in",
+        "email": "rudra.pratap@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5277,10 +4901,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 42000,
@@ -5301,10 +4925,10 @@ export const initialSchoolData = {
       "id": "STU-2026-076",
       "admissionNo": "ADM-2026-1076",
       "rollNo": "1",
-      "name": "Aarav Sharma",
+      "name": "Navya Garg",
       "dob": "2011-05-13",
-      "gender": "Male",
-      "bloodGroup": "O+",
+      "gender": "Female",
+      "bloodGroup": "B+",
       "class": "Class 12",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -5319,10 +4943,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Virendra Singh",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Govt Employee / Officer",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Virendra Singh",
         "motherMobile": "+91 97194 76606",
-        "email": "aarav.sharma@dmps-parent.edu.in",
+        "email": "navya.garg@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5335,10 +4959,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 101,
-        "absentDays": 9,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 91.8
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 42000,
@@ -5351,18 +4975,18 @@ export const initialSchoolData = {
         "balance": 0,
         "feeStatus": "Paid",
         "lastReceiptNo": "RCP-2026-5076",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-077",
       "admissionNo": "ADM-2026-1077",
       "rollNo": "2",
-      "name": "Ananya Verma",
+      "name": "Ishan Tomar",
       "dob": "2011-05-16",
-      "gender": "Female",
-      "bloodGroup": "A+",
+      "gender": "Male",
+      "bloodGroup": "O+",
       "class": "Class 12",
       "section": "A",
       "house": "Phoenix (Red House)",
@@ -5377,10 +5001,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Amit Chaudhary",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Chartered Accountant",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Amit Chaudhary",
         "motherMobile": "+91 97194 76606",
-        "email": "ananya.verma@dmps-parent.edu.in",
+        "email": "ishan.tomar@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5393,10 +5017,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 102,
-        "absentDays": 8,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 92.7
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 42000,
@@ -5409,18 +5033,18 @@ export const initialSchoolData = {
         "balance": 10500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5077",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-078",
       "admissionNo": "ADM-2026-1078",
       "rollNo": "3",
-      "name": "Vihaan Rajput",
+      "name": "Aditi Mathur",
       "dob": "2011-05-19",
-      "gender": "Male",
-      "bloodGroup": "B+",
+      "gender": "Female",
+      "bloodGroup": "A+",
       "class": "Class 12",
       "section": "A",
       "house": "Garuda (Green House)",
@@ -5435,10 +5059,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Rakesh Patel",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Professor / Educator",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Rakesh Patel",
         "motherMobile": "+91 97194 76606",
-        "email": "vihaan.rajput@dmps-parent.edu.in",
+        "email": "aditi.mathur@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5451,10 +5075,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 103,
-        "absentDays": 7,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 93.6
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 42000,
@@ -5467,17 +5091,17 @@ export const initialSchoolData = {
         "balance": 27600,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5078",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-079",
       "admissionNo": "ADM-2026-1079",
       "rollNo": "4",
-      "name": "Saanvi Gupta",
+      "name": "Dhruv Pandey",
       "dob": "2011-05-22",
-      "gender": "Female",
+      "gender": "Male",
       "bloodGroup": "AB+",
       "class": "Class 12",
       "section": "A",
@@ -5493,10 +5117,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Sunil Malik",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Bank Branch Manager",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Sunil Malik",
         "motherMobile": "+91 97194 76606",
-        "email": "saanvi.gupta@dmps-parent.edu.in",
+        "email": "dhruv.pandey@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5525,17 +5149,17 @@ export const initialSchoolData = {
         "balance": 31500,
         "feeStatus": "Partial",
         "lastReceiptNo": "RCP-2026-5079",
-        "lastPaymentDate": "2026-08-15",
-        "mode": "UPI Dynamic QR"
+        "lastPaymentDate": "2026-09-08",
+        "mode": "UPI / Cash POS"
       }
     },
     {
       "id": "STU-2026-080",
       "admissionNo": "ADM-2026-1080",
       "rollNo": "5",
-      "name": "Reyansh Singh",
+      "name": "Avani Rastogi",
       "dob": "2011-05-25",
-      "gender": "Male",
+      "gender": "Female",
       "bloodGroup": "O+",
       "class": "Class 12",
       "section": "A",
@@ -5551,10 +5175,10 @@ export const initialSchoolData = {
       "parents": {
         "fatherName": "Mr. Manoj Yadav",
         "fatherMobile": "+91 97194 76606",
-        "fatherOccupation": "Architect",
+        "fatherOccupation": "Business & Professional",
         "motherName": "Mrs. Manoj Yadav",
         "motherMobile": "+91 97194 76606",
-        "email": "reyansh.singh@dmps-parent.edu.in",
+        "email": "avani.rastogi@dmps-parent.edu.in",
         "address": "PAC Quarsi / Sangwan City Road, Aligarh, UP",
         "emergencyContact": "+91 97194 76606"
       },
@@ -5567,10 +5191,10 @@ export const initialSchoolData = {
       },
       "attendanceSummary": {
         "totalDays": 110,
-        "presentDays": 105,
-        "absentDays": 5,
+        "presentDays": 104,
+        "absentDays": 6,
         "leaveDays": 0,
-        "percentage": 95.5
+        "percentage": 94.5
       },
       "feeSummary": {
         "tuitionDue": 42000,
@@ -5588,7 +5212,776 @@ export const initialSchoolData = {
       }
     }
   ],
-  "feeInvoices": [],
+  "feeInvoices": [
+    {
+      "id": "INV-2026-5001",
+      "receiptNo": "RCP-2026-5001",
+      "studentId": "STU-2026-001",
+      "studentName": "Aarav Sharma",
+      "class": "Playgroup (PG)",
+      "section": "A",
+      "amount": 31200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5002",
+      "receiptNo": "RCP-2026-5002",
+      "studentId": "STU-2026-002",
+      "studentName": "Ananya Verma",
+      "class": "Playgroup (PG)",
+      "section": "A",
+      "amount": 13500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5003",
+      "receiptNo": "RCP-2026-5003",
+      "studentId": "STU-2026-003",
+      "studentName": "Vihaan Rajput",
+      "class": "Playgroup (PG)",
+      "section": "A",
+      "amount": 15600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5004",
+      "receiptNo": "RCP-2026-5004",
+      "studentId": "STU-2026-004",
+      "studentName": "Saanvi Gupta",
+      "class": "Playgroup (PG)",
+      "section": "A",
+      "amount": 4500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5006",
+      "receiptNo": "RCP-2026-5006",
+      "studentId": "STU-2026-006",
+      "studentName": "Diya Chaudhary",
+      "class": "Nursery",
+      "section": "A",
+      "amount": 31200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5007",
+      "receiptNo": "RCP-2026-5007",
+      "studentId": "STU-2026-007",
+      "studentName": "Kabir Patel",
+      "class": "Nursery",
+      "section": "A",
+      "amount": 13500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5008",
+      "receiptNo": "RCP-2026-5008",
+      "studentId": "STU-2026-008",
+      "studentName": "Kiara Malik",
+      "class": "Nursery",
+      "section": "A",
+      "amount": 15600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5009",
+      "receiptNo": "RCP-2026-5009",
+      "studentId": "STU-2026-009",
+      "studentName": "Advik Yadav",
+      "class": "Nursery",
+      "section": "A",
+      "amount": 4500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5011",
+      "receiptNo": "RCP-2026-5011",
+      "studentId": "STU-2026-011",
+      "studentName": "Shivansh Mishra",
+      "class": "LKG",
+      "section": "A",
+      "amount": 31200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5012",
+      "receiptNo": "RCP-2026-5012",
+      "studentId": "STU-2026-012",
+      "studentName": "Tanvi Saxena",
+      "class": "LKG",
+      "section": "A",
+      "amount": 13500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5013",
+      "receiptNo": "RCP-2026-5013",
+      "studentId": "STU-2026-013",
+      "studentName": "Atharv Joshi",
+      "class": "LKG",
+      "section": "A",
+      "amount": 15600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5014",
+      "receiptNo": "RCP-2026-5014",
+      "studentId": "STU-2026-014",
+      "studentName": "Pari Chauhan",
+      "class": "LKG",
+      "section": "A",
+      "amount": 4500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5016",
+      "receiptNo": "RCP-2026-5016",
+      "studentId": "STU-2026-016",
+      "studentName": "Navya Garg",
+      "class": "UKG",
+      "section": "A",
+      "amount": 31200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5017",
+      "receiptNo": "RCP-2026-5017",
+      "studentId": "STU-2026-017",
+      "studentName": "Ishan Tomar",
+      "class": "UKG",
+      "section": "A",
+      "amount": 13500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5018",
+      "receiptNo": "RCP-2026-5018",
+      "studentId": "STU-2026-018",
+      "studentName": "Aditi Mathur",
+      "class": "UKG",
+      "section": "A",
+      "amount": 15600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5019",
+      "receiptNo": "RCP-2026-5019",
+      "studentId": "STU-2026-019",
+      "studentName": "Dhruv Pandey",
+      "class": "UKG",
+      "section": "A",
+      "amount": 4500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5021",
+      "receiptNo": "RCP-2026-5021",
+      "studentId": "STU-2026-021",
+      "studentName": "Aarav Sharma",
+      "class": "Class 1",
+      "section": "A",
+      "amount": 37200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5022",
+      "receiptNo": "RCP-2026-5022",
+      "studentId": "STU-2026-022",
+      "studentName": "Ananya Verma",
+      "class": "Class 1",
+      "section": "A",
+      "amount": 18000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5023",
+      "receiptNo": "RCP-2026-5023",
+      "studentId": "STU-2026-023",
+      "studentName": "Vihaan Rajput",
+      "class": "Class 1",
+      "section": "A",
+      "amount": 18600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5024",
+      "receiptNo": "RCP-2026-5024",
+      "studentId": "STU-2026-024",
+      "studentName": "Saanvi Gupta",
+      "class": "Class 1",
+      "section": "A",
+      "amount": 6000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5026",
+      "receiptNo": "RCP-2026-5026",
+      "studentId": "STU-2026-026",
+      "studentName": "Diya Chaudhary",
+      "class": "Class 2",
+      "section": "A",
+      "amount": 37200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5027",
+      "receiptNo": "RCP-2026-5027",
+      "studentId": "STU-2026-027",
+      "studentName": "Kabir Patel",
+      "class": "Class 2",
+      "section": "A",
+      "amount": 18000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5028",
+      "receiptNo": "RCP-2026-5028",
+      "studentId": "STU-2026-028",
+      "studentName": "Kiara Malik",
+      "class": "Class 2",
+      "section": "A",
+      "amount": 18600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5029",
+      "receiptNo": "RCP-2026-5029",
+      "studentId": "STU-2026-029",
+      "studentName": "Advik Yadav",
+      "class": "Class 2",
+      "section": "A",
+      "amount": 6000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5031",
+      "receiptNo": "RCP-2026-5031",
+      "studentId": "STU-2026-031",
+      "studentName": "Shivansh Mishra",
+      "class": "Class 3",
+      "section": "A",
+      "amount": 37200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5032",
+      "receiptNo": "RCP-2026-5032",
+      "studentId": "STU-2026-032",
+      "studentName": "Tanvi Saxena",
+      "class": "Class 3",
+      "section": "A",
+      "amount": 18000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5033",
+      "receiptNo": "RCP-2026-5033",
+      "studentId": "STU-2026-033",
+      "studentName": "Atharv Joshi",
+      "class": "Class 3",
+      "section": "A",
+      "amount": 18600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5034",
+      "receiptNo": "RCP-2026-5034",
+      "studentId": "STU-2026-034",
+      "studentName": "Pari Chauhan",
+      "class": "Class 3",
+      "section": "A",
+      "amount": 6000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5036",
+      "receiptNo": "RCP-2026-5036",
+      "studentId": "STU-2026-036",
+      "studentName": "Navya Garg",
+      "class": "Class 4",
+      "section": "A",
+      "amount": 37200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5037",
+      "receiptNo": "RCP-2026-5037",
+      "studentId": "STU-2026-037",
+      "studentName": "Ishan Tomar",
+      "class": "Class 4",
+      "section": "A",
+      "amount": 18000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5038",
+      "receiptNo": "RCP-2026-5038",
+      "studentId": "STU-2026-038",
+      "studentName": "Aditi Mathur",
+      "class": "Class 4",
+      "section": "A",
+      "amount": 18600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5039",
+      "receiptNo": "RCP-2026-5039",
+      "studentId": "STU-2026-039",
+      "studentName": "Dhruv Pandey",
+      "class": "Class 4",
+      "section": "A",
+      "amount": 6000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5041",
+      "receiptNo": "RCP-2026-5041",
+      "studentId": "STU-2026-041",
+      "studentName": "Aarav Sharma",
+      "class": "Class 5",
+      "section": "A",
+      "amount": 37200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5042",
+      "receiptNo": "RCP-2026-5042",
+      "studentId": "STU-2026-042",
+      "studentName": "Ananya Verma",
+      "class": "Class 5",
+      "section": "A",
+      "amount": 18000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5043",
+      "receiptNo": "RCP-2026-5043",
+      "studentId": "STU-2026-043",
+      "studentName": "Vihaan Rajput",
+      "class": "Class 5",
+      "section": "A",
+      "amount": 18600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5044",
+      "receiptNo": "RCP-2026-5044",
+      "studentId": "STU-2026-044",
+      "studentName": "Saanvi Gupta",
+      "class": "Class 5",
+      "section": "A",
+      "amount": 6000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5046",
+      "receiptNo": "RCP-2026-5046",
+      "studentId": "STU-2026-046",
+      "studentName": "Diya Chaudhary",
+      "class": "Class 6",
+      "section": "A",
+      "amount": 43200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5047",
+      "receiptNo": "RCP-2026-5047",
+      "studentId": "STU-2026-047",
+      "studentName": "Kabir Patel",
+      "class": "Class 6",
+      "section": "A",
+      "amount": 22500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5048",
+      "receiptNo": "RCP-2026-5048",
+      "studentId": "STU-2026-048",
+      "studentName": "Kiara Malik",
+      "class": "Class 6",
+      "section": "A",
+      "amount": 21600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5049",
+      "receiptNo": "RCP-2026-5049",
+      "studentId": "STU-2026-049",
+      "studentName": "Advik Yadav",
+      "class": "Class 6",
+      "section": "A",
+      "amount": 7500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5051",
+      "receiptNo": "RCP-2026-5051",
+      "studentId": "STU-2026-051",
+      "studentName": "Shivansh Mishra",
+      "class": "Class 7",
+      "section": "A",
+      "amount": 43200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5052",
+      "receiptNo": "RCP-2026-5052",
+      "studentId": "STU-2026-052",
+      "studentName": "Tanvi Saxena",
+      "class": "Class 7",
+      "section": "A",
+      "amount": 22500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5053",
+      "receiptNo": "RCP-2026-5053",
+      "studentId": "STU-2026-053",
+      "studentName": "Atharv Joshi",
+      "class": "Class 7",
+      "section": "A",
+      "amount": 21600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5054",
+      "receiptNo": "RCP-2026-5054",
+      "studentId": "STU-2026-054",
+      "studentName": "Pari Chauhan",
+      "class": "Class 7",
+      "section": "A",
+      "amount": 7500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5056",
+      "receiptNo": "RCP-2026-5056",
+      "studentId": "STU-2026-056",
+      "studentName": "Navya Garg",
+      "class": "Class 8",
+      "section": "A",
+      "amount": 43200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5057",
+      "receiptNo": "RCP-2026-5057",
+      "studentId": "STU-2026-057",
+      "studentName": "Ishan Tomar",
+      "class": "Class 8",
+      "section": "A",
+      "amount": 22500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5058",
+      "receiptNo": "RCP-2026-5058",
+      "studentId": "STU-2026-058",
+      "studentName": "Aditi Mathur",
+      "class": "Class 8",
+      "section": "A",
+      "amount": 21600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5059",
+      "receiptNo": "RCP-2026-5059",
+      "studentId": "STU-2026-059",
+      "studentName": "Dhruv Pandey",
+      "class": "Class 8",
+      "section": "A",
+      "amount": 7500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5061",
+      "receiptNo": "RCP-2026-5061",
+      "studentId": "STU-2026-061",
+      "studentName": "Aarav Sharma",
+      "class": "Class 9",
+      "section": "A",
+      "amount": 49200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5062",
+      "receiptNo": "RCP-2026-5062",
+      "studentId": "STU-2026-062",
+      "studentName": "Ananya Verma",
+      "class": "Class 9",
+      "section": "A",
+      "amount": 27000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5063",
+      "receiptNo": "RCP-2026-5063",
+      "studentId": "STU-2026-063",
+      "studentName": "Vihaan Rajput",
+      "class": "Class 9",
+      "section": "A",
+      "amount": 24600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5064",
+      "receiptNo": "RCP-2026-5064",
+      "studentId": "STU-2026-064",
+      "studentName": "Saanvi Gupta",
+      "class": "Class 9",
+      "section": "A",
+      "amount": 9000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5066",
+      "receiptNo": "RCP-2026-5066",
+      "studentId": "STU-2026-066",
+      "studentName": "Diya Chaudhary",
+      "class": "Class 10",
+      "section": "A",
+      "amount": 49200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5067",
+      "receiptNo": "RCP-2026-5067",
+      "studentId": "STU-2026-067",
+      "studentName": "Kabir Patel",
+      "class": "Class 10",
+      "section": "A",
+      "amount": 27000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5068",
+      "receiptNo": "RCP-2026-5068",
+      "studentId": "STU-2026-068",
+      "studentName": "Kiara Malik",
+      "class": "Class 10",
+      "section": "A",
+      "amount": 24600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5069",
+      "receiptNo": "RCP-2026-5069",
+      "studentId": "STU-2026-069",
+      "studentName": "Advik Yadav",
+      "class": "Class 10",
+      "section": "A",
+      "amount": 9000,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5071",
+      "receiptNo": "RCP-2026-5071",
+      "studentId": "STU-2026-071",
+      "studentName": "Shivansh Mishra",
+      "class": "Class 11",
+      "section": "A",
+      "amount": 55200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5072",
+      "receiptNo": "RCP-2026-5072",
+      "studentId": "STU-2026-072",
+      "studentName": "Tanvi Saxena",
+      "class": "Class 11",
+      "section": "A",
+      "amount": 31500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5073",
+      "receiptNo": "RCP-2026-5073",
+      "studentId": "STU-2026-073",
+      "studentName": "Atharv Joshi",
+      "class": "Class 11",
+      "section": "A",
+      "amount": 27600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5074",
+      "receiptNo": "RCP-2026-5074",
+      "studentId": "STU-2026-074",
+      "studentName": "Pari Chauhan",
+      "class": "Class 11",
+      "section": "A",
+      "amount": 10500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5076",
+      "receiptNo": "RCP-2026-5076",
+      "studentId": "STU-2026-076",
+      "studentName": "Navya Garg",
+      "class": "Class 12",
+      "section": "A",
+      "amount": 55200,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5077",
+      "receiptNo": "RCP-2026-5077",
+      "studentId": "STU-2026-077",
+      "studentName": "Ishan Tomar",
+      "class": "Class 12",
+      "section": "A",
+      "amount": 31500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5078",
+      "receiptNo": "RCP-2026-5078",
+      "studentId": "STU-2026-078",
+      "studentName": "Aditi Mathur",
+      "class": "Class 12",
+      "section": "A",
+      "amount": 27600,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    },
+    {
+      "id": "INV-2026-5079",
+      "receiptNo": "RCP-2026-5079",
+      "studentId": "STU-2026-079",
+      "studentName": "Dhruv Pandey",
+      "class": "Class 12",
+      "section": "A",
+      "amount": 10500,
+      "date": "2026-09-08",
+      "paymentMode": "UPI / Cash POS",
+      "status": "Success"
+    }
+  ],
   "frontOffice": {
     "visitors": [],
     "phoneCalls": [],
@@ -5703,5 +6096,147 @@ export const initialSchoolData = {
   },
   "homework": [],
   "notices": [],
-  "leaves": []
+  "leaves": [],
+  "transactions": [
+    {
+      "id": "TXN-2026-100",
+      "date": "2026-09-06",
+      "type": "Income",
+      "category": "Fee Collection",
+      "amount": 32000,
+      "description": "Term 1 Fee Collections (Class 1-4)",
+      "paymentMode": "Cash / UPI POS",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-101",
+      "date": "2026-09-06",
+      "type": "Expense",
+      "category": "Operational",
+      "amount": 4500,
+      "description": "Stationery & Printing Paper",
+      "paymentMode": "Bank Transfer",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-102",
+      "date": "2026-09-07",
+      "type": "Income",
+      "category": "Fee Collection",
+      "amount": 48000,
+      "description": "Quarterly Fees (Class 5-8)",
+      "paymentMode": "Cash / UPI POS",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-103",
+      "date": "2026-09-07",
+      "type": "Expense",
+      "category": "Operational",
+      "amount": 6200,
+      "description": "Classroom Whiteboard Maintenance",
+      "paymentMode": "Bank Transfer",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-104",
+      "date": "2026-09-08",
+      "type": "Income",
+      "category": "Fee Collection",
+      "amount": 54000,
+      "description": "Senior Wing Tuition & Transport POS",
+      "paymentMode": "Cash / UPI POS",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-105",
+      "date": "2026-09-08",
+      "type": "Expense",
+      "category": "Operational",
+      "amount": 3800,
+      "description": "RO Water Filter Service",
+      "paymentMode": "Bank Transfer",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-106",
+      "date": "2026-09-09",
+      "type": "Income",
+      "category": "Fee Collection",
+      "amount": 38000,
+      "description": "Tuition Installments (Class 9-10)",
+      "paymentMode": "Cash / UPI POS",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-107",
+      "date": "2026-09-09",
+      "type": "Expense",
+      "category": "Operational",
+      "amount": 5100,
+      "description": "Electricity & Generator Diesel",
+      "paymentMode": "Bank Transfer",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-108",
+      "date": "2026-09-10",
+      "type": "Income",
+      "category": "Fee Collection",
+      "amount": 42000,
+      "description": "Pre-Primary Admissions & Kits",
+      "paymentMode": "Cash / UPI POS",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-109",
+      "date": "2026-09-10",
+      "type": "Expense",
+      "category": "Operational",
+      "amount": 4200,
+      "description": "Sanitation & Hygiene Supplies",
+      "paymentMode": "Bank Transfer",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-110",
+      "date": "2026-09-11",
+      "type": "Income",
+      "category": "Fee Collection",
+      "amount": 36000,
+      "description": "Direct Bank UPI Transfer",
+      "paymentMode": "Cash / UPI POS",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-111",
+      "date": "2026-09-11",
+      "type": "Expense",
+      "category": "Operational",
+      "amount": 3500,
+      "description": "Internet Leased Line Bill",
+      "paymentMode": "Bank Transfer",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-112",
+      "date": "2026-09-12",
+      "type": "Income",
+      "category": "Fee Collection",
+      "amount": 28000,
+      "description": "POS Counter Collection Today",
+      "paymentMode": "Cash / UPI POS",
+      "branchId": "BR-01"
+    },
+    {
+      "id": "TXN-2026-113",
+      "date": "2026-09-12",
+      "type": "Expense",
+      "category": "Operational",
+      "amount": 2900,
+      "description": "Sports Equipment Refurbishment",
+      "paymentMode": "Bank Transfer",
+      "branchId": "BR-01"
+    }
+  ]
 };

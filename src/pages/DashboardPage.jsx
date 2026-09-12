@@ -224,6 +224,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
   const attendanceInspection = useMemo(() => {
     const days = [];
     const today = new Date();
+    const totalStaffCount = stats?.totalTeachers || 7;
 
     for (let i = 6; i >= 0; i--) {
       const d = new Date(today);
@@ -235,14 +236,14 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
 
       days.push({
         date: dateLabel,
-        employeePresent: isSunday ? 0 : (22 + (dayNum % 2)),
-        employeeTotal: 23,
+        employeePresent: isSunday ? 0 : totalStaffCount,
+        employeeTotal: totalStaffCount,
         studentRate: isSunday ? 0 : Number((94.5 + (dayNum % 4) * 0.6).toFixed(1)),
         isSunday: isSunday
       });
     }
     return days;
-  }, []);
+  }, [stats]);
 
   // Dynamic Financial Summary Cards (Today, Current Month - September 2026, Session Cumulative)
   const financialSummary = useMemo(() => {
@@ -252,9 +253,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
     const monthName = today.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }); // "September 2026"
 
     const transactions = schoolService.getTransactions ? schoolService.getTransactions() : [];
-    
-    // Verified 100% authentic collections from SQL dump
-    const totalCollectedFee = 1033100;
+    const totalCollectedFee = stats?.totalFeeCollected || 1411800;
 
     let todayIncome = 0;
     let todayExpense = 0;
@@ -289,7 +288,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       cumulativeExpense,
       cumulativeBalance: totalCollectedFee - cumulativeExpense
     };
-  }, []);
+  }, [stats]);
 
   // 🎯 ROLE-SPECIFIC DEDICATED DASHBOARD VIEWS
   if (currentRole === 'Accountant') {
@@ -542,14 +541,19 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           {/* Chart Box with Left Y-Axis Numbers */}
           <div className="relative flex overflow-hidden">
             {/* Y-Axis scale numbers */}
-            <div className="flex flex-col justify-between text-[9.5px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-10 select-none shrink-0">
-              <span>150k</span>
-              <span>120k</span>
-              <span>90k</span>
-              <span>60k</span>
-              <span>30k</span>
-              <span>0</span>
-            </div>
+            {(() => {
+              const maxCashScale = Math.max(50000, ...sevenDaysCashFlow.map(d => Math.max(d.income || 0, d.expense || 0)));
+              return (
+                <div className="flex flex-col justify-between text-[9.5px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-10 select-none shrink-0">
+                  <span>{Math.round(maxCashScale / 1000)}k</span>
+                  <span>{Math.round((maxCashScale * 0.8) / 1000)}k</span>
+                  <span>{Math.round((maxCashScale * 0.6) / 1000)}k</span>
+                  <span>{Math.round((maxCashScale * 0.4) / 1000)}k</span>
+                  <span>{Math.round((maxCashScale * 0.2) / 1000)}k</span>
+                  <span>0</span>
+                </div>
+              );
+            })()}
 
             {/* SVG 7-Day Bar Chart */}
             <div className="flex-1 min-w-0 h-64 flex items-end justify-between gap-1 sm:gap-2 pt-2 pb-2 px-1 relative border-l border-b border-slate-300 dark:border-slate-700 overflow-hidden">
@@ -563,47 +567,49 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 <div className="border-b border-slate-400 w-full"></div>
               </div>
 
-              {sevenDaysCashFlow.map((day, idx) => {
-                const maxScale = 150000;
-                const incPct = Math.min(100, Math.round((day.income / maxScale) * 100));
-                const expPct = Math.min(100, Math.round((day.expense / maxScale) * 100));
-                const isHovered = hoveredBar === `cf-${idx}`;
+              {(() => {
+                const maxCashScale = Math.max(50000, ...sevenDaysCashFlow.map(d => Math.max(d.income || 0, d.expense || 0)));
+                return sevenDaysCashFlow.map((day, idx) => {
+                  const incPct = Math.min(100, Math.round((day.income / maxCashScale) * 100));
+                  const expPct = Math.min(100, Math.round((day.expense / maxCashScale) * 100));
+                  const isHovered = hoveredBar === `cf-${idx}`;
 
-                return (
-                  <div
-                    key={idx}
-                    className="flex-1 min-w-0 flex flex-col items-center h-full justify-end group relative cursor-pointer"
-                    onMouseEnter={() => setHoveredBar(`cf-${idx}`)}
-                    onMouseLeave={() => setHoveredBar(null)}
-                  >
-                    {isHovered && (
-                      <div className="absolute -top-12 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-xl whitespace-nowrap z-20 pointer-events-none">
-                        {day.date}: Income ₹{day.income.toLocaleString()} | Exp ₹{day.expense.toLocaleString()}
+                  return (
+                    <div
+                      key={idx}
+                      className="flex-1 min-w-0 flex flex-col items-center h-full justify-end group relative cursor-pointer"
+                      onMouseEnter={() => setHoveredBar(`cf-${idx}`)}
+                      onMouseLeave={() => setHoveredBar(null)}
+                    >
+                      {isHovered && (
+                        <div className="absolute -top-12 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-xl whitespace-nowrap z-20 pointer-events-none">
+                          {day.date}: Income ₹{day.income.toLocaleString()} | Exp ₹{day.expense.toLocaleString()}
+                        </div>
+                      )}
+
+                      {/* Dual Bars Container */}
+                      <div className="flex items-end gap-1 sm:gap-1.5 w-full justify-center h-full">
+                        {/* Income Bar (Green) */}
+                        <div
+                          className="w-2.5 sm:w-3.5 bg-emerald-600 rounded-t-sm transition-all duration-500 hover:brightness-110 shadow-xs"
+                          style={{ height: `${day.income > 0 ? Math.max(6, incPct) : 2}%` }}
+                        ></div>
+
+                        {/* Expense Bar (Red) */}
+                        <div
+                          className="w-2.5 sm:w-3.5 bg-rose-600 rounded-t-sm transition-all duration-500 hover:brightness-110 shadow-xs"
+                          style={{ height: `${day.expense > 0 ? Math.max(6, expPct) : 2}%` }}
+                        ></div>
                       </div>
-                    )}
 
-                    {/* Dual Bars Container */}
-                    <div className="flex items-end gap-1 sm:gap-1.5 w-full justify-center h-full">
-                      {/* Income Bar (Green) */}
-                      <div
-                        className="w-2.5 sm:w-3.5 bg-emerald-600 rounded-t-sm transition-all duration-500 hover:brightness-110 shadow-xs"
-                        style={{ height: `${day.income > 0 ? Math.max(5, incPct) : 1}%` }}
-                      ></div>
-
-                      {/* Expense Bar (Red) */}
-                      <div
-                        className="w-2.5 sm:w-3.5 bg-rose-600 rounded-t-sm transition-all duration-500 hover:brightness-110 shadow-xs"
-                        style={{ height: `${day.expense > 0 ? Math.max(5, expPct) : 1}%` }}
-                      ></div>
+                      {/* Date Label */}
+                      <span className="text-[8.5px] sm:text-[9.5px] font-bold text-slate-600 dark:text-slate-400 mt-2 truncate max-w-full text-center">
+                        {day.date}
+                      </span>
                     </div>
-
-                    {/* Date Label */}
-                    <span className="text-[8.5px] sm:text-[9.5px] font-bold text-slate-600 dark:text-slate-400 mt-2 truncate max-w-full text-center">
-                      {day.date}
-                    </span>
-                  </div>
-                );
-              })}
+                  );
+                });
+              })()}
             </div>
           </div>
         </div>
@@ -628,12 +634,12 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 </div>
                 <div>
                   <h4 className="text-[11px] font-bold uppercase tracking-wider text-teal-100">Total Present Today</h4>
-                  <p className="text-2xl font-black font-mono mt-0.5">{stats?.presentStudentsToday || 541}</p>
+                  <p className="text-2xl font-black font-mono mt-0.5">{stats?.presentStudentsToday ?? 76}</p>
                 </div>
               </div>
               <div className="text-right text-[11px] text-teal-100 font-semibold space-y-0.5 shrink-0">
-                <div>Boys: <strong className="text-white font-bold">{Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
-                <div>Girls: <strong className="text-white font-bold">{(stats?.presentStudentsToday || 541) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
+                <div>Boys: <strong className="text-white font-bold">{Math.round((stats?.boysCount ?? 40) * 0.95)}</strong></div>
+                <div>Girls: <strong className="text-white font-bold">{(stats?.presentStudentsToday ?? 76) - Math.round((stats?.boysCount ?? 40) * 0.95)}</strong></div>
               </div>
             </div>
 
@@ -645,12 +651,12 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 </div>
                 <div>
                   <h4 className="text-[11px] font-bold uppercase tracking-wider text-amber-100">Total Absent Today</h4>
-                  <p className="text-2xl font-black font-mono mt-0.5">{stats?.absentStudentsToday || 26}</p>
+                  <p className="text-2xl font-black font-mono mt-0.5">{stats?.absentStudentsToday ?? 4}</p>
                 </div>
               </div>
               <div className="text-right text-[11px] text-amber-100 font-semibold space-y-0.5 shrink-0">
-                <div>Boys: <strong className="text-white font-bold">{(stats?.boysCount || 318) - Math.round((stats?.boysCount || 318) * 0.954)}</strong></div>
-                <div>Girls: <strong className="text-white font-bold">{(stats?.girlsCount || 249) - ((stats?.presentStudentsToday || 541) - Math.round((stats?.boysCount || 318) * 0.954))}</strong></div>
+                <div>Boys: <strong className="text-white font-bold">{(stats?.boysCount ?? 40) - Math.round((stats?.boysCount ?? 40) * 0.95)}</strong></div>
+                <div>Girls: <strong className="text-white font-bold">{(stats?.girlsCount ?? 40) - ((stats?.presentStudentsToday ?? 76) - Math.round((stats?.boysCount ?? 40) * 0.95))}</strong></div>
               </div>
             </div>
 
@@ -833,7 +839,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
                   <Users className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-2xl font-black font-mono">{stats?.totalTeachers || 22}</span>
+                <span className="text-2xl font-black font-mono">{stats?.totalTeachers ?? 7}</span>
               </div>
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-amber-100">Employee</h4>
@@ -847,7 +853,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
                   <BookOpen className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-2xl font-black font-mono">{stats?.teachingStaff || 14}</span>
+                <span className="text-2xl font-black font-mono">{stats?.teachingStaff ?? 5}</span>
               </div>
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-purple-100">Teachers</h4>
@@ -861,7 +867,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
                   <Briefcase className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-2xl font-black font-mono">{stats?.supportStaff || 9}</span>
+                <span className="text-2xl font-black font-mono">{stats?.supportStaff ?? 2}</span>
               </div>
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-teal-100">Other Staff</h4>
@@ -877,7 +883,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 <span className="text-[11px] font-bold uppercase block leading-tight">Teaching Staff Present</span>
                 <p className="text-[10px] text-blue-600 dark:text-blue-400 font-bold">TODAY</p>
               </div>
-              <span className="text-xl font-black font-mono text-blue-600 dark:text-blue-300">{stats?.teachingStaff || 14}</span>
+              <span className="text-xl font-black font-mono text-blue-600 dark:text-blue-300">{stats?.teachingStaff ?? 5}</span>
             </div>
 
             <div className="p-3 sm:p-3.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-900 dark:text-orange-200 flex items-center justify-between">
@@ -893,7 +899,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                 <span className="text-[11px] font-bold uppercase block leading-tight">Non-teaching Present</span>
                 <p className="text-[10px] text-cyan-600 dark:text-cyan-400 font-bold">TODAY</p>
               </div>
-              <span className="text-xl font-black font-mono text-cyan-600 dark:text-cyan-300">{stats?.supportStaff || 9}</span>
+              <span className="text-xl font-black font-mono text-cyan-600 dark:text-cyan-300">{stats?.supportStaff ?? 2}</span>
             </div>
 
             <div className="p-3 sm:p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-900 dark:text-rose-200 flex items-center justify-between">
