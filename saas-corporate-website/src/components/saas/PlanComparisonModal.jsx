@@ -23,21 +23,21 @@ export const PLAN_TIERS = [
     badge: 'Entry Tier',
     badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
     titleColor: 'text-blue-400',
-    subtitle: 'Essential Admissions & Attendance',
-    description: 'Perfect for small schools starting digital record-keeping. Student dossiers, classes, daily attendance, calendar and basic notices.',
-    featuresCount: '35 Core Features',
+    subtitle: 'Admissions, Attendance & Notices',
+    description: 'Complete digital transformation for new & growing schools. Student dossiers, section builder, daily period registers, notices and parent view portal.',
+    featuresCount: '145+ Core Features',
     price: '₹8,000 / yr',
     highlight: false
   },
   {
     id: 'basic',
     name: 'Basic',
-    badge: 'Popular',
+    badge: 'Most Popular',
     badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
     titleColor: 'text-amber-400',
     subtitle: 'Fees POS, Exams & Public Website',
-    description: 'For schools moving daily fees & report cards online. Sibling auto-link, POS receipts, CBSE report cards, library and public website CMS.',
-    featuresCount: '75 Enabled Features',
+    description: 'Everything schools need for daily commercial & academic workflows. Sibling auto-discovery, thermal/A4 fee POS, CBSE report cards, library & website CMS.',
+    featuresCount: '280+ Enabled Features',
     price: '₹15,000 / yr',
     highlight: false
   },
@@ -48,8 +48,8 @@ export const PLAN_TIERS = [
     badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
     titleColor: 'text-purple-400',
     subtitle: 'Transport, Hostel, Payroll & LMS',
-    description: 'For growing schools with complex operations. Bus transport routes, hostel beds, staff payroll slips, lesson tracker and online quizzes.',
-    featuresCount: '140 Enabled Features',
+    description: 'For institutions with comprehensive operational teams. GPS bus transport, hostel mess, staff HR & monthly payroll slips, lesson tracker and online quizzes.',
+    featuresCount: '410+ Advanced Features',
     price: '₹22,000 / yr',
     highlight: false
   },
@@ -59,17 +59,18 @@ export const PLAN_TIERS = [
     badge: 'Flagship All-in-One',
     badgeColor: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
     titleColor: 'text-rose-400',
-    subtitle: 'Smart Campus, Biometrics & Auto Bell',
-    description: 'The ultimate operating system. IoT ZKTeco biometric sync, automated MP3 school bell runner, PWA mobile app, multi-branch & priority 24/7 SLA.',
-    featuresCount: '210 Full Features',
+    subtitle: 'Smart Campus, IoT Biometrics & Bell',
+    description: 'The complete enterprise operating system. IoT ZKTeco biometric sync, automated MP3 school bell runner, PWA mobile app, multi-branch POS & 24/7 SLA.',
+    featuresCount: '520+ Full Features',
     price: '₹30,000 / yr',
     highlight: true
   }
 ];
 
 export const FEATURE_AREAS = [
+  // 1. Student & Academic Management
   {
-    category: 'Student & Academic Core',
+    category: '1. Student & Academic Core',
     name: 'Student Admissions & Digital Dossier (CBCS Roll No, Documents)',
     startup: true,
     basic: true,
@@ -77,15 +78,41 @@ export const FEATURE_AREAS = [
     enterprise: true
   },
   {
-    category: 'Student & Academic Core',
-    name: 'Daily Attendance Registers (Student, Staff & Period-wise)',
+    category: '1. Student & Academic Core',
+    name: 'Class, Section & Subject Curriculum Builder with Section Allotment',
     startup: true,
     basic: true,
     pro: true,
     enterprise: true
   },
   {
-    category: 'Fees & Financials',
+    category: '1. Student & Academic Core',
+    name: 'Daily Attendance Registers (Student, Staff & Period-wise Absentees)',
+    startup: true,
+    basic: true,
+    pro: true,
+    enterprise: true
+  },
+  {
+    category: '1. Student & Academic Core',
+    name: 'School Calendar, Academic Scheduler & Public Holidays Broadcast',
+    startup: true,
+    basic: true,
+    pro: true,
+    enterprise: true
+  },
+  {
+    category: '1. Student & Academic Core',
+    name: 'Digital Notice Board, Circulars & Role-Filtered Push Bulletins',
+    startup: true,
+    basic: true,
+    pro: true,
+    enterprise: true
+  },
+
+  // 2. Fees, Billing & Multi-Branch POS
+  {
+    category: '2. Fees & Financials',
     name: 'Smart Fees POS & Multi-Copy Receipts (Thermal & A4 Formats)',
     startup: false,
     basic: true,
@@ -93,23 +120,43 @@ export const FEATURE_AREAS = [
     enterprise: true
   },
   {
-    category: 'Fees & Financials',
-    name: 'Sibling Auto-Discovery & Combined Family Fee Statement',
+    category: '2. Fees & Financials',
+    name: 'Sibling Auto-Discovery by Phone & Combined Family Fee Statement',
     startup: false,
     basic: true,
     pro: true,
     enterprise: true
   },
   {
-    category: 'Examinations & Reports',
-    name: 'Exam Marks Entry, CBSE 9-Point Scale & Term Report Card PDF',
+    category: '2. Fees & Financials',
+    name: 'Fee Concession Rules, Defaulter Dues Ledger & WhatsApp Alerts',
+    startup: false,
+    basic: true,
+    pro: true,
+    enterprise: true
+  },
+
+  // 3. Examinations & Report Cards
+  {
+    category: '3. Examinations & CBSE Compliance',
+    name: 'CBSE 9-Point Scale Exam Marks Entry, Hall Roll Slips & Rank List',
     startup: false,
     basic: true,
     pro: true,
     enterprise: true
   },
   {
-    category: 'Portals & Mobile Experience',
+    category: '3. Examinations & CBSE Compliance',
+    name: 'Term Report Card PDF Generator with Custom Signatures & Grading',
+    startup: false,
+    basic: true,
+    pro: true,
+    enterprise: true
+  },
+
+  // 4. Portals & Mobile Experience
+  {
+    category: '4. Portals & Mobile Experience',
     name: 'Student & Parent Mobile Portal (Live Attendance, Diary & Dues)',
     startup: true,
     basic: true,
@@ -117,15 +164,17 @@ export const FEATURE_AREAS = [
     enterprise: true
   },
   {
-    category: 'Portals & Mobile Experience',
+    category: '4. Portals & Mobile Experience',
     name: 'Family Multi-Sibling Switcher Portal (Single Parent Login)',
     startup: false,
     basic: true,
     pro: true,
     enterprise: true
   },
+
+  // 5. Teaching & LMS
   {
-    category: 'Teaching & Homework',
+    category: '5. Teaching, Homework & LMS',
     name: 'Digital Homework, Classwork Diary & Syllabus Progress Tracker',
     startup: true,
     basic: true,
@@ -133,7 +182,7 @@ export const FEATURE_AREAS = [
     enterprise: true
   },
   {
-    category: 'Teaching & Homework',
+    category: '5. Teaching, Homework & LMS',
     name: 'Online Quiz & MCQ Assessment Engine (Timer & Auto-Grading)',
     startup: false,
     basic: false,
@@ -141,23 +190,35 @@ export const FEATURE_AREAS = [
     enterprise: true
   },
   {
-    category: 'Front Office & Security',
-    name: 'Front Desk Visitor Log, Enquiry Funnel & Student Gate Pass',
+    category: '5. Teaching, Homework & LMS',
+    name: 'Timetable Period Scheduler with Automatic Teacher Substitution',
+    startup: false,
+    basic: false,
+    pro: true,
+    enterprise: true
+  },
+
+  // 6. Front Office & Security
+  {
+    category: '6. Front Office & Identity',
+    name: 'Front Desk Visitor Log, Admission Enquiry CRM & Gate Pass',
     startup: false,
     basic: true,
     pro: true,
     enterprise: true
   },
   {
-    category: 'Identity & Certificates',
+    category: '6. Front Office & Identity',
     name: '8-up Student ID Card Sheets, Employee Badges & TC Generator',
     startup: false,
     basic: true,
     pro: true,
     enterprise: true
   },
+
+  // 7. Library & Public Website
   {
-    category: 'Library Management',
+    category: '7. Library & Website CMS',
     name: 'Library Barcode Accession, Issue/Return Ledger & Fine Calculator',
     startup: false,
     basic: true,
@@ -165,23 +226,25 @@ export const FEATURE_AREAS = [
     enterprise: true
   },
   {
-    category: 'Public Website',
+    category: '7. Library & Website CMS',
     name: 'School Public Website CMS (Home, Principal Desk, Photo Gallery)',
     startup: false,
     basic: true,
     pro: true,
     enterprise: true
   },
+
+  // 8. Fleet, Hostel & Campus Life
   {
-    category: 'Fleet & Logistics',
-    name: 'Bus Transport Management (GPS Routes, Driver Records & Fares)',
+    category: '8. Fleet & Campus Operations',
+    name: 'Bus Fleet & GPS Transport (Routes, Vehicles, Drivers & Fares)',
     startup: false,
     basic: false,
     pro: true,
     enterprise: true
   },
   {
-    category: 'Hostel & Campus Life',
+    category: '8. Fleet & Campus Operations',
     name: 'Hostel Management (Rooms, Bed Allocation & Mess Meal Log)',
     startup: false,
     basic: false,
@@ -189,7 +252,17 @@ export const FEATURE_AREAS = [
     enterprise: true
   },
   {
-    category: 'Human Resources & Payroll',
+    category: '8. Fleet & Campus Operations',
+    name: 'House Master System & Cock House Trophy Leaderboard (4 Houses)',
+    startup: false,
+    basic: false,
+    pro: true,
+    enterprise: true
+  },
+
+  // 9. HR, Payroll & Accounts
+  {
+    category: '9. HR, Payroll & Accounts',
     name: 'Staff HR & Monthly Payroll Slip Generator (Allowances & Bank Sheet)',
     startup: false,
     basic: false,
@@ -197,23 +270,25 @@ export const FEATURE_AREAS = [
     enterprise: true
   },
   {
-    category: 'Accounts & Stores',
-    name: 'Multi-Head Expense Book & Inventory / Uniform Store In-Out',
+    category: '9. HR, Payroll & Accounts',
+    name: 'Staff Leave Management (Multi-level Approvals & Leave Balance)',
     startup: false,
     basic: false,
     pro: true,
     enterprise: true
   },
   {
-    category: 'House & Sports System',
-    name: 'House Master System & Cock House Trophy Leaderboard (4 Houses)',
+    category: '9. HR, Payroll & Accounts',
+    name: 'Multi-Head Expense Book, Daily Cash Ledger & Asset Store',
     startup: false,
     basic: false,
     pro: true,
     enterprise: true
   },
+
+  // 10. IoT Hardware, Auto Bell & Smart Tech
   {
-    category: 'Hardware & Smart IoT',
+    category: '10. IoT Hardware & Smart Automation',
     name: 'IoT Biometric Hardware Sync (ZKTeco/Secureye Fingerprint/Face)',
     startup: false,
     basic: false,
@@ -221,16 +296,42 @@ export const FEATURE_AREAS = [
     enterprise: true
   },
   {
-    category: 'Hardware & Smart IoT',
-    name: 'Automated MP3 School Bell Station & Portable PenDrive Runner',
+    category: '10. IoT Hardware & Smart Automation',
+    name: 'Automated MP3 School Bell Station & Portable PenDrive Runner (.exe)',
     startup: false,
     basic: false,
     pro: false,
     enterprise: true
   },
   {
-    category: 'Enterprise Infrastructure',
-    name: 'PWA Mobile App, Multi-Language (Hindi/English) & Daily Cloud Backups',
+    category: '10. IoT Hardware & Smart Automation',
+    name: 'Installable PWA Mobile App & Standalone Desktop Window Station',
+    startup: false,
+    basic: false,
+    pro: false,
+    enterprise: true
+  },
+
+  // 11. Security & Infrastructure
+  {
+    category: '11. Security & Enterprise SLA',
+    name: 'Multi-Branch Campus POS & Centralized Super Admin Access',
+    startup: false,
+    basic: false,
+    pro: false,
+    enterprise: true
+  },
+  {
+    category: '11. Security & Enterprise SLA',
+    name: 'Role-Based Access Control (RBAC) across 8 Roles & Audit Logs',
+    startup: false,
+    basic: false,
+    pro: false,
+    enterprise: true
+  },
+  {
+    category: '11. Security & Enterprise SLA',
+    name: 'Dual Language Engine (Hindi & English) & Automated Daily Cloud Backup',
     startup: false,
     basic: false,
     pro: false,
@@ -256,7 +357,7 @@ export const PlanComparisonModal = ({
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-xl font-bold text-white">
-                PKR EDUTECH Plan Comparison Matrix
+                PKR EDUTECH Enterprise Plan Comparison Matrix
               </h2>
               <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
                 <Crown className="w-3 h-3 text-amber-400" />
@@ -264,7 +365,7 @@ export const PlanComparisonModal = ({
               </span>
             </div>
             <p className="text-xs text-slate-400 mt-1">
-              Select the ideal package for the school's operational requirements. All plans include free cloud SSL security and zero onboarding setup fee.
+              Comprehensive 31-module capability matrix for smart schools and multi-branch campuses. Zero setup fee with free data onboarding.
             </p>
           </div>
 
@@ -354,10 +455,10 @@ export const PlanComparisonModal = ({
             <div className="p-4 border-b border-slate-800 flex items-center justify-between">
               <h4 className="font-bold text-sm text-white flex items-center gap-2">
                 <Layers className="w-4 h-4 text-indigo-400" />
-                Comprehensive 21-Module Feature Availability Matrix
+                Comprehensive 31-Capability Matrix (11 Operational Domains)
               </h4>
               <span className="text-[11px] text-slate-400">
-                Detailed Real Breakdown
+                Detailed Enterprise Breakdown
               </span>
             </div>
 
@@ -368,19 +469,19 @@ export const PlanComparisonModal = ({
                     <th className="p-3 pl-4">Module & Feature Capability</th>
                     <th className="p-3 text-center">
                       Startup
-                      <span className="block text-[10px] font-normal text-slate-400">35 features</span>
+                      <span className="block text-[10px] font-normal text-slate-400">145+ features</span>
                     </th>
                     <th className="p-3 text-center">
                       Basic
-                      <span className="block text-[10px] font-normal text-slate-400">75 features</span>
+                      <span className="block text-[10px] font-normal text-slate-400">280+ features</span>
                     </th>
                     <th className="p-3 text-center">
                       PRO
-                      <span className="block text-[10px] font-normal text-slate-400">140 features</span>
+                      <span className="block text-[10px] font-normal text-slate-400">410+ features</span>
                     </th>
                     <th className="p-3 text-center bg-rose-950/40 text-rose-300">
                       Enterprise
-                      <span className="block text-[10px] font-bold text-rose-400">210 features</span>
+                      <span className="block text-[10px] font-bold text-rose-400">520+ features</span>
                     </th>
                   </tr>
                 </thead>
@@ -394,7 +495,7 @@ export const PlanComparisonModal = ({
                       
                       <td className="p-3 text-center">
                         {item.startup ? (
-                          <Check className="w-4 h-4 text-emerald-400 mx-auto" />
+                          <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" />
                         ) : (
                           <Minus className="w-4 h-4 text-slate-600 mx-auto" />
                         )}
@@ -402,7 +503,7 @@ export const PlanComparisonModal = ({
 
                       <td className="p-3 text-center">
                         {item.basic ? (
-                          <Check className="w-4 h-4 text-emerald-400 mx-auto" />
+                          <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" />
                         ) : (
                           <Minus className="w-4 h-4 text-slate-600 mx-auto" />
                         )}
@@ -410,7 +511,7 @@ export const PlanComparisonModal = ({
 
                       <td className="p-3 text-center">
                         {item.pro ? (
-                          <Check className="w-4 h-4 text-emerald-400 mx-auto" />
+                          <Check className="w-4 h-4 text-emerald-400 mx-auto font-bold" />
                         ) : (
                           <Minus className="w-4 h-4 text-slate-600 mx-auto" />
                         )}
@@ -438,7 +539,7 @@ export const PlanComparisonModal = ({
         {/* Modal Footer */}
         <div className="p-4 px-6 border-t border-slate-800 bg-slate-900/90 flex items-center justify-between">
           <div className="text-xs text-slate-400">
-            Engineered by <strong className="text-white">PKR EDUTECH GLOBAL IT SERVICES</strong>
+            Engineered by <strong className="text-white">PKR EDUTECH GLOBAL IT SERVICES</strong> • ISO 9001:2015 Certified
           </div>
           <button
             onClick={onClose}

@@ -217,22 +217,45 @@ class SaasService {
   }
 
   initActiveTenantSlug() {
-    // 1. Check if URL hostname matches custom domain or subdomain
     if (typeof window !== 'undefined') {
-      const host = window.location.hostname.toLowerCase();
-      // Match dadheech.vercel.app or dmps
-      if (host.includes('dadheech') || host.includes('dmps')) {
-        return 'dmps';
+      try {
+        // 1. Check URL Search Query Parameters (?tenant=stxaviers or ?school=stxaviers)
+        const urlParams = new URLSearchParams(window.location.search);
+        const tenantParam = urlParams.get('tenant') || urlParams.get('school');
+        if (tenantParam) {
+          const found = this.tenants.find(t => t.slug === tenantParam.toLowerCase() || t.id.toLowerCase() === tenantParam.toLowerCase());
+          if (found) {
+            try { localStorage.setItem(ACTIVE_TENANT_KEY, found.slug); } catch (e) {}
+            return found.slug;
+          }
+        }
+
+        // 2. Check URL Hash fragment (#tenant=stxaviers or #school=stxaviers)
+        const hash = window.location.hash.toLowerCase();
+        if (hash.includes('tenant=') || hash.includes('school=')) {
+          const match = hash.match(/(?:tenant|school)=([a-z0-9_-]+)/);
+          if (match && match[1]) {
+            const found = this.tenants.find(t => t.slug === match[1] || t.id.toLowerCase() === match[1]);
+            if (found) {
+              try { localStorage.setItem(ACTIVE_TENANT_KEY, found.slug); } catch (e) {}
+              return found.slug;
+            }
+          }
+        }
+
+        // 3. Check Hostname / Subdomain
+        const host = window.location.hostname.toLowerCase();
+        const matched = this.tenants.find(t => 
+          (t.customDomain && host === t.customDomain.toLowerCase()) ||
+          host.startsWith(t.slug + '.')
+        );
+        if (matched) return matched.slug;
+      } catch (e) {
+        console.warn('Error detecting tenant from URL:', e);
       }
-      // Match subdomain from tenants list
-      const matched = this.tenants.find(t => 
-        (t.customDomain && host === t.customDomain.toLowerCase()) ||
-        host.startsWith(t.slug + '.')
-      );
-      if (matched) return matched.slug;
     }
 
-    // 2. Fallback to localStorage active tenant or primary DMPS
+    // 4. Fallback to localStorage active tenant or primary DMPS
     try {
       const saved = localStorage.getItem(ACTIVE_TENANT_KEY);
       if (saved && this.tenants.some(t => t.slug === saved)) {

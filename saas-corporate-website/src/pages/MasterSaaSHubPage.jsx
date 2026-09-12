@@ -475,6 +475,13 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
                             {tenant.customDomain}
                           </code>
                           <button
+                            onClick={() => window.open(`https://dadheech.vercel.app/?tenant=${tenant.slug}#login`, '_blank')}
+                            className="p-1 text-indigo-500 hover:text-indigo-400 rounded"
+                            title="Launch Live Demo School"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </button>
+                          <button
                             onClick={() => copyToClipboard(`https://${tenant.customDomain}`, 'URL')}
                             className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded"
                             title="Copy Link"
@@ -550,15 +557,18 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
 
                     <div className="flex items-center gap-2">
                       <button
-                        onClick={() => handleSwitchTenant(tenant)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 ${
+                        onClick={() => {
+                          handleSwitchTenant(tenant);
+                          window.open(`https://dadheech.vercel.app/?tenant=${tenant.slug}#login`, '_blank');
+                        }}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                           isSelected
-                            ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 font-semibold'
-                            : 'bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 text-slate-700 dark:text-slate-300'
+                            ? 'bg-indigo-600 text-white shadow-md'
+                            : 'bg-indigo-500/20 text-indigo-300 hover:bg-indigo-600 hover:text-white border border-indigo-500/30'
                         }`}
                       >
-                        {isSelected ? <Check className="w-3.5 h-3.5" /> : <RefreshCw className="w-3.5 h-3.5" />}
-                        {isSelected ? 'Active Context' : 'Manage ERP'}
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>Launch School ERP ↗</span>
                       </button>
                     </div>
                   </div>

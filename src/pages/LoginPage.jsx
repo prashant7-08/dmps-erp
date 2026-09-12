@@ -3,9 +3,13 @@ import { Shield, Mail, Lock, Eye, EyeOff, ArrowRight, AlertCircle, CheckCircle2,
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../components/common/Toast';
 
+import schoolService from '../services/schoolService';
+import saasService from '../services/saasService';
+
 export const LoginPage = ({ onLoginSuccess, onBackToWebsite, onOpenMasterSaaS }) => {
   const { login, loading } = useAuth();
   const { showToast } = useToast();
+  const activeTenant = saasService.getActiveTenant();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -52,16 +56,21 @@ export const LoginPage = ({ onLoginSuccess, onBackToWebsite, onOpenMasterSaaS })
           <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-xl p-1 border-2 border-amber-400">
             <img
               src="/logo.png"
-              alt="Dadheech Educational Group Crest"
+              alt="School Crest"
               className="w-full h-full object-contain rounded-full"
             />
           </div>
           <h1 className="text-xl font-black tracking-tight text-white leading-snug font-serif">
-            Dadheech Memorial Public School
+            {activeTenant?.name || 'Dadheech Memorial Public School'}
           </h1>
           <p className="text-[11px] text-amber-300 mt-1 font-bold uppercase tracking-wider">
-            DMPS Official ERP & Academic Portal
+            {activeTenant?.shortName || 'DMPS'} Official ERP Portal • {activeTenant?.city || 'Campus'}
           </p>
+          {activeTenant?.affiliation && (
+            <span className="inline-block mt-1 text-[10px] bg-black/30 px-2 py-0.5 rounded-full text-white/90">
+              {activeTenant.affiliation}
+            </span>
+          )}
         </div>
 
         {/* Form Body */}
