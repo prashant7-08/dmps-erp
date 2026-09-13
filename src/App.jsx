@@ -87,10 +87,10 @@ function AppContent() {
     if (typeof window === 'undefined') return;
     const isSaaS = isSaaSDomain() || activeTab === 'product' || activeTab === 'saas-landing' || activeTab === 'master-saas';
     if (isSaaS) {
-      document.title = "PKR EDUTECH — Enterprise Cloud School ERP & Smart Campus OS";
+      document.title = "PKR ENTERPRISES — Enterprise Cloud School ERP & Smart Campus OS";
       if (window.gtag) {
         window.gtag('event', 'page_view', {
-          page_title: 'PKR EDUTECH — Enterprise Cloud School ERP & Smart Campus OS',
+          page_title: 'PKR ENTERPRISES — Enterprise Cloud School ERP & Smart Campus OS',
           page_location: window.location.href,
           send_to: 'G-9G96F455YF'
         });

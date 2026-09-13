@@ -59,7 +59,7 @@ export const HomePage = ({
   const paperCostSaved = Math.round(studentsCount * 180);
 
   const handleWhatsAppBooking = (msg = '') => {
-    const defaultText = "Hello PKR EDUTECH Team! I would like to get a quote and schedule a free live demonstration of your School ERP & IT Solutions.";
+    const defaultText = "Hello PKR ENTERPRISES Team! I would like to get a quote and schedule a free live demonstration of your School ERP & IT Solutions.";
     const text = encodeURIComponent(msg || defaultText);
     window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
@@ -76,7 +76,7 @@ export const HomePage = ({
           {/* Release Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-indigo-200 text-xs font-semibold text-indigo-800 shadow-sm backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-            <span>PKR EDUTECH 2027 Edition • 210+ ERP Modules Active • Genuine & Competitive Pricing</span>
+            <span>PKR ENTERPRISES 2027 Edition • 210+ ERP Modules Active • Genuine & Competitive Pricing</span>
           </div>
 
           {/* Main Headline */}

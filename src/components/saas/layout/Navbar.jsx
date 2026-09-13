@@ -140,14 +140,14 @@ export const Navbar = ({
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xl font-black tracking-tight text-slate-900 font-sans">
-                PKR<span className="text-indigo-600"> EDUTECH</span>
+                PKR<span className="text-indigo-600"> ENTERPRISES</span>
               </span>
               <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold uppercase tracking-wider">
-                GLOBAL IT SERVICES
+                GOVT. MSME: UDYAM-UP-02-0128276
               </span>
             </div>
             <p className="text-[10px] text-slate-500 font-medium">
-              Software • Server • Biometrics • Bell • Printing • Hardware
+              Enterprise Software • Cloud Server • Biometrics • Smart Campus OS
             </p>
           </div>
         </div>

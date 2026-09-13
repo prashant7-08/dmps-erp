@@ -32,6 +32,8 @@ import { MasterSaaSHubPage } from './pages/MasterSaaSHubPage';
 import { PharmacyChemistBillingApp } from './pages/apps/PharmacyChemistBillingApp';
 import { RetailSupermarketPOSApp } from './pages/apps/RetailSupermarketPOSApp';
 import { StandaloneIdCardStudio } from './pages/apps/StandaloneIdCardStudio';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { TermsOfServicePage } from './pages/TermsOfServicePage';
 import { PlanComparisonModal } from './components/saas/PlanComparisonModal';
 import { ToastProvider, useToast } from './components/common/Toast';
 
@@ -168,7 +170,7 @@ function AppContent() {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h2 className="font-bold text-lg text-slate-900">PKR EDUTECH Master Console</h2>
+                  <h2 className="font-bold text-lg text-slate-900">PKR ENTERPRISES Master Console</h2>
                   <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold">
                     Authenticated Session
                   </span>
@@ -302,6 +304,18 @@ function AppContent() {
       case 'contact':
         return (
           <ContactPage
+            onNavigate={navigateTo}
+          />
+        );
+      case 'privacy':
+        return (
+          <PrivacyPolicyPage
+            onNavigate={navigateTo}
+          />
+        );
+      case 'terms':
+        return (
+          <TermsOfServicePage
             onNavigate={navigateTo}
           />
         );

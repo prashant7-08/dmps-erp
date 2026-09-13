@@ -26,7 +26,7 @@ import { STUDENT_STRENGTH_MATRIX } from "../../../components/saas/PlanComparison
 
 export const SchoolErpPage = ({ onNavigate, onLaunchDemo, onOpenContactModal }) => {
   const handleWhatsAppBooking = (msg = '') => {
-    const text = encodeURIComponent(msg || "Hello PKR EDUTECH! I would like to book a free live demonstration and quotation for your School ERP Software.");
+    const text = encodeURIComponent(msg || "Hello PKR ENTERPRISES! I would like to book a free live demonstration and quotation for your School ERP Software.");
     window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 

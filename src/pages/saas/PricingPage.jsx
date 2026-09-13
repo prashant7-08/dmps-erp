@@ -26,7 +26,7 @@ export const PricingPage = ({ onNavigate, onLaunchDemo, onOpenContactModal }) =>
   const [activePricingTab, setActivePricingTab] = useState('school-erp'); // 'school-erp' | 'plans-matrix' | 'pos-billing' | 'hardware-addons'
 
   const handleWhatsAppBooking = (msg = '') => {
-    const text = encodeURIComponent(msg || "Hello PKR EDUTECH! I would like to get a customized pricing quotation for my school.");
+    const text = encodeURIComponent(msg || "Hello PKR ENTERPRISES! I would like to get a customized pricing quotation for my school.");
     window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 

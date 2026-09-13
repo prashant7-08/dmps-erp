@@ -1205,7 +1205,7 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
             {/* Invoice Printable Header */}
             <div className="flex justify-between items-start border-b pb-4">
               <div>
-                <h2 className="text-xl font-black text-indigo-700 tracking-tight">PKR EDUTECH GLOBAL IT SERVICES</h2>
+                <h2 className="text-xl font-black text-indigo-700 tracking-tight">PKR ENTERPRISES</h2>
                 <p className="text-xs text-slate-500">Official Enterprise School ERP & Smart Campus SaaS Provider • ISO 9001:2015</p>
                 <p className="text-xs text-slate-500">Agra / NCR, India • support@pkredutech.vercel.app</p>
               </div>

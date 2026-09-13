@@ -17,7 +17,7 @@ import { Breadcrumb } from '../../components/layout/Breadcrumb';
 
 export const WhatsAppApiPage = ({ onNavigate, onOpenContactModal }) => {
   const handleWhatsAppBooking = (msg = '') => {
-    const text = encodeURIComponent(msg || "Hello PKR EDUTECH! I would like to get official WhatsApp Business Cloud API setup for my school.");
+    const text = encodeURIComponent(msg || "Hello PKR ENTERPRISES! I would like to get official WhatsApp Business Cloud API setup for my school.");
     window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 

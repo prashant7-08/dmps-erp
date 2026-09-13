@@ -18,7 +18,7 @@ import { Breadcrumb } from '../../components/layout/Breadcrumb';
 
 export const BiometricsPage = ({ onNavigate, onOpenContactModal }) => {
   const handleWhatsAppBooking = (msg = '') => {
-    const text = encodeURIComponent(msg || "Hello PKR EDUTECH! I would like to enquire about Biometric Fingerprint & Face Recognition Attendance setup for my school.");
+    const text = encodeURIComponent(msg || "Hello PKR ENTERPRISES! I would like to enquire about Biometric Fingerprint & Face Recognition Attendance setup for my school.");
     window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 

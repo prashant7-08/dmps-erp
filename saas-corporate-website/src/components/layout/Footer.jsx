@@ -46,16 +46,16 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-lg font-black text-slate-900">PKR<span className="text-indigo-600"> EDUTECH</span></span>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Global IT & ERP Ecosystem</p>
+              <span className="text-lg font-black text-slate-900">PKR<span className="text-indigo-600"> ENTERPRISES</span></span>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Govt. MSME Reg: UDYAM-UP-02-0128276</p>
             </div>
           </div>
           <p className="text-xs text-slate-600 leading-relaxed max-w-sm">
-            PKR EDUTECH is a premier technology company delivering Next-Gen School ERP software, dedicated cloud VPS servers, IoT biometric devices, automated MP3 school bells, and PVC smart cards to 100+ schools and businesses across India.
+            <strong>PKR ENTERPRISES</strong> is a Government of India recognized MSME technology enterprise delivering Next-Gen Cloud School ERP software, dedicated VPS servers, IoT biometric devices, automated MP3 school bells, and PVC smart cards to schools and businesses across India.
           </p>
           <div className="flex items-center gap-3 text-xs text-emerald-700 font-semibold bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 inline-flex">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>All Systems 100% Operational • 2027 Ready</span>
+            <span>Govt. MSME Registered Enterprise • UDYAM-UP-02-0128276</span>
           </div>
         </div>
 
@@ -125,13 +125,13 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
 
         {/* Col 4: Corporate Office & Direct Contacts */}
         <div className="space-y-3 text-xs">
-          <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider">Direct Contacts</h4>
+          <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider">Enterprise Contacts</h4>
           <div className="space-y-2.5 text-slate-600">
             <div className="flex items-start gap-2">
               <Phone className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
               <div>
                 <strong className="text-slate-900 block">+91 9719476606</strong>
-                <span className="text-[11px] text-slate-500">Sales & 24/7 WhatsApp Support</span>
+                <span className="text-[11px] text-slate-500">Official Helpline & WhatsApp</span>
               </div>
             </div>
 
@@ -139,14 +139,15 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
               <Mail className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
               <div>
                 <strong className="text-slate-900 block">prashant732009@gmail.com</strong>
-                <span className="text-[11px] text-slate-500">Official Inquiries & Proposals</span>
+                <span className="text-[11px] text-slate-500">Official Inquiries & Support</span>
               </div>
             </div>
 
             <div className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
               <div>
-                <span className="text-slate-700">PKR EDUTECH Tech Campus, Vinay Nagar, Sangwan City Road, PAC Quarsi (Aligarh), UP, India</span>
+                <strong className="text-slate-900 block">PKR ENTERPRISES</strong>
+                <span className="text-slate-700 text-[11px]">Dadheech Building, Jargwan, Bulandshahr (U.P.) - 202395, India</span>
               </div>
             </div>
           </div>
@@ -157,8 +158,12 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
       {/* Bottom Legal Bar */}
       <div className="border-t border-slate-200 py-6 bg-slate-50 text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p>© {new Date().getFullYear()} PKR EDUTECH Global IT Services. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} PKR ENTERPRISES. All Rights Reserved. (Govt. MSME Reg: UDYAM-UP-02-0128276)</p>
           <div className="flex items-center gap-4">
+            <button onClick={() => onNavigate('privacy')} className="hover:text-indigo-600 font-semibold">Privacy Policy</button>
+            <span>•</span>
+            <button onClick={() => onNavigate('terms')} className="hover:text-indigo-600 font-semibold">Terms of Service</button>
+            <span>•</span>
             <button onClick={() => onNavigate('about')} className="hover:text-slate-900">About Us</button>
             <span>•</span>
             <button onClick={() => onNavigate('pricing')} className="hover:text-slate-900">Pricing Policy</button>

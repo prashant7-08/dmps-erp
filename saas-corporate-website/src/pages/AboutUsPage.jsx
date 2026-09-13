@@ -61,7 +61,7 @@ export const AboutUsPage = ({ onNavigate, onOpenContactModal }) => {
       <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm space-y-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-100 text-indigo-900 border border-indigo-200 text-xs font-bold">
           <Building2 className="w-4 h-4 text-indigo-600" />
-          <span>PKR EDUTECH Global IT Services • Established Mission</span>
+          <span>PKR ENTERPRISES Global IT Services • Established Mission</span>
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight max-w-4xl">
@@ -69,7 +69,7 @@ export const AboutUsPage = ({ onNavigate, onOpenContactModal }) => {
         </h1>
 
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-3xl">
-          PKR EDUTECH was founded to solve a critical challenge faced by schools, colleges, and retail businesses across India: modernizing manual campus operations with dependable, high-speed software and IoT hardware without burning a hole in their budget.
+          PKR ENTERPRISES was founded to solve a critical challenge faced by schools, colleges, and retail businesses across India: modernizing manual campus operations with dependable, high-speed software and IoT hardware without burning a hole in their budget.
         </p>
       </section>
 

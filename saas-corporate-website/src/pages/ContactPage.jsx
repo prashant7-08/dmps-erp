@@ -32,7 +32,7 @@ export const ContactPage = ({ onNavigate }) => {
       return;
     }
     const lines = [
-      '👋 Hello PKR EDUTECH Global IT Services! I have a website enquiry & demo request:',
+      '👋 Hello PKR ENTERPRISES Global IT Services! I have a website enquiry & demo request:',
       `• Name: ${contactForm.name}`,
       `• Mobile: ${contactForm.phone}`,
       `• Service Required: ${contactForm.service}`,

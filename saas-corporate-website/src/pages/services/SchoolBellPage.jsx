@@ -18,7 +18,7 @@ import { Breadcrumb } from '../../components/layout/Breadcrumb';
 
 export const SchoolBellPage = ({ onNavigate, onOpenContactModal }) => {
   const handleWhatsAppBooking = (msg = '') => {
-    const text = encodeURIComponent(msg || "Hello PKR EDUTECH! I would like to purchase your Automatic MP3 School Bell Software.");
+    const text = encodeURIComponent(msg || "Hello PKR ENTERPRISES! I would like to purchase your Automatic MP3 School Bell Software.");
     window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 

@@ -465,7 +465,7 @@ export const PlanComparisonModal = ({
   if (!isOpen) return null;
 
   const handleBookDemoWhatsApp = (tierName) => {
-    const text = encodeURIComponent(`Hello PKR EDUTECH Team! I am interested in ${tierName} School ERP Package. Please provide a demo and consultation.`);
+    const text = encodeURIComponent(`Hello PKR ENTERPRISES Team! I am interested in ${tierName} School ERP Package. Please provide a demo and consultation.`);
     window.open(`https://wa.me/919719476606?text=${text}`, '_blank');
   };
 
@@ -478,7 +478,7 @@ export const PlanComparisonModal = ({
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <h2 className="text-lg sm:text-xl font-black text-slate-900">
-                PKR EDUTECH Complete Pricing & Capability Matrix
+                PKR ENTERPRISES Complete Pricing & Capability Matrix
               </h2>
               <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1">
                 <Crown className="w-3.5 h-3.5 text-amber-600" />
@@ -866,7 +866,7 @@ export const PlanComparisonModal = ({
         {/* Modal Footer */}
         <div className="p-4 px-6 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-xs text-slate-600 text-center sm:text-left">
-            Engineered by <strong className="text-slate-900">PKR EDUTECH GLOBAL IT SERVICES</strong> • ISO 9001:2015 Certified
+            Engineered by <strong className="text-slate-900">PKR ENTERPRISES</strong> • ISO 9001:2015 Certified
           </div>
           <button
             onClick={onClose}
