@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { MainLayout } from './layout/MainLayout';
 import { ToastProvider } from './components/common/Toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -588,6 +589,7 @@ function App() {
           <ToastProvider>
             <AppContent />
             <Analytics />
+            <SpeedInsights />
           </ToastProvider>
         </AuthProvider>
       </LanguageProvider>
