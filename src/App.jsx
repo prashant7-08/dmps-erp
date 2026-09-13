@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { MainLayout } from './layout/MainLayout';
 import { ToastProvider } from './components/common/Toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -586,6 +587,7 @@ function App() {
         <AuthProvider>
           <ToastProvider>
             <AppContent />
+            <Analytics />
           </ToastProvider>
         </AuthProvider>
       </LanguageProvider>
