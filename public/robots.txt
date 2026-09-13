@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dadheech.vercel.app/sitemap.xml
