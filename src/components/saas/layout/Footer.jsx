@@ -16,10 +16,10 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
   return (
     <footer className="mt-20 border-t border-slate-200 bg-white text-slate-700">
       {/* Top Value Banner */}
-      <div className="bg-gradient-to-r from-indigo-50 via-white to-purple-50 border-b border-slate-200 py-8">
+      <div className="bg-slate-50 border-b border-slate-200 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center shrink-0">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
@@ -29,7 +29,7 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
           </div>
           <button
             onClick={onOpenContactModal}
-            className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-md transition-all shrink-0"
+            className="px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold rounded-xl shadow-md transition-all shrink-0"
           >
             Get Custom Proposal ↗
           </button>
@@ -42,19 +42,19 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
         {/* Col 1: Brand & Bio */}
         <div className="lg:col-span-2 space-y-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center text-white shadow-md">
-              <Sparkles className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl bg-blue-700 flex items-center justify-center text-white font-black text-base shadow-sm">
+              PKR
             </div>
             <div>
-              <span className="text-lg font-black text-slate-900">PKR<span className="text-indigo-600"> ENTERPRISES</span></span>
+              <span className="text-lg font-black text-slate-900">PKR<span className="text-blue-700"> ENTERPRISES</span></span>
               <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Govt. MSME Reg: UDYAM-UP-02-0128276</p>
             </div>
           </div>
           <p className="text-xs text-slate-600 leading-relaxed max-w-sm">
-            <strong>PKR ENTERPRISES</strong> is a Government of India recognized MSME technology enterprise delivering Next-Gen Cloud School ERP software, dedicated VPS servers, IoT biometric devices, automated MP3 school bells, and PVC smart cards to schools and businesses across India.
+            <strong>PKR ENTERPRISES</strong> is a Government of India recognized MSME technology enterprise delivering reliable Cloud School ERP software, dedicated VPS servers, IoT biometric devices, automated MP3 school bells, and PVC smart cards to schools and businesses across India.
           </p>
-          <div className="flex items-center gap-3 text-xs text-emerald-700 font-semibold bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 inline-flex">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="flex items-center gap-2 text-xs text-emerald-800 font-semibold bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-300 inline-flex">
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
             <span>Govt. MSME Registered Enterprise • UDYAM-UP-02-0128276</span>
           </div>
         </div>
@@ -64,27 +64,27 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
           <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider">Software & Cloud</h4>
           <ul className="space-y-2">
             <li>
-              <button onClick={() => onNavigate('services/school-erp')} className="hover:text-indigo-600 transition-colors">
+              <button onClick={() => onNavigate('services/school-erp')} className="hover:text-blue-700 transition-colors">
                 School ERP Software (210+ Modules)
               </button>
             </li>
             <li>
-              <button onClick={() => onNavigate('services/cloud-server')} className="hover:text-indigo-600 transition-colors">
+              <button onClick={() => onNavigate('services/cloud-server')} className="hover:text-blue-700 transition-colors">
                 Dedicated Cloud VPS & Databases
               </button>
             </li>
             <li>
-              <button onClick={() => onNavigate('services/whatsapp-api')} className="hover:text-indigo-600 transition-colors">
+              <button onClick={() => onNavigate('services/whatsapp-api')} className="hover:text-blue-700 transition-colors">
                 WhatsApp Official Cloud Business API
               </button>
             </li>
             <li>
-              <button onClick={() => onNavigate('services/retail-billing')} className="hover:text-indigo-600 transition-colors">
+              <button onClick={() => onNavigate('services/retail-billing')} className="hover:text-blue-700 transition-colors">
                 Retail & Pharmacy POS Software
               </button>
             </li>
             <li>
-              <button onClick={() => onNavigate('modules')} className="hover:text-indigo-600 transition-colors font-semibold text-indigo-600">
+              <button onClick={() => onNavigate('modules')} className="hover:text-blue-700 transition-colors font-semibold text-blue-700">
                 Browse All 210+ ERP Modules →
               </button>
             </li>
@@ -96,27 +96,27 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
           <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider">Hardware & Printing</h4>
           <ul className="space-y-2">
             <li>
-              <button onClick={() => onNavigate('services/biometrics')} className="hover:text-indigo-600 transition-colors">
+              <button onClick={() => onNavigate('services/biometrics')} className="hover:text-blue-700 transition-colors">
                 Biometric Fingerprint & Face Machines
               </button>
             </li>
             <li>
-              <button onClick={() => onNavigate('services/school-bell')} className="hover:text-indigo-600 transition-colors">
+              <button onClick={() => onNavigate('services/school-bell')} className="hover:text-blue-700 transition-colors">
                 Automated MP3 School Bell Software
               </button>
             </li>
             <li>
-              <button onClick={() => onNavigate('services/id-cards')} className="hover:text-indigo-600 transition-colors">
+              <button onClick={() => onNavigate('services/id-cards')} className="hover:text-blue-700 transition-colors">
                 PVC Smart ID Cards & Lanyards
               </button>
             </li>
             <li>
-              <button onClick={() => onNavigate('services/campus-cctv')} className="hover:text-indigo-600 transition-colors">
+              <button onClick={() => onNavigate('services/campus-cctv')} className="hover:text-blue-700 transition-colors">
                 Campus CCTV, Mesh Wi-Fi & AMC
               </button>
             </li>
             <li>
-              <button onClick={() => onNavigate('pricing')} className="hover:text-indigo-600 transition-colors font-semibold text-indigo-600">
+              <button onClick={() => onNavigate('pricing')} className="hover:text-blue-700 transition-colors font-semibold text-blue-700">
                 School Pricing Matrix (From ₹2,499) →
               </button>
             </li>
@@ -136,7 +136,7 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
             </div>
 
             <div className="flex items-start gap-2">
-              <Mail className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+              <Mail className="w-4 h-4 text-blue-700 shrink-0 mt-0.5" />
               <div>
                 <strong className="text-slate-900 block">prashant732009@gmail.com</strong>
                 <span className="text-[11px] text-slate-500">Official Inquiries & Support</span>
@@ -160,9 +160,9 @@ export const Footer = ({ onNavigate, onOpenContactModal }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p>© {new Date().getFullYear()} PKR ENTERPRISES. All Rights Reserved. (Govt. MSME Reg: UDYAM-UP-02-0128276)</p>
           <div className="flex items-center gap-4">
-            <button onClick={() => onNavigate('privacy')} className="hover:text-indigo-600 font-semibold">Privacy Policy</button>
+            <button onClick={() => onNavigate('privacy')} className="hover:text-blue-700 font-semibold">Privacy Policy</button>
             <span>•</span>
-            <button onClick={() => onNavigate('terms')} className="hover:text-indigo-600 font-semibold">Terms of Service</button>
+            <button onClick={() => onNavigate('terms')} className="hover:text-blue-700 font-semibold">Terms of Service</button>
             <span>•</span>
             <button onClick={() => onNavigate('about')} className="hover:text-slate-900">About Us</button>
             <span>•</span>
