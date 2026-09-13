@@ -48,11 +48,22 @@ import { LanguageProvider } from './utils/languageContext';
 function AppContent() {
   const { isAuthenticated, role: authRole } = useAuth();
   
+  // Detect if opened on SaaS commercial domain (pkredutech.vercel.app / pkredutech.com)
+  const isSaaSDomain = () => {
+    if (typeof window === 'undefined') return false;
+    const host = (window.location.hostname || '').toLowerCase();
+    const hash = (window.location.hash || '').toLowerCase();
+    return host.includes('pkredutech') || host.includes('edumantra') || hash === '#product' || hash === '#saas' || hash === '#pricing' || hash === '#commercial';
+  };
+
   // Read initial tab from URL hash if present
   const getInitialTab = () => {
     const hash = window.location.hash.replace('#', '').trim();
     if (hash && hash !== 'website' && hash !== 'admissions' && hash !== 'login') {
       return hash;
+    }
+    if (isSaaSDomain()) {
+      return 'product';
     }
     return 'dashboard';
   };
@@ -70,6 +81,31 @@ function AppContent() {
   const [currentRole, setCurrentRole] = useState(authRole || 'Super Admin');
   const [isOnline, setIsOnline] = useState(typeof navigator !== 'undefined' ? navigator.onLine : true);
   const [showOnlineToast, setShowOnlineToast] = useState(false);
+
+  // Dynamic Google Analytics Page Tracking & Title Calibration
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const isSaaS = isSaaSDomain() || activeTab === 'product' || activeTab === 'saas-landing' || activeTab === 'master-saas';
+    if (isSaaS) {
+      document.title = "PKR EDUTECH — Enterprise Cloud School ERP & Smart Campus OS";
+      if (window.gtag) {
+        window.gtag('event', 'page_view', {
+          page_title: 'PKR EDUTECH — Enterprise Cloud School ERP & Smart Campus OS',
+          page_location: window.location.href,
+          send_to: 'G-9G96F455YF'
+        });
+      }
+    } else {
+      document.title = "Dadheech Memorial Public School — Official Portal & Smart ERP";
+      if (window.gtag) {
+        window.gtag('event', 'page_view', {
+          page_title: 'Dadheech Memorial Public School — Official Portal & Smart ERP',
+          page_location: window.location.href,
+          send_to: 'G-79K0TNTP3R'
+        });
+      }
+    }
+  }, [activeTab]);
 
   React.useEffect(() => {
     const handleOnline = () => {
@@ -90,6 +126,7 @@ function AppContent() {
   }, []);
   const [selectedStudentForProfile, setSelectedStudentForProfile] = useState(null);
   const [isViewingWebsite, setIsViewingWebsite] = useState(() => {
+    if (isSaaSDomain()) return false;
     if (isDirectAppMode()) return false;
     return !isAuthenticated;
   });
@@ -109,7 +146,7 @@ function AppContent() {
       if (hash && hash !== 'website' && hash !== 'admissions') {
         setActiveTabState(hash);
       } else {
-        setActiveTabState('dashboard');
+        setActiveTabState(isSaaSDomain() ? 'product' : 'dashboard');
       }
     };
     window.addEventListener('popstate', handlePopState);
