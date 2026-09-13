@@ -1291,7 +1291,7 @@ export const MasterSaaSHubPage = ({ onSwitchTenant, onReturnToSchool }) => {
       <PlanComparisonModal
         isOpen={isPlanComparisonOpen}
         onClose={() => setIsPlanComparisonOpen(false)}
-        currentSchoolName="Dadheech Memorial Public School"
+        currentSchoolName="PKR Global International Academy"
         currentPlan="Enterprise"
       />
     </div>
