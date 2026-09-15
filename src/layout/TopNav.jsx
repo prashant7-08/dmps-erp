@@ -42,7 +42,8 @@ import {
   MessageCircle,
   Cloud,
   Languages,
-  RefreshCw
+  RefreshCw,
+  ChevronDown
 } from 'lucide-react';
 import schoolService from '../services/schoolService';
 import saasService from '../services/saasService';
@@ -77,6 +78,8 @@ export const TopNav = ({
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
   const [isCloudSyncing, setIsCloudSyncing] = useState(false);
+  const [academicSession, setAcademicSession] = useState(() => localStorage.getItem('DMPS_ACTIVE_SESSION') || '2026-2027');
+  const [showSessionMenu, setShowSessionMenu] = useState(false);
 
   const handleCloudSync = async () => {
     setIsCloudSyncing(true);
@@ -455,6 +458,52 @@ export const TopNav = ({
 
       {/* Right Controls */}
       <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        {/* 📅 Academic Session Switcher (Screenshot 8 - Red Pill Dropdown) */}
+        <div className="relative">
+          <button
+            onClick={() => {
+              setShowSessionMenu(!showSessionMenu);
+              setShowNotifications(false);
+              setShowProfileMenu(false);
+              setShowQuickActions(false);
+            }}
+            className="px-2.5 sm:px-3 py-1.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-mono font-bold text-xs flex items-center gap-1.5 shadow-md shadow-red-500/25 transition-all hover:scale-105 active:scale-95"
+            title="Active Academic Session (Click to switch session)"
+          >
+            <Calendar className="w-3.5 h-3.5 text-white shrink-0" />
+            <span className="tracking-wide">{academicSession}</span>
+            <ChevronDown className="w-3 h-3 opacity-80" />
+          </button>
+
+          {showSessionMenu && (
+            <div className="absolute left-0 sm:right-0 sm:left-auto top-full mt-2 w-48 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in space-y-1">
+              <div className="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400 border-b border-slate-100 dark:border-slate-800 flex items-center gap-1.5">
+                <Calendar className="w-3 h-3 text-red-500" />
+                <span>Academic Session</span>
+              </div>
+              {['2027-2028', '2026-2027', '2025-2026', '2024-2025', '2023-2024', '2022-2023', '2021-2022'].map((sess) => (
+                <button
+                  key={sess}
+                  onClick={() => {
+                    setAcademicSession(sess);
+                    localStorage.setItem('DMPS_ACTIVE_SESSION', sess);
+                    setShowSessionMenu(false);
+                    if (showToast) showToast(`Switched active academic session to: ${sess} 📅`, 'info');
+                  }}
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-mono font-bold transition-colors ${
+                    academicSession === sess
+                      ? 'bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-900/60'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  <span>{sess}</span>
+                  {academicSession === sess && <Check className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
         {/* Branch Selector Dropdown (Super Admin Switcher / Assigned Branch Badge) */}
         {isSuperAdmin ? (
           <div className="hidden lg:flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 text-amber-950 dark:text-amber-200 shadow-sm shrink-0">

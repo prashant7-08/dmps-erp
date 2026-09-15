@@ -52,8 +52,12 @@ export const navigationGroups = [
     permissionKey: 'dashboard',
     label: 'DASHBOARD',
     icon: LayoutDashboard,
-    isSingle: true,
-    targetTab: 'dashboard'
+    items: [
+      { id: 'dashboard', label: 'All Branches', badge: 'All', branchId: 'all' },
+      { id: 'dashboard-main', label: 'DADHEECH MEMORIAL (MAIN)', badge: 'BR-1', branchId: 'BR-01' },
+      { id: 'dashboard-smart', label: 'DADHEECH SMART CAMPUS', badge: 'BR-2', branchId: 'BR-02' },
+      { id: 'dashboard-kids', label: 'DADHEECH KIDS SCHOOL', badge: 'BR-3', branchId: 'BR-03' }
+    ]
   },
   {
     id: 'reception-group',

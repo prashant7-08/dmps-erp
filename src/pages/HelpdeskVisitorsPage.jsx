@@ -222,28 +222,116 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
     showToast('Grievance ticket created!', 'success');
   };
 
+  // Reception Configuration Masters State (Screenshot 12)
+  const [receptionMasters, setReceptionMasters] = useState(() => {
+    const saved = localStorage.getItem('DMPS_RECEPTION_MASTERS');
+    if (saved) {
+      try { return JSON.parse(saved); } catch (e) {}
+    }
+    return {
+      reference: ['Social Media', 'Banner / Hoarding', 'Friend / Relative', 'Newspaper Ad', 'Direct Walk-in', 'Alumni Referral'],
+      response: ['Interested (High)', 'Considering (Needs Follow-up)', 'Fee Inquiry Only', 'Pending Documents', 'Not Interested'],
+      leadSource: ['Official Website Form', 'Front Desk Walk-in', 'Facebook / Instagram Ad', 'Phone Inquiry', 'School Event / Expo'],
+      leadStatus: ['Open', 'Follow-up', 'Campus Visit Scheduled', 'Admitted', 'Closed', 'Rejected'],
+      callingPurpose: ['New Admission Inquiry', 'Fee Due Reminder', 'Attendance Notification', 'Academic Progress', 'General Inquiry'],
+      visitingPurpose: ['Meet Principal / Director', 'Admission Counselling', 'Fee Submission', 'Collect TC / Marksheet', 'Parent-Teacher Meeting'],
+      complaintType: ['Academic / Teaching', 'School Transport & Bus', 'Cleanliness & Hygiene', 'Fee & Accounts', 'Discipline & Conduct', 'Infrastructure']
+    };
+  });
+
+  const [activeConfigTab, setActiveConfigTab] = useState('reference');
+  const [newMasterItemName, setNewMasterItemName] = useState('');
+  const [configBranch, setConfigBranch] = useState('Senior Campus (Jargwan)');
+
+  const handleAddMasterItem = (e) => {
+    e.preventDefault();
+    if (!newMasterItemName.trim()) {
+      showToast('Please enter item name', 'warning');
+      return;
+    }
+    const updated = {
+      ...receptionMasters,
+      [activeConfigTab]: [...(receptionMasters[activeConfigTab] || []), newMasterItemName.trim()]
+    };
+    setReceptionMasters(updated);
+    localStorage.setItem('DMPS_RECEPTION_MASTERS', JSON.stringify(updated));
+    setNewMasterItemName('');
+    showToast(`Added to ${activeConfigTab} masters! ✅`, 'success');
+  };
+
+  const handleDeleteMasterItem = (tabKey, itemIndex) => {
+    const updated = {
+      ...receptionMasters,
+      [tabKey]: receptionMasters[tabKey].filter((_, idx) => idx !== itemIndex)
+    };
+    setReceptionMasters(updated);
+    localStorage.setItem('DMPS_RECEPTION_MASTERS', JSON.stringify(updated));
+    showToast('Item removed from masters.', 'info');
+  };
+
+  // Convert Enquiry to Admission Action (1-Click Automation)
+  const handleConvertToAdmission = (inq) => {
+    const newStudent = {
+      name: inq.studentName || inq.parentName + "'s Ward",
+      class: inq.classSeeking || 'Class 1',
+      section: 'A',
+      gender: inq.gender || 'Male',
+      dob: inq.dob || '2019-05-15',
+      fatherName: inq.fatherName || inq.parentName,
+      motherName: inq.motherName || 'Mrs. Parent',
+      fatherMobile: inq.phone,
+      address: inq.address || 'Local Residence',
+      branch: inq.branch || 'Senior Campus (Jargwan)',
+      previousSchool: inq.previousSchool || 'N/A',
+      admissionDate: new Date().toISOString().split('T')[0]
+    };
+
+    if (schoolService.addStudent) {
+      schoolService.addStudent(newStudent);
+    }
+    schoolService.updateInquiryStatus(inq.id, 'Admitted');
+    refreshData();
+    showToast(`🎉 Student "${newStudent.name}" admitted successfully from Enquiry!`, 'success');
+  };
+
+  // 1-Click WhatsApp Follow-up Trigger
+  const handleSendWhatsAppInquiry = (inq) => {
+    const cleanPhone = (inq.phone || '').replace(/[^0-9]/g, '');
+    const text = encodeURIComponent(
+      `Namaste ${inq.parentName || 'Parent'}, Thank you for inquiring about admission at Dadheech Memorial Public School for ${inq.studentName || 'your child'} (${inq.classSeeking || 'Class 1'}). We welcome you for a campus visit! Official helpline: +91 97589 75880.`
+    );
+    window.open(`https://wa.me/${cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone}?text=${text}`, '_blank');
+  };
+
   const getHeaderMeta = () => {
     switch (activeTab) {
       case 'inquiries':
         return {
           icon: <Phone className="w-5 h-5 text-emerald-600" />,
-          title: 'Admission Inquiries & Front Desk',
-          subtitle: `Track and manage all web & walk-in admission inquiries (${inquiries.length} total).`,
-          badge: 'Live Admissions CRM'
+          title: 'Admission Enquiry & Lead Pipeline',
+          subtitle: 'Complete front desk admission leads, counselor follow-ups, and 1-click admission conversion.',
+          badge: 'Lead CRM'
+        };
+      case 'reception-config':
+        return {
+          icon: <Building2 className="w-5 h-5 text-indigo-600" />,
+          title: 'Reception Configuration & Masters',
+          subtitle: 'Configure lead sources, status pipelines, response categories, and front desk options.',
+          badge: 'Master Setup'
         };
       case 'visitors':
         return {
           icon: <Users className="w-5 h-5 text-indigo-600" />,
-          title: 'Visitors Logbook & Register',
-          subtitle: 'Record and track visitor check-in details, purpose, and departure times.',
-          badge: 'Reception Desk'
+          title: 'Visitor Gate Pass & Security Logbook',
+          subtitle: 'Issue branded visitor gate passes, verify ID proofs, and track campus check-in/check-out.',
+          badge: 'Security Desk'
         };
       case 'calls':
         return {
           icon: <PhoneCall className="w-5 h-5 text-blue-600" />,
-          title: 'Phone Call Logs & Inquiries Register',
-          subtitle: 'Log all incoming & outgoing phone calls from parents, vendors and departments.',
-          badge: 'Reception Telephony'
+          title: 'Phone Call Log Register',
+          subtitle: 'Record incoming & outgoing calls with duration, discussion summaries and follow-up alerts.',
+          badge: 'PBX / Helpline'
         };
       case 'postal':
         return {
@@ -273,8 +361,11 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
 
   // Navigation Tabs
   const navTabs = [
-    { id: 'inquiries', label: 'Admission Inquiries & Desk', icon: Phone, count: inquiries.length },
+    { id: 'inquiries', label: 'Admission Enquiry (Leads)', icon: Phone, count: inquiries.length },
+    { id: 'reception-config', label: 'Reception Masters', icon: Building2 },
     { id: 'visitors', label: 'Visitors Logbook', icon: Users, count: visitors.filter(v => v.status === 'Inside Campus').length },
+    { id: 'calls', label: 'Phone Call Logs', icon: PhoneCall, count: callLogs.length },
+    { id: 'postal', label: 'Postal & Courier', icon: Package, count: postalRecords.length },
     { id: 'complaints', label: 'Grievance & Complaints', icon: ShieldAlert, count: complaints.filter(c => c.status !== 'Resolved').length }
   ];
 
@@ -458,31 +549,45 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
                         <select
                           value={inq.status}
                           onChange={(e) => handleStatusChange(inq.id, e.target.value)}
-                          className="px-2.5 py-1 rounded-lg text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                          className={`px-2.5 py-1 rounded-lg text-xs font-bold border focus:ring-2 focus:ring-indigo-500 ${
+                            inq.status === 'Admitted'
+                              ? 'bg-emerald-50 text-emerald-800 border-emerald-300 dark:bg-emerald-950 dark:text-emerald-300'
+                              : inq.status === 'Follow-up'
+                              ? 'bg-amber-50 text-amber-800 border-amber-300 dark:bg-amber-950 dark:text-amber-300'
+                              : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-white border-slate-200 dark:border-slate-700'
+                          }`}
                         >
-                          <option value="New Inquiry">🟡 New Inquiry</option>
-                          <option value="Called / In Touch">🔵 Called / In Touch</option>
-                          <option value="Counseling Done">🟣 Counseling Done</option>
+                          <option value="Open">🟡 Open Lead</option>
+                          <option value="Follow-up">🟠 Follow-up Scheduled</option>
+                          <option value="Campus Visit Scheduled">🟣 Campus Visit Scheduled</option>
                           <option value="Admitted">🟢 Admitted</option>
+                          <option value="Closed">⚪ Closed</option>
+                          <option value="Rejected">🔴 Rejected</option>
                         </select>
                       </td>
                       <td className="p-4 text-right">
-                        <div className="flex items-center justify-end gap-2">
-                          <a
-                            href={`https://wa.me/91${(inq.phone || '').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
-                              `Hello ${inq.parentName}, greetings from Dadheech Memorial Public School. We received your admission inquiry for ${inq.studentName} (${inq.classSeeking}).`
-                            )}`}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] flex items-center gap-1 shadow-sm transition-colors"
+                        <div className="flex items-center justify-end gap-1.5 flex-wrap">
+                          {inq.status !== 'Admitted' && (
+                            <button
+                              onClick={() => handleConvertToAdmission(inq)}
+                              className="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] flex items-center gap-1 shadow-sm transition-all hover:scale-105"
+                              title="1-Click Convert Lead to Confirmed Admission"
+                            >
+                              <span>🎓 Convert to Admission</span>
+                            </button>
+                          )}
+                          <button
+                            onClick={() => handleSendWhatsAppInquiry(inq)}
+                            className="px-2.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[11px] flex items-center gap-1 shadow-sm transition-colors"
+                            title="Send Welcome & Follow-up message on WhatsApp"
                           >
-                            <span>WhatsApp</span>
-                          </a>
+                            <span>💬 WhatsApp</span>
+                          </button>
                           <a
                             href={`tel:${inq.phone}`}
-                            className="px-3 py-1.5 rounded-lg bg-[#0b1e38] hover:bg-slate-800 text-white font-bold text-[11px] flex items-center gap-1 shadow-sm transition-colors"
+                            className="px-2.5 py-1.5 rounded-lg bg-[#0b1e38] hover:bg-slate-800 text-white font-bold text-[11px] flex items-center gap-1 shadow-sm transition-colors"
                           >
-                            <span>Call</span>
+                            <span>📞 Call</span>
                           </a>
                         </div>
                       </td>
@@ -492,6 +597,137 @@ export const HelpdeskVisitorsPage = ({ initialTab = 'inquiries' }) => {
               </table>
             </div>
           )}
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAB 2: Reception Configuration & Dropdown Masters (Screenshot 12) */}
+      {/* ========================================================================= */}
+      {activeTab === 'reception-config' && (
+        <div className="space-y-5">
+          {/* Sub-Tabs Bar (Matching Screenshot 12) */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar">
+            {[
+              { id: 'reference', label: 'Reference' },
+              { id: 'response', label: 'Response' },
+              { id: 'leadSource', label: 'Lead Source' },
+              { id: 'leadStatus', label: 'Lead Status' },
+              { id: 'callingPurpose', label: 'Calling Purpose' },
+              { id: 'visitingPurpose', label: 'Visiting Purpose' },
+              { id: 'complaintType', label: 'Complaint Type' }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveConfigTab(tab.id)}
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+                  activeConfigTab === tab.id
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/20'
+                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 border border-slate-200 dark:border-slate-800'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Master Management Grid (Left: Add Item, Right: Item List) - Screenshot 12 */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Left Box: Add Master Item */}
+            <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                <Plus className="w-4 h-4 text-indigo-600" />
+                Add {activeConfigTab.replace(/([A-Z])/g, ' $1').toUpperCase()}
+              </h3>
+
+              <form onSubmit={handleAddMasterItem} className="space-y-4 text-xs">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
+                    Branch *
+                  </label>
+                  <select
+                    value={configBranch}
+                    onChange={(e) => setConfigBranch(e.target.value)}
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-bold"
+                  >
+                    <option value="Senior Campus (Jargwan)">🏫 Senior Campus (Jargwan)</option>
+                    <option value="Smart Building Campus">🏫 Smart Building Campus</option>
+                    <option value="Kids School (Aligarh)">🏫 Kids School (Aligarh)</option>
+                    <option value="All Branches">🌐 All Branches</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
+                    Name / Label *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={newMasterItemName}
+                    onChange={(e) => setNewMasterItemName(e.target.value)}
+                    placeholder={`e.g. New ${activeConfigTab} Option`}
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5"
+                >
+                  <Plus className="w-4 h-4" /> Save Master Item
+                </button>
+              </form>
+            </div>
+
+            {/* Right Box: Master List Table (Screenshot 12) */}
+            <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
+                  {activeConfigTab.replace(/([A-Z])/g, ' $1')} List
+                </h3>
+                <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                  Total: {(receptionMasters[activeConfigTab] || []).length} Items
+                </span>
+              </div>
+
+              {(receptionMasters[activeConfigTab] || []).length === 0 ? (
+                <div className="py-12 text-center text-xs text-slate-400 italic">
+                  No items configured for this master yet.
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <thead>
+                      <tr className="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
+                        <th className="p-3 w-12 text-center">SL</th>
+                        <th className="p-3">Branch</th>
+                        <th className="p-3">Name</th>
+                        <th className="p-3 text-right">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                      {(receptionMasters[activeConfigTab] || []).map((item, idx) => (
+                        <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                          <td className="p-3 font-mono font-bold text-slate-400 text-center">{idx + 1}</td>
+                          <td className="p-3 text-slate-600 dark:text-slate-400 font-medium">All Branches</td>
+                          <td className="p-3 font-bold text-slate-900 dark:text-white">{item}</td>
+                          <td className="p-3 text-right">
+                            <button
+                              onClick={() => handleDeleteMasterItem(activeConfigTab, idx)}
+                              className="p-1 text-rose-500 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-950/50 rounded-lg"
+                              title="Delete Item"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
 

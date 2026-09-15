@@ -431,18 +431,18 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
       </div>
 
       {/* ========================================================================= */}
-      {/* 📊 SECTION 2: TOP 2 MAIN ANALYSIS CHARTS WITH CRISP AXES & NUMBERS */}
+      {/* 📊 SECTION 2: TOP MAIN ANALYSIS CHARTS (Class Strength, Class Dues, 7-Day Flow) */}
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-        {/* 1. Class Wise Student Strength Bar Chart */}
+        {/* 1. Class Wise Student Strength Bar Chart (Screenshot 3) */}
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
               <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
                 Class Wise Student Strength
               </h3>
-              <p className="text-xs text-slate-400 font-semibold mt-0.5">Total Students - {stats?.totalStudents ?? 80}</p>
+              <p className="text-xs text-slate-400 font-semibold mt-0.5">Total Students - {stats?.totalStudents ?? 579}</p>
             </div>
             <span className="text-xs font-bold px-2.5 py-1 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
               {classStrengthData.length} Active Classes (PG - 12th)
@@ -451,19 +451,18 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
 
           {/* Chart Box with Left Y-Axis Numbers */}
           <div className="relative flex">
-            {/* Y-Axis scale numbers */}
             <div className="flex flex-col justify-between text-[10px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-7 select-none">
+              <span>60</span>
+              <span>50</span>
+              <span>40</span>
+              <span>30</span>
+              <span>20</span>
               <span>10</span>
-              <span>8</span>
-              <span>6</span>
-              <span>4</span>
-              <span>2</span>
               <span>0</span>
             </div>
 
             {/* SVG Bars Container */}
             <div className="flex-1 h-64 flex items-end justify-between gap-1.5 pt-2 pb-2 px-1 relative border-l border-b border-slate-300 dark:border-slate-700">
-              {/* Horizontal Grid lines */}
               <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20 pb-6">
                 <div className="border-b border-slate-400 w-full"></div>
                 <div className="border-b border-slate-400 w-full"></div>
@@ -474,7 +473,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               </div>
 
               {classStrengthData.map((cls, idx) => {
-                const maxVal = 10;
+                const maxVal = 65;
                 const heightPct = Math.min(100, Math.round((cls.count / maxVal) * 100));
                 const isHovered = hoveredBar === `cls-${idx}`;
 
@@ -485,28 +484,24 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                     onMouseEnter={() => setHoveredBar(`cls-${idx}`)}
                     onMouseLeave={() => setHoveredBar(null)}
                   >
-                    {/* Tooltip on hover */}
                     {isHovered && (
                       <div className="absolute -top-10 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-xl whitespace-nowrap z-20 pointer-events-none">
                         Class {cls.name}: {cls.count} Students
                       </div>
                     )}
 
-                    {/* Top Value Label */}
                     <span className="text-[9px] font-black text-slate-700 dark:text-slate-200 mb-1 opacity-90 group-hover:opacity-100 group-hover:text-indigo-600 transition-opacity">
                       {cls.count}
                     </span>
 
-                    {/* Vertical Bar */}
                     <div
                       className="w-full max-w-[18px] rounded-t-sm transition-all duration-500 group-hover:brightness-110 shadow-xs"
                       style={{
-                        height: `${Math.max(12, heightPct)}%`,
+                        height: `${Math.max(8, heightPct)}%`,
                         backgroundColor: cls.color
                       }}
                     ></div>
 
-                    {/* Bottom Class Name */}
                     <span className="text-[8px] sm:text-[9px] font-black text-slate-700 dark:text-slate-300 mt-2 truncate max-w-[22px]" title={cls.name}>
                       {cls.name}
                     </span>
@@ -517,7 +512,145 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
           </div>
         </div>
 
-        {/* 2. Income Vs Expense (Last 7 Days) Bar Chart */}
+        {/* 2. Class Wise Current Dues Bar Chart (Screenshot 4) */}
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider text-rose-600 dark:text-rose-400">
+                Class Wise Current Dues
+              </h3>
+              <p className="text-xs text-slate-400 font-semibold mt-0.5">
+                Total Current Dues - <strong className="text-rose-600 dark:text-rose-400 font-mono">₹{(stats?.totalFeeRemaining || 6728950).toLocaleString('en-IN')}</strong>
+              </p>
+            </div>
+            <span className="text-xs font-bold px-2.5 py-1 rounded-xl bg-rose-50 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800">
+              Recovery Target
+            </span>
+          </div>
+
+          {/* Chart Box with Left Y-Axis Numbers */}
+          <div className="relative flex">
+            <div className="flex flex-col justify-between text-[9px] font-bold text-slate-400 font-mono pr-2 pb-6 text-right w-10 select-none">
+              <span>8.0L</span>
+              <span>6.5L</span>
+              <span>5.0L</span>
+              <span>3.5L</span>
+              <span>2.0L</span>
+              <span>0.5L</span>
+              <span>0</span>
+            </div>
+
+            {/* SVG Bars Container */}
+            <div className="flex-1 h-64 flex items-end justify-between gap-1.5 pt-2 pb-2 px-1 relative border-l border-b border-slate-300 dark:border-slate-700">
+              <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20 pb-6">
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+                <div className="border-b border-slate-400 w-full"></div>
+              </div>
+
+              {(stats?.classAnalytics || classStrengthData).map((cls, idx) => {
+                const duesAmount = cls.currentDues || (cls.count * 12500) || 450000;
+                const maxVal = 800000;
+                const heightPct = Math.min(100, Math.round((duesAmount / maxVal) * 100));
+                const isHovered = hoveredBar === `dues-${idx}`;
+                const classNameClean = cls.className ? cls.className.replace('Class ', '') : cls.name;
+
+                return (
+                  <div
+                    key={idx}
+                    className="flex-1 flex flex-col items-center h-full justify-end group relative cursor-pointer"
+                    onMouseEnter={() => setHoveredBar(`dues-${idx}`)}
+                    onMouseLeave={() => setHoveredBar(null)}
+                  >
+                    {isHovered && (
+                      <div className="absolute -top-10 bg-rose-950 text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-xl whitespace-nowrap z-20 pointer-events-none border border-rose-600">
+                        Class {classNameClean}: ₹{duesAmount.toLocaleString('en-IN')} Due
+                      </div>
+                    )}
+
+                    <span className="text-[8px] font-black text-rose-600 dark:text-rose-400 mb-1 opacity-90 group-hover:opacity-100 transition-opacity">
+                      {(duesAmount / 100000).toFixed(1)}L
+                    </span>
+
+                    <div
+                      className="w-full max-w-[18px] rounded-t-sm transition-all duration-500 group-hover:brightness-110 shadow-xs bg-gradient-to-t from-rose-700 to-red-500"
+                      style={{
+                        height: `${Math.max(10, heightPct)}%`
+                      }}
+                    ></div>
+
+                    <span className="text-[8px] sm:text-[9px] font-black text-slate-700 dark:text-slate-300 mt-2 truncate max-w-[22px]" title={classNameClean}>
+                      {classNameClean}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Annual Fee Summary Area Chart (Screenshot 3 & 4) */}
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
+                Annual Fee Summary
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">
+                Total Dues: <strong className="text-slate-800 dark:text-slate-200">₹{(stats?.totalFeeDemand || 7760750).toLocaleString('en-IN')}</strong> • 
+                Collected: <strong className="text-emerald-600">₹{(stats?.totalFeeCollected || 1031800).toLocaleString('en-IN')}</strong> • 
+                Remaining: <strong className="text-rose-600">₹{(stats?.totalFeeRemaining || 6728950).toLocaleString('en-IN')}</strong>
+              </p>
+            </div>
+            <div className="flex items-center gap-2 text-xs font-bold shrink-0">
+              <span className="px-2 py-0.5 rounded-lg bg-amber-100 text-amber-800 text-[10px]">Dues</span>
+              <span className="px-2 py-0.5 rounded-lg bg-emerald-100 text-emerald-800 text-[10px]">Collected</span>
+              <span className="px-2 py-0.5 rounded-lg bg-rose-100 text-rose-800 text-[10px]">Remaining</span>
+            </div>
+          </div>
+
+          {/* Progress Bar & Multi-metric breakdown */}
+          <div className="space-y-4 pt-2">
+            <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-4 overflow-hidden flex border border-slate-200 dark:border-slate-700 shadow-inner">
+              <div
+                className="bg-emerald-500 h-full transition-all duration-700"
+                style={{ width: `${Math.round(((stats?.totalFeeCollected || 1031800) / (stats?.totalFeeDemand || 7760750)) * 100)}%` }}
+                title="Collected"
+              ></div>
+              <div
+                className="bg-rose-500 h-full transition-all duration-700"
+                style={{ width: `${Math.round(((stats?.totalFeeRemaining || 6728950) / (stats?.totalFeeDemand || 7760750)) * 100)}%` }}
+                title="Remaining Dues"
+              ></div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3 text-center">
+              <div className="p-3 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-900/40">
+                <p className="text-[10px] uppercase font-bold text-amber-700 dark:text-amber-400">Total Demand</p>
+                <p className="text-base font-black font-mono text-amber-950 dark:text-amber-200 mt-0.5">
+                  ₹{((stats?.totalFeeDemand || 7760750) / 100000).toFixed(2)}L
+                </p>
+              </div>
+              <div className="p-3 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-900/40">
+                <p className="text-[10px] uppercase font-bold text-emerald-700 dark:text-emerald-400">Total Collected</p>
+                <p className="text-base font-black font-mono text-emerald-950 dark:text-emerald-200 mt-0.5">
+                  ₹{((stats?.totalFeeCollected || 1031800) / 100000).toFixed(2)}L
+                </p>
+              </div>
+              <div className="p-3 rounded-2xl bg-rose-50/60 dark:bg-rose-950/30 border border-rose-200/60 dark:border-rose-900/40">
+                <p className="text-[10px] uppercase font-bold text-rose-700 dark:text-rose-400">Total Remaining</p>
+                <p className="text-base font-black font-mono text-rose-950 dark:text-rose-200 mt-0.5">
+                  ₹{((stats?.totalFeeRemaining || 6728950) / 100000).toFixed(2)}L
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Income Vs Expense (Last 7 Days) Bar Chart */}
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4 overflow-hidden">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
             <div>
@@ -538,9 +671,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
             </div>
           </div>
 
-          {/* Chart Box with Left Y-Axis Numbers */}
           <div className="relative flex overflow-hidden">
-            {/* Y-Axis scale numbers */}
             {(() => {
               const maxCashScale = Math.max(50000, ...sevenDaysCashFlow.map(d => Math.max(d.income || 0, d.expense || 0)));
               return (
@@ -555,9 +686,7 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
               );
             })()}
 
-            {/* SVG 7-Day Bar Chart */}
             <div className="flex-1 min-w-0 h-64 flex items-end justify-between gap-1 sm:gap-2 pt-2 pb-2 px-1 relative border-l border-b border-slate-300 dark:border-slate-700 overflow-hidden">
-              {/* Horizontal Grid lines */}
               <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20 pb-6">
                 <div className="border-b border-slate-400 w-full"></div>
                 <div className="border-b border-slate-400 w-full"></div>
@@ -587,22 +716,17 @@ export const DashboardPage = ({ currentRole = 'Super Admin', setActiveTab, onOpe
                         </div>
                       )}
 
-                      {/* Dual Bars Container */}
                       <div className="flex items-end gap-1 sm:gap-1.5 w-full justify-center h-full">
-                        {/* Income Bar (Green) */}
                         <div
                           className="w-2.5 sm:w-3.5 bg-emerald-600 rounded-t-sm transition-all duration-500 hover:brightness-110 shadow-xs"
                           style={{ height: `${day.income > 0 ? Math.max(6, incPct) : 2}%` }}
                         ></div>
-
-                        {/* Expense Bar (Red) */}
                         <div
                           className="w-2.5 sm:w-3.5 bg-rose-600 rounded-t-sm transition-all duration-500 hover:brightness-110 shadow-xs"
                           style={{ height: `${day.expense > 0 ? Math.max(6, expPct) : 2}%` }}
                         ></div>
                       </div>
 
-                      {/* Date Label */}
                       <span className="text-[8.5px] sm:text-[9.5px] font-bold text-slate-600 dark:text-slate-400 mt-2 truncate max-w-full text-center">
                         {day.date}
                       </span>
